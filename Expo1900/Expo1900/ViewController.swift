@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         do {
             try initExpositionData()
             try setUpUI()
-            addKoreaItemsGesture()
         } catch {
             let alert = self.errorAlert(error: ExpositionError.getExpositionData, handler: nil)
             self.showErrorAlert(alert)
@@ -63,13 +62,10 @@ class ViewController: UIViewController {
         descriptionLabel.text = data.description
     }
     
-    private func addKoreaItemsGesture() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(goKoreaItems(sender:)))
-        koreaItemsView.addGestureRecognizer(gesture)
-    }
-    
-    @objc func goKoreaItems(sender: UITapGestureRecognizer) {
-        
+
+    @IBAction func goKoreaItems(_ sender: Any) {
+        let koreaItemsViewController = KoreaItemsViewController()
+        self.navigationController?.pushViewController(koreaItemsViewController, animated: true)
     }
     
     // MARK: - get data match format

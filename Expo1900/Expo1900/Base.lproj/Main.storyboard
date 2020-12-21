@@ -82,6 +82,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awY-ap-qdg">
                                                                 <rect key="frame" x="60" y="15" width="254" height="30"/>
                                                                 <state key="normal" title="한국의 출품작 보러가기"/>
+                                                                <connections>
+                                                                    <action selector="goKoreaItems:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tfx-bg-3kS"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
