@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var koreaItemsView: UIView!
+    
+    private let mainViewControllerTitle = "메인"
 
     // MARK: - data property
     private var expositionData: Exposition? = nil
@@ -51,6 +53,7 @@ class ViewController: UIViewController {
     }
     
     private func setUpUI() throws {
+        self.title = mainViewControllerTitle
         guard let data = expositionData else {
             throw ExpositionError.getExpositionData
         }
