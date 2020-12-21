@@ -8,7 +8,7 @@
 import Foundation
 struct ParisExpositionInformation: Codable {
     let title: String
-    let visitors: Int
+    let visitors: UInt
     let location: String
     let duration: String
     let description: String
