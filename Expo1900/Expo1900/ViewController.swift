@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     // MARK: - data property
     private var expositionData: Exposition? = nil
     
+    // MARK: - string formatter prefix
     private var visitLocationPrefix = "방문지 : "
     private var durationPrefix = "개최 기간 : "
     
