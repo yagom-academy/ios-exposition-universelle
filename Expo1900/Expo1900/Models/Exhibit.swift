@@ -6,8 +6,8 @@ struct Exhibit: Codable {
     let shortDescription: String
     let description: String
     
-    var exhibitImage: UIImage {
-        UIImage(named: imageName) ?? UIImage()
+    var exhibitImage: UIImage? {
+        UIImage(named: imageName)
     }
     
     enum CodingKeys: String, CodingKey {
