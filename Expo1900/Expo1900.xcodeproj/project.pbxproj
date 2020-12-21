@@ -11,6 +11,8 @@
 		28415236259114ED00C76382 /* ExpositionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28415235259114ED00C76382 /* ExpositionError.swift */; };
 		2841523D25911DA100C76382 /* KoreaItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841523B25911DA100C76382 /* KoreaItemsViewController.swift */; };
 		2841523E25911DA100C76382 /* KoreaItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2841523C25911DA100C76382 /* KoreaItemsViewController.xib */; };
+		284152442591249C00C76382 /* KoreaItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284152422591249C00C76382 /* KoreaItemTableViewCell.swift */; };
+		284152452591249C00C76382 /* KoreaItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284152432591249C00C76382 /* KoreaItemTableViewCell.xib */; };
 		414CE6122590C10B0005684F /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CE6112590C10B0005684F /* Exposition.swift */; };
 		414CE6152590C2430005684F /* KoreaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CE6142590C2430005684F /* KoreaItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 		28415235259114ED00C76382 /* ExpositionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionError.swift; sourceTree = "<group>"; };
 		2841523B25911DA100C76382 /* KoreaItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemsViewController.swift; sourceTree = "<group>"; };
 		2841523C25911DA100C76382 /* KoreaItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaItemsViewController.xib; sourceTree = "<group>"; };
+		284152422591249C00C76382 /* KoreaItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemTableViewCell.swift; sourceTree = "<group>"; };
+		284152432591249C00C76382 /* KoreaItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaItemTableViewCell.xib; sourceTree = "<group>"; };
 		414CE6112590C10B0005684F /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		414CE6142590C2430005684F /* KoreaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,10 +81,20 @@
 		2841523A25911D8700C76382 /* Korea */ = {
 			isa = PBXGroup;
 			children = (
+				284152402591230E00C76382 /* Cell */,
 				2841523B25911DA100C76382 /* KoreaItemsViewController.swift */,
 				2841523C25911DA100C76382 /* KoreaItemsViewController.xib */,
 			);
 			name = Korea;
+			sourceTree = "<group>";
+		};
+		284152402591230E00C76382 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				284152422591249C00C76382 /* KoreaItemTableViewCell.swift */,
+				284152432591249C00C76382 /* KoreaItemTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -176,6 +190,7 @@
 			files = (
 				2841523E25911DA100C76382 /* KoreaItemsViewController.xib in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				284152452591249C00C76382 /* KoreaItemTableViewCell.xib in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
@@ -192,6 +207,7 @@
 				414CE6152590C2430005684F /* KoreaItem.swift in Sources */,
 				2841522D2591135800C76382 /* ViewControllerExtension.swift in Sources */,
 				28415236259114ED00C76382 /* ExpositionError.swift in Sources */,
+				284152442591249C00C76382 /* KoreaItemTableViewCell.swift in Sources */,
 				2841523D25911DA100C76382 /* KoreaItemsViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				414CE6122590C10B0005684F /* Exposition.swift in Sources */,
