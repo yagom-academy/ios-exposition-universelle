@@ -19,21 +19,15 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         decodeData()
-        dump(items)
-        dump(parisExposition)
+        setData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
-
-        titleLabel.text = parisExposition.title
-        visitorsLabel.text = "방문객 : " + String(parisExposition.visitors)
-        locationLabel.text = "개최지 : " + parisExposition.location
-        durationLabel.text = "개최 기간 : " + parisExposition.duration
-        descriptionTextView.text = parisExposition.description
     }
     
     private func decodeData() {
@@ -53,6 +47,14 @@ class MainViewController: UIViewController {
         } catch {
             debugPrint("ERROR2")
         }
+    }
+    
+    private func setData() {
+        titleLabel.text = parisExposition.title
+        visitorsLabel.text = "방문객 : " + String(parisExposition.visitors)
+        locationLabel.text = "개최지 : " + parisExposition.location
+        durationLabel.text = "개최 기간 : " + parisExposition.duration
+        descriptionTextView.text = parisExposition.description
     }
 }
 

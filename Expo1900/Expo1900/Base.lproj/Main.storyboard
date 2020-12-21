@@ -145,7 +145,7 @@
             </objects>
             <point key="canvasLocation" x="935.20000000000005" y="64.767616191904054"/>
         </scene>
-        <!--Table View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="aJp-JH-H85">
             <objects>
                 <viewController id="420-ca-ojg" customClass="TableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -155,20 +155,39 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LNu-rQ-qnE">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F8R-8M-XLy">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="GqC-rb-rEE" detailTextLabel="0yg-Kn-ZSC" style="IBUITableViewCellStyleSubtitle" id="F8R-8M-XLy">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="55.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F8R-8M-XLy" id="BBr-Xs-TiG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F8R-8M-XLy" id="BBr-Xs-TiG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GqC-rb-rEE">
+                                                    <rect key="frame" x="16" y="10" width="33" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0yg-Kn-ZSC">
+                                                    <rect key="frame" x="16" y="31.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="Txo-XH-C4i" kind="show" id="dMA-Xw-9OA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="420-ca-ojg" id="Kr1-s5-5Ol"/>
+                                    <outlet property="delegate" destination="420-ca-ojg" id="WlE-1f-QFy"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7yC-Gq-Qjo"/>
@@ -180,7 +199,10 @@
                             <constraint firstItem="7yC-Gq-Qjo" firstAttribute="trailing" secondItem="LNu-rQ-qnE" secondAttribute="trailing" id="lx3-Vp-yOo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Unm-mu-6ag"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="Unm-mu-6ag"/>
+                    <connections>
+                        <outlet property="tableView" destination="LNu-rQ-qnE" id="uuu-iC-lkI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjx-Xe-eyW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
