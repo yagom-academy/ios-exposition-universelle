@@ -14,3 +14,18 @@ struct ExpositionParis: Codable {
     let duration: String
     let descripton: String
 }
+
+struct EntryOfKorea: Codable {
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case description = "desc"
+        case shortDescription = "short_desc"
+        case imageName = "image_name"
+    }
+}
+
