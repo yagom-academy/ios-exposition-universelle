@@ -69,7 +69,7 @@ class ExpositionPosterScrollView: UIScrollView {
         let button = UIButton()
         button.setTitleColor(.link, for: .normal)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.setContentCompressionResistancePriority(.required, for: .horizontal)
+        button.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         return button
     }()
     
