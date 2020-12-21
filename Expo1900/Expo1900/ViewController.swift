@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var visitLocationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var koreaItemsView: UIView!
 
     // MARK: - data property
     private var expositionData: Exposition? = nil
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         do {
             try initExpositionData()
             try setUpUI()
+            addKoreaItemsGesture()
         } catch {
             let alert = self.errorAlert(error: ExpositionError.getExpositionData, handler: nil)
             self.showErrorAlert(alert)
@@ -52,6 +54,15 @@ class ViewController: UIViewController {
         visitLocationLabel.text = getExpositionFormat(prefix: visitLocationPrefix, content: data.location)
         durationLabel.text = getExpositionFormat(prefix: durationPrefix, content: data.duration)
         descriptionLabel.text = data.description
+    }
+    
+    private func addKoreaItemsGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(goKoreaItems(sender:)))
+        koreaItemsView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func goKoreaItems(sender: UITapGestureRecognizer) {
+        
     }
     
     // MARK: - get data match format
