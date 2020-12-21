@@ -55,18 +55,54 @@ class ExpositionPosterScrollView: UIScrollView {
         return textView
     }()
     
-//    private let showKoreaExhibitStackView: UIStackView = {
-//
-//    }()
+    private let showKoreaExhibitStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 4
+        stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    
+    private let showKoreaExhibitButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.link, for: .normal)
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return button
+    }()
+    
+    private let leftFlagImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.image = UIImage(named: "flag")
+        return imageView
+    }()
+    
+    private let rightFlagImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.image = UIImage(named: "flag")
+        return imageView
+    }()
+    
+    
     
     //MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        showKoreaExhibitStackView.addArrangedSubview(leftFlagImage)
+        showKoreaExhibitStackView.addArrangedSubview(showKoreaExhibitButton)
+        showKoreaExhibitStackView.addArrangedSubview(rightFlagImage)
         expositionPosterStackView.addArrangedSubview(expositionTitleTextView)
         expositionPosterStackView.addArrangedSubview(posterImageView)
         expositionPosterStackView.addArrangedSubview(expositionInformationsTextView)
         expositionPosterStackView.addArrangedSubview(descriptionTextView)
+        expositionPosterStackView.addArrangedSubview(showKoreaExhibitStackView)
         self.addSubview(expositionPosterStackView)
         setUpConstraints()
     }
