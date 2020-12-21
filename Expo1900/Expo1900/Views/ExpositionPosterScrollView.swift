@@ -23,6 +23,7 @@ class ExpositionPosterScrollView: UIScrollView {
         let textView = UITextView()
         textView.isEditable = false
         textView.textAlignment = .center
+        textView.isScrollEnabled = false
         textView.textColor = .label
         textView.font = .boldSystemFont(ofSize: 30)
         return textView
@@ -38,7 +39,9 @@ class ExpositionPosterScrollView: UIScrollView {
     private let expositionInformationsTextView: UITextView = {
         let textView = UITextView()
         textView.isEditable = false
+        textView.isScrollEnabled = false
         textView.textAlignment = .center
+        textView.font = .italicSystemFont(ofSize: 20)
         textView.textColor = .label
         return textView
     }()
@@ -48,9 +51,13 @@ class ExpositionPosterScrollView: UIScrollView {
         textView.textColor = .label
         textView.isScrollEnabled = false
         textView.isEditable = false
-        textView.font = .boldSystemFont(ofSize: 20)
+        textView.font = .monospacedDigitSystemFont(ofSize: 15, weight: .regular)
         return textView
     }()
+    
+//    private let showKoreaExhibitStackView: UIStackView = {
+//
+//    }()
     
     //MARK: - init
     override init(frame: CGRect) {
