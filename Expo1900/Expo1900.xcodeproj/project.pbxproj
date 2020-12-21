@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2841522D2591135800C76382 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841522C2591135800C76382 /* ViewControllerExtension.swift */; };
+		28415236259114ED00C76382 /* ExpositionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28415235259114ED00C76382 /* ExpositionError.swift */; };
 		414CE6122590C10B0005684F /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CE6112590C10B0005684F /* Exposition.swift */; };
 		414CE6152590C2430005684F /* KoreaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CE6142590C2430005684F /* KoreaItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2841522C2591135800C76382 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		28415235259114ED00C76382 /* ExpositionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionError.swift; sourceTree = "<group>"; };
 		414CE6112590C10B0005684F /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		414CE6142590C2430005684F /* KoreaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +45,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2841522725910F5600C76382 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				414CE6112590C10B0005684F /* Exposition.swift */,
+				414CE6142590C2430005684F /* KoreaItem.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2841522B2591134200C76382 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2841522C2591135800C76382 /* ViewControllerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		28415230259113AE00C76382 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				28415235259114ED00C76382 /* ExpositionError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +89,13 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				28415230259113AE00C76382 /* Error */,
+				2841522B2591134200C76382 /* Extension */,
+				2841522725910F5600C76382 /* Data */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				414CE6112590C10B0005684F /* Exposition.swift */,
-				414CE6142590C2430005684F /* KoreaItem.swift */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -145,6 +175,8 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				414CE6152590C2430005684F /* KoreaItem.swift in Sources */,
+				2841522D2591135800C76382 /* ViewControllerExtension.swift in Sources */,
+				28415236259114ED00C76382 /* ExpositionError.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				414CE6122590C10B0005684F /* Exposition.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
