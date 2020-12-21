@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             try initExpositionData()
             try setUpUI()
         } catch {
-            let alert = self.errorAlert(error: ExpositionError.getExpositionData, handler: nil)
+            let alert = self.errorAlert(error: error, handler: nil)
             self.showErrorAlert(alert)
         }
     }
@@ -65,7 +65,6 @@ class ViewController: UIViewController {
         descriptionLabel.text = data.description
     }
     
-
     @IBAction func goKoreaItems(_ sender: Any) {
         let koreaItemsViewController = KoreaItemsViewController()
         self.navigationController?.pushViewController(koreaItemsViewController, animated: true)
