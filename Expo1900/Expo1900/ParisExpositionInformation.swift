@@ -1,5 +1,5 @@
 //
-//  ExpositionInformation.swift
+//  ParisExpositionInformation.swift
 //  Expo1900
 //
 //  Created by Yeon on 2020/12/21.
