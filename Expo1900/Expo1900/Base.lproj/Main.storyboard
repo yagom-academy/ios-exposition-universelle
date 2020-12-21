@@ -133,6 +133,13 @@
                     <navigationItem key="navigationItem" title="메인" id="yL8-aI-Ggp"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="Zsf-Jf-Dte" id="CWA-ZK-QcA"/>
+                        <outlet property="durationLabel" destination="ja1-I1-3kM" id="Wi8-bJ-Tn7"/>
+                        <outlet property="locationLabel" destination="eyg-hA-rMa" id="8u7-M0-zus"/>
+                        <outlet property="titleLabel" destination="klq-dP-I7i" id="hXt-4X-qaB"/>
+                        <outlet property="visitorsLabel" destination="nbW-KR-Ygd" id="Kfs-pe-YSr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
