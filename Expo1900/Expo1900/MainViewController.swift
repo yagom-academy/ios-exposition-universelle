@@ -7,12 +7,18 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    var parisExposition: Exposition!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        decodeData()
     }
-
-
+    
+    private func decodeData() {
+        let jsonDecoder = JSONDecoder()
+        
+    }
 }
 

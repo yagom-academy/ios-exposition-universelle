@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,7 +130,7 @@
                             <constraint firstItem="yLU-d9-j0y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n7B-6U-Xac"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yL8-aI-Ggp"/>
+                    <navigationItem key="navigationItem" title="메인" id="yL8-aI-Ggp"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
                 </viewController>
@@ -145,8 +145,33 @@
                     <view key="view" contentMode="scaleToFill" id="HFj-aH-IiY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LNu-rQ-qnE">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F8R-8M-XLy">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F8R-8M-XLy" id="BBr-Xs-TiG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Txo-XH-C4i" kind="show" id="dMA-Xw-9OA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7yC-Gq-Qjo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LNu-rQ-qnE" firstAttribute="leading" secondItem="7yC-Gq-Qjo" secondAttribute="leading" id="P9H-9G-M5o"/>
+                            <constraint firstItem="LNu-rQ-qnE" firstAttribute="top" secondItem="7yC-Gq-Qjo" secondAttribute="top" id="cOc-C0-1By"/>
+                            <constraint firstItem="7yC-Gq-Qjo" firstAttribute="bottom" secondItem="LNu-rQ-qnE" secondAttribute="bottom" id="kyh-Ot-Iar"/>
+                            <constraint firstItem="7yC-Gq-Qjo" firstAttribute="trailing" secondItem="LNu-rQ-qnE" secondAttribute="trailing" id="lx3-Vp-yOo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Unm-mu-6ag"/>
                 </viewController>
@@ -164,6 +189,7 @@
                         <viewLayoutGuide key="safeArea" id="znq-a5-dQl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="S9K-Jk-egU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPj-4U-sKP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
