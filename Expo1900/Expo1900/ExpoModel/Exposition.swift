@@ -1,10 +1,3 @@
-//
-//  Exposition.swift
-//  Expo1900
-//
-//  Created by Jinho Choi on 2020/12/21.
-//
-
 import Foundation
 
 struct Exposition: Codable {
