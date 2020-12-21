@@ -61,10 +61,35 @@ class ExpositionPosterScrollView: UIScrollView {
         expositionPosterStackView.addArrangedSubview(expositionInformationsTextView)
         expositionPosterStackView.addArrangedSubview(descriptionTextView)
         self.addSubview(expositionPosterStackView)
+        setUpConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Public
+    public func configurePoster(with exposition: Exposition?) {
+        guard let expositionModel = exposition else {
+            return
+        }
+        let title = expositionModel.title.components(separatedBy: "(")
+        expositionTitleTextView.text = title[0] + "\n" + "(" + title[1]
+        posterImageView.image = expositionModel.posterImage
+        expositionInformationsTextView.text = "방문객 : \(String(expositionModel.visitors))명\n"
+                                            + "개최지 : \(expositionModel.location)\n"
+                                            + "개최 기간 : \(expositionModel.duration)"
+        descriptionTextView.text = expositionModel.description
+    }
+    
+    //MARK: - Private
+    private func setUpConstraints() {
+        var constraints = [NSLayoutConstraint]()
+        constraints.append(expositionPosterStackView.leadingAnchor.constraint(equalTo: self.contentLayoutGuide.leadingAnchor))
+        constraints.append(expositionPosterStackView.trailingAnchor.constraint(equalTo: self.contentLayoutGuide.trailingAnchor))
+        constraints.append(expositionPosterStackView.topAnchor.constraint(equalTo: self.contentLayoutGuide.topAnchor))
+        constraints.append(expositionPosterStackView.bottomAnchor.constraint(equalTo: self.contentLayoutGuide.bottomAnchor))
+        constraints.append(expositionPosterStackView.widthAnchor.constraint(equalTo: self.frameLayoutGuide.widthAnchor))
+        NSLayoutConstraint.activate(constraints)
+    }
 }
