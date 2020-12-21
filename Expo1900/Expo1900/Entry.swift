@@ -6,20 +6,17 @@
 //
 
 import Foundation
-
-struct ParisExpo: Codable {
-    let title: String
-    let visitors: Int
-    let location: String
-    let duration: String
-    let descripton: String
-}
+import UIKit
 
 struct KoreanExpo: Codable {
     let name: String
     let imageName: String
     let shortDesc: String
     let desc: String
+    
+    var image: UIImage? {
+        return UIImage(named: imageName)
+    }
     
     enum CodingKeys: String, CodingKey {
         case name, desc
