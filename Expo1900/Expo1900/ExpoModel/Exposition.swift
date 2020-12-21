@@ -9,8 +9,8 @@ struct Exposition: Codable {
     let duration: String
     let descriptions: String
     
-    var titleImage: UIImage {
-        return UIImage(named: "titleImageName")!
+    var titleImage: UIImage? {
+        return UIImage(named: "\(self.titleImageName)")
     }
 
     enum CodingKeys: String, CodingKey {
