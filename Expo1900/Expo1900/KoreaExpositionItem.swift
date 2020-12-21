@@ -10,7 +10,7 @@ import UIKit
 
 struct KoreaExpositionItem: Codable {
     let name: String
-    let imageName: String
+    private let imageName: String
     let shortDescription: String
     let description: String
     var image: UIImage? {
