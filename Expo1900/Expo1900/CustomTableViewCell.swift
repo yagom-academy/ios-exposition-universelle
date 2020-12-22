@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+class CustomTableViewCell: UITableViewCell {
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var subtitleLabel: UILabel!
+    @IBOutlet var koreaItemImageView: UIImageView!
+}
