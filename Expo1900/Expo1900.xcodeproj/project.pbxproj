@@ -15,6 +15,8 @@
 		E229149125903F8300827F12 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E229149025903F8300827F12 /* Exposition.swift */; };
 		E2291494259044B900827F12 /* KoreanEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2291493259044B900827F12 /* KoreanEntries.swift */; };
 		E229149F2591B40200827F12 /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E229149E2591B40200827F12 /* ExpositionViewController.swift */; };
+		E22914A32591E56000827F12 /* KoreanEntriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */; };
+		E22914A62591E5E400827F12 /* KoreanEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		E229149025903F8300827F12 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		E2291493259044B900827F12 /* KoreanEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntries.swift; sourceTree = "<group>"; };
 		E229149E2591B40200827F12 /* ExpositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionViewController.swift; sourceTree = "<group>"; };
+		E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntriesListViewController.swift; sourceTree = "<group>"; };
+		E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				E229149E2591B40200827F12 /* ExpositionViewController.swift */,
+				E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */,
+				E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -159,7 +165,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E22914A62591E5E400827F12 /* KoreanEntryViewController.swift in Sources */,
 				E2291494259044B900827F12 /* KoreanEntries.swift in Sources */,
+				E22914A32591E56000827F12 /* KoreanEntriesListViewController.swift in Sources */,
 				E229149F2591B40200827F12 /* ExpositionViewController.swift in Sources */,
 				E229149125903F8300827F12 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
