@@ -84,5 +84,12 @@ class ViewController: UIViewController {
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSize, range: NSMakeRange(0, prefix.count))
         return attributedStr
     }
+    
+    @IBAction private func touchUpKoreanExpositionItem() {
+        guard let koreaExpositionListViewController = self.storyboard?.instantiateViewController(identifier: "KoreaExpositionList") else {
+            return
+        }
+        self.navigationController?.pushViewController(koreaExpositionListViewController, animated: true)
+    }
 }
 
