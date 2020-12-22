@@ -8,6 +8,6 @@ struct KoreaItem: Codable {
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"
-        case description
+        case description = "desc"
     }
 }
