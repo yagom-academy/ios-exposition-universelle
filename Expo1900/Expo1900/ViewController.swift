@@ -50,5 +50,12 @@ class ViewController: UIViewController {
         }
         titleLabel.text = resultTitle
     }
+    
+    private func setEachFontsize(text: String, _ prefix: String) -> NSMutableAttributedString {
+        let fontSize = UIFont.boldSystemFont(ofSize: 20)
+        let attributedStr = NSMutableAttributedString(string: prefix + String(text))
+        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSize, range: NSMakeRange(0, prefix.count))
+        return attributedStr
+    }
 }
 
