@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     func errorAlert(error: Error, handler: ((UIAlertAction) -> Void)?) -> UIAlertController {
-        var errorMessage: String?
+        let errorMessage: String?
         if let expositionError = error as? ExpositionError {
             errorMessage = expositionError.localizedDescription
         }
