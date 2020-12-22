@@ -22,6 +22,7 @@ class KoreaItemsViewController: UIViewController {
         do {
             setUpNavigationBar()
             try initKoreaItemsData()
+            setUpTable()
         } catch {
             let alert = self.errorAlert(error: error, handler: nil)
             self.showErrorAlert(alert)
@@ -39,6 +40,15 @@ class KoreaItemsViewController: UIViewController {
             throw ExpositionError.getKoreaItemsData
         }
         self.koreaItemsData = try jsonDecoder.decode([KoreaItem].self, from: koreaItemsJsonData.data)
+        
+        tableView.reloadData()
+    }
+    
+    private func setUpTable() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(UINib(nibName: "KoreaItemTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
 }
 
@@ -50,6 +60,16 @@ extension KoreaItemsViewController {
 }
 
 extension KoreaItemsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.koreaItemsData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! KoreaItemTableViewCell
+        
+        return cell
+    }
+    
     
 }
 
