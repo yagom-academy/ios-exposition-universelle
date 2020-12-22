@@ -38,9 +38,18 @@ class ExpositionViewController: UITableViewController {
         
         guard let data = expositionData else { return }
         
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+
+        let formattedVisitors = numberFormatter.string(from: NSNumber(value: data.visitors))!
+        
+        var numberOfVisitors: String {
+            return "방문객 : \(formattedVisitors) 명"
+        }
+        
         titleTextLabel.text = data.title
         titleImageView.image = data.titleImage
-        visitorsTextLabel.text = data.numberOfVisitors
+        visitorsTextLabel.text = numberOfVisitors
         locationsTextLabel.text = data.expositionLocation
         durationTextLabel.text = data.expositionDuration
         descriptionTextView.text = data.description
