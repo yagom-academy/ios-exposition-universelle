@@ -121,7 +121,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="Sem-P1-e8f"/>
                     <connections>
+                        <outlet property="expositionDescription" destination="bPh-zl-hey" id="tAf-UU-ylN"/>
+                        <outlet property="expositionDuration" destination="Gcy-Dg-aUr" id="qtu-ZS-Vly"/>
+                        <outlet property="expositionName" destination="TyS-Vn-ESU" id="1xl-A5-NMb"/>
+                        <outlet property="expositionPlace" destination="Gcy-Dg-aUr" id="Wmp-T7-5vn"/>
+                        <outlet property="expositionPoster" destination="9Rh-kV-74W" id="g1b-vG-Wu5"/>
                         <outlet property="nextButton" destination="4x1-Bq-GhR" id="viT-ZL-qIV"/>
+                        <outlet property="numberOfVisitor" destination="anm-5h-h60" id="wbq-pQ-rYD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
