@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController id="O0p-SA-MXd" customClass="ExpositionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="O2q-kz-qL3">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="880"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -196,7 +196,7 @@
                             <outlet property="delegate" destination="O0p-SA-MXd" id="rQM-FC-8bL"/>
                         </connections>
                     </tableView>
-                    <size key="freeformSize" width="390" height="1500"/>
+                    <size key="freeformSize" width="390" height="880"/>
                     <connections>
                         <outlet property="descriptionTextLabel" destination="Ebb-JR-aPg" id="oSs-GP-pwh"/>
                         <outlet property="durationTextLabel" destination="mGP-35-q52" id="f2O-rg-0pS"/>
