@@ -23,6 +23,9 @@
                                     <rect key="frame" x="0.0" y="649" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="touchUpMoveToNextButton:" destination="d2m-nn-rVk" eventType="touchUpInside" id="oeP-p0-Tan"/>
+                                    </connections>
                                 </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="593" id="wZI-VP-Gna">
@@ -88,6 +91,14 @@
                             <constraint firstItem="3vv-26-GOm" firstAttribute="bottom" secondItem="FrU-MU-5Yq" secondAttribute="bottom" id="eFr-cz-iby"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="JlI-oh-Ors" id="TZn-SR-ozd"/>
+                        <outlet property="durationLabel" destination="JKG-RP-bau" id="4Sr-ap-KQ5"/>
+                        <outlet property="locationLabel" destination="yfb-iy-Ri4" id="H8A-tq-lW5"/>
+                        <outlet property="mainImageView" destination="2Wg-xa-5CO" id="CBq-RT-mP7"/>
+                        <outlet property="titleLabel" destination="RfK-tP-8bl" id="Zxo-4w-mmJ"/>
+                        <outlet property="visitorsLable" destination="cic-Ig-YnV" id="wrm-pg-pRD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcz-Vn-brJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
