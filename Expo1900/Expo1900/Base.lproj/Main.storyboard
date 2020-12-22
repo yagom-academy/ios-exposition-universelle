@@ -59,7 +59,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-Z6-mdy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGo-Z6-mdy">
                                         <rect key="frame" x="186" y="532" width="30" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -87,6 +87,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="GGo-Z6-mdy" id="FRU-ix-ZZx"/>
+                        <outlet property="durationLabel" destination="BnA-0V-ld3" id="ZKb-et-Uyh"/>
+                        <outlet property="englishTitleLabel" destination="Kkb-yo-VVN" id="Z1h-uY-6Gj"/>
+                        <outlet property="locationLabel" destination="nea-wA-wl9" id="LAK-0l-HNc"/>
+                        <outlet property="posterImageView" destination="OAF-db-piY" id="RT0-BN-oss"/>
+                        <outlet property="titleLabel" destination="6Vr-bU-eFD" id="hq0-us-Eow"/>
+                        <outlet property="visitorsNumberLabel" destination="mj6-7u-VQd" id="4wm-Lq-uZL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
