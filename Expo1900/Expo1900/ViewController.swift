@@ -7,12 +7,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let jsonAnalyzer = JSONAnalyzer()
+        guard let data = jsonAnalyzer.readFile(forName: "exposition_universelle_1900", Exposition.self) else {
+            return
+        }
+        
+        print(data)
     }
-
-
 }
-
