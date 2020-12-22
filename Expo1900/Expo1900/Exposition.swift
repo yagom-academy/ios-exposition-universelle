@@ -5,5 +5,5 @@ struct Exposition: Codable {
     let visitors: UInt
     let location: String
     let duration: String
-    let descripton: String
+    let description: String
 }
