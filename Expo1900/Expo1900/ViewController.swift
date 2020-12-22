@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     
     private func setVisitorsLabel(_ visitors: UInt) {
         let prefix = "방문자 : "
-        let text = setEachFontsize(text: String(visitors), prefix)
+        let text = setEachFontsize(text: String(visitors) + " 명", prefix)
         visitorsLabel.attributedText = text
     }
     
