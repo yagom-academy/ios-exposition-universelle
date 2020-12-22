@@ -53,6 +53,7 @@ class ExhibitsViewController: UIViewController {
     }
 }
 
+//MARK: - Extensions
 extension ExhibitsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         exhibits?.count ?? 0
