@@ -48,7 +48,7 @@ class KoreaItemsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(UINib(nibName: "KoreaItemTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "KoreaItemTableViewCell", bundle: nil), forCellReuseIdentifier: "koreaItemCell")
     }
 }
 
@@ -65,14 +65,16 @@ extension KoreaItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! KoreaItemTableViewCell
+        guard let koreaItemCell = tableView.dequeueReusableCell(withIdentifier: "koreaItemCell") as? KoreaItemTableViewCell else {
+            return UITableViewCell()
+        }
         let koreaItem = self.koreaItemsData[indexPath.row]
         let koreaItemImage = UIImage(named: koreaItem.imageName)
-        cell.itemImageView.image = koreaItemImage
-        cell.itemTitleLabel.text = koreaItem.name
-        cell.itemShortDescriptionLabel.text = koreaItem.shortDescription
+        koreaItemCell.itemImageView.image = koreaItemImage
+        koreaItemCell.itemTitleLabel.text = koreaItem.name
+        koreaItemCell.itemShortDescriptionLabel.text = koreaItem.shortDescription
         
-        return cell
+        return koreaItemCell
     }
     
 }
