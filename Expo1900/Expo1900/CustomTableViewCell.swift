@@ -10,7 +10,7 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var koreanItemImageView: UIImageView!
-    @IBOutlet weak var koreanItemTitleLabel: UILabel!
+    @IBOutlet weak var koreanItemNameLabel: UILabel!
     @IBOutlet weak var koreanItemShortDescriptionLabel: UILabel!
     
     

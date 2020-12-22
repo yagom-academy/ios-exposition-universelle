@@ -111,7 +111,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="162" id="uq4-Bv-0gY" customClass="CustomTableViewCell" customModule="Expo1900" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="162" id="uq4-Bv-0gY" customClass="CustomTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uq4-Bv-0gY" id="aL9-zr-cz2" customClass="CustomTableViewCell" customModule="Expo1900" customModuleProvider="target">
@@ -140,8 +140,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="koreanItemImageView" destination="yMp-W3-YfQ" id="uU6-Vv-Hy9"/>
+                                            <outlet property="koreanItemNameLabel" destination="Mxp-YV-xab" id="ci5-53-kvD"/>
                                             <outlet property="koreanItemShortDescriptionLabel" destination="Zsr-iC-JGg" id="54H-0Q-6oG"/>
-                                            <outlet property="koreanItemTitleLabel" destination="Mxp-YV-xab" id="ci5-53-kvD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
