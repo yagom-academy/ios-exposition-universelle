@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,5 +25,6 @@ class ViewController: UIViewController {
         visitorsLabel.text = "방문객 : \(String(data.visitors)) 명"
         locationLabel.text = "개최지 : \(data.location)"
         durationLabel.text = "개최 기간 : \(data.duration)"
+        descriptionLabel.text = data.description
     }
 }
