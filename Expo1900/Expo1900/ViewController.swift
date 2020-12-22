@@ -58,10 +58,10 @@ class ViewController: UIViewController {
             throw ExpositionError.getExpositionData
         }
         titleLabel.text = data.title
-        let commaVisitors = try getCommaNumber(data.visitors)
-        visitorsLabel.text = getVisitorFormat(commaVisitors)
-        visitLocationLabel.text = getExpositionFormat(prefix: visitLocationPrefix, content: data.location)
-        durationLabel.text = getExpositionFormat(prefix: durationPrefix, content: data.duration)
+        let commaVisitors = try makeCommaNumber(data.visitors)
+        visitorsLabel.text = makeVisitorFormat(commaVisitors)
+        visitLocationLabel.text = makeExpositionFormat(prefix: visitLocationPrefix, content: data.location)
+        durationLabel.text = makeExpositionFormat(prefix: durationPrefix, content: data.duration)
         descriptionLabel.text = data.description
     }
     
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - get data match format
-    private func getCommaNumber(_ number: UInt) throws -> String {
+    private func makeCommaNumber(_ number: UInt) throws -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         guard let commaNumber = numberFormatter.string(from: NSNumber(value: number)) else {
@@ -80,12 +80,12 @@ class ViewController: UIViewController {
         return commaNumber
     }
     
-    private func getVisitorFormat(_ visitor: String) -> String {
+    private func makeVisitorFormat(_ visitor: String) -> String {
         let visitorFormat = NSString(format: "%@%@%@", "방문객 : ", visitor, " 명")
         return String(visitorFormat)
     }
     
-    private func getExpositionFormat(prefix: String, content: String) -> String {
+    private func makeExpositionFormat(prefix: String, content: String) -> String {
         let contentFormat = NSString(format: "%@%@", prefix, content)
         return String(contentFormat)
     }
