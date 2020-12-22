@@ -61,4 +61,12 @@ class ExpositionViewController: UITableViewController {
         durationTextLabel.text = data.expositionDuration
         descriptionTextLabel.text = data.description
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O0p-SA-MXd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x4T-2R-3bl">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Exposition View Controller-->
+        <!--메인-->
         <scene sceneID="CVd-kp-XnW">
             <objects>
                 <tableViewController id="O0p-SA-MXd" customClass="ExpositionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,6 +158,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjP-B2-uja">
                                                     <rect key="frame" x="126" y="34" width="138" height="30"/>
                                                     <state key="normal" title="한국의 출품작 보러가기"/>
+                                                    <connections>
+                                                        <segue destination="8UC-tU-mvV" kind="show" id="shx-0P-jit"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="OCZ-lQ-rNn">
                                                     <rect key="frame" x="44" y="27" width="63" height="37"/>
@@ -196,6 +199,7 @@
                             <outlet property="delegate" destination="O0p-SA-MXd" id="rQM-FC-8bL"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="메인" id="xDk-Vc-ifl"/>
                     <size key="freeformSize" width="390" height="880"/>
                     <connections>
                         <outlet property="descriptionTextLabel" destination="Ebb-JR-aPg" id="oSs-GP-pwh"/>
@@ -208,6 +212,53 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGX-9m-QTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776.92307692307691" y="9.9526066350710902"/>
+        </scene>
+        <!--한국의 출품작-->
+        <scene sceneID="fln-oV-cYP">
+            <objects>
+                <tableViewController id="8UC-tU-mvV" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1PB-yz-PMo">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PoS-i0-www">
+                                <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PoS-i0-www" id="sma-id-tTm">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8UC-tU-mvV" id="8cI-SC-YtE"/>
+                            <outlet property="delegate" destination="8UC-tU-mvV" id="bAF-ik-m8h"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="Vgj-xh-hx4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eXn-f2-kxL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="10"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sOI-21-pSj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x4T-2R-3bl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dcl-QR-czB">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O0p-SA-MXd" kind="relationship" relationship="rootViewController" id="zMl-Ms-FnG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24b-hG-nub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-152.30769230769229" y="9.9526066350710902"/>
         </scene>
