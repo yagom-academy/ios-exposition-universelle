@@ -8,22 +8,33 @@
 import UIKit
 
 class KoreaExposition: UITableViewController {
+    var koreaItemList: [KoreaItem]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "한국의 출품작"
-
-//        guard let dataAsset = NSDataAsset(name: "items") else {
-//            return
-//        }
-//        print(dataAsset)
-//        let jsonDecode = JSONDecoder()
-//        do {
-//            let decoded = try jsonDecode.decode([KoreaItem].self, from: dataAsset.data)
-//            
-//            print(decoded)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+        
+        let jsonAnalyzer = JSONAnalyzer()
+        guard let data = jsonAnalyzer.readFile(forName: "items", [KoreaItem].self) else {
+            return
+        }
+        koreaItemList = data
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        koreaItemList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpositionCell") as? ExpositionCell else {
+            return UITableViewCell()
+        }
+        
+        cell.assetImage.image = UIImage(named: koreaItemList[indexPath.row].imageName)
+        cell.titleLabel.text = koreaItemList[indexPath.row].name
+        cell.summaryLabel.text = koreaItemList[indexPath.row].shortDescription
+        
+        return cell
     }
 }
