@@ -5,6 +5,11 @@ class ViewController: UIViewController {
     var posterInformation: Exposition?
     var expositionPosterScrollView: ExpositionPosterScrollView?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         expositionPosterScrollView = ExpositionPosterScrollView()
@@ -44,6 +49,8 @@ class ViewController: UIViewController {
 extension ViewController: ExpositionPosterScrollViewDelegate {
     func didTapShowKoreanExhibitButton(_ scrollView: UIScrollView) {
         let exhibitsViewController = ExhibitsViewController()
+        exhibitsViewController.title = "한국의 출품작"
+        navigationItem.backButtonTitle = "메인"
         self.navigationController?.pushViewController(exhibitsViewController, animated: true)
     }
 }

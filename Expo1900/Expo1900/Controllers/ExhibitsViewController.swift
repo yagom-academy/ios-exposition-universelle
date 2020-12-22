@@ -22,6 +22,7 @@ class ExhibitsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
         view.backgroundColor = .systemBackground
         getExhibitInformations()
         exhibitsTableView.delegate = self
@@ -73,6 +74,7 @@ extension ExhibitsViewController: UITableViewDelegate, UITableViewDataSource {
         let detailViewcontroller = DetailViewController()
         detailViewcontroller.exhibit = exhibits?[indexPath.row]
         detailViewcontroller.title = exhibits?[indexPath.row].name
+        navigationItem.backButtonTitle = "한국의 출품작"
         navigationController?.pushViewController(detailViewcontroller, animated: true)
     }
 }
