@@ -50,6 +50,7 @@ class ExhibitsTableViewCell: UITableViewCell {
         return textView
     }()
     
+    //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         nameShortDescriptionStackView.addArrangedSubview(nameLabel)
@@ -62,6 +63,16 @@ class ExhibitsTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - public
+    public func configureCell(with exhibit: Exhibit?) {
+        guard let exhibit = exhibit else {
+            return
+        }
+        nameLabel.text = exhibit.name
+        shortDescriptionTextView.text = exhibit.shortDescription
+        exhibitImageView.image = exhibit.exhibitImage
     }
     
     //MARK: - private
