@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    // label로 변경을 시도해보자
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
+        let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage")
+        self.navigationController?.pushViewController(pushVC!, animated: true)
     }
     
     func setAllText() {
