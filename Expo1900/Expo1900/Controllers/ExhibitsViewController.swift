@@ -64,6 +64,7 @@ extension ExhibitsViewController: UITableViewDelegate, UITableViewDataSource {
                                                     for: indexPath) as? ExhibitsTableViewCell {
             cell.accessoryType = .disclosureIndicator
             cell.configureCell(with: exhibits?[indexPath.row])
+            cell.selectionStyle = .none
             return cell
         }
         return UITableViewCell()

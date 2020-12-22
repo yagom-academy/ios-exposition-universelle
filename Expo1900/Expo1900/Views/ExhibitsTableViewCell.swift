@@ -50,6 +50,7 @@ class ExhibitsTableViewCell: UITableViewCell {
         let textView = UITextView()
         textView.isEditable = false
         textView.isScrollEnabled = false
+        textView.isSelectable = false
         textView.textColor = .label
         textView.textAlignment = .left
         textView.font = .boldSystemFont(ofSize: 15)
