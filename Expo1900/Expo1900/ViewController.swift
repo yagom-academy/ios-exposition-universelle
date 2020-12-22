@@ -22,8 +22,11 @@ class ViewController: UIViewController {
     private var expositionData: Exposition? = nil
     
     // MARK: - string formatter prefix
-    private var visitLocationPrefix = "방문지 : "
-    private var durationPrefix = "개최 기간 : "
+    private enum Prefix {
+        static let visitor = "방문객 : "
+        static let visitLocation = "방문지 : "
+        static let duration = "개최 기간 : "
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +69,8 @@ class ViewController: UIViewController {
         titleLabel.text = data.title
         let commaVisitors = try makeCommaNumber(data.visitors)
         visitorsLabel.text = makeVisitorFormat(commaVisitors)
-        visitLocationLabel.text = makeExpositionFormat(prefix: visitLocationPrefix, content: data.location)
-        durationLabel.text = makeExpositionFormat(prefix: durationPrefix, content: data.duration)
+        visitLocationLabel.text = makeExpositionFormat(prefix: Prefix.visitLocation, content: data.location)
+        durationLabel.text = makeExpositionFormat(prefix: Prefix.duration, content: data.duration)
         descriptionLabel.text = data.description
     }
     
@@ -87,7 +90,7 @@ class ViewController: UIViewController {
     }
     
     private func makeVisitorFormat(_ visitor: String) -> String {
-        let visitorFormat = NSString(format: "%@%@%@", "방문객 : ", visitor, " 명")
+        let visitorFormat = NSString(format: "%@%@%@", Prefix.visitor, visitor, " 명")
         return String(visitorFormat)
     }
     
