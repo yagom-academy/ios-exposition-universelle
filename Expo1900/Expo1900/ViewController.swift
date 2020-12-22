@@ -8,6 +8,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var parisExpositionInformation: ParisExpositionInformation?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
     
@@ -18,10 +20,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return
+        }
+        
+        let decoder: JSONDecoder = JSONDecoder()
+        
+        do {
+          parisExpositionInformation = try decoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
+        } catch {
+            print(error)
+            return
+        }
+        
+        setAllText()
+
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
     }
     
+    func setAllText() {
+        titleLabel.text = parisExpositionInformation?.title
+        visitorsLabel.text = String(parisExpositionInformation?.visitors ?? 0)
+        locationLabel.text = parisExpositionInformation?.location
+        durationLabel.text = parisExpositionInformation?.duration
+        descriptionTextView.text = parisExpositionInformation?.description
+    }
 }
