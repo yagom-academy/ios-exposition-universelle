@@ -16,6 +16,7 @@ class ExhibitsTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fill
+        stackView.alignment = .center
         stackView.spacing = 8
         return stackView
     }()
@@ -23,6 +24,8 @@ class ExhibitsTableViewCell: UITableViewCell {
     private let exhibitImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         return imageView
     }()
     
@@ -38,6 +41,7 @@ class ExhibitsTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
+        label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
@@ -47,6 +51,8 @@ class ExhibitsTableViewCell: UITableViewCell {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.textColor = .label
+        textView.textAlignment = .left
+        textView.font = .boldSystemFont(ofSize: 15)
         return textView
     }()
     
