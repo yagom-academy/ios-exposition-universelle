@@ -40,9 +40,9 @@ class ExpositionViewController: UITableViewController {
         
         titleTextLabel.text = data.title
         titleImageView.image = data.titleImage
-        visitorsTextLabel.text = "방문객 : " + String(data.visitors) + "명"
-        locationsTextLabel.text = "개최지 : " + data.location
-        durationTextLabel.text = "개최기간 : " + data.duration
+        visitorsTextLabel.text = data.numberOfVisitors
+        locationsTextLabel.text = data.expositionLocation
+        durationTextLabel.text = data.expositionDuration
         descriptionTextView.text = data.description
     }
 }
