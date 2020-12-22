@@ -56,4 +56,16 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: KoreaExpositionItemDetail = segue.destination as? KoreaExpositionItemDetail else {
+            return
+        }
+        guard let cell = sender as? CustomTableViewCell, let index = cell.index else {
+            return
+        }
+        nextViewController.navigationBarTitle = cell.titleLabel.text
+        nextViewController.itemImage = cell.koreaItemImageView.image
+        nextViewController.itemDescription = koreaExpositionItems[index].description
+    }
 }
