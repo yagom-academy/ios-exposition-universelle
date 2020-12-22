@@ -30,7 +30,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="9Rh-kV-74W">
-                                                <rect key="frame" x="0.0" y="48.666666666666629" width="390" height="219.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="48.666666666666643" width="390" height="219.33333333333337"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="9Rh-kV-74W" secondAttribute="height" multiplier="16:9" id="7FC-zU-vUM"/>
                                                 </constraints>
@@ -56,7 +56,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPh-zl-hey">
                                                 <rect key="frame" x="0.0" y="354" width="390" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -124,7 +124,7 @@
                         <outlet property="expositionDescription" destination="bPh-zl-hey" id="tAf-UU-ylN"/>
                         <outlet property="expositionDuration" destination="Gcy-Dg-aUr" id="qtu-ZS-Vly"/>
                         <outlet property="expositionName" destination="TyS-Vn-ESU" id="1xl-A5-NMb"/>
-                        <outlet property="expositionPlace" destination="Gcy-Dg-aUr" id="Wmp-T7-5vn"/>
+                        <outlet property="expositionPlace" destination="brs-qD-aJR" id="wax-od-prS"/>
                         <outlet property="expositionPoster" destination="9Rh-kV-74W" id="g1b-vG-Wu5"/>
                         <outlet property="nextButton" destination="4x1-Bq-GhR" id="viT-ZL-qIV"/>
                         <outlet property="numberOfVisitor" destination="anm-5h-h60" id="wbq-pQ-rYD"/>
