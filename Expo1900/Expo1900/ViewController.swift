@@ -18,7 +18,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    // label로 변경을 시도해보자
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +47,7 @@ class ViewController: UIViewController {
         setAllText()
 
     }
+    
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
         let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage")

@@ -86,7 +86,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="N1D-1w-vk3"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="Duc-cA-gd8" id="UMH-Hj-nio"/>
                         <outlet property="durationLabel" destination="ImI-nF-4iI" id="IrT-BF-eeQ"/>
@@ -122,6 +121,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ly-oj-xv0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NTu-Lw-G4c"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,13 +132,13 @@
                             <constraint firstItem="NTu-Lw-G4c" firstAttribute="trailing" secondItem="EdM-Q6-Daq" secondAttribute="trailing" id="5Xb-3n-3DT"/>
                             <constraint firstItem="NTu-Lw-G4c" firstAttribute="bottom" secondItem="EdM-Q6-Daq" secondAttribute="bottom" id="Vgo-3P-9Og"/>
                             <constraint firstItem="EdM-Q6-Daq" firstAttribute="leading" secondItem="NTu-Lw-G4c" secondAttribute="leading" id="cLr-my-8jU"/>
-                            <constraint firstItem="EdM-Q6-Daq" firstAttribute="top" secondItem="NTu-Lw-G4c" secondAttribute="top" id="lU2-hX-UU3"/>
+                            <constraint firstItem="EdM-Q6-Daq" firstAttribute="top" secondItem="NTu-Lw-G4c" secondAttribute="top" id="ooc-20-4Pg"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucX-zB-I3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="31"/>
+            <point key="canvasLocation" x="2415.9420289855075" y="30.803571428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DqL-dP-PYB">
