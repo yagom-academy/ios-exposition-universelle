@@ -78,5 +78,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
 }
 
 extension KoreaItemsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }

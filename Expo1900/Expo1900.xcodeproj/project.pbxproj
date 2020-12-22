@@ -78,14 +78,14 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		2841523A25911D8700C76382 /* Korea */ = {
+		2841523A25911D8700C76382 /* KoreaViewController */ = {
 			isa = PBXGroup;
 			children = (
 				284152402591230E00C76382 /* Cell */,
 				2841523B25911DA100C76382 /* KoreaItemsViewController.swift */,
 				2841523C25911DA100C76382 /* KoreaItemsViewController.xib */,
 			);
-			name = Korea;
+			name = KoreaViewController;
 			sourceTree = "<group>";
 		};
 		284152402591230E00C76382 /* Cell */ = {
@@ -95,6 +95,13 @@
 				284152432591249C00C76382 /* KoreaItemTableViewCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		28EA5D9725918F90005385AF /* ItemDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ItemDetailViewController;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -116,7 +123,8 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				2841523A25911D8700C76382 /* Korea */,
+				28EA5D9725918F90005385AF /* ItemDetailViewController */,
+				2841523A25911D8700C76382 /* KoreaViewController */,
 				28415230259113AE00C76382 /* Error */,
 				2841522B2591134200C76382 /* Extension */,
 				2841522725910F5600C76382 /* Data */,
