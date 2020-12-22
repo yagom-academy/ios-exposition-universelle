@@ -11,5 +11,5 @@ struct ParisExpositionInformation: Codable {
     let visitors: UInt
     let location: String
     let duration: String
-    let c: String
+    let description: String
 }

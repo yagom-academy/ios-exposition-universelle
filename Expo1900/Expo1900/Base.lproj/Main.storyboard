@@ -65,6 +65,9 @@
                                         <rect key="frame" x="192" y="739" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="touchUpMoveToNextButton:" destination="8vS-Lu-ub6" eventType="touchUpInside" id="oqQ-bj-58s"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="NEK-mr-esC"/>
@@ -75,6 +78,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="ZhP-6l-6fi" id="RbJ-7d-luI"/>
+                        <outlet property="durationLabel" destination="ImI-nF-4iI" id="IrT-BF-eeQ"/>
+                        <outlet property="locationLabel" destination="QTW-9u-qET" id="bpm-lF-zrH"/>
+                        <outlet property="mainImageView" destination="8p2-4w-PSz" id="jrz-bB-XEG"/>
+                        <outlet property="titleLabel" destination="LZu-Jm-gHo" id="0B8-e4-JHP"/>
+                        <outlet property="visitorsLabel" destination="PRo-2q-XOd" id="a1D-RM-D19"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hS-Bh-xJ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
