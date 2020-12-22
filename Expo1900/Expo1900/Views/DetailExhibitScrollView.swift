@@ -23,7 +23,8 @@ class DetailExhibitScrollView: UIScrollView {
     private let exhibitImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         return imageView
     }()
     
@@ -41,7 +42,7 @@ class DetailExhibitScrollView: UIScrollView {
         self.translatesAutoresizingMaskIntoConstraints = false
         exhibitInformationStackView.addArrangedSubview(exhibitImageView)
         exhibitInformationStackView.addArrangedSubview(exhibitDescriptionTextView)
-        self.addSubview(exhibitImageView)
+        self.addSubview(exhibitInformationStackView)
         setUpConstraints()
     }
     

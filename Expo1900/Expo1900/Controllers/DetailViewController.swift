@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         detailExhibitScrollView = DetailExhibitScrollView()
         guard let detailExhibitScrollView = detailExhibitScrollView else {
             return

@@ -69,5 +69,9 @@ extension ExhibitsViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewcontroller = DetailViewController()
+        detailViewcontroller.exhibit = exhibits?[indexPath.row]
+        detailViewcontroller.title = exhibits?[indexPath.row].name
+        navigationController?.pushViewController(detailViewcontroller, animated: true)
     }
 }
