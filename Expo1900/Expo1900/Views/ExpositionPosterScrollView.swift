@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ExpositionPosterScrollViewDelegate: AnyObject {
+    func didTapShowKoreanExhibitButton(_ scrollView: UIScrollView)
+}
+
 class ExpositionPosterScrollView: UIScrollView {
+    var expositionPosterScrollViewDelegate: ExpositionPosterScrollViewDelegate?
+    
     //MARK: - Views
     private let expositionPosterStackView: UIStackView = {
         let stackView = UIStackView()
@@ -98,6 +104,7 @@ class ExpositionPosterScrollView: UIScrollView {
         showKoreaExhibitStackView.addArrangedSubview(leftFlagImage)
         showKoreaExhibitStackView.addArrangedSubview(showKoreaExhibitButton)
         showKoreaExhibitStackView.addArrangedSubview(rightFlagImage)
+        showKoreaExhibitButton.addTarget(self, action: #selector(didTapShowKoreaExhibitButton), for: .touchUpInside)
         expositionPosterStackView.addArrangedSubview(expositionTitleTextView)
         expositionPosterStackView.addArrangedSubview(posterImageView)
         expositionPosterStackView.addArrangedSubview(expositionInformationsTextView)
@@ -134,5 +141,9 @@ class ExpositionPosterScrollView: UIScrollView {
         constraints.append(expositionPosterStackView.bottomAnchor.constraint(equalTo: self.contentLayoutGuide.bottomAnchor))
         constraints.append(expositionPosterStackView.widthAnchor.constraint(equalTo: self.frameLayoutGuide.widthAnchor))
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    @objc private func didTapShowKoreaExhibitButton() {
+        expositionPosterScrollViewDelegate?.didTapShowKoreanExhibitButton(self)
     }
 }

@@ -11,6 +11,7 @@ class ViewController: UIViewController {
         guard let expositionPosterScrollView = expositionPosterScrollView else {
             return
         }
+        expositionPosterScrollView.expositionPosterScrollViewDelegate = self
         view.addSubview(expositionPosterScrollView)
         getPosterInfo()
         expositionPosterScrollView.configurePoster(with: posterInformation)
@@ -40,3 +41,9 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ExpositionPosterScrollViewDelegate {
+    func didTapShowKoreanExhibitButton(_ scrollView: UIScrollView) {
+        let exhibitsViewController = ExhibitsViewController()
+        self.navigationController?.pushViewController(exhibitsViewController, animated: true)
+    }
+}
