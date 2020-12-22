@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var duration: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,6 @@ class ViewController: UIViewController {
         titleLabel.text = data.title
         visitorsLabel.text = "방문객 : \(String(data.visitors)) 명"
         locationLabel.text = "개최지 : \(data.location)"
-        duration.text = "개최 기간 : \(String(data.duration))"
+        durationLabel.text = "개최 기간 : \(data.duration)"
     }
 }
