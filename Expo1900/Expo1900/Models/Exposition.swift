@@ -9,7 +9,7 @@ import Foundation
 
 struct Exposition: Decodable {
     let title: String
-    let visitorsNumber: Int
+    let visitorsNumber: UInt
     let location: String
     let duration: String
     let description: String
