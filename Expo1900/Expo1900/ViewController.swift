@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     // label로 변경을 시도해보자
     
     override func viewDidLoad() {
@@ -49,6 +50,6 @@ class ViewController: UIViewController {
         visitorsLabel.text = String(parisExpositionInformation?.visitors ?? 0)
         locationLabel.text = parisExpositionInformation?.location
         durationLabel.text = parisExpositionInformation?.duration
-        descriptionTextView.text = parisExpositionInformation?.description
+        descriptionLabel.text = parisExpositionInformation?.description
     }
 }
