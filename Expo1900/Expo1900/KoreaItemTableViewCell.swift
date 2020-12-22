@@ -8,7 +8,7 @@
 import UIKit
 
 class KoreaItemTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemTitle: UILabel!
-    @IBOutlet weak var itemShortDescription: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemTitleLabel: UILabel!
+    @IBOutlet weak var itemShortDescriptionLabel: UILabel!
 }

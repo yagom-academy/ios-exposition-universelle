@@ -68,9 +68,9 @@ extension KoreaItemsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! KoreaItemTableViewCell
         let koreaItem = self.koreaItemsData[indexPath.row]
         let koreaItemImage = UIImage(named: koreaItem.imageName)
-        cell.itemImage.image = koreaItemImage
-        cell.itemTitle.text = koreaItem.name
-        cell.itemShortDescription.text = koreaItem.shortDescription
+        cell.itemImageView.image = koreaItemImage
+        cell.itemTitleLabel.text = koreaItem.name
+        cell.itemShortDescriptionLabel.text = koreaItem.shortDescription
         
         return cell
     }
@@ -79,6 +79,9 @@ extension KoreaItemsViewController: UITableViewDataSource {
 
 extension KoreaItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+        let itemDetailViewController = ItemDetailViewController()
+        itemDetailViewController.itemData = self.koreaItemsData[indexPath.row]
+        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
     }
 }

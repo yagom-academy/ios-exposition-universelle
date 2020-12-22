@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemDetailViewController" customModule="Expo1900" customModuleProvider="target">
+            <connections>
+                <outlet property="itemDescriptionLabel" destination="Cru-o7-6a1" id="IJr-Yi-iY4"/>
+                <outlet property="itemImageView" destination="eCS-Lb-mgY" id="KCg-Ew-N3q"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFb-3a-boO">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqS-6U-CiV" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="2158"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nhr-mx-4nw">
+                                    <rect key="frame" x="20" y="50" width="374" height="2108"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jikji" translatesAutoresizingMaskIntoConstraints="NO" id="eCS-Lb-mgY">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="7za-aa-k3u"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cru-o7-6a1">
+                                            <rect key="frame" x="0.0" y="160" width="374" height="1948"/>
+                                            <mutableString key="text">nakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhjnakldhjf;ilhaqiwehftklahdnfkljhnaklhdjf;klhankl;hkl fhj</mutableString>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Nhr-mx-4nw" secondAttribute="bottom" id="TZk-jG-i6J"/>
+                                <constraint firstItem="Nhr-mx-4nw" firstAttribute="top" secondItem="bqS-6U-CiV" secondAttribute="top" constant="50" id="cQV-xz-Y09"/>
+                                <constraint firstItem="Nhr-mx-4nw" firstAttribute="leading" secondItem="bqS-6U-CiV" secondAttribute="leading" constant="20" id="wwx-gE-hc1"/>
+                                <constraint firstAttribute="trailing" secondItem="Nhr-mx-4nw" secondAttribute="trailing" constant="20" id="znG-1i-EmO"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="bqS-6U-CiV" firstAttribute="bottom" secondItem="GIm-Ea-UXl" secondAttribute="bottom" id="Ad7-f7-oWo"/>
+                        <constraint firstItem="bqS-6U-CiV" firstAttribute="width" secondItem="8yl-WL-WrC" secondAttribute="width" id="BeN-T9-AhA"/>
+                        <constraint firstItem="GIm-Ea-UXl" firstAttribute="leading" secondItem="bqS-6U-CiV" secondAttribute="leading" id="DL4-sy-qIs"/>
+                        <constraint firstItem="GIm-Ea-UXl" firstAttribute="top" secondItem="bqS-6U-CiV" secondAttribute="top" id="amo-X3-jJW"/>
+                        <constraint firstItem="bqS-6U-CiV" firstAttribute="trailing" secondItem="GIm-Ea-UXl" secondAttribute="trailing" id="ud8-aB-ZFK"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="GIm-Ea-UXl"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="8yl-WL-WrC"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="jFb-3a-boO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4Rx-75-cvg"/>
+                <constraint firstAttribute="bottom" secondItem="jFb-3a-boO" secondAttribute="bottom" id="RGi-ZL-mkM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jFb-3a-boO" secondAttribute="trailing" id="W5z-wu-jvE"/>
+                <constraint firstItem="jFb-3a-boO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="edq-SB-UcR"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="jikji" width="167" height="133.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
