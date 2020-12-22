@@ -51,6 +51,24 @@ class ViewController: UIViewController {
         titleLabel.text = resultTitle
     }
     
+    private func setVisitorsLabel(_ visitors: UInt) {
+        let prefix = "방문자 : "
+        let text = setEachFontsize(text: String(visitors), prefix)
+        visitorsLabel.attributedText = text
+    }
+    
+    private func setLocationLabel(_ location: String) {
+        let prefix = "개최지 : "
+        let text = setEachFontsize(text: location, prefix)
+        locationLabel.attributedText = text
+    }
+    
+    private func setDurationLabel(_ duration: String) {
+        let prefix = "개최 기간 : "
+        let text = setEachFontsize(text: duration, prefix)
+        durationLabel.attributedText = text
+    }
+    
     private func setEachFontsize(text: String, _ prefix: String) -> NSMutableAttributedString {
         let fontSize = UIFont.boldSystemFont(ofSize: 20)
         let attributedStr = NSMutableAttributedString(string: prefix + String(text))
