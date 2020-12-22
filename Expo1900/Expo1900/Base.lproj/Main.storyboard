@@ -138,6 +138,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="koreanItemImageView" destination="yMp-W3-YfQ" id="uU6-Vv-Hy9"/>
+                                            <outlet property="koreanItemShortDescriptionLabel" destination="Zsr-iC-JGg" id="54H-0Q-6oG"/>
+                                            <outlet property="koreanItemTitleLabel" destination="Mxp-YV-xab" id="ci5-53-kvD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
