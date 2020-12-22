@@ -36,9 +36,18 @@ class ViewController: UIViewController {
         }
         do {
             let result = try jsonDecoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
+            setLabels(from: result)
         } catch {
             print(error)
         }
+    }
+    
+    private func setLabels(from result: ParisExpositionInformation) {
+        setTitleLabel(result.title)
+        setVisitorsLabel(result.visitors)
+        setLocationLabel(result.location)
+        setDurationLabel(result.duration)
+        descriptionLabel.text = result.description
     }
     
     private func setTitleLabel(_ title: String) {
