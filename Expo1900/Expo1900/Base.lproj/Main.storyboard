@@ -43,7 +43,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-Iq-YSB" userLabel="Duration">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSM-LL-CxN">
                                                 <rect key="frame" x="0.0" y="240.5" width="414" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -80,6 +80,7 @@
                     </view>
                     <connections>
                         <outlet property="duration" destination="2bs-ct-qXh" id="dTQ-4E-bTK"/>
+                        <outlet property="locationLabel" destination="SSM-LL-CxN" id="BYd-WJ-Eaq"/>
                         <outlet property="titleLabel" destination="zvd-Wv-SAu" id="n9p-xI-rb4"/>
                         <outlet property="visitorsLabel" destination="rOl-mK-aDT" id="qGO-X7-bQI"/>
                     </connections>
