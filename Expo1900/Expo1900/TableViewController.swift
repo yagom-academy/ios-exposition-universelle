@@ -3,10 +3,16 @@ import UIKit
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     var koreanExpositionItemList = [KoreaExpositionItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        decodeJSON()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,5 +28,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.koreanItemShortDescriptionLabel.text = koreanExpositionItem.shortDescription
         
         return cell
+    }
+    
+    func decodeJSON() {
+        let decoder: JSONDecoder = JSONDecoder()
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+            return
+        }
+        
+        do {
+          koreanExpositionItemList = try decoder.decode([KoreaExpositionItem].self, from: dataAsset.data)
+        } catch {
+            print(error)
+            return
+        }
     }
 }
