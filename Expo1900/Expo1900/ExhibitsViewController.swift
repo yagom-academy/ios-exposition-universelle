@@ -62,6 +62,7 @@ extension ExhibitsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitsTableViewCell.reuseIdentifier,
                                                     for: indexPath) as? ExhibitsTableViewCell {
+            cell.accessoryType = .disclosureIndicator
             cell.configureCell(with: exhibits?[indexPath.row])
             return cell
         }
