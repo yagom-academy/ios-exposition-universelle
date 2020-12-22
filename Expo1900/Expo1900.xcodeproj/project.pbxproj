@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2841522D2591135800C76382 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841522C2591135800C76382 /* ViewControllerExtension.swift */; };
+		28415236259114ED00C76382 /* ExpositionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28415235259114ED00C76382 /* ExpositionError.swift */; };
+		2841523D25911DA100C76382 /* KoreaItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2841523B25911DA100C76382 /* KoreaItemsViewController.swift */; };
+		2841523E25911DA100C76382 /* KoreaItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2841523C25911DA100C76382 /* KoreaItemsViewController.xib */; };
+		284152442591249C00C76382 /* KoreaItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284152422591249C00C76382 /* KoreaItemTableViewCell.swift */; };
+		284152452591249C00C76382 /* KoreaItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284152432591249C00C76382 /* KoreaItemTableViewCell.xib */; };
+		28EA5D9A25918FBA005385AF /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA5D9825918FBA005385AF /* ItemDetailViewController.swift */; };
+		28EA5D9B25918FBA005385AF /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28EA5D9925918FBA005385AF /* ItemDetailViewController.xib */; };
+		414CE6122590C10B0005684F /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CE6112590C10B0005684F /* Exposition.swift */; };
+		414CE6152590C2430005684F /* KoreaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CE6142590C2430005684F /* KoreaItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -16,6 +26,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2841522C2591135800C76382 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		28415235259114ED00C76382 /* ExpositionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionError.swift; sourceTree = "<group>"; };
+		2841523B25911DA100C76382 /* KoreaItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemsViewController.swift; sourceTree = "<group>"; };
+		2841523C25911DA100C76382 /* KoreaItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaItemsViewController.xib; sourceTree = "<group>"; };
+		284152422591249C00C76382 /* KoreaItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemTableViewCell.swift; sourceTree = "<group>"; };
+		284152432591249C00C76382 /* KoreaItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaItemTableViewCell.xib; sourceTree = "<group>"; };
+		28EA5D9825918FBA005385AF /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		28EA5D9925918FBA005385AF /* ItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
+		414CE6112590C10B0005684F /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		414CE6142590C2430005684F /* KoreaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +57,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2841522725910F5600C76382 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				414CE6112590C10B0005684F /* Exposition.swift */,
+				414CE6142590C2430005684F /* KoreaItem.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2841522B2591134200C76382 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2841522C2591135800C76382 /* ViewControllerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		28415230259113AE00C76382 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				28415235259114ED00C76382 /* ExpositionError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		2841523A25911D8700C76382 /* KoreaViewController */ = {
+			isa = PBXGroup;
+			children = (
+				284152402591230E00C76382 /* Cell */,
+				2841523B25911DA100C76382 /* KoreaItemsViewController.swift */,
+				2841523C25911DA100C76382 /* KoreaItemsViewController.xib */,
+			);
+			name = KoreaViewController;
+			sourceTree = "<group>";
+		};
+		284152402591230E00C76382 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				284152422591249C00C76382 /* KoreaItemTableViewCell.swift */,
+				284152432591249C00C76382 /* KoreaItemTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		28EA5D9725918F90005385AF /* ItemDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				28EA5D9825918FBA005385AF /* ItemDetailViewController.swift */,
+				28EA5D9925918FBA005385AF /* ItemDetailViewController.xib */,
+			);
+			path = ItemDetailViewController;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +129,11 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				28EA5D9725918F90005385AF /* ItemDetailViewController */,
+				2841523A25911D8700C76382 /* KoreaViewController */,
+				28415230259113AE00C76382 /* Error */,
+				2841522B2591134200C76382 /* Extension */,
+				2841522725910F5600C76382 /* Data */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
@@ -124,7 +202,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2841523E25911DA100C76382 /* KoreaItemsViewController.xib in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				28EA5D9B25918FBA005385AF /* ItemDetailViewController.xib in Resources */,
+				284152452591249C00C76382 /* KoreaItemTableViewCell.xib in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
@@ -137,8 +218,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EA5D9A25918FBA005385AF /* ItemDetailViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				414CE6152590C2430005684F /* KoreaItem.swift in Sources */,
+				2841522D2591135800C76382 /* ViewControllerExtension.swift in Sources */,
+				28415236259114ED00C76382 /* ExpositionError.swift in Sources */,
+				284152442591249C00C76382 /* KoreaItemTableViewCell.swift in Sources */,
+				2841523D25911DA100C76382 /* KoreaItemsViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				414CE6122590C10B0005684F /* Exposition.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,12 +375,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6VQP8JUW36;
 				INFOPLIST_FILE = Expo1900/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
+				PRODUCT_BUNDLE_IDENTIFIER = net.wonhee.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -305,12 +394,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6VQP8JUW36;
 				INFOPLIST_FILE = Expo1900/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
+				PRODUCT_BUNDLE_IDENTIFIER = net.wonhee.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
