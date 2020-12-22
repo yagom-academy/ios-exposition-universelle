@@ -66,10 +66,14 @@ extension KoreaItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! KoreaItemTableViewCell
+        let koreaItem = self.koreaItemsData[indexPath.row]
+        let koreaItemImage = UIImage(named: koreaItem.imageName)
+        cell.itemImage.image = koreaItemImage
+        cell.itemTitle.text = koreaItem.name
+        cell.itemShortDescription.text = koreaItem.shortDescription
         
         return cell
     }
-    
     
 }
 
