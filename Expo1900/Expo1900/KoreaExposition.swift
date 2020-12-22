@@ -20,6 +20,7 @@ class KoreaExposition: UITableViewController {
             return
         }
         koreaItemList = data
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,5 +37,16 @@ class KoreaExposition: UITableViewController {
         cell.summaryLabel.text = koreaItemList[indexPath.row].shortDescription
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let expositionDescriptionViewController = storyboard?.instantiateViewController(identifier: "ExpositionDescriptionViewController") as? ExpositionDescriptionViewController else {
+            return
+        }
+        
+        expositionDescriptionViewController.assetImageData = UIImage(named: koreaItemList[indexPath.row].imageName)
+        expositionDescriptionViewController.assetDescriptionData = koreaItemList[indexPath.row].description
+        navigationController?.pushViewController(expositionDescriptionViewController, animated: true)
     }
 }
