@@ -9,6 +9,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
+    @IBOutlet weak var duration: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,5 +21,6 @@ class ViewController: UIViewController {
         
         titleLabel.text = data.title
         visitorsLabel.text = "방문객 : \(String(data.visitors)) 명"
+        duration.text = "개최 기간 : \(String(data.duration))"
     }
 }
