@@ -9,7 +9,7 @@ import UIKit
 
 class ExhibitsViewController: UIViewController {
     
-    var exhibits: [Exhibit]?
+    private var exhibits: [Exhibit]?
     
     //MARK: - Views
     private let exhibitsTableView: UITableView = {

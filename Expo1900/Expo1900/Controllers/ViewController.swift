@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         }
         expositionPosterScrollView.expositionPosterScrollViewDelegate = self
         view.addSubview(expositionPosterScrollView)
-        getPosterInfo()
+        getPosterInformation()
         expositionPosterScrollView.configurePoster(with: posterInformation)
         setupConstraints(scrollView: expositionPosterScrollView)
     }
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
     
-    private func getPosterInfo() {
+    private func getPosterInformation() {
         if let data = NSDataAsset(name: "exposition_universelle_1900")?.data {
             let decoder = JSONDecoder()
             do {
