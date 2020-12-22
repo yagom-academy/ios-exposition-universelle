@@ -7,9 +7,15 @@ class ExpositionViewController: UITableViewController {
     @IBOutlet weak var visitorsTextLabel: UILabel!
     @IBOutlet weak var locationsTextLabel: UILabel!
     @IBOutlet weak var durationTextLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionTextLabel: UILabel!
     
     var expositionData: Exposition?
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height = self.tableView.rowHeight
+        height = UITableView.automaticDimension
+        return height
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +58,6 @@ class ExpositionViewController: UITableViewController {
         visitorsTextLabel.text = numberOfVisitors
         locationsTextLabel.text = data.expositionLocation
         durationTextLabel.text = data.expositionDuration
-        descriptionTextView.text = data.description
+        descriptionTextLabel.text = data.description
     }
 }
