@@ -8,6 +8,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var visitorsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,5 +17,8 @@ class ViewController: UIViewController {
         guard let data = jsonAnalyzer.readFile(forName: "exposition_universelle_1900", Exposition.self) else {
             return
         }
+        
+        titleLabel.text = data.title
+        visitorsLabel.text = "방문객 : \(String(data.visitors)) 명"
     }
 }
