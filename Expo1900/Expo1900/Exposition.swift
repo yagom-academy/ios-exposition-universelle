@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Exposition: Codable {
+struct Exposition: Decodable {
     let title: String
-    let visitors: UInt
+    let visitors: Int
     let location: String
     let duration: String
     let description: String

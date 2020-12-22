@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-struct KoreaWorks: Codable {
+struct KoreaWorks: Decodable {
     let name: String
-    let imageName: String
+    private let imageName: String
     let shortDescription: String
     let description: String
     
