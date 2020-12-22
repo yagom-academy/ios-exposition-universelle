@@ -1,9 +1,3 @@
-//
-//  Expo1900 - ViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
-
 import UIKit
 
 class MainViewController: UIViewController {
@@ -15,7 +9,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var parisExposition: Exposition!
-    var items: [Entry]!
+    let visitorText = "방문객 : "
+    let locationText = "개최지 : "
+    let durationText = "개최 기간 : "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +23,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func decodeData() {
@@ -39,21 +35,13 @@ class MainViewController: UIViewController {
         } catch {
             debugPrint("ERROR")
         }
-        
-        guard let dataAsset2 = NSDataAsset(name: "items") else { return }
-        
-        do {
-            self.items = try jsonDecoder.decode([Entry].self, from: dataAsset2.data)
-        } catch {
-            debugPrint("ERROR2")
-        }
     }
     
     private func setData() {
         titleLabel.text = parisExposition.title
-        visitorsLabel.text = "방문객 : " + String(parisExposition.visitors)
-        locationLabel.text = "개최지 : " + parisExposition.location
-        durationLabel.text = "개최 기간 : " + parisExposition.duration
+        visitorsLabel.text = visitorText + String(parisExposition.visitors)
+        locationLabel.text = locationText + parisExposition.location
+        durationLabel.text = durationText + parisExposition.duration
         descriptionTextView.text = parisExposition.description
     }
 }

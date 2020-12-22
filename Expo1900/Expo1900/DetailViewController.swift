@@ -1,16 +1,21 @@
-//
-//  DetailViewController.swift
-//  Expo1900
-//
-//  Created by 임리나 on 2020/12/21.
-//
-
 import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var entryImageView: UIImageView!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var entry: Entry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setData()
+    }
+    
+    private func setData() {
+        guard let entry = entry else { return }
+        self.navigationItem.title = entry.name
+        entryImageView.image = entry.image
+        descriptionTextView.text = entry.description
     }
 }
