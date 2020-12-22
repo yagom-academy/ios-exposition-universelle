@@ -10,6 +10,14 @@ import UIKit
 class ExhibitsViewController: UIViewController {
     
     var exhibits: [Exhibit]?
+    
+    //MARK: - Views
+    private let exhibitsTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(ExhibitsTableViewCell.self,
+                           forCellReuseIdentifier: ExhibitsTableViewCell.reuseIdentifier)
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

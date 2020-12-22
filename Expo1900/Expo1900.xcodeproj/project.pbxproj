@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B41AFDB5259215D400269C45 /* ExhibitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41AFDB4259215D400269C45 /* ExhibitsViewController.swift */; };
+		B41AFDB925921A9600269C45 /* ExhibitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41AFDB825921A9600269C45 /* ExhibitsTableViewCell.swift */; };
 		B44218A2259122CA00B16138 /* ExpositionPosterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44218A1259122CA00B16138 /* ExpositionPosterScrollView.swift */; };
 		B4DBBE332590ACD000DA7FA7 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DBBE322590ACD000DA7FA7 /* Exposition.swift */; };
 		B4DBBE362590ADAB00DA7FA7 /* Exhibit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DBBE352590ADAB00DA7FA7 /* Exhibit.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		B41AFDB4259215D400269C45 /* ExhibitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitsViewController.swift; sourceTree = "<group>"; };
+		B41AFDB825921A9600269C45 /* ExhibitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitsTableViewCell.swift; sourceTree = "<group>"; };
 		B44218A1259122CA00B16138 /* ExpositionPosterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPosterScrollView.swift; sourceTree = "<group>"; };
 		B4DBBE322590ACD000DA7FA7 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		B4DBBE352590ADAB00DA7FA7 /* Exhibit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibit.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				B44218A1259122CA00B16138 /* ExpositionPosterScrollView.swift */,
+				B41AFDB825921A9600269C45 /* ExhibitsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B44218A2259122CA00B16138 /* ExpositionPosterScrollView.swift in Sources */,
+				B41AFDB925921A9600269C45 /* ExhibitsTableViewCell.swift in Sources */,
 				B4DBBE362590ADAB00DA7FA7 /* Exhibit.swift in Sources */,
 				B41AFDB5259215D400269C45 /* ExhibitsViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
