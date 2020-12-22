@@ -101,17 +101,10 @@ class ExpositionPosterScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        showKoreaExhibitStackView.addArrangedSubview(leftFlagImage)
-        showKoreaExhibitStackView.addArrangedSubview(showKoreaExhibitButton)
-        showKoreaExhibitStackView.addArrangedSubview(rightFlagImage)
-        showKoreaExhibitButton.addTarget(self, action: #selector(didTapShowKoreaExhibitButton), for: .touchUpInside)
-        expositionPosterStackView.addArrangedSubview(expositionTitleTextView)
-        expositionPosterStackView.addArrangedSubview(posterImageView)
-        expositionPosterStackView.addArrangedSubview(expositionInformationsTextView)
-        expositionPosterStackView.addArrangedSubview(descriptionTextView)
-        expositionPosterStackView.addArrangedSubview(showKoreaExhibitStackView)
+        configureStackView()
         self.addSubview(expositionPosterStackView)
         setUpConstraints()
+        showKoreaExhibitButton.addTarget(self, action: #selector(didTapShowKoreaExhibitButton), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -143,6 +136,18 @@ class ExpositionPosterScrollView: UIScrollView {
         NSLayoutConstraint.activate(constraints)
     }
     
+    private func configureStackView() {
+        showKoreaExhibitStackView.addArrangedSubview(leftFlagImage)
+        showKoreaExhibitStackView.addArrangedSubview(showKoreaExhibitButton)
+        showKoreaExhibitStackView.addArrangedSubview(rightFlagImage)
+        expositionPosterStackView.addArrangedSubview(expositionTitleTextView)
+        expositionPosterStackView.addArrangedSubview(posterImageView)
+        expositionPosterStackView.addArrangedSubview(expositionInformationsTextView)
+        expositionPosterStackView.addArrangedSubview(descriptionTextView)
+        expositionPosterStackView.addArrangedSubview(showKoreaExhibitStackView)
+    }
+    
+    //MARK: - Actions
     @objc private func didTapShowKoreaExhibitButton() {
         expositionPosterScrollViewDelegate?.didTapShowKoreanExhibitButton(self)
     }

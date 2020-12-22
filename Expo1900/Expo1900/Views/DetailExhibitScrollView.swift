@@ -40,8 +40,7 @@ class DetailExhibitScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        exhibitInformationStackView.addArrangedSubview(exhibitImageView)
-        exhibitInformationStackView.addArrangedSubview(exhibitDescriptionTextView)
+        configureStackView()
         self.addSubview(exhibitInformationStackView)
         setUpConstraints()
     }
@@ -68,5 +67,10 @@ class DetailExhibitScrollView: UIScrollView {
         constraints.append(exhibitInformationStackView.bottomAnchor.constraint(equalTo: self.contentLayoutGuide.bottomAnchor))
         constraints.append(exhibitInformationStackView.widthAnchor.constraint(equalTo: self.frameLayoutGuide.widthAnchor))
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func configureStackView() {
+        exhibitInformationStackView.addArrangedSubview(exhibitImageView)
+        exhibitInformationStackView.addArrangedSubview(exhibitDescriptionTextView)
     }
 }

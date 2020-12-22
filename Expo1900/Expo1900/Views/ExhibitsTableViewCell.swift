@@ -60,10 +60,7 @@ class ExhibitsTableViewCell: UITableViewCell {
     //MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        nameShortDescriptionStackView.addArrangedSubview(nameLabel)
-        nameShortDescriptionStackView.addArrangedSubview(shortDescriptionTextView)
-        exhibitStackView.addArrangedSubview(exhibitImageView)
-        exhibitStackView.addArrangedSubview(nameShortDescriptionStackView)
+        configureStackView()
         contentView.addSubview(exhibitStackView)
         setupConstraints()
     }
@@ -90,5 +87,12 @@ class ExhibitsTableViewCell: UITableViewCell {
         constraints.append(exhibitStackView.topAnchor.constraint(equalTo: contentView.topAnchor))
         constraints.append(exhibitStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor))
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func configureStackView() {
+        nameShortDescriptionStackView.addArrangedSubview(nameLabel)
+        nameShortDescriptionStackView.addArrangedSubview(shortDescriptionTextView)
+        exhibitStackView.addArrangedSubview(exhibitImageView)
+        exhibitStackView.addArrangedSubview(nameShortDescriptionStackView)
     }
 }
