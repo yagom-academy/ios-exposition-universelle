@@ -12,6 +12,13 @@ class KoreaExpositionListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var koreaExpositionItems: [KoreaExpositionItem] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
