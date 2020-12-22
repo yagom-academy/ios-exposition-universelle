@@ -30,7 +30,6 @@ class KoreaItemsViewController: UIViewController {
     }
     
     private func setUpNavigationBar() {
-        self.navigationController?.isNavigationBarHidden = false
         self.title = koreaItemsViewControllerTitle
     }
     

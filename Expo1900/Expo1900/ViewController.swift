@@ -43,6 +43,12 @@ class ViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     // MARK: - init data
     private func initExpositionData() throws {
         let jsonDecoder = JSONDecoder()
