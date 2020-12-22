@@ -50,6 +50,10 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
         cell.koreaItemImageView.image = koreaExpositionItems[indexPath.row].image
         cell.index = indexPath.row
         
+        if cell.subtitleLabel.adjustsFontSizeToFitWidth == false {
+            cell.subtitleLabel.adjustsFontSizeToFitWidth = true
+        }
+        
         return cell
     }
 }
