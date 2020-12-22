@@ -21,6 +21,8 @@ class ViewController: UIViewController {
             return
         }
         
+        navigationController.
+        
         titleLabel.text = data.title
         visitorsLabel.text = "방문객 : \(String(data.visitors)) 명"
         locationLabel.text = "개최지 : \(data.location)"
