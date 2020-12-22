@@ -16,6 +16,7 @@ class KoreaExpositionListViewController: UIViewController {
         super.viewDidLoad()
         setNavigationBar()
         decodeData()
+        tableView.dataSource = self
     }
     
     private func setNavigationBar() {
@@ -34,5 +35,21 @@ class KoreaExpositionListViewController: UIViewController {
             print(error)
         }
     }
+}
+
+extension KoreaExpositionListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.koreaExpositionItems.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
+        
+        cell.titleLabel.text = koreaExpositionItems[indexPath.row].name
+        cell.subtitleLabel.text = koreaExpositionItems[indexPath.row].shortDescription
+        cell.koreaItemImageView.image = koreaExpositionItems[indexPath.row].image
+        cell.index = indexPath.row
+        
+        return cell
+    }
 }
