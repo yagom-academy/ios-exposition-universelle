@@ -14,6 +14,7 @@ class ExhibitsViewController: UIViewController {
     //MARK: - Views
     private let exhibitsTableView: UITableView = {
         let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ExhibitsTableViewCell.self,
                            forCellReuseIdentifier: ExhibitsTableViewCell.reuseIdentifier)
         return tableView
@@ -23,8 +24,11 @@ class ExhibitsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         getExhibitInformations()
+        exhibitsTableView.delegate = self
+        exhibitsTableView.dataSource = self
+        view.addSubview(exhibitsTableView)
+        setupConstraints()
     }
-    
     
     //MARK: - Private
     private func getExhibitInformations() {
@@ -37,5 +41,28 @@ class ExhibitsViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    private func setupConstraints() {
+        var constraints = [NSLayoutConstraint]()
+        constraints.append(exhibitsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
+        constraints.append(exhibitsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        constraints.append(exhibitsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
+        constraints.append(exhibitsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
+        NSLayoutConstraint.activate(constraints)
+    }
+}
+
+extension ExhibitsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        exhibits?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitsTableViewCell.reuseIdentifier,
+                                                    for: indexPath) as? ExhibitsTableViewCell {
+            return cell
+        }
+        return UITableViewCell()
     }
 }
