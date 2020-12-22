@@ -5,7 +5,7 @@ class ExpositionViewController: UITableViewController {
     @IBOutlet weak var titleTextLabel: UILabel!
     @IBOutlet weak var titleImageView: UIImageView!
     @IBOutlet weak var visitorsTextLabel: UILabel!
-    @IBOutlet weak var locationsTextLabel: UILabel!
+    @IBOutlet weak var locationTextLabel: UILabel!
     @IBOutlet weak var durationTextLabel: UILabel!
     @IBOutlet weak var descriptionTextLabel: UILabel!
     
@@ -14,6 +14,7 @@ class ExpositionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var height = self.tableView.rowHeight
         height = UITableView.automaticDimension
+        
         return height
     }
 
@@ -46,8 +47,8 @@ class ExpositionViewController: UITableViewController {
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-
-        let formattedVisitors = numberFormatter.string(from: NSNumber(value: data.visitors))!
+        
+        guard let formattedVisitors = numberFormatter.string(from: NSNumber(value: data.visitors)) else { return }
         
         var numberOfVisitors: String {
             return "방문객 : \(formattedVisitors) 명"
@@ -56,7 +57,7 @@ class ExpositionViewController: UITableViewController {
         titleTextLabel.text = data.title
         titleImageView.image = data.titleImage
         visitorsTextLabel.text = numberOfVisitors
-        locationsTextLabel.text = data.expositionLocation
+        locationTextLabel.text = data.expositionLocation
         durationTextLabel.text = data.expositionDuration
         descriptionTextLabel.text = data.description
     }
