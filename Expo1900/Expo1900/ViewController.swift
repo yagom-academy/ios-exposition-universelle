@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
-    
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -30,12 +29,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        decodeJSON()
+        setAllText()
+    }
+    
+    @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
+        let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage")
+        self.navigationController?.pushViewController(pushVC!, animated: true)
+    }
+    
+    func decodeJSON() {
+        let decoder: JSONDecoder = JSONDecoder()
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
         }
-        
-        let decoder: JSONDecoder = JSONDecoder()
         
         do {
           parisExpositionInformation = try decoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
@@ -43,15 +51,6 @@ class ViewController: UIViewController {
             print(error)
             return
         }
-        
-        setAllText()
-
-    }
-    
-    
-    @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
-        let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage")
-        self.navigationController?.pushViewController(pushVC!, animated: true)
     }
     
     func setAllText() {
