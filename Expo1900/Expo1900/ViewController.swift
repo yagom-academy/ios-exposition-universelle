@@ -16,9 +16,5 @@ class ViewController: UIViewController {
         guard let data = jsonAnalyzer.readFile(forName: "exposition_universelle_1900", Exposition.self) else {
             return
         }
-        
-        titleLabel.text = data.title
-        
-        print(data)
     }
 }
