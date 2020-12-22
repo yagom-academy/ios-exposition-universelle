@@ -21,11 +21,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        decodeData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
     }
+    
+    private func decodeData() {
+            let jsonDecoder: JSONDecoder = JSONDecoder()
+            guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+                return
+            }
+            do {
+                let result = try jsonDecoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
+            } catch {
+                print(error)
+            }
+        }
 }
 
