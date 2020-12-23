@@ -49,13 +49,13 @@ extension ExpositionViewController {
     
     private func updateExpositionInfo() {
         
-        guard let exposition = exposition else { return }
+        guard let expositionInfo = exposition else { return }
         
-        titleLabel.text = exposition.title
-        visitorsLabel.text = "방문객 : \(exposition.visitors) 명"
-        locationLabel.text = "개최지 : \(exposition.location)"
-        durationLabel.text = "개최 기간 : \(exposition.duration)"
-        descriptionLabel.text = exposition.description
+        titleLabel.text = expositionInfo.title
+        visitorsLabel.text = "방문객 : \(expositionInfo.visitors) 명"
+        locationLabel.text = "개최지 : \(expositionInfo.location)"
+        durationLabel.text = "개최 기간 : \(expositionInfo.duration)"
+        descriptionLabel.text = expositionInfo.description
     }
 }
 

@@ -7,12 +7,39 @@
 
 import UIKit
 
-class KoreaWorksViewController: UIViewController {
+class KoreaWorksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var koreaWorkList: [KoreaWorks] = []
+    private var koreaWorksList: [KoreaWorks] = []
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return koreaWorksList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
+            return UITableViewCell()
+        }
+        let koreaWorksInfo = koreaWorksList[indexPath.row]
+        cell.updatdCell(info: koreaWorksInfo)
+        return cell
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        decodeKoreaWorks()
+    }
+}
+
+class ListCell: UITableViewCell {
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var shortDescriptionLabel: UILabel!
+    
+    func updatdCell(info: KoreaWorks) {
+        imgView.image = info.image
+        nameLabel.text = info.name
+        shortDescriptionLabel.text = info.shortDescription
     }
 }
 
@@ -27,6 +54,7 @@ extension KoreaWorksViewController {
         guard let koreaWorksData = try? jasonDecoder.decode([KoreaWorks].self, from: assetData.data) else {
             return
         }
-        koreaWorkList = koreaWorksData
+        koreaWorksList = koreaWorksData
     }
 }
+
