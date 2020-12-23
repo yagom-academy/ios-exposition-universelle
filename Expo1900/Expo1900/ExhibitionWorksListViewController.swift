@@ -8,15 +8,27 @@
 import UIKit
 
 class ExhibitionWorksListViewController: UIViewController {
-
+    
     private var exhibitionWorks = [ExhibitionWork]()
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let workDetailViewController = segue.destination as? WorkDetailViewController else {
+            return
+        }
+        
+        if let index = sender as? Int {
+            workDetailViewController.workTitle = exhibitionWorks[index].name
+            workDetailViewController.workImageData = exhibitionWorks[index].image ?? UIImage()
+            workDetailViewController.workDescriptionContents = exhibitionWorks[index].description
+            workDetailViewController.navigationItem.title = workDetailViewController.workTitle
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.backItem?.title = "메인"
         self.navigationController?.navigationBar.topItem?.title = "한국의 출품작"
-        
         decodeExhibitionData()
     }
     
@@ -34,7 +46,9 @@ class ExhibitionWorksListViewController: UIViewController {
     }
 }
 extension ExhibitionWorksListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showWorkDetailView", sender: indexPath.row)
+    }
 }
 extension ExhibitionWorksListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +63,7 @@ extension ExhibitionWorksListViewController: UITableViewDataSource {
         cell.workImage.image = exhibitionWorks[indexPath.row].image
         cell.workName.text = exhibitionWorks[indexPath.row].name
         cell.workShortDescription.text = exhibitionWorks[indexPath.row].shortDescription
-
+        
         return cell
     }
 }
