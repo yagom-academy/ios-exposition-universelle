@@ -45,11 +45,27 @@ class ViewController: UIViewController {
     }
     
     func setAllData() {
-        titleLabel.text = parisExpositionInformation?.title
-        visitorsLabel.text = parisExpositionInformation!.visitorsWithComma + " 명"
-        locationLabel.text = parisExpositionInformation?.location
-        durationLabel.text = parisExpositionInformation?.duration
-        descriptionLabel.text = parisExpositionInformation?.description
+        guard let parisExopsitionTitle = parisExpositionInformation?.title else {
+            return
+        }
+        guard let parisExopsitionVisitors = parisExpositionInformation?.visitorsWithComma else {
+            return
+        }
+        guard let parisExopsitionLocation = parisExpositionInformation?.location else {
+            return
+        }
+        guard let parisExopsitionDuration = parisExpositionInformation?.duration else {
+            return
+        }
+        guard let parisExopsitionDescription = parisExpositionInformation?.description else {
+            return
+        }
+        
+        titleLabel.text = parisExopsitionTitle
+        visitorsLabel.text = parisExopsitionVisitors + " 명"
+        locationLabel.text = parisExopsitionLocation
+        durationLabel.text = parisExopsitionDuration
+        descriptionLabel.text = parisExopsitionDescription
     }
     
     // MARK: 첫 화면, Navigation Bar 컨트롤
