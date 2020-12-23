@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "메인"
         decodeData()
     }
     

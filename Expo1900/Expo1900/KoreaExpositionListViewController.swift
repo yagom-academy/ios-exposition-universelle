@@ -21,14 +21,9 @@ class KoreaExpositionListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
+        self.navigationItem.title = "한국의 출품작"
         decodeData()
         tableView.dataSource = self
-    }
-    
-    private func setNavigationBar() {
-        self.navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
-        self.navigationItem.title = "한국의 출품작"
     }
     
     private func decodeData() {

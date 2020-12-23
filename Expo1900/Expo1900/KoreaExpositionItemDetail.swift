@@ -17,13 +17,12 @@ class KoreaExpositionItemDetail: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar()
-        self.itemImageView.image = itemImage
-        self.descriptionLabel.text = itemDescription
+        setData()
     }
     
-    private func setNavigationBar() {
-        self.navigationController?.navigationBar.topItem?.backButtonTitle = "한국의 출품작"
+    private func setData() {
         self.navigationItem.title = navigationBarTitle
+        self.itemImageView.image = itemImage
+        self.descriptionLabel.text = itemDescription
     }
 }
