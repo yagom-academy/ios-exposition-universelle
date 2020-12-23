@@ -36,6 +36,23 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationController?.pushViewController(pushVC!, animated: true)
     }
     
+    // 데이터 보내기
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController else {
+            return
+        }
+        guard let cell: UITableViewCell = sender as? UITableViewCell else {
+            return
+        }
+        guard let itemIndex: IndexPath = self.tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        detailVC.itemName = koreanExpositionItemList[itemIndex.row].name
+        detailVC.itemImage = koreanExpositionItemList[itemIndex.row].image
+        detailVC.itemDescription = koreanExpositionItemList[itemIndex.row].description
+    }
+    
     func decodeJSON() {
         let decoder: JSONDecoder = JSONDecoder()
         
