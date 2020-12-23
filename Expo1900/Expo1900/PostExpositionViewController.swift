@@ -17,11 +17,9 @@ class PostExpositionViewController: UIViewController {
         super.viewDidLoad()
         
         let jsonAnalyzer = JSONAnalyzer()
-        guard let data = jsonAnalyzer.readFile(forName: "exposition_universelle_1900", Exposition.self) else {
-            return
+        if let data = jsonAnalyzer.readFile(forName: "exposition_universelle_1900", Exposition.self) {
+            setPostText(data)
         }
-        
-        setPostText(data)
     }
     
     override func viewWillAppear(_ animated: Bool) {
