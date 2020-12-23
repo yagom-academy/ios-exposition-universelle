@@ -1,6 +1,6 @@
 import UIKit
 
-class ExpositionCell: UITableViewCell {
+class ExpositionTableViewCell: UITableViewCell {
     @IBOutlet var assetImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
