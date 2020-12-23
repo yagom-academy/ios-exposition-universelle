@@ -13,6 +13,11 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         self.title = "메인"
         self.navigationController?.isNavigationBarHidden = true
+        titleLabel.text = exposition?.title
+        visitorLabel.text = "방문객 : " + String(exposition!.visitors)
+        locationLabel.text = "개최지 : " + String(exposition!.location)
+        durationLabel.text = "개최기간 : " + String(exposition!.duration)
+        descriptionLabel.text = exposition?.description
     }
     
     override func viewDidLoad() {
@@ -26,11 +31,5 @@ class MainViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
-        titleLabel.text = exposition?.title
-        visitorLabel.text = "방문객 : " + String(exposition!.visitors) //쉼표처리
-        locationLabel.text = "개최지 : " + String(exposition!.location)
-        durationLabel.text = "개최기간 : " + String(exposition!.duration)
-        descriptionLabel.text = exposition?.description
     }
 }

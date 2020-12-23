@@ -10,13 +10,10 @@ class TableViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-        
         let entry: Entry = self.entry[indexPath.row]
-        
         cell.imageView?.image = entry.image
         cell.textLabel?.text = entry.name
         cell.detailTextLabel?.text = entry.shortDescription
-        
         return cell
     }
 
