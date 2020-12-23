@@ -8,13 +8,29 @@
 import UIKit
 
 class ExhibitionWorksListViewController: UIViewController {
-    @IBOutlet weak var workListTableView: UITableView!
 
-    var tempArray = [1,2,3,4,5]
+    private var exhibitionWorks = [ExhibitionWork]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.backItem?.title = "메인"
+        self.navigationController?.navigationBar.topItem?.title = "한국의 출품작"
+        
+        decodeExhibitionData()
+    }
+    
+    private func decodeExhibitionData() {
+        let assetFile: String = "items"
+        guard let asset = NSDataAsset(name: assetFile) else {
+            fatalError("Can not found data asset.")
+        }
+        
+        do {
+            exhibitionWorks = try JSONDecoder().decode([ExhibitionWork].self, from: asset.data)
+        } catch {
+            print("error: \(error)")
+        }
     }
 }
 extension ExhibitionWorksListViewController: UITableViewDelegate {
@@ -22,14 +38,12 @@ extension ExhibitionWorksListViewController: UITableViewDelegate {
 }
 extension ExhibitionWorksListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tempArray.count
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-            fatalError("error발생")
-        }
-        cell.textLabel?.text = "hi"
-        return cell
+        UITableViewCell()
     }
+    
+ 
 }
