@@ -15,8 +15,8 @@ class KoreaExpositionItemDetail: UIViewController {
     var itemImage: UIImage?
     var itemDescription: String?
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setData()
     }
     
