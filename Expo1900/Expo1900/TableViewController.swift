@@ -17,10 +17,6 @@ class TableViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = entry.name
         cell.detailTextLabel?.text = entry.shortDescription
         
-        //didselected, indexpathforselectedrow
-        //DM 사진 1,2 UITabelView
-        //DM 사진 3 UIViewController
-        
         return cell
     }
 
