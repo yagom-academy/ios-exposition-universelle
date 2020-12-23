@@ -91,6 +91,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="메인" id="bAD-Rs-KBT"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="uwN-aY-mFs" id="yRb-Uv-eoC"/>
+                        <outlet property="durationLabel" destination="bh0-KV-wne" id="RZz-zU-1cj"/>
+                        <outlet property="locationLabel" destination="cSP-uU-5wq" id="Kdf-Sc-XvK"/>
+                        <outlet property="titleLabel" destination="C7x-EY-33I" id="kmh-hn-Ccj"/>
+                        <outlet property="visitorsLabel" destination="80C-dx-y7K" id="Pdn-qh-w4C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
