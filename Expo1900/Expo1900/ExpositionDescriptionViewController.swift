@@ -8,8 +8,8 @@
 import UIKit
 
 class ExpositionDescriptionViewController: UIViewController {
-    var assetImageData: UIImage!
-    var assetDescriptionData: String!
+    var assetImageData: UIImage?
+    var assetDescriptionData: String?
     @IBOutlet weak var assetImage: UIImageView!
     @IBOutlet weak var assetDescription: UILabel!
     
