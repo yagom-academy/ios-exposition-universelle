@@ -11,7 +11,7 @@ class ItemsViewController: UIViewController {
     @IBOutlet weak var itemsTableView: UITableView!
     
     private let cellIdentifier = "item"
-    private let itemsDataModel = DataModel<[Item]>(fileName: "items")
+    private var itemsDataModel = DataModel<[Item]>(fileName: "items")
     private var items: [Item]?
     
     override func viewDidLoad() {

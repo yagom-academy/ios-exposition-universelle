@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DataModel<T: Decodable> {
+struct DataModel<T: Decodable> {
     private var data: T?
     private let fileName: String
     
@@ -15,13 +15,13 @@ class DataModel<T: Decodable> {
         self.fileName = fileName
     }
     
-    private func decode() throws {
+    private mutating func decode() throws {
         let jsonDecoder = JSONDecoder()
         guard let expositionDataAsset = NSDataAsset(name: self.fileName) else { return }
         self.data = try jsonDecoder.decode(T.self, from: expositionDataAsset.data)
     }
     
-    func requestData() throws -> T? {
+    mutating func requestData() throws -> T? {
         if self.data == nil {
             try self.decode()
         }

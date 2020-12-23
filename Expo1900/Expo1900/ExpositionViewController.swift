@@ -14,7 +14,7 @@ class ExpositionViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    private let expositionDataModel = DataModel<Exposition>(fileName: "exposition_universelle_1900")
+    private var expositionDataModel = DataModel<Exposition>(fileName: "exposition_universelle_1900")
     private var expositionData: Exposition?
     
     override func viewDidLoad() {
