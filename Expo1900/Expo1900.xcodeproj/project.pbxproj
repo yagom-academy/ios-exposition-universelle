@@ -15,6 +15,7 @@
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		D96339842592EA4300A52AAC /* ExhibitionWorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96339832592EA4300A52AAC /* ExhibitionWorkTableViewCell.swift */; };
 		D964D6D2259233230030355B /* ExhibitionWorksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D964D6D1259233230030355B /* ExhibitionWorksListViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D96339832592EA4300A52AAC /* ExhibitionWorkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionWorkTableViewCell.swift; sourceTree = "<group>"; };
 		D964D6D1259233230030355B /* ExhibitionWorksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionWorksListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 				D964D6D1259233230030355B /* ExhibitionWorksListViewController.swift */,
+				D96339832592EA4300A52AAC /* ExhibitionWorkTableViewCell.swift */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				D96339842592EA4300A52AAC /* ExhibitionWorkTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				D964D6D2259233230030355B /* ExhibitionWorksListViewController.swift in Sources */,
 				8B21C9122590BB53003A9B0D /* ExpositionInformation.swift in Sources */,

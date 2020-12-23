@@ -8,16 +8,16 @@
 import UIKit
 
 class ExhibitionWorkTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var workImage: UIImageView!
+    @IBOutlet weak var workName: UILabel!
+    @IBOutlet weak var workShortDescription: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
