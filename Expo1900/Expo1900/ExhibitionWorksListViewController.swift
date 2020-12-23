@@ -38,12 +38,18 @@ extension ExhibitionWorksListViewController: UITableViewDelegate {
 }
 extension ExhibitionWorksListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return self.exhibitionWorks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ExhibitionWorkTableViewCell else {
+            fatalError("error발생")
+        }
+        
+        cell.workImage.image = exhibitionWorks[indexPath.row].image
+        cell.workName.text = exhibitionWorks[indexPath.row].name
+        cell.workShortDescription.text = exhibitionWorks[indexPath.row].shortDescription
+
+        return cell
     }
-    
- 
 }
