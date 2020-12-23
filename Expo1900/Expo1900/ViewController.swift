@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeJSON()
-        setAllText()
+        setAllData()
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func setAllText() {
+    func setAllData() {
         titleLabel.text = parisExpositionInformation?.title
         visitorsLabel.text = String(parisExpositionInformation?.visitors ?? 0)
         locationLabel.text = parisExpositionInformation?.location

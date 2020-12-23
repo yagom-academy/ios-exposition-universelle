@@ -199,6 +199,10 @@
                         <viewLayoutGuide key="safeArea" id="S5a-Ri-4qa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="itemDescriptionLabel" destination="1hi-cX-Yvi" id="gqM-De-dQ0"/>
+                        <outlet property="itemImageView" destination="kFu-gZ-Wh9" id="DTK-1q-qgk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOV-Py-JNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
