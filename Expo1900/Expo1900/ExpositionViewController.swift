@@ -20,8 +20,6 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = true
-        
         do {
             self.expositionData = try expositionDataModel.requestData()
         } catch {
@@ -34,6 +32,12 @@ class ExpositionViewController: UIViewController {
         locationLabel.text = "개최지 : \(expositionData.location)"
         durationLabel.text = "개최 기간 : \(expositionData.duration)"
         descriptionLabel.text = expositionData.description
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
     }
 }
 
