@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaExposition: UITableViewController {
+class KoreaExpositionTableViewController: UITableViewController {
     var koreaItemList: [KoreaItem]!
     
     override func viewDidLoad() {
