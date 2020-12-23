@@ -10,7 +10,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setAllData()

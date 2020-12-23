@@ -12,6 +12,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         
+        setNavigationBar()
         decodeJSON()
     }
     
@@ -20,7 +21,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else {
+            return UITableViewCell()
+        }
         
         let koreanExpositionItem: KoreaExpositionItem = koreanExpositionItemList[indexPath.row]
         cell.koreanItemImageView.image = koreanExpositionItem.image

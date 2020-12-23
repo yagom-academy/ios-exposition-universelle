@@ -35,8 +35,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
-        let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage")
-        self.navigationController?.pushViewController(pushVC!, animated: true)
+        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage") else {
+            return
+        }
+        self.navigationController?.pushViewController(pushVC, animated: true)
     }
     
     func decodeJSON() {
