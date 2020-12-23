@@ -10,13 +10,6 @@ class ExpositionViewController: UITableViewController {
     @IBOutlet weak var descriptionTextLabel: UILabel!
     
     var expositionData: Exposition?
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height = self.tableView.rowHeight
-        height = UITableView.automaticDimension
-        
-        return height
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,5 +61,11 @@ class ExpositionViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = UITableView.automaticDimension
+        
+        return height
     }
 }
