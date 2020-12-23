@@ -32,25 +32,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // 셀 선택
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController")
-        self.navigationController?.pushViewController(pushVC!, animated: true)
-    }
-    
-    // 데이터 보내기
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailVC = segue.destination as? DetailViewController else {
+        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
             return
         }
-        guard let cell: UITableViewCell = sender as? UITableViewCell else {
-            return
-        }
-        guard let itemIndex: IndexPath = self.tableView.indexPath(for: cell) else {
-            return
-        }
+        self.navigationController?.pushViewController(pushVC, animated: true)
         
-        detailVC.itemName = koreanExpositionItemList[itemIndex.row].name
-        detailVC.itemImage = koreanExpositionItemList[itemIndex.row].image
-        detailVC.itemDescription = koreanExpositionItemList[itemIndex.row].description
+        pushVC.itemDescription = koreanExpositionItemList[indexPath.row].description
+        pushVC.itemImage = koreanExpositionItemList[indexPath.row].image
     }
     
     func decodeJSON() {

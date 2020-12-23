@@ -13,10 +13,11 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setAllData()
     }
     
     func setAllData() {
-        
+        itemImageView.image = itemImage
+        itemDescriptionLabel.text = itemDescription
     }
 }
