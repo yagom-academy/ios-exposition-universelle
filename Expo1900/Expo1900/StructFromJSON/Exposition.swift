@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Exposition {
+struct Exposition: Codable {
     let title: String
     let visitors: UInt
     let location: String
