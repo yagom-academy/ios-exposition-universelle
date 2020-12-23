@@ -9,10 +9,10 @@ class MainViewController: UIViewController {
     
     var exposition: Exposition?
     
-    func DecimalComma(value: Int) -> String{
+    func MakeDecimalComma(value: Int) -> String{
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let result = numberFormatter.string(from: NSNumber(value: value))!
+        guard let result = numberFormatter.string(from: NSNumber(value: value)) else { return "MakeDecimalComma method error" }
         
         return result
     }
@@ -21,11 +21,21 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         self.title = "메인"
         self.navigationController?.isNavigationBarHidden = true
-        titleLabel.text = exposition?.title
-        visitorLabel.text = "방문객 : " + DecimalComma(value: (Int(exposition!.visitors)))
-        locationLabel.text = "개최지 : " + String(exposition!.location)
-        durationLabel.text = "개최기간 : " + String(exposition!.duration)
-        descriptionLabel.text = exposition?.description
+    }
+    
+    func setElementValue() {
+        guard let titleValue : String = exposition?.title else { return }
+        guard let visitorDecimal : UInt = exposition?.visitors else { return }
+        let visitorValue : String = MakeDecimalComma(value: Int(visitorDecimal))
+        guard let locationValue : String = exposition?.location else { return }
+        guard let durationValue : String = exposition?.duration else { return }
+        guard let descriptionValue : String = exposition?.description else { return }
+        
+        self.titleLabel.text = titleValue
+        self.visitorLabel.text = "방문객 : " + visitorValue
+        self.locationLabel.text = "개최지 : " + locationValue
+        self.durationLabel.text = "개최기간 : " + durationValue
+        self.descriptionLabel.text = descriptionValue
     }
     
     override func viewDidLoad() {
@@ -39,5 +49,6 @@ class MainViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+        setElementValue()
     }
 }

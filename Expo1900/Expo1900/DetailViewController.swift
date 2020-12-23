@@ -9,11 +9,18 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = myEntry?.name
-        self.imageView?.image = myEntry?.image
-        self.descriptionLabel.text = myEntry?.description
+    }
+    
+    func setElementValue() {
+        guard let imageViewValue : UIImage = myEntry?.image else { return }
+        guard let descriptionValue : String = myEntry?.description else { return }
+        
+        self.imageView.image = imageViewValue
+        self.descriptionLabel.text = descriptionValue
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setElementValue()
     }
 }
