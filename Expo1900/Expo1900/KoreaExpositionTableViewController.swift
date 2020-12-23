@@ -34,7 +34,7 @@ class KoreaExpositionTableViewController: UITableViewController {
         }
         
         if let itemList = koreaItemList {
-            setCellData(cell, itemList, indexPath)
+            cell.setData(itemList[indexPath.row])
         }
         
         return cell
