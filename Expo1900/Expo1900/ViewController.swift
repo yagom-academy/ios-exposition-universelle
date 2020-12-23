@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     
     func setAllData() {
         titleLabel.text = parisExpositionInformation?.title
-        visitorsLabel.text = String(parisExpositionInformation?.visitors ?? 0)
+        visitorsLabel.text = "\(String(describing: parisExpositionInformation?.visitors)) 명"
         locationLabel.text = parisExpositionInformation?.location
         durationLabel.text = parisExpositionInformation?.duration
         descriptionLabel.text = parisExpositionInformation?.description
