@@ -40,12 +40,6 @@ class KoreaExpositionTableViewController: UITableViewController {
         return cell
     }
     
-    private func setCellData(_ cell: ExpositionTableViewCell, _ itemList: [KoreaItem], _ indexPath: IndexPath) {
-        cell.assetImage.image = UIImage(named: itemList[indexPath.row].imageName)
-        cell.titleLabel.text = itemList[indexPath.row].name
-        cell.summaryLabel.text = itemList[indexPath.row].shortDescription
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let expositionDescriptionViewController = storyboard?.instantiateViewController(identifier: "ExpositionDescriptionViewController") as? ExpositionDescriptionViewController {
