@@ -27,7 +27,7 @@ class PostExpositionViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    fileprivate func setPostText(_ data: Exposition) {
+    private func setPostText(_ data: Exposition) {
         titleLabel.text = data.title
         visitorsLabel.text = "방문객 : \(String(data.visitors)) 명"
         locationLabel.text = "개최지 : \(data.location)"
