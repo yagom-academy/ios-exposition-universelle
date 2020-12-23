@@ -7,7 +7,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     var parisExpositionInformation: ParisExpositionInformation?
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,18 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            navigationController?.setNavigationBarHidden(true, animated: animated)
-        }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationItem.title = "메인"
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeJSON()
@@ -62,5 +50,17 @@ class ViewController: UIViewController {
         locationLabel.text = parisExpositionInformation?.location
         durationLabel.text = parisExpositionInformation?.duration
         descriptionLabel.text = parisExpositionInformation?.description
+    }
+    
+    // MARK: 첫 화면, Navigation Bar 컨트롤
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = "메인"
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }

@@ -2,7 +2,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
     var itemName: String?
     var itemImage: UIImage?
     var itemDescription: String?

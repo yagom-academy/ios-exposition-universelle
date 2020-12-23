@@ -2,9 +2,9 @@
 import UIKit
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var koreanExpositionItemList = [KoreaExpositionItem]()
     
     @IBOutlet weak var tableView: UITableView!
-    var koreanExpositionItemList = [KoreaExpositionItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         decodeJSON()
     }
     
+    // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return koreanExpositionItemList.count
     }
@@ -33,7 +34,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    // 셀 선택
+    // 셀 선택했을 때 메서드
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
             return
