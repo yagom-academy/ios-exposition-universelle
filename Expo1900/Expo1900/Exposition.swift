@@ -1,5 +1,3 @@
-import Foundation
-
 struct Exposition: Codable {
     let title: String
     let visitors: UInt

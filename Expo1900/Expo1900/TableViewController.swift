@@ -1,15 +1,14 @@
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDelegate {
+class TableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cellIndentifier: String = "cell"
     var entries: [Entry] = []
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        decodeData()
+        decodeData(from: Constants.entriesDataAssetName)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -17,21 +16,26 @@ class TableViewController: UIViewController, UITableViewDelegate {
         navigationController?.isNavigationBarHidden = false
     }
     
-    func decodeData() {
-        guard let dataAsset = NSDataAsset(name: "items") else { return }
+    private func decodeData(from assetName: String) {
+        guard let dataAsset = NSDataAsset(name: assetName) else {
+            showAlert(about: .dataSetting)
+            return
+        }
         let jsonDecoder = JSONDecoder()
         
         do {
             self.entries = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
         } catch {
-            debugPrint("ERROR")
+            showAlert(about: .dataSetting)
         }
-        self.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        guard let detailView = segue.destination as? DetailViewController else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow,
+              let detailView = segue.destination as? DetailViewController else {
+            showAlert(about: .unknown)
+            return
+        }
         detailView.entry = entries[indexPath.row]
     }
 }
@@ -42,13 +46,14 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:  cellIndentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIndentifier, for: indexPath)
         let entry = entries[indexPath.row]
         var content = cell.defaultContentConfiguration()
 
         content.image = entry.image
         content.text = entry.name
         content.secondaryText = entry.shortDescription
+        cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = content
         return cell
     }
