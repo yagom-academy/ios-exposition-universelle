@@ -14,6 +14,7 @@ class ExpositionDescriptionViewController: UIViewController {
     @IBOutlet weak var assetDescription: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         assetImage.image = assetImageData
         assetDescription.text = assetDescriptionData
     }
