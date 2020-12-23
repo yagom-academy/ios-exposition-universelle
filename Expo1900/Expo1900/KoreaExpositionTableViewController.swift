@@ -8,7 +8,7 @@
 import UIKit
 
 class KoreaExpositionTableViewController: UITableViewController {
-    var koreaItemList: [KoreaItem]!
+    var koreaItemList: [KoreaItem]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,10 @@ class KoreaExpositionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        koreaItemList.count
+        guard let count = koreaItemList?.count else {
+            return 0
+        }
+        return count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,21 +35,23 @@ class KoreaExpositionTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.assetImage.image = UIImage(named: koreaItemList[indexPath.row].imageName)
-        cell.titleLabel.text = koreaItemList[indexPath.row].name
-        cell.summaryLabel.text = koreaItemList[indexPath.row].shortDescription
+        if let itemList = koreaItemList {
+            cell.assetImage.image = UIImage(named: itemList[indexPath.row].imageName)
+            cell.titleLabel.text = itemList[indexPath.row].name
+            cell.summaryLabel.text = itemList[indexPath.row].shortDescription
+        }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let expositionDescriptionViewController = storyboard?.instantiateViewController(identifier: "ExpositionDescriptionViewController") as? ExpositionDescriptionViewController else {
-            return
+        if let expositionDescriptionViewController = storyboard?.instantiateViewController(identifier: "ExpositionDescriptionViewController") as? ExpositionDescriptionViewController {
+            if let itemList = koreaItemList {
+                expositionDescriptionViewController.assetImageData = UIImage(named: itemList[indexPath.row].imageName)
+                expositionDescriptionViewController.assetDescriptionData = itemList[indexPath.row].description
+            }
+            navigationController?.pushViewController(expositionDescriptionViewController, animated: true)
         }
-        
-        expositionDescriptionViewController.assetImageData = UIImage(named: koreaItemList[indexPath.row].imageName)
-        expositionDescriptionViewController.assetDescriptionData = koreaItemList[indexPath.row].description
-        navigationController?.pushViewController(expositionDescriptionViewController, animated: true)
     }
 }
