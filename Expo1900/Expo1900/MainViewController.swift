@@ -9,12 +9,20 @@ class MainViewController: UIViewController {
     
     var exposition: Exposition?
     
+    func DecimalComma(value: Int) -> String{
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: value))!
+        
+        return result
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "메인"
         self.navigationController?.isNavigationBarHidden = true
         titleLabel.text = exposition?.title
-        visitorLabel.text = "방문객 : " + String(exposition!.visitors)
+        visitorLabel.text = "방문객 : " + DecimalComma(value: (Int(exposition!.visitors)))
         locationLabel.text = "개최지 : " + String(exposition!.location)
         durationLabel.text = "개최기간 : " + String(exposition!.duration)
         descriptionLabel.text = exposition?.description

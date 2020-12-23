@@ -1,6 +1,7 @@
 import UIKit
 
 class TableViewController: UIViewController, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "cell"
     var entry: [Entry] = []
     
@@ -16,8 +17,6 @@ class TableViewController: UIViewController, UITableViewDataSource {
         cell.detailTextLabel?.text = entry.shortDescription
         return cell
     }
-
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
