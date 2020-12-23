@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaExpositionItemDetail: UIViewController {
+class KoreaExpositionItemViewController: UIViewController {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     

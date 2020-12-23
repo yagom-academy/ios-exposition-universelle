@@ -54,7 +54,7 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController: KoreaExpositionItemDetail = segue.destination as? KoreaExpositionItemDetail else {
+        guard let nextViewController: KoreaExpositionItemViewController = segue.destination as? KoreaExpositionItemViewController else {
             return
         }
         guard let cell = sender as? ExpositionTableViewCell, let index = cell.index else {
