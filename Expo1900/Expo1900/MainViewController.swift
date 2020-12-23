@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var expositionName: UILabel!
     @IBOutlet weak var expositionPoster: UIImageView!
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         numberFormatter.numberStyle = .decimal
         guard let visitor = numberFormatter.string(for: model.visitors) else { return }
         numberOfVisitor.text = "방문객 : \(visitor) 명"
-       
+
         expositionPlace.text = "개최지 : \(model.location)"
         expositionDuration.text = "개최 기간 : \(model.duration)"
         expositionDescription.text = model.description
