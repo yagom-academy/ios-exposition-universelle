@@ -30,6 +30,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    // 셀 선택
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailPage")
+        self.navigationController?.pushViewController(pushVC!, animated: true)
+    }
+    
     func decodeJSON() {
         let decoder: JSONDecoder = JSONDecoder()
         
