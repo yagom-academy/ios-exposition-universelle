@@ -63,7 +63,8 @@ class ViewController: UIViewController {
     
     private func setVisitorsLabel(_ visitors: UInt) {
         let prefix = "방문자 : "
-        let text = setEachFontsize(text: String(visitors) + " 명", prefix)
+        let number = putComma(in: String(visitors)) + " 명"
+        let text = setEachFontsize(text: number, prefix)
         visitorsLabel.attributedText = text
     }
     
@@ -84,6 +85,16 @@ class ViewController: UIViewController {
         let attributedStr = NSMutableAttributedString(string: prefix + String(text))
         attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSize, range: NSMakeRange(0, prefix.count))
         return attributedStr
+    }
+    
+    private func putComma(in number: String) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let doubleValue = Double(number) else {
+            return number
+        }
+        return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? number
     }
     
     @IBAction private func touchUpKoreanExpositionItem() {
