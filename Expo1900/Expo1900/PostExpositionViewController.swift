@@ -36,10 +36,9 @@ class PostExpositionViewController: UIViewController {
     }
     
     @IBAction func pressedButton(_ sender: UIButton) {
-        guard let koreaExpositionViewController = storyboard?.instantiateViewController(identifier: "KoreaExposition") else {
-            return
+        if let koreaExpositionViewController = storyboard?.instantiateViewController(identifier: "KoreaExposition") {
+            navigationController?.navigationBar.isHidden = false
+            navigationController?.pushViewController(koreaExpositionViewController, animated: true)
         }
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.pushViewController(koreaExpositionViewController, animated: true)
     }
 }

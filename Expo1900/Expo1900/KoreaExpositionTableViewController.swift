@@ -45,11 +45,15 @@ class KoreaExpositionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let expositionDescriptionViewController = storyboard?.instantiateViewController(identifier: "ExpositionDescriptionViewController") as? ExpositionDescriptionViewController {
-            if let itemList = koreaItemList {
-                expositionDescriptionViewController.assetImageData = UIImage(named: itemList[indexPath.row].imageName)
-                expositionDescriptionViewController.assetDescriptionData = itemList[indexPath.row].description
-            }
+            setExpositionDesciprionViewControllerData(expositionDescriptionViewController, indexPath)
             navigationController?.pushViewController(expositionDescriptionViewController, animated: true)
+        }
+    }
+    
+    private func setExpositionDesciprionViewControllerData(_ expositionDescriptionViewController: ExpositionDescriptionViewController, _ indexPath: IndexPath) {
+        if let itemList = koreaItemList {
+            expositionDescriptionViewController.assetImageData = UIImage(named: itemList[indexPath.row].imageName)
+            expositionDescriptionViewController.assetDescriptionData = itemList[indexPath.row].description
         }
     }
 }
