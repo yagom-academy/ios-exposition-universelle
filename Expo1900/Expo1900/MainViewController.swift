@@ -18,12 +18,15 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.isNavigationBarHidden = true
         expositionDescription.isEditable = false
         expositionDescription.isScrollEnabled = false
 
         decodeExpositionData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func decodeExpositionData() {
