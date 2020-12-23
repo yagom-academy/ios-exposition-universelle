@@ -12,6 +12,10 @@ class KoreanEntryViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
+        assignData()
+    }
+    
+    func assignData() {
         guard let fetchName = koreanEntryNameData,
               let fetchImage = koreanEntryImageData,
               let fetchDescriptions = koreanEntryDescriptionsData else { return }
