@@ -18,7 +18,8 @@ class ExpositionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        decodeExpositionData()
+        updateExpositionInfo()
     }
 
 }
@@ -35,5 +36,25 @@ extension ExpositionViewController {
             return
         }
         exposition = expositionData
+    }
+    
+    private func updateExpositionInfo() {
+        
+        guard let exposition = exposition else { return }
+        
+        titleLabel.text = exposition.title
+        visitorsLabel.text = "방문객 : \(exposition.visitors) 명"
+        locationLabel.text = "개최지 : \(exposition.location)"
+        durationLabel.text = "개최 기간 : \(exposition.duration)"
+        descriptionLabel.text = exposition.description
+    }
+}
+
+extension Int {
+    func insertComma() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: self))!
+        return result
     }
 }
