@@ -28,12 +28,6 @@ class KoreaExpositionTableViewController: UITableViewController {
         return count
     }
     
-    private func setCellData(_ cell: ExpositionTableViewCell, _ itemList: [KoreaItem], _ indexPath: IndexPath) {
-        cell.assetImage.image = UIImage(named: itemList[indexPath.row].imageName)
-        cell.titleLabel.text = itemList[indexPath.row].name
-        cell.summaryLabel.text = itemList[indexPath.row].shortDescription
-    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpositionCell") as? ExpositionTableViewCell else {
             return UITableViewCell()
@@ -44,6 +38,12 @@ class KoreaExpositionTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    private func setCellData(_ cell: ExpositionTableViewCell, _ itemList: [KoreaItem], _ indexPath: IndexPath) {
+        cell.assetImage.image = UIImage(named: itemList[indexPath.row].imageName)
+        cell.titleLabel.text = itemList[indexPath.row].name
+        cell.summaryLabel.text = itemList[indexPath.row].shortDescription
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
