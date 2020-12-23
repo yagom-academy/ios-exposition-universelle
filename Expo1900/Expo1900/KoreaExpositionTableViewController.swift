@@ -16,11 +16,9 @@ class KoreaExpositionTableViewController: UITableViewController {
         navigationItem.title = "한국의 출품작"
         
         let jsonAnalyzer = JSONAnalyzer()
-        guard let data = jsonAnalyzer.readFile(forName: "items", [KoreaItem].self) else {
-            return
+        if let data = jsonAnalyzer.readFile(forName: "items", [KoreaItem].self) {
+            koreaItemList = data
         }
-        koreaItemList = data
-        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
