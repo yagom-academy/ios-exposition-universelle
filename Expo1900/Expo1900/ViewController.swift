@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
         guard let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage") else {
+            showErrorAlert(message: "알 수 없는 에러!")
             return
         }
         self.navigationController?.pushViewController(pushVC, animated: true)
@@ -33,39 +34,24 @@ class ViewController: UIViewController {
         let decoder: JSONDecoder = JSONDecoder()
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            showErrorAlert(message: "JSON 디코딩 불가!")
             return
         }
         
         do {
           parisExpositionInformation = try decoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
         } catch {
-            print(error)
+            showErrorAlert(message: "JSON 디코딩 불가!")
             return
         }
     }
     
     func setAllData() {
-        guard let parisExopsitionTitle = parisExpositionInformation?.title else {
-            return
-        }
-        guard let parisExopsitionVisitors = parisExpositionInformation?.visitorsWithComma else {
-            return
-        }
-        guard let parisExopsitionLocation = parisExpositionInformation?.location else {
-            return
-        }
-        guard let parisExopsitionDuration = parisExpositionInformation?.duration else {
-            return
-        }
-        guard let parisExopsitionDescription = parisExpositionInformation?.description else {
-            return
-        }
-        
-        titleLabel.text = parisExopsitionTitle
-        visitorsLabel.text = parisExopsitionVisitors + " 명"
-        locationLabel.text = parisExopsitionLocation
-        durationLabel.text = parisExopsitionDuration
-        descriptionLabel.text = parisExopsitionDescription
+        titleLabel.text = parisExpositionInformation?.title ?? "정보 없음"
+        visitorsLabel.text = parisExpositionInformation?.visitorsWithComma ?? "정보 없음"
+        locationLabel.text = parisExpositionInformation?.location ?? "정보 없음"
+        durationLabel.text = parisExpositionInformation?.duration ?? "정보 없음"
+        descriptionLabel.text = parisExpositionInformation?.description ?? "정보 없음"
     }
     
     // MARK: 첫 화면, Navigation Bar 컨트롤
@@ -78,5 +64,13 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationItem.title = "메인"
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let OKButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+
+        alert.addAction(OKButton)
+        present(alert, animated: true, completion: nil)
     }
 }

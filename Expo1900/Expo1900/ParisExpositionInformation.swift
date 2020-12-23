@@ -24,6 +24,6 @@ struct ParisExpositionInformation: Codable {
         numberFormatter.groupingSize = 3
         
         let newValue = numberFormatter.string(from: NSNumber(value: number)) ?? String(number)
-        return newValue
+        return newValue + "명"
     }
 }

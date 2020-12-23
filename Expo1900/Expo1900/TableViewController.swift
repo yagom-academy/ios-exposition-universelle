@@ -37,6 +37,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // 셀 선택했을 때 메서드
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
+            showErrorAlert(message: "알 수 없는 에러!")
             return
         }
         self.navigationController?.pushViewController(pushVC, animated: true)
@@ -50,18 +51,27 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let decoder: JSONDecoder = JSONDecoder()
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+            showErrorAlert(message: "JSON 디코딩 불가!")
             return
         }
         
         do {
           koreanExpositionItemList = try decoder.decode([KoreaExpositionItem].self, from: dataAsset.data)
         } catch {
-            print(error)
+            showErrorAlert(message: "JSON 디코딩 불가!")
             return
         }
     }
     
     func setNavigationBar() {
         navigationItem.title = "한국의 출품작"
+    }
+    
+    func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let OKButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+
+        alert.addAction(OKButton)
+        present(alert, animated: true, completion: nil)
     }
 }
