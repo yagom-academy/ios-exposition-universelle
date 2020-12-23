@@ -5,7 +5,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var visitorLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var exposition: Exposition?
     
@@ -22,9 +22,9 @@ class MainViewController: UIViewController {
         }
         
         titleLabel.text = exposition?.title
-        visitorLabel.text = "방문객 : " + String(exposition!.visitors)
+        visitorLabel.text = "방문객 : " + String(exposition!.visitors) //쉼표처리
         locationLabel.text = "개최지 : " + String(exposition!.location)
         durationLabel.text = "개최기간 : " + String(exposition!.duration)
-        descriptionTextView.text = exposition?.description
+        descriptionLabel.text = exposition?.description
     }
 }
