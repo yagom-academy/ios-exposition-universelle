@@ -7,6 +7,11 @@ class KoreanEntriesListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        decodeJSONFile()
+        self.tableView.reloadData()
+    }
+    
+    func decodeJSONFile() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         let dataAssetName: String = "items"
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: dataAssetName) else { return }
@@ -28,7 +33,6 @@ class KoreanEntriesListViewController: UITableViewController {
         } catch {
             print("그외 에러가 발생했습니다.")
         }
-        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

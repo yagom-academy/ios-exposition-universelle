@@ -14,6 +14,11 @@ class ExpositionViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        decodeJSONFile()
+        assignData()
+    }
+    
+    func decodeJSONFile() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         let dataAssetName: String = "exposition_universelle_1900"
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: dataAssetName) else { return }
@@ -35,7 +40,9 @@ class ExpositionViewController: UITableViewController {
         } catch {
             print("그외 에러가 발생했습니다.")
         }
-        
+    }
+    
+    func assignData() {
         guard let data = expositionData else { return }
         
         let numberFormatter = NumberFormatter()
