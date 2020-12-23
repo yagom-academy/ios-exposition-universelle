@@ -20,6 +20,8 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = true
+        
         do {
             self.expositionData = try expositionDataModel.requestData()
         } catch {
