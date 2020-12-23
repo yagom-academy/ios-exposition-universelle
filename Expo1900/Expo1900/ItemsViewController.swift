@@ -25,6 +25,15 @@ class ItemsViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let itemDetailViewController = segue.destination as? ItemDetailViewController else { return }
+        guard let itemsTableViewCell = sender as? ItemsTableViewCell else { return }
+        guard let indexPath = itemsTableView.indexPath(for: itemsTableViewCell) else { return }
+        guard let itemToSend = self.items?[indexPath.row] else { return }
+        
+        itemDetailViewController.item = itemToSend
+    }
 }
 
 extension ItemsViewController: UITableViewDataSource {
