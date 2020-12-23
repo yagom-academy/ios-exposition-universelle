@@ -32,7 +32,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // 셀 선택
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailPage")
+        let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController")
         self.navigationController?.pushViewController(pushVC!, animated: true)
     }
     
