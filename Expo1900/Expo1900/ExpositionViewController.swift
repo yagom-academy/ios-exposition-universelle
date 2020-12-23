@@ -27,8 +27,9 @@ class ExpositionViewController: UIViewController {
         }
     
         guard let expositionData = self.expositionData else { return }
-        titleLabel.text = expositionData.title
-        visitorsNumberLabel.text = "방문객 : \(expositionData.visitorsNumber)"
+        titleLabel.text = expositionData.koreanTitle
+        englishTitleLabel.text = expositionData.englishTitle
+        visitorsNumberLabel.text = "방문객 : \(expositionData.visitorsNumberWithComma) 명"
         locationLabel.text = "개최지 : \(expositionData.location)"
         durationLabel.text = "개최 기간 : \(expositionData.duration)"
         descriptionLabel.text = expositionData.description
