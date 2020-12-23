@@ -31,7 +31,12 @@ class MainViewController: UIViewController {
         guard let durationValue : String = exposition?.duration else { return }
         guard let descriptionValue : String = exposition?.description else { return }
         
-        self.titleLabel.text = titleValue
+        let titleValueArray = titleValue.components(separatedBy: "(")
+        let titleValue1 = titleValueArray[0]
+        let titleValue2 = titleValueArray[1]
+        let titleLableValue = titleValue1 + "\n(" + titleValue2
+        
+        self.titleLabel.text = titleLableValue
         self.visitorLabel.text = "방문객 : " + visitorValue
         self.locationLabel.text = "개최지 : " + locationValue
         self.durationLabel.text = "개최기간 : " + durationValue
