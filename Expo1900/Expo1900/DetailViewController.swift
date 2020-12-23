@@ -1,18 +1,19 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    var entry: [Entry] = []
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var myEntry: Entry?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = myEntry?.name
+        self.imageView?.image = myEntry?.image
+        self.descriptionLabel.text = myEntry?.description
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
-        
-        do{
-            self.entry = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
 }
