@@ -8,22 +8,25 @@
 import UIKit
 
 class KoreaWorksViewController: UIViewController {
+    
+    private var koreaWorkList: [KoreaWorks] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+}
+
+extension KoreaWorksViewController {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func decodeKoreaWorks() {
+        
+        let jasonDecoder = JSONDecoder()
+        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else {
+            return
+        }
+        guard let koreaWorksData = try? jasonDecoder.decode([KoreaWorks].self, from: assetData.data) else {
+            return
+        }
+        koreaWorkList = koreaWorksData
     }
-    */
-
 }
