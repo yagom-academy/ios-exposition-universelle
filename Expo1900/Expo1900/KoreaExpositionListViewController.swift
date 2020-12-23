@@ -39,7 +39,7 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! ExpositionTableViewCell
         
         cell.titleLabel.text = koreaExpositionItems[indexPath.row].name
         cell.subtitleLabel.text = koreaExpositionItems[indexPath.row].shortDescription
@@ -57,7 +57,7 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
         guard let nextViewController: KoreaExpositionItemDetail = segue.destination as? KoreaExpositionItemDetail else {
             return
         }
-        guard let cell = sender as? CustomTableViewCell, let index = cell.index else {
+        guard let cell = sender as? ExpositionTableViewCell, let index = cell.index else {
             return
         }
         nextViewController.navigationBarTitle = cell.titleLabel.text
