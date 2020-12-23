@@ -37,6 +37,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         self.navigationController?.pushViewController(pushVC, animated: true)
         
+        pushVC.itemName = koreanExpositionItemList[indexPath.row].name
         pushVC.itemDescription = koreanExpositionItemList[indexPath.row].description
         pushVC.itemImage = koreanExpositionItemList[indexPath.row].image
     }
@@ -54,5 +55,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print(error)
             return
         }
+    }
+    
+    func setNavigationBar() {
+        navigationItem.title = "한국의 출품작"
     }
 }

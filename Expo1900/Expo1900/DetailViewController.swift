@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     }
     
     func setAllData() {
+        navigationItem.title = itemName
         itemImageView.image = itemImage
         itemDescriptionLabel.text = itemDescription
     }

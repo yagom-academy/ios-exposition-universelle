@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationItem.title = "메인"
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
