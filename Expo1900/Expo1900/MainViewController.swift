@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return print("에러") }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         
         do{
             self.exposition = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
