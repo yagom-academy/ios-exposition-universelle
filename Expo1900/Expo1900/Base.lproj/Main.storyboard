@@ -213,10 +213,81 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HIy-9Z-6oD"/>
+                    <connections>
+                        <segue destination="7bM-Pg-oow" kind="show" identifier="showWorkDetailView" id="I93-By-IvD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUz-j9-4mQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1981.5384615384614" y="116.58767772511848"/>
+        </scene>
+        <!--Work Detail View Controller-->
+        <scene sceneID="5u0-FX-xFn">
+            <objects>
+                <viewController id="7bM-Pg-oow" customClass="WorkDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D2e-lr-w5v">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQ7-mg-MQX">
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="d9s-x6-9wz">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="722"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJ6-MX-EKg">
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="390"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dJ6-MX-EKg" secondAttribute="height" multiplier="1:1" id="rop-Ac-GoH"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AlJ-Ti-U8k">
+                                                <rect key="frame" x="0.0" y="410" width="390" height="312"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="AlJ-Ti-U8k" firstAttribute="trailing" secondItem="dJ6-MX-EKg" secondAttribute="trailing" id="AdO-rR-TXj"/>
+                                            <constraint firstItem="AlJ-Ti-U8k" firstAttribute="leading" secondItem="dJ6-MX-EKg" secondAttribute="leading" id="rdZ-kn-HEa"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="d9s-x6-9wz" firstAttribute="trailing" secondItem="RaR-1f-vEs" secondAttribute="trailing" id="STy-wb-cm0"/>
+                                    <constraint firstItem="d9s-x6-9wz" firstAttribute="top" secondItem="zlb-mJ-tug" secondAttribute="top" constant="50" id="UQJ-KS-mrV"/>
+                                    <constraint firstItem="d9s-x6-9wz" firstAttribute="bottom" secondItem="RaR-1f-vEs" secondAttribute="bottom" id="Y8h-fp-cIQ"/>
+                                    <constraint firstItem="d9s-x6-9wz" firstAttribute="top" secondItem="RaR-1f-vEs" secondAttribute="top" id="dRa-kD-bEx"/>
+                                    <constraint firstItem="d9s-x6-9wz" firstAttribute="centerX" secondItem="jQ7-mg-MQX" secondAttribute="centerX" id="hyr-kD-EMl"/>
+                                    <constraint firstItem="d9s-x6-9wz" firstAttribute="leading" secondItem="RaR-1f-vEs" secondAttribute="leading" id="i5m-SW-Tbc"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="RaR-1f-vEs"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zlb-mJ-tug"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5K1-r0-30r"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d9s-x6-9wz" firstAttribute="width" secondItem="D2e-lr-w5v" secondAttribute="width" id="3ln-ie-l1d"/>
+                            <constraint firstItem="jQ7-mg-MQX" firstAttribute="leading" secondItem="5K1-r0-30r" secondAttribute="leading" id="ClL-Nf-Pn8"/>
+                            <constraint firstItem="5K1-r0-30r" firstAttribute="bottom" secondItem="jQ7-mg-MQX" secondAttribute="bottom" id="cjy-Vo-DQw"/>
+                            <constraint firstItem="jQ7-mg-MQX" firstAttribute="top" secondItem="5K1-r0-30r" secondAttribute="top" id="fAs-HQ-jNS"/>
+                            <constraint firstItem="d9s-x6-9wz" firstAttribute="height" secondItem="5K1-r0-30r" secondAttribute="height" id="mMn-Z2-U6s"/>
+                            <constraint firstItem="5K1-r0-30r" firstAttribute="trailing" secondItem="jQ7-mg-MQX" secondAttribute="trailing" id="w9T-5H-Pdu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MY7-f4-lh4"/>
+                    <connections>
+                        <outlet property="workDescription" destination="AlJ-Ti-U8k" id="prK-dY-vHa"/>
+                        <outlet property="workImage" destination="dJ6-MX-EKg" id="tPQ-Rm-5qs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6D4-wj-jyh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2923.0769230769229" y="116.58767772511848"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0mu-yn-T6z">
