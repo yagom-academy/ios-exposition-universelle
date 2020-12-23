@@ -15,7 +15,12 @@ class ExpositionDescriptionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setDescriptionData()
+    }
+    
+    private func setDescriptionData() {
         assetImage.image = assetImageData
         assetDescription.text = assetDescriptionData
+        navigationItem.title = assetDescriptionData
     }
 }
