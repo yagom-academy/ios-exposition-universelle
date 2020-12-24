@@ -17,10 +17,10 @@ class KoreaExpositionItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setData()
+        setAllDataInView()
     }
     
-    private func setData() {
+    private func setAllDataInView() {
         self.navigationItem.title = navigationBarTitle
         self.itemImageView.image = itemImage
         self.descriptionLabel.text = itemDescription
