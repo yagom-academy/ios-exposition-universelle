@@ -1,7 +1,7 @@
 
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TableViewController: UIViewController {
     var koreanExpositionItemList = [KoreaExpositionItem]()
     
     @IBOutlet weak var tableView: UITableView!
@@ -15,38 +15,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.title = "한국의 출품작"
         decodeJSON()
     }
-    
-    // MARK: UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return koreanExpositionItemList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "koreanItemCell", for: indexPath) as? KoreanItemCell else {
-            return UITableViewCell()
-        }
-        
-        let koreanExpositionItem: KoreaExpositionItem = koreanExpositionItemList[indexPath.row]
-        cell.koreanItemImageView.image = koreanExpositionItem.image
-        cell.koreanItemNameLabel.text = koreanExpositionItem.name
-        cell.koreanItemShortDescriptionLabel.text = koreanExpositionItem.shortDescription
-        
-        return cell
-    }
-    
-    // 셀 선택했을 때 메서드
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
-            showErrorAlert(message: "알 수 없는 에러!")
-            return
-        }
-        self.navigationController?.pushViewController(pushVC, animated: true)
-        // VC 줄여서 쓰는 것을 지양하자.
-        pushVC.itemName = koreanExpositionItemList[indexPath.row].name
-        pushVC.itemDescription = koreanExpositionItemList[indexPath.row].description
-        pushVC.itemImage = koreanExpositionItemList[indexPath.row].image
-    }
-    
+
     func decodeJSON() {
         let decoder: JSONDecoder = JSONDecoder()
         
@@ -70,4 +39,41 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         alert.addAction(OKButton)
         present(alert, animated: true, completion: nil)
     }
+}
+
+
+// MARK: UITableViewDataSource
+extension TableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return koreanExpositionItemList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "koreanItemCell", for: indexPath) as? KoreanItemCell else {
+            return UITableViewCell()
+        }
+        
+        let koreanExpositionItem: KoreaExpositionItem = koreanExpositionItemList[indexPath.row]
+        cell.koreanItemImageView.image = koreanExpositionItem.image
+        cell.koreanItemNameLabel.text = koreanExpositionItem.name
+        cell.koreanItemShortDescriptionLabel.text = koreanExpositionItem.shortDescription
+        
+        return cell
+    }
+}
+
+// MARK: UITableViewDelegate
+extension TableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
+            showErrorAlert(message: "알 수 없는 에러!")
+            return
+        }
+        self.navigationController?.pushViewController(pushVC, animated: true)
+        // VC 줄여서 쓰는 것을 지양하자.
+        pushVC.itemName = koreanExpositionItemList[indexPath.row].name
+        pushVC.itemDescription = koreanExpositionItemList[indexPath.row].description
+        pushVC.itemImage = koreanExpositionItemList[indexPath.row].image
+    }
+    
 }
