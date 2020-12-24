@@ -25,7 +25,7 @@ class ExhibitionWorksListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.backItem?.title = "메"
+        self.navigationController?.navigationBar.backItem?.title = "메인"
         self.navigationController?.navigationBar.topItem?.title = "한국의 출품작"
         decodeExhibitionData()
     }
