@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var koreaItemsView: UIView!
     
     private let mainViewControllerTitle = "메인"
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     // MARK: - data property
     private var expositionData: Exposition? = nil
@@ -44,12 +46,16 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = true
+        
+        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         navigationController?.isNavigationBarHidden = false
+        
+        appDelegate.shouldSupportAllOrientation = true
     }
     
     // MARK: - init data
