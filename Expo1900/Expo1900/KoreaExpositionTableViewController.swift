@@ -19,6 +19,8 @@ class KoreaExpositionTableViewController: UITableViewController {
         if let data = jsonAnalyzer.readFile(forName: "items", [KoreaItem].self) {
             koreaItemList = data
         }
+        
+        UIOrientation.setUIOrientation(.all)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
