@@ -15,9 +15,7 @@ class ExpositionTableViewCell: UITableViewCell {
     var index: Int?
     
     func setDynamicType() {
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        titleLabel.adjustsFontSizeToFitWidth = true
-        subtitleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
     }
 }
