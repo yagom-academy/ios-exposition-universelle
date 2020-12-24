@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 class KoreaExpositionListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var koreaExpositionListTableView: UITableView!
     private var koreaExpositionItems: [KoreaExpositionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "한국의 출품작"
         decodeData()
-        tableView.dataSource = self
-        tableView.delegate = self
+        koreaExpositionListTableView.dataSource = self
+        koreaExpositionListTableView.delegate = self
     }
     
     private func decodeData() {
@@ -68,6 +68,6 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
 
 extension KoreaExpositionListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.koreaExpositionListTableView.deselectRow(at: indexPath, animated: true)
     }
 }
