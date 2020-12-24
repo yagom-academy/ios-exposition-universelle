@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
-        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanExpositionPage") else {
+        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanItemListViewController") else {
             showErrorAlert(message: "알 수 없는 에러!")
             return
         }
