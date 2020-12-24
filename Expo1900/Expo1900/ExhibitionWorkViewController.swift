@@ -8,22 +8,15 @@
 import UIKit
 
 class ExhibitionWorkViewController: UIViewController {
-
+    
+    @IBOutlet weak var workImage: UIImageView!
+    @IBOutlet weak var workDescription: UITextView!
+    var imageFile: UIImage?
+    var descriptionData: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        workImage.image = imageFile
+        workDescription.text = descriptionData
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
