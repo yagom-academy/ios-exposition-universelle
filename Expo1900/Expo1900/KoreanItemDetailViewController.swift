@@ -1,7 +1,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class KoreanItemDetailViewController: UIViewController {
     var itemName: String?
     var itemImage: UIImage?
     var itemDescription: String?

@@ -65,7 +65,7 @@ extension KoreanItemListViewController: UITableViewDataSource {
 // MARK: UITableViewDelegate
 extension KoreanItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
+        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "DetailViewController") as? KoreanItemDetailViewController else {
             showErrorAlert(message: "알 수 없는 에러!")
             return
         }
