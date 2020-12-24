@@ -21,7 +21,9 @@ class ExpositionViewController: UITableViewController {
     func decodeJSONFile() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         let dataAssetName: String = "exposition_universelle_1900"
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: dataAssetName) else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: dataAssetName) else {
+            return
+        }
         
         do {
             self.expositionData = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
@@ -43,12 +45,16 @@ class ExpositionViewController: UITableViewController {
     }
     
     func assignData() {
-        guard let data = expositionData else { return }
+        guard let data = expositionData else {
+            return
+        }
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        guard let formattedVisitors = numberFormatter.string(from: NSNumber(value: data.visitors)) else { return }
+        guard let formattedVisitors = numberFormatter.string(from: NSNumber(value: data.visitors)) else {
+            return
+        }
         
         var numberOfVisitors: String {
             return "방문객 : \(formattedVisitors) 명"

@@ -18,7 +18,9 @@ class KoreanEntryViewController: UITableViewController {
     func assignData() {
         guard let fetchName = koreanEntryNameData,
               let fetchImage = koreanEntryImageData,
-              let fetchDescriptions = koreanEntryDescriptionsData else { return }
+              let fetchDescriptions = koreanEntryDescriptionsData else {
+              return
+        }
         
         navigationItem.title = fetchName
         koreanEntryImageView.image = fetchImage

@@ -14,7 +14,9 @@ class KoreanEntriesListViewController: UITableViewController {
     func decodeJSONFile() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         let dataAssetName: String = "items"
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: dataAssetName) else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: dataAssetName) else {
+            return
+        }
         
         do {
             self.koreanEntries = try jsonDecoder.decode([KoreanEntries].self, from: dataAsset.data)
