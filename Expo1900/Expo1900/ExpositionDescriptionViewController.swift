@@ -10,6 +10,7 @@ import UIKit
 class ExpositionDescriptionViewController: UIViewController {
     var assetImageData: UIImage?
     var assetDescriptionData: String?
+    var assetTitle: String?
     @IBOutlet weak var assetImage: UIImageView!
     @IBOutlet weak var assetDescription: UILabel!
     
@@ -21,6 +22,6 @@ class ExpositionDescriptionViewController: UIViewController {
     private func setDescriptionViewData() {
         assetImage.image = assetImageData
         assetDescription.text = assetDescriptionData
-        navigationItem.title = assetDescriptionData
+        navigationItem.title = assetTitle
     }
 }

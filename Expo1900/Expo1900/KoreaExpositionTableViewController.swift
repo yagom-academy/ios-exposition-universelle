@@ -50,7 +50,6 @@ class KoreaExpositionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let expositionDescriptionViewController = storyboard?.instantiateViewController(identifier: "ExpositionDescriptionViewController") as? ExpositionDescriptionViewController {
-            print(expositionDescriptionViewController.navigationController)
             setExpositionDesciprionViewControllerData(expositionDescriptionViewController, indexPath)
             navigationController?.pushViewController(expositionDescriptionViewController, animated: true)
         }
@@ -60,8 +59,10 @@ class KoreaExpositionTableViewController: UITableViewController {
         if let itemList = koreaItemList {
             let image = UIImage(named: itemList[indexPath.row].imageName)
             let description = itemList[indexPath.row].description
+            let assetTitle = itemList[indexPath.row].name
             expositionDescriptionViewController.assetImageData = image
             expositionDescriptionViewController.assetDescriptionData = description
+            expositionDescriptionViewController.assetTitle = assetTitle
         }
     }
 }
