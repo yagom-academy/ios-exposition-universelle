@@ -2,8 +2,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var posterInformation: Exposition?
     var expositionPosterScrollView: ExpositionPosterScrollView?
+    private lazy var expositionInformation: Exposition? = {
+        if let data = NSDataAsset(name: "exposition_universelle_1900")?.data {
+            do {
+                let expositionInformation = try JSONDecoder().decode(Exposition.self,
+                                                                     from: data)
+                return expositionInformation
+            } catch {
+                return nil
+            }
+        }
+        return nil
+    }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -18,8 +29,7 @@ class ViewController: UIViewController {
         }
         expositionPosterScrollView.expositionPosterScrollViewDelegate = self
         view.addSubview(expositionPosterScrollView)
-        getPosterInformation()
-        expositionPosterScrollView.configurePoster(with: posterInformation)
+        expositionPosterScrollView.configurePoster(with: expositionInformation)
         setupConstraints(scrollView: expositionPosterScrollView)
     }
     
@@ -31,18 +41,6 @@ class ViewController: UIViewController {
         constraints.append(scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
         constraints.append(scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
         NSLayoutConstraint.activate(constraints)
-    }
-    
-    private func getPosterInformation() {
-        if let data = NSDataAsset(name: "exposition_universelle_1900")?.data {
-            let decoder = JSONDecoder()
-            do {
-                let taskData = try decoder.decode(Exposition.self, from: data)
-                posterInformation = taskData
-            } catch let error {
-                print(error)
-            }
-        }
     }
 }
 
