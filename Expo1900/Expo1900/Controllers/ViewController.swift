@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = "메인"
         expositionPosterScrollView = ExpositionPosterScrollView()
         guard let expositionPosterScrollView = expositionPosterScrollView else {
             return
@@ -47,8 +48,6 @@ class ViewController: UIViewController {
 extension ViewController: ExpositionPosterScrollViewDelegate {
     func didTapShowKoreanExhibitButton(_ scrollView: UIScrollView) {
         let exhibitsViewController = ExhibitsViewController()
-        exhibitsViewController.title = "한국의 출품작"
-        navigationItem.backButtonTitle = "메인"
         self.navigationController?.pushViewController(exhibitsViewController, animated: true)
     }
 }
