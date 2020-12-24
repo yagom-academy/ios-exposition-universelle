@@ -209,6 +209,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="c8r-oo-w8F"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="fFT-3r-CkK" id="elI-g2-wub"/>
+                        <outlet property="imgView" destination="bfp-lt-Krx" id="JW1-3X-SN0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ddd-m2-dYY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
