@@ -25,6 +25,8 @@ class PostExpositionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        
+        
     }
     
     private func setPostText(_ data: Exposition) {
