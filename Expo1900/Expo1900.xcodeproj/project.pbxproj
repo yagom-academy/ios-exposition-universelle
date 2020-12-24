@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		E229149125903F8300827F12 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E229149025903F8300827F12 /* Exposition.swift */; };
+		E2291494259044B900827F12 /* KoreanEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2291493259044B900827F12 /* KoreanEntries.swift */; };
+		E229149F2591B40200827F12 /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E229149E2591B40200827F12 /* ExpositionViewController.swift */; };
+		E22914A32591E56000827F12 /* KoreanEntriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */; };
+		E22914A62591E5E400827F12 /* KoreanEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E229149025903F8300827F12 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		E2291493259044B900827F12 /* KoreanEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntries.swift; sourceTree = "<group>"; };
+		E229149E2591B40200827F12 /* ExpositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionViewController.swift; sourceTree = "<group>"; };
+		E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntriesListViewController.swift; sourceTree = "<group>"; };
+		E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,35 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				E229149D2591B3C900827F12 /* ViewController */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
+				E229148F25903EE000827F12 /* ExpoModel */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		E229148F25903EE000827F12 /* ExpoModel */ = {
+			isa = PBXGroup;
+			children = (
+				E229149025903F8300827F12 /* Exposition.swift */,
+				E2291493259044B900827F12 /* KoreanEntries.swift */,
+			);
+			path = ExpoModel;
+			sourceTree = "<group>";
+		};
+		E229149D2591B3C900827F12 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E229149E2591B40200827F12 /* ExpositionViewController.swift */,
+				E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */,
+				E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				E22914A62591E5E400827F12 /* KoreanEntryViewController.swift in Sources */,
+				E2291494259044B900827F12 /* KoreanEntries.swift in Sources */,
+				E22914A32591E56000827F12 /* KoreanEntriesListViewController.swift in Sources */,
+				E229149F2591B40200827F12 /* ExpositionViewController.swift in Sources */,
+				E229149125903F8300827F12 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
