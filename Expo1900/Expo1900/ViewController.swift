@@ -14,8 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        appDelegate?.shouldSupportAllOrientation = false
         super.viewWillAppear(animated)
     }
     
@@ -27,6 +30,7 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        appDelegate?.shouldSupportAllOrientation = true
         super.viewWillDisappear(animated)
     }
     
