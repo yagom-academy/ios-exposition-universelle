@@ -28,10 +28,14 @@ class PostExpositionViewController: UIViewController {
     }
     
     private func setPostText(_ data: Exposition) {
+        let visitor = data.visitors
+        let location = data.location
+        let duration = data.duration
+        
         titleLabel.text = data.title
-        visitorsLabel.text = "방문객 : \(String(data.visitors)) 명"
-        locationLabel.text = "개최지 : \(data.location)"
-        durationLabel.text = "개최 기간 : \(data.duration)"
+        visitorsLabel.text = "방문객 : \(visitor) 명"
+        locationLabel.text = "개최지 : \(location)"
+        durationLabel.text = "개최 기간 : \(duration)"
         descriptionLabel.text = data.description
     }
     
