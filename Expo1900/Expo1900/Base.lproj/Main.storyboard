@@ -20,16 +20,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rV-Xt-xzB" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="732"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FV9-ER-iHE" userLabel="title">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FV9-ER-iHE" userLabel="title">
                                                 <rect key="frame" x="30" y="0.0" width="354" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Ajg-NP-9ML"/>
                                                 </constraints>
                                                 <string key="text">파리 만국박람회 1900
 (L'Exposition de Paris 1900)</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -40,41 +40,35 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I5v-81-eRx">
-                                                <rect key="frame" x="20" y="330" width="374" height="385"/>
+                                                <rect key="frame" x="20" y="330" width="374" height="402"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ja5-0O-Ypj" userLabel="visitor">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객 : 48,130,300 명" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ja5-0O-Ypj" userLabel="visitor">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="방문객 : 48,130,300 명">
-                                                                <attributes>
-                                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문지  : 프랑스 파리" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3g-bm-BAq" userLabel="visit spot">
                                                         <rect key="frame" x="0.0" y="30.5" width="374" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간 : 1900. 04. 14 - 1900. 11. 12" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-lx-bYo" userLabel="period">
                                                         <rect key="frame" x="0.0" y="61" width="374" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lg-w4-hDN" userLabel="description">
-                                                        <rect key="frame" x="0.0" y="91.5" width="374" height="223.5"/>
+                                                        <rect key="frame" x="0.0" y="91.5" width="374" height="240.5"/>
                                                         <string key="text">1900년 파리 만국박람회(지금1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의1900년 파리 만국박람회(지금의</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HVY-Hn-dGO" userLabel="korea view">
-                                                        <rect key="frame" x="0.0" y="325" width="374" height="60"/>
+                                                        <rect key="frame" x="0.0" y="342" width="374" height="60"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="hU3-74-Gtz">
                                                                 <rect key="frame" x="10" y="10" width="40" height="40"/>
