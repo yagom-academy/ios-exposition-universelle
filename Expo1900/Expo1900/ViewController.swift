@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var koreaItemsView: UIView!
+    @IBOutlet weak var goKoreaButton: UIButton!
     
     private let mainViewControllerTitle = "메인"
     
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
         do {
             try initExpositionData()
             try setUpUI()
+            setButtonTextSizeDynamic()
         } catch {
             let alert = self.errorAlert(error: error, handler: nil)
             self.showErrorAlert(alert)
@@ -101,6 +103,10 @@ class ViewController: UIViewController {
     private func makeExpositionFormat(prefix: String, content: String) -> String {
         let contentFormat = NSString(format: "%@%@", prefix, content)
         return String(contentFormat)
+    }
+    
+    private func setButtonTextSizeDynamic() {
+        goKoreaButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 }
 
