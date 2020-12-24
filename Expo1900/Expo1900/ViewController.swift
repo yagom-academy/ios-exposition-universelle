@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var goKoreaExpoListButton: UIButton!
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
@@ -54,6 +55,8 @@ class ViewController: UIViewController {
         durationLabel.font = UIFont.preferredFont(forTextStyle: .body)
         locationLabel.font = UIFont.preferredFont(forTextStyle: .body)
         descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        goKoreaExpoListButton?.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        goKoreaExpoListButton?.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     private func setAllLabelsInView(from result: ParisExpositionInformation) {

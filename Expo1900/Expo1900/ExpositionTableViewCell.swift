@@ -13,4 +13,11 @@ class ExpositionTableViewCell: UITableViewCell {
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var koreaItemImageView: UIImageView!
     var index: Int?
+    
+    func setDynamicType() {
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        titleLabel.adjustsFontSizeToFitWidth = true
+        subtitleLabel.adjustsFontSizeToFitWidth = true
+    }
 }

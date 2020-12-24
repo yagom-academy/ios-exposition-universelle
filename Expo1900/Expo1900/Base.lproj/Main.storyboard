@@ -35,6 +35,7 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48W-wC-jgj">
                                                         <rect key="frame" x="68" y="0.0" width="212" height="60"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <state key="normal" title="한국의 출품작 보러가기"/>
                                                         <connections>
                                                             <action selector="touchUpKoreanExpositionItem" destination="BYZ-38-t0r" eventType="touchUpInside" id="1za-tq-jJc"/>
@@ -134,6 +135,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="kOy-JY-oEn" id="aXQ-lG-k0D"/>
                         <outlet property="durationLabel" destination="Y3a-5y-OVb" id="JGg-ud-chx"/>
+                        <outlet property="goKoreaExpoListButton" destination="48W-wC-jgj" id="whB-A3-ivC"/>
                         <outlet property="locationLabel" destination="uEO-ES-7lR" id="IAw-no-FDV"/>
                         <outlet property="posterImageView" destination="cuH-GB-FRh" id="xMl-qX-TGj"/>
                         <outlet property="titleLabel" destination="uiG-f2-I2J" id="tsC-Io-SUY"/>
@@ -175,13 +177,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zep-4v-w67" userLabel="Title">
                                                             <rect key="frame" x="0.0" y="0.0" width="220.66666666666666" height="49"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24K-ZL-CQP" userLabel="Subtitle">
                                                             <rect key="frame" x="0.0" y="59" width="220.66666666666666" height="49"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
