@@ -38,7 +38,7 @@ extension ExpositionViewController {
     private func decodeExpositionData() {
         
         let jasonDecoder = JSONDecoder()
-        guard let assetData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1990") else {
+        guard let assetData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
         }
         guard let expositionData = try? jasonDecoder.decode(Exposition.self, from: assetData.data) else {
