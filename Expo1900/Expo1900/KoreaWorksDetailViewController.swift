@@ -16,7 +16,6 @@ class KoreaWorksDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = koreaWorksInfo?.name
         updateDetail()
     }
     
@@ -24,6 +23,7 @@ class KoreaWorksDetailViewController: UIViewController {
         if let koreaWorksInfo = self.koreaWorksInfo {
             imgView.image = koreaWorksInfo.image
             descriptionLabel.text = koreaWorksInfo.description
+            navigationItem.title = koreaWorksInfo.name
         }
     }
 }

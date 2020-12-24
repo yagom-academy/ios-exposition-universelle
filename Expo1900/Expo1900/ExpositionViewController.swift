@@ -52,7 +52,7 @@ extension ExpositionViewController {
         guard let expositionInfo = exposition else { return }
         
         titleLabel.text = expositionInfo.title
-        visitorsLabel.text = "방문객 : \(expositionInfo.visitors) 명"
+        visitorsLabel.text = "방문객 : \(expositionInfo.visitors.insertComma())명"
         locationLabel.text = "개최지 : \(expositionInfo.location)"
         durationLabel.text = "개최 기간 : \(expositionInfo.duration)"
         descriptionLabel.text = expositionInfo.description
