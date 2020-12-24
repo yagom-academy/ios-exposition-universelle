@@ -13,7 +13,7 @@ struct ExhibitionWork: Decodable {
     let shortDescription: String
     let description: String
     var image: UIImage? {
-        return UIImage(named: self.imageName)
+        return UIImage(named: imageName)
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -30,5 +30,4 @@ struct ExhibitionWork: Decodable {
         shortDescription = (try? requiredInformations.decode(String.self, forKey: .shortDescription)) ?? ""
         description = (try? requiredInformations.decode(String.self, forKey: .description)) ?? ""
     }
-    
 }
