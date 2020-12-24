@@ -8,7 +8,7 @@ struct KoreanEntries: Codable {
     let descriptions: String
     
     var image: UIImage? {
-        return UIImage(named: "\(self.imageName)")
+        return UIImage(named: self.imageName)
     }
     
     enum CodingKeys: String, CodingKey {
