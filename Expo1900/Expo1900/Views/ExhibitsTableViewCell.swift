@@ -8,7 +8,7 @@
 import UIKit
 
 class ExhibitsTableViewCell: UITableViewCell {
-    static let reuseIdentifier = "ExhibitsTableViewCell"
+    static let reuseIdentifier = String(describing: ExhibitsTableViewCell.self)
     
     //MARK: - Views
     private let exhibitStackView: UIStackView = {
