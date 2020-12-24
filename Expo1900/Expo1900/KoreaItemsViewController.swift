@@ -68,10 +68,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let koreaItem = self.koreaItemsData[indexPath.row]
-        let koreaItemImage = UIImage(named: koreaItem.imageName)
-        koreaItemCell.itemImageView.image = koreaItemImage
-        koreaItemCell.itemTitleLabel.text = koreaItem.name
-        koreaItemCell.itemShortDescriptionLabel.text = koreaItem.shortDescription
+        koreaItemCell.setUI(data: koreaItem)
         
         return koreaItemCell
     }
