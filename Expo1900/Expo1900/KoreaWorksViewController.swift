@@ -24,10 +24,16 @@ class KoreaWorksViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.updatdCell(info: koreaWorksInfo)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeKoreaWorks()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 
