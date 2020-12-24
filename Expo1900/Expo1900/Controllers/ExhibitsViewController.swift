@@ -8,8 +8,18 @@
 import UIKit
 
 class ExhibitsViewController: UIViewController {
-    
-    private var exhibits: [Exhibit]?
+    private let viewTitle = "한국의 출품작"
+    private lazy var exhibits: [Exhibit]? = {
+        if let data = NSDataAsset(name: "items")?.data {
+            do {
+                let exhibits = try JSONDecoder().decode([Exhibit].self, from: data)
+                return exhibits
+            } catch {
+                return nil
+            }
+        }
+        return nil
+    }()
     
     //MARK: - Views
     private let exhibitsTableView: UITableView = {
@@ -22,9 +32,10 @@ class ExhibitsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
         view.backgroundColor = .systemBackground
-        getExhibitInformations()
+        self.navigationController?.navigationBar.isHidden = false
+        self.title = viewTitle
+        navigationItem.backButtonTitle = viewTitle
         exhibitsTableView.delegate = self
         exhibitsTableView.dataSource = self
         view.addSubview(exhibitsTableView)
@@ -32,18 +43,6 @@ class ExhibitsViewController: UIViewController {
     }
     
     //MARK: - Private
-    private func getExhibitInformations() {
-        if let data = NSDataAsset(name: "items")?.data {
-            let decoder = JSONDecoder()
-            do {
-                let taskData = try decoder.decode([Exhibit].self, from: data)
-                exhibits = taskData
-            } catch let error {
-                print(error)
-            }
-        }
-    }
-    
     private func setupConstraints() {
         var constraints = [NSLayoutConstraint]()
         constraints.append(exhibitsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
@@ -74,7 +73,6 @@ extension ExhibitsViewController: UITableViewDelegate, UITableViewDataSource {
         let detailViewcontroller = DetailViewController()
         detailViewcontroller.exhibit = exhibits?[indexPath.row]
         detailViewcontroller.title = exhibits?[indexPath.row].name
-        navigationItem.backButtonTitle = "한국의 출품작"
         navigationController?.pushViewController(detailViewcontroller, animated: true)
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class ExhibitsTableViewCell: UITableViewCell {
-    static let reuseIdentifier = "ExhibitsTableViewCell"
+    static let reuseIdentifier = String(describing: ExhibitsTableViewCell.self)
     
     //MARK: - Views
     private let exhibitStackView: UIStackView = {
@@ -46,15 +46,13 @@ class ExhibitsTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let shortDescriptionTextView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.isSelectable = false
-        textView.textColor = .label
-        textView.textAlignment = .left
-        textView.font = .boldSystemFont(ofSize: 15)
-        return textView
+    private let shortDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .label
+        label.textAlignment = .left
+        label.font = .boldSystemFont(ofSize: 15)
+        return label
     }()
     
     //MARK: - init
@@ -75,7 +73,7 @@ class ExhibitsTableViewCell: UITableViewCell {
             return
         }
         nameLabel.text = exhibit.name
-        shortDescriptionTextView.text = exhibit.shortDescription
+        shortDescriptionLabel.text = exhibit.shortDescription
         exhibitImageView.image = exhibit.exhibitImage
     }
     
@@ -91,7 +89,7 @@ class ExhibitsTableViewCell: UITableViewCell {
     
     private func configureStackView() {
         nameShortDescriptionStackView.addArrangedSubview(nameLabel)
-        nameShortDescriptionStackView.addArrangedSubview(shortDescriptionTextView)
+        nameShortDescriptionStackView.addArrangedSubview(shortDescriptionLabel)
         exhibitStackView.addArrangedSubview(exhibitImageView)
         exhibitStackView.addArrangedSubview(nameShortDescriptionStackView)
     }

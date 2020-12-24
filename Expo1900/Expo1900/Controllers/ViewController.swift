@@ -2,8 +2,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var posterInformation: Exposition?
     var expositionPosterScrollView: ExpositionPosterScrollView?
+    private lazy var expositionInformation: Exposition? = {
+        if let data = NSDataAsset(name: "exposition_universelle_1900")?.data {
+            do {
+                let expositionInformation = try JSONDecoder().decode(Exposition.self,
+                                                                     from: data)
+                return expositionInformation
+            } catch {
+                return nil
+            }
+        }
+        return nil
+    }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -12,14 +23,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = "메인"
         expositionPosterScrollView = ExpositionPosterScrollView()
         guard let expositionPosterScrollView = expositionPosterScrollView else {
             return
         }
         expositionPosterScrollView.expositionPosterScrollViewDelegate = self
         view.addSubview(expositionPosterScrollView)
-        getPosterInformation()
-        expositionPosterScrollView.configurePoster(with: posterInformation)
+        expositionPosterScrollView.configurePoster(with: expositionInformation)
         setupConstraints(scrollView: expositionPosterScrollView)
     }
     
@@ -32,25 +43,11 @@ class ViewController: UIViewController {
         constraints.append(scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
         NSLayoutConstraint.activate(constraints)
     }
-    
-    private func getPosterInformation() {
-        if let data = NSDataAsset(name: "exposition_universelle_1900")?.data {
-            let decoder = JSONDecoder()
-            do {
-                let taskData = try decoder.decode(Exposition.self, from: data)
-                posterInformation = taskData
-            } catch let error {
-                print(error)
-            }
-        }
-    }
 }
 
 extension ViewController: ExpositionPosterScrollViewDelegate {
     func didTapShowKoreanExhibitButton(_ scrollView: UIScrollView) {
         let exhibitsViewController = ExhibitsViewController()
-        exhibitsViewController.title = "한국의 출품작"
-        navigationItem.backButtonTitle = "메인"
         self.navigationController?.pushViewController(exhibitsViewController, animated: true)
     }
 }

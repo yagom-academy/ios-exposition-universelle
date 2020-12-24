@@ -28,13 +28,12 @@ class DetailExhibitScrollView: UIScrollView {
         return imageView
     }()
     
-    private let exhibitDescriptionTextView: UITextView = {
-        let textView = UITextView()
-        textView.textColor = .label
-        textView.isScrollEnabled = false
-        textView.isEditable = false
-        textView.font = .monospacedDigitSystemFont(ofSize: 15, weight: .regular)
-        return textView
+    private let exhibitDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .label
+        label.font = .monospacedDigitSystemFont(ofSize: 15, weight: .regular)
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -55,7 +54,7 @@ class DetailExhibitScrollView: UIScrollView {
             return
         }
         exhibitImageView.image = exhibit.exhibitImage
-        exhibitDescriptionTextView.text = exhibit.description
+        exhibitDescriptionLabel.text = exhibit.description
     }
     
     //MARK: - Private
@@ -71,6 +70,6 @@ class DetailExhibitScrollView: UIScrollView {
     
     private func configureStackView() {
         exhibitInformationStackView.addArrangedSubview(exhibitImageView)
-        exhibitInformationStackView.addArrangedSubview(exhibitDescriptionTextView)
+        exhibitInformationStackView.addArrangedSubview(exhibitDescriptionLabel)
     }
 }

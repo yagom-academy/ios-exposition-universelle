@@ -25,14 +25,13 @@ class ExpositionPosterScrollView: UIScrollView {
         return stackView
     }()
     
-    private let expositionTitleTextView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.textAlignment = .center
-        textView.isScrollEnabled = false
-        textView.textColor = .label
-        textView.font = .boldSystemFont(ofSize: 30)
-        return textView
+    private let expositionTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .label
+        label.font = .boldSystemFont(ofSize: 30)
+        return label
     }()
     
     private let posterImageView: UIImageView = {
@@ -42,23 +41,21 @@ class ExpositionPosterScrollView: UIScrollView {
         return imageView
     }()
     
-    private let expositionInformationsTextView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.textAlignment = .center
-        textView.font = .italicSystemFont(ofSize: 20)
-        textView.textColor = .label
-        return textView
+    private let expositionInformationsLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = .italicSystemFont(ofSize: 20)
+        label.textColor = .label
+        return label
     }()
     
-    private let descriptionTextView: UITextView = {
-        let textView = UITextView()
-        textView.textColor = .label
-        textView.isScrollEnabled = false
-        textView.isEditable = false
-        textView.font = .monospacedDigitSystemFont(ofSize: 15, weight: .regular)
-        return textView
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .label
+        label.font = .monospacedDigitSystemFont(ofSize: 15, weight: .regular)
+        return label
     }()
     
     private let showKoreaExhibitStackView: UIStackView = {
@@ -117,12 +114,12 @@ class ExpositionPosterScrollView: UIScrollView {
             return
         }
         let title = expositionModel.title.components(separatedBy: "(")
-        expositionTitleTextView.text = title[0] + "\n" + "(" + title[1]
+        expositionTitleLabel.text = title[0] + "\n" + "(" + title[1]
         posterImageView.image = expositionModel.posterImage
-        expositionInformationsTextView.text = "방문객 : \(String(expositionModel.visitors))명\n"
+        expositionInformationsLabel.text = "방문객 : \(String(expositionModel.visitors))명\n"
                                             + "개최지 : \(expositionModel.location)\n"
                                             + "개최 기간 : \(expositionModel.duration)"
-        descriptionTextView.text = expositionModel.description
+        descriptionLabel.text = expositionModel.description
     }
     
     //MARK: - Private
@@ -140,10 +137,10 @@ class ExpositionPosterScrollView: UIScrollView {
         showKoreaExhibitStackView.addArrangedSubview(leftFlagImage)
         showKoreaExhibitStackView.addArrangedSubview(showKoreaExhibitButton)
         showKoreaExhibitStackView.addArrangedSubview(rightFlagImage)
-        expositionPosterStackView.addArrangedSubview(expositionTitleTextView)
+        expositionPosterStackView.addArrangedSubview(expositionTitleLabel)
         expositionPosterStackView.addArrangedSubview(posterImageView)
-        expositionPosterStackView.addArrangedSubview(expositionInformationsTextView)
-        expositionPosterStackView.addArrangedSubview(descriptionTextView)
+        expositionPosterStackView.addArrangedSubview(expositionInformationsLabel)
+        expositionPosterStackView.addArrangedSubview(descriptionLabel)
         expositionPosterStackView.addArrangedSubview(showKoreaExhibitStackView)
     }
     
