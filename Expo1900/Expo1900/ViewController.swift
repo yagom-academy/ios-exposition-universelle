@@ -23,11 +23,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
-        guard let pushVC = self.storyboard?.instantiateViewController(identifier: "KoreanItemListViewController") else {
+        guard let nextViewController = self.storyboard?.instantiateViewController(identifier: "KoreanItemListViewController") else {
             showErrorAlert(message: "알 수 없는 에러!")
             return
         }
-        self.navigationController?.pushViewController(pushVC, animated: true)
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     func decodeJSON() {
