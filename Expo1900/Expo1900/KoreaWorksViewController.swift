@@ -29,6 +29,16 @@ class KoreaWorksViewController: UIViewController, UITableViewDelegate, UITableVi
         performSegue(withIdentifier: "showDetail", sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let a = segue.destination as? KoreaWorksDetailViewController
+            if let index = sender as? Int {
+                let koreaWorksInfo = koreaWorksList[index]
+                a?.koreaWorksInfo = koreaWorksInfo
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
