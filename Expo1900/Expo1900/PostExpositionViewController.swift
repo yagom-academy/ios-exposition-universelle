@@ -26,7 +26,7 @@ class PostExpositionViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         
-        
+        UIOrientation.setUIOrientation(.portrait)
     }
     
     private func setPostText(_ data: Exposition) {
