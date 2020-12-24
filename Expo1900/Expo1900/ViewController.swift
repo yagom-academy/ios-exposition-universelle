@@ -46,7 +46,6 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = true
-        
         appDelegate.shouldSupportAllOrientation = false
     }
     
@@ -54,7 +53,6 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.isNavigationBarHidden = false
-        
         appDelegate.shouldSupportAllOrientation = true
     }
     
