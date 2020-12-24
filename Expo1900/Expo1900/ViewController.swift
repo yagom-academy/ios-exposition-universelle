@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeJSON()
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         }
         
         do {
-          parisExpositionInformation = try decoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
+            parisExpositionInformation = try decoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
         } catch {
             showErrorAlert(message: "JSON 디코딩 불가!")
             return
@@ -56,20 +56,20 @@ class ViewController: UIViewController {
     
     // MARK: 첫 화면, Navigation Bar 컨트롤
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            navigationController?.setNavigationBarHidden(true, animated: animated)
-        }
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationItem.title = "메인"
+        navigationItem.title = "메인" // viewDidLoad, setAllData
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func showErrorAlert(message: String) {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         let OKButton = UIAlertAction(title: "OK", style: .default, handler: nil)
-
+        
         alert.addAction(OKButton)
         present(alert, animated: true, completion: nil)
     }

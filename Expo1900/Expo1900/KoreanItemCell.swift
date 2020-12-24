@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class KoreanItemCell: UITableViewCell {
     @IBOutlet weak var koreanItemImageView: UIImageView!
     @IBOutlet weak var koreanItemNameLabel: UILabel!
     @IBOutlet weak var koreanItemShortDescriptionLabel: UILabel!

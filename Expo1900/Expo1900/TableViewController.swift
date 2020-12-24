@@ -11,8 +11,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
+        // 추상화가 필요할지에 대한 고민.
         
-        setNavigationBar()
+        setNavigationBar() // 한 줄짜리 함수에 대한 고민.
         decodeJSON()
     }
     
@@ -22,7 +23,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "koreanItemCell", for: indexPath) as? KoreanItemCell else {
             return UITableViewCell()
         }
         
@@ -41,7 +42,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         self.navigationController?.pushViewController(pushVC, animated: true)
-        
+        // VC 줄여서 쓰는 것을 지양하자.
         pushVC.itemName = koreanExpositionItemList[indexPath.row].name
         pushVC.itemDescription = koreanExpositionItemList[indexPath.row].description
         pushVC.itemImage = koreanExpositionItemList[indexPath.row].image
