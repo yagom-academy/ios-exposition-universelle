@@ -46,8 +46,10 @@ class ViewController: UIViewController {
     private func setAllLabelsInView(from result: ParisExpositionInformation) {
         setTitleLabel(result.title)
         setVisitorsLabel(result.visitors)
-        setLocationLabel(result.location)
-        setDurationLabel(result.duration)
+        let locationLabelPrefix = "개최지 : "
+        locationLabel.attributedText = setLabel(from: result.location, prefix: locationLabelPrefix)
+        let durationLabelPrefix = "개최 기간 : "
+        durationLabel.attributedText = setLabel(from: result.duration, prefix: durationLabelPrefix)
         descriptionLabel.text = result.description
     }
     
@@ -68,16 +70,9 @@ class ViewController: UIViewController {
         visitorsLabel.attributedText = text
     }
     
-    private func setLocationLabel(_ location: String) {
-        let prefix = "개최지 : "
-        let text = setEachFontsize(text: location, prefix)
-        locationLabel.attributedText = text
-    }
-    
-    private func setDurationLabel(_ duration: String) {
-        let prefix = "개최 기간 : "
-        let text = setEachFontsize(text: duration, prefix)
-        durationLabel.attributedText = text
+    private func setLabel(from labelContent: String, prefix: String) -> NSMutableAttributedString {
+        let text = setEachFontsize(text: labelContent, prefix)
+        return text
     }
     
     private func setEachFontsize(text: String, _ prefix: String) -> NSMutableAttributedString {
