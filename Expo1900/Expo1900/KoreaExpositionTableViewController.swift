@@ -23,6 +23,11 @@ class KoreaExpositionTableViewController: UITableViewController {
         UIOrientation.setUIOrientation(.all)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let count = koreaItemList?.count else {
             return 0
@@ -45,6 +50,7 @@ class KoreaExpositionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let expositionDescriptionViewController = storyboard?.instantiateViewController(identifier: "ExpositionDescriptionViewController") as? ExpositionDescriptionViewController {
+            print(expositionDescriptionViewController.navigationController)
             setExpositionDesciprionViewControllerData(expositionDescriptionViewController, indexPath)
             navigationController?.pushViewController(expositionDescriptionViewController, animated: true)
         }
