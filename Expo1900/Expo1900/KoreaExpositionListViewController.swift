@@ -54,15 +54,15 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let koreaExpoItemVC: KoreaExpositionItemViewController = segue.destination as? KoreaExpositionItemViewController else {
+        guard let koreaExpoItemViewController: KoreaExpositionItemViewController = segue.destination as? KoreaExpositionItemViewController else {
             return
         }
         guard let cell = sender as? ExpositionTableViewCell, let index = cell.index else {
             return
         }
-        koreaExpoItemVC.navigationBarTitle = cell.titleLabel.text
-        koreaExpoItemVC.itemImage = cell.koreaItemImageView.image
-        koreaExpoItemVC.itemDescription = koreaExpositionItems[index].description
+        koreaExpoItemViewController.navigationBarTitle = cell.titleLabel.text
+        koreaExpoItemViewController.itemImage = cell.koreaItemImageView.image
+        koreaExpoItemViewController.itemDescription = koreaExpositionItems[index].description
     }
 }
 
