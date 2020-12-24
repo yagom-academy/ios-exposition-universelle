@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "메인"
         decodeData()
+        setDynamicFonts()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,6 +46,14 @@ class ViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    private func setDynamicFonts() {
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        visitorsLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        durationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        locationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
     }
     
     private func setAllLabelsInView(from result: ParisExpositionInformation) {
