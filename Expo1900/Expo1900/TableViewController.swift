@@ -11,9 +11,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
-        // 추상화가 필요할지에 대한 고민.
         
-        setNavigationBar() // 한 줄짜리 함수에 대한 고민.
+        navigationItem.title = "한국의 출품작"
         decodeJSON()
     }
     
@@ -62,10 +61,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             showErrorAlert(message: "JSON 디코딩 불가!")
             return
         }
-    }
-    
-    func setNavigationBar() {
-        navigationItem.title = "한국의 출품작"
     }
     
     func showErrorAlert(message: String) {
