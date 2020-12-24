@@ -17,7 +17,7 @@ class ExpositionViewController: UIViewController {
     private var exposition: Exposition?
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        super.self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     override func viewDidLoad() {

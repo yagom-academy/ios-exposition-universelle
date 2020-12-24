@@ -19,7 +19,7 @@ class KoreaWorksDetailViewController: UIViewController {
         updateDetail()
     }
     
-    func updateDetail() {
+    private func updateDetail() {
         if let koreaWorksInfo = self.koreaWorksInfo {
             imgView.image = koreaWorksInfo.image
             descriptionLabel.text = koreaWorksInfo.description
