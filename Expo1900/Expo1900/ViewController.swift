@@ -52,6 +52,8 @@ class ViewController: UIViewController {
         locationLabel.text = parisExpositionInformation?.location ?? "정보 없음"
         durationLabel.text = parisExpositionInformation?.duration ?? "정보 없음"
         descriptionLabel.text = parisExpositionInformation?.description ?? "정보 없음"
+        
+        navigationItem.title = "메인"
     }
     
     // MARK: 첫 화면, Navigation Bar 컨트롤
@@ -62,7 +64,6 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationItem.title = "메인" // viewDidLoad, setAllData
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
