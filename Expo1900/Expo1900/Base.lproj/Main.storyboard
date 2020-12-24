@@ -183,6 +183,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JOf-WW-nlc" id="mpW-VW-zwD"/>
+                                    <outlet property="delegate" destination="JOf-WW-nlc" id="nTM-ZS-Wkp"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BFe-Bp-yXr"/>
@@ -196,7 +200,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="w7G-0m-e9h"/>
                     <connections>
-                        <segue destination="s5A-x4-TQF" kind="show" identifier="cellSegue" id="pje-em-CgL"/>
+                        <segue destination="s5A-x4-TQF" kind="show" identifier="showDetail" id="pje-em-CgL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rya-6V-oUT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
