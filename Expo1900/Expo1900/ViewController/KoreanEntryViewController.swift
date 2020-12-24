@@ -2,9 +2,7 @@ import UIKit
 
 class KoreanEntryViewController: UITableViewController {
     
-    var koreanEntryNameData: String?
-    var koreanEntryImageData: UIImage?
-    var koreanEntryDescriptionsData: String?
+    var fetchData: KoreanEntries?
     
     @IBOutlet weak var koreanEntryImageView: UIImageView!
     @IBOutlet weak var koreanEntryDescriptionsTextLabel: UILabel!
@@ -16,15 +14,11 @@ class KoreanEntryViewController: UITableViewController {
     }
     
     func assignData() {
-        guard let fetchName = koreanEntryNameData,
-              let fetchImage = koreanEntryImageData,
-              let fetchDescriptions = koreanEntryDescriptionsData else {
-              return
-        }
-        
-        navigationItem.title = fetchName
-        koreanEntryImageView.image = fetchImage
-        koreanEntryDescriptionsTextLabel.text = fetchDescriptions
+        guard let fetchData = self.fetchData else { return }
+
+        navigationItem.title = fetchData.name
+        koreanEntryImageView.image = fetchData.image
+        koreanEntryDescriptionsTextLabel.text = fetchData.descriptions
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

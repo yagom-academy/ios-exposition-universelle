@@ -62,10 +62,8 @@ class KoreanEntriesListViewController: UITableViewController {
         }
 
         let selectedEntry: KoreanEntries = self.koreanEntries[indexPath.row]
-
-        koreanEntryViewController.koreanEntryNameData = selectedEntry.name
-        koreanEntryViewController.koreanEntryImageData = selectedEntry.image
-        koreanEntryViewController.koreanEntryDescriptionsData = selectedEntry.descriptions
+        
+        koreanEntryViewController.fetchData = selectedEntry
 
         navigationController?.pushViewController(koreanEntryViewController, animated: true)
     }
