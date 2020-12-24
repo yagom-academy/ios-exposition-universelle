@@ -7,7 +7,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     @IBOutlet weak var expositionName: UILabel!
     @IBOutlet weak var expositionPoster: UIImageView!
     @IBOutlet weak var numberOfVisitor: UILabel!
@@ -26,6 +25,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = "메인"
         self.navigationController?.isNavigationBarHidden = true
     }
     

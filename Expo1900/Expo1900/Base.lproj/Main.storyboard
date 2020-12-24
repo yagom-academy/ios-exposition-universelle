@@ -149,7 +149,7 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="101" id="EYV-Sy-rcE" customClass="CustomTableViewCell" customModule="Expo1900" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="101" id="EYV-Sy-rcE" customClass="ExhibitionWorkTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="390" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EYV-Sy-rcE" id="mqu-78-kUV">
@@ -177,9 +177,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="thumbnail" destination="mY8-oL-zF9" id="PsE-Gj-ccl"/>
-                                            <outlet property="workDescription" destination="D10-2w-Sdm" id="FIE-Vv-gHw"/>
-                                            <outlet property="workName" destination="fYU-B0-qoE" id="iqB-SN-SeL"/>
+                                            <outlet property="thumbnailImageView" destination="mY8-oL-zF9" id="05W-7a-9HL"/>
+                                            <outlet property="workDescriptionLabel" destination="D10-2w-Sdm" id="o4F-2L-0vv"/>
+                                            <outlet property="workNameLabel" destination="fYU-B0-qoE" id="myM-L6-9QR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
