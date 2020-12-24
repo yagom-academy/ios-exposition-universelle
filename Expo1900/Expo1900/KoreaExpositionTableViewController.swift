@@ -50,8 +50,10 @@ class KoreaExpositionTableViewController: UITableViewController {
     
     private func setExpositionDesciprionViewControllerData(_ expositionDescriptionViewController: ExpositionDescriptionViewController, _ indexPath: IndexPath) {
         if let itemList = koreaItemList {
-            expositionDescriptionViewController.assetImageData = UIImage(named: itemList[indexPath.row].imageName)
-            expositionDescriptionViewController.assetDescriptionData = itemList[indexPath.row].description
+            let image = UIImage(named: itemList[indexPath.row].imageName)
+            let description = itemList[indexPath.row].description
+            expositionDescriptionViewController.assetImageData = image
+            expositionDescriptionViewController.assetDescriptionData = description
         }
     }
 }
