@@ -9,7 +9,17 @@ import UIKit
 
 class ExhibitsViewController: UIViewController {
     
-    private var exhibits: [Exhibit]?
+    private lazy var exhibits: [Exhibit]? = {
+        if let data = NSDataAsset(name: "items")?.data {
+            do {
+                let exhibits = try JSONDecoder().decode([Exhibit].self, from: data)
+                return exhibits
+            } catch {
+                return nil
+            }
+        }
+        return nil
+    }()
     
     //MARK: - Views
     private let exhibitsTableView: UITableView = {
@@ -24,7 +34,6 @@ class ExhibitsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         view.backgroundColor = .systemBackground
-        getExhibitInformations()
         exhibitsTableView.delegate = self
         exhibitsTableView.dataSource = self
         view.addSubview(exhibitsTableView)
@@ -32,18 +41,6 @@ class ExhibitsViewController: UIViewController {
     }
     
     //MARK: - Private
-    private func getExhibitInformations() {
-        if let data = NSDataAsset(name: "items")?.data {
-            let decoder = JSONDecoder()
-            do {
-                let taskData = try decoder.decode([Exhibit].self, from: data)
-                exhibits = taskData
-            } catch let error {
-                print(error)
-            }
-        }
-    }
-    
     private func setupConstraints() {
         var constraints = [NSLayoutConstraint]()
         constraints.append(exhibitsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
