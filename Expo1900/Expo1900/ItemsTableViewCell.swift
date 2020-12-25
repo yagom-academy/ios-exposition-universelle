@@ -15,4 +15,11 @@ class ItemsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func setCellContents(with item: Item) {
+        let itemImage = UIImage(named: item.imageName)
+        self.nameLabel.text = item.name
+        self.shortDescriptionLabel.text = item.shortDescription
+        self.itemImageView.image = itemImage
+    }
 }

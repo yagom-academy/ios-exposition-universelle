@@ -38,10 +38,13 @@ class ItemsViewController: UIViewController {
         guard let indexPath = itemsTableView.indexPath(for: itemsTableViewCell) else {
             return
         }
-        guard let itemToSend = self.items?[indexPath.row] else {
+        guard let item = self.items?[indexPath.row] else {
             return
         }
-        itemDetailViewController.item = itemToSend
+        itemDetailViewController.itemName = item.name
+        itemDetailViewController.itemDescription = item.description
+        let itemImage = UIImage(named: item.imageName)
+        itemDetailViewController.itemImage = itemImage
     }
 }
 
@@ -61,10 +64,7 @@ extension ItemsViewController: UITableViewDataSource {
         guard let item = self.items?[indexPath.row] else {
             return UITableViewCell()
         }
-        let itemImage = UIImage(named: item.imageName)
-        itemsTableViewCell.nameLabel.text = item.name
-        itemsTableViewCell.shortDescriptionLabel.text = item.shortDescription
-        itemsTableViewCell.itemImageView.image = itemImage
+        itemsTableViewCell.setCellContents(with: item)
         
         return itemsTableViewCell
     }
