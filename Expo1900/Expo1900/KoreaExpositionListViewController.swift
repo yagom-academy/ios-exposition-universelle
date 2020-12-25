@@ -43,11 +43,8 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! ExpositionTableViewCell
-        
-        cell.titleLabel.text = koreaExpositionItems[indexPath.row].name
-        cell.subtitleLabel.text = koreaExpositionItems[indexPath.row].shortDescription
-        cell.koreaItemImageView.image = koreaExpositionItems[indexPath.row].image
-        cell.index = indexPath.row
+        let koreaExpositionItem = koreaExpositionItems[indexPath.row]
+        cell.setCellData(data: koreaExpositionItem, index: indexPath.row)
         
         cell.setDynamicType()
 
@@ -63,7 +60,7 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
             showAlert(message: ExpositionError.canNotLoadTableViewCell.localizedDescription)
             return
         }
-        koreaExpoItemViewController.navigationBarTitle = cell.titleLabel.text
+        koreaExpoItemViewController.navigationBarTitle = cell.koreaItemTitleLabel.text
         koreaExpoItemViewController.itemImage = cell.koreaItemImageView.image
         koreaExpoItemViewController.itemDescription = koreaExpositionItems[index].description
     }

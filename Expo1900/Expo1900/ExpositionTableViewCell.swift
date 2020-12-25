@@ -9,13 +9,20 @@ import Foundation
 import UIKit
 
 class ExpositionTableViewCell: UITableViewCell {
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var subtitleLabel: UILabel!
+    @IBOutlet var koreaItemTitleLabel: UILabel!
+    @IBOutlet var koreaItemSubtitleLabel: UILabel!
     @IBOutlet var koreaItemImageView: UIImageView!
     var index: Int?
     
+    func setCellData(data: KoreaExpositionItem, index: Int) {
+        koreaItemTitleLabel.text = data.name
+        koreaItemSubtitleLabel.text = data.shortDescription
+        koreaItemImageView.image = data.image
+        self.index = index
+    }
+    
     func setDynamicType() {
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        koreaItemTitleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        koreaItemSubtitleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
     }
 }
