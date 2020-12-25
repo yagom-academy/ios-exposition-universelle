@@ -19,14 +19,14 @@ class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         do {
             self.expositionData = try expositionDataModel.requestData()
         } catch {
             print(error.localizedDescription)
         }
-    
-        guard let expositionData = self.expositionData else { return }
+        guard let expositionData = self.expositionData else {
+            return
+        }
         titleLabel.text = expositionData.koreanTitle
         englishTitleLabel.text = expositionData.englishTitle
         visitorsNumberLabel.text = "방문객 : \(expositionData.visitorsNumberWithComma) 명"
@@ -37,7 +37,6 @@ class ExpositionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.isNavigationBarHidden = true
     }
 }

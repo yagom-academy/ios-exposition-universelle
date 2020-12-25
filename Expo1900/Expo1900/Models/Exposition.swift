@@ -15,13 +15,17 @@ struct Exposition: Decodable {
     let description: String
     
     var koreanTitle: String {
-        guard let startParenthesesIndex = title.firstIndex(of: "(") else { return title }
+        guard let startParenthesesIndex = title.firstIndex(of: "(") else {
+            return title
+        }
         let koreanTitle = String(title[..<startParenthesesIndex])
         return koreanTitle
     }
     
     var englishTitle: String {
-        guard let startParenthesesIndex = title.firstIndex(of: "(") else { return title }
+        guard let startParenthesesIndex = title.firstIndex(of: "(") else {
+            return title
+        }
         let englishTitle = String(title[startParenthesesIndex...])
         return englishTitle
     }
@@ -29,7 +33,9 @@ struct Exposition: Decodable {
     var visitorsNumberWithComma: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        guard let visitorsNumberWithComma = numberFormatter.string(from: NSNumber(value: visitorsNumber)) else { return String(visitorsNumber) }
+        guard let visitorsNumberWithComma = numberFormatter.string(from: NSNumber(value: visitorsNumber)) else {
+            return String(visitorsNumber)
+        }
         return visitorsNumberWithComma
     }
     

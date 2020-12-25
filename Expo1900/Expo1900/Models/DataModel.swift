@@ -17,7 +17,9 @@ struct DataModel<T: Decodable> {
     
     private mutating func decode() throws {
         let jsonDecoder = JSONDecoder()
-        guard let expositionDataAsset = NSDataAsset(name: self.fileName) else { return }
+        guard let expositionDataAsset = NSDataAsset(name: self.fileName) else {
+            return
+        }
         self.data = try jsonDecoder.decode(T.self, from: expositionDataAsset.data)
     }
     

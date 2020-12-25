@@ -15,10 +15,10 @@ class ItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let item = self.item else { return }
+        guard let item = self.item else {
+            return
+        }
         let itemImage = UIImage(named: item.imageName)
-        
         self.itemImageView.image = itemImage
         self.descriptionLabel.text = item.description
         self.title = item.name
