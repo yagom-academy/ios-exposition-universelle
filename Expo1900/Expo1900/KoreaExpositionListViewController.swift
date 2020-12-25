@@ -45,9 +45,8 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! ExpositionTableViewCell
         let koreaExpositionItem = koreaExpositionItems[indexPath.row]
         cell.setCellData(data: koreaExpositionItem, index: indexPath.row)
+        cell.setLabelFontStyle()
         
-        cell.setDynamicType()
-
         return cell
     }
     

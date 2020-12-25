@@ -20,9 +20,11 @@ class ExpositionTableViewCell: UITableViewCell {
         koreaItemImageView.image = data.image
         self.index = index
     }
-    
-    func setDynamicType() {
-        koreaItemTitleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        koreaItemSubtitleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+}
+
+extension ExpositionTableViewCell: DynamicTypeable {
+    func setLabelFontStyle() {
+        koreaItemTitleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        koreaItemSubtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
     }
 }

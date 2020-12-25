@@ -25,8 +25,10 @@ class KoreaExpositionItemViewController: UIViewController {
         self.itemImageView.image = itemImage
         self.descriptionLabel.text = itemDescription
     }
-    
-    private func setDynamicType() {
+}
+
+extension KoreaExpositionItemViewController: DynamicTypeable {
+    func setLabelFontStyle() {
         descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
     }
 }

@@ -27,7 +27,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "메인"
         decodeData()
-        setDynamicFonts()
+        setLabelFontStyle()
+        setLabelFontSizeToFitWidth()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,16 +51,6 @@ class ViewController: UIViewController {
         } catch {
             showAlert(message: ExpositionError.unknownError.localizedDescription)
         }
-    }
-    
-    private func setDynamicFonts() {
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        visitorsLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        durationLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        locationLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        goKoreaExpoListButton?.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        goKoreaExpoListButton?.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     private func setAllLabelsInView(from result: ParisExpositionInformation) {
@@ -103,3 +94,17 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: DynamicTypeable {
+    func setLabelFontStyle() {
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        visitorsLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        durationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        locationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        goKoreaExpoListButton?.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+    }
+    
+    func setLabelFontSizeToFitWidth() {
+        goKoreaExpoListButton?.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+}
