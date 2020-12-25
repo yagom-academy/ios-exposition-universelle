@@ -39,13 +39,16 @@ class ViewController: UIViewController {
     private func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            showAlert(message: ExpositionError.canNotDecodeData.localizedDescription)
             return
         }
         do {
             let result = try jsonDecoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
             setAllLabelsInView(from: result)
+        } catch ExpositionError.canNotDecodeData {
+            showAlert(message: ExpositionError.canNotDecodeData.localizedDescription)
         } catch {
-            print(error)
+            showAlert(message: ExpositionError.unknownError.localizedDescription)
         }
     }
     
@@ -110,6 +113,7 @@ class ViewController: UIViewController {
     
     @IBAction private func touchUpKoreanExpositionItem() {
         guard let koreaExpositionListViewController = self.storyboard?.instantiateViewController(identifier: "KoreaExpositionList") else {
+            showAlert(message: ExpositionError.canNotLoadView.localizedDescription)
             return
         }
         self.navigationController?.pushViewController(koreaExpositionListViewController, animated: true)
