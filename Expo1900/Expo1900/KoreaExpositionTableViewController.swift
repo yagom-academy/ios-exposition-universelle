@@ -19,6 +19,14 @@ class KoreaExpositionTableViewController: UITableViewController {
         if let data = jsonAnalyzer.readFile(forName: "items", [KoreaItem].self) {
             koreaItemList = data
         }
+        
+        UIOrientation.setUIOrientation(.all)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,8 +60,10 @@ class KoreaExpositionTableViewController: UITableViewController {
         if let itemList = koreaItemList {
             let image = UIImage(named: itemList[indexPath.row].imageName)
             let description = itemList[indexPath.row].description
+            let assetTitle = itemList[indexPath.row].name
             expositionDescriptionViewController.assetImageData = image
             expositionDescriptionViewController.assetDescriptionData = description
+            expositionDescriptionViewController.assetTitle = assetTitle
         }
     }
 }
