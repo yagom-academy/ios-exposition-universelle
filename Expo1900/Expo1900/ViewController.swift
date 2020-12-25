@@ -84,24 +84,14 @@ class ViewController: UIViewController {
     
     private func setVisitorsLabel(_ visitors: UInt) {
         let prefix = "방문자 : "
-        let number = putComma(in: String(visitors)) + " 명"
+        let number = "\(visitors) 명"
         let text = setLabel(from: number, prefix: prefix)
         visitorsLabel.text = text
     }
     
     private func setLabel(from labelContent: String, prefix: String) -> String {
-        let text = prefix + labelContent
+        let text = "\(prefix)\(labelContent)"
         return text
-    }
-    
-    private func putComma(in number: String) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        guard let doubleValue = Double(number) else {
-            return number
-        }
-        return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? number
     }
     
     @IBAction private func touchUpKoreanExpositionItem() {
