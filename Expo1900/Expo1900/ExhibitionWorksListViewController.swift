@@ -8,30 +8,13 @@
 import UIKit
 
 class ExhibitionWorksListViewController: UIViewController {
-
-    @IBOutlet weak var workListTableView: UITableView!    
+    @IBOutlet weak var workListTableView: UITableView!
     private var exhibitionWorks = [ExhibitionWork]()
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            guard let destinationViewController = segue.destination as? ExhibitionWorkViewController else {
-                return
-            }
-            guard let sender = sender as? Int else {
-                return
-            }
-            destinationViewController.imageFile = exhibitionWorks[sender].image
-            destinationViewController.descriptionData = exhibitionWorks[sender].description
-            destinationViewController.navigationItem.title = exhibitionWorks[sender].name
-        }
-    }
+    var delegate: SendInformationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
-//        self.navigationController?.navigationBar.backItem?.title = "메인"
-//        self.navigationController?.navigationBar.topItem?.title = "한국의 출품작"
-//        self.navigationItem.backButtonTitle = "메인"
         self.navigationItem.title = "한국의 출품작"
         decodeExhibitionData()
     }
@@ -52,7 +35,12 @@ class ExhibitionWorksListViewController: UIViewController {
 
 extension ExhibitionWorksListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+        guard let destinationViewController = self.storyboard?.instantiateViewController(identifier: "exhibitionWork") as? ExhibitionWorkViewController else {
+            return
+        }
+        self.delegate = destinationViewController
+        delegate?.send(information: exhibitionWorks[indexPath.row])
+        self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
 

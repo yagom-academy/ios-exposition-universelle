@@ -199,9 +199,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="w7G-0m-e9h"/>
-                    <connections>
-                        <segue destination="s5A-x4-TQF" kind="show" identifier="showDetail" id="pje-em-CgL"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rya-6V-oUT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,7 +207,7 @@
         <!--Exhibition Work View Controller-->
         <scene sceneID="u3Z-pG-Lip">
             <objects>
-                <viewController id="s5A-x4-TQF" customClass="ExhibitionWorkViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exhibitionWork" id="s5A-x4-TQF" customClass="ExhibitionWorkViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzf-Rr-jcG">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,8 +231,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="54U-tU-Pgz"/>
                     <connections>
-                        <outlet property="workDescription" destination="eYc-tI-21v" id="mNc-nq-zk1"/>
-                        <outlet property="workImage" destination="bmp-nz-l7l" id="bNF-iM-RiE"/>
+                        <outlet property="workDescriptionTextView" destination="eYc-tI-21v" id="mNc-nq-zk1"/>
+                        <outlet property="workImageView" destination="bmp-nz-l7l" id="bNF-iM-RiE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zp-Sd-coT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

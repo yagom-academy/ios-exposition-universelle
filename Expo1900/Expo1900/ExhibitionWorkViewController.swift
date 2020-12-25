@@ -8,15 +8,22 @@
 import UIKit
 
 class ExhibitionWorkViewController: UIViewController {
-    
-    @IBOutlet weak var workImage: UIImageView!
-    @IBOutlet weak var workDescription: UITextView!
-    var imageFile: UIImage?
-    var descriptionData: String?
+    @IBOutlet weak var workImageView: UIImageView!
+    @IBOutlet weak var workDescriptionTextView: UITextView!
+    var workImage: UIImage?
+    var workDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        workImage.image = imageFile
-        workDescription.text = descriptionData
+        workImageView.image = workImage
+        workDescriptionTextView.text = workDescription
+    }
+}
+
+extension ExhibitionWorkViewController: SendInformationDelegate {
+    func send(information: ExhibitionWork) {
+        workImage = information.image
+        workDescription = information.description
+        navigationItem.title = information.name
     }
 }
