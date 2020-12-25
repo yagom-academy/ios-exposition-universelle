@@ -66,9 +66,9 @@ class ViewController: UIViewController {
         setTitleLabel(result.title)
         setVisitorsLabel(result.visitors)
         let locationLabelPrefix = "개최지 : "
-        locationLabel.attributedText = setLabel(from: result.location, prefix: locationLabelPrefix)
+        locationLabel.text = setLabel(from: result.location, prefix: locationLabelPrefix)
         let durationLabelPrefix = "개최 기간 : "
-        durationLabel.attributedText = setLabel(from: result.duration, prefix: durationLabelPrefix)
+        durationLabel.text = setLabel(from: result.duration, prefix: durationLabelPrefix)
         descriptionLabel.text = result.description
     }
     
@@ -85,20 +85,13 @@ class ViewController: UIViewController {
     private func setVisitorsLabel(_ visitors: UInt) {
         let prefix = "방문자 : "
         let number = putComma(in: String(visitors)) + " 명"
-        let text = setEachFontsize(text: number, prefix)
-        visitorsLabel.attributedText = text
+        let text = setLabel(from: number, prefix: prefix)
+        visitorsLabel.text = text
     }
     
-    private func setLabel(from labelContent: String, prefix: String) -> NSMutableAttributedString {
-        let text = setEachFontsize(text: labelContent, prefix)
+    private func setLabel(from labelContent: String, prefix: String) -> String {
+        let text = prefix + labelContent
         return text
-    }
-    
-    private func setEachFontsize(text: String, _ prefix: String) -> NSMutableAttributedString {
-        let fontSize = UIFont.boldSystemFont(ofSize: 20)
-        let attributedStr = NSMutableAttributedString(string: prefix + String(text))
-        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSize, range: NSMakeRange(0, prefix.count))
-        return attributedStr
     }
     
     private func putComma(in number: String) -> String {
