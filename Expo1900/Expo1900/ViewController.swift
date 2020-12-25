@@ -15,11 +15,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var goKoreaExpoListButton: UIButton!
     
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        appDelegate?.shouldSupportAllOrientation = false
         super.viewWillAppear(animated)
     }
     
@@ -33,7 +38,6 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        appDelegate?.shouldSupportAllOrientation = true
         super.viewWillDisappear(animated)
     }
     
