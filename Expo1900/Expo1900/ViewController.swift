@@ -8,6 +8,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var parisExpositionInformation: ParisExpositionInformation?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
@@ -16,6 +17,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var moveToNextButton: UIButton!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        appDelegate.shouldSupportAllOrientation = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        appDelegate.shouldSupportAllOrientation = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,17 +76,6 @@ class ViewController: UIViewController {
         descriptionLabel.text = parisExpositionInformation?.description ?? "정보 없음"
         
         navigationItem.title = "메인"
-    }
-    
-    // MARK: 첫 화면, Navigation Bar 컨트롤
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func showErrorAlert(message: String) {
