@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Navigationcontroller: UINavigationController {
+final class Navigationcontroller: UINavigationController {
     
     override var shouldAutorotate: Bool {
         if let isRatating = self.topViewController?.shouldAutorotate {

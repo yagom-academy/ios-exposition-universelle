@@ -1,6 +1,6 @@
 import UIKit
 
-class EntryListViewController: UIViewController {
+final class EntryListViewController: UIViewController {
     
     @IBOutlet weak var entriesListTableView: UITableView!
     

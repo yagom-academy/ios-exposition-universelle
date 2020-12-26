@@ -1,6 +1,6 @@
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
