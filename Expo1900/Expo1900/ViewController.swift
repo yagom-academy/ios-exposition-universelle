@@ -15,11 +15,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var moveToNextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeJSON()
         setAllData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustButtonDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
+    }
+    
+    @objc func adjustButtonDynamicType() {
+        moveToNextButton.titleLabel?.adjustsFontForContentSizeCategory = true
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
