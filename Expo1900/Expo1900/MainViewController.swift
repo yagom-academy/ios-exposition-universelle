@@ -43,8 +43,8 @@ class MainViewController: UIViewController {
             return
         }
         let visitorNumber = addComma(to: parisExposition.visitors)
-        
-        titleLabel.text = parisExposition.title
+        let parisExpositionTilte = addNewline(to: parisExposition.title)
+        titleLabel.text = parisExpositionTilte
         visitorsContentLabel.text = visitorNumber + Constants.visitorUnit
         locationContentLabel.text = parisExposition.location
         durationContentLabel.text = parisExposition.duration
@@ -67,6 +67,11 @@ class MainViewController: UIViewController {
         durationPrefixLabel.text = Constants.durationText
     }
     
+    private func addNewline(to title: String) -> String {
+        let text = title.components(separatedBy: "(")
+        let changedText = text[0] + "\n(" + text[1]
+        return changedText
+    }
 }
 
 extension UIViewController {
