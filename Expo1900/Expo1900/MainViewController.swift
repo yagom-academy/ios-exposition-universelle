@@ -71,8 +71,8 @@ final class MainViewController: UIViewController {
     }
     
     private func addNewline(to title: String) -> String {
-        let text = title.components(separatedBy: "(")
-        let changedText = text[0] + "\n(" + text[1]
+        let text = title.components(separatedBy: Constants.separator)
+        let changedText = text[0] + Constants.middleWord + text[1]
         return changedText
     }
 }
