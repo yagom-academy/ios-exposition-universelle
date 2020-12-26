@@ -12,7 +12,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var parisExposition: Exposition?
-    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeData(from: Constants.parisExpositionDataAssetName)
