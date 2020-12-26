@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         setAllData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustButtonDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
+        moveToNextButton.titleLabel?.numberOfLines = 0
     }
     
     @objc func adjustButtonDynamicType() {
