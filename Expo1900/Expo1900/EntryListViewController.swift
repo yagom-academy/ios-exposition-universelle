@@ -47,7 +47,7 @@ extension EntryListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIndentifier, for: indexPath)
         let entry = entries[indexPath.row]
         var content = cell.defaultContentConfiguration()
-
+        
         content.image = entry.image
         content.text = entry.name
         content.secondaryText = entry.shortDescription
