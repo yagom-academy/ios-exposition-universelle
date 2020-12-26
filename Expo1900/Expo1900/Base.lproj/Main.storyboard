@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-yz-Ld7" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="885.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="891.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="klq-dP-I7i">
                                                 <rect key="frame" x="156" y="30" width="63.5" height="41"/>
@@ -61,20 +61,21 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsf-ah-zba">
-                                                <rect key="frame" x="118.5" y="835.5" width="138" height="30"/>
+                                                <rect key="frame" x="96" y="835.5" width="183" height="36"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                 <state key="normal" title="한국의 출품작 보러가기"/>
                                                 <connections>
                                                     <segue destination="420-ca-ojg" kind="show" id="yZh-du-NWL"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="0Ej-B7-21Y">
-                                                <rect key="frame" x="40" y="828" width="37.5" height="37.5"/>
+                                                <rect key="frame" x="40" y="834" width="37.5" height="37.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="0Ej-B7-21Y" secondAttribute="height" multiplier="1:1" id="l33-FZ-l3Z"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="xZZ-vb-8u9">
-                                                <rect key="frame" x="297.5" y="828" width="37.5" height="37.5"/>
+                                                <rect key="frame" x="297.5" y="834" width="37.5" height="37.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xZZ-vb-8u9" secondAttribute="height" multiplier="1:1" id="dcd-tP-trZ"/>
                                                 </constraints>
@@ -148,7 +149,7 @@
         <!--한국의 출품작-->
         <scene sceneID="aJp-JH-H85">
             <objects>
-                <viewController id="420-ca-ojg" customClass="TableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="420-ca-ojg" customClass="EntryListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HFj-aH-IiY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -22,11 +22,10 @@ class MainViewController: UIViewController {
     }
     
     private func decodeData(from assetName: String) {
+        let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: assetName) else {
-            showAlert(about: .dataSetting)
             return
         }
-        let jsonDecoder = JSONDecoder()
         
         do {
             self.parisExposition = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
@@ -36,12 +35,11 @@ class MainViewController: UIViewController {
     }
     
     private func setData() {
-        guard let parisExposition = parisExposition,
-              let visitorNumber = try? addComma(parisExposition.visitors) else {
-            showAlert(about: .dataSetting)
+        guard let parisExposition = parisExposition else {
             return
         }
-        
+        let visitorNumber = addComma(parisExposition.visitors)
+
         titleLabel.text = parisExposition.title
         visitorsLabel.text = Constants.visitorText + visitorNumber + Constants.visitorUnit
         locationLabel.text = Constants.locationText + parisExposition.location
@@ -49,12 +47,12 @@ class MainViewController: UIViewController {
         descriptionTextView.text = parisExposition.description
     }
     
-    private func addComma(_ number: UInt) throws -> String {
+    private func addComma(_ number: UInt) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
         guard let text = numberFormatter.string(from: NSNumber(value: number)) else {
-            throw SystemError.dataSetting
+            return String(number)
         }
         return text
     }

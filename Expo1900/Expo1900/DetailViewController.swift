@@ -13,7 +13,9 @@ class DetailViewController: UIViewController {
     }
     
     private func setData() {
-        guard let entry = entry else { return }
+        guard let entry = entry else {
+            return
+        }
         self.navigationItem.title = entry.name
         entryImageView.image = entry.image
         descriptionTextView.text = entry.description

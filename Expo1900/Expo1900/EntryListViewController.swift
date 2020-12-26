@@ -1,6 +1,6 @@
 import UIKit
 
-class TableViewController: UIViewController {
+class EntryListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,11 +17,10 @@ class TableViewController: UIViewController {
     }
     
     private func decodeData(from assetName: String) {
+        let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: assetName) else {
-            showAlert(about: .dataSetting)
             return
         }
-        let jsonDecoder = JSONDecoder()
         
         do {
             self.entries = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
@@ -31,8 +30,7 @@ class TableViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow,
-              let detailView = segue.destination as? DetailViewController else {
+        guard let indexPath = tableView.indexPathForSelectedRow, let detailView = segue.destination as? DetailViewController else {
             showAlert(about: .unknown)
             return
         }
@@ -40,7 +38,7 @@ class TableViewController: UIViewController {
     }
 }
 
-extension TableViewController: UITableViewDataSource {
+extension EntryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
