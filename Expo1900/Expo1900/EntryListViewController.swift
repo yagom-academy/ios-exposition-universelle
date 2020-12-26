@@ -5,13 +5,7 @@ final class EntryListViewController: UIViewController {
     @IBOutlet weak var entriesListTableView: UITableView!
     
     var entries: [Entry] = []
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return [.portrait, .landscape]
-    }
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeData(from: Constants.entriesDataAssetName)
