@@ -12,8 +12,8 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var parisExposition: Exposition?
-    override var shouldAutorotate: Bool {
-        return false
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return [.portrait]
     }
 
     override func viewDidLoad() {

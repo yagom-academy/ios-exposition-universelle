@@ -10,14 +10,13 @@ import UIKit
 final class Navigationcontroller: UINavigationController {
     
     override var shouldAutorotate: Bool {
-        if let isRatating = self.topViewController?.shouldAutorotate {
-            return isRatating
-        } else {
-            return true
-        }
+        return true
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if let orientation = self.topViewController?.supportedInterfaceOrientations {
+            return orientation
+        }
         return [.all]
     }
 }
