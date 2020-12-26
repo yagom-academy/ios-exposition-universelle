@@ -44,15 +44,12 @@ extension EntryListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIndentifier, for: indexPath)
         let entry = entries[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        
-        content.image = entry.image
-        content.text = entry.name
-        content.secondaryText = entry.shortDescription
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIndentifier, for: indexPath) as? EntryTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.setEntryInformation(entry)
         cell.accessoryType = .disclosureIndicator
-        cell.contentConfiguration = content
         return cell
     }
 }

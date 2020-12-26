@@ -3,9 +3,12 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var visitorsPrefixLabel: UILabel!
+    @IBOutlet weak var visitorsContentLabel: UILabel!
+    @IBOutlet weak var locationPrefixLabel: UILabel!
+    @IBOutlet weak var locationContentLabel: UILabel!
+    @IBOutlet weak var durationPrefixLabel: UILabel!
+    @IBOutlet weak var durationContentLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var parisExposition: Exposition?
@@ -13,7 +16,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeData(from: Constants.parisExpositionDataAssetName)
-        setExpositionInformation()
+        setUpAllLablePrefix()
+        setUpExpositionInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,16 +38,16 @@ class MainViewController: UIViewController {
         }
     }
     
-    private func setExpositionInformation() {
+    private func setUpExpositionInformation() {
         guard let parisExposition = parisExposition else {
             return
         }
         let visitorNumber = addComma(to: parisExposition.visitors)
-
+        
         titleLabel.text = parisExposition.title
-        visitorsLabel.text = Constants.visitorText + visitorNumber + Constants.visitorUnit
-        locationLabel.text = Constants.locationText + parisExposition.location
-        durationLabel.text = Constants.durationText + parisExposition.duration
+        visitorsContentLabel.text = visitorNumber + Constants.visitorUnit
+        locationContentLabel.text = parisExposition.location
+        durationContentLabel.text = parisExposition.duration
         descriptionTextView.text = parisExposition.description
     }
     
@@ -56,6 +60,13 @@ class MainViewController: UIViewController {
         }
         return text
     }
+    
+    private func setUpAllLablePrefix() {
+        visitorsPrefixLabel.text = Constants.visitorText
+        locationPrefixLabel.text = Constants.locationText
+        durationPrefixLabel.text = Constants.durationText
+    }
+    
 }
 
 extension UIViewController {
