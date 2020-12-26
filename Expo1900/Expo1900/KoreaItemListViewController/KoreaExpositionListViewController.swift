@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class KoreaExpositionListViewController: UIViewController {
+final class KoreaExpositionListViewController: UIViewController {
     @IBOutlet weak var koreaExpositionListTableView: UITableView!
     private var koreaExpositionItems: [KoreaExpositionItem] = []
     

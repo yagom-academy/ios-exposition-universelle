@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ExpositionTableViewCell: UITableViewCell {
+final class ExpositionTableViewCell: UITableViewCell {
     @IBOutlet var koreaItemTitleLabel: UILabel!
     @IBOutlet var koreaItemSubtitleLabel: UILabel!
     @IBOutlet var koreaItemImageView: UIImageView!
