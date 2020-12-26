@@ -9,10 +9,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setData()
+        setEntryInformation()
     }
     
-    private func setData() {
+    private func setEntryInformation() {
         guard let entry = entry else {
             return
         }

@@ -2,7 +2,7 @@ import UIKit
 
 class EntryListViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var entriesListTableView: UITableView!
     
     var entries: [Entry] = []
    
@@ -30,7 +30,7 @@ class EntryListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow, let detailView = segue.destination as? DetailViewController else {
+        guard let indexPath = entriesListTableView.indexPathForSelectedRow, let detailView = segue.destination as? DetailViewController else {
             showAlert(about: .unknown)
             return
         }

@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeData(from: Constants.parisExpositionDataAssetName)
-        setData()
+        setExpositionInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,11 +34,11 @@ class MainViewController: UIViewController {
         }
     }
     
-    private func setData() {
+    private func setExpositionInformation() {
         guard let parisExposition = parisExposition else {
             return
         }
-        let visitorNumber = addComma(parisExposition.visitors)
+        let visitorNumber = addComma(to: parisExposition.visitors)
 
         titleLabel.text = parisExposition.title
         visitorsLabel.text = Constants.visitorText + visitorNumber + Constants.visitorUnit
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         descriptionTextView.text = parisExposition.description
     }
     
-    private func addComma(_ number: UInt) -> String {
+    private func addComma(to number: UInt) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
