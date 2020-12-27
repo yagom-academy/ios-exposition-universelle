@@ -10,6 +10,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var durationPrefixLabel: UILabel!
     @IBOutlet weak var durationContentLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var nextButton: UIButton!
     
     var parisExposition: Exposition?
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -21,6 +22,7 @@ final class MainViewController: UIViewController {
         decodeData(from: Constants.parisExpositionDataAssetName)
         setUpAllLablePrefix()
         setUpExpositionInformation()
+        nextButton.titleLabel?.adjustsFontForContentSizeCategory = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

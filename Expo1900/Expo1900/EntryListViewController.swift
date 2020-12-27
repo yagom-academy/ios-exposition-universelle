@@ -30,11 +30,19 @@ final class EntryListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard let indexPath = entriesListTableView.indexPathForSelectedRow, let detailView = segue.destination as? DetailViewController else {
             showAlert(about: .unknown)
             return
         }
         detailView.entry = entries[indexPath.row]
+        setUpBackButton()
+    }
+    
+    private func setUpBackButton() {
+        let backItem = UIBarButtonItem()
+        backItem.title = "한국의 출품작"
+        navigationItem.backBarButtonItem = backItem
     }
 }
 
