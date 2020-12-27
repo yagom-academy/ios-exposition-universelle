@@ -9,15 +9,9 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // 특정 화면 세로로 고정시키기
-    var shouldSupportAllOrientation = true
-
-       func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-           if (shouldSupportAllOrientation == true){
-               return UIInterfaceOrientationMask.all
-           }
-           return UIInterfaceOrientationMask.portrait
-       }
+//       func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+//        return [.portrait, .landscape, .portraitUpsideDown]
+//       }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

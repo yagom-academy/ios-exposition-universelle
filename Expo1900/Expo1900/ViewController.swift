@@ -8,7 +8,6 @@ import UIKit
 
 class ViewController: UIViewController {
     var parisExpositionInformation: ParisExpositionInformation?
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
@@ -18,17 +17,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var moveToNextButton: UIButton!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        appDelegate.shouldSupportAllOrientation = true
     }
     
     override func viewDidLoad() {
