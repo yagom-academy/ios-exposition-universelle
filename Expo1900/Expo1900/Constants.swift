@@ -9,4 +9,5 @@ struct Constants {
     static let entriesDataAssetName = "items"
     static let separator = "("
     static let middleWord = "\n("
+    static let backButtonText = "한국의 출품작"
 }

@@ -30,7 +30,6 @@ final class EntryListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let indexPath = entriesListTableView.indexPathForSelectedRow, let detailView = segue.destination as? DetailViewController else {
             showAlert(about: .unknown)
             return
@@ -41,7 +40,7 @@ final class EntryListViewController: UIViewController {
     
     private func setUpBackButton() {
         let backItem = UIBarButtonItem()
-        backItem.title = "한국의 출품작"
+        backItem.title = Constants.backButtonText
         navigationItem.backBarButtonItem = backItem
     }
 }
@@ -54,7 +53,12 @@ extension EntryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entry = entries[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIndentifier, for: indexPath) as? EntryTableViewCell else {
-            return UITableViewCell()
+            let tempCell = UITableViewCell()
+            var content = tempCell.defaultContentConfiguration()
+            content.text = entry.name
+            content.secondaryText = entry.shortDescription
+            tempCell.contentConfiguration = content
+            return tempCell
         }
         cell.setEntryInformation(entry)
         cell.accessoryType = .disclosureIndicator

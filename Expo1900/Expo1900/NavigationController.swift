@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Navigationcontroller: UINavigationController {
+final class NavigationController: UINavigationController {
     
     override var shouldAutorotate: Bool {
         return true
