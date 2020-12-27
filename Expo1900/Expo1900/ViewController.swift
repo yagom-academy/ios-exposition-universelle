@@ -15,11 +15,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var moveToNextButton: UIButton!
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeJSON()
         setAllData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustButtonDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
+        moveToNextButton.titleLabel?.numberOfLines = 0
+    }
+    
+    @objc func adjustButtonDynamicType() {
+        moveToNextButton.titleLabel?.adjustsFontForContentSizeCategory = true
     }
     
     @IBAction func touchUpMoveToNextButton(_ sender: UIButton) {
@@ -54,17 +76,6 @@ class ViewController: UIViewController {
         descriptionLabel.text = parisExpositionInformation?.description ?? "정보 없음"
         
         navigationItem.title = "메인"
-    }
-    
-    // MARK: 첫 화면, Navigation Bar 컨트롤
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func showErrorAlert(message: String) {
