@@ -2,6 +2,8 @@ import UIKit
 
 class ExpositionViewController: UITableViewController {
     
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var titleTextLabel: UILabel!
     @IBOutlet weak var titleImageView: UIImageView!
     @IBOutlet weak var visitorsTextLabel: UILabel!
@@ -70,15 +72,23 @@ class ExpositionViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        
+        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        
+        appDelegate.shouldSupportAllOrientation = true
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height = UITableView.automaticDimension
         
         return height
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
