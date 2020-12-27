@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class KoreaExpositionListViewController: UIViewController {
+final class KoreaExpositionListViewController: UIViewController {
     @IBOutlet weak var koreaExpositionListTableView: UITableView!
     private var koreaExpositionItems: [KoreaExpositionItem] = []
     
@@ -23,12 +23,15 @@ class KoreaExpositionListViewController: UIViewController {
     private func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+            showAlert(message: ExpositionError.noDataAsset.localizedDescription)
             return
         }
         do {
             self.koreaExpositionItems = try jsonDecoder.decode([KoreaExpositionItem].self, from: dataAsset.data)
+        } catch ExpositionError.canNotDecodeData {
+            showAlert(message: ExpositionError.canNotDecodeData.localizedDescription)
         } catch {
-            print(error)
+            showAlert(message: ExpositionError.unknownError.localizedDescription)
         }
     }
 }
@@ -40,27 +43,23 @@ extension KoreaExpositionListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! ExpositionTableViewCell
-        
-        cell.titleLabel.text = koreaExpositionItems[indexPath.row].name
-        cell.subtitleLabel.text = koreaExpositionItems[indexPath.row].shortDescription
-        cell.koreaItemImageView.image = koreaExpositionItems[indexPath.row].image
-        cell.index = indexPath.row
-        
-        if cell.subtitleLabel.adjustsFontSizeToFitWidth == false {
-            cell.subtitleLabel.adjustsFontSizeToFitWidth = true
-        }
+        let koreaExpositionItem = koreaExpositionItems[indexPath.row]
+        cell.setCellData(data: koreaExpositionItem, index: indexPath.row)
+        cell.setLabelFontStyle()
         
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let koreaExpoItemViewController: KoreaExpositionItemViewController = segue.destination as? KoreaExpositionItemViewController else {
+            showAlert(message: ExpositionError.canNotLoadView.localizedDescription)
             return
         }
         guard let cell = sender as? ExpositionTableViewCell, let index = cell.index else {
+            showAlert(message: ExpositionError.canNotLoadTableViewCell.localizedDescription)
             return
         }
-        koreaExpoItemViewController.navigationBarTitle = cell.titleLabel.text
+        koreaExpoItemViewController.navigationBarTitle = cell.koreaItemTitleLabel.text
         koreaExpoItemViewController.itemImage = cell.koreaItemImageView.image
         koreaExpoItemViewController.itemDescription = koreaExpositionItems[index].description
     }

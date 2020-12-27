@@ -12,6 +12,11 @@
 		2640CDB025909DCC0044A54D /* ParisExpositionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640CDAF25909DCC0044A54D /* ParisExpositionInformation.swift */; };
 		2640CDB425909EE80044A54D /* KoreaExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640CDB325909EE80044A54D /* KoreaExpositionItem.swift */; };
 		26BB0B262591D17D007CED05 /* KoreaExpositionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB0B252591D17D007CED05 /* KoreaExpositionListViewController.swift */; };
+		26D16D1E2595959900B19899 /* ExpositionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D16D1D2595959900B19899 /* ExpositionError.swift */; };
+		26D16D212595969100B19899 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D16D202595969100B19899 /* UIViewController+Extension.swift */; };
+		26D16D272595C82900B19899 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D16D262595C82900B19899 /* String+Extension.swift */; };
+		26D16D2B2595CD8C00B19899 /* DynamicTypeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D16D2A2595CD8C00B19899 /* DynamicTypeable.swift */; };
+		26D16D2F2595E8DC00B19899 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D16D2E2595E8DC00B19899 /* ContainerViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -26,6 +31,11 @@
 		2640CDAF25909DCC0044A54D /* ParisExpositionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpositionInformation.swift; sourceTree = "<group>"; };
 		2640CDB325909EE80044A54D /* KoreaExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaExpositionItem.swift; sourceTree = "<group>"; };
 		26BB0B252591D17D007CED05 /* KoreaExpositionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaExpositionListViewController.swift; sourceTree = "<group>"; };
+		26D16D1D2595959900B19899 /* ExpositionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionError.swift; sourceTree = "<group>"; };
+		26D16D202595969100B19899 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		26D16D262595C82900B19899 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		26D16D2A2595CD8C00B19899 /* DynamicTypeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTypeable.swift; sourceTree = "<group>"; };
+		26D16D2E2595E8DC00B19899 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +57,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26D16D312595EB3500B19899 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				26D16D1D2595959900B19899 /* ExpositionError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		26D16D322595EB4600B19899 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				26D16D202595969100B19899 /* UIViewController+Extension.swift */,
+				26D16D262595C82900B19899 /* String+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		26D16D332595EB6400B19899 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2640CDB325909EE80044A54D /* KoreaExpositionItem.swift */,
+				2640CDAF25909DCC0044A54D /* ParisExpositionInformation.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		26D16D342595EB8D00B19899 /* KoreaItemListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				262667B12592324800119C08 /* ExpositionTableViewCell.swift */,
+				26BB0B252591D17D007CED05 /* KoreaExpositionListViewController.swift */,
+			);
+			path = KoreaItemListViewController;
+			sourceTree = "<group>";
+		};
+		26D16D352595EBA300B19899 /* KoreaItemDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				262667B52592437500119C08 /* KoreaExpositionItemViewController.swift */,
+			);
+			path = KoreaItemDetailViewController;
+			sourceTree = "<group>";
+		};
+		26D16D362595EBCD00B19899 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				26D16D2A2595CD8C00B19899 /* DynamicTypeable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -66,14 +127,16 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				26D16D362595EBCD00B19899 /* Protocol */,
+				26D16D352595EBA300B19899 /* KoreaItemDetailViewController */,
+				26D16D342595EB8D00B19899 /* KoreaItemListViewController */,
+				26D16D332595EB6400B19899 /* Data */,
+				26D16D322595EB4600B19899 /* Extension */,
+				26D16D312595EB3500B19899 /* Error */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				2640CDAF25909DCC0044A54D /* ParisExpositionInformation.swift */,
+				26D16D2E2595E8DC00B19899 /* ContainerViewController.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				26BB0B252591D17D007CED05 /* KoreaExpositionListViewController.swift */,
-				262667B52592437500119C08 /* KoreaExpositionItemViewController.swift */,
-				2640CDB325909EE80044A54D /* KoreaExpositionItem.swift */,
-				262667B12592324800119C08 /* ExpositionTableViewCell.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -153,12 +216,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				262667B62592437500119C08 /* KoreaExpositionItemViewController.swift in Sources */,
+				26D16D2B2595CD8C00B19899 /* DynamicTypeable.swift in Sources */,
+				26D16D2F2595E8DC00B19899 /* ContainerViewController.swift in Sources */,
+				26D16D272595C82900B19899 /* String+Extension.swift in Sources */,
+				26D16D212595969100B19899 /* UIViewController+Extension.swift in Sources */,
 				2640CDB425909EE80044A54D /* KoreaExpositionItem.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				2640CDB025909DCC0044A54D /* ParisExpositionInformation.swift in Sources */,
 				262667B22592324800119C08 /* ExpositionTableViewCell.swift in Sources */,
 				26BB0B262591D17D007CED05 /* KoreaExpositionListViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				26D16D1E2595959900B19899 /* ExpositionError.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3FKJ8N3MK7;
 				INFOPLIST_FILE = Expo1900/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -325,6 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3FKJ8N3MK7;
 				INFOPLIST_FILE = Expo1900/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

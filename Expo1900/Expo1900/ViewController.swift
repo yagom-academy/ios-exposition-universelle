@@ -13,6 +13,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var goKoreaExpoListButton: UIButton!
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -23,6 +32,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "메인"
         decodeData()
+        setLabelFontStyle()
+        setLabelFontSizeToFitWidth()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -33,13 +44,16 @@ class ViewController: UIViewController {
     private func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            showAlert(message: ExpositionError.canNotDecodeData.localizedDescription)
             return
         }
         do {
             let result = try jsonDecoder.decode(ParisExpositionInformation.self, from: dataAsset.data)
             setAllLabelsInView(from: result)
+        } catch ExpositionError.canNotDecodeData {
+            showAlert(message: ExpositionError.canNotDecodeData.localizedDescription)
         } catch {
-            print(error)
+            showAlert(message: ExpositionError.unknownError.localizedDescription)
         }
     }
     
@@ -47,9 +61,9 @@ class ViewController: UIViewController {
         setTitleLabel(result.title)
         setVisitorsLabel(result.visitors)
         let locationLabelPrefix = "개최지 : "
-        locationLabel.attributedText = setLabel(from: result.location, prefix: locationLabelPrefix)
+        locationLabel.text = setLabel(from: result.location, prefix: locationLabelPrefix)
         let durationLabelPrefix = "개최 기간 : "
-        durationLabel.attributedText = setLabel(from: result.duration, prefix: durationLabelPrefix)
+        durationLabel.text = setLabel(from: result.duration, prefix: durationLabelPrefix)
         descriptionLabel.text = result.description
     }
     
@@ -65,38 +79,36 @@ class ViewController: UIViewController {
     
     private func setVisitorsLabel(_ visitors: UInt) {
         let prefix = "방문자 : "
-        let number = putComma(in: String(visitors)) + " 명"
-        let text = setEachFontsize(text: number, prefix)
-        visitorsLabel.attributedText = text
+        let number = "\(visitors) 명"
+        let text = setLabel(from: number, prefix: prefix)
+        visitorsLabel.text = text
     }
     
-    private func setLabel(from labelContent: String, prefix: String) -> NSMutableAttributedString {
-        let text = setEachFontsize(text: labelContent, prefix)
+    private func setLabel(from labelContent: String, prefix: String) -> String {
+        let text = "\(prefix)\(labelContent)"
         return text
-    }
-    
-    private func setEachFontsize(text: String, _ prefix: String) -> NSMutableAttributedString {
-        let fontSize = UIFont.boldSystemFont(ofSize: 20)
-        let attributedStr = NSMutableAttributedString(string: prefix + String(text))
-        attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String), value: fontSize, range: NSMakeRange(0, prefix.count))
-        return attributedStr
-    }
-    
-    private func putComma(in number: String) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        guard let doubleValue = Double(number) else {
-            return number
-        }
-        return numberFormatter.string(from: NSNumber(value: doubleValue)) ?? number
     }
     
     @IBAction private func touchUpKoreanExpositionItem() {
         guard let koreaExpositionListViewController = self.storyboard?.instantiateViewController(identifier: "KoreaExpositionList") else {
+            showAlert(message: ExpositionError.canNotLoadView.localizedDescription)
             return
         }
         self.navigationController?.pushViewController(koreaExpositionListViewController, animated: true)
     }
 }
 
+extension ViewController: DynamicTypeable {
+    func setLabelFontStyle() {
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        visitorsLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        durationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        locationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        goKoreaExpoListButton?.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+    }
+    
+    func setLabelFontSizeToFitWidth() {
+        goKoreaExpoListButton?.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+}

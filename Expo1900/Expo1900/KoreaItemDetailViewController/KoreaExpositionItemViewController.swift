@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaExpositionItemViewController: UIViewController {
+final class KoreaExpositionItemViewController: UIViewController {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -24,5 +24,11 @@ class KoreaExpositionItemViewController: UIViewController {
         self.navigationItem.title = navigationBarTitle
         self.itemImageView.image = itemImage
         self.descriptionLabel.text = itemDescription
+    }
+}
+
+extension KoreaExpositionItemViewController: DynamicTypeable {
+    func setLabelFontStyle() {
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
     }
 }
