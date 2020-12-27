@@ -60,7 +60,7 @@ extension EntryListViewController: UITableViewDataSource {
             tempCell.contentConfiguration = content
             return tempCell
         }
-        cell.setEntryInformation(entry)
+        cell.setUpEntryInformation(entry)
         cell.accessoryType = .disclosureIndicator
         return cell
     }

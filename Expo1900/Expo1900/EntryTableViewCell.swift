@@ -13,7 +13,7 @@ final class EntryTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var entryImageView: UIImageView!
 
-    func setEntryInformation(_ data: Entry) {
+    func setUpEntryInformation(_ data: Entry) {
         nameLabel.text = data.name
         descriptionLabel.text = data.shortDescription
         entryImageView.image = data.image
