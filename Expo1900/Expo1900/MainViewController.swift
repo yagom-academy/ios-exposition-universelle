@@ -11,7 +11,7 @@ final class MainViewController: UIViewController {
     
     var parisExposition: Exposition?
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-            return [.portrait]
+        return [.portrait]
     }
 
     override func viewDidLoad() {
