@@ -4,11 +4,8 @@ final class MainViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsPrefixLabel: UILabel!
-    @IBOutlet weak var visitorsContentLabel: UILabel!
     @IBOutlet weak var locationPrefixLabel: UILabel!
-    @IBOutlet weak var locationContentLabel: UILabel!
     @IBOutlet weak var durationPrefixLabel: UILabel!
-    @IBOutlet weak var durationContentLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -20,7 +17,6 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeData(from: Constants.parisExpositionDataAssetName)
-        setUpAllLablePrefix()
         setUpExpositionInformation()
         nextButton.titleLabel?.adjustsFontForContentSizeCategory = true
     }
@@ -50,9 +46,9 @@ final class MainViewController: UIViewController {
         let visitorNumber = addComma(to: parisExposition.visitors)
         let parisExpositionTilte = addNewline(to: parisExposition.title)
         titleLabel.text = parisExpositionTilte
-        visitorsContentLabel.text = visitorNumber + Constants.visitorUnit
-        locationContentLabel.text = parisExposition.location
-        durationContentLabel.text = parisExposition.duration
+        visitorsPrefixLabel.text = Constants.visitorText + visitorNumber + Constants.visitorUnit
+        locationPrefixLabel.text = Constants.locationText + parisExposition.location
+        durationPrefixLabel.text = Constants.durationText + parisExposition.duration
         descriptionTextView.text = parisExposition.description
     }
     
@@ -64,12 +60,6 @@ final class MainViewController: UIViewController {
             return String(number)
         }
         return text
-    }
-    
-    private func setUpAllLablePrefix() {
-        visitorsPrefixLabel.text = Constants.visitorText
-        locationPrefixLabel.text = Constants.locationText
-        durationPrefixLabel.text = Constants.durationText
     }
     
     private func addNewline(to title: String) -> String {
