@@ -3,8 +3,8 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var shouldSupportAllOrientation = true
-
+    var shouldSupportAllOrientation: UIInterfaceOrientationMask = .all
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -25,10 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if shouldSupportAllOrientation {
-            return UIInterfaceOrientationMask.all
-        }
-        return UIInterfaceOrientationMask.portrait
+        return self.shouldSupportAllOrientation
     }
     
 

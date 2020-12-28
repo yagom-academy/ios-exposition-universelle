@@ -73,13 +73,13 @@ class ExpositionViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         
-        appDelegate.shouldSupportAllOrientation = false
+        appDelegate.shouldSupportAllOrientation = UIInterfaceOrientationMask.portrait
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         
-        appDelegate.shouldSupportAllOrientation = true
+        appDelegate.shouldSupportAllOrientation = UIInterfaceOrientationMask.all
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
