@@ -8,7 +8,6 @@
 import UIKit
 
 class ExhibitsViewController: UIViewController {
-    private let viewTitle = "한국의 출품작"
     private lazy var exhibits: [Exhibit]? = {
         if let data = NSDataAsset(name: "items")?.data {
             do {
@@ -32,9 +31,10 @@ class ExhibitsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let viewTitle = "한국의 출품작"
         view.backgroundColor = .systemBackground
-        self.navigationController?.navigationBar.isHidden = false
-        self.title = viewTitle
+        navigationController?.navigationBar.isHidden = false
+        title = viewTitle
         navigationItem.backButtonTitle = viewTitle
         exhibitsTableView.delegate = self
         exhibitsTableView.dataSource = self
