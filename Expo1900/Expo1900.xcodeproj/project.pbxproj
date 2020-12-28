@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A6C778C25999197008FB747 /* KoreanEntriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C778B25999197008FB747 /* KoreanEntriesTableViewCell.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A6C778B25999197008FB747 /* KoreanEntriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntriesTableViewCell.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				E229149E2591B40200827F12 /* ExpositionViewController.swift */,
 				E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */,
+				9A6C778B25999197008FB747 /* KoreanEntriesTableViewCell.swift */,
 				E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */,
 			);
 			path = ViewController;
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A6C778C25999197008FB747 /* KoreanEntriesTableViewCell.swift in Sources */,
 				E22914A62591E5E400827F12 /* KoreanEntryViewController.swift in Sources */,
 				E2291494259044B900827F12 /* KoreanEntries.swift in Sources */,
 				E22914A32591E56000827F12 /* KoreanEntriesListViewController.swift in Sources */,

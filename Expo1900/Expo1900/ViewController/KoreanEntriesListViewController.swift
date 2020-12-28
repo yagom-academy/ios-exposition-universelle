@@ -8,6 +8,7 @@ class KoreanEntriesListViewController: UITableViewController {
         super.viewDidLoad()
         
         decodeJSONFile()
+        
         self.tableView.reloadData()
     }
     
@@ -42,13 +43,15 @@ class KoreanEntriesListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell") as? KoreanEntriesTableViewCell else {
+            return UITableViewCell()
+        }
+
         let entry: KoreanEntries = self.koreanEntries[indexPath.row]
 
-        cell.imageView?.image = entry.image
-        cell.textLabel?.text = entry.name
-        cell.detailTextLabel?.text = entry.shortDescriptions
+        cell.koreanEntryImage.image = entry.image
+        cell.nameTextLabel.text = entry.name
+        cell.shortDescriptionsTextLabel.text = entry.shortDescriptions
         
         return cell
     }
@@ -66,5 +69,9 @@ class KoreanEntriesListViewController: UITableViewController {
         koreanEntryViewController.fetchData = selectedEntry
 
         navigationController?.pushViewController(koreanEntryViewController, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

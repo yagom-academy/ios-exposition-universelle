@@ -12,7 +12,7 @@ class ExpositionViewController: UITableViewController {
     @IBOutlet weak var descriptionTextLabel: UILabel!
     
     var expositionData: Exposition?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
