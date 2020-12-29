@@ -14,7 +14,7 @@ struct Exposition: Codable {
     let duration: String
     let description: String
     
-    var posterImage: UIImage {
-        UIImage(named: "poster") ?? UIImage()
+    var posterImage: UIImage? {
+        UIImage(named: "poster")
     }
 }

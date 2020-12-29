@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B41AFDB5259215D400269C45 /* ExhibitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41AFDB4259215D400269C45 /* ExhibitsViewController.swift */; };
+		B41AFDB925921A9600269C45 /* ExhibitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41AFDB825921A9600269C45 /* ExhibitsTableViewCell.swift */; };
+		B41AFDBD2592259900269C45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41AFDBC2592259900269C45 /* DetailViewController.swift */; };
+		B41AFDC0259225E400269C45 /* DetailExhibitScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41AFDBF259225E400269C45 /* DetailExhibitScrollView.swift */; };
+		B44218A2259122CA00B16138 /* ExpositionPosterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44218A1259122CA00B16138 /* ExpositionPosterScrollView.swift */; };
 		B4DBBE332590ACD000DA7FA7 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DBBE322590ACD000DA7FA7 /* Exposition.swift */; };
 		B4DBBE362590ADAB00DA7FA7 /* Exhibit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DBBE352590ADAB00DA7FA7 /* Exhibit.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B41AFDB4259215D400269C45 /* ExhibitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitsViewController.swift; sourceTree = "<group>"; };
+		B41AFDB825921A9600269C45 /* ExhibitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitsTableViewCell.swift; sourceTree = "<group>"; };
+		B41AFDBC2592259900269C45 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B41AFDBF259225E400269C45 /* DetailExhibitScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExhibitScrollView.swift; sourceTree = "<group>"; };
+		B44218A1259122CA00B16138 /* ExpositionPosterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPosterScrollView.swift; sourceTree = "<group>"; };
 		B4DBBE322590ACD000DA7FA7 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		B4DBBE352590ADAB00DA7FA7 /* Exhibit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibit.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +51,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B41AFDBB2592257E00269C45 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				B41AFDB4259215D400269C45 /* ExhibitsViewController.swift */,
+				B41AFDBC2592259900269C45 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B442189F2591221600B16138 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B44218A1259122CA00B16138 /* ExpositionPosterScrollView.swift */,
+				B41AFDB825921A9600269C45 /* ExhibitsTableViewCell.swift */,
+				B41AFDBF259225E400269C45 /* DetailExhibitScrollView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B4DBBE312590AC8700DA7FA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,10 +99,11 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				B442189F2591221600B16138 /* Views */,
 				B4DBBE312590AC8700DA7FA7 /* Models */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				B41AFDBB2592257E00269C45 /* Controllers */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -151,7 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B41AFDBD2592259900269C45 /* DetailViewController.swift in Sources */,
+				B44218A2259122CA00B16138 /* ExpositionPosterScrollView.swift in Sources */,
+				B41AFDB925921A9600269C45 /* ExhibitsTableViewCell.swift in Sources */,
 				B4DBBE362590ADAB00DA7FA7 /* Exhibit.swift in Sources */,
+				B41AFDC0259225E400269C45 /* DetailExhibitScrollView.swift in Sources */,
+				B41AFDB5259215D400269C45 /* ExhibitsViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				B4DBBE332590ACD000DA7FA7 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
