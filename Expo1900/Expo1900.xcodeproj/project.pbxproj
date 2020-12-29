@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1F5349259AACC40072E85C /* DecodeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F5348259AACC40072E85C /* DecodeJSON.swift */; };
 		9A6C778C25999197008FB747 /* KoreanEntriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C778B25999197008FB747 /* KoreanEntriesTableViewCell.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A1F5348259AACC40072E85C /* DecodeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeJSON.swift; sourceTree = "<group>"; };
 		9A6C778B25999197008FB747 /* KoreanEntriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntriesTableViewCell.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A1F5347259AAC5D0072E85C /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				9A6C778B25999197008FB747 /* KoreanEntriesTableViewCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		9A1F534C259AACD10072E85C /* DecodeJSON */ = {
+			isa = PBXGroup;
+			children = (
+				9A1F5348259AACC40072E85C /* DecodeJSON.swift */,
+			);
+			path = DecodeJSON;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -67,13 +85,15 @@
 			isa = PBXGroup;
 			children = (
 				E229149D2591B3C900827F12 /* ViewController */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				E229148F25903EE000827F12 /* ExpoModel */,
+				9A1F5347259AAC5D0072E85C /* TableCell */,
+				9A1F534C259AACD10072E85C /* DecodeJSON */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
-				E229148F25903EE000827F12 /* ExpoModel */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -92,7 +112,6 @@
 			children = (
 				E229149E2591B40200827F12 /* ExpositionViewController.swift */,
 				E22914A22591E55F00827F12 /* KoreanEntriesListViewController.swift */,
-				9A6C778B25999197008FB747 /* KoreanEntriesTableViewCell.swift */,
 				E22914A52591E5E400827F12 /* KoreanEntryViewController.swift */,
 			);
 			path = ViewController;
@@ -169,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A6C778C25999197008FB747 /* KoreanEntriesTableViewCell.swift in Sources */,
+				9A1F5349259AACC40072E85C /* DecodeJSON.swift in Sources */,
 				E22914A62591E5E400827F12 /* KoreanEntryViewController.swift in Sources */,
 				E2291494259044B900827F12 /* KoreanEntries.swift in Sources */,
 				E22914A32591E56000827F12 /* KoreanEntriesListViewController.swift in Sources */,
