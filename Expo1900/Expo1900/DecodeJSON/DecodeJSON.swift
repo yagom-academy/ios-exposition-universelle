@@ -33,12 +33,4 @@ struct DecodeJSON {
         }
         return nil
     }
-    
-    func showAlertMessage(_ errorMessage: String) {
-        let alert = UIAlertController(title: nil, message: errorMessage, preferredStyle: UIAlertController.Style.alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        
-        alert.addAction(okAction)
-    }
 }
