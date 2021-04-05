@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Artwork {
+struct Artwork: Equatable {
     let name: String
     let imageName: String
     let shortDescription: String
