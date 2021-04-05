@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - 디코딩할 jsonString
+// command-line 테스트용
 let jsonString = """
 {
     "catalog":
