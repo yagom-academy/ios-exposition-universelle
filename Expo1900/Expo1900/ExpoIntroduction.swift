@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct ExpoIntroduction {
+struct ExpoIntroduction: Decodable {
     let title: String
     let visitors: Int
     let location: String
     let duration: String
     let description: String
-    var artworks: [Artwork]
+//    var artworks: [Artwork]
 }

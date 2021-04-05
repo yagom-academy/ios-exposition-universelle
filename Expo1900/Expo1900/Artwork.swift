@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct Artwork: Equatable {
+struct Artwork: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
     let description: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name, description
+        case imageName = "image_name"
+        case shortDescription = "short_desc"
+    }
 }
