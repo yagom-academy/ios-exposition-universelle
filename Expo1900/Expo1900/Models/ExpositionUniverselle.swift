@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Expo {
+struct ExpositionUniverselle {
     let title: String
     let visitors: Int
     let location: String
