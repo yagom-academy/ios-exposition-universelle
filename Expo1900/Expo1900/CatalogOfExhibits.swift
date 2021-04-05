@@ -1,6 +1,6 @@
 //
 //  CatalogOfExhibits.swift
-//  exposition-universelle
+//  Expo1900
 //
 //  Created by 강경 on 2021/04/05.
 //
@@ -12,19 +12,21 @@ class CatalogOfExhibits {
   
   init() throws {
     guard let path = Bundle.main.path(forResource: "Catalog", ofType: "json") else {
-      throw CatalogError.canNotFindJSONPath
+      throw jsonDecodingError.canNotFindJSONPath
     }
     guard let jsonData = try? String(contentsOfFile: path).data(using: .utf8) else {
-      throw CatalogError.failedToConvertJSONAsDataFormat
+      throw jsonDecodingError.failedToConvertJSONAsDataFormat
     }
     guard let unwrappedCatalog = try? JSONDecoder().decode(Catalog.self, from: jsonData) else {
-      throw CatalogError.nilHasOccurredWhileUnwrappingCatalog
+      throw jsonDecodingError.nilHasOccurredWhileUnwrappingData
     }
 
     self.catalogOfExhibits = unwrappedCatalog
 
 //    command-line 테스트용 코드
-//    let jsonData = Data(jsonString.utf8)
+//    let addArrayName = "{ \"catalog\": \(itemJSONString) }"
+//    let replaceLineChar = addArrayName.replacingOccurrences(of: "\n", with: " ")
+//    let jsonData = Data(replaceLineChar.utf8)
 //    self.catalogOfExhibits = try! JSONDecoder().decode(Catalog.self, from: jsonData)
   }
   

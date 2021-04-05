@@ -1,21 +1,21 @@
 //
-//  Error.swift
-//  exposition-universelle
+//  jsonDecodingError.swift
+//  Expo1900
 //
 //  Created by 강경 on 2021/04/05.
 //
 
 import Foundation
 
-enum CatalogError: Error, CustomStringConvertible {
-  case nilHasOccurredWhileUnwrappingCatalog
+enum jsonDecodingError: Error, CustomStringConvertible {
+  case nilHasOccurredWhileUnwrappingData
   case canNotFindJSONPath
   case failedToConvertJSONAsDataFormat
   
   var description: String {
     switch self {
-    case .nilHasOccurredWhileUnwrappingCatalog:
-      return "출품목록을 가져오는 과정에서 옵셔널 해제에 실패했습니다."
+    case .nilHasOccurredWhileUnwrappingData:
+      return "데이터를 가져오는 과정에서 옵셔널 해제에 실패하였습니다."
     case .canNotFindJSONPath:
       return "지정된 경로에 JSON파일이 없습니다."
     case .failedToConvertJSONAsDataFormat:

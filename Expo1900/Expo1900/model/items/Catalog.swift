@@ -1,6 +1,6 @@
 //
 //  Catalog.swift
-//  exposition-universelle
+//  Expo1900
 //
 //  Created by 강경 on 2021/04/05.
 //
