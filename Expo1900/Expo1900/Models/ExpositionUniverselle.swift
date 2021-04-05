@@ -12,6 +12,14 @@ struct ExpositionUniverselle {
     let visitors: Int
     let location: String
     let duration: String
-    let description: String
+    let desc: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case visitors
+        case location
+        case duration
+        case desc = "description"
+    }
 }
 
