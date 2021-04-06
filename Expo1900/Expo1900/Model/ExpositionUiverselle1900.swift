@@ -9,8 +9,8 @@ import Foundation
 
 struct ExpositionUnivereselle1900: Decodable {
     let title: String
-    let visitors: Int
+    let visitors: Int?
     let location: String
-    let duration: String
+    let duration: String?
     let description: String
 }
