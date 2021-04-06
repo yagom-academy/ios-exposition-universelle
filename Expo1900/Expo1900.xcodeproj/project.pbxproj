@@ -10,6 +10,7 @@
 		C39A877A261C54D2000AF183 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A8779261C54D2000AF183 /* Exposition.swift */; };
 		C39A877E261C5548000AF183 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A877D261C5548000AF183 /* Item.swift */; };
 		C39A8787261C5633000AF183 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A8786261C5633000AF183 /* Expo1900Tests.swift */; };
+		C39A8791261C5C47000AF183 /* ExpoConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A8790261C5C47000AF183 /* ExpoConstant.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		C39A8784261C5633000AF183 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39A8786261C5633000AF183 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		C39A8788261C5633000AF183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C39A8790261C5C47000AF183 /* ExpoConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoConstant.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				C39A8779261C54D2000AF183 /* Exposition.swift */,
 				C39A877D261C5548000AF183 /* Item.swift */,
+				C39A8790261C5C47000AF183 /* ExpoConstant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39A877E261C5548000AF183 /* Item.swift in Sources */,
+				C39A8791261C5C47000AF183 /* ExpoConstant.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				C39A877A261C54D2000AF183 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
