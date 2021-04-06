@@ -12,6 +12,7 @@ class Expo1900Tests: XCTestCase {
     
     var sutExpoIntroduction: ExpoIntroduction!
     var sutArtwork: Artwork!
+    var sutArtworks: [Artwork]!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -21,18 +22,14 @@ class Expo1900Tests: XCTestCase {
         try super .tearDownWithError()
         sutExpoIntroduction = nil
         sutArtwork = nil
+        sutArtworks = nil
     }
 
     func testExample() throws {
         test_artwork_Initializing()
         test_expoIntroduction_Initializing()
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+        test_expoIntroduction_jsonDecoding()
+        test_artworks_jsonDecoding()
     }
     
     func test_artwork_Initializing() {
@@ -51,16 +48,54 @@ class Expo1900Tests: XCTestCase {
         sutExpoIntroduction = ExpoIntroduction(title: "Title",
                                                visitors: 1234567890,
                                                location: "Location",
-                                               duration: "1900. 04. 14 - 1900. 11. 12",
-                                               description: "Description",
-                                               artworks: [])
+                                               duration: "Duration",
+                                               description: "Description")
         
         XCTAssertEqual(sutExpoIntroduction.title, "Title")
         XCTAssertEqual(sutExpoIntroduction.visitors, 1234567890)
         XCTAssertEqual(sutExpoIntroduction.location, "Location")
-        XCTAssertEqual(sutExpoIntroduction.duration, "1900. 04. 14 - 1900. 11. 12")
+        XCTAssertEqual(sutExpoIntroduction.duration, "Duration")
         XCTAssertEqual(sutExpoIntroduction.description, "Description")
-        XCTAssertEqual(sutExpoIntroduction.artworks, [])
+    }
+    
+    func test_expoIntroduction_jsonDecoding() {
+        let decoder = JSONDecoder()
+        
+        guard let expoIntroductionData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        
+        do  {
+            self.sutExpoIntroduction = try decoder.decode(ExpoIntroduction.self, from: expoIntroductionData.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        XCTAssertNotEqual(sutExpoIntroduction, nil)
+//        XCTAssertEqual(sutExpoIntroduction.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
+//        XCTAssertEqual(sutExpoIntroduction.visitors, 48130300)
+//        XCTAssertEqual(sutExpoIntroduction.location, "프랑스 파리")
+//        XCTAssertEqual(sutExpoIntroduction.duration, "1900. 04. 14 - 1900. 11. 12")
+    }
+    
+    func test_artworks_jsonDecoding() {
+        let decoder = JSONDecoder()
+
+        guard let artworksData: NSDataAsset = NSDataAsset(name: "items") else { return }
+        
+        do  {
+            self.sutArtworks = try decoder.decode([Artwork].self, from: artworksData.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        for index in 0...(sutArtworks.count - 1) {
+            XCTAssertNotEqual(sutArtworks[index].name, nil)
+            XCTAssertNotEqual(sutArtworks[index].imageName, nil)
+            XCTAssertNotEqual(sutArtworks[index].shortDescription, nil)
+            XCTAssertNotEqual(sutArtworks[index].description, nil)
+        }
+        
+//        XCTAssertNotEqual(sutArtworks, nil)
+//        XCTAssertEqual(sutArtworks.count, 13)
     }
     
 }
