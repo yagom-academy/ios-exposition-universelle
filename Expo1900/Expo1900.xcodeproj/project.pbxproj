@@ -12,6 +12,9 @@
 		1C06F09B261C56A0008E62CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		1C8AD0CA261B58D100EAD240 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0C9261B58D100EAD240 /* Item.swift */; };
 		1C8AD0CF261BF74C00EAD240 /* ExpositionUniverselle1900.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */; };
+		1CC0C2FC261CC0ED0052647E /* ExpositionUniverselle1900.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */; };
+		1CC0C2FF261CC0F10052647E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0C9261B58D100EAD240 /* Item.swift */; };
+		1CC0C302261CC0F20052647E /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD1E81261C347600D9D477 /* Error.swift */; };
 		1CFD1E82261C347600D9D477 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD1E81261C347600D9D477 /* Error.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -286,6 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC0C302261CC0F20052647E /* Error.swift in Sources */,
+				1CC0C2FC261CC0ED0052647E /* ExpositionUniverselle1900.swift in Sources */,
+				1CC0C2FF261CC0F10052647E /* Item.swift in Sources */,
 				1C06F092261C4F56008E62CF /* Expo1900Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

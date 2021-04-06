@@ -9,9 +9,10 @@ import XCTest
 @testable import Expo1900
 class Expo1900Tests: XCTestCase {
     
-    var decoder = JSONDecoder()
-    var items = [Item]()
-    var contents = [Content]()
+    var decoder: JSONDecoder?
+    var items: [Item]?
+    var expo: ExpositionUnivereselle1900?
+    
     override func setUpWithError() throws {
         
     }
@@ -20,13 +21,28 @@ class Expo1900Tests: XCTestCase {
         
     }
     
+    func test_exposition_univereselle_1900() {
+        guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
+            XCTFail("파일없음")
+            return
+        }
+        
+        do {
+            expo = try decoder?.decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
+        } catch {
+            XCTFail("실패")
+        }
+        
+    }
+    
     func test_items_decoding() {
         guard let dataAsset = NSDataAsset.init(name: "items") else {
             XCTFail("파일없음")
             return
         }
+        
         do {
-            items = try decoder.decode([Item].self, from: dataAsset.data)
+            items = try decoder?.decode([Item].self, from: dataAsset.data)
         } catch {
             XCTFail("실패")
         }
