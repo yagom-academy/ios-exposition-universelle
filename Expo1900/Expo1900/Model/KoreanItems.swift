@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct KoreaItems: Codable {
+struct KoreanItems: Decodable {
     enum CodingKeys: String, CodingKey {
-        case name
+        case name, desc
         case imageName = "image_name"
         case shortDesc = "short_desc"
-        case desc
     }
     let name: String
     let imageName: String

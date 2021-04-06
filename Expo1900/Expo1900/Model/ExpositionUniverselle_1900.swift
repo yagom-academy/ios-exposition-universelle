@@ -7,13 +7,9 @@
 
 import Foundation
 
-struct ExpoItem: Codable {
-    enum CodingKeys: String, CodingKey {
-        case title
-        case visitors
-        case location
-        case duration
-        case description
+struct ExpoItem: Decodable {
+    enum JsonKey: String, CodingKey {
+        case title, visitors, location, duration, description
     }
     let title: String
     let visitors: Int
@@ -22,7 +18,7 @@ struct ExpoItem: Codable {
     let description: String
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: JsonKey.self)
         title = (try? container.decode(String.self, forKey: .title)) ?? ""
         visitors = (try? container.decode(Int.self, forKey: .visitors)) ?? 0
         location = (try? container.decode(String.self, forKey: .location)) ?? ""
