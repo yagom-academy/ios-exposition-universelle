@@ -8,8 +8,8 @@
 import Foundation
 
 struct DetailOfEntryRequest : Decodable {
-    var title : String
-    var photo : String
-    var content : String
+    var title: String
+    var photo: String
+    var content: String
 }
 

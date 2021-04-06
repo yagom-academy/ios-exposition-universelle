@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct MainRequest : Decodable {
-    var titleKorean : String
-    var titleEngilsh : String
-    var photo : String
-    var numberOfVisitor : Int
-    var venue : String
-    var venuePeriod : String
-    var content : String
+struct MainRequest: Decodable {
+    var titleKorean: String
+    var titleEngilsh: String
+    var photo: String
+    var numberOfVisitor: Int
+    var venue: String
+    var venuePeriod: String
+    var content: String
 }
 

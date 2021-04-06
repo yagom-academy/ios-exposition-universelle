@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct EntryOfKoreaRequest : Decodable {
-    var listOfEntry : [Entry]
+struct EntryOfKoreaRequest: Decodable {
+    var listOfEntry: [Entry]
 }
 
-struct Entry : Decodable {
-    var title : String
-    var photo : String
-    var venurPeriod : String
-    var content : String
+struct Entry: Decodable {
+    var title: String
+    var photo: String
+    var venurPeriod: String
+    var content: String
 }
