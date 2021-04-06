@@ -12,9 +12,9 @@ struct Item {
     var description: String
     
     enum CodingKeys: String, CodingKey {
-        case image
-        case name
-        case description
+        case image = "image"
+        case name = "name"
+        case description = "description"
     }
 }
 
