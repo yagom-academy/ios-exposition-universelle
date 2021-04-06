@@ -8,7 +8,8 @@
 import XCTest
 @testable import Expo1900
 
-class Expo1900Tests: XCTestCase {
+class Expo1900Tests: XCTestCase, JSONDecodable {
+    typealias T = [Artwork]
     
     var sutExpoIntroduction: ExpoIntroduction!
     var sutArtwork: Artwork!
@@ -28,8 +29,7 @@ class Expo1900Tests: XCTestCase {
     func testExample() throws {
         test_artwork_Initializing()
         test_expoIntroduction_Initializing()
-        test_expoIntroduction_jsonDecoding()
-        test_artworks_jsonDecoding()
+        test_jsonDecodable_decode()
     }
     
     func test_artwork_Initializing() {
@@ -58,22 +58,8 @@ class Expo1900Tests: XCTestCase {
         XCTAssertEqual(sutExpoIntroduction.description, "Description")
     }
     
-    func test_expoIntroduction_jsonDecoding() {
-        let expoIntroductionJSONDecoder = CustomJSONDecoder<ExpoIntroduction>()
-        
-        sutExpoIntroduction = expoIntroductionJSONDecoder.decode(jsonFileName: "exposition_universelle_1900")
-        
-        XCTAssertNotEqual(sutExpoIntroduction, nil)
-//        XCTAssertEqual(sutExpoIntroduction.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
-//        XCTAssertEqual(sutExpoIntroduction.visitors, 48130300)
-//        XCTAssertEqual(sutExpoIntroduction.location, "프랑스 파리")
-//        XCTAssertEqual(sutExpoIntroduction.duration, "1900. 04. 14 - 1900. 11. 12")
-    }
-    
-    func test_artworks_jsonDecoding() {
-        let artworksJSONDecoder = CustomJSONDecoder<[Artwork]>()
-        
-        sutArtworks = artworksJSONDecoder.decode(jsonFileName: "items")
+    func test_jsonDecodable_decode() {
+        sutArtworks = decode(jsonFileName: "items")
         
         for index in 0...(sutArtworks.count - 1) {
             XCTAssertNotEqual(sutArtworks[index].name, nil)
@@ -82,8 +68,5 @@ class Expo1900Tests: XCTestCase {
             XCTAssertNotEqual(sutArtworks[index].description, nil)
         }
         
-//        XCTAssertNotEqual(sutArtworks, nil)
-//        XCTAssertEqual(sutArtworks.count, 13)
     }
-    
 }
