@@ -30,7 +30,7 @@ class Expo1900Tests: XCTestCase {
         }
         
         do {
-            let items = try JSONDecoder().decode([Item].self, from: dataAsset.data)
+            let items = try JSONDecoder().decode([KoreanItem].self, from: dataAsset.data)
             XCTAssertNotNil(items, "items에 nil이 할당되었습니다.")
         } catch {
             XCTFail("디코딩 실패")
