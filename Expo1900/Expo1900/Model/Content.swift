@@ -11,8 +11,8 @@ struct Content: Decodable {
     
     struct Image: Decodable {
         let fileName: String
-        let idiom: String?
-        let scale: String?
+        let idiom: String
+        let scale: String
         
         private enum CodingKeys: String, CodingKey {
             case fileName = "filename"
@@ -21,7 +21,7 @@ struct Content: Decodable {
     }
     
     struct Info: Decodable {
-        let author: String
+        let author: String?
         let version: Int?
     }
     
