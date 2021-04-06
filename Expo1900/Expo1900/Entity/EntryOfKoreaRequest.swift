@@ -8,7 +8,7 @@
 import Foundation
 
 struct EntryOfKoreaRequest: Decodable {
-    var listOfEntry: [Entry]
+    var Entries: [Entry]
 }
 
 struct Entry: Decodable {
