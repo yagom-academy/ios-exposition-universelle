@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         }
         do {
             infos = try jsonDecoder.decode([ExhibitInformation].self, from: jsonData.data)
+            print(infos.count)
         } catch {
             print("error")
         }
