@@ -12,14 +12,10 @@ struct Expo: Decodable {
     let visitors: UInt
     let location: String
     let duration: String
-    let desc: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
-        case title
-        case visitors
-        case location
-        case duration
-        case desc = "description"
+        case title, visitors, location, duration, description
     }
     
     init(from decoder: Decoder) throws {
@@ -28,6 +24,6 @@ struct Expo: Decodable {
         self.visitors = (try? container.decode(UInt.self, forKey: .visitors)) ?? 0
         self.location = (try? container.decode(String.self, forKey: .location)) ?? ""
         self.duration = (try? container.decode(String.self, forKey: .duration)) ?? ""
-        self.desc = (try? container.decode(String.self, forKey: .desc)) ?? ""
+        self.description = (try? container.decode(String.self, forKey: .description)) ?? ""
     }
 }
