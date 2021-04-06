@@ -10,7 +10,7 @@ import XCTest
 
 class Expo1900Tests: XCTestCase {
     
-    var infos: [ExhibitInformation]!
+    var infos: [ExhibitedItem]!
     var jsonDecoder: JSONDecoder!
     var jsonData: NSDataAsset!
     
@@ -18,7 +18,7 @@ class Expo1900Tests: XCTestCase {
         infos = []
         jsonDecoder = JSONDecoder()
         jsonData = NSDataAsset(name: "items", bundle: Bundle(for: Expo1900Tests.self))
-        infos = try? jsonDecoder.decode([ExhibitInformation].self, from: jsonData.data)
+        infos = try? jsonDecoder.decode([ExhibitedItem].self, from: jsonData.data)
         try super.setUpWithError()
     }
 
