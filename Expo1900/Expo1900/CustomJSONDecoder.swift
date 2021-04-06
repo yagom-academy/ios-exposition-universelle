@@ -8,21 +8,20 @@
 import Foundation
 import UIKit
 
-struct CustomJSONDecoder<T> where T: Decodable {
-    
-    private var decodingResult: T?
+class CustomJSONDecoder<T> where T: Decodable {
+    private var decodedResult: T?
 
-    public mutating func decode(jsonFileName: String) -> T? {
+    public func decode(jsonFileName: String) -> T? {
         let jsonDecoder = JSONDecoder()
 
         guard let jsonData: NSDataAsset = NSDataAsset(name: jsonFileName) else { return nil }
 
         do  {
-            self.decodingResult = try jsonDecoder.decode(T.self, from: jsonData.data)
+            self.decodedResult = try jsonDecoder.decode(T.self, from: jsonData.data)
         } catch {
             print(error.localizedDescription)
         }
 
-        return self.decodingResult
+        return self.decodedResult
     }
 }

@@ -59,15 +59,9 @@ class Expo1900Tests: XCTestCase {
     }
     
     func test_expoIntroduction_jsonDecoding() {
-        let decoder = JSONDecoder()
+        let expoIntroductionJSONDecoder = CustomJSONDecoder<ExpoIntroduction>()
         
-        guard let expoIntroductionData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        
-        do  {
-            self.sutExpoIntroduction = try decoder.decode(ExpoIntroduction.self, from: expoIntroductionData.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        sutExpoIntroduction = expoIntroductionJSONDecoder.decode(jsonFileName: "exposition_universelle_1900")
         
         XCTAssertNotEqual(sutExpoIntroduction, nil)
 //        XCTAssertEqual(sutExpoIntroduction.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
@@ -77,15 +71,9 @@ class Expo1900Tests: XCTestCase {
     }
     
     func test_artworks_jsonDecoding() {
-        let decoder = JSONDecoder()
-
-        guard let artworksData: NSDataAsset = NSDataAsset(name: "items") else { return }
+        let artworksJSONDecoder = CustomJSONDecoder<[Artwork]>()
         
-        do  {
-            self.sutArtworks = try decoder.decode([Artwork].self, from: artworksData.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        sutArtworks = artworksJSONDecoder.decode(jsonFileName: "items")
         
         for index in 0...(sutArtworks.count - 1) {
             XCTAssertNotEqual(sutArtworks[index].name, nil)
