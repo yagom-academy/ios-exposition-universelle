@@ -9,18 +9,6 @@ import XCTest
 @testable import Expo1900
 class Expo1900Tests: XCTestCase {
     
-    var decoder: JSONDecoder?
-    var items: [Item]?
-    var expo: ExpositionUnivereselle1900?
-    
-    override func setUpWithError() throws {
-        
-    }
-
-    override func tearDownWithError() throws {
-        
-    }
-    
     func test_exposition_univereselle_1900() {
         guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
             XCTFail("파일없음")
@@ -28,11 +16,11 @@ class Expo1900Tests: XCTestCase {
         }
         
         do {
-            expo = try decoder?.decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
+            let expo = try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
+            XCTAssertNotNil(expo, "expo에 nil이 할당되었습니다.")
         } catch {
-            XCTFail("실패")
+            XCTFail("디코딩 실패")
         }
-        
     }
     
     func test_items_decoding() {
@@ -42,9 +30,10 @@ class Expo1900Tests: XCTestCase {
         }
         
         do {
-            items = try decoder?.decode([Item].self, from: dataAsset.data)
+            let items = try JSONDecoder().decode([Item].self, from: dataAsset.data)
+            XCTAssertNotNil(items, "items에 nil이 할당되었습니다.")
         } catch {
-            XCTFail("실패")
+            XCTFail("디코딩 실패")
         }
     }
 }
