@@ -15,7 +15,7 @@ protocol JSONDecodable {
 }
 
 extension JSONDecodable {
-    func decode(jsonFileName: String) ->T? {
+    func decode(jsonFileName: String) -> T? {
         var decodedResult: T?
         let jsonDecoder = JSONDecoder()
         guard let jsonData: NSDataAsset = NSDataAsset(name: jsonFileName) else { return nil }

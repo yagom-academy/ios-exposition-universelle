@@ -21,6 +21,7 @@ class Expo1900Tests: XCTestCase, JSONDecodable {
 
     override func tearDownWithError() throws {
         try super .tearDownWithError()
+        
         sutExpoIntroduction = nil
         sutArtwork = nil
         sutArtworks = nil
