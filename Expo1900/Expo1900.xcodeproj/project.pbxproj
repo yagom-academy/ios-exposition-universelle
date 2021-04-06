@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		00477C6EB3D11628F07E50E1 /* Pods_Expo1900.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B7FCC6914C961CF596F75C /* Pods_Expo1900.framework */; };
+		1C8AD0C6261B30BF00EAD240 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0C5261B30BF00EAD240 /* Content.swift */; };
+		1C8AD0CA261B58D100EAD240 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0C9261B58D100EAD240 /* Item.swift */; };
+		1C8AD0CF261BF74C00EAD240 /* ExpositionUiverselle1900.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0CE261BF74C00EAD240 /* ExpositionUiverselle1900.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C8AD0C5261B30BF00EAD240 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		1C8AD0C9261B58D100EAD240 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		1C8AD0CE261BF74C00EAD240 /* ExpositionUiverselle1900.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUiverselle1900.swift; sourceTree = "<group>"; };
 		27B7FCC6914C961CF596F75C /* Pods_Expo1900.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expo1900.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FFAE516913B339DB1E1FAA /* Pods-Expo1900.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expo1900.release.xcconfig"; path = "Target Support Files/Pods-Expo1900/Pods-Expo1900.release.xcconfig"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +87,9 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				1C8AD0C5261B30BF00EAD240 /* Content.swift */,
+				1C8AD0C9261B58D100EAD240 /* Item.swift */,
+				1C8AD0CE261BF74C00EAD240 /* ExpositionUiverselle1900.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
@@ -206,6 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				1C8AD0CF261BF74C00EAD240 /* ExpositionUiverselle1900.swift in Sources */,
+				1C8AD0CA261B58D100EAD240 /* Item.swift in Sources */,
+				1C8AD0C6261B30BF00EAD240 /* Content.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
