@@ -67,6 +67,5 @@ class Expo1900Tests: XCTestCase, JSONDecodable {
             XCTAssertNotEqual(sutArtworks[index].shortDescription, nil)
             XCTAssertNotEqual(sutArtworks[index].description, nil)
         }
-        
     }
 }
