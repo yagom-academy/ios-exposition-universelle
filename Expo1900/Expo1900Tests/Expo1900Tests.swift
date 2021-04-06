@@ -28,12 +28,12 @@ class Expo1900Tests: XCTestCase, JSONDecodable {
     }
 
     func testExample() throws {
-        test_artwork_Initializing()
-        test_expoIntroduction_Initializing()
+        test_artwork_initializing()
+        test_expoIntroduction_initializing()
         test_jsonDecodable_decode()
     }
     
-    func test_artwork_Initializing() {
+    func test_artwork_initializing() {
         sutArtwork = Artwork(name: "Name",
                              imageName: "Image name",
                              shortDescription: "Short description",
@@ -45,7 +45,7 @@ class Expo1900Tests: XCTestCase, JSONDecodable {
         XCTAssertEqual(sutArtwork.description, "Description")
     }
     
-    func test_expoIntroduction_Initializing() {
+    func test_expoIntroduction_initializing() {
         sutExpoIntroduction = ExpoIntroduction(title: "Title",
                                                visitors: 1234567890,
                                                location: "Location",
