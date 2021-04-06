@@ -14,6 +14,13 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
+    var visitorsForamatter: String? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(from: NSNumber(value: self.visitors))
+        return result
+    }
+    
     private enum CodingKeys: CodingKey {
         case title
         case visitors

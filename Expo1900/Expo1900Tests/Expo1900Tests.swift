@@ -62,4 +62,14 @@ class Expo1900Tests: XCTestCase {
             print(error.localizedDescription)
         }
     }
+    
+    func test_expositionAssetVisitorsFormatter() {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        do {
+            let result = try decoder.decode(Exposition.self, from: dataAsset.data)
+            XCTAssertEqual(result.visitorsForamatter, "48,130,300")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
