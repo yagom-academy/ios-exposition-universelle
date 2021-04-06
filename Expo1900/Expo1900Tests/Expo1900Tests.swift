@@ -10,25 +10,38 @@ import XCTest
 
 class Expo1900Tests: XCTestCase {
     
-    var infos: [ExhibitedItem]!
+    var items: [ExhibitedItem]!
+    var info: ExhibitionInfomation!
     var jsonDecoder: JSONDecoder!
-    var jsonData: NSDataAsset!
+    var itemJsonData: NSDataAsset!
+    var exhibitionJsonData: NSDataAsset!
     
     override func setUpWithError() throws {
-        infos = []
+        items = []
         jsonDecoder = JSONDecoder()
-        jsonData = NSDataAsset(name: "items", bundle: Bundle(for: Expo1900Tests.self))
-        infos = try? jsonDecoder.decode([ExhibitedItem].self, from: jsonData.data)
+        
+        itemJsonData = NSDataAsset(name: "items", bundle: Bundle(for: Expo1900Tests.self))
+        items = try? jsonDecoder.decode([ExhibitedItem].self, from: itemJsonData.data)
+        
+        exhibitionJsonData = NSDataAsset(name: "exposition_universelle_1900", bundle: Bundle(for: Expo1900Tests.self))
+        info = try? jsonDecoder.decode(ExhibitionInfomation.self, from: exhibitionJsonData.data)
+        
         try super.setUpWithError()
     }
 
     override func tearDownWithError() throws {
+        items = nil
+        info = nil
         jsonDecoder = nil
-        jsonData = nil
+        itemJsonData = nil
         try super.tearDownWithError()
     }
 
-    func testExhibitInformationParsing() {
-        XCTAssertEqual(infos.count, 13)
+    func testExhibitedItemCount() {
+        XCTAssertEqual(items.count, 13)
+    }
+    
+    func testExhibitiontitle() {
+        XCTAssertEqual(info.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
     }
 }

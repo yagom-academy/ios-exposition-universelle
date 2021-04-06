@@ -12,22 +12,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        var infos: [ExhibitInformation] = []
+        var infos: ExhibitionInfomation?
         let jsonDecoder = JSONDecoder()
-        guard let jsonData: NSDataAsset = NSDataAsset(name: "items") else {
+        guard let jsonData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
         }
         do {
-            infos = try jsonDecoder.decode([ExhibitInformation].self, from: jsonData.data)
-            print(infos.count)
+            infos = try jsonDecoder.decode(ExhibitionInfomation.self, from: jsonData.data)
         } catch {
             print("error")
         }
-        for info in infos {
-            print("name:", info.name)
-            print("imageName:", info.imageName)
-            print("shortdesc:", info.shortDescription)
-        }
+        print(infos?.title)
     }
 }
 
