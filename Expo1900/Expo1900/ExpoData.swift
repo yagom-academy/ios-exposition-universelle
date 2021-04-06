@@ -15,11 +15,11 @@ struct Expo {
     var description: String
     
     enum CodingKeys: String, CodingKey {
-        case title = "title"
-        case visitors = "visitors"
-        case location = "location"
-        case duration = "duration"
-        case description = "description"
+        case title
+        case visitors
+        case location
+        case duration
+        case description
     }
 }
 

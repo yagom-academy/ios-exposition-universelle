@@ -9,12 +9,14 @@ import Foundation
 struct Item {
     var image: String
     var name: String
+    var shortDescription: String
     var description: String
     
     enum CodingKeys: String, CodingKey {
-        case image = "image"
-        case name = "name"
-        case description = "description"
+        case image = "image_name"
+        case name
+        case shortDescription = "short_desc"
+        case description = "desc"
     }
 }
 
@@ -24,6 +26,7 @@ extension Item: Decodable {
         image = try values.decode(String.self, forKey: .image)
         name = try values.decode(String.self, forKey: .name)
         description = try values.decode(String.self, forKey: .description)
+        shortDescription = try values.decode(String.self, forKey: .shortDescription)
         
     }
 }
