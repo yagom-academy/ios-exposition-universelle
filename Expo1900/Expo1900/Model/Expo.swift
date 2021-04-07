@@ -27,3 +27,9 @@ struct Expo: Decodable {
         self.description = (try? container.decode(String.self, forKey: .description)) ?? ""
     }
 }
+
+enum PreFixWord {
+    static let visitor = "방문객 : "
+    static let location = "개최지 : "
+    static let duration = "개최 기간 : "
+}

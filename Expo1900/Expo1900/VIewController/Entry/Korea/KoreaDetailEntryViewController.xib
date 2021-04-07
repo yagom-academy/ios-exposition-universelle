@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KoreaDetailEntryViewController" customModule="Expo1900" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLable" destination="huM-LS-q7u" id="cnu-Iw-dZy"/>
+                <outlet property="detailImage" destination="HKv-ec-Eq6" id="RD9-sp-tJO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B7-0D-tx3">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="HKv-ec-Eq6">
+                            <rect key="frame" x="70" y="30" width="274" height="274"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="HKv-ec-Eq6" secondAttribute="height" multiplier="1:1" id="udb-0d-LF0"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huM-LS-q7u">
+                            <rect key="frame" x="20" y="334" width="374" height="20.5"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="huM-LS-q7u" firstAttribute="leading" secondItem="7B7-0D-tx3" secondAttribute="leading" constant="20" id="34Q-hg-hhd"/>
+                        <constraint firstItem="huM-LS-q7u" firstAttribute="centerX" secondItem="7B7-0D-tx3" secondAttribute="centerX" id="R3F-CH-Esj"/>
+                        <constraint firstItem="HKv-ec-Eq6" firstAttribute="top" secondItem="7B7-0D-tx3" secondAttribute="top" constant="30" id="TT8-yE-OnF"/>
+                        <constraint firstAttribute="trailing" secondItem="huM-LS-q7u" secondAttribute="trailing" constant="20" id="d5H-1S-yb0"/>
+                        <constraint firstItem="huM-LS-q7u" firstAttribute="top" secondItem="HKv-ec-Eq6" secondAttribute="bottom" constant="30" id="tl8-5B-r48"/>
+                        <constraint firstAttribute="bottom" secondItem="huM-LS-q7u" secondAttribute="bottom" constant="42" id="wHV-aM-kQ3"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="nG7-VT-qR2"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="7gk-OP-S13"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="HKv-ec-Eq6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="7Dz-FL-a80"/>
+                <constraint firstAttribute="bottom" secondItem="7B7-0D-tx3" secondAttribute="bottom" id="RDW-tw-6Ad"/>
+                <constraint firstItem="7B7-0D-tx3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TzU-L8-GhN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HKv-ec-Eq6" secondAttribute="trailing" constant="70" id="aWU-Sd-TGg"/>
+                <constraint firstItem="7B7-0D-tx3" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kHl-ge-E5f"/>
+                <constraint firstItem="7B7-0D-tx3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vWy-We-Cqd"/>
+                <constraint firstItem="7B7-0D-tx3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="zfG-G5-QAc"/>
+            </constraints>
+            <point key="canvasLocation" x="24.637681159420293" y="152.67857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
