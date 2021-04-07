@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExhibitionInfomation: Codable {
+struct ExhibitionInfomation: Decodable {
     var title: String
     var visitors: Int
     var location: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExhibitedItem: Codable {
+struct ExhibitedItem: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String
