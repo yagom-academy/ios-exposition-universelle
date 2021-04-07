@@ -23,7 +23,7 @@ class Expo1900Tests: XCTestCase {
         decoder = nil
     }
 
-    func test_itemAssetName() {
+    func testItemAssetName() {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         do {
             let result = try decoder.decode([Item].self, from: dataAsset.data)
@@ -33,7 +33,7 @@ class Expo1900Tests: XCTestCase {
         }
     }
     
-    func test_itemAssetImageName() {
+    func testItemAssetImageName() {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         do {
             let result = try decoder.decode([Item].self, from: dataAsset.data)
@@ -43,7 +43,7 @@ class Expo1900Tests: XCTestCase {
         }
     }
     
-    func test_expositionAssetTitle() {
+    func testExpositionAssetTitle() {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         do {
             let result = try decoder.decode(Exposition.self, from: dataAsset.data)
@@ -53,7 +53,7 @@ class Expo1900Tests: XCTestCase {
         }
     }
     
-    func test_expositionAssetVisitors() {
+    func testExpositionAssetVisitors() {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         do {
             let result = try decoder.decode(Exposition.self, from: dataAsset.data)
@@ -63,7 +63,7 @@ class Expo1900Tests: XCTestCase {
         }
     }
     
-    func test_expositionAssetVisitorsFormatter() {
+    func testExpositionAssetVisitorsFormatter() {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         do {
             let result = try decoder.decode(Exposition.self, from: dataAsset.data)
