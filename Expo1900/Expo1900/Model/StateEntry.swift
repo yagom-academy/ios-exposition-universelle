@@ -29,4 +29,7 @@ struct StateEntry: Decodable {
     }
 }
 
-
+enum KoreaEntryVariable {
+    static let navigationTitle = "한국의 출품작"
+    static let koreaEntryJson = "items"
+}
