@@ -10,12 +10,12 @@ import Foundation
 struct EntryWork: Decodable {
   var name: String
   var imageName: String
-  var shortDesc: String
-  var desc: String
+  var shortDescription: String
+  var description: String
   
   private enum CodingKeys: String, CodingKey {
-    case name, desc
+    case name, description
     case imageName = "image_name"
-    case shortDesc = "short_desc"
+    case shortDescription = "short_desc"
   }
 }
