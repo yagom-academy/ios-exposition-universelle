@@ -12,13 +12,13 @@ class CatalogOfExhibits {
   
   init() throws {
     guard let path = Bundle.main.path(forResource: "Catalog", ofType: "json") else {
-      throw jsonDecodingError.canNotFindJSONPath
+      throw jsonDecodingError.failedToFindJSON
     }
     guard let jsonData = try? String(contentsOfFile: path).data(using: .utf8) else {
-      throw jsonDecodingError.failedToConvertJSONAsDataFormat
+      throw jsonDecodingError.failedToConvertJSON
     }
     guard let unwrappedCatalog = try? JSONDecoder().decode(Catalog.self, from: jsonData) else {
-      throw jsonDecodingError.nilHasOccurredWhileUnwrappingData
+      throw jsonDecodingError.failToUnwrapping
     }
 
     self.catalogOfExhibits = unwrappedCatalog

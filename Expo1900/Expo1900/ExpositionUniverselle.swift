@@ -12,13 +12,13 @@ class ExpositionUniverselle {
   
   init() throws {
     guard let path = Bundle.main.path(forResource: "exposition_universelle_1900", ofType: "json") else {
-      throw jsonDecodingError.canNotFindJSONPath
+      throw jsonDecodingError.failedToFindJSON
     }
     guard let jsonData = try? String(contentsOfFile: path).data(using: .utf8) else {
-      throw jsonDecodingError.failedToConvertJSONAsDataFormat
+      throw jsonDecodingError.failedToConvertJSON
     }
     guard let unwrappedExplanation = try? JSONDecoder().decode(Exposition.self, from: jsonData) else {
-      throw jsonDecodingError.nilHasOccurredWhileUnwrappingData
+      throw jsonDecodingError.failToUnwrapping
     }
 
     self.expositionUniverselle = unwrappedExplanation
