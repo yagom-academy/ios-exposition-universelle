@@ -12,11 +12,11 @@ class Expo1900Tests: XCTestCase {
     var sutExpoIntroduction: ExpoIntroduction!
     var sutArtwork: Artwork!
     var sutArtworks: [Artwork]!
-
+    
     override func setUpWithError() throws {
         try super.setUpWithError()
     }
-
+    
     override func tearDownWithError() throws {
         try super .tearDownWithError()
         
@@ -55,20 +55,8 @@ class Expo1900Tests: XCTestCase {
         let expoIntroductionJSONDecoder = CustomJSONDecoder<ExpoIntroduction>()
         let artworksJSONDecoder = CustomJSONDecoder<[Artwork]>()
         
-        sutExpoIntroduction = expoIntroductionJSONDecoder.decode(jsonFileName: "exposition_universelle_1900")
-        sutArtworks = artworksJSONDecoder.decode(jsonFileName: "items")
-        
-        XCTAssertEqual(sutExpoIntroduction.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
-        XCTAssertEqual(sutExpoIntroduction.visitors, 48130300)
-        XCTAssertEqual(sutExpoIntroduction.location, "프랑스 파리")
-        XCTAssertEqual(sutExpoIntroduction.duration, "1900. 04. 14 - 1900. 11. 12")
-        XCTAssertNotEqual(sutExpoIntroduction.description, nil)
-        
-        for index in 0...(sutArtworks.count - 1) {
-            XCTAssertNotEqual(sutArtworks[index].name, nil)
-            XCTAssertNotEqual(sutArtworks[index].imageName, nil)
-            XCTAssertNotEqual(sutArtworks[index].shortDescription, nil)
-            XCTAssertNotEqual(sutArtworks[index].description, nil)
-        }
+        XCTAssertNoThrow(try expoIntroductionJSONDecoder.decode(jsonFileName: "exposition_universelle_1900"))
+        XCTAssertNoThrow(try artworksJSONDecoder.decode(jsonFileName: "items"))
     }
 }
+
