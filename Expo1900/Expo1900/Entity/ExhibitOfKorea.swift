@@ -13,7 +13,7 @@ struct ExhibitOfKorea: Decodable {
 
 struct item: Decodable {
     var name: String
-    var image_name: String
-    var short_desc: String
-    var desc: String
+    var imageName: String
+    var shortDescription: String
+    var description: String
 }
