@@ -7,30 +7,19 @@
 
 import Foundation
 
-struct Expo {
+struct Expo: Codable {
     var title: String
     var visitors: Int
     var location: String
     var duration: String
     var description: String
     
-    enum CodingKeys: String, CodingKey {
-        case title
-        case visitors
-        case location
-        case duration
-        case description
-    }
-}
-
-extension Expo: Decodable {
     init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        title = try values.decode(String.self, forKey: .title)
-        visitors = try values.decode(Int.self, forKey: .visitors)
-        location = try values.decode(String.self, forKey: .location)
-        duration = try values.decode(String.self, forKey: .duration)
-        description = try values.decode(String.self, forKey: .description)
-        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+            title = try container.decode(String.self, forKey: .title)
+            visitors = try container.decode(Int.self, forKey: .visitors)
+            location = try container.decode(String.self, forKey: .location)
+            duration = try container.decode(String.self, forKey: .duration)
+            description = try container.decode(String.self, forKey: .description)
     }
 }

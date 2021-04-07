@@ -7,13 +7,13 @@
 
 import Foundation
 struct Item {
-    var image: String
     var name: String
+    var imageName: String
     var shortDescription: String
     var description: String
     
-    enum CodingKeys: String, CodingKey {
-        case image = "image_name"
+    private enum CodingKeys: String, CodingKey {
+        case imageName = "image_name"
         case name
         case shortDescription = "short_desc"
         case description = "desc"
@@ -22,11 +22,10 @@ struct Item {
 
 extension Item: Decodable {
     init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        image = try values.decode(String.self, forKey: .image)
-        name = try values.decode(String.self, forKey: .name)
-        description = try values.decode(String.self, forKey: .description)
-        shortDescription = try values.decode(String.self, forKey: .shortDescription)
-        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        imageName = try container.decode(String.self, forKey: .imageName)
+        name = try container.decode(String.self, forKey: .name)
+        description = try container.decode(String.self, forKey: .description)
+        shortDescription = try container.decode(String.self, forKey: .shortDescription)
     }
 }

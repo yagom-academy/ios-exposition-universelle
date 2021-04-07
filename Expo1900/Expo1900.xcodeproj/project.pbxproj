@@ -15,7 +15,19 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		EA745308261C3EFF00370B3D /* ExpoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA745307261C3EFF00370B3D /* ExpoData.swift */; };
 		EA74530B261C3FFC00370B3D /* EntryItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA74530A261C3FFC00370B3D /* EntryItemData.swift */; };
+		EA745323261CC46400370B3D /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA745322261CC46400370B3D /* ErrorHandling.swift */; };
+		EA74532C261CC50F00370B3D /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA74532B261CC50F00370B3D /* Expo1900Tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA74532E261CC50F00370B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C79FF4A92589F401005FB0FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79FF4B02589F401005FB0FD;
+			remoteInfo = Expo1900;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,10 +40,21 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA745307261C3EFF00370B3D /* ExpoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoData.swift; sourceTree = "<group>"; };
 		EA74530A261C3FFC00370B3D /* EntryItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemData.swift; sourceTree = "<group>"; };
+		EA745322261CC46400370B3D /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		EA745329261CC50F00370B3D /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA74532B261CC50F00370B3D /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
+		EA74532D261CC50F00370B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C79FF4AE2589F401005FB0FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA745326261CC50F00370B3D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
+				EA74532A261CC50F00370B3D /* Expo1900Tests */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B12589F401005FB0FD /* Expo1900.app */,
+				EA745329261CC50F00370B3D /* Expo1900Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,8 +94,18 @@
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 				EA745307261C3EFF00370B3D /* ExpoData.swift */,
 				EA74530A261C3FFC00370B3D /* EntryItemData.swift */,
+				EA745322261CC46400370B3D /* ErrorHandling.swift */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		EA74532A261CC50F00370B3D /* Expo1900Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EA74532B261CC50F00370B3D /* Expo1900Tests.swift */,
+				EA74532D261CC50F00370B3D /* Info.plist */,
+			);
+			path = Expo1900Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,17 +128,39 @@
 			productReference = C79FF4B12589F401005FB0FD /* Expo1900.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EA745328261CC50F00370B3D /* Expo1900Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA745330261CC50F00370B3D /* Build configuration list for PBXNativeTarget "Expo1900Tests" */;
+			buildPhases = (
+				EA745325261CC50F00370B3D /* Sources */,
+				EA745326261CC50F00370B3D /* Frameworks */,
+				EA745327261CC50F00370B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA74532F261CC50F00370B3D /* PBXTargetDependency */,
+			);
+			name = Expo1900Tests;
+			productName = Expo1900Tests;
+			productReference = EA745329261CC50F00370B3D /* Expo1900Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C79FF4A92589F401005FB0FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					C79FF4B02589F401005FB0FD = {
 						CreatedOnToolsVersion = 12.1;
+					};
+					EA745328261CC50F00370B3D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = C79FF4B02589F401005FB0FD;
 					};
 				};
 			};
@@ -121,6 +178,7 @@
 			projectRoot = "";
 			targets = (
 				C79FF4B02589F401005FB0FD /* Expo1900 */,
+				EA745328261CC50F00370B3D /* Expo1900Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -136,6 +194,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA745327261CC50F00370B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -146,12 +211,29 @@
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				EA74530B261C3FFC00370B3D /* EntryItemData.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				EA745323261CC46400370B3D /* ErrorHandling.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				EA745308261C3EFF00370B3D /* ExpoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA745325261CC50F00370B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA74532C261CC50F00370B3D /* Expo1900Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA74532F261CC50F00370B3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C79FF4B02589F401005FB0FD /* Expo1900 */;
+			targetProxy = EA74532E261CC50F00370B3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C79FF4BA2589F401005FB0FD /* Main.storyboard */ = {
@@ -325,6 +407,46 @@
 			};
 			name = Release;
 		};
+		EA745331261CC50F00370B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Expo1900Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Inwoo.Expo1900Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/Expo1900";
+			};
+			name = Debug;
+		};
+		EA745332261CC50F00370B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Expo1900Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Inwoo.Expo1900Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/Expo1900";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -342,6 +464,15 @@
 			buildConfigurations = (
 				C79FF4C62589F404005FB0FD /* Debug */,
 				C79FF4C72589F404005FB0FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA745330261CC50F00370B3D /* Build configuration list for PBXNativeTarget "Expo1900Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA745331261CC50F00370B3D /* Debug */,
+				EA745332261CC50F00370B3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
