@@ -41,7 +41,12 @@ class Expo1900Tests: XCTestCase {
         XCTAssertEqual(items.count, 13)
     }
     
-    func testExhibitiontitle() {
+    func testExhibitionInformation() {
         XCTAssertEqual(info.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
+        XCTAssertEqual(info.visitors, 48130300)
+        XCTAssertEqual(info.location, "프랑스 파리")
+        XCTAssertEqual(info.duration, "1900. 04. 14 - 1900. 11. 12")
+        XCTAssertNotNil(info.description)
+        XCTAssertTrue(info.description.contains("1900년"))
     }
 }
