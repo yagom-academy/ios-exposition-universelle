@@ -9,9 +9,9 @@ import XCTest
 @testable import Expo1900
 
 class Expo1900Tests: XCTestCase {
-  var sutExpoIntroduction: ExpoIntroduction!
-  var sutArtwork: Artwork!
-  var sutArtworks: [Artwork]!
+  var sutExpoIntroduction: ExpoIntroduction?
+  var sutArtwork: Artwork?
+  var sutArtworks: [Artwork]?
   
   override func setUpWithError() throws {
     try super.setUpWithError()
@@ -31,10 +31,15 @@ class Expo1900Tests: XCTestCase {
                          shortDescription: "Short description",
                          description: "Description")
     
-    XCTAssertEqual(sutArtwork.name, "Name")
-    XCTAssertEqual(sutArtwork.imageName, "Image name")
-    XCTAssertEqual(sutArtwork.shortDescription, "Short description")
-    XCTAssertEqual(sutArtwork.description, "Description")
+    guard let unwrappedSUTArtwork = sutArtwork else {
+      XCTAssertNotNil(sutExpoIntroduction)
+      return
+    }
+    
+    XCTAssertEqual(unwrappedSUTArtwork.name, "Name")
+    XCTAssertEqual(unwrappedSUTArtwork.imageName, "Image name")
+    XCTAssertEqual(unwrappedSUTArtwork.shortDescription, "Short description")
+    XCTAssertEqual(unwrappedSUTArtwork.description, "Description")
   }
   
   func test_expoIntroduction_initializing() {
@@ -44,11 +49,16 @@ class Expo1900Tests: XCTestCase {
                                            duration: "Duration",
                                            description: "Description")
     
-    XCTAssertEqual(sutExpoIntroduction.title, "Title")
-    XCTAssertEqual(sutExpoIntroduction.visitors, 1234567890)
-    XCTAssertEqual(sutExpoIntroduction.location, "Location")
-    XCTAssertEqual(sutExpoIntroduction.duration, "Duration")
-    XCTAssertEqual(sutExpoIntroduction.description, "Description")
+    guard let unwrappedSUTExpoIntroduction = sutExpoIntroduction else {
+      XCTAssertNotNil(sutExpoIntroduction)
+      return
+    }
+    
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.title, "Title")
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.visitors, 1234567890)
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.location, "Location")
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.duration, "Duration")
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.description, "Description")
   }
   
   func test_customJSONDecoder_decode() {
