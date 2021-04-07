@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Explanation: Decodable {
+struct Exposition: Decodable {
   var title: String
   var visitors: Int
   var location: String

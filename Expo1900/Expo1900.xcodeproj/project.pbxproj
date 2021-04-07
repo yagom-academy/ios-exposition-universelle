@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		858A15FD261BAFB400974218 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A15FC261BAFB400974218 /* ExpositionUniverselle.swift */; };
-		858A1601261BAFE300974218 /* Explanation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1600261BAFE300974218 /* Explanation.swift */; };
+		858A1601261BAFE300974218 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1600261BAFE300974218 /* Exposition.swift */; };
 		858A1609261BB07300974218 /* exposition_universelle_1900.json in Resources */ = {isa = PBXBuildFile; fileRef = 858A1608261BB07300974218 /* exposition_universelle_1900.json */; };
 		85AFFF3D261B7609005F7CE8 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = 85AFFF3C261B7609005F7CE8 /* items.json */; };
 		85AFFF43261B778E005F7CE8 /* jsonDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AFFF42261B778E005F7CE8 /* jsonDecodingError.swift */; };
@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		858A15FC261BAFB400974218 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
-		858A1600261BAFE300974218 /* Explanation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explanation.swift; sourceTree = "<group>"; };
+		858A1600261BAFE300974218 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		858A1608261BB07300974218 /* exposition_universelle_1900.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exposition_universelle_1900.json; sourceTree = "<group>"; };
 		85AFFF3C261B7609005F7CE8 /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		85AFFF42261B778E005F7CE8 /* jsonDecodingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jsonDecodingError.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				858A1608261BB07300974218 /* exposition_universelle_1900.json */,
-				858A1600261BAFE300974218 /* Explanation.swift */,
+				858A1600261BAFE300974218 /* Exposition.swift */,
 			);
 			path = expositionUniverselle;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				858A1601261BAFE300974218 /* Explanation.swift in Sources */,
+				858A1601261BAFE300974218 /* Exposition.swift in Sources */,
 				85AFFF46261B77FF005F7CE8 /* CatalogOfExhibits.swift in Sources */,
 				85AFFF43261B778E005F7CE8 /* jsonDecodingError.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
