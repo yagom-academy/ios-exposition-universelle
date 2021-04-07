@@ -55,41 +55,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		858A15F5261BACD100974218 /* error */ = {
+		858A15F5261BACD100974218 /* Error */ = {
 			isa = PBXGroup;
 			children = (
 				85AFFF42261B778E005F7CE8 /* JsonDecodingError.swift */,
 			);
-			path = error;
+			path = Error;
 			sourceTree = "<group>";
 		};
-		858A15F6261BACEA00974218 /* expositionUniverselle */ = {
+		858A15F6261BACEA00974218 /* ExpositionUniverselle */ = {
 			isa = PBXGroup;
 			children = (
 				858A1608261BB07300974218 /* exposition_universelle_1900.json */,
 				858A1600261BAFE300974218 /* Exposition.swift */,
 			);
-			path = expositionUniverselle;
+			path = ExpositionUniverselle;
 			sourceTree = "<group>";
 		};
-		858A15F7261BACF900974218 /* items */ = {
+		858A15F7261BACF900974218 /* Items */ = {
 			isa = PBXGroup;
 			children = (
 				85AFFF3C261B7609005F7CE8 /* items.json */,
 				85AFFF4D261B788F005F7CE8 /* ExhibitionWork.swift */,
 				85AFFF4C261B788F005F7CE8 /* Catalog.swift */,
 			);
-			path = items;
+			path = Items;
 			sourceTree = "<group>";
 		};
-		85AFFF4A261B784F005F7CE8 /* model */ = {
+		85AFFF4A261B784F005F7CE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				858A15F5261BACD100974218 /* error */,
-				858A15F6261BACEA00974218 /* expositionUniverselle */,
-				858A15F7261BACF900974218 /* items */,
+				858A15F5261BACD100974218 /* Error */,
+				858A15F6261BACEA00974218 /* ExpositionUniverselle */,
+				858A15F7261BACF900974218 /* Items */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -111,7 +111,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				85AFFF4A261B784F005F7CE8 /* model */,
+				85AFFF4A261B784F005F7CE8 /* Model */,
 				85AFFF45261B77FF005F7CE8 /* CatalogOfExhibits.swift */,
 				858A15FC261BAFB400974218 /* ExpositionUniverselle.swift */,
 				85586AF3261DC05300650157 /* JsonFile.swift */,
