@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaEntryViewController: UIViewController {
+final class KoreaEntryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var koreaEntrys: [StateEntry] = []
@@ -20,7 +20,7 @@ class KoreaEntryViewController: UIViewController {
         do {
             try initKoreaEntryData()
         } catch {
-            
+            alterError(error)
         }
     }
     
@@ -34,6 +34,15 @@ class KoreaEntryViewController: UIViewController {
             throw ExpoError.expoData
         }
         self.koreaEntrys = try JSONDecoder().decode([StateEntry].self, from: dataAsset.data)
+        self.navigationItem.title = "한국의 출품작"
+    }
+    
+    private func alterError(_ error: Error) {
+        let message = error.localizedDescription
+        let alert = UIAlertController(title: "오류", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(okAction)
+        alert.present(self, animated: true)
     }
 }
 
@@ -54,5 +63,9 @@ extension KoreaEntryViewController: UITableViewDataSource {
 }
 
 extension KoreaEntryViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let koreaDetailEntryViewController = KoreaDetailEntryViewController()
+        koreaDetailEntryViewController.detailEntry = self.koreaEntrys[indexPath.row]
+        self.navigationController?.pushViewController(koreaDetailEntryViewController, animated: true)
+    }
 }

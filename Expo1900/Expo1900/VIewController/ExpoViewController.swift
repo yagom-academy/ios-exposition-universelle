@@ -90,6 +90,7 @@ final class ExpoViewController: UIViewController {
         desc.font = UIFont.systemFont(ofSize: 16)
         desc.numberOfLines = 0
         desc.lineBreakMode = .byCharWrapping
+        desc.textAlignment = .justified
         
         backgroundImage.alpha = 0.15
         self.view.sendSubviewToBack(backgroundImage)
