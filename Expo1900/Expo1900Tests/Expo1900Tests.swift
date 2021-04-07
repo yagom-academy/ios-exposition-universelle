@@ -70,7 +70,7 @@ class Expo1900Tests: XCTestCase {
     let jsonDecoder = CustomJSONDecoder()
     
     XCTAssertThrowsError(try jsonDecoder.decode(to: ExpoIntroduction.self, from: "invalidJSONFile")) { (error) in
-      XCTAssertEqual(error as? ExpoAppError, ExpoAppError.invalidJSONFile)
+      XCTAssertEqual(error as? ExpoAppError, ExpoAppError.invalidJSONFileName)
     }
   }
 }

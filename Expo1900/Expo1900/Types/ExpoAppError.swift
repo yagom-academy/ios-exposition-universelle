@@ -6,12 +6,12 @@
 //
 
 enum ExpoAppError: Error, CustomDebugStringConvertible {
-  case invalidJSONFile
+  case invalidJSONFileName
   case foundNil
   
   var debugDescription: String {
     switch self {
-    case .invalidJSONFile:
+    case .invalidJSONFileName:
       return "📃 존재하지 않는 JSON 파일이에요. 파일 이름을 다시 확인해주세요!"
     case .foundNil:
       return "😵 이 값은 nil이에요!"
