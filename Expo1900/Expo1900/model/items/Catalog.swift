@@ -8,5 +8,5 @@
 import Foundation
 
 struct Catalog: Decodable {
-  var catalog: [EntryWork]
+  var catalog: [ExhibitionWork] = []
 }
