@@ -11,20 +11,8 @@ class ExpositionUniverselle {
   private let expositionUniverselle: Exposition
   
   init() throws {
-    guard let path = Bundle.main.path(forResource: "exposition_universelle_1900", ofType: "json") else {
-      throw JsonDecodingError.failedToFindJSON
-    }
-    guard let jsonData = try? String(contentsOfFile: path).data(using: .utf8) else {
-      throw JsonDecodingError.failedToConvertJSON
-    }
-    guard let unwrappedExplanation = try? JSONDecoder().decode(Exposition.self, from: jsonData) else {
-      throw JsonDecodingError.failToUnwrapping
-    }
-
-    self.expositionUniverselle = unwrappedExplanation
-//    let replaceLineChar = explanationJSONString.replacingOccurrences(of: "\n", with: " ")
-//    let jsonData = Data(replaceLineChar.utf8)
-//    self.expositionUniverselle = try! JSONDecoder().decode(Explanation.self, from: jsonData)
+    let jsonFile = JsonFile(fileName: "exposition_universelle_1900")
+    self.expositionUniverselle = try jsonFile.decode(type: Exposition())
   }
   
   func show() {

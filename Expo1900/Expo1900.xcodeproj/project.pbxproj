@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85586AF4261DC05300650157 /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85586AF3261DC05300650157 /* JsonFile.swift */; };
 		858A15FD261BAFB400974218 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A15FC261BAFB400974218 /* ExpositionUniverselle.swift */; };
 		858A1601261BAFE300974218 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A1600261BAFE300974218 /* Exposition.swift */; };
 		858A1609261BB07300974218 /* exposition_universelle_1900.json in Resources */ = {isa = PBXBuildFile; fileRef = 858A1608261BB07300974218 /* exposition_universelle_1900.json */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85586AF3261DC05300650157 /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
 		858A15FC261BAFB400974218 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
 		858A1600261BAFE300974218 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		858A1608261BB07300974218 /* exposition_universelle_1900.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exposition_universelle_1900.json; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				85AFFF4A261B784F005F7CE8 /* model */,
 				85AFFF45261B77FF005F7CE8 /* CatalogOfExhibits.swift */,
 				858A15FC261BAFB400974218 /* ExpositionUniverselle.swift */,
+				85586AF3261DC05300650157 /* JsonFile.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				858A1601261BAFE300974218 /* Exposition.swift in Sources */,
+				85586AF4261DC05300650157 /* JsonFile.swift in Sources */,
 				85AFFF46261B77FF005F7CE8 /* CatalogOfExhibits.swift in Sources */,
 				85AFFF43261B778E005F7CE8 /* JsonDecodingError.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,

@@ -11,23 +11,8 @@ class CatalogOfExhibits {
   private let catalogOfExhibits: Catalog
   
   init() throws {
-    guard let path = Bundle.main.path(forResource: "Catalog", ofType: "json") else {
-      throw JsonDecodingError.failedToFindJSON
-    }
-    guard let jsonData = try? String(contentsOfFile: path).data(using: .utf8) else {
-      throw JsonDecodingError.failedToConvertJSON
-    }
-    guard let unwrappedCatalog = try? JSONDecoder().decode(Catalog.self, from: jsonData) else {
-      throw JsonDecodingError.failToUnwrapping
-    }
-
-    self.catalogOfExhibits = unwrappedCatalog
-
-//    command-line 테스트용 코드
-//    let addArrayName = "{ \"catalog\": \(itemJSONString) }"
-//    let replaceLineChar = addArrayName.replacingOccurrences(of: "\n", with: " ")
-//    let jsonData = Data(replaceLineChar.utf8)
-//    self.catalogOfExhibits = try! JSONDecoder().decode(Catalog.self, from: jsonData)
+    let jsonFile = JsonFile(fileName: "Catalog")
+    self.catalogOfExhibits = try jsonFile.decode(type: Catalog())
   }
   
   func showSummary() -> [ExhibitionWork] {
