@@ -11,6 +11,3 @@ extension String {
     static let blank = ""
 }
 
-extension Int {
-    static let zero = 0
-}
