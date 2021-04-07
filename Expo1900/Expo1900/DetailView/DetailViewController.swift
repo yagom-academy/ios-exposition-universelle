@@ -12,9 +12,7 @@ class DetailViewController: UIViewController {
   @IBOutlet var imgView: UIImageView!
   @IBOutlet var descriptionLabel: UILabel!
   @IBOutlet var nameLabel: UINavigationItem!
-  @IBOutlet var test: UILabel!
   
-  var testtt = 0
   let viewModel = DetailViewModel()
   
   override func viewDidLoad() {
@@ -28,14 +26,5 @@ class DetailViewController: UIViewController {
       nameLabel.title = detailInfo.name
       descriptionLabel.text = detailInfo.description
     }
-  }
-}
-
-// ViewModel
-class DetailViewModel {
-  var exhibitionWorkCell: ExhibitionWorkCell?
-  
-  func update(model: ExhibitionWorkCell?) {
-    exhibitionWorkCell = model
   }
 }

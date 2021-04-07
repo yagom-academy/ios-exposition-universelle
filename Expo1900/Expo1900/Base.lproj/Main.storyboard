@@ -11,7 +11,7 @@
         <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,13 +197,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="testestsetestes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqu-Dm-Nq9">
-                                <rect key="frame" x="97" y="301" width="117" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4eE-C0-hue"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,7 +208,6 @@
                         <outlet property="descriptionLabel" destination="vVc-CD-ySB" id="QaB-pz-vJ4"/>
                         <outlet property="imgView" destination="7QT-iA-q64" id="ZbR-bU-hBh"/>
                         <outlet property="nameLabel" destination="Xyc-4G-Lgm" id="xfD-th-Xmr"/>
-                        <outlet property="test" destination="bqu-Dm-Nq9" id="cSs-F3-6Db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmS-lZ-1oF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

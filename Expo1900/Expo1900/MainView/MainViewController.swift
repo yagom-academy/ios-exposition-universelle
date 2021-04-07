@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - FirstViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var titleImageView: UIImageView!
   @IBOutlet var visitorsLabel: UILabel!

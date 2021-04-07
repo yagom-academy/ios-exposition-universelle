@@ -7,7 +7,6 @@
 
 import UIKit
 
-// Model
 struct ExhibitionWorkCell {
   var name: String
   var imageName: String
