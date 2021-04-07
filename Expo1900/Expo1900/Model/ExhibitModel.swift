@@ -9,9 +9,9 @@ import Foundation
 
 struct Exhibits: Decodable {
     let name: String
-    let imageName: String
-    let shortDescription: String
-    let description: String
+    let image_name: String
+    let short_desc: String
+    let desc: String
     
     enum ExhibitsCodingkeys: String, CodingKey {
         case name
