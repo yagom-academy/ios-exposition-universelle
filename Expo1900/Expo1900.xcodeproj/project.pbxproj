@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A34DBCF261C3782001D0165 /* MainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A34DBCE261C3782001D0165 /* MainRequest.swift */; };
-		8A34DBD4261C3935001D0165 /* EntryOfKoreaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A34DBD3261C3935001D0165 /* EntryOfKoreaRequest.swift */; };
-		8A34DBDB261C3BC5001D0165 /* DetailOfEntryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A34DBDA261C3BC5001D0165 /* DetailOfEntryRequest.swift */; };
+		8A34DBDE261D75E2001D0165 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A34DBDD261D75E2001D0165 /* Content.swift */; };
+		8A34DBE2261D7ED4001D0165 /* MainOfExposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A34DBE1261D7ED4001D0165 /* MainOfExposition.swift */; };
+		8A34DBE5261D7EEB001D0165 /* ExhibitOfKorea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A34DBE4261D7EEB001D0165 /* ExhibitOfKorea.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -19,9 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A34DBCE261C3782001D0165 /* MainRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRequest.swift; sourceTree = "<group>"; };
-		8A34DBD3261C3935001D0165 /* EntryOfKoreaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryOfKoreaRequest.swift; sourceTree = "<group>"; };
-		8A34DBDA261C3BC5001D0165 /* DetailOfEntryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfEntryRequest.swift; sourceTree = "<group>"; };
+		8A34DBDD261D75E2001D0165 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		8A34DBE1261D7ED4001D0165 /* MainOfExposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOfExposition.swift; sourceTree = "<group>"; };
+		8A34DBE4261D7EEB001D0165 /* ExhibitOfKorea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitOfKorea.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,9 +46,9 @@
 		8A34DBC9261C2C52001D0165 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				8A34DBCE261C3782001D0165 /* MainRequest.swift */,
-				8A34DBD3261C3935001D0165 /* EntryOfKoreaRequest.swift */,
-				8A34DBDA261C3BC5001D0165 /* DetailOfEntryRequest.swift */,
+				8A34DBDD261D75E2001D0165 /* Content.swift */,
+				8A34DBE1261D7ED4001D0165 /* MainOfExposition.swift */,
+				8A34DBE4261D7EEB001D0165 /* ExhibitOfKorea.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -155,11 +155,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
-				8A34DBD4261C3935001D0165 /* EntryOfKoreaRequest.swift in Sources */,
-				8A34DBDB261C3BC5001D0165 /* DetailOfEntryRequest.swift in Sources */,
+				8A34DBE2261D7ED4001D0165 /* MainOfExposition.swift in Sources */,
+				8A34DBE5261D7EEB001D0165 /* ExhibitOfKorea.swift in Sources */,
+				8A34DBDE261D75E2001D0165 /* Content.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
-				8A34DBCF261C3782001D0165 /* MainRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
