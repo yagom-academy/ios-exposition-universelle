@@ -13,16 +13,17 @@ final class KoreaEntryViewController: UIViewController {
     private var koreaEntrys: [StateEntry] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        registerXib()
         do {
             try initKoreaEntryData()
+            registerXib()
         } catch {
             alterError(error)
         }
     }
+    
+// MARK: - Init Setting
     
     private func registerXib() {
         let nibName = UINib(nibName: "KoreaEntryTableViewCell", bundle: nil)
@@ -30,21 +31,15 @@ final class KoreaEntryViewController: UIViewController {
     }
     
     private func initKoreaEntryData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else {
-            throw ExpoError.expoData
+        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: KoreaEntryVariable.koreaEntryJson) else {
+            throw ExpoError.itemsData
         }
         self.koreaEntrys = try JSONDecoder().decode([StateEntry].self, from: dataAsset.data)
-        self.navigationItem.title = "한국의 출품작"
-    }
-    
-    private func alterError(_ error: Error) {
-        let message = error.localizedDescription
-        let alert = UIAlertController(title: "오류", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(okAction)
-        alert.present(self, animated: true)
+        self.navigationItem.title = KoreaEntryVariable.navigationTitle
     }
 }
+
+// MARK: - Table View
 
 extension KoreaEntryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

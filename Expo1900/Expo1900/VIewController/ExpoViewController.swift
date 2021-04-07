@@ -20,13 +20,12 @@ final class ExpoViewController: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     
     private var expoData: Expo?
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad()
-        setLableAttribute()
         do {
             try initExpoData()
             try initUI()
+            setLableAttribute()
         } catch {
             alterError(error)
         }
@@ -43,7 +42,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initExpoData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
+        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: expoVariable.expoJson) else {
             throw ExpoError.expoData
         }
         self.expoData = try JSONDecoder().decode(Expo.self, from: dataAsset.data)
@@ -53,19 +52,19 @@ final class ExpoViewController: UIViewController {
         guard let expo = expoData else {
             throw ExpoError.expoData
         }
-        self.navigationItem.title = "메인"
+        self.navigationItem.title = expoVariable.pageTitle
         
         expoTitle.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
-        expoImage.image = UIImage(named: "poster")
+        expoImage.image = UIImage(named: expoVariable.expoImageName)
         visitors.text = PreFixWord.visitor + creatVisitorsComma(expo.visitors)
         location.text = PreFixWord.location + expo.location
         duration.text = PreFixWord.duration + expo.duration
         desc.text = expo.description
         
-        koreaItemsPageButton.setTitle("한국 출품작 보러가기", for: .normal)
-        koreaImageLeft.image = UIImage(named: "flag")
-        koreaImageRight.image = UIImage(named: "flag")
-        backgroundImage.image = UIImage(named: "poster")
+        koreaItemsPageButton.setTitle(expoVariable.koreaEntryButtonTitle, for: .normal)
+        koreaImageLeft.image = UIImage(named: expoVariable.TaegeukgiImage)
+        koreaImageRight.image = UIImage(named: expoVariable.TaegeukgiImage)
+        backgroundImage.image = UIImage(named: expoVariable.expoImageName)
     }
     
     private func creatVisitorsComma(_ visitors: UInt) -> String {
@@ -83,10 +82,6 @@ final class ExpoViewController: UIViewController {
         expoTitle.lineBreakMode = .byWordWrapping
         expoTitle.textAlignment = .center
         
-        visitors.font = UIFont.systemFont(ofSize: 18)
-        location.font = UIFont.systemFont(ofSize: 18)
-        duration.font = UIFont.systemFont(ofSize: 18)
-        
         desc.font = UIFont.systemFont(ofSize: 16)
         desc.numberOfLines = 0
         desc.lineBreakMode = .byCharWrapping
@@ -94,13 +89,5 @@ final class ExpoViewController: UIViewController {
         
         backgroundImage.alpha = 0.15
         self.view.sendSubviewToBack(backgroundImage)
-    }
-    
-    private func alterError(_ error: Error) {
-        let message = error.localizedDescription
-        let alert = UIAlertController(title: "오류", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(okAction)
-        alert.present(self, animated: true)
     }
 }

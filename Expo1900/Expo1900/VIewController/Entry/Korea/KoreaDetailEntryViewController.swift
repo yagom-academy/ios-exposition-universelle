@@ -14,22 +14,25 @@ final class KoreaDetailEntryViewController: UIViewController {
     var detailEntry: StateEntry?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        setDetailEntry()
+        do {
+            try setDetailEntry()
+        } catch {
+            alterError(error)
+        }
     }
     
-    private func setDetailEntry() {
+// MARK: - Init Setting
+    
+    private func setDetailEntry() throws {
         guard let detail = detailEntry else {
-            return
+            throw ExpoError.detailData
         }
         detailImage.image = UIImage(named: detail.imageName)
         descriptionLable.text = detail.description
         self.navigationItem.title = detail.name
         
         descriptionLable.lineBreakMode = .byWordWrapping
-        descriptionLable.numberOfLines = 0
         descriptionLable.textAlignment = .justified
-        
+        descriptionLable.numberOfLines = 0
     }
-
 }
