@@ -23,7 +23,6 @@ final class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
         setLableAttribute()
         do {
             try initExpoData()
@@ -33,9 +32,14 @@ final class ExpoViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     @IBAction func touchUpMoveToKoreaitems(_ sender: Any) {
-        print("눌림!!!")
-        
+        let koreaEntryViewController = KoreaEntryViewController()
+        self.navigationController?.pushViewController(koreaEntryViewController, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     private func initExpoData() throws {
@@ -49,6 +53,8 @@ final class ExpoViewController: UIViewController {
         guard let expo = expoData else {
             throw ExpoError.expoData
         }
+        self.navigationItem.title = "메인"
+        
         expoTitle.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         expoImage.image = UIImage(named: "poster")
         visitors.text = PreFixWord.visitor + creatVisitorsComma(expo.visitors)
