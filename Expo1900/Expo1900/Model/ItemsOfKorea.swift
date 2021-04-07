@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemsOfKorea : Codable {
+struct ItemsOfKorea : decoder {
     let koreanTitle : String
     let EnglishTitle : String
     let shortDescription: String
@@ -24,6 +24,8 @@ struct ItemsOfKorea : Codable {
     let decoder = JSONDecoder()
     var data = jsonString.data(using: .utf8)
 
-    if let data = data, let items = try? decoder.decode(ItemsOfKorea.self, from: data)
+    if let data = data, let items = try? decoder.decode(ItemsOfKorea.self, from: data) {
+    
+    }
     
 
