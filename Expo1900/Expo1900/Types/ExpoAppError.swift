@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ExpoAppError {
+enum ExpoAppError: Error {
     case invalidJSONFile
 }
