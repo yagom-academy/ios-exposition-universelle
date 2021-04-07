@@ -30,12 +30,12 @@ class CatalogOfExhibits {
 //    self.catalogOfExhibits = try! JSONDecoder().decode(Catalog.self, from: jsonData)
   }
   
-  func showSummary() -> [EntryWork] {
+  func showSummary() -> [ExhibitionWork] {
     return catalogOfExhibits.catalog
   }
   
-  func showDetails(name: String) -> EntryWork? {
-    let entryWork: EntryWork
+  func showDetails(name: String) -> ExhibitionWork? {
+    let entryWork: ExhibitionWork
     
     for catalog in catalogOfExhibits.catalog {
       if catalog.name == name {

@@ -1,5 +1,5 @@
 //
-//  CatalogOfExhibits.swift
+//  ExhibitionWork.swift
 //  Expo1900
 //
 //  Created by 강경 on 2021/04/05.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EntryWork: Decodable {
+struct ExhibitionWork: Decodable {
   var name: String
   var imageName: String
   var shortDescription: String
