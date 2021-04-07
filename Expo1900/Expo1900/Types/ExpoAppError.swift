@@ -8,5 +8,5 @@
 import Foundation
 
 enum ExpoAppError: Error {
-    case invalidJSONFile
+  case invalidJSONFile
 }
