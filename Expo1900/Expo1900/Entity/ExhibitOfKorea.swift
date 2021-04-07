@@ -8,10 +8,10 @@
 import Foundation
 
 struct ExhibitOfKorea: Decodable {
-    var items: [item]
+    var items: [Item]
 }
 
-struct item: Decodable {
+struct Item: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String

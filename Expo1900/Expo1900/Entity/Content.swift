@@ -8,16 +8,16 @@
 import Foundation
 
 struct Content {
-  var data: [file]
-  var info: information
+  var data: [File]
+  var info: Information
 }
 
-struct file {
+struct File {
     var filename: String
     var idiom: String
 }
 
-struct information {
+struct Information {
     var author: String
     var version: Int
 }
