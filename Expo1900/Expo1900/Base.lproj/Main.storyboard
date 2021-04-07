@@ -138,7 +138,7 @@
                                             <outlet property="imgView" destination="QYC-q3-hJp" id="nCy-W7-3pT"/>
                                             <outlet property="nameLabel" destination="hLk-bF-JJa" id="Lpe-10-VxR"/>
                                             <outlet property="shortDescriptionLabel" destination="UwM-KU-pXh" id="E0J-7q-fTS"/>
-                                            <segue destination="Nq0-xp-jvs" kind="show" id="2Wu-8j-cJ4"/>
+                                            <segue destination="Nq0-xp-jvs" kind="show" identifier="showDetail" id="Esz-sI-NF9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -178,23 +178,49 @@
             </objects>
             <point key="canvasLocation" x="1061" y="-629"/>
         </scene>
-        <!--test-->
+        <!--DetailViewController-->
         <scene sceneID="u7F-js-vOs">
             <objects>
-                <viewController id="Nq0-xp-jvs" sceneMemberID="viewController">
+                <viewController id="Nq0-xp-jvs" customClass="DetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Yn-uk-pQc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7QT-iA-q64">
+                                <rect key="frame" x="87" y="122" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVc-CD-ySB">
+                                <rect key="frame" x="87" y="291" width="240" height="547"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="testestsetestes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqu-Dm-Nq9">
+                                <rect key="frame" x="97" y="301" width="117" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4eE-C0-hue"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="test" id="Xyc-4G-Lgm">
+                    <navigationItem key="navigationItem" title="DetailViewController" id="Xyc-4G-Lgm">
                         <barButtonItem key="backBarButtonItem" title="한국의 출품작" id="aY7-9L-ibK"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="vVc-CD-ySB" id="QaB-pz-vJ4"/>
+                        <outlet property="imgView" destination="7QT-iA-q64" id="ZbR-bU-hBh"/>
+                        <outlet property="nameLabel" destination="Xyc-4G-Lgm" id="xfD-th-Xmr"/>
+                        <outlet property="test" destination="bqu-Dm-Nq9" id="cSs-F3-6Db"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmS-lZ-1oF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2758" y="113"/>
+            <point key="canvasLocation" x="2757.971014492754" y="112.5"/>
         </scene>
     </scenes>
     <resources>

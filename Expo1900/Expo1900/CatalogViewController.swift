@@ -10,6 +10,18 @@ import UIKit
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   let viewModel = CatalogViewModel()
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      // DetailViewController에게 데이터를 보낸다
+      if segue.identifier == "showDetail" {
+          let vc = segue.destination as? DetailViewController
+          
+          if let index = sender as? Int {
+              let exhibitionWorkCatalog = viewModel.exhibitionWorkInfo(at: index)
+              vc?.viewModel.update(model: exhibitionWorkCatalog)
+          }
+      }
+  }
+  
   // 셀 개수를 지정한다.
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.numOfExhibitionWorkCatalog
@@ -22,7 +34,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
       return UITableViewCell()
     }
     
-    let exhibitionWorkInfo = viewModel.ExhibitionWorkInfo(at: indexPath.row)
+    let exhibitionWorkInfo = viewModel.exhibitionWorkInfo(at: indexPath.row)
     cell.update(info: exhibitionWorkInfo)
     
     return cell
@@ -33,11 +45,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     // 몇 번째 셀인지 print한다
     print("\(indexPath.row)")
     
-//    performSegue(withIdentifier: "showDetail", sender: indexPath.row)
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    performSegue(withIdentifier: "showDetail", sender: indexPath.row)
   }
 }
 
@@ -61,12 +69,12 @@ class CatalogViewModel {
   init() {
     let jsonFile = JsonFile(fileName: "items")
     do {
-      let catalog = try jsonFile.decode(type: Catalog())
-      for exhibitionWork in catalog.catalog {
-        let exhibitionWorkInfo = ExhibitionWorkCell(name: exhibitionWork.name,
-                                                    imageName: exhibitionWork.imageName,
-                                                    shortDescription: exhibitionWork.shortDescription,
-                                                    description: exhibitionWork.description)
+      let exhibition = try jsonFile.decode(type: Catalog())
+      for work in exhibition.catalog {
+        let exhibitionWorkInfo = ExhibitionWorkCell(name: work.name,
+                                                    imageName: work.imageName,
+                                                    shortDescription: work.shortDescription,
+                                                    description: work.description)
         exhibitionWorkCatalog.append(exhibitionWorkInfo)
       }
     } catch {
@@ -78,7 +86,7 @@ class CatalogViewModel {
     return exhibitionWorkCatalog.count
   }
   
-  func ExhibitionWorkInfo(at index: Int) -> ExhibitionWorkCell {
+  func exhibitionWorkInfo(at index: Int) -> ExhibitionWorkCell {
     return exhibitionWorkCatalog[index]
   }
 }

@@ -19,8 +19,6 @@ class ViewController: UIViewController {
   }
   
   override func viewDidLoad() {
-    super.viewDidLoad()
-    
     updateUI()
   }
   
@@ -42,8 +40,6 @@ class ViewController: UIViewController {
     } catch {
       print(error)
     }
-    
-    
   }
 }
 
