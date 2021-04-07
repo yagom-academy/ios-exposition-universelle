@@ -8,65 +8,70 @@
 import XCTest
 @testable import Expo1900
 
-class Expo1900Tests: XCTestCase, JSONDecodable {
-    typealias T = [Artwork]
+class Expo1900Tests: XCTestCase {
+  var sutExpoIntroduction: ExpoIntroduction?
+  var sutArtwork: Artwork?
+  var sutArtworks: [Artwork]?
+  
+  override func setUpWithError() throws {
+    try super.setUpWithError()
+  }
+  
+  override func tearDownWithError() throws {
+    try super .tearDownWithError()
     
-    var sutExpoIntroduction: ExpoIntroduction!
-    var sutArtwork: Artwork!
-    var sutArtworks: [Artwork]!
-
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-    }
-
-    override func tearDownWithError() throws {
-        try super .tearDownWithError()
-        
-        sutExpoIntroduction = nil
-        sutArtwork = nil
-        sutArtworks = nil
-    }
-
-    func testExample() throws {
-        test_artwork_initializing()
-        test_expoIntroduction_initializing()
-        test_jsonDecodable_decode()
-    }
+    sutExpoIntroduction = nil
+    sutArtwork = nil
+    sutArtworks = nil
+  }
+  
+  func test_artwork_initializing() throws {
+    sutArtwork = Artwork(name: "Name",
+                         imageName: "Image name",
+                         shortDescription: "Short description",
+                         description: "Description")
     
-    func test_artwork_initializing() {
-        sutArtwork = Artwork(name: "Name",
-                             imageName: "Image name",
-                             shortDescription: "Short description",
-                             description: "Description")
-        
-        XCTAssertEqual(sutArtwork.name, "Name")
-        XCTAssertEqual(sutArtwork.imageName, "Image name")
-        XCTAssertEqual(sutArtwork.shortDescription, "Short description")
-        XCTAssertEqual(sutArtwork.description, "Description")
+    guard let unwrappedSUTArtwork = sutArtwork else {
+      throw ExpoAppError.foundNil
     }
     
-    func test_expoIntroduction_initializing() {
-        sutExpoIntroduction = ExpoIntroduction(title: "Title",
-                                               visitors: 1234567890,
-                                               location: "Location",
-                                               duration: "Duration",
-                                               description: "Description")
-        
-        XCTAssertEqual(sutExpoIntroduction.title, "Title")
-        XCTAssertEqual(sutExpoIntroduction.visitors, 1234567890)
-        XCTAssertEqual(sutExpoIntroduction.location, "Location")
-        XCTAssertEqual(sutExpoIntroduction.duration, "Duration")
-        XCTAssertEqual(sutExpoIntroduction.description, "Description")
+    XCTAssertEqual(unwrappedSUTArtwork.name, "Name")
+    XCTAssertEqual(unwrappedSUTArtwork.imageName, "Image name")
+    XCTAssertEqual(unwrappedSUTArtwork.shortDescription, "Short description")
+    XCTAssertEqual(unwrappedSUTArtwork.description, "Description")
+  }
+  
+  func test_expoIntroduction_initializing() throws {
+    sutExpoIntroduction = ExpoIntroduction(title: "Title",
+                                           visitors: 1234567890,
+                                           location: "Location",
+                                           duration: "Duration",
+                                           description: "Description")
+    
+    guard let unwrappedSUTExpoIntroduction = sutExpoIntroduction else {
+      throw ExpoAppError.foundNil
     }
     
-    func test_jsonDecodable_decode() {
-        sutArtworks = decode(jsonFileName: "items")
-        
-        for index in 0...(sutArtworks.count - 1) {
-            XCTAssertNotEqual(sutArtworks[index].name, nil)
-            XCTAssertNotEqual(sutArtworks[index].imageName, nil)
-            XCTAssertNotEqual(sutArtworks[index].shortDescription, nil)
-            XCTAssertNotEqual(sutArtworks[index].description, nil)
-        }
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.title, "Title")
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.visitors, 1234567890)
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.location, "Location")
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.duration, "Duration")
+    XCTAssertEqual(unwrappedSUTExpoIntroduction.description, "Description")
+  }
+  
+  func test_customJSONDecoder_decode() {
+    let jsonDecoder = CustomJSONDecoder()
+    
+    XCTAssertNoThrow(try jsonDecoder.decode(to: ExpoIntroduction.self, from: "exposition_universelle_1900"))
+    XCTAssertNoThrow(try jsonDecoder.decode(to: [Artwork].self, from: "items"))
+  }
+  
+  func test_customJSONDecoder_decode_withInvalidJSONFile() {
+    let jsonDecoder = CustomJSONDecoder()
+    
+    XCTAssertThrowsError(try jsonDecoder.decode(to: ExpoIntroduction.self, from: "invalidJSONFile")) { (error) in
+      XCTAssertEqual(error as? ExpoAppError, ExpoAppError.invalidJSONFileName)
     }
+  }
 }
+
