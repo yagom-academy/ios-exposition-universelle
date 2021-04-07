@@ -5,8 +5,6 @@
 //  Created by Ryan-Son on 2021/04/05.
 //
 
-import Foundation
-
 struct Artwork: Decodable {
   let name: String
   let imageName: String

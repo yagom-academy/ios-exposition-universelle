@@ -5,8 +5,6 @@
 //  Created by Ryan-Son on 2021/04/05.
 //
 
-import Foundation
-
 struct ExpoIntroduction: Decodable {
   let title: String
   let visitors: Int

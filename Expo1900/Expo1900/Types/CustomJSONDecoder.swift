@@ -5,7 +5,6 @@
 //  Created by Ryan-Son on 2021/04/07.
 //
 
-import Foundation
 import UIKit
 
 /// Decodable 프로토콜을 준수하는 타입 T에 대해 파일 이름 입력만으로 JSON 디코딩을 도와주는 메서드를 제공하는 타입.
