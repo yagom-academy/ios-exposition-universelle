@@ -7,4 +7,5 @@
 
 enum ExpoAppError: Error {
   case invalidJSONFile
+  case foundNil
 }

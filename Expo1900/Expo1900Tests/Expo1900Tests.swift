@@ -25,15 +25,14 @@ class Expo1900Tests: XCTestCase {
     sutArtworks = nil
   }
   
-  func test_artwork_initializing() {
+  func test_artwork_initializing() throws {
     sutArtwork = Artwork(name: "Name",
                          imageName: "Image name",
                          shortDescription: "Short description",
                          description: "Description")
     
     guard let unwrappedSUTArtwork = sutArtwork else {
-      XCTAssertNotNil(sutExpoIntroduction)
-      return
+      throw ExpoAppError.foundNil
     }
     
     XCTAssertEqual(unwrappedSUTArtwork.name, "Name")
@@ -42,7 +41,7 @@ class Expo1900Tests: XCTestCase {
     XCTAssertEqual(unwrappedSUTArtwork.description, "Description")
   }
   
-  func test_expoIntroduction_initializing() {
+  func test_expoIntroduction_initializing() throws {
     sutExpoIntroduction = ExpoIntroduction(title: "Title",
                                            visitors: 1234567890,
                                            location: "Location",
@@ -50,8 +49,7 @@ class Expo1900Tests: XCTestCase {
                                            description: "Description")
     
     guard let unwrappedSUTExpoIntroduction = sutExpoIntroduction else {
-      XCTAssertNotNil(sutExpoIntroduction)
-      return
+      throw ExpoAppError.foundNil
     }
     
     XCTAssertEqual(unwrappedSUTExpoIntroduction.title, "Title")
