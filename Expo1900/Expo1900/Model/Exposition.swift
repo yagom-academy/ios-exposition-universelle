@@ -14,7 +14,7 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
-    var visitorsForamatter: String? {
+    var visitorsPlusComma: String? {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         let result = numberFormatter.string(from: NSNumber(value: self.visitors))
