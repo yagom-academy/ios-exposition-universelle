@@ -38,8 +38,17 @@ class JsonFile {
     return jsonData
   }
   
+  // FIXME: - json파일 디코딩 문제
   private func jsonDecode<T: Decodable>(_ jsonData: Data, _ decodeType: T) throws -> T {
-    guard let decodedData = try? JSONDecoder().decode(T.self, from: jsonData) else {
+    var realJsonData = jsonData
+    if T.self == Catalog.self {
+      let itemJSONString = String(decoding: jsonData, as: UTF8.self)
+      let addArrayName = "{ \"catalog\": \(itemJSONString) }"
+      let replaceLineChar = addArrayName.replacingOccurrences(of: "\n", with: " ")
+      realJsonData = Data(replaceLineChar.utf8)
+    }
+    
+    guard let decodedData = try? JSONDecoder().decode(T.self, from: realJsonData) else {
       throw JsonDecodingError.failedToUnwrapping
     }
     

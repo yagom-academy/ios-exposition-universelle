@@ -14,10 +14,18 @@ class ViewController: UIViewController {
   @IBOutlet var durationLabel: UILabel!
   @IBOutlet var descriptionLabel: UILabel!
   
+  override func viewWillAppear(_ animated: Bool) {
+    navigationController?.isNavigationBarHidden = true
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     updateUI()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    navigationController?.isNavigationBarHidden = false
   }
   
   func updateUI() {
