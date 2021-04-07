@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KoreaItem: Decodable {
+struct StateEntry: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String
