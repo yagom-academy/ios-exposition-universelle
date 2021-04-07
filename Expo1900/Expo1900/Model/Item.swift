@@ -22,9 +22,9 @@ struct Item: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = (try? container.decode(String.self, forKey: .name)) ?? String.blank
-        self.imageName = (try? container.decode(String.self, forKey: .imageName)) ?? String.blank
-        self.shortDesc = (try? container.decode(String.self, forKey: .shortDesc)) ?? String.blank
-        self.description = (try? container.decode(String.self, forKey: .description)) ?? String.blank
+        self.name = (try? container.decode(String.self, forKey: .name)) ?? .blank
+        self.imageName = (try? container.decode(String.self, forKey: .imageName)) ?? .blank
+        self.shortDesc = (try? container.decode(String.self, forKey: .shortDesc)) ?? .blank
+        self.description = (try? container.decode(String.self, forKey: .description)) ?? .blank
     }
 }

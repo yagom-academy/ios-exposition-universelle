@@ -31,10 +31,10 @@ struct Exposition: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = (try? container.decode(String.self, forKey: .title)) ?? String.blank
-        self.visitors = (try? container.decode(Int.self, forKey: .visitors)) ?? Int.zero
-        self.location = (try? container.decode(String.self, forKey: .location)) ?? String.blank
-        self.duration = (try? container.decode(String.self, forKey: .duration)) ?? String.blank
-        self.description = (try? container.decode(String.self, forKey: .description)) ?? String.blank
+        self.title = (try? container.decode(String.self, forKey: .title)) ?? .blank
+        self.visitors = (try? container.decode(Int.self, forKey: .visitors)) ?? .zero
+        self.location = (try? container.decode(String.self, forKey: .location)) ?? .blank
+        self.duration = (try? container.decode(String.self, forKey: .duration)) ?? .blank
+        self.description = (try? container.decode(String.self, forKey: .description)) ?? .blank
     }
 }
