@@ -58,5 +58,13 @@ class Expo1900Tests: XCTestCase {
         XCTAssertNoThrow(try expoIntroductionJSONDecoder.decode(jsonFileName: "exposition_universelle_1900"))
         XCTAssertNoThrow(try artworksJSONDecoder.decode(jsonFileName: "items"))
     }
+    
+    func test_customJSONDecoder_decode_withInvalidJSONFile() {
+        let expoIntroductionJSONDecoder = CustomJSONDecoder<ExpoIntroduction>()
+
+        XCTAssertThrowsError(try expoIntroductionJSONDecoder.decode(jsonFileName: "invalidJSONFile")) { (error) in
+            XCTAssertEqual(error as? ExpoAppError, ExpoAppError.invalidJSONFile)
+        }
+    }
 }
 
