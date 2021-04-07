@@ -1,5 +1,5 @@
 //
-//  jsonDecodingError.swift
+//  JsonDecodingError.swift
 //  Expo1900
 //
 //  Created by 강경 on 2021/04/05.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum jsonDecodingError: Error, CustomStringConvertible {
+enum JsonDecodingError: Error, CustomStringConvertible {
   case failedToUnwrapping
   case failedToFindJSON
   case failedToConvertJSON
