@@ -13,4 +13,8 @@ struct ExhibitionInfomation: Decodable {
     var location: String
     var duration: String
     var description: String
+    
+    var newlineTitle: String {
+        return title.replacingOccurrences(of: "(", with: "\n(")
+    }
 }
