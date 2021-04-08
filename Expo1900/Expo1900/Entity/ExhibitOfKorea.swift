@@ -13,7 +13,14 @@ struct ExhibitOfKorea: Decodable {
 
 struct ExhibitItem: Decodable {
     var name: String
-    var image_name: String
-    var short_desc: String
-    var desc: String
+    var imageName: String
+    var shortDescriptions: String
+    var descriptions: String
+    
+    enum CodingKeys: String, CodingKey {
+            case name
+            case imageName = "image_name"
+            case shortDescriptions = "short_desc"
+            case descriptions = "desc"
+        }
 }
