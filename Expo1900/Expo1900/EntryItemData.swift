@@ -19,13 +19,12 @@ struct Item {
         case description = "desc"
     }
 }
-
 extension Item: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        imageName = try container.decode(String.self, forKey: .imageName)
-        name = try container.decode(String.self, forKey: .name)
-        description = try container.decode(String.self, forKey: .description)
-        shortDescription = try container.decode(String.self, forKey: .shortDescription)
+        imageName = (try? container.decode(String.self, forKey: .imageName)) ?? ""
+        name = (try? container.decode(String.self, forKey: .name)) ?? ""
+        description = (try? container.decode(String.self, forKey: .description)) ?? ""
+        shortDescription = (try? container.decode(String.self, forKey: .shortDescription)) ?? ""
     }
 }

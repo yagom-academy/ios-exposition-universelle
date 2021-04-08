@@ -21,22 +21,22 @@ class Expo1900Tests: XCTestCase {
     }
     
     func test_ExpoData() {
-        guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
+        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else {
             return
         }
         do {
-            sut_Expo = try JSONDecoder().decode(Expo.self, from: dataAsset.data)
+            sut_Expo = try JSONDecoder().decode(Expo.self, from: asset.data)
             XCTAssertEqual(sut_Expo?.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)" )
         } catch {
         }
     }
     
     func test_itemData() {
-        guard let dataAsset = NSDataAsset.init(name: "items") else {
+        guard let asset = NSDataAsset.init(name: "items") else {
             return
         }
         do {
-            sut_Item = try JSONDecoder().decode([Item].self, from: dataAsset.data)
+            sut_Item = try JSONDecoder().decode([Item].self, from: asset.data)
             XCTAssertEqual(sut_Item?.first?.name, "직지심체요절")
         } catch {
             
