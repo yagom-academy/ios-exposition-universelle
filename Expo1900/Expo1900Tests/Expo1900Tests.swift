@@ -12,7 +12,7 @@ class Expo1900Tests: XCTestCase {
 
     var decoder = JSONDecoder()
     
-    func test_expoInfo() {
+    func test_expoInfo_decoding() {
         guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
             XCTFail("File Not Found")
             return
@@ -26,7 +26,7 @@ class Expo1900Tests: XCTestCase {
         }
     }
     
-    func test_entryWorkItem() {
+    func test_entryWorkItem_decoding() {
         var entryWorkItems: [EntryWorkItem]
         guard let dataAsset = NSDataAsset.init(name: "items") else {
             XCTFail("File Not Found")
