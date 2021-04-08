@@ -8,6 +8,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var informationTitle: UILabel!
+    @IBOutlet weak var informationPoster: UIImageView!
+    @IBOutlet weak var informationVisitors: UILabel!
+    @IBOutlet weak var informationLocation: UILabel!
+    @IBOutlet weak var informationDuration: UILabel!
+    @IBOutlet weak var informationDescription: UILabel!
+    
     private var koreaExhibitItems: [KoreaExhibitItem] = []
     private var expo1900Information = Expo1900Information(title: "", visitors: 0, location: "", duration: "", description: "")
     
@@ -24,6 +31,13 @@ class ViewController: UIViewController {
         } catch  {
             print("Error")
         }
+        
+        informationTitle.text = expo1900Information.title
+        informationVisitors.text = "방문객 :\(expo1900Information.visitors) 명"
+        informationLocation.text = "개최지 :" + expo1900Information.location
+        informationDuration.text = "개최 기간 :" + expo1900Information.duration
+        informationDescription.text = expo1900Information.description
+        
         print(koreaExhibitItems)
         print(expo1900Information)
     }
