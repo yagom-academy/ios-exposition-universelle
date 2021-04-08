@@ -10,7 +10,6 @@ import XCTest
 
 class Expo1900Tests: XCTestCase {
   var sutExpoIntroduction: ExpoIntroduction?
-  var sutArtwork: Artwork?
   var sutArtworks: [Artwork]?
   
   override func setUpWithError() throws {
@@ -21,7 +20,6 @@ class Expo1900Tests: XCTestCase {
     try super .tearDownWithError()
     
     sutExpoIntroduction = nil
-    sutArtwork = nil
     sutArtworks = nil
   }
   
