@@ -7,6 +7,11 @@
 
 import Foundation
 
+/// JSON 파일 items에 해당되는 타입
+/// - name : String 타입으로 item의 이름, nil 값에 해당할 경우 비어 있는 문자열 반환
+/// - imageName : String 타입으로 item 이미지 이름, nil 값에 해당할 경우 비어 있는 문자열 반환
+/// - shortDesc : String 타입으로 item 요약 설명, nil 값에 해당할 경우 비어 있는 문자열 반환
+/// - description : String 타입으로 item 설명, nil 값에 해당할 경우 비어 있는 문자열 반환
 struct Item: Decodable {
     let name: String
     let imageName: String

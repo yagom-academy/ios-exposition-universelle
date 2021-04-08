@@ -8,10 +8,10 @@
 import Foundation
 
 /// JSON 파일 Exposition1900에 해당되는 타입
-/// - title : String 타입으로 엑스포 제목에 대한 값을 저장, nil 값에 해당할 경우 비어 있는 문자열 반환
-/// - visitors : Int 타입으로 엑스포 참가 인원 저장, nil 값에 해당할 경우 0 반환
-/// - location : String 타입으로 엑스포 장소 저장, nil 값에 해당할 경우 비어 있는 문자열 반환
-/// - duration : String 타입으로 엑스포 정보 저장, nil 값에 해당할 경우 비어 있는 문자열 반환
+/// - title : String 타입으로 엑스포 제목, nil 값에 해당할 경우 비어 있는 문자열 반환
+/// - visitors : Int 타입으로 엑스포 참가 인원, nil 값에 해당할 경우 0 반환
+/// - location : String 타입으로 엑스포 장소, nil 값에 해당할 경우 비어 있는 문자열 반환
+/// - duration : String 타입으로 엑스포 기간 정보, nil 값에 해당할 경우 비어 있는 문자열 반환
 struct Exposition: Decodable {
     let title: String
     let visitors: Int
