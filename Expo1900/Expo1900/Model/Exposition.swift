@@ -14,7 +14,7 @@ import Foundation
 /// - duration : String 타입으로 엑스포 기간 정보, nil 값에 해당할 경우 비어 있는 문자열 반환
 struct Exposition: Decodable {
     let title: String
-    let visitors: Int
+    private let visitors: Int
     let location: String
     let duration: String
     let description: String
