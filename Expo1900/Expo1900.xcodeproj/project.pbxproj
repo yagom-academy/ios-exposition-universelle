@@ -75,7 +75,26 @@
 			path = Expo1900Tests;
 			sourceTree = "<group>";
 		};
-		AA83E6D4261C4B66003F71A0 /* Types */ = {
+		AA4F5BBE261ECB1D00E401D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AA4F5BBF261ECB3900E401D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AA83E6D4261C4B66003F71A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				AA2236A2261B4B5000A9E1DD /* ExpoIntroduction.swift */,
@@ -83,7 +102,7 @@
 				AA4F5B99261D59EA00E401D4 /* CustomJSONDecoder.swift */,
 				AA4F5B9F261D5EFC00E401D4 /* ExpoAppError.swift */,
 			);
-			path = Types;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -107,13 +126,10 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				AA83E6D4261C4B66003F71A0 /* Types */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				AA83E6D4261C4B66003F71A0 /* Model */,
+				AA4F5BBE261ECB1D00E401D4 /* View */,
+				AA4F5BBF261ECB3900E401D4 /* Controller */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
