@@ -8,22 +8,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var exhibitItems: [Exhibits] = []
-    var exhibitDescription: ExhibitDescription = ExhibitDescription(title: "", visitors: 0, location: "", duration: "", description: "")
+    private var koreaExhibitItems: [KoreaExhibitItem] = []
+    private var expo1900Information = Expo1900Information(title: "", visitors: 0, location: "", duration: "", description: "")
     
     override func viewDidLoad() {
         let jsonDecoder = JSONDecoder()
         
-        guard let itemsData = NSDataAsset(name: "items"),
-              let descriptionData = NSDataAsset(name: "exposition_universelle_1900")
+        guard let koreaExhibitItemsData = NSDataAsset(name: "items"),
+              let expo1900InformationData = NSDataAsset(name: "exposition_universelle_1900")
         else { return }
         
         do {
-            exhibitItems = try jsonDecoder.decode([Exhibits].self, from: itemsData.data)
-            exhibitDescription = try jsonDecoder.decode(ExhibitDescription.self, from: descriptionData.data)
+            koreaExhibitItems = try jsonDecoder.decode([KoreaExhibitItem].self, from: koreaExhibitItemsData.data)
+            expo1900Information = try jsonDecoder.decode(Expo1900Information.self, from: expo1900InformationData.data)
         } catch  {
             print("Error")
         }
-        print(exhibitDescription)
+        print(koreaExhibitItems)
+        print(expo1900Information)
     }
 }
