@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemsOfKorea : decoder {
+struct KoreanItem : Decodable {
     let koreanTitle : String
     let EnglishTitle : String
     let shortDescription: String
@@ -20,12 +20,4 @@ struct ItemsOfKorea : decoder {
         case fullDescription = "desc"
     }
 }
-    
-    let decoder = JSONDecoder()
-    var data = jsonString.data(using: .utf8)
-
-    if let data = data, let items = try? decoder.decode(ItemsOfKorea.self, from: data) {
-    
-    }
-    
 

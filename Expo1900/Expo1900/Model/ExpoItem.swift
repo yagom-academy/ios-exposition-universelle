@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemsOfExpo : decoder {
+struct ExpoItem : Decodable {
     let expoTitle, location, description: String
     let numberOfVisitors : Int
     let openingPeriod: Date
