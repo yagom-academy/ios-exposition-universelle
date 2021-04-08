@@ -10,8 +10,8 @@ import Foundation
 struct KoreanItem : Decodable {
     let koreanTitle : String
     let EnglishTitle : String
-    let shortDescription: String
-    let fullDescription: String
+    let shortDescription : String
+    let fullDescription : String
     
     enum CodingKeys : String, CodingKey {
         case koreanTitle = "name"
