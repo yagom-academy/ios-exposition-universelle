@@ -20,4 +20,17 @@ class Expo1900Tests: XCTestCase {
         }
     }
     
+    func test_Entry() {
+        let jsonDecoder = JSONDecoder()
+        
+        guard let data: NSDataAsset = NSDataAsset.init(name: "items") else { return }
+        do {
+            try? jsonDecoder.decode(Entry.self, from: data.data)
+            
+        } catch {
+            XCTFail()
+        }
+        
+    }
+    
 }
