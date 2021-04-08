@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cS8-kP-kwd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,43 +17,71 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rck-0d-Mc4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="956"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="912"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLK-17-dbk">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1824.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="464"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파리 만국박람회 1900 (L'Exposition de Paris 1900)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDP-MM-1zf">
-                                                <rect key="frame" x="10" y="10" width="394" height="64.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDP-MM-1zf">
+                                                <rect key="frame" x="10" y="10" width="394" height="33.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="wih-uH-eaD">
-                                                <rect key="frame" x="30" y="84.5" width="354" height="300"/>
+                                                <rect key="frame" x="30" y="53.5" width="354" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="aZz-N6-5mM"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-QW-R4f">
-                                                <rect key="frame" x="20" y="414.5" width="374" height="1400"/>
-                                                <mutableString key="text">1900년 파리 만국박람회(지금의 세계 박람회[World’s Fair/Exposition/Expo])는 지난 세기를 기념하고 다음 세기를 향한 발전을 가속하자는 의미에서 1900년 4월 14일부터 11월 12일까지 프랑스 파리에서 열린 세계 박람회였다. 이 박람회에서 널리 선보였던 건축 양식이 바로 '아르누보'였다. 총 관람객수가 5000만 명에 달한 1900년 세계 박람회에서는 수많은 기계와 발명품, 그리고 건축물들이 전시됐는데 그 중에는 그랑드 루 드 파리 대관람차, 마트료시카 인형, 디젤 엔진, 유성영화, 에스컬레이터, 텔레그라폰 (최초의 자석식 녹음기) 등 지금도 널리 알려져 있는 것들도 등장했다.\n\n프랑스는 1855년에도 만국 박람회를 개최한 전력이 있었는데 전쟁 후 국가의 자부심과 신념을 다시 세우고자 하는 욕구로부터 비롯된 것이었다. 1900년 박람회가 성공을 거둔 것도 전후 국가 부흥이라는 똑같은 주제에 따른 것이었다. 1900년 파리 세계 박람회가 개최되기 8년 전인 1892년, 프랑스 정부는 새 세기의 도래를 환영하고 축하하는 박람회를 열 것이라고 발표했다.\n\n프랑스는 전세계 56개국에 초청장을 보냈고, 그 중 40개국이 수락하여 참가했다.참가국들이 이룬 것과 생활양식을 전시했다. 이 세계 박람회는 여러 가지 체험을 종합하여 익히도록 한 것이었다. 이를 통해 외국인들에게 각 국가들 간의 유사성은 물론 그 사이의 독특한 다양성을 깨닫도록 하는 기회를 제공했다. 또 새로운 문화를 경험하고 각국이 전시해 놓은 자국의 가치들을 전반적으로 더욱 이해할 수 있도록 했다. 이러한 상호 이해의 환경이 전쟁 시대 이후 필요하다고 여겨졌던 문화적 관용을 늘리는데 한몫하도록 했다. 박람회 개최 소식이 발표되자 독일에서 처음으로 열린 국제 박람회에 쏠렸던 관심은 풀리고 박람회 개최에 대한 호응이 어마어마하게 쏟아졌다. 박람회에 대한 지지도 대단해서 각국에서는 즉시 자국 전시관 계획을 세우기 시작했다. \n\n파리 만국박람회가 개최된 1900년 4월 14일부터 11월 12일까지 프랑스 파리에는 대한제국의 문화와 문물이 전시된 한국관이 세워졌습니다. 한국관은 경복궁의 근정전을 재현한 주전시관과 옛 국왕들의 위패를 모셔놓은 사당을 별채로 구성되었는데, 이는 우리 건축의 아름다움을 세계에 알린 첫 건축물이 되었습니다. 특히 만국박 람회의 대한제국관을 묘사한 프랑스 잡지 ‘르 프티 주르날(Le Petit Journal)’은 태극기를 표시해 당당하게 대한 제국의 상징으로 많은 관심을 받을 수 있었습니다.\n\n한국관의 전시품은 정확하게 어떤 것이 전시되었는지 알 수는 없지만 대한제국과 프랑스 정부간에 오고 간 문 서를 통해 짐작할 수 있습니다. 대한제국 정부는 우리의 다양한 전통문화를 나타내는 비단, 놋그릇, 도자기, 칠 보 등의 공예품을 제공한 것으로 보이며, 이 밖에도 악기, 옷, 가구, 예술품 등도 있었다고 합니다. 만국박람회는 참가한 나라들의 산업을 소개하는 역할을 했고, 전시는 물론 시상도 했는데 대한제국은 식물성 농업식품 분야 에서 그랑프리(대상)을 수상하였다고 합니다.\n\n1900년 11월 12일 파리 만국박람회가 폐막된 후 한국관에 출품되었던 전시품들은 다시 본국으로 돌아오지 못하고 대부분 현지에 기증되었는데, 이는 일종의 관례이기도 했지만 본국으로 회수하는데 드는 과도한 운송비용 때문이기도 했습니다.\n\n현재 이 전시품들은 프랑스에 있는 국립공예박물관, 국립예술직업전문학교, 국립음악원 음악박물관, 국립 기메 아시아박물관 등에 소장되어있습니다. 특히 전시품으로 기증된 악기들 중 해금은 현존하는 해금 가운데 가장 오래된 것으로 추정되고 있다고도 합니다. 우리의 소중한 역사적 유물을 멀리 두고 올 수 밖에 없던 상황이 안타깝게 느껴집니다.\n\n작고 힘없는 나라 대한제국이 세계 강국들이 모인 만국박람회에 참가한다는 자체가 불가능하다는 의견이 지배 적이었지만 1900년 프랑스 파리에 근정전을 본뜬 한국관이 우뚝 세워졌습니다. 그 존재만으로 독립된 나라임을 세계에 알리고자 했던 목표는 이루어진 것 같습니다. 그러나 안타깝게도 그로부터 5년 후인 1905년 을사늑약이 체결되었고, 대한제국은 독립국가로서 세계에서 점점 잊혀져 갔습니다.</mutableString>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-QW-R4f">
+                                                <rect key="frame" x="20" y="383.5" width="374" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKX-3p-iFE">
+                                                <rect key="frame" x="100" y="414" width="214" height="30"/>
+                                                <state key="normal" title="한국의 출품작 보러 가기"/>
+                                                <connections>
+                                                    <segue destination="Ocz-Lu-3D3" kind="show" id="XhO-dq-Pcj"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-xz-QcA">
+                                                <rect key="frame" x="344" y="409" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="bYK-g3-6H6"/>
+                                                    <constraint firstAttribute="height" constant="40" id="yCH-R2-Lqw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="wbl-Tw-GT9">
+                                                <rect key="frame" x="30" y="409" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="28g-Sc-tiD"/>
+                                                    <constraint firstAttribute="width" constant="40" id="L4F-hM-xku"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="IDP-MM-1zf" firstAttribute="leading" secondItem="yLK-17-dbk" secondAttribute="leading" constant="10" id="3mw-VV-JUn"/>
                                             <constraint firstItem="IDP-MM-1zf" firstAttribute="top" secondItem="yLK-17-dbk" secondAttribute="top" constant="10" id="4d5-5C-Vfs"/>
                                             <constraint firstAttribute="trailing" secondItem="IDP-MM-1zf" secondAttribute="trailing" constant="10" id="7iZ-GW-7df"/>
+                                            <constraint firstItem="QKX-3p-iFE" firstAttribute="centerY" secondItem="wbl-Tw-GT9" secondAttribute="centerY" id="9ri-sV-pBi"/>
                                             <constraint firstItem="wih-uH-eaD" firstAttribute="top" secondItem="IDP-MM-1zf" secondAttribute="bottom" constant="10" id="FWS-kh-1hW"/>
+                                            <constraint firstItem="QKX-3p-iFE" firstAttribute="leading" secondItem="wbl-Tw-GT9" secondAttribute="trailing" constant="30" id="Fv3-ch-hpK"/>
+                                            <constraint firstAttribute="bottom" secondItem="QKX-3p-iFE" secondAttribute="bottom" constant="20" id="HDK-Nm-qeo"/>
                                             <constraint firstAttribute="trailing" secondItem="aQP-QW-R4f" secondAttribute="trailing" constant="20" id="OWV-WA-dsL"/>
                                             <constraint firstAttribute="trailing" secondItem="wih-uH-eaD" secondAttribute="trailing" constant="30" id="Rq4-YI-znD"/>
+                                            <constraint firstItem="wbl-Tw-GT9" firstAttribute="leading" secondItem="yLK-17-dbk" secondAttribute="leading" constant="30" id="Tvc-vz-sXY"/>
                                             <constraint firstItem="wih-uH-eaD" firstAttribute="leading" secondItem="yLK-17-dbk" secondAttribute="leading" constant="30" id="Uez-8e-Wzv"/>
                                             <constraint firstItem="aQP-QW-R4f" firstAttribute="leading" secondItem="yLK-17-dbk" secondAttribute="leading" constant="20" id="Vhc-e3-rVY"/>
+                                            <constraint firstItem="QKX-3p-iFE" firstAttribute="centerX" secondItem="yLK-17-dbk" secondAttribute="centerX" id="dUO-6B-Hik"/>
                                             <constraint firstItem="aQP-QW-R4f" firstAttribute="top" secondItem="wih-uH-eaD" secondAttribute="bottom" constant="30" id="du3-it-2cm"/>
-                                            <constraint firstAttribute="bottom" secondItem="aQP-QW-R4f" secondAttribute="bottom" constant="10" id="uIh-xL-LgT"/>
+                                            <constraint firstItem="Pbc-xz-QcA" firstAttribute="centerY" secondItem="QKX-3p-iFE" secondAttribute="centerY" id="qwM-Ju-wo6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pbc-xz-QcA" secondAttribute="trailing" constant="30" id="rzW-S7-QYH"/>
+                                            <constraint firstItem="QKX-3p-iFE" firstAttribute="top" secondItem="aQP-QW-R4f" secondAttribute="bottom" constant="10" id="s9N-4R-FpH"/>
+                                            <constraint firstItem="Pbc-xz-QcA" firstAttribute="leading" secondItem="QKX-3p-iFE" secondAttribute="trailing" constant="30" id="vJ0-Mf-GEz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -77,14 +105,55 @@
                             <constraint firstItem="rck-0d-Mc4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="igT-XO-Hkl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JPO-GD-uDH"/>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="exhibitionDescriptionLabel" destination="aQP-QW-R4f" id="fFf-uZ-Il1"/>
+                        <outlet property="exhibitionPosterImage" destination="wih-uH-eaD" id="wMa-w7-yu7"/>
+                        <outlet property="exhibitionTitleLabel" destination="IDP-MM-1zf" id="cv8-zV-Xxd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="930.43478260869574" y="30.133928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SgZ-qy-GWm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cS8-kP-kwd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yno-Lk-yLW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="39J-4Z-qyO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8G-N5-vZS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="20.289855072463769" y="30.133928571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Nyl-ZV-RJo">
+            <objects>
+                <viewController id="Ocz-Lu-3D3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oqM-eD-mDI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fjw-6x-s5c"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YMD-Xk-Bk2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zxJ-XG-pxW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786" y="30"/>
         </scene>
     </scenes>
     <resources>
+        <image name="flag" width="851" height="567"/>
         <image name="poster" width="144" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
