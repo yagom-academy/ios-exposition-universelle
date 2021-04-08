@@ -14,5 +14,5 @@ struct ExpoInformation: Codable {
     let location: String
     let duration: String
     let description: String
-    let 
+    
 }
