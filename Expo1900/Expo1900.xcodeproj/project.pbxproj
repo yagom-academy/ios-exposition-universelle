@@ -13,7 +13,7 @@
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
-		FFFC9EB7261F217200AB4619 /* ExpoUniverselle1900.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC9EB6261F217200AB4619 /* ExpoUniverselle1900.swift */; };
+		FFFC9EB7261F217200AB4619 /* ExpoUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC9EB6261F217200AB4619 /* ExpoUniverselle.swift */; };
 		FFFC9EBA261F21DA00AB4619 /* ExpoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC9EB9261F21DA00AB4619 /* ExpoItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFFC9EB6261F217200AB4619 /* ExpoUniverselle1900.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoUniverselle1900.swift; sourceTree = "<group>"; };
+		FFFC9EB6261F217200AB4619 /* ExpoUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoUniverselle.swift; sourceTree = "<group>"; };
 		FFFC9EB9261F21DA00AB4619 /* ExpoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +62,7 @@
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				FFFC9EB6261F217200AB4619 /* ExpoUniverselle1900.swift */,
+				FFFC9EB6261F217200AB4619 /* ExpoUniverselle.swift */,
 				FFFC9EB9261F21DA00AB4619 /* ExpoItem.swift */,
 				C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
@@ -143,7 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFFC9EB7261F217200AB4619 /* ExpoUniverselle1900.swift in Sources */,
+				FFFC9EB7261F217200AB4619 /* ExpoUniverselle.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				FFFC9EBA261F21DA00AB4619 /* ExpoItem.swift in Sources */,

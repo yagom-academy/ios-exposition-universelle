@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpoItem {
+struct ExpoItem: Decodable {
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
