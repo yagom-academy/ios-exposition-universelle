@@ -8,11 +8,11 @@
 import Foundation
 
 struct ExhibitionProduct: Decodable {
-    var name: String
-    var imageName: String
-    var shortDescription: String
-    var description: String
-
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
+    
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
@@ -21,4 +21,23 @@ struct ExhibitionProduct: Decodable {
     }
 }
 
-
+struct ExhibitionContent: Decodable {
+    let images: [Image]
+    let info: Information
+    
+    struct Image: Decodable {
+        let fileName: String
+        let idiom: String
+        let scale: String
+        
+        enum CodingKeys: String, CodingKey {
+            case fileName = "filename"
+            case idiom, scale
+        }
+    }
+    
+    struct Information: Decodable {
+        let author: String
+        let version: Int
+    }
+}

@@ -7,12 +7,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+//    var exhibitionProducts: [ExhibitionProduct] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        self.tableView.dataSource = self
+//
+//        let jsonDecoder: JSONDecoder = JSONDecoder()
+//        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else {return}
+//
+//
     }
-
-
+    
+    
 }
 
