@@ -127,7 +127,7 @@
         <!--한국의 출품작-->
         <scene sceneID="UuR-f9-p16">
             <objects>
-                <viewController id="Cxz-LO-OEd" sceneMemberID="viewController">
+                <viewController id="Cxz-LO-OEd" customClass="ItemsViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0fG-Iz-lXB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="TcS-Lp-Vmp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemsCustomCell" rowHeight="128" id="TcS-Lp-Vmp" customClass="ItemsCustomCell" customModule="Expo1900" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TcS-Lp-Vmp" id="ARv-Ip-0Si">
@@ -177,6 +177,11 @@
                                                 <constraint firstItem="4MK-Zt-MuY" firstAttribute="top" secondItem="ARv-Ip-0Si" secondAttribute="topMargin" constant="5" id="mUl-UV-kDi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemImageView" destination="4MK-Zt-MuY" id="B6Q-xX-pEa"/>
+                                            <outlet property="nameLabel" destination="zOB-4G-4qP" id="wr4-af-hzk"/>
+                                            <outlet property="shortDescLabel" destination="RDa-0K-jNT" id="pqG-ch-Z2I"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -191,6 +196,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="한국의 출품작" id="B8y-ts-DxX"/>
+                    <connections>
+                        <outlet property="tableView" destination="hwV-2S-urs" id="eqg-Ca-kbH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9E1-3f-Z5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
