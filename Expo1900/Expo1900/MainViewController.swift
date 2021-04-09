@@ -48,25 +48,21 @@ class MainViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
+        lineUpContentsAtInterval(of: 10)
+    }
+    
+    private func lineUpContentsAtInterval(of interval: CGFloat) {
         let contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel]
         
-        contents.forEach({
-            contentView.addSubview($0)
-            $0.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-            $0.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        contents.enumerated().forEach({ (index, item) in
+            contentView.addSubview(item)
+            item.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+            item.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+            if index == 0 {
+                item.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            } else {
+                item.topAnchor.constraint(equalTo: contents[index-1].bottomAnchor, constant: interval).isActive = true
+            }
         })
-        
-        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        
-        posterImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        
-        visitorsLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10).isActive = true
-        
-        locationLabel.topAnchor.constraint(equalTo: visitorsLabel.bottomAnchor, constant: 10).isActive = true
-        
-        durationLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10).isActive = true
-        
-        descriptionLabel.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 10).isActive = true
-        
     }
 }
