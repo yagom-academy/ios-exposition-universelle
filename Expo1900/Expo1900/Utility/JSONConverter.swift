@@ -14,6 +14,11 @@ enum JSONConverterError: Error {
 }
 
 struct JSONConverter<T: Decodable> {
+    
+    static func parse(assetName: String) throws -> T {
+        return try decodeAsset(of: extractData(assetName: assetName))
+    }
+    
     static func extractData(assetName: String) throws -> NSDataAsset {
         guard let dataAsset = NSDataAsset.init(name: assetName) else { throw JSONConverterError.inputWrongAssetName }
         return dataAsset
@@ -22,7 +27,7 @@ struct JSONConverter<T: Decodable> {
     static func decodeAsset(of: NSDataAsset) throws -> T {
         let decoder = JSONDecoder()
     
-        guard let convertedData: T = try? decoder.decode(T?.self, from: of.data) else { throw JSONConverterError.isNotMaching }
+        guard let convertedData = try? decoder.decode(T?.self, from: of.data) else { throw JSONConverterError.isNotMaching }
             return convertedData
     }
 }
