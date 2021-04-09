@@ -23,3 +23,11 @@ struct Item: Decodable {
     let description: String
 }
 
+struct ExpoOfParis: Decodable {
+    let titile: String
+    let visitor: String
+    let location: String
+    let duration: String
+    let description: String
+    let item: [Item]?
+}
