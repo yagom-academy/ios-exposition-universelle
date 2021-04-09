@@ -40,4 +40,12 @@ class JSONParserTests: XCTestCase {
         
         XCTAssertNotNil(JSONParser<[Item]>.convert(by: dataAsset))
     }
+    
+    func test_JSON데이터_파일이름과_주어진_타입이_다르면_parse를_실패한다() {
+        XCTAssertNil(JSONParser<[Item]>.parse("exposition_universelle_1900"))
+    }
+    
+    func test_JSON데이터_파일이름과_주어진_타입이_같으면_parse를_성공한다() {
+        XCTAssertNotNil(JSONParser<[Item]>.parse("items"))
+    }
 }
