@@ -16,5 +16,6 @@ class KoreaEntryTableViewCell: UITableViewCell {
         entryImage.image = UIImage(named: cellData.imageName)
         title.text = cellData.name
         descriptionLable.text = cellData.shortDescription
+        descriptionLable.lineBreakStrategy = .hangulWordPriority
     }
 }

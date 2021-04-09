@@ -37,7 +37,7 @@ final class KoreaDetailEntryViewController: UIViewController {
         descriptionLable.text = detailEntry.description
         self.navigationItem.title = detailEntry.name
         
-        descriptionLable.lineBreakMode = .byWordWrapping
+        descriptionLable.lineBreakStrategy = .hangulWordPriority
         descriptionLable.textAlignment = .justified
         descriptionLable.numberOfLines = 0
     }
