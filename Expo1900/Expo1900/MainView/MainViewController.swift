@@ -14,11 +14,14 @@ class MainViewController: UIViewController {
   @IBOutlet var durationLabel: UILabel!
   @IBOutlet var descriptionLabel: UILabel!
   
+  @IBOutlet var button: UIButton!
+  
   override func viewWillAppear(_ animated: Bool) {
     navigationController?.isNavigationBarHidden = true
   }
   
   override func viewDidLoad() {
+    NotificationCenter.default.addObserver(self, selector: #selector(adjustButtonDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
     updateUI()
   }
   
@@ -26,11 +29,15 @@ class MainViewController: UIViewController {
     navigationController?.isNavigationBarHidden = false
   }
   
+  @objc func adjustButtonDynamicType() {
+    button.titleLabel?.adjustsFontForContentSizeCategory = true
+  }
+  
   func updateUI() {
     let jsonFile = JsonFile(fileName: "exposition_universelle_1900")
     do {
       let expositionUniverselle = try jsonFile.decode(type: Exposition())
-
+      
       titleLabel.text = expositionUniverselle.title
       titleImageView.image = UIImage(named: "poster.jpg")
       visitorsLabel.text = "\(expositionUniverselle.visitors)"
