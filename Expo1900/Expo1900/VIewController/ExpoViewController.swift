@@ -8,16 +8,16 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
-    @IBOutlet weak var expoTitle: UILabel!
-    @IBOutlet weak var expoImage: UIImageView!
-    @IBOutlet weak var visitors: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var duration: UILabel!
-    @IBOutlet weak var desc: UILabel!
-    @IBOutlet weak var koreaItemsPageButton: UIButton!
-    @IBOutlet weak var koreaImageLeft: UIImageView!
-    @IBOutlet weak var koreaImageRight: UIImageView!
-    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet private weak var expoTitle: UILabel!
+    @IBOutlet private weak var expoImage: UIImageView!
+    @IBOutlet private weak var visitors: UILabel!
+    @IBOutlet private weak var location: UILabel!
+    @IBOutlet private weak var duration: UILabel!
+    @IBOutlet private weak var desc: UILabel!
+    @IBOutlet private weak var koreaItemsPageButton: UIButton!
+    @IBOutlet private weak var koreaImageLeft: UIImageView!
+    @IBOutlet private weak var koreaImageRight: UIImageView!
+    @IBOutlet private weak var backgroundImage: UIImageView!
     
     private var expoData: Expo?
 
@@ -42,7 +42,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initExpoData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: expoVariable.expoJson) else {
+        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
             throw ExpoError.expoData
         }
         self.expoData = try JSONDecoder().decode(Expo.self, from: dataAsset.data)
@@ -52,19 +52,11 @@ final class ExpoViewController: UIViewController {
         guard let expo = expoData else {
             throw ExpoError.expoData
         }
-        self.navigationItem.title = expoVariable.pageTitle
-        
         expoTitle.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
-        expoImage.image = UIImage(named: expoVariable.expoImageName)
-        visitors.text = PreFixWord.visitor + creatVisitorsComma(expo.visitors)
-        location.text = PreFixWord.location + expo.location
-        duration.text = PreFixWord.duration + expo.duration
+        visitors.text = "방문객 : " + creatVisitorsComma(expo.visitors)
+        location.text = "개최지 : " + expo.location
+        duration.text = "개최 기간 : " + expo.duration
         desc.text = expo.description
-        
-        koreaItemsPageButton.setTitle(expoVariable.koreaEntryButtonTitle, for: .normal)
-        koreaImageLeft.image = UIImage(named: expoVariable.TaegeukgiImage)
-        koreaImageRight.image = UIImage(named: expoVariable.TaegeukgiImage)
-        backgroundImage.image = UIImage(named: expoVariable.expoImageName)
     }
     
     private func creatVisitorsComma(_ visitors: UInt) -> String {
@@ -77,14 +69,12 @@ final class ExpoViewController: UIViewController {
     }
 
     private func setLableAttribute() {
-        expoTitle.font = UIFont.boldSystemFont(ofSize: 30)
         expoTitle.numberOfLines = 2
-        expoTitle.lineBreakMode = .byWordWrapping
         expoTitle.textAlignment = .center
+        expoTitle.adjustsFontSizeToFitWidth = true
         
-        desc.font = UIFont.systemFont(ofSize: 16)
         desc.numberOfLines = 0
-        desc.lineBreakMode = .byCharWrapping
+        desc.lineBreakStrategy = .hangulWordPriority
         desc.textAlignment = .justified
         
         backgroundImage.alpha = 0.15

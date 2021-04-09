@@ -8,9 +8,9 @@
 import UIKit
 
 class KoreaEntryTableViewCell: UITableViewCell {
-    @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var descriptionLable: UILabel!
+    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var title: UILabel!
+    @IBOutlet private weak var descriptionLable: UILabel!
     
     func setCell(_ cellData: StateEntry) {
         entryImage.image = UIImage(named: cellData.imageName)
