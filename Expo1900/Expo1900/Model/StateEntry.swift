@@ -28,8 +28,3 @@ struct StateEntry: Decodable {
         self.description = (try? container.decode(String.self, forKey: .description)) ?? ""
     }
 }
-
-enum KoreaEntryVariable {
-    static let navigationTitle = "한국의 출품작"
-    static let koreaEntryJson = "items"
-}

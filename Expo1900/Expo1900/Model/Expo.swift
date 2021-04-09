@@ -28,16 +28,3 @@ struct Expo: Decodable {
     }
 }
 
-enum expoVariable {
-    static let expoJson = "exposition_universelle_1900"
-    static let pageTitle = "메인"
-    static let expoImageName = "poster"
-    static let koreaEntryButtonTitle = "한국 출품작 보러가기"
-    static let TaegeukgiImage = "flag"
-}
-
-enum PreFixWord {
-    static let visitor = "방문객 : "
-    static let location = "개최지 : "
-    static let duration = "개최 기간 : "
-}
