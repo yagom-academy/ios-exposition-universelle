@@ -254,14 +254,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zBs-4a-ivJ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kTv-YS-eK4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kTv-YS-eK4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="770.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7QT-iA-q64">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7QT-iA-q64">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVc-CD-ySB">
-                                                <rect key="frame" x="0.0" y="750" width="414" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVc-CD-ySB">
+                                                <rect key="frame" x="0.0" y="750" width="414" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -270,8 +270,8 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="cE7-n7-mZg" firstAttribute="bottom" secondItem="kTv-YS-eK4" secondAttribute="bottom" id="8Kr-Mm-Rr1"/>
-                                    <constraint firstItem="kTv-YS-eK4" firstAttribute="top" secondItem="cE7-n7-mZg" secondAttribute="top" id="Eca-l7-hMb"/>
+                                    <constraint firstItem="kTv-YS-eK4" firstAttribute="top" secondItem="zBs-4a-ivJ" secondAttribute="top" id="0Ze-vF-wUc"/>
+                                    <constraint firstAttribute="bottom" secondItem="kTv-YS-eK4" secondAttribute="bottom" constant="3.5" id="TIE-QT-MPd"/>
                                     <constraint firstItem="cE7-n7-mZg" firstAttribute="trailing" secondItem="kTv-YS-eK4" secondAttribute="trailing" id="TO0-kk-QsO"/>
                                     <constraint firstItem="kTv-YS-eK4" firstAttribute="leading" secondItem="cE7-n7-mZg" secondAttribute="leading" id="iBy-W9-Rut"/>
                                 </constraints>
