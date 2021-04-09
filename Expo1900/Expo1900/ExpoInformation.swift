@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpoInformation: Codable {
+struct Expo: Codable {
     
     let title: String
     let visitors: Int

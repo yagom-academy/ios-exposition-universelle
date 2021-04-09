@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-
 struct KoreaItemInformation: Codable {
     
     let name: String
