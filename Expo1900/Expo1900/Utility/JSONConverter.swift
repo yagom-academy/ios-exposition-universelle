@@ -16,13 +16,12 @@ enum JSONConverterError: Error {
     case isNotMaching
 }
 
-/// JSONConverter는 parse라는 통합된 메서드를 담고 있다.
+/// JSONConverter는 parse라는 통합된 메서드를 담고 있는 타입이닷 ~~! 🥺
 ///
-///
-///         return try decodeAsset(of: extractData(assetName: assetName))
-///
-///
-/// assetName에 원하는 JSON 파일의 이름을 'String'타입으로 적어주는 것이 중요함.
+///     return try decodeAsset(of: extractData(assetName: assetName))
+/// assetName에 원하는 JSON 파일의 이름을 'String'타입으로 적어주는 것이 중요하니깐!!
+/// 반드시 String으로 넣어주어야 된다는 것!! 아시겠죠~! :-) 😋
+/// (Zedd체 따라해봤습니다...깨알 이스터에그)
 struct JSONConverter<T: Decodable> {
     
     /// extractData라는 메서드와 decodeAsset이라는 메서드를 통합하여 실행하는 메서드
