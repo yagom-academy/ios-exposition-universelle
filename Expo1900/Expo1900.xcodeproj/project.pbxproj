@@ -50,10 +50,46 @@
 		70962211261AF52500F838A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				70962212261AF53C00F838A9 /* Items.swift */,
 				70962215261AF57200F838A9 /* ExpositionUniverselle.swift */,
+				70962212261AF53C00F838A9 /* Items.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7099F4ED262046C9001DADA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7099F4EF262046FC001DADA5 /* View */,
+				7099F4EE262046EB001DADA5 /* Cell */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7099F4EE262046EB001DADA5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7099F4E02620272A001DADA5 /* ItemsCustomCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7099F4EF262046FC001DADA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				7099F4DC26202640001DADA5 /* ItemsViewController.swift */,
+				7099F4E926204336001DADA5 /* ItemDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7099F4F026204719001DADA5 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -76,15 +112,11 @@
 			isa = PBXGroup;
 			children = (
 				70962211261AF52500F838A9 /* Models */,
+				7099F4F026204719001DADA5 /* Storyboard */,
+				7099F4ED262046C9001DADA5 /* Controller */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				7099F4DC26202640001DADA5 /* ItemsViewController.swift */,
-				7099F4E02620272A001DADA5 /* ItemsCustomCell.swift */,
-				7099F4E926204336001DADA5 /* ItemDetailViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
