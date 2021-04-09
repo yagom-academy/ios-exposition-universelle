@@ -25,10 +25,17 @@ class MainViewController: UIViewController {
         return contentview
     }()
     
+    lazy var titleLabel = ExpositionLabel(text: "Title", textStyle: .largeTitle)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        
+        contentView.addSubview(titleLabel)
+        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
     }
 }
