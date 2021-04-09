@@ -10,10 +10,34 @@ import XCTest
 
 class JSONParserTests: XCTestCase {
     func test_에셋카탈로그에_없는_JSON데이터_파일_이름이_들어오면_nil을_반환한다() {
-        XCTAssertNil(JSONParser.extractData(by: ""))
+        XCTAssertNil(JSONParser<Exposition>.extractData(by: ""))
     }
     
     func test_에셋카탈로그에_있는_JSON데이터_파일_이름이_들어오면_NSDataAsset을_반환한다() {
-        XCTAssertNotNil(JSONParser.extractData(by: "exposition_universelle_1900"))
+        XCTAssertNotNil(JSONParser<Exposition>.extractData(by: "exposition_universelle_1900"))
+    }
+    
+    func test_NSDataAsset이_단일타입의_프로퍼티와_다르면_nil을_반환한다() {
+        let assetData = JSONParser<Exposition>.extractData(by: "")
+        
+        XCTAssertNil(JSONParser<Exposition>.convert(by: assetData))
+    }
+    
+    func test_NSDataAsset이_단일타입의_프로퍼티와_일치하면_해당_인스턴스를_반환한다() {
+        let assetData = JSONParser<Exposition>.extractData(by: "exposition_universelle_1900")
+        
+        XCTAssertNotNil(JSONParser<Exposition>.convert(by: assetData))
+    }
+    
+    func test_NSDataAsset이_배열타입의_프로퍼티와_다르면_nil을_반환한다() {
+        let assetData = JSONParser<[Item]>.extractData(by: "items")
+        
+        XCTAssertNotNil(JSONParser<[Item]>.convert(by: assetData))
+    }
+    
+    func test_NSDataAsset이_배열타입의_프로퍼티와_일치하면_해당_인스턴스를_반환한다() {
+        let assetData = JSONParser<[Item]>.extractData(by: "items")
+        
+        XCTAssertNotNil(JSONParser<[Item]>.convert(by: assetData))
     }
 }
