@@ -18,26 +18,26 @@ class JSONParserTests: XCTestCase {
     }
     
     func test_NSDataAsset이_단일타입의_프로퍼티와_다르면_nil을_반환한다() {
-        let assetData = JSONParser<Exposition>.extractData(by: "")
+        let dataAsset = JSONParser<Exposition>.extractData(by: "")
         
-        XCTAssertNil(JSONParser<Exposition>.convert(by: assetData))
+        XCTAssertNil(JSONParser<Exposition>.convert(by: dataAsset))
     }
     
     func test_NSDataAsset이_단일타입의_프로퍼티와_일치하면_해당_인스턴스를_반환한다() {
-        let assetData = JSONParser<Exposition>.extractData(by: "exposition_universelle_1900")
+        let dataAsset = JSONParser<Exposition>.extractData(by: "exposition_universelle_1900")
         
-        XCTAssertNotNil(JSONParser<Exposition>.convert(by: assetData))
+        XCTAssertNotNil(JSONParser<Exposition>.convert(by: dataAsset))
     }
     
     func test_NSDataAsset이_배열타입의_프로퍼티와_다르면_nil을_반환한다() {
-        let assetData = JSONParser<[Item]>.extractData(by: "items")
+        let dataAsset = JSONParser<[Item]>.extractData(by: "items")
         
-        XCTAssertNotNil(JSONParser<[Item]>.convert(by: assetData))
+        XCTAssertNotNil(JSONParser<[Item]>.convert(by: dataAsset))
     }
     
     func test_NSDataAsset이_배열타입의_프로퍼티와_일치하면_해당_인스턴스를_반환한다() {
-        let assetData = JSONParser<[Item]>.extractData(by: "items")
+        let dataAsset = JSONParser<[Item]>.extractData(by: "items")
         
-        XCTAssertNotNil(JSONParser<[Item]>.convert(by: assetData))
+        XCTAssertNotNil(JSONParser<[Item]>.convert(by: dataAsset))
     }
 }
