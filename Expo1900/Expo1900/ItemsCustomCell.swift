@@ -11,4 +11,6 @@ class ItemsCustomCell: UITableViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var shortDescLabel: UILabel!
+    
+    
 }

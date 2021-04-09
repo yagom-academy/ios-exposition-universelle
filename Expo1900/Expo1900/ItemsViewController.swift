@@ -7,8 +7,11 @@
 
 import UIKit
 
+var items: [Item] = []
+var itemData: Item = Item(name: "", imageName: "", shortDesc: "", desc: "")
+
 class ItemsViewController: UIViewController {
-    var items: [Item] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,18 +26,28 @@ class ItemsViewController: UIViewController {
         }
         
         do {
-            self.items = try jsonDecoder.decode([Item].self, from: itemsData.data)
+            items = try jsonDecoder.decode([Item].self, from: itemsData.data)
         } catch {
             print(error.localizedDescription)
         }
         
         self.tableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
 }
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.description + "을 만졌어!!")
+        itemData = items[indexPath.row]
     }
 }
 
