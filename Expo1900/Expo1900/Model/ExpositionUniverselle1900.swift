@@ -8,9 +8,9 @@
 import Foundation
 
 struct ExpositionUnivereselle1900: Decodable {
-    let title: String
-    let visitors: Int?
-    let location: String
-    let duration: String?
-    let description: String
+    var title: String = "Not Found"
+    var visitors: Int = 0
+    var location: String = "Not Found"
+    var duration: String = "Not Found"
+    var description: String = "Not Found"
 }

@@ -6,48 +6,26 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    
-    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-    
-    lazy var scrollView: UIScrollView = {
-        let scrollview = UIScrollView(frame: .zero)
-        scrollview.frame = self.view.bounds
-        scrollview.contentSize = contentViewSize
-        scrollview.autoresizingMask = .flexibleHeight
-        scrollview.bounces = true
-        return scrollview
-    }()
-    
-    lazy var contentView: UIScrollView = {
-        let contentview = UIScrollView(frame: .zero)
-        contentview.frame.size = contentViewSize
-        return contentview
-    }()
-    
-    lazy var titleLabel = ExpositionLabel(text: "Title", textStyle: .largeTitle)
-    
-    lazy var posterImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "poster"))
+class MainViewController: VerticalScrollViewController {
+    var titleLabel = ExpositionLabel(text: "Title", textStyle: .largeTitle)
+    var posterImageView: UIImageView = {
+        var posterImage = UIImage(named: "poster")
+        if posterImage == nil {
+            posterImage = UIImage(systemName: "zzz")
+        }
+        let imageView = UIImageView(image: posterImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
-    
-    lazy var visitorsLabel = ExpositionLabel(text: "visitors", textStyle: .largeTitle)
-    
-    lazy var locationLabel = ExpositionLabel(text: "Location", textStyle: .subheadline)
-    
-    lazy var durationLabel = ExpositionLabel(text: "duration", textStyle: .subheadline)
-    
-    lazy var descriptionLabel = ExpositionLabel(text: "description", textStyle: .body)
+    var visitorsLabel = ExpositionLabel(text: "visitors", textStyle: .subheadline)
+    var locationLabel = ExpositionLabel(text: "Location", textStyle: .subheadline)
+    var durationLabel = ExpositionLabel(text: "duration", textStyle: .subheadline)
+    var descriptionLabel = ExpositionLabel(text: "description", textStyle: .body)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        
         lineUpContentsAtInterval(of: 10)
     }
     
