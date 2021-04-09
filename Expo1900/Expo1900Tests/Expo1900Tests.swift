@@ -24,7 +24,7 @@ class Expo1900Tests: XCTestCase {
     
     func testItemsError() {
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else { XCTFail("파일을 불러올 수 없습니다."); return }
-        guard let items = try? jsonDecoder.decode([Items].self, from: dataAsset.data) else { XCTFail(); return }
+        guard let items = try? jsonDecoder.decode([ExpositionItem].self, from: dataAsset.data) else { XCTFail(); return }
         
         for item in items {
             XCTAssertNotNil(item.name, "name이 nil 입니다.")

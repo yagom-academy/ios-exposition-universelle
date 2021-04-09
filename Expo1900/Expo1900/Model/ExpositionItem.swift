@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Items: Decodable {
+struct ExpositionItem: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
