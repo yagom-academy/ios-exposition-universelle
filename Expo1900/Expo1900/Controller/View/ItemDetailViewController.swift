@@ -8,7 +8,6 @@
 import UIKit
 
 class ItemDetailViewController: UIViewController {
-
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemDescLabel: UILabel!
     
@@ -24,5 +23,4 @@ class ItemDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
-
 }

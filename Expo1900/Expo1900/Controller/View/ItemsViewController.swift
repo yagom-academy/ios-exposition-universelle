@@ -11,7 +11,6 @@ var items: [Item] = []
 var itemData: Item = Item(name: "", imageName: "", shortDesc: "", desc: "")
 
 class ItemsViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -52,16 +51,11 @@ extension ItemsViewController: UITableViewDelegate {
 }
 
 extension ItemsViewController: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 10
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCustomCell", for: indexPath) as! ItemsCustomCell
         
         cell.itemImageView.image = UIImage(named: items[indexPath.row].imageName)
