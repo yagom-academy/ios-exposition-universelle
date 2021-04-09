@@ -36,11 +36,11 @@ class MainViewController: UIViewController {
     
     lazy var visitorsLabel = ExpositionLabel(text: "visitors", textStyle: .largeTitle)
     
-    lazy var locationLabel = ExpositionLabel(text: "Location", textStyle: .largeTitle)
+    lazy var locationLabel = ExpositionLabel(text: "Location", textStyle: .subheadline)
     
-    lazy var durationLabel = ExpositionLabel(text: "duration", textStyle: .largeTitle)
+    lazy var durationLabel = ExpositionLabel(text: "duration", textStyle: .subheadline)
     
-    lazy var descriptionLabel = ExpositionLabel(text: "description", textStyle: .largeTitle)
+    lazy var descriptionLabel = ExpositionLabel(text: "description", textStyle: .body)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +48,25 @@ class MainViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        contentView.addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        let contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel]
         
-        contentView.addSubview(posterImageView)
+        contents.forEach({
+            contentView.addSubview($0)
+            $0.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+            $0.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        })
+        
+        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        
         posterImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        posterImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        posterImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        
+        visitorsLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10).isActive = true
+        
+        locationLabel.topAnchor.constraint(equalTo: visitorsLabel.bottomAnchor, constant: 10).isActive = true
+        
+        durationLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10).isActive = true
+        
+        descriptionLabel.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 10).isActive = true
+        
     }
 }
