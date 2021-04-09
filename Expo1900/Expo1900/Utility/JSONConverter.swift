@@ -8,18 +8,22 @@
 import Foundation
 import UIKit
 
-func extractData(assetName: String) -> NSDataAsset? {
-    guard let dataAsset = NSDataAsset.init(name: assetName) else { return nil }
-    return dataAsset
+enum JSONConverterError: Error {
+    case inputWrongAssetName
+    case isNotMaching
 }
 
-func decodeAsset<T: Decodable>(of: NSDataAsset) -> T? {
-    let decoder = JSONDecoder()
+struct JSONConverter<T: Decodable> {
+    static func extractData(assetName: String) throws -> NSDataAsset {
+        guard let dataAsset = NSDataAsset.init(name: assetName) else { throw JSONConverterError.inputWrongAssetName }
+        return dataAsset
+    }
 
-    do {
-        let convertedData: T = try decoder.decode(T.self, from: of.data)
-        return convertedData
-    } catch {
-        return nil
+    static func decodeAsset(of: NSDataAsset) throws -> T {
+        let decoder = JSONDecoder()
+    
+        guard let convertedData: T = try? decoder.decode(T?.self, from: of.data) else { throw JSONConverterError.isNotMaching }
+            return convertedData
     }
 }
+

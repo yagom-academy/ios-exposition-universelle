@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Item: Decodable {
-    enum Codinkeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"
@@ -25,9 +25,10 @@ struct Item: Decodable {
 
 struct ExpoOfParis: Decodable {
     let titile: String
-    let visitor: String
+    let visitor: Int
     let location: String
     let duration: String
     let description: String
     let item: [Item]?
 }
+
