@@ -5,8 +5,6 @@
 //  Created by duckbok on 2021/04/09.
 //
 
-import Foundation
-
 struct Item: Codable {
     enum CodingKeys: String, CodingKey {
         case name

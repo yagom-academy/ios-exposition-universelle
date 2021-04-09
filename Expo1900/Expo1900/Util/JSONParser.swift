@@ -5,7 +5,6 @@
 //  Created by duckbok on 2021/04/09.
 //
 
-import Foundation
 import UIKit
 
 /// Decodable을 채택한 타입을 JSON 데이터 파일로부터 Parsing해주는 생성불가능한 객체
