@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExhibitProduct: Decodable {
+struct ExhibitionProduct: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String
