@@ -8,26 +8,23 @@
 import UIKit
 
 class VerticalScrollViewController: UIViewController {
-    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
-    
-    lazy var scrollView: UIScrollView = {
-        let scrollview = UIScrollView(frame: .zero)
-        scrollview.frame = self.view.bounds
-        scrollview.contentSize = contentViewSize
-        scrollview.autoresizingMask = .flexibleHeight
+    var scrollView: UIScrollView = {
+        let scrollview = UIScrollView()
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
         scrollview.bounces = true
         return scrollview
-    }()
-    
-    lazy var contentView: UIScrollView = {
-        let contentview = UIScrollView(frame: .zero)
-        contentview.frame.size = contentViewSize
-        return contentview
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        setUpScrollView()
+    }
+    
+    private func setUpScrollView() {
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        scrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
 }
