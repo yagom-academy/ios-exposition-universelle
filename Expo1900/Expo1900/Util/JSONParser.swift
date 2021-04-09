@@ -15,7 +15,7 @@ enum JSONParser<Type: Decodable> {
         return dataAsset
     }
     
-    static func converter(by dataAsset: NSDataAsset) -> Type? {
+    static func convert(by dataAsset: NSDataAsset) -> Type? {
         let decoder = JSONDecoder()
         guard let instance: Type = try? decoder.decode(Type.self, from: dataAsset.data) else { return nil }
         
