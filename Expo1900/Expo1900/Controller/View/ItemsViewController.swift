@@ -19,16 +19,7 @@ class ItemsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        let jsonDecoder = JSONDecoder()
-        guard let itemsData: NSDataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        do {
-            items = try jsonDecoder.decode([Item].self, from: itemsData.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        jsonPaser()
         
         self.tableView.reloadData()
     }
@@ -41,6 +32,19 @@ class ItemsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func jsonPaser() {
+        let jsonDecoder = JSONDecoder()
+        guard let itemsData: NSDataAsset = NSDataAsset(name: "items") else {
+            return
+        }
+        
+        do {
+            items = try jsonDecoder.decode([Item].self, from: itemsData.data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
@@ -56,7 +60,9 @@ extension ItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCustomCell", for: indexPath) as! ItemsCustomCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCustomCell", for: indexPath) as? ItemsCustomCell else {
+            return UITableViewCell()
+        }
         
         cell.itemImageView.image = UIImage(named: items[indexPath.row].imageName)
         cell.nameLabel.text = items[indexPath.row].name

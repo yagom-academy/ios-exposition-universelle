@@ -19,15 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let jsonDecoder = JSONDecoder()
-        guard let expositionUniversellesData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            return
-        }
-        do {
-            self.expositionUniverselles = try jsonDecoder.decode(ExpositionUniverselle.self, from: expositionUniversellesData.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        jsonPaser()
         
         titleLabel.text = expositionUniverselles.title
         visitorsLabel.text = String(expositionUniverselles.visitors)
@@ -39,5 +31,17 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func jsonPaser() {
+        let jsonDecoder = JSONDecoder()
+        guard let expositionUniversellesData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return
+        }
+        do {
+            self.expositionUniverselles = try jsonDecoder.decode(ExpositionUniverselle.self, from: expositionUniversellesData.data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
