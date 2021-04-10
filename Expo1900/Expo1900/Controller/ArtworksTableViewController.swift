@@ -27,7 +27,8 @@ class ArtworksTableViewController: UIViewController, UITableViewDelegate, UITabl
       print(error.localizedDescription)
     }
     
-    
+    artworksTableView.estimatedRowHeight = 70
+    artworksTableView.rowHeight = UITableView.automaticDimension
     
   }
   
@@ -48,5 +49,18 @@ class ArtworksTableViewController: UIViewController, UITableViewDelegate, UITabl
    
    return cell
    }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showDetail" {
+      let followingViewController = segue.destination as? ArtworkDetailViewController
+      if let identifier = sender as? Int {
+        followingViewController?.artworkIdentifier = identifier
+      }
+    }
+  }
   
 }
