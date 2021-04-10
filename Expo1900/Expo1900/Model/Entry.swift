@@ -5,7 +5,7 @@
 //  Created by duckbok on 2021/04/09.
 //
 
-struct Entry: Codable {
+struct Entry: Decodable {
     private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
