@@ -29,7 +29,7 @@ class ExpoIntroductionViewController: UIViewController {
     
     titleLabel.text = expoIntroduction?.title
     expoPoster.image = UIImage(named: "poster")
-    numberOfVisitorsLabel.text = "\(String(describing: expoIntroduction?.visitors))"
+    numberOfVisitorsLabel.text = "\(String(describing: expoIntroduction?.visitors ?? 0))"
     locationLabel.text = expoIntroduction?.location
     durationLabel.text = expoIntroduction?.duration
     descriptionTextView.text = expoIntroduction?.description
