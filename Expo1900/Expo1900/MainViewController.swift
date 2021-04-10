@@ -6,19 +6,19 @@
 
 import UIKit
 
-class MainViewController: VerticalScrollViewController {
+final class MainViewController: VerticalScrollViewController {
     
-    var expositionData = ExpositionUnivereselle1900()
-    var titleLabel = ExpositionLabel()
-    var posterImageView = UIImageView()
-    var visitorsLabel = ExpositionLabel()
-    var locationLabel = ExpositionLabel()
-    var durationLabel = ExpositionLabel()
-    var descriptionLabel = ExpositionLabel()
-    var leftkoreanFlagImageView = UIImageView()
-    var rightkoreanFlagImageView = UIImageView()
-    var moveToKoreanItemsButton = UIButton()
-    var moveToKoreanItemsView = UIStackView()
+    private var expositionData = ExpositionUnivereselle1900()
+    private var titleLabel = ExpositionLabel()
+    private var posterImageView = UIImageView()
+    private var visitorsLabel = ExpositionLabel()
+    private var locationLabel = ExpositionLabel()
+    private var durationLabel = ExpositionLabel()
+    private var descriptionLabel = ExpositionLabel()
+    private var leftkoreanFlagImageView = UIImageView()
+    private var rightkoreanFlagImageView = UIImageView()
+    private var moveToKoreanItemsButton = UIButton()
+    private var moveToKoreanItemsView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
