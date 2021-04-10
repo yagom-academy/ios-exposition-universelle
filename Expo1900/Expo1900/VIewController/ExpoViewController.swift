@@ -42,7 +42,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initExpoData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
+        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             throw ExpoError.expoData
         }
         self.expoData = try JSONDecoder().decode(Expo.self, from: dataAsset.data)
@@ -52,6 +52,7 @@ final class ExpoViewController: UIViewController {
         guard let expo = expoData else {
             throw ExpoError.expoData
         }
+        self.navigationController?.title = "메인"
         expoTitle.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         visitors.text = "방문객 : " + creatVisitorsComma(expo.visitors)
         location.text = "개최지 : " + expo.location

@@ -31,7 +31,7 @@ final class KoreaEntryViewController: UIViewController {
     }
     
     private func initKoreaEntryData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else {
+        guard let dataAsset = NSDataAsset(name: "items") else {
             throw ExpoError.itemsData
         }
         self.koreaEntrys = try JSONDecoder().decode([StateEntry].self, from: dataAsset.data)
