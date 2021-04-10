@@ -79,6 +79,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="titleLabel.adjustsFontForContentSizeCategory" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <segue destination="6nj-jU-mX6" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wX8-ix-2Ge"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="UtQ-Ps-fb9">
                                                         <rect key="frame" x="219" y="0.0" width="70" height="50"/>
@@ -130,6 +133,41 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1378.2608695652175" y="150"/>
+        </scene>
+        <!--Artworks View Controller-->
+        <scene sceneID="TQd-Pw-Wrh">
+            <objects>
+                <viewController id="6nj-jU-mX6" customClass="ArtworksViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YOK-4Z-Nz7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iAO-ZJ-Agr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6nj-jU-mX6" id="cib-ji-g4w"/>
+                                    <outlet property="delegate" destination="6nj-jU-mX6" id="Yaj-fB-Rul"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="igK-xR-SUB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iAO-ZJ-Agr" firstAttribute="trailing" secondItem="igK-xR-SUB" secondAttribute="trailing" id="c7A-j6-ZnW"/>
+                            <constraint firstItem="iAO-ZJ-Agr" firstAttribute="top" secondItem="YOK-4Z-Nz7" secondAttribute="top" id="iW5-b8-raB"/>
+                            <constraint firstItem="iAO-ZJ-Agr" firstAttribute="leading" secondItem="igK-xR-SUB" secondAttribute="leading" id="lNb-ib-sbJ"/>
+                            <constraint firstItem="iAO-ZJ-Agr" firstAttribute="bottom" secondItem="igK-xR-SUB" secondAttribute="bottom" id="zj5-Ew-UAr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uV7-Pn-jgs"/>
+                    <connections>
+                        <outlet property="artworksTableView" destination="iAO-ZJ-Agr" id="aLj-zn-rca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nz-Mq-ogD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256.521739130435" y="150"/>
         </scene>
     </scenes>
     <resources>
