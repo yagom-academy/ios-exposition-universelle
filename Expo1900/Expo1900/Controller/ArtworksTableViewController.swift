@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtworksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ArtworksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
   @IBOutlet weak var artworksTableView: UITableView!
   
