@@ -6,7 +6,7 @@
 //
 
 struct Entry: Codable {
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"
