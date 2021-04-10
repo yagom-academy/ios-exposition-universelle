@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uxu-vp-Ftd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="naq-Zb-3j7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -11,7 +11,6 @@
         <!--Expo Introduction View Controller-->
         <scene sceneID="eY4-XC-gNV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ckd-Rd-IFp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="uxu-vp-Ftd" customClass="ExpoIntroductionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rik-HV-13y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -80,7 +79,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="titleLabel.adjustsFontForContentSizeCategory" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <segue destination="6nj-jU-mX6" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wX8-ix-2Ge"/>
+                                                            <segue destination="6nj-jU-mX6" kind="show" id="wX8-ix-2Ge"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="UtQ-Ps-fb9">
@@ -122,6 +121,7 @@
                             <constraint firstItem="2al-ah-QL5" firstAttribute="trailing" secondItem="yhP-ZX-pIk" secondAttribute="trailing" id="ruA-Ih-aUO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="rTf-bu-YxD"/>
                     <connections>
                         <outlet property="descriptionTextView" destination="6PF-sP-6bm" id="Z0n-e3-07c"/>
                         <outlet property="durationLabel" destination="IBO-7c-rZz" id="led-MX-Uva"/>
@@ -131,8 +131,9 @@
                         <outlet property="titleLabel" destination="W9n-k2-cQd" id="n4n-u0-fYK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ckd-Rd-IFp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378.2608695652175" y="150"/>
+            <point key="canvasLocation" x="2288.4057971014495" y="150"/>
         </scene>
         <!--Artworks View Controller-->
         <scene sceneID="TQd-Pw-Wrh">
@@ -160,14 +161,32 @@
                             <constraint firstItem="iAO-ZJ-Agr" firstAttribute="bottom" secondItem="igK-xR-SUB" secondAttribute="bottom" id="zj5-Ew-UAr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uV7-Pn-jgs"/>
+                    <navigationItem key="navigationItem" id="7xv-sz-m3l"/>
                     <connections>
                         <outlet property="artworksTableView" destination="iAO-ZJ-Agr" id="aLj-zn-rca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nz-Mq-ogD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2256.521739130435" y="150"/>
+            <point key="canvasLocation" x="3166.666666666667" y="150"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CUa-tb-hZb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="naq-Zb-3j7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f2I-lx-DrQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uxu-vp-Ftd" kind="relationship" relationship="rootViewController" id="Ink-vA-HWL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXq-oh-Rad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378.2608695652175" y="150"/>
         </scene>
     </scenes>
     <resources>
