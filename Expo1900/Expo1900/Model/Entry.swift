@@ -1,11 +1,11 @@
 //
-//  Item.swift
+//  Entry.swift
 //  Expo1900
 //
 //  Created by duckbok on 2021/04/09.
 //
 
-struct Item: Codable {
+struct Entry: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"

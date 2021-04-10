@@ -31,22 +31,22 @@ class JSONParserTests: XCTestCase {
     }
     
     func test_NSDataAsset이_배열타입의_프로퍼티와_다르면_nil을_반환한다() {
-        guard let dataAsset = JSONParser<[Item]>.extractData(from: "exposition_universelle_1900") else { return }
+        guard let dataAsset = JSONParser<[Entry]>.extractData(from: "exposition_universelle_1900") else { return }
         
-        XCTAssertNil(JSONParser<[Item]>.convert(from: dataAsset))
+        XCTAssertNil(JSONParser<[Entry]>.convert(from: dataAsset))
     }
     
     func test_NSDataAsset이_배열타입의_프로퍼티와_일치하면_해당_인스턴스를_반환한다() {
-        guard let dataAsset = JSONParser<[Item]>.extractData(from: "items") else { return }
+        guard let dataAsset = JSONParser<[Entry]>.extractData(from: "items") else { return }
         
-        XCTAssertNotNil(JSONParser<[Item]>.convert(from: dataAsset))
+        XCTAssertNotNil(JSONParser<[Entry]>.convert(from: dataAsset))
     }
     
     func test_JSON데이터_파일이름과_주어진_타입이_다르면_parse를_실패한다() {
-        XCTAssertNil(JSONParser<[Item]>.parse("exposition_universelle_1900"))
+        XCTAssertNil(JSONParser<[Entry]>.parse("exposition_universelle_1900"))
     }
     
     func test_JSON데이터_파일이름과_주어진_타입이_같으면_parse를_성공한다() {
-        XCTAssertNotNil(JSONParser<[Item]>.parse("items"))
+        XCTAssertNotNil(JSONParser<[Entry]>.parse("items"))
     }
 }
