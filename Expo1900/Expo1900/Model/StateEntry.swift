@@ -1,5 +1,5 @@
 //
-//  KoreaItems.swift
+//  StateEntry.swift
 //  Expo1900
 //
 //  Created by 윤재웅 on 2021/04/05.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KoreaItem: Decodable {
+struct StateEntry: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String

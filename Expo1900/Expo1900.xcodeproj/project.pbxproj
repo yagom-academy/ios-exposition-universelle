@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BAA9FD12261AD96A000EB716 /* KoreaItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD11261AD96A000EB716 /* KoreaItems.swift */; };
+		BAA9FD12261AD96A000EB716 /* StateEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD11261AD96A000EB716 /* StateEntry.swift */; };
 		BAA9FD16261AD9B6000EB716 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD15261AD9B6000EB716 /* Expo.swift */; };
 		BAA9FD1E261AE9E6000EB716 /* ExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD1D261AE9E6000EB716 /* ExpoViewController.swift */; };
-		BAA9FD28261AEB15000EB716 /* KoreaItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD26261AEB15000EB716 /* KoreaItemsViewController.swift */; };
-		BAA9FD29261AEB15000EB716 /* KoreaItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA9FD27261AEB15000EB716 /* KoreaItemsViewController.xib */; };
-		BAA9FD2E261AEB39000EB716 /* KoreaItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD2C261AEB39000EB716 /* KoreaItemDetailViewController.swift */; };
-		BAA9FD2F261AEB39000EB716 /* KoreaItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA9FD2D261AEB39000EB716 /* KoreaItemDetailViewController.xib */; };
-		BAA9FD34261AEB7C000EB716 /* KoreaItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD32261AEB7C000EB716 /* KoreaItemsTableViewCell.swift */; };
-		BAA9FD35261AEB7C000EB716 /* KoreaItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA9FD33261AEB7C000EB716 /* KoreaItemsTableViewCell.xib */; };
 		BAA9FD39261AEBC9000EB716 /* ExpoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD38261AEBC9000EB716 /* ExpoError.swift */; };
+		BAA9FD54261DA1DB000EB716 /* KoreaEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD52261DA1DB000EB716 /* KoreaEntryViewController.swift */; };
+		BAA9FD55261DA1DB000EB716 /* KoreaEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA9FD53261DA1DB000EB716 /* KoreaEntryViewController.xib */; };
+		BAA9FD5A261DA317000EB716 /* KoreaEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD58261DA317000EB716 /* KoreaEntryTableViewCell.swift */; };
+		BAA9FD5B261DA317000EB716 /* KoreaEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA9FD59261DA317000EB716 /* KoreaEntryTableViewCell.xib */; };
+		BAA9FD61261DCA0A000EB716 /* KoreaDetailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD5F261DCA0A000EB716 /* KoreaDetailEntryViewController.swift */; };
+		BAA9FD62261DCA0A000EB716 /* KoreaDetailEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA9FD60261DCA0A000EB716 /* KoreaDetailEntryViewController.xib */; };
+		BAA9FD66261DF058000EB716 /* Alter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD65261DF058000EB716 /* Alter.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
@@ -25,16 +26,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BAA9FD11261AD96A000EB716 /* KoreaItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItems.swift; sourceTree = "<group>"; };
+		BAA9FD11261AD96A000EB716 /* StateEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateEntry.swift; sourceTree = "<group>"; };
 		BAA9FD15261AD9B6000EB716 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		BAA9FD1D261AE9E6000EB716 /* ExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoViewController.swift; sourceTree = "<group>"; };
-		BAA9FD26261AEB15000EB716 /* KoreaItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemsViewController.swift; sourceTree = "<group>"; };
-		BAA9FD27261AEB15000EB716 /* KoreaItemsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaItemsViewController.xib; sourceTree = "<group>"; };
-		BAA9FD2C261AEB39000EB716 /* KoreaItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemDetailViewController.swift; sourceTree = "<group>"; };
-		BAA9FD2D261AEB39000EB716 /* KoreaItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaItemDetailViewController.xib; sourceTree = "<group>"; };
-		BAA9FD32261AEB7C000EB716 /* KoreaItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemsTableViewCell.swift; sourceTree = "<group>"; };
-		BAA9FD33261AEB7C000EB716 /* KoreaItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaItemsTableViewCell.xib; sourceTree = "<group>"; };
 		BAA9FD38261AEBC9000EB716 /* ExpoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoError.swift; sourceTree = "<group>"; };
+		BAA9FD52261DA1DB000EB716 /* KoreaEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryViewController.swift; sourceTree = "<group>"; };
+		BAA9FD53261DA1DB000EB716 /* KoreaEntryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaEntryViewController.xib; sourceTree = "<group>"; };
+		BAA9FD58261DA317000EB716 /* KoreaEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryTableViewCell.swift; sourceTree = "<group>"; };
+		BAA9FD59261DA317000EB716 /* KoreaEntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaEntryTableViewCell.xib; sourceTree = "<group>"; };
+		BAA9FD5F261DCA0A000EB716 /* KoreaDetailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaDetailEntryViewController.swift; sourceTree = "<group>"; };
+		BAA9FD60261DCA0A000EB716 /* KoreaDetailEntryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaDetailEntryViewController.xib; sourceTree = "<group>"; };
+		BAA9FD65261DF058000EB716 /* Alter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alter.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				BAA9FD15261AD9B6000EB716 /* Expo.swift */,
-				BAA9FD11261AD96A000EB716 /* KoreaItems.swift */,
+				BAA9FD11261AD96A000EB716 /* StateEntry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -68,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				BAA9FD31261AEB49000EB716 /* Cell */,
-				BAA9FD25261AEAE8000EB716 /* KoreaItems */,
+				BAA9FD25261AEAE8000EB716 /* Entry */,
 				BAA9FD1D261AE9E6000EB716 /* ExpoViewController.swift */,
 			);
 			path = VIewController;
@@ -91,24 +93,40 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		BAA9FD25261AEAE8000EB716 /* KoreaItems */ = {
+		BAA9FD25261AEAE8000EB716 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				BAA9FD26261AEB15000EB716 /* KoreaItemsViewController.swift */,
-				BAA9FD27261AEB15000EB716 /* KoreaItemsViewController.xib */,
-				BAA9FD2C261AEB39000EB716 /* KoreaItemDetailViewController.swift */,
-				BAA9FD2D261AEB39000EB716 /* KoreaItemDetailViewController.xib */,
+				BAA9FD45261D9893000EB716 /* Korea */,
 			);
-			path = KoreaItems;
+			path = Entry;
 			sourceTree = "<group>";
 		};
 		BAA9FD31261AEB49000EB716 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				BAA9FD32261AEB7C000EB716 /* KoreaItemsTableViewCell.swift */,
-				BAA9FD33261AEB7C000EB716 /* KoreaItemsTableViewCell.xib */,
+				BAA9FD58261DA317000EB716 /* KoreaEntryTableViewCell.swift */,
+				BAA9FD59261DA317000EB716 /* KoreaEntryTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		BAA9FD45261D9893000EB716 /* Korea */ = {
+			isa = PBXGroup;
+			children = (
+				BAA9FD52261DA1DB000EB716 /* KoreaEntryViewController.swift */,
+				BAA9FD53261DA1DB000EB716 /* KoreaEntryViewController.xib */,
+				BAA9FD5F261DCA0A000EB716 /* KoreaDetailEntryViewController.swift */,
+				BAA9FD60261DCA0A000EB716 /* KoreaDetailEntryViewController.xib */,
+			);
+			path = Korea;
+			sourceTree = "<group>";
+		};
+		BAA9FD64261DF031000EB716 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				BAA9FD65261DF058000EB716 /* Alter.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -130,12 +148,13 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				BAA9FD64261DF031000EB716 /* extension */,
 				BAA9FD10261AD92E000EB716 /* Storyboard */,
 				BAA9FD0F261AD91D000EB716 /* Error */,
 				BAA9FD0E261AD919000EB716 /* VIewController */,
 				BAA9FD0C261AD90D000EB716 /* Model */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
@@ -199,12 +218,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA9FD29261AEB15000EB716 /* KoreaItemsViewController.xib in Resources */,
-				BAA9FD35261AEB7C000EB716 /* KoreaItemsTableViewCell.xib in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				BAA9FD55261DA1DB000EB716 /* KoreaEntryViewController.xib in Resources */,
+				BAA9FD5B261DA317000EB716 /* KoreaEntryTableViewCell.xib in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
-				BAA9FD2F261AEB39000EB716 /* KoreaItemDetailViewController.xib in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
+				BAA9FD62261DCA0A000EB716 /* KoreaDetailEntryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,15 +234,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA9FD28261AEB15000EB716 /* KoreaItemsViewController.swift in Sources */,
-				BAA9FD2E261AEB39000EB716 /* KoreaItemDetailViewController.swift in Sources */,
 				BAA9FD16261AD9B6000EB716 /* Expo.swift in Sources */,
 				BAA9FD1E261AE9E6000EB716 /* ExpoViewController.swift in Sources */,
+				BAA9FD66261DF058000EB716 /* Alter.swift in Sources */,
+				BAA9FD61261DCA0A000EB716 /* KoreaDetailEntryViewController.swift in Sources */,
 				BAA9FD39261AEBC9000EB716 /* ExpoError.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				BAA9FD54261DA1DB000EB716 /* KoreaEntryViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
-				BAA9FD12261AD96A000EB716 /* KoreaItems.swift in Sources */,
-				BAA9FD34261AEB7C000EB716 /* KoreaItemsTableViewCell.swift in Sources */,
+				BAA9FD12261AD96A000EB716 /* StateEntry.swift in Sources */,
+				BAA9FD5A261DA317000EB716 /* KoreaEntryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

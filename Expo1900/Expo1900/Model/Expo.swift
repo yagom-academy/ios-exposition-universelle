@@ -27,3 +27,4 @@ struct Expo: Decodable {
         self.description = (try? container.decode(String.self, forKey: .description)) ?? ""
     }
 }
+
