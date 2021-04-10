@@ -32,31 +32,44 @@ class MainViewController: VerticalScrollViewController {
     lazy var locationLabel = ExpositionLabel(text: "개최지 : " + expositionData.location, textStyle: .subheadline)
     lazy var durationLabel = ExpositionLabel(text: "개최기간 : " + expositionData.duration, textStyle: .subheadline)
     lazy var descriptionLabel = ExpositionLabel(text: expositionData.description, textStyle: .body)
-    var goToKoreanItems: UIButton = {
-        var button = UIButton()
-        button.setTitle("한국의 출품작 보러가기", for: .normal)
-        return button
-    }()
-    var koreanFlag: UIImageView = {
+    lazy var leftkoreanFlagImageView: UIImageView = {
         var flagImage = UIImage(named: "flag")
         if flagImage == nil {
             flagImage = UIImage(systemName: "zzz")
         }
-        let imageView = UIImageView(image: flagImage)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
         
+        let imageView = UIImageView(image: flagImage)
+        imageView.contentMode = .scaleAspectFit
+        imageView.sizeToFit()
         return imageView
     }()
-    lazy var flagStack: UIStackView = {
-        var stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 10
-        stackView.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        stackView.addSubview(koreanFlag)
-        stackView.addSubview(goToKoreanItems)
-        stackView.addSubview(koreanFlag)
+    lazy var rightkoreanFlagImageView: UIImageView = {
+        var flagImage = UIImage(named: "flag")
+        if flagImage == nil {
+            flagImage = UIImage(systemName: "zzz")
+        }
+        
+        let imageView = UIImageView(image: flagImage)
+        imageView.contentMode = .scaleAspectFit
+        imageView.sizeToFit()
+        return imageView
+    }()
+    lazy var moveToKoreanItemsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        return button
+    }()
+    lazy var moveToKoreanItemsView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fillEqually
+        stackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        stackView.addArrangedSubview(leftkoreanFlagImageView)
+        stackView.addArrangedSubview(moveToKoreanItemsButton)
+        stackView.addArrangedSubview(rightkoreanFlagImageView)
+        stackView.subviews.forEach({ $0.sizeToFit() })
         return stackView
     }()
     
@@ -66,13 +79,12 @@ class MainViewController: VerticalScrollViewController {
     }
     
     private func lineUpContentsAtInterval(of interval: CGFloat) {
-        let contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, flagStack]
+        let contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemsView]
         
         contents.enumerated().forEach({ (index, item) in
-            item.translatesAutoresizingMaskIntoConstraints = false
             scrollView.addSubview(item)
-            item.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-            item.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+            item.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            item.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -20).isActive = true
             
             if index == 0 {
                 item.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
