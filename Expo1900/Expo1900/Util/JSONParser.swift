@@ -40,8 +40,8 @@ enum JSONParser<Type: Decodable> {
     /// 주어진 dataAsset에서 지정한 타입의 인스턴스로 decode한다.
     static func convert(from dataAsset: NSDataAsset) -> Type? {
         let decoder = JSONDecoder()
-        guard let instance: Type = try? decoder.decode(Type.self, from: dataAsset.data) else { return nil }
+        guard let decoded: Type = try? decoder.decode(Type.self, from: dataAsset.data) else { return nil }
         
-        return instance
+        return decoded
     }
 }
