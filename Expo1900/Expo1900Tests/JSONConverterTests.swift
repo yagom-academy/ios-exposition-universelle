@@ -25,13 +25,13 @@ class JSONConverterTest: XCTestCase {
         }
     }
     
-    func test_decodeAsset에_NSDataAsset타입의인자가_들어오는경우() {
+    func test_decodeAsset에_NSDataAsset타입의인자가_들어오는경우_decode된_Data가_반환이된다() {
         XCTAssertNoThrow(try JSONConverter<[Item]>.decodeAsset(of: JSONConverter<Item>.extractData(assetName: "items")))
     }
     
-    func test_parse에_assetName을_잘못입력한경우() {
+    func test_parse에_assetName을_잘못입력한경우_isNotMatching에러가_발생한다() {
         XCTAssertThrowsError(try JSONConverter<[Item]>.parse(assetName: "exposition_universelle_1900")) { (error) in
-            XCTAssertEqual(error as! JSONConverterError, JSONConverterError.isNotMaching)
+            XCTAssertEqual(error as? JSONConverterError, JSONConverterError.isNotMaching)
         }
     }
 }
