@@ -15,14 +15,20 @@ final class Expo1900Tests: XCTestCase {
     func testExpositionError() {
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { XCTFail("파일을 불러올 수 없습니다."); return }
         guard let exposition = try? jsonDecoder.decode(Exposition.self, from: dataAsset.data) else { XCTFail(); return }
+        
+        XCTAssertNotNil(exposition.title, "title이 nil 입니다.")
+        XCTAssertNotNil(exposition.visitors, "visitors가 nil 입니다.")
+        XCTAssertNotNil(exposition.location, "location이 nil 입니다.")
+        XCTAssertNotNil(exposition.duration, "duration이 nil 입니다.")
+        XCTAssertNotNil(exposition.description, "description이 nil 입니다.")
+        
         XCTAssertEqual(exposition.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)", "title이 일치하지 않습니다.")
         XCTAssertEqual(exposition.visitors, 48130300, "visitors가 일치하지 않습니다.")
         XCTAssertEqual(exposition.location, "프랑스 파리", "location이 일치하지 않습니다.")
         XCTAssertEqual(exposition.duration, "1900. 04. 14 - 1900. 11. 12", "duration이 일치하지 않습니다.")
-        XCTAssertNotNil(exposition.description, "description이 nil 입니다.")
     }
     
-    func testItemsError() {
+    func testExpositionItemError() {
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else { XCTFail("파일을 불러올 수 없습니다."); return }
         guard let items = try? jsonDecoder.decode([ExpositionItem].self, from: dataAsset.data) else { XCTFail(); return }
         
