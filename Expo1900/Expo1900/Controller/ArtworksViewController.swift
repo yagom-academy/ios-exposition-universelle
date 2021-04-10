@@ -14,15 +14,11 @@ class ArtworksViewController: UIViewController, UITableViewDelegate, UITableView
   var artworks: [Artwork]?
   
   override func viewDidLoad() {
+    super.viewDidLoad()
+    
     artworksTableView.delegate = self
     artworksTableView.dataSource = self
     
-    let nibName = UINib(nibName: "ArtworkTableViewCell", bundle: nil)
-    artworksTableView.register(nibName, forCellReuseIdentifier: "artworkCell")
-    
-    super.viewDidLoad()
-    
-
     let jsonDecoder = CustomJSONDecoder()
     
     do {
@@ -42,13 +38,13 @@ class ArtworksViewController: UIViewController, UITableViewDelegate, UITableView
   }
   
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-   let cell = tableView.dequeueReusableCell(withIdentifier: "artworkCell", for: indexPath) as! ArtworkTableViewCell
+    let cell: ArtworkTableViewCell = artworksTableView.dequeueReusableCell(withIdentifier: "artworkTableViewCell", for: indexPath) as! ArtworkTableViewCell
     
     guard let unwrappedArtworks = artworks else { fatalError() }
-
+    
+    cell.artworkImageView.image = UIImage(named: unwrappedArtworks[indexPath.row].imageName)
     cell.artworkTitleLabel.text = unwrappedArtworks[indexPath.row].name
     cell.artworkShortDescriptionLabel.text = unwrappedArtworks[indexPath.row].shortDescription
-    cell.artworkImageView.image = UIImage(named: unwrappedArtworks[indexPath.row].imageName)
    
    return cell
    }
