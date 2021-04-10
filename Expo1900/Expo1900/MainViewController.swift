@@ -8,60 +8,57 @@ import UIKit
 
 class MainViewController: VerticalScrollViewController {
     
-    var expositionData: ExpositionUnivereselle1900 {
+    var expositionData = ExpositionUnivereselle1900()
+    var titleLabel = ExpositionLabel()
+    var posterImageView = UIImageView()
+    var visitorsLabel = ExpositionLabel()
+    var locationLabel = ExpositionLabel()
+    var durationLabel = ExpositionLabel()
+    var descriptionLabel = ExpositionLabel()
+    var leftkoreanFlagImageView = UIImageView()
+    var rightkoreanFlagImageView = UIImageView()
+    var moveToKoreanItemsButton = UIButton()
+    var moveToKoreanItemsView = UIStackView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setExpositionData()
+        setContentsOfMainView()
+    }
+    
+    private func setExpositionData() {
+        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return
+        }
         do {
-            return try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: NSDataAsset(name: "exposition_universelle_1900")!.data)
+            expositionData =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
         } catch {
-            return ExpositionUnivereselle1900()
+            return
         }
     }
     
-    lazy var titleLabel = ExpositionLabel(text: expositionData.title, textStyle: .largeTitle)
-    var posterImageView: UIImageView = {
-        var posterImage = UIImage(named: "poster")
-        if posterImage == nil {
-            posterImage = UIImage(systemName: "zzz")
-        }
-        let imageView = UIImageView(image: posterImage)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        
-        return imageView
-    }()
-    lazy var visitorsLabel = ExpositionLabel(text: "방문객 : " + String(expositionData.visitors) + " 명", textStyle: .subheadline)
-    lazy var locationLabel = ExpositionLabel(text: "개최지 : " + expositionData.location, textStyle: .subheadline)
-    lazy var durationLabel = ExpositionLabel(text: "개최기간 : " + expositionData.duration, textStyle: .subheadline)
-    lazy var descriptionLabel = ExpositionLabel(text: expositionData.description, textStyle: .body)
-    lazy var leftkoreanFlagImageView: UIImageView = {
-        var flagImage = UIImage(named: "flag")
-        if flagImage == nil {
-            flagImage = UIImage(systemName: "zzz")
-        }
-        
-        let imageView = UIImageView(image: flagImage)
-        imageView.contentMode = .scaleAspectFit
-        imageView.sizeToFit()
-        return imageView
-    }()
-    lazy var rightkoreanFlagImageView: UIImageView = {
-        var flagImage = UIImage(named: "flag")
-        if flagImage == nil {
-            flagImage = UIImage(systemName: "zzz")
-        }
-        
-        let imageView = UIImageView(image: flagImage)
-        imageView.contentMode = .scaleAspectFit
-        imageView.sizeToFit()
-        return imageView
-    }()
-    lazy var moveToKoreanItemsButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        return button
-    }()
-    lazy var moveToKoreanItemsView: UIStackView = {
+    private func setContentsOfMainView() {
+        setLabelsOfMainView()
+        setImageViewsOfMainView()
+        setMoveToKoreanItemsView()
+        lineUpContentsAtInterval(of: 10)
+    }
+    
+    private func setLabelsOfMainView() {
+        titleLabel = ExpositionLabel(text: expositionData.title, textStyle: .largeTitle)
+        visitorsLabel = ExpositionLabel(text: "방문객 : " + String(expositionData.visitors) + " 명", textStyle: .subheadline)
+        locationLabel = ExpositionLabel(text: "개최지 : " + expositionData.location, textStyle: .subheadline)
+        durationLabel = ExpositionLabel(text: "개최기간 : " + expositionData.duration, textStyle: .subheadline)
+        descriptionLabel = ExpositionLabel(text: expositionData.description, textStyle: .body)
+    }
+    
+    private func setImageViewsOfMainView() {
+        setPosterImageView()
+    }
+    
+    private func setMoveToKoreanItemsView() {
+        setMoveToKoreanItemsButton()
+        setFlagImageView()
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
@@ -69,13 +66,7 @@ class MainViewController: VerticalScrollViewController {
         stackView.addArrangedSubview(leftkoreanFlagImageView)
         stackView.addArrangedSubview(moveToKoreanItemsButton)
         stackView.addArrangedSubview(rightkoreanFlagImageView)
-        stackView.subviews.forEach({ $0.sizeToFit() })
-        return stackView
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        lineUpContentsAtInterval(of: 10)
+        moveToKoreanItemsView = stackView
     }
     
     private func lineUpContentsAtInterval(of interval: CGFloat) {
@@ -96,5 +87,34 @@ class MainViewController: VerticalScrollViewController {
                 item.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
             }
         })
+    }
+    
+    private func setPosterImageView() {
+        let image = UIImage(named: "poster") ?? UIImage(systemName: "zzz")
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        posterImageView = imageView
+    }
+    
+    private func setFlagImageView() {
+        leftkoreanFlagImageView = flagImageView()
+        rightkoreanFlagImageView = flagImageView()
+    }
+    
+    private func flagImageView() -> UIImageView {
+        let image = UIImage(named: "flag") ?? UIImage(systemName: "zzz")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.sizeToFit()
+        return imageView
+    }
+    
+    private func setMoveToKoreanItemsButton() {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        moveToKoreanItemsButton = button
     }
 }

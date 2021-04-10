@@ -9,6 +9,10 @@ import UIKit
 
 class ExpositionLabel: UILabel {
     
+    init() {
+        super.init(frame: .null)
+    }
+    
     init(frame: CGRect = .zero, text: String, textStyle: UIFont.TextStyle) {
         super.init(frame: frame)
         self.text = text
