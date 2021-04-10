@@ -8,7 +8,7 @@
 import XCTest
 @testable import Expo1900
 
-class Expo1900Tests: XCTestCase {
+final class Expo1900Tests: XCTestCase {
   var sutExpoIntroduction: ExpoIntroduction?
   var sutArtworks: [Artwork]?
   
