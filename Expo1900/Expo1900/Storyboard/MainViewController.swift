@@ -8,22 +8,52 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    @IBOutlet var expoTitle: UILabel!
+    @IBOutlet var expoImage: UIImageView!
+    @IBOutlet var expoVisitior: UILabel!
+    @IBOutlet var expoLocation: UILabel!
+    @IBOutlet var expoDuration: UILabel!
+    @IBOutlet var expoDescription: UILabel!
+    @IBOutlet var leftFalgImage: UIImageView!
+    @IBOutlet var rightFlagImage: UIImageView!
+    
+    @IBAction func EnterExhibitOfKoreaButton(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "showExhibitOfKorea", sender: nil)
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let mainData = initExpoData(fileName:"exposition_universelle_1900", model: MainOfExposition.self)
 
+        print(mainData)
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
-    */
+    
+    
+    func initExpoData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
+        let jsonDecoder = JSONDecoder()
+        
+        guard let jsonData: NSDataAsset = NSDataAsset(name: fileName)  else {
+            return .failure(DataError.LoadJSON)
+        }
+        
+        do {
+            let data = try jsonDecoder.decode(T.self, from: jsonData.data)
+            return .success(data)
+        } catch {
+            return .failure(DataError.DecodeJSON)
+        }
 
+    }
+    
 }
