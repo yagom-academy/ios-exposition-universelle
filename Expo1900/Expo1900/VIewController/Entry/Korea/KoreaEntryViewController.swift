@@ -63,7 +63,6 @@ extension KoreaEntryViewController: UITableViewDataSource {
 
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let koreaDetailEntryViewController = KoreaDetailEntryViewController(self.koreaEntrys[indexPath.row])
-        self.navigationController?.pushViewController(koreaDetailEntryViewController, animated: true)
+        self.navigationController?.pushViewController(KoreaDetailEntryViewController.initDetailEntryData(self.koreaEntrys[indexPath.row]), animated: true)
     }
 }
