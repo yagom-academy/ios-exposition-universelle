@@ -12,7 +12,6 @@ class ExhibitItemViewController: UIViewController {
     @IBOutlet var exhibitItemImage: UIImageView!
     @IBOutlet var exhibitItemDescriptions: UILabel!
     var tableViewIndex: Int = -1
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +25,7 @@ class ExhibitItemViewController: UIViewController {
         case .failure(let error):
             print(error.localizedDescription)
         }
-        
-        // Do any additional setup after loading the view.
+    
     }
 
 }

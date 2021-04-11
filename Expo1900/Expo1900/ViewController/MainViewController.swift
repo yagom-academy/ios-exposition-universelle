@@ -50,7 +50,6 @@ class MainViewController: UIViewController {
             print(error.localizedDescription)
         }
        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
