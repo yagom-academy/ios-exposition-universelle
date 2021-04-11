@@ -8,11 +8,11 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
-    @IBOutlet private weak var expoTitle: UILabel!
-    @IBOutlet private weak var visitors: UILabel!
-    @IBOutlet private weak var location: UILabel!
-    @IBOutlet private weak var duration: UILabel!
-    @IBOutlet private weak var desc: UILabel!
+    @IBOutlet private weak var expoTitleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descrtiptionLabel: UILabel!
     @IBOutlet private weak var backgroundImage: UIImageView!
     
     private var expoData: Expo?
@@ -50,11 +50,11 @@ final class ExpoViewController: UIViewController {
     private func initUI() {
         guard let expo = expoData else { return }
         self.navigationController?.title = "메인"
-        expoTitle.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
-        visitors.text = "방문객 : " + creatVisitorsComma(expo.visitors)
-        location.text = "개최지 : " + expo.location
-        duration.text = "개최 기간 : " + expo.duration
-        desc.text = expo.description
+        expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
+        visitorsLabel.text = "방문객 : " + creatVisitorsComma(expo.visitors)
+        locationLabel.text = "개최지 : " + expo.location
+        durationLabel.text = "개최 기간 : " + expo.duration
+        descrtiptionLabel.text = expo.description
     }
     
     private func creatVisitorsComma(_ visitors: UInt) -> String {
@@ -67,13 +67,13 @@ final class ExpoViewController: UIViewController {
     }
 
     private func setLableAttribute() {
-        expoTitle.numberOfLines = 2
-        expoTitle.textAlignment = .center
-        expoTitle.adjustsFontSizeToFitWidth = true
+        expoTitleLabel.numberOfLines = 2
+        expoTitleLabel.textAlignment = .center
+        expoTitleLabel.adjustsFontSizeToFitWidth = true
         
-        desc.numberOfLines = 0
-        desc.lineBreakStrategy = .hangulWordPriority
-        desc.textAlignment = .justified
+        descrtiptionLabel.numberOfLines = 0
+        descrtiptionLabel.lineBreakStrategy = .hangulWordPriority
+        descrtiptionLabel.textAlignment = .justified
         
         backgroundImage.alpha = 0.15
         self.view.sendSubviewToBack(backgroundImage)
