@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="Expo1900" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IkC-hA-pgo">
+                        <rect key="frame" x="10" y="11.5" width="75" height="64"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="백운화상 경한(한자)이 1372년에 초록한 불교 서적" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdz-az-6kJ">
+                        <rect key="frame" x="95" y="38" width="225" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jih-cx-3Qk">
+                        <rect key="frame" x="95" y="12" width="225" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sdz-az-6kJ" firstAttribute="leading" secondItem="jih-cx-3Qk" secondAttribute="leading" id="QIj-54-2r4"/>
+                    <constraint firstItem="jih-cx-3Qk" firstAttribute="leading" secondItem="IkC-hA-pgo" secondAttribute="trailing" constant="10" id="jiT-js-8Wc"/>
+                    <constraint firstItem="jih-cx-3Qk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="kbb-3k-Fp7"/>
+                    <constraint firstItem="IkC-hA-pgo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nT4-jr-4dq"/>
+                    <constraint firstItem="sdz-az-6kJ" firstAttribute="top" secondItem="jih-cx-3Qk" secondAttribute="bottom" constant="5" id="tSf-pM-WJp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="IkC-hA-pgo" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="15i-Eq-ciH"/>
+                <constraint firstItem="jih-cx-3Qk" firstAttribute="height" secondItem="njF-e1-oar" secondAttribute="height" multiplier="0.241379" id="1Mr-Qd-J8b"/>
+                <constraint firstItem="jih-cx-3Qk" firstAttribute="width" secondItem="njF-e1-oar" secondAttribute="width" multiplier="0.633803" id="5Pd-wi-3xw"/>
+                <constraint firstItem="sdz-az-6kJ" firstAttribute="height" secondItem="njF-e1-oar" secondAttribute="height" multiplier="0.471264" id="7Ea-cR-ewz"/>
+                <constraint firstItem="IkC-hA-pgo" firstAttribute="width" secondItem="njF-e1-oar" secondAttribute="width" multiplier="0.211268" id="7ge-CN-XSc"/>
+                <constraint firstItem="sdz-az-6kJ" firstAttribute="width" secondItem="njF-e1-oar" secondAttribute="width" multiplier="0.633803" id="HZ4-si-u7D"/>
+                <constraint firstItem="IkC-hA-pgo" firstAttribute="height" secondItem="njF-e1-oar" secondAttribute="height" multiplier="0.735632" id="bM1-9B-p8C"/>
+            </constraints>
+            <connections>
+                <outlet property="exhibitItemImage" destination="IkC-hA-pgo" id="JE9-yb-v4g"/>
+                <outlet property="exhibitItemName" destination="jih-cx-3Qk" id="93v-In-bLQ"/>
+                <outlet property="exhibitItemShortDescription" destination="sdz-az-6kJ" id="plI-u0-XUT"/>
+            </connections>
+            <point key="canvasLocation" x="-7.9710144927536239" y="142.96875"/>
+        </tableViewCell>
+    </objects>
+</document>

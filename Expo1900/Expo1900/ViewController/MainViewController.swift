@@ -57,7 +57,9 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    
+}
+
+extension UIViewController {
     func initExpoData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
         let jsonDecoder = JSONDecoder()
         
@@ -71,7 +73,5 @@ class MainViewController: UIViewController {
         } catch {
             return .failure(DataError.DecodeJSON)
         }
-
     }
-    
 }

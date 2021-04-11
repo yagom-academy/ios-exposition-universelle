@@ -11,6 +11,9 @@ class ExhibitOfKoreaViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    var exhibitItem: [ExhibitItem] = []
+    var tableViewIndex: Int = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +23,18 @@ class ExhibitOfKoreaViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        let tableViewNib = UINib(nibName: "TableViewCell", bundle: nil)
+        tableView.register(tableViewNib, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
+        
+        switch initExpoData(fileName:"items", model: [ExhibitItem].self) {
+        case .success(let data):
+            exhibitItem = data
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+//                // tableView의 rowHeight는 유동적일 수 있다
+        tableView.rowHeight = UITableView.automaticDimension
         
     }
     
@@ -33,32 +48,54 @@ class ExhibitOfKoreaViewController: UIViewController {
 extension ExhibitOfKoreaViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-            return 11
+            return exhibitItem.count
         }
     
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             print(indexPath.row)
     
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell")  else  {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier : TableViewCell.reuseIdentifier ) as? TableViewCell else {
                 return UITableViewCell()
             }
             
-            cell.imageView?.image = UIImage(named: "najeon")
-            cell.textLabel?.text = "직지심체요절"
-            cell.detailTextLabel?.numberOfLines = 0
-            cell.detailTextLabel?.text = "직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절직지심체요절"
+            cell.exhibitItemImage.image = UIImage(named: exhibitItem[indexPath.row].imageName)
+            cell.exhibitItemName.text = exhibitItem[indexPath.row].name
+            cell.exhibitItemShortDescription.text = exhibitItem[indexPath.row].shortDescriptions
+            cell.exhibitItemShortDescription.numberOfLines = 0
             
             
             return cell
     
         }
+        
+    
+    
+    
+    
 }
 
 extension ExhibitOfKoreaViewController: UITableViewDelegate {
 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        self.tableViewIndex = indexPath.row
         self.performSegue(withIdentifier: "showExhibitOfKoreaItem", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return UITableView.automaticDimension
+        }
+}
+
+extension ExhibitOfKoreaViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination
+        
+        guard let exhibitItemViewController = destination as? ExhibitItemViewController else {
+            return
+        }
+        
+        exhibitItemViewController.tableViewIndex = self.tableViewIndex
     }
 }

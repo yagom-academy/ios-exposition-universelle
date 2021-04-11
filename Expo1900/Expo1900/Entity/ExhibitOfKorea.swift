@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct ExhibitOfKorea: Decodable {
-    var exhibitItems: [ExhibitItem]
-}
-
 struct ExhibitItem: Decodable {
     var name: String
     var imageName: String
