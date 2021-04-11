@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var itemsbutton: UIButton!
     
-    var expositionUniverselles: ExpositionUniverselle = ExpositionUniverselle(title: "", visitors: 0, location: "", duration: "", desc: "")
+    var expositionUniverselles: ExpositionUniverselle = ExpositionUniverselle(title: "", visitors: 0, location: "", duration: "", description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         visitorsLabel.text = String(expositionUniverselles.visitors)
         locationLabel.text = expositionUniverselles.location
         durationLabel.text = expositionUniverselles.duration
-        descLabel.text = expositionUniverselles.desc
+        descLabel.text = expositionUniverselles.description
     }
     
     override func viewWillAppear(_ animated: Bool) {

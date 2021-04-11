@@ -16,7 +16,7 @@ class ItemDetailViewController: UIViewController {
 
         title = itemData.name
         itemImageView.image = UIImage(named: itemData.imageName)
-        itemDescLabel.text = itemData.desc
+        itemDescLabel.text = itemData.description
     }
     
     override func viewWillAppear(_ animated: Bool) {

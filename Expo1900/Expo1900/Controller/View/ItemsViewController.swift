@@ -7,8 +7,8 @@
 
 import UIKit
 
-var items: [Item] = []
-var itemData: Item = Item(name: "", imageName: "", shortDesc: "", desc: "")
+var items: [KoreaItems] = []
+var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
 
 class ItemsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -41,7 +41,7 @@ class ItemsViewController: UIViewController {
         }
         
         do {
-            items = try jsonDecoder.decode([Item].self, from: itemsData.data)
+            items = try jsonDecoder.decode([KoreaItems].self, from: itemsData.data)
         } catch {
             print(error.localizedDescription)
         }
