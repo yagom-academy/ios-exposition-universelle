@@ -16,8 +16,10 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var backgroundImage: UIImageView!
     
     private var expoData: Expo?
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
     override func viewDidLoad() {
+        
         switch try? initExpoData() {
         case .success(let data):
             expoData = data
@@ -32,6 +34,11 @@ final class ExpoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        appDelegate?.shouldSupportAllOrientation = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        appDelegate?.shouldSupportAllOrientation = true
     }
     
     @IBAction func touchUpMoveToKoreaitems(_ sender: Any) {
