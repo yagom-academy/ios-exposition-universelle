@@ -143,10 +143,70 @@
                     <view key="view" contentMode="scaleToFill" id="0m2-2h-iCc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tp7-GQ-i76">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="koreaExhibitCell" rowHeight="611" id="rNn-nU-uUi" customClass="KoreaExhibitItemCell" customModule="Expo1900" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="611"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rNn-nU-uUi" id="aCa-jO-Yyb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="611"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0oi-3c-jE7">
+                                                    <rect key="frame" x="20" y="255.5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="N7R-wZ-dbB"/>
+                                                        <constraint firstAttribute="width" constant="100" id="dMo-4k-5Zg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPA-pr-us4">
+                                                    <rect key="frame" x="140" y="255.5" width="41.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtU-xz-eCZ">
+                                                    <rect key="frame" x="140" y="579.5" width="41.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mtU-xz-eCZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EPA-pr-us4" secondAttribute="bottom" constant="20" id="2kd-dh-gzj"/>
+                                                <constraint firstItem="0oi-3c-jE7" firstAttribute="leading" secondItem="aCa-jO-Yyb" secondAttribute="leadingMargin" id="37m-3S-lTS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mtU-xz-eCZ" secondAttribute="bottom" id="RHY-UR-T59"/>
+                                                <constraint firstItem="0oi-3c-jE7" firstAttribute="centerY" secondItem="aCa-jO-Yyb" secondAttribute="centerY" id="TYW-UL-fXh"/>
+                                                <constraint firstItem="mtU-xz-eCZ" firstAttribute="leading" secondItem="EPA-pr-us4" secondAttribute="leading" id="Toa-BA-kIA"/>
+                                                <constraint firstItem="EPA-pr-us4" firstAttribute="top" secondItem="0oi-3c-jE7" secondAttribute="top" id="amN-GC-ivE"/>
+                                                <constraint firstItem="EPA-pr-us4" firstAttribute="leading" secondItem="0oi-3c-jE7" secondAttribute="trailing" constant="20" id="fzF-om-MD8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="koreaExhibitImageName" destination="0oi-3c-jE7" id="yFV-bR-E6R"/>
+                                            <outlet property="koreaExhibitName" destination="EPA-pr-us4" id="RlP-qd-F09"/>
+                                            <outlet property="koreaExhibitShortDescription" destination="mtU-xz-eCZ" id="TNz-uI-78X"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6ZS-ol-nMG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tp7-GQ-i76" firstAttribute="top" secondItem="6ZS-ol-nMG" secondAttribute="top" id="FWZ-r4-42q"/>
+                            <constraint firstItem="Tp7-GQ-i76" firstAttribute="leading" secondItem="6ZS-ol-nMG" secondAttribute="leading" id="dNb-kO-Y57"/>
+                            <constraint firstAttribute="bottom" secondItem="Tp7-GQ-i76" secondAttribute="bottom" id="f9w-91-5w6"/>
+                            <constraint firstItem="Tp7-GQ-i76" firstAttribute="trailing" secondItem="6ZS-ol-nMG" secondAttribute="trailing" id="xoz-zZ-a6W"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="etr-To-Bfw"/>
+                    <connections>
+                        <outlet property="koreaExhibitTableView" destination="Tp7-GQ-i76" id="Oa0-kH-h8A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbe-ek-HkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
