@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtworksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ArtworksTableViewController: UIViewController {
   
   @IBOutlet weak var artworksTableView: UITableView!
   
@@ -29,7 +29,9 @@ class ArtworksTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     
   }
+}
   
+extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSource {
   // MARK: - Table view data source
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,5 +62,7 @@ class ArtworksTableViewController: UIViewController, UITableViewDelegate, UITabl
       }
     }
   }
+  
+
   
 }
