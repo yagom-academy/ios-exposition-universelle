@@ -27,8 +27,6 @@ class ArtworksTableViewController: UIViewController, UITableViewDelegate, UITabl
       print(error.localizedDescription)
     }
     
-    artworksTableView.estimatedRowHeight = 70
-    artworksTableView.rowHeight = UITableView.automaticDimension
     
   }
   
