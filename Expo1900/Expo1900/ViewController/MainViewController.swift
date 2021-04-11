@@ -17,21 +17,39 @@ class MainViewController: UIViewController {
     @IBOutlet var expoDescription: UILabel!
     @IBOutlet var leftFalgImage: UIImageView!
     @IBOutlet var rightFlagImage: UIImageView!
-    
+    @IBOutlet var EnterExhibitOfKoreaButton: UIButton!
     @IBAction func EnterExhibitOfKoreaButton(_ sender: Any) {
         
         self.performSegue(withIdentifier: "showExhibitOfKorea", sender: nil)
         
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mainData = initExpoData(fileName:"exposition_universelle_1900", model: MainOfExposition.self)
-
-        print(mainData)
+        switch initExpoData(fileName:"exposition_universelle_1900", model: MainOfExposition.self) {
+        case .success(let data):
+            let title = data.title.components(separatedBy: "(")
+            var visitorsNumber:String = String(data.visitors)
+        
+            for extraIndex in 0..<(String(data.visitors).count-1)/3 {
+                visitorsNumber.insert(",", at: visitorsNumber.index(visitorsNumber.endIndex, offsetBy: -( 3 * (extraIndex+1) + extraIndex )))
+            }
+            
+            expoTitle.text = title[0] + "\n" + title[1]
+            expoImage.image = UIImage(named: "poster")
+            expoVisitior.text = "방문객 : " + visitorsNumber + "명"
+            expoLocation.text = "개최지 : " + data.location
+            expoDuration.text = "개최기간 : " + data.duration
+            expoDescription.text = data.description
+            leftFalgImage.image = UIImage(named: "flag")
+            rightFlagImage.image = UIImage(named: "flag")
+            EnterExhibitOfKoreaButton.setTitle("한국의 출품작 보러가기", for: .normal)
+            
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+       
         // Do any additional setup after loading the view.
     }
     
