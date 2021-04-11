@@ -9,8 +9,8 @@ import UIKit
 
 class ExhibitItemViewController: UIViewController {
 
-    @IBOutlet var exhibitItemImage: UIImageView!
-    @IBOutlet var exhibitItemDescriptions: UILabel!
+    @IBOutlet private var exhibitItemImage: UIImageView!
+    @IBOutlet private var exhibitItemDescriptions: UILabel!
     var tableViewIndex: Int = -1
     
     override func viewDidLoad() {

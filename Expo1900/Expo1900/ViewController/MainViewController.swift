@@ -9,16 +9,16 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet var expoTitle: UILabel!
-    @IBOutlet var expoImage: UIImageView!
-    @IBOutlet var expoVisitior: UILabel!
-    @IBOutlet var expoLocation: UILabel!
-    @IBOutlet var expoDuration: UILabel!
-    @IBOutlet var expoDescription: UILabel!
-    @IBOutlet var leftFalgImage: UIImageView!
-    @IBOutlet var rightFlagImage: UIImageView!
-    @IBOutlet var EnterExhibitOfKoreaButton: UIButton!
-    @IBAction func EnterExhibitOfKoreaButton(_ sender: Any) {
+    @IBOutlet private var expoTitle: UILabel!
+    @IBOutlet private var expoImage: UIImageView!
+    @IBOutlet private var expoVisitior: UILabel!
+    @IBOutlet private var expoLocation: UILabel!
+    @IBOutlet private var expoDuration: UILabel!
+    @IBOutlet private var expoDescription: UILabel!
+    @IBOutlet private var leftFalgImage: UIImageView!
+    @IBOutlet private var rightFlagImage: UIImageView!
+    @IBOutlet private var EnterExhibitOfKoreaButton: UIButton!
+    @IBAction private func EnterExhibitOfKoreaButton(_ sender: Any) {
         
         self.performSegue(withIdentifier: "showExhibitOfKorea", sender: nil)
         
@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
             var visitorsNumber:String = String(data.visitors)
         
             for offsetElement in 0..<(String(data.visitors).count-1)/3 {
-                visitorsNumber.insert(",", at: visitorsNumber.index(visitorsNumber.endIndex, offsetBy: -( 3 * (offsetElement+1) + offsetElement )))
+                visitorsNumber.insert(",", at: visitorsNumber.index(visitorsNumber.endIndex, offsetBy: -( 3 * (offsetElement+1) + offsetElement)))
             }
             
             expoTitle.text = title[0] + "\n" + title[1]

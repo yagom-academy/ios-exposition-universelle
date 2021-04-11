@@ -9,10 +9,10 @@ import UIKit
 
 class ExhibitOfKoreaViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
-    var exhibitItem: [ExhibitItem] = []
-    var tableViewIndex: Int = -1
+    private var exhibitItem: [ExhibitItem] = []
+    private var tableViewIndex: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
