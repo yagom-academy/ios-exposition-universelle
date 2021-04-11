@@ -53,7 +53,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6PF-sP-6bm">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6PF-sP-6bm">
                                                 <rect key="frame" x="20.5" y="367.5" width="373" height="302"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -61,20 +61,21 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="DAv-k3-Cf2">
-                                                <rect key="frame" x="62.5" y="685.5" width="289" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DAv-k3-Cf2">
+                                                <rect key="frame" x="62" y="685.5" width="290" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="AFB-51-Nxr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="70" id="b4m-Os-V8Z"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="OcA-fl-gMj"/>
+                                                            <constraint firstAttribute="width" priority="750" constant="70" id="b4m-Os-V8Z"/>
                                                             <constraint firstAttribute="height" constant="50" id="qFd-FT-E8J"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-UW-Uca">
-                                                        <rect key="frame" x="119" y="0.0" width="51" height="50"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <state key="normal" title="Button"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-UW-Uca">
+                                                        <rect key="frame" x="76" y="0.0" width="138" height="50"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                        <state key="normal" title="한국의 출품작 보러가기"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="titleLabel.adjustsFontForContentSizeCategory" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
@@ -83,17 +84,22 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="UtQ-Ps-fb9">
-                                                        <rect key="frame" x="219" y="0.0" width="70" height="50"/>
+                                                        <rect key="frame" x="224" y="0.0" width="66" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="94e-Xb-2G3"/>
-                                                            <constraint firstAttribute="width" constant="70" id="WgN-d6-URw"/>
+                                                            <constraint firstAttribute="width" priority="750" constant="70" id="WgN-d6-URw"/>
+                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="q3A-bP-qqv"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="AFB-51-Nxr" firstAttribute="width" secondItem="UtQ-Ps-fb9" secondAttribute="width" id="dgh-JD-I25"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="6PF-sP-6bm" firstAttribute="width" secondItem="XTp-P7-pb7" secondAttribute="width" multiplier="90%" id="JRr-kp-Nxf"/>
+                                            <constraint firstItem="DAv-k3-Cf2" firstAttribute="width" secondItem="XTp-P7-pb7" secondAttribute="width" multiplier="70%" id="N55-Nh-07Y"/>
                                             <constraint firstItem="DGN-wd-zEG" firstAttribute="width" secondItem="W9n-k2-cQd" secondAttribute="width" id="Nx1-Uj-crX"/>
                                             <constraint firstItem="W9n-k2-cQd" firstAttribute="width" secondItem="XTp-P7-pb7" secondAttribute="width" multiplier="90%" id="S1g-vK-AX5"/>
                                             <constraint firstItem="IBO-7c-rZz" firstAttribute="width" secondItem="W9n-k2-cQd" secondAttribute="width" id="tQq-s9-Et8"/>
@@ -249,7 +255,7 @@
                                                     <constraint firstAttribute="height" constant="150" id="O7L-N7-bFl"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-Kz-bwu">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6Q-Kz-bwu">
                                                 <rect key="frame" x="20.5" y="172" width="373" height="302"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
