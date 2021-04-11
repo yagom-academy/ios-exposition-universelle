@@ -17,21 +17,28 @@ final class ArtworkDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    var artworks: [Artwork]?
-    let jsonDecoder = CustomJSONDecoder()
+    let decodedResult = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
     
-    do {
-      artworks = try jsonDecoder.decode(to: [Artwork].self, from: "items")
-    } catch {
-      print(error.localizedDescription)
+    switch decodedResult {
+    case .success(let artworks):
+      updateUI(from: artworks)
+    case .failure(let error):
+      debugPrint(error)
+    }
+  }
+}
+
+extension ArtworkDetailViewController {
+  @discardableResult
+  private func updateUI(from data: [Artwork]) -> Result<Int, ExpoAppError> {
+    guard let artworkIdentifier = artworkIdentifier else {
+      debugPrint(ExpoAppError.foundNil("artworkIdentifier"))
+      return .failure(ExpoAppError.foundNil("artworkIdentifier"))
     }
     
-    guard let unwrappedArtworks = artworks else { return }
-    
-    self.navigationItem.title = unwrappedArtworks[artworkIdentifier!].name
-    artworkImage.image = UIImage(named: unwrappedArtworks[artworkIdentifier!].imageName)
-    artworkDescription.text = unwrappedArtworks[artworkIdentifier!].description
-    
-    
+    self.navigationItem.title = data[artworkIdentifier].name
+    artworkImage.image = UIImage(named: data[artworkIdentifier].imageName)
+    artworkDescription.text = data[artworkIdentifier].description
+    return .success(artworkIdentifier)
   }
 }
