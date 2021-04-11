@@ -16,10 +16,11 @@ class ExhibitItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tableViewIndex)
+        
         
         switch initExpoData(fileName:"items", model: [ExhibitItem].self) {
         case .success(let data):
+            self.navigationItem.title = data[tableViewIndex].name
             exhibitItemImage.image = UIImage(named: data[tableViewIndex].imageName)
             exhibitItemDescriptions.text = data[tableViewIndex].descriptions
         case .failure(let error):

@@ -18,7 +18,7 @@ class ExhibitOfKoreaViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.topItem?.title="메인"
+        self.navigationController?.navigationBar.topItem?.title = "메인"
         self.navigationItem.title = "한국의 출품작"
         
         self.tableView.delegate = self
@@ -32,8 +32,8 @@ class ExhibitOfKoreaViewController: UIViewController {
         case .failure(let error):
             print(error.localizedDescription)
         }
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-//                // tableView의 rowHeight는 유동적일 수 있다
+        
+        tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
         
     }
@@ -82,9 +82,9 @@ extension ExhibitOfKoreaViewController: UITableViewDelegate {
         self.performSegue(withIdentifier: "showExhibitOfKoreaItem", sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return UITableView.automaticDimension
-        }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//            return UITableView.automaticDimension
+//        }
 }
 
 extension ExhibitOfKoreaViewController {
