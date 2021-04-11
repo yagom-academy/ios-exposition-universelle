@@ -9,14 +9,10 @@ import UIKit
 
 final class ExpoViewController: UIViewController {
     @IBOutlet private weak var expoTitle: UILabel!
-    @IBOutlet private weak var expoImage: UIImageView!
     @IBOutlet private weak var visitors: UILabel!
     @IBOutlet private weak var location: UILabel!
     @IBOutlet private weak var duration: UILabel!
     @IBOutlet private weak var desc: UILabel!
-    @IBOutlet private weak var koreaItemsPageButton: UIButton!
-    @IBOutlet private weak var koreaImageLeft: UIImageView!
-    @IBOutlet private weak var koreaImageRight: UIImageView!
     @IBOutlet private weak var backgroundImage: UIImageView!
     
     private var expoData: Expo?

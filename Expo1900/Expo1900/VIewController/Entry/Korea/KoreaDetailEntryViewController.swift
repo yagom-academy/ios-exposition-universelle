@@ -14,11 +14,7 @@ final class KoreaDetailEntryViewController: UIViewController {
     private var detailEntry: StateEntry
 
     override func viewDidLoad() {
-        do {
-            try setDetailEntry()
-        } catch {
-            alterError(error)
-        }
+        setDetailEntry()
     }
     
     init(_ EntryValue: StateEntry) {
@@ -32,7 +28,7 @@ final class KoreaDetailEntryViewController: UIViewController {
     
 // MARK: - Init Setting
 
-    private func setDetailEntry() throws {
+    private func setDetailEntry() {
         detailImage.image = UIImage(named: detailEntry.imageName)
         descriptionLable.text = detailEntry.description
         self.navigationItem.title = detailEntry.name
