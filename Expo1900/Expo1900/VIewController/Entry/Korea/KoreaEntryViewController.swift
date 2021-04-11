@@ -15,11 +15,16 @@ final class KoreaEntryViewController: UIViewController {
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
-        do {
-            try initKoreaEntryData()
+        
+        switch try? initKoreaEntryData() {
+        case .success(let data):
+            koreaEntrys = data
             registerXib()
-        } catch {
+            self.navigationItem.title = "한국의 출품작"
+        case .failure(let error):
             alterError(error)
+        case .none:
+            alterError(ExpoError.unknown)
         }
     }
     
@@ -30,12 +35,11 @@ final class KoreaEntryViewController: UIViewController {
         tableView.register(nibName, forCellReuseIdentifier: "KoreaEntryCell")
     }
     
-    private func initKoreaEntryData() throws {
+    private func initKoreaEntryData() throws -> Result<[StateEntry], ExpoError> {
         guard let dataAsset = NSDataAsset(name: "items") else {
-            throw ExpoError.itemsData
+            return .failure(ExpoError.itemsData)
         }
-        self.koreaEntrys = try JSONDecoder().decode([StateEntry].self, from: dataAsset.data)
-        self.navigationItem.title = "한국의 출품작"
+        return .success(try JSONDecoder().decode([StateEntry].self, from: dataAsset.data))
     }
 }
 

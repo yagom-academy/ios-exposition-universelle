@@ -18,12 +18,15 @@ final class ExpoViewController: UIViewController {
     private var expoData: Expo?
 
     override func viewDidLoad() {
-        do {
-            try initExpoData()
-            try initUI()
+        switch try? initExpoData() {
+        case .success(let data):
+            expoData = data
+            initUI()
             setLableAttribute()
-        } catch {
+        case .failure(let error):
             alterError(error)
+        case .none:
+            alterError(ExpoError.unknown)
         }
     }
     
@@ -37,17 +40,15 @@ final class ExpoViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    private func initExpoData() throws {
+    private func initExpoData() throws -> Result<Expo, ExpoError> {
         guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            throw ExpoError.expoData
+            return .failure(ExpoError.expoData)
         }
-        self.expoData = try JSONDecoder().decode(Expo.self, from: dataAsset.data)
+        return .success(try JSONDecoder().decode(Expo.self, from: dataAsset.data))
     }
     
-    private func initUI() throws {
-        guard let expo = expoData else {
-            throw ExpoError.expoData
-        }
+    private func initUI() {
+        guard let expo = expoData else { return }
         self.navigationController?.title = "메인"
         expoTitle.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         visitors.text = "방문객 : " + creatVisitorsComma(expo.visitors)
