@@ -12,9 +12,20 @@ final class KoreaDetailEntryViewController: UIViewController {
     @IBOutlet private weak var descriptionLable: UILabel!
     
     private var detailEntry: StateEntry?
+    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         setDetailEntry()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if appDelegate?.shouldSupportAllOrientation == false {
+            appDelegate?.shouldSupportAllOrientation = true
+            descriptionLable.font = UIFont.preferredFont(forTextStyle: .body)
+        } else {
+            appDelegate?.shouldSupportAllOrientation = false
+            descriptionLable.font = UIFont.preferredFont(forTextStyle: .title2)
+        }
     }
     
     static func initDetailEntryData(_ data: StateEntry) -> KoreaDetailEntryViewController {
