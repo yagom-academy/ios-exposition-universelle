@@ -67,7 +67,7 @@ extension ExhibitOfKoreaViewController: UITableViewDataSource {
             return cell
     
         }
-    
+        
 }
 
 extension ExhibitOfKoreaViewController: UITableViewDelegate {
@@ -78,6 +78,9 @@ extension ExhibitOfKoreaViewController: UITableViewDelegate {
         self.performSegue(withIdentifier: "showExhibitOfKoreaItem", sender: nil)
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//            return UITableView.automaticDimension
+//    }
 }
 
 extension ExhibitOfKoreaViewController {
