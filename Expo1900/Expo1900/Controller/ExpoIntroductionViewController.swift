@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpoIntroductionViewController: UIViewController {
+final class ExpoIntroductionViewController: UIViewController {
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var expoPoster: UIImageView!
@@ -18,22 +18,14 @@ class ExpoIntroductionViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    var expoIntroduction: ExpoIntroduction?
-    let jsonDecoder = CustomJSONDecoder()
+    let decodedResult = CustomJSONDecoder.decode(to: ExpoIntroduction.self, from: "exposition_universelle_1900")
     
-    do {
-      expoIntroduction = try jsonDecoder.decode(to: ExpoIntroduction.self, from: "exposition_universelle_1900")
-    } catch {
-      print(error.localizedDescription)
+    switch decodedResult {
+    case .success(let expoIntroduction):
+      updateUI(from: expoIntroduction)
+    case .failure(let error):
+      debugPrint(error)
     }
-    
-    titleLabel.text = expoIntroduction?.title
-    expoPoster.image = UIImage(named: "poster")
-    numberOfVisitorsLabel.text = "\(String(describing: expoIntroduction?.visitors ?? 0))"
-    locationLabel.text = expoIntroduction?.location
-    durationLabel.text = expoIntroduction?.duration
-    descriptionTextView.text = expoIntroduction?.description
-    
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +37,15 @@ class ExpoIntroductionViewController: UIViewController {
     super.viewWillDisappear(animated)
     self.navigationController?.isNavigationBarHidden = false
   }
-  
-  
 }
 
+extension ExpoIntroductionViewController {
+  private func updateUI(from data: ExpoIntroduction) {
+    titleLabel.text = data.title
+    expoPoster.image = UIImage(named: "poster")
+    numberOfVisitorsLabel.text = "\(String(data.visitors))"
+    locationLabel.text = data.location
+    durationLabel.text = data.duration
+    descriptionTextView.text = data.description
+  }
+}
