@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
                 visitorsNumber.insert(",", at: visitorsNumber.index(visitorsNumber.endIndex, offsetBy: -( 3 * (offsetElement+1) + offsetElement)))
             }
             
-            expoTitle.text = title[0] + "\n" + title[1]
+            expoTitle.text = title[0] + "\n" + "(" + title[1]
             expoImage.image = UIImage(named: "poster")
             expoVisitior.text = "방문객 : " + visitorsNumber + "명"
             expoLocation.text = "개최지 : " + data.location
