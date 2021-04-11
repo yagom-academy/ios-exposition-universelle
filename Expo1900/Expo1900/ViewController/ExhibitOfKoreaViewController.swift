@@ -52,8 +52,7 @@ extension ExhibitOfKoreaViewController: UITableViewDataSource {
         }
     
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            print(indexPath.row)
-    
+
             guard let cell = tableView.dequeueReusableCell(withIdentifier : TableViewCell.reuseIdentifier ) as? TableViewCell else {
                 return UITableViewCell()
             }
@@ -78,9 +77,6 @@ extension ExhibitOfKoreaViewController: UITableViewDelegate {
         self.performSegue(withIdentifier: "showExhibitOfKoreaItem", sender: nil)
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//            return UITableView.automaticDimension
-//    }
 }
 
 extension ExhibitOfKoreaViewController {
