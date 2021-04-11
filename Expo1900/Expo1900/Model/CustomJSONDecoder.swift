@@ -19,13 +19,13 @@ struct CustomJSONDecoder {
   static func decode<Decoded>(to type: Decoded.Type, from jsonFileName: String) -> Result<Decoded, ExpoAppError> where Decoded: Decodable {
     var decodedResult: Decoded
     guard let jsonData: NSDataAsset = NSDataAsset(name: jsonFileName) else {
-      return .failure(ExpoAppError.invalidJSONFileName("\(jsonFileName)"))
+      return .failure(ExpoAppError.invalidJSONFileName(jsonFileName))
     }
     
     do {
       decodedResult = try jsonDecoder.decode(Decoded.self, from: jsonData.data)
     } catch {
-      return .failure(ExpoAppError.invalidJSONFormat("\(jsonFileName)"))
+      return .failure(ExpoAppError.invalidJSONFormat(jsonFileName))
     }
     
     return .success(decodedResult)
