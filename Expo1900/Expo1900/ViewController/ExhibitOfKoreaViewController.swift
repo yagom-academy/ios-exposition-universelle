@@ -33,8 +33,8 @@ class ExhibitOfKoreaViewController: UIViewController {
             print(error.localizedDescription)
         }
         
-        tableView.estimatedRowHeight = 120
-        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = UITableView.automaticDimension
+//        tableView.rowHeight = UITableView.automaticDimension
         
     }
     
