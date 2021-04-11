@@ -11,7 +11,7 @@ class ArtworksTableViewController: UIViewController {
   
   @IBOutlet weak var artworksTableView: UITableView!
   
-  var artworks: [Artwork]?
+  private var artworks = [Artwork]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,15 +19,14 @@ class ArtworksTableViewController: UIViewController {
     artworksTableView.delegate = self
     artworksTableView.dataSource = self
     
-    let jsonDecoder = CustomJSONDecoder()
+    let decodedResult = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
     
-    do {
-      artworks = try jsonDecoder.decode(to: [Artwork].self, from: "items")
-    } catch {
-      print(error.localizedDescription)
+    switch decodedResult {
+    case .success(let result):
+      artworks = result
+    case .failure(let error):
+      debugPrint(error)
     }
-    
-    
   }
 }
   
@@ -35,17 +34,15 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
   // MARK: - Table view data source
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return artworks!.count
+    return artworks.count
   }
   
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: ArtworkTableViewCell = artworksTableView.dequeueReusableCell(withIdentifier: "artworkTableViewCell", for: indexPath) as! ArtworkTableViewCell
     
-    guard let unwrappedArtworks = artworks else { fatalError() }
-    
-    cell.artworkImageView.image = UIImage(named: unwrappedArtworks[indexPath.row].imageName)
-    cell.artworkTitleLabel.text = unwrappedArtworks[indexPath.row].name
-    cell.artworkShortDescriptionLabel.text = unwrappedArtworks[indexPath.row].shortDescription
+    cell.artworkImageView.image = UIImage(named: artworks[indexPath.row].imageName)
+    cell.artworkTitleLabel.text = artworks[indexPath.row].name
+    cell.artworkShortDescriptionLabel.text = artworks[indexPath.row].shortDescription
    
    return cell
    }
@@ -62,7 +59,4 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
       }
     }
   }
-  
-
-  
 }
