@@ -22,7 +22,7 @@ class ItemDetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    func configureDetailView(data: KoreaItems) {
+    private func configureDetailView(data: KoreaItems) {
         title = data.name
         itemImageView.image = UIImage(named: data.imageName)
         itemDescLabel.text = data.description

@@ -7,12 +7,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var itemsbutton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descLabel: UILabel!
+    @IBOutlet private weak var itemsbutton: UIButton!
     
     var expositionUniverselles: ExpositionUniverselle = ExpositionUniverselle(title: "", visitors: 0, location: "", duration: "", description: "")
     
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func configureView(data: ExpositionUniverselle) {
+    private func configureView(data: ExpositionUniverselle) {
         titleLabel.text = data.title
         visitorsLabel.text = String(data.visitors)
         locationLabel.text = data.location
