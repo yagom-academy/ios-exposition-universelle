@@ -24,10 +24,16 @@ import UIKit
 enum JSONParser<Type: Decodable> {
     
     /// 주어진 dataset 이름으로 지정한 타입의 인스턴스를 반환한다.
-    static func parse(_ dataName: String) -> Type? {
-        guard let dataAsset = extractData(from: dataName) else { return nil }
+    static func parse(_ dataName: String) -> Result<Type, JSONParserError> {
+        guard let dataAsset = extractData(from: dataName) else {
+            return .failure(.invalidAssetName(dataName))
+        }
         
-        return convert(from: dataAsset)
+        guard let decoded = convert(from: dataAsset) else {
+            return .failure(.dataCorrupted(dataName))
+        }
+        
+        return .success(decoded)
     }
     
     /// 주어진 dataset 이름이 Asset 카탈로그에 존재한다면 해당 dataset Type을 반환한다.
