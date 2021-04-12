@@ -15,13 +15,9 @@ class KoreanItemsRootViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(KoreanItemCell.self, forCellReuseIdentifier: "KoreanItemCell")
+        tableView.register(KoreanItemCell.self, forCellReuseIdentifier: KoreanItemCell.identifier)
         return tableView
     }()
-    
-    @objc private func touchUpBackButton() {
-        dismiss(animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +27,10 @@ class KoreanItemsRootViewController: UIViewController {
         navigationItem.leftBarButtonItem = backButton // lazy로 선언하면 되고 그냥 var이나 let으로 하면 안되네?????
         view.addSubview(tableView)
         setConstraint()
+    }
+    
+    @objc private func touchUpBackButton() {
+        dismiss(animated: true, completion: nil)
     }
     
     func setConstraint() {
@@ -59,7 +59,7 @@ extension KoreanItemsRootViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreanItemCell", for: indexPath) as? KoreanItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemCell.identifier, for: indexPath) as? KoreanItemCell else {
             return UITableViewCell()
         }
         cell.itemImageView.image = UIImage(named: "flag")

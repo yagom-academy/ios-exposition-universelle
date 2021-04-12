@@ -9,6 +9,8 @@ import UIKit
 
 class KoreanItemCell: UITableViewCell {
     
+    static let identifier = "KoreanItemCell"
+    
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -17,14 +19,12 @@ class KoreanItemCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = ""
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         return label
     }()
     let shortDescriptionLabel: UILabel = {
         let label  = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = ""
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
@@ -51,7 +51,7 @@ class KoreanItemCell: UITableViewCell {
     
     private func setConstraint() {
         NSLayoutConstraint.activate([
-            itemImageView.topAnchor.constraint(equalTo: topAnchor),
+            itemImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             itemImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
             itemImageView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
