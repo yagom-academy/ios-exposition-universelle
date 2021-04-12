@@ -16,7 +16,6 @@ class ExhibitItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         switch initExpoData(fileName: FileName.items, model: [ExhibitItem].self) {
         case .success(let data):
             self.navigationItem.title = data[tableViewIndex].name

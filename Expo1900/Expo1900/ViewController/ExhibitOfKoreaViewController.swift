@@ -62,15 +62,11 @@ extension ExhibitOfKoreaViewController: UITableViewDataSource {
             cell.exhibitItemShortDescription.text = exhibitItem[indexPath.row].shortDescriptions
             cell.exhibitItemShortDescription.numberOfLines = 0
             
-            
             return cell
-    
         }
-        
 }
 
 extension ExhibitOfKoreaViewController: UITableViewDelegate {
-
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableViewIndex = indexPath.row
