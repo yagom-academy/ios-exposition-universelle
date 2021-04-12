@@ -19,10 +19,12 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
-    var visitorsStringFormat: String? {
+    var visitorsStringFormat: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let result = numberFormatter.string(from: NSNumber(value: self.visitors))
+        guard let result = numberFormatter.string(from: NSNumber(value: self.visitors)) else {
+            return .blank
+        }
         return result
     }
     
