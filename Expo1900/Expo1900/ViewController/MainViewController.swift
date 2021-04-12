@@ -37,13 +37,13 @@ class MainViewController: UIViewController {
             }
             
             expoTitle.text = title[0] + "\n" + "(" + title[1]
-            expoImage.image = UIImage(named: "poster")
+            expoImage.image = UIImage(named: imageName.poster)
             expoVisitior.text = "방문객 : " + visitorsNumber + "명"
             expoLocation.text = "개최지 : " + data.location
             expoDuration.text = "개최기간 : " + data.duration
             expoDescription.text = data.description
-            leftFalgImage.image = UIImage(named: "flag")
-            rightFlagImage.image = UIImage(named: "flag")
+            leftFalgImage.image = UIImage(named: imageName.flag)
+            rightFlagImage.image = UIImage(named: imageName.flag)
             EnterExhibitOfKoreaButton.setTitle("한국의 출품작 보러가기", for: .normal)
             
         case .failure(let error):

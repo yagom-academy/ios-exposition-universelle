@@ -17,7 +17,7 @@ class ExhibitItemViewController: UIViewController {
         super.viewDidLoad()
         
         
-        switch initExpoData(fileName:"items", model: [ExhibitItem].self) {
+        switch initExpoData(fileName: fileName.items, model: [ExhibitItem].self) {
         case .success(let data):
             self.navigationItem.title = data[tableViewIndex].name
             exhibitItemImage.image = UIImage(named: data[tableViewIndex].imageName)
