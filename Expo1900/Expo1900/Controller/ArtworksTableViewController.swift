@@ -53,6 +53,7 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
   // MARK: - Table view delegate
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    artworksTableView.deselectRow(at: indexPath, animated: false)
     performSegue(withIdentifier: "showDetail", sender: indexPath.row)
   }
 }
