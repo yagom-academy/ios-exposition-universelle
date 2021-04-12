@@ -8,7 +8,7 @@
 import UIKit
 
 class KoreanItemsRootViewController: UIViewController {
-    private var koreanItemsData = [KoreanItem]()
+    var koreanItemsData = [KoreanItem]()
     private lazy var backButton = UIBarButtonItem(title: "메인",
                                                   style: .plain,
                                                   target: self,
@@ -56,6 +56,12 @@ class KoreanItemsRootViewController: UIViewController {
 extension KoreanItemsRootViewController: UITableViewDelegate {
     @objc private func touchUpBackButton() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        modalPresentationStyle = .fullScreen
+//        present(UIViewController(KoreanItemViewController), animated: true, completion: nil)
     }
 }
 

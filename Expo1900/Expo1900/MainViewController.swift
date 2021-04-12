@@ -22,11 +22,11 @@ final class MainViewController: VerticalScrollViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setExpositionData()
+        getExpositionData()
         setContentsOfMainView()
     }
     
-    private func setExpositionData() {
+    private func getExpositionData() {
         guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
         }
@@ -41,7 +41,7 @@ final class MainViewController: VerticalScrollViewController {
         setLabelsOfMainView()
         setImageViewsOfMainView()
         setMoveToKoreanItemsView()
-        lineUpContentsAtInterval(of: 10)
+        setConstraint(intervalOf: 10)
     }
     
     private func setLabelsOfMainView() {
@@ -69,7 +69,7 @@ final class MainViewController: VerticalScrollViewController {
         moveToKoreanItemsStackView = stackView
     }
     
-    private func lineUpContentsAtInterval(of interval: CGFloat) {
+    private func setConstraint(intervalOf interval: CGFloat) {
         let contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemsStackView]
         
         contents.enumerated().forEach({ (index, item) in
