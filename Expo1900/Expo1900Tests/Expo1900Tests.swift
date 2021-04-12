@@ -9,8 +9,6 @@ import XCTest
 @testable import Expo1900
 
 final class Expo1900Tests: XCTestCase {
-  private var sutExpoIntroduction: ExpoIntroduction?
-  private var sutArtworks: [Artwork]?
   
   override func setUpWithError() throws {
     try super.setUpWithError()
@@ -18,9 +16,6 @@ final class Expo1900Tests: XCTestCase {
   
   override func tearDownWithError() throws {
     try super .tearDownWithError()
-    
-    sutExpoIntroduction = nil
-    sutArtworks = nil
   }
   
   func test_customJSONDecoder_decode() {
@@ -30,7 +25,7 @@ final class Expo1900Tests: XCTestCase {
   
   func test_customJSONDecoder_decode_withInvalidJSONFile() {
     XCTAssertEqual(CustomJSONDecoder.decode(to: ExpoIntroduction.self, from: "invalidJSONFileName"),
-                   .failure(ExpoAppError.invalidJSONFileName))
+                   .failure(ExpoAppError.invalidJSONFileName("invalidJSONFileName")))
   }
 }
 
