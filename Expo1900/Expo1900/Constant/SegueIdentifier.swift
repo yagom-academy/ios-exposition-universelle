@@ -5,7 +5,7 @@
 //  Created by 최정민 on 2021/04/12.
 //
 
-class SegueIdentifier {
+struct SegueIdentifier {
     static let mainToExhibitOfKorea = "showExhibitOfKorea"
     static let exhibitOfKoreaToExhibitOfKoreaItem = "showExhibitOfKoreaItem"
 }

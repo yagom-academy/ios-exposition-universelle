@@ -5,7 +5,7 @@
 //  Created by 최정민 on 2021/04/12.
 //
 
-class MainScene {
+struct MainScene {
     static let leftParenthesis = "("
     static let newLine = "\n"
     static let visitor = "방문객"
