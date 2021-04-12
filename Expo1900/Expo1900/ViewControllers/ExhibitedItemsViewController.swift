@@ -39,7 +39,11 @@ class ExhibitedItemsViewController: UIViewController {
 extension ExhibitedItemsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath, " tap!!")
+        guard let itemDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemDetail") as? ItemDetailViewController else { return }
+        
+        itemDetailViewController.exhibitedItem = items[indexPath.row]
+        
+        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
     }
 }
 
