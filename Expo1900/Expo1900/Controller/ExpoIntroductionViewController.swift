@@ -49,8 +49,8 @@ extension ExpoIntroductionViewController {
   private func updateNumberOfVisitorsLabel(from data: ExpoIntroduction) {
     switch formatNumber(of: data.visitors) {
     case .success(let formattedNumber):
-      numberOfVisitorsLabel.text = ExpoIntroductionAffix.visitorPrefix.rawValue + formattedNumber
-        + ExpoIntroductionAffix.visitorSuffix.rawValue
+      numberOfVisitorsLabel.text = ExpoIntroductionAffix.visitorPrefix.rawValue + formattedNumber +
+        ExpoIntroductionAffix.visitorSuffix.rawValue
     case .failure(ExpoAppError.numberFormattingFailed(let number)):
       debugPrint(ExpoAppError.numberFormattingFailed(number))
     case .failure(_):
