@@ -13,6 +13,13 @@ struct KoreanItem: Decodable {
     let shortDescription: String
     let description: String
     
+    init() {
+        name = DefaultValues.text
+        imageName = DefaultValues.text
+        shortDescription = DefaultValues.text
+        description = DefaultValues.text
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"

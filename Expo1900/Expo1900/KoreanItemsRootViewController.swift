@@ -8,6 +8,7 @@
 import UIKit
 
 class KoreanItemsRootViewController: UIViewController {
+    private var koreanItemsData = [KoreanItem]()
     private lazy var backButton = UIBarButtonItem(title: "메인",
                                                   style: .plain,
                                                   target: self,
@@ -21,16 +22,24 @@ class KoreanItemsRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getKoreanItemsData()
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = backButton // lazy로 선언하면 되고 그냥 var이나 let으로 하면 안되네?????
+        navigationItem.leftBarButtonItem = backButton
         view.addSubview(tableView)
         setConstraint()
     }
     
-    @objc private func touchUpBackButton() {
-        dismiss(animated: true, completion: nil)
+    func getKoreanItemsData() {
+        guard let dataAsset = NSDataAsset(name: "items") else {
+            return
+        }
+        do {
+            koreanItemsData =  try JSONDecoder().decode([KoreanItem].self, from: dataAsset.data)
+        } catch {
+            return
+        }
     }
     
     func setConstraint() {
@@ -45,26 +54,25 @@ class KoreanItemsRootViewController: UIViewController {
 }
 
 extension KoreanItemsRootViewController: UITableViewDelegate {
-    
+    @objc private func touchUpBackButton() {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension KoreanItemsRootViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        koreanItemsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemCell.identifier, for: indexPath) as? KoreanItemCell else {
             return UITableViewCell()
         }
-        cell.itemImageView.image = UIImage(named: "flag")
-        cell.titleLabel.text = "hello"
-        cell.shortDescriptionLabel.text = "hi"
+        let koreanItemData = koreanItemsData[indexPath.row]
+        cell.itemImageView.image = UIImage(named: koreanItemData.imageName)
+        cell.titleLabel.text = koreanItemData.name
+        cell.shortDescriptionLabel.text = koreanItemData.shortDescription
         return cell
     }
 }
