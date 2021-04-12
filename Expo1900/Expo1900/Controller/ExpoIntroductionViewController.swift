@@ -18,7 +18,8 @@ final class ExpoIntroductionViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let decodedResult = CustomJSONDecoder.decode(to: ExpoIntroduction.self, from: "exposition_universelle_1900")
+    let decodedResult: Result = CustomJSONDecoder.decode(to: ExpoIntroduction.self,
+                                                         from: "exposition_universelle_1900")
     
     switch decodedResult {
     case .success(let expoIntroduction):
@@ -40,13 +41,7 @@ final class ExpoIntroductionViewController: UIViewController {
 }
 
 extension ExpoIntroductionViewController {
-  private func updateUI(from data: ExpoIntroduction) {
-    titleLabel.text = data.title
-    expoPoster.image = UIImage(named: "poster")
-    locationLabel.text = ExpoIntroductionAffix.locationPrefix.rawValue + data.location
-    durationLabel.text = ExpoIntroductionAffix.durationPrefix.rawValue + data.duration
-    descriptionTextView.text = data.description
-    
+  private func updateNumberOfVisitorsLabel(from data: ExpoIntroduction) {
     switch formatNumber(of: data.visitors) {
     case .success(let formattedNumber):
       numberOfVisitorsLabel.text = ExpoIntroductionAffix.visitorPrefix.rawValue + formattedNumber
@@ -58,11 +53,21 @@ extension ExpoIntroductionViewController {
     }
   }
   
+  private func updateUI(from data: ExpoIntroduction) {
+    titleLabel.text = data.title
+    expoPoster.image = UIImage(named: "poster")
+    locationLabel.text = ExpoIntroductionAffix.locationPrefix.rawValue + data.location
+    durationLabel.text = ExpoIntroductionAffix.durationPrefix.rawValue + data.duration
+    descriptionTextView.text = data.description
+    
+    updateNumberOfVisitorsLabel(from: data)
+  }
+  
   private func formatNumber(of number: Int) -> Result<String, ExpoAppError> {
-    let numberFormatter = NumberFormatter()
+    let numberFormatter: NumberFormatter = NumberFormatter()
     numberFormatter.numberStyle = .decimal
     
-    guard let formattedNumber = numberFormatter.string(from: NSNumber(value: number)) else {
+    guard let formattedNumber: String = numberFormatter.string(from: NSNumber(value: number)) else {
       return .failure(ExpoAppError.numberFormattingFailed(number))
     }
     
