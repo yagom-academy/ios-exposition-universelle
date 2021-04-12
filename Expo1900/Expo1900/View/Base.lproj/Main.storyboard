@@ -65,16 +65,16 @@
                                                 <rect key="frame" x="62" y="685.5" width="290" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="AFB-51-Nxr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="61.5" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="OcA-fl-gMj"/>
                                                             <constraint firstAttribute="width" priority="750" constant="70" id="b4m-Os-V8Z"/>
                                                             <constraint firstAttribute="height" constant="50" id="qFd-FT-E8J"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-UW-Uca">
-                                                        <rect key="frame" x="76" y="0.0" width="138" height="50"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-UW-Uca">
+                                                        <rect key="frame" x="71.5" y="0.0" width="147" height="50"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                         <state key="normal" title="한국의 출품작 보러가기"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="titleLabel.adjustsFontForContentSizeCategory" value="YES"/>
@@ -84,7 +84,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="UtQ-Ps-fb9">
-                                                        <rect key="frame" x="224" y="0.0" width="66" height="50"/>
+                                                        <rect key="frame" x="228.5" y="0.0" width="61.5" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="94e-Xb-2G3"/>
                                                             <constraint firstAttribute="width" priority="750" constant="70" id="WgN-d6-URw"/>
