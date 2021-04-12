@@ -66,15 +66,27 @@ class MainViewController: UIViewController {
 }
 
 extension UIViewController {
+    
     func initExpoData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
-        let jsonDecoder = JSONDecoder()
-        
-        guard let jsonData: NSDataAsset = NSDataAsset(name: fileName)  else {
+        switch loadData(name: fileName) {
+        case .success(let data):
+            return decodeData(data: data, model: model)
+        case .failure :
             return .failure(DataError.LoadJSON)
         }
-        
+    }
+    
+    func loadData(name: String) -> Result<NSDataAsset, DataError> {
+        guard let jsonData: NSDataAsset = NSDataAsset(name: name)  else {
+            return .failure(DataError.LoadJSON)
+        }
+        return .success(jsonData)
+    }
+    
+    func decodeData<T:Decodable>(data: NSDataAsset, model: T.Type) -> Result<T, DataError> {
+        let jsonDecoder = JSONDecoder()
         do {
-            let data = try jsonDecoder.decode(T.self, from: jsonData.data)
+            let data = try jsonDecoder.decode(T.self, from: data.data)
             return .success(data)
         } catch {
             return .failure(DataError.DecodeJSON)
