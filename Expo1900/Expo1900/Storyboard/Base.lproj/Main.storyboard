@@ -70,6 +70,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9JU-XR-cBJ">
                                                         <rect key="frame" x="84" y="0.0" width="46" height="54"/>
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="pushNextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sdp-vL-3UU"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="om8-xP-9GY">
                                                         <rect key="frame" x="160" y="0.0" width="54" height="54"/>
@@ -124,6 +127,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TEZ-Mu-Gcu"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="MiX-bG-tv7" id="P8D-w3-Ifr"/>
+                        <outlet property="durationLabel" destination="eAa-nF-TGx" id="noP-xz-9Ly"/>
+                        <outlet property="itemsListPageButton" destination="9JU-XR-cBJ" id="NkK-4E-Fwu"/>
+                        <outlet property="leftOnButtonImageView" destination="Ja9-8k-ZaA" id="cwE-Xs-pqM"/>
+                        <outlet property="locationLabel" destination="Ufw-3M-Qx9" id="1E2-l7-USG"/>
+                        <outlet property="posterImageView" destination="bmq-3n-JGS" id="n6w-VA-Pe3"/>
+                        <outlet property="rightOnButtonImageView" destination="om8-xP-9GY" id="ouX-gO-X0v"/>
+                        <outlet property="titleLabel" destination="aVa-LB-bc8" id="Td6-9l-OcK"/>
+                        <outlet property="visitorsLabel" destination="1eG-y8-g7c" id="GLh-AI-bAo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
