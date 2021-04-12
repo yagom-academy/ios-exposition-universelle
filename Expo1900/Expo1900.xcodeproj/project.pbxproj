@@ -16,9 +16,13 @@
 		8A568AE726229FF80080B567 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A568AE626229FF80080B567 /* DataError.swift */; };
 		8A568AF62622EC7D0080B567 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A568AF42622EC7D0080B567 /* TableViewCell.swift */; };
 		8A568AF72622EC7D0080B567 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A568AF52622EC7D0080B567 /* TableViewCell.xib */; };
+		8A568AFF2624524A0080B567 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A568AFE2624524A0080B567 /* SegueIdentifier.swift */; };
+		8A568B05262452670080B567 /* FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A568B04262452670080B567 /* FileName.swift */; };
+		8A568B09262461070080B567 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A568B08262461070080B567 /* ImageName.swift */; };
+		8A568B13262477490080B567 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A568B12262477490080B567 /* MainScene.swift */; };
+		8A568B172624775F0080B567 /* ExhibitOfKoreaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A568B162624775F0080B567 /* ExhibitOfKoreaScene.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -46,10 +50,14 @@
 		8A568AE626229FF80080B567 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		8A568AF42622EC7D0080B567 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8A568AF52622EC7D0080B567 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		8A568AFE2624524A0080B567 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		8A568B04262452670080B567 /* FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileName.swift; sourceTree = "<group>"; };
+		8A568B08262461070080B567 /* ImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
+		8A568B12262477490080B567 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		8A568B162624775F0080B567 /* ExhibitOfKoreaScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitOfKoreaScene.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,6 +127,18 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		8A568AFD2624522C0080B567 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				8A568AFE2624524A0080B567 /* SegueIdentifier.swift */,
+				8A568B04262452670080B567 /* FileName.swift */,
+				8A568B08262461070080B567 /* ImageName.swift */,
+				8A568B12262477490080B567 /* MainScene.swift */,
+				8A568B162624775F0080B567 /* ExhibitOfKoreaScene.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -140,13 +160,13 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				8A568AFD2624522C0080B567 /* Constant */,
 				8A568AF12622EC5E0080B567 /* Cell */,
 				8A568AEE2622E39F0080B567 /* ViewController */,
 				8A568AE526229F8C0080B567 /* Error */,
 				8A34DBC9261C2C52001D0165 /* Entity */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -264,15 +284,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				8A34DBE2261D7ED4001D0165 /* MainOfExposition.swift in Sources */,
 				8A34DBE5261D7EEB001D0165 /* ExhibitOfKorea.swift in Sources */,
+				8A568AFF2624524A0080B567 /* SegueIdentifier.swift in Sources */,
 				8A568AC12620519E0080B567 /* ExhibitOfKoreaViewController.swift in Sources */,
 				8A568ABD2620518A0080B567 /* MainViewController.swift in Sources */,
 				8A568AF62622EC7D0080B567 /* TableViewCell.swift in Sources */,
+				8A568B09262461070080B567 /* ImageName.swift in Sources */,
+				8A568B05262452670080B567 /* FileName.swift in Sources */,
 				8A568AC5262051BF0080B567 /* ExhibitItemViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				8A568AE726229FF80080B567 /* DataError.swift in Sources */,
+				8A568B13262477490080B567 /* MainScene.swift in Sources */,
+				8A568B172624775F0080B567 /* ExhibitOfKoreaScene.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

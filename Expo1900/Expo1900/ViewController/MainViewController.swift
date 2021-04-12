@@ -27,21 +27,20 @@ class MainViewController: UIViewController {
         
         switch initExpoData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self) {
         case .success(let data):
-            let title = data.title.components(separatedBy: "(")
+            let title = data.title.components(separatedBy: MainScene.leftParenthesis)
             let visitorsNumber:String = changeNumberFormat(number: data.visitors)
-            expoTitle.text = title[0] + "\n" + "(" + title[1]
+            expoTitle.text = title[0] + MainScene.newLine + MainScene.leftParenthesis + title[1]
             expoImage.image = UIImage(named: ImageName.poster)
-            expoVisitior.text = "방문객 : " + visitorsNumber + "명"
-            expoLocation.text = "개최지 : " + data.location
-            expoDuration.text = "개최기간 : " + data.duration
+            expoVisitior.text = MainScene.visitor + MainScene.colon + visitorsNumber + MainScene.persons
+            expoLocation.text = MainScene.location + MainScene.colon + data.location
+            expoDuration.text = MainScene.duration + MainScene.colon + data.duration
             expoDescription.text = data.description
             leftFalgImage.image = UIImage(named: ImageName.flag)
             rightFlagImage.image = UIImage(named: ImageName.flag)
-            EnterExhibitOfKoreaButton.setTitle("한국의 출품작 보러가기", for: .normal)
+            EnterExhibitOfKoreaButton.setTitle(MainScene.EnterExhibitOfKoreaButtonTitle, for: .normal)
         case .failure(let error):
             print(error.localizedDescription)
         }
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +52,7 @@ class MainViewController: UIViewController {
         numberFormatter.numberStyle = .decimal
         
         guard let demicalStyleNumber = numberFormatter.string(from: NSNumber(value:number)) else {
-            return "error"
+            return MainScene.formatError
         }
         
         return demicalStyleNumber
@@ -70,14 +69,14 @@ extension UIViewController {
         }
     }
     
-    func loadData(name: String) -> Result<NSDataAsset, DataError> {
+    private func loadData(name: String) -> Result<NSDataAsset, DataError> {
         guard let jsonData: NSDataAsset = NSDataAsset(name: name)  else {
             return .failure(DataError.LoadJSON)
         }
         return .success(jsonData)
     }
     
-    func decodeData<T:Decodable>(data: NSDataAsset, model: T.Type) -> Result<T, DataError> {
+    private func decodeData<T:Decodable>(data: NSDataAsset, model: T.Type) -> Result<T, DataError> {
         let jsonDecoder = JSONDecoder()
         do {
             let data = try jsonDecoder.decode(T.self, from: data.data)

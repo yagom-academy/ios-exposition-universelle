@@ -17,13 +17,13 @@ class ExhibitOfKoreaViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.topItem?.title = "메인"
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationController?.navigationBar.topItem?.title = ExhibirOfKoreaScene.navigationBarTopItem
+        self.navigationItem.title = ExhibirOfKoreaScene.navigationItemTitle
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let tableViewNib = UINib(nibName: "TableViewCell", bundle: nil)
+        let tableViewNib = UINib(nibName: ExhibirOfKoreaScene.tableViewCellNibName, bundle: nil)
         tableView.register(tableViewNib, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         
         switch initExpoData(fileName: FileName.items, model: [ExhibitItem].self) {
@@ -40,12 +40,10 @@ class ExhibitOfKoreaViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
-    
 }
 
 extension ExhibitOfKoreaViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
             return exhibitItem.count
         }
     
@@ -73,7 +71,6 @@ extension ExhibitOfKoreaViewController: UITableViewDelegate {
 
 extension ExhibitOfKoreaViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let destination = segue.destination
         
         guard let exhibitItemViewController = destination as? ExhibitItemViewController else {
