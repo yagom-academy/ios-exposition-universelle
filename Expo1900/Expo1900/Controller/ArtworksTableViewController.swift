@@ -11,7 +11,7 @@ class ArtworksTableViewController: UIViewController {
   
   @IBOutlet weak var artworksTableView: UITableView!
   
-  private var artworks = [Artwork]()
+  private var artworks: [Artwork] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,7 +19,7 @@ class ArtworksTableViewController: UIViewController {
     artworksTableView.delegate = self
     artworksTableView.dataSource = self
     
-    let decodedResult = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
+    let decodedResult: Result = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
     
     switch decodedResult {
     case .success(let result):
@@ -38,7 +38,8 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: ArtworkTableViewCell = artworksTableView.dequeueReusableCell(withIdentifier: "artworkTableViewCell", for: indexPath) as! ArtworkTableViewCell
+    let cell: ArtworkTableViewCell = artworksTableView.dequeueReusableCell(withIdentifier: "artworkTableViewCell",
+                                                                           for: indexPath) as! ArtworkTableViewCell
     
     cell.artworkImageView.image = UIImage(named: artworks[indexPath.row].imageName)
     cell.artworkTitleLabel.text = artworks[indexPath.row].name
@@ -54,7 +55,7 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
       let followingViewController = segue.destination as? ArtworkDetailViewController
-      if let identifier = sender as? Int {
+      if let identifier: Int = sender as? Int {
         followingViewController?.artworkIdentifier = identifier
       }
     }
