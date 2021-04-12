@@ -43,13 +43,14 @@ extension ExpoIntroductionViewController {
   private func updateUI(from data: ExpoIntroduction) {
     titleLabel.text = data.title
     expoPoster.image = UIImage(named: "poster")
-    locationLabel.text = data.location
-    durationLabel.text = data.duration
+    locationLabel.text = ExpoIntroductionAffix.locationPrefix.rawValue + data.location
+    durationLabel.text = ExpoIntroductionAffix.durationPrefix.rawValue + data.duration
     descriptionTextView.text = data.description
     
     switch formatNumber(of: data.visitors) {
     case .success(let formattedNumber):
-      numberOfVisitorsLabel.text = formattedNumber
+      numberOfVisitorsLabel.text = ExpoIntroductionAffix.visitorPrefix.rawValue + formattedNumber
+        + ExpoIntroductionAffix.visitorSuffix.rawValue
     case .failure(ExpoAppError.numberFormattingFailed(let number)):
       debugPrint(ExpoAppError.numberFormattingFailed(number))
     case .failure(_):
