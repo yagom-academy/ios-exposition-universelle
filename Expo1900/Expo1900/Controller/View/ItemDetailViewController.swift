@@ -14,13 +14,17 @@ class ItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = itemData.name
-        itemImageView.image = UIImage(named: itemData.imageName)
-        itemDescLabel.text = itemData.description
+        configureCell(data: itemData)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    func configureCell(data: KoreaItems) {
+        title = data.name
+        itemImageView.image = UIImage(named: data.imageName)
+        itemDescLabel.text = data.description
     }
 }
