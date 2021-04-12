@@ -45,3 +45,8 @@ enum JSONParser<Type: Decodable> {
         return decoded
     }
 }
+
+enum JSONParserError: Error, Equatable {
+    case invalidAssetName(String)
+    case dataCorrupted(String)
+}
