@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtworkTableViewCell: UITableViewCell {
+final class ArtworkTableViewCell: UITableViewCell {
   
   @IBOutlet weak var artworkImageView: UIImageView!
   @IBOutlet weak var artworkTitleLabel: UILabel!

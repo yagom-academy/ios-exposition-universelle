@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArtworksTableViewController: UIViewController {
+final class ArtworksTableViewController: UIViewController {
   
   @IBOutlet weak var artworksTableView: UITableView!
   
