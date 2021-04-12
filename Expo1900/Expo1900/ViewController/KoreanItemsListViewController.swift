@@ -7,9 +7,9 @@
 
 import UIKit
 
-class KoreanItemsListViewController: UIViewController {
+final class KoreanItemsListViewController: UIViewController {
     @IBOutlet private weak var koreaItemsListTableView: UITableView!
-    var itemsData: [Item] = []
+    private var itemsData: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

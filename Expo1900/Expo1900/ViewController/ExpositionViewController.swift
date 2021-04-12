@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionViewController: UIViewController {
+final class ExpositionViewController: UIViewController {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -65,7 +65,7 @@ class ExpositionViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
     }
     
-    @IBAction func pushItemsListPageButton(_ sender: UIButton) {
+    @IBAction private func pushItemsListPageButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let viewController = storyboard.instantiateViewController(identifier: "KoreanItemsListVC")
         self.navigationController?.pushViewController(viewController, animated: false)
