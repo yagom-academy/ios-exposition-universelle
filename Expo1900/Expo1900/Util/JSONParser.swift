@@ -31,14 +31,14 @@ enum JSONParser<Type: Decodable> {
     }
     
     /// 주어진 dataset 이름이 Asset 카탈로그에 존재한다면 해당 dataset Type을 반환한다.
-    static func extractData(from dataName: String) -> NSDataAsset? {
+    private static func extractData(from dataName: String) -> NSDataAsset? {
         guard let dataAsset = NSDataAsset(name: dataName) else { return nil }
         
         return dataAsset
     }
     
     /// 주어진 dataAsset에서 지정한 타입의 인스턴스로 decode한다.
-    static func convert(from dataAsset: NSDataAsset) -> Type? {
+    private static func convert(from dataAsset: NSDataAsset) -> Type? {
         let decoder = JSONDecoder()
         guard let decoded: Type = try? decoder.decode(Type.self, from: dataAsset.data) else { return nil }
         
