@@ -17,4 +17,10 @@ struct ExhibitionInfomation: Decodable {
     var newlineTitle: String {
         return title.replacingOccurrences(of: "(", with: "\n(")
     }
+    
+    var formattedVistorsNumber: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(for: visitors) ?? "0"
+    }
 }

@@ -9,9 +9,10 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var exhibitionTitleLabel: UILabel!
-    
     @IBOutlet weak var exhibitionPosterImage: UIImageView!
-    
+    @IBOutlet weak var exhibitionVisitorsLabel: UILabel!
+    @IBOutlet weak var exhibitionVenueLabel: UILabel!
+    @IBOutlet weak var exhibitionHoldingPeriodLabel: UILabel!
     @IBOutlet weak var exhibitionDescriptionLabel: UILabel!
     
     override func viewDidLoad() {
@@ -41,6 +42,10 @@ class ViewController: UIViewController {
         
         exhibitionTitleLabel.text = exhibitionInfomation.newlineTitle
         exhibitionTitleLabel.textAlignment = .center
+        
+        exhibitionVisitorsLabel.text = "방문객 : " + exhibitionInfomation.formattedVistorsNumber + " 명"
+        exhibitionVenueLabel.text = "개최지 : " + exhibitionInfomation.location
+        exhibitionHoldingPeriodLabel.text = "개최기간 : " + exhibitionInfomation.duration
         
         exhibitionDescriptionLabel.text = exhibitionInfomation.description
     }
