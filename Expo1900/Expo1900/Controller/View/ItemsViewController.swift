@@ -64,6 +64,13 @@ extension ItemsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+//        var content = cell.defaultContentConfiguration()
+//
+//        content.image = UIImage(named: items[indexPath.row].imageName)
+//        content.text = items[indexPath.row].name
+//        content.secondaryText = items[indexPath.row].shortDesc
+//
+//        cell.contentConfiguration = content
         cell.itemImageView.image = UIImage(named: items[indexPath.row].imageName)
         cell.nameLabel.text = items[indexPath.row].name
         cell.shortDescLabel.text = items[indexPath.row].shortDesc
