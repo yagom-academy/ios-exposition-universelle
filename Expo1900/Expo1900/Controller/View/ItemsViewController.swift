@@ -7,11 +7,11 @@
 
 import UIKit
 
-var items: [KoreaItems] = []
 var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
 
 class ItemsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var items: [KoreaItems] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
