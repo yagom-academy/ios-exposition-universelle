@@ -18,6 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         initValues()
+        
+        self.navigationItem.backButtonTitle = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {

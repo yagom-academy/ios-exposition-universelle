@@ -22,6 +22,8 @@ class ExhibitedItemsViewController: UIViewController {
         let nibName = UINib(nibName: "ItemTableViewCell", bundle: nil)
         exhibitedItemsTable.register(nibName, forCellReuseIdentifier: "itemCell")
         
+        self.navigationItem.title = "한국의 출품작"
+
         parseExhibitedItems()
     }
     
