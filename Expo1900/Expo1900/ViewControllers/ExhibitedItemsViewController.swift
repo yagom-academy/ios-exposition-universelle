@@ -38,6 +38,7 @@ extension ExhibitedItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemDetail") as? ItemDetailViewController else { return }
         itemDetailViewController.exhibitedItem = items[indexPath.row]
+        exhibitedItemsTable.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(itemDetailViewController, animated: true)
     }
 }

@@ -63,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0D79D5A2624624F005E7644 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F707BEE426208BD70011E4CC /* ItemTableViewCell.swift */,
+				F707BEE526208BD70011E4CC /* ItemTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C0F0CB68261C4307008A110B /* Expo1900Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +102,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				C0D79D5A2624624F005E7644 /* Cell */,
 				F707BEDB26204F470011E4CC /* ViewControllers */,
 				F737EBC8261AF9B4005A518A /* Model */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
@@ -101,8 +111,6 @@
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
-				F707BEE426208BD70011E4CC /* ItemTableViewCell.swift */,
-				F707BEE526208BD70011E4CC /* ItemTableViewCell.xib */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
