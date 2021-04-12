@@ -40,8 +40,9 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: ArtworkTableViewCell = artworksTableView.dequeueReusableCell(withIdentifier: "artworkTableViewCell",
-                                                                           for: indexPath) as! ArtworkTableViewCell
+    let cell: ArtworkTableViewCell = artworksTableView.dequeueReusableCell(
+      withIdentifier: "artworkTableViewCell",
+      for: indexPath) as! ArtworkTableViewCell
     
     cell.artworkImageView.image = UIImage(named: artworks[indexPath.row].imageName)
     cell.artworkTitleLabel.text = artworks[indexPath.row].name

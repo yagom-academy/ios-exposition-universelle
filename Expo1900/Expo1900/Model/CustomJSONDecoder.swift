@@ -16,7 +16,10 @@ struct CustomJSONDecoder {
   /// - JSON 파일 형식이 맞지 않아 디코딩이 실패하는 경우 `.failure(ExpoAppError.invalidJSONFormat)` 형식으로 에러를 반환한다.
   /// - Parameter type: 변환할 타입. 모델 타입의 인스턴스를 원하면, `모델타입.self`로 작성한다.
   /// -  Parameter jsonFileName: JSON 파일 이름을 `String` 타입으로 작성한다.
-  static func decode<Decoded>(to type: Decoded.Type, from jsonFileName: String) -> Result<Decoded, ExpoAppError> where Decoded: Decodable {
+  static func decode<Decoded>(
+    to type: Decoded.Type,
+    from jsonFileName: String
+  ) -> Result<Decoded, ExpoAppError> where Decoded: Decodable {
     var decodedResult: Decoded
     guard let jsonData: NSDataAsset = NSDataAsset(name: jsonFileName) else {
       return .failure(ExpoAppError.invalidJSONFileName(jsonFileName))
