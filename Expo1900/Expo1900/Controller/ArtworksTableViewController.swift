@@ -19,6 +19,8 @@ class ArtworksTableViewController: UIViewController {
     artworksTableView.delegate = self
     artworksTableView.dataSource = self
     
+    // MARK: - Decode JSON and update UI
+    
     let decodedResult: Result = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
     
     switch decodedResult {
@@ -48,9 +50,15 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
    return cell
    }
   
+  // MARK: - Table view delegate
+  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: "showDetail", sender: indexPath.row)
   }
+}
+
+extension ArtworksTableViewController {
+  // MARK: - View controller: segue
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {

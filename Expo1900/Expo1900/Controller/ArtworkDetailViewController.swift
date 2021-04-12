@@ -17,6 +17,8 @@ final class ArtworkDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // MARK: - Decode JSON and update UI
+    
     let decodedResult: Result = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
     
     switch decodedResult {
@@ -29,6 +31,9 @@ final class ArtworkDetailViewController: UIViewController {
 }
 
 extension ArtworkDetailViewController {
+  
+  // MARK: - Method for updating the UI
+  
   @discardableResult
   private func updateUI(from data: [Artwork]) -> Result<Int, ExpoAppError> {
     guard let artworkIdentifier: Int = artworkIdentifier else {
