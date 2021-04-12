@@ -11,6 +11,8 @@
 		C34873E7262412CB00FF917A /* ExpoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34873E6262412CB00FF917A /* ExpoError.swift */; };
 		C34873EC2624138500FF917A /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34873EB2624138500FF917A /* UIViewControllerExtension.swift */; };
 		C34873F22624161100FF917A /* KoreanItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34873F12624161100FF917A /* KoreanItemsListViewController.swift */; };
+		C34873F82624177300FF917A /* KoreanEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34873F62624177300FF917A /* KoreanEntryTableViewCell.swift */; };
+		C34873F92624177300FF917A /* KoreanEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C34873F72624177300FF917A /* KoreanEntryTableViewCell.xib */; };
 		C39A877A261C54D2000AF183 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A8779261C54D2000AF183 /* Exposition.swift */; };
 		C39A877E261C5548000AF183 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A877D261C5548000AF183 /* Item.swift */; };
 		C39A8787261C5633000AF183 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A8786261C5633000AF183 /* Expo1900Tests.swift */; };
@@ -37,6 +39,8 @@
 		C34873E6262412CB00FF917A /* ExpoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoError.swift; sourceTree = "<group>"; };
 		C34873EB2624138500FF917A /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		C34873F12624161100FF917A /* KoreanItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemsListViewController.swift; sourceTree = "<group>"; };
+		C34873F62624177300FF917A /* KoreanEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryTableViewCell.swift; sourceTree = "<group>"; };
+		C34873F72624177300FF917A /* KoreanEntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreanEntryTableViewCell.xib; sourceTree = "<group>"; };
 		C39A8779261C54D2000AF183 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		C39A877D261C5548000AF183 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C39A8784261C5633000AF183 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,15 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		C34873F52624173D00FF917A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C34873F62624177300FF917A /* KoreanEntryTableViewCell.swift */,
+				C34873F72624177300FF917A /* KoreanEntryTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C39A8778261C54C4000AF183 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +159,7 @@
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C34873F52624173D00FF917A /* View */,
 				C34873EA2624136400FF917A /* Error */,
 				C39A8778261C54C4000AF183 /* Model */,
 				C3250E84261E03FD00AC2D60 /* Extension */,
@@ -246,6 +260,7 @@
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
+				C34873F92624177300FF917A /* KoreanEntryTableViewCell.xib in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +284,7 @@
 				C39A877E261C5548000AF183 /* Item.swift in Sources */,
 				C34873F22624161100FF917A /* KoreanItemsListViewController.swift in Sources */,
 				C34873E7262412CB00FF917A /* ExpoError.swift in Sources */,
+				C34873F82624177300FF917A /* KoreanEntryTableViewCell.swift in Sources */,
 				C39A8791261C5C47000AF183 /* StringExtension.swift in Sources */,
 				C39A877A261C54D2000AF183 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
