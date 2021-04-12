@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExhibitionViewController: UIViewController {
     
     @IBOutlet weak var exhibitionTitleLabel: UILabel!
     @IBOutlet weak var exhibitionPosterImage: UIImageView!
@@ -17,9 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initValues()
-        
         self.navigationItem.backButtonTitle = "메인"
     }
     
@@ -47,7 +45,19 @@ class ViewController: UIViewController {
         exhibitionVenueLabel.text = "개최지 : " + exhibitionInfomation.location
         exhibitionHoldingPeriodLabel.text = "개최기간 : " + exhibitionInfomation.duration
         
+        changeFont(from: exhibitionVisitorsLabel, applyText: "방문객")
+        changeFont(from: exhibitionVenueLabel, applyText: "개최지")
+        changeFont(from: exhibitionHoldingPeriodLabel, applyText: "개최기간")
+        
         exhibitionDescriptionLabel.text = exhibitionInfomation.description
+    }
+    
+    private func changeFont(from label: UILabel, applyText: String) {
+        guard let text = label.text else { return }
+        let fontSize = UIFont.systemFont(ofSize: 22)
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: applyText))
+        label.attributedText = attributedString
     }
 }
 
