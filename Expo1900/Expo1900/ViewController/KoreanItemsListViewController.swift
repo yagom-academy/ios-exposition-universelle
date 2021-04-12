@@ -44,7 +44,14 @@ class KoreanItemsListViewController: UIViewController {
 }
 
 extension KoreanItemsListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        guard let itemInfoViewController = storyboard.instantiateViewController(identifier: "itemInfoVC") as? ItemInfoViewController else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(itemInfoViewController, animated: false)
+    }
 }
 
 extension KoreanItemsListViewController: UITableViewDataSource {
