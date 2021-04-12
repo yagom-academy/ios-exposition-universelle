@@ -10,6 +10,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var shouldSupportAllOrientation = true
+    var koreaEntrys: [StateEntry] = []
+    var detailEntry: StateEntry?
+    var expoData: Expo?
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         if shouldSupportAllOrientation == true {

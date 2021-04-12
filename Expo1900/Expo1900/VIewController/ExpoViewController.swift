@@ -15,19 +15,20 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var descrtiptionLabel: UILabel!
     @IBOutlet private weak var backgroundImage: UIImageView!
     
-    private var expoData: Expo?
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
     override func viewDidLoad() {
-        switch try? initExpoData() {
-        case .success(let data):
-            expoData = data
-            initUI()
-            setLableAttribute()
-        case .failure(let error):
-            alterError(error)
-        case .none:
-            alterError(ExpoError.unknown)
+        if appDelegate?.expoData == nil {
+            switch try? initExpoData() {
+            case .success(let data):
+                appDelegate?.expoData = data
+                initUI()
+                setLableAttribute()
+            case .failure(let error):
+                alterError(error)
+            case .none:
+                alterError(ExpoError.unknown)
+            }
         }
     }
     
@@ -54,7 +55,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initUI() {
-        guard let expo = expoData else { return }
+        guard let expo = appDelegate?.expoData else { return }
         self.navigationController?.title = "메인"
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = "방문객 : " + creatVisitorsComma(expo.visitors)
