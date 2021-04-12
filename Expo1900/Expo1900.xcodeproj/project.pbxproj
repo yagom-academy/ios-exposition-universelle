@@ -91,8 +91,8 @@
 			children = (
 				E26887F52624B837003B9090 /* ViewController */,
 				E2AFD619261C64D200D12D52 /* Model */,
+				E26887F72624BB19003B9090 /* Cell */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				E22FCBCA26219BA90067937A /* EntryWorkTableViewCell.swift */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
@@ -110,6 +110,14 @@
 				E227C797262456A0007EDFD1 /* EntryWorkDetailViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E26887F72624BB19003B9090 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E22FCBCA26219BA90067937A /* EntryWorkTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E29A2846261CDC51005563B0 /* Expo1900Tests */ = {
