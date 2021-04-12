@@ -5,10 +5,9 @@
 //  Created by sookim on 2021/04/09.
 //
 
-import Foundation
 import UIKit
 
-class KoreaExhibitItemController: UIViewController {
+class KoreaExhibitViewController: UIViewController {
     
     @IBOutlet weak var koreaExhibitTableView: UITableView!
     
@@ -20,7 +19,10 @@ class KoreaExhibitItemController: UIViewController {
         
         koreaExhibitTableView.delegate = self
         koreaExhibitTableView.dataSource = self
-        
+        itemDecode()
+    }
+    
+    private func itemDecode() {
         let jsonDecoder = JSONDecoder()
         guard let koreaExhibitItemsData = NSDataAsset(name: "items")
         else { return }
@@ -30,17 +32,29 @@ class KoreaExhibitItemController: UIViewController {
         } catch  {
             print("Error")
         }
-        print(koreaExhibitItems)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "ShowDetail" {
+                let vc = segue.destination as? ExhibitDetailViewController
+                if let select_index = sender as? Int {
+                    vc?.koreaItem = koreaExhibitItems[select_index]
+                }
+            }
     }
 }
 
-extension KoreaExhibitItemController: UITableViewDelegate {
+extension KoreaExhibitViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowDetail", sender: indexPath.row)
+    }
     
 }
 
-extension KoreaExhibitItemController: UITableViewDataSource {
+extension KoreaExhibitViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("아이템수: \(koreaExhibitItems.count)")
         return koreaExhibitItems.count
     }
     
@@ -49,16 +63,12 @@ extension KoreaExhibitItemController: UITableViewDataSource {
         
         for i in 0..<koreaExhibitItems.count {
             if koreaExhibitTableView == self.koreaExhibitTableView && indexPath.row == i {
-                print("i 번호 : \(i)")
-                print("row 번호 : \(indexPath.row)")
                 cell.koreaExhibitImageName.image = UIImage(named: koreaExhibitItems[i].image_name)
                 cell.koreaExhibitName.text = koreaExhibitItems[i].name
                 cell.koreaExhibitShortDescription.text = koreaExhibitItems[i].short_desc
             }
         }
-        
         return cell
     }
-    
     
 }

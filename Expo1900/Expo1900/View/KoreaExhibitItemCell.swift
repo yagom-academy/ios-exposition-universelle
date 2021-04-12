@@ -11,5 +11,4 @@ class KoreaExhibitItemCell: UITableViewCell {
     @IBOutlet weak var koreaExhibitImageName: UIImageView!
     @IBOutlet weak var koreaExhibitName: UILabel!
     @IBOutlet weak var koreaExhibitShortDescription: UILabel!
-    
 }

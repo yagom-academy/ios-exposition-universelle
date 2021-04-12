@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Expo1900Information: Decodable {
+struct Expo1900: Decodable {
     let title: String
     let visitors: UInt
     let location: String
