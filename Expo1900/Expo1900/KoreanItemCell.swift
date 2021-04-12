@@ -19,12 +19,14 @@ class KoreanItemCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         return label
     }()
     let shortDescriptionLabel: UILabel = {
         let label  = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
@@ -60,7 +62,8 @@ class KoreanItemCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
             
             shortDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            shortDescriptionLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor)
+            shortDescriptionLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
+            shortDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
 }
