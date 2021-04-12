@@ -20,14 +20,14 @@ class MainViewController: UIViewController {
     @IBOutlet private var EnterExhibitOfKoreaButton: UIButton!
     @IBAction private func EnterExhibitOfKoreaButton(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "showExhibitOfKorea", sender: nil)
+        self.performSegue(withIdentifier: SegueIdentifier.mainToExhibitOfKorea.rawValue, sender: nil)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch initExpoData(fileName:"exposition_universelle_1900", model: MainOfExposition.self) {
+        switch initExpoData(fileName: fileName.expositionUniverselle1900.rawValue, model: MainOfExposition.self) {
         case .success(let data):
             let title = data.title.components(separatedBy: "(")
             var visitorsNumber:String = String(data.visitors)
