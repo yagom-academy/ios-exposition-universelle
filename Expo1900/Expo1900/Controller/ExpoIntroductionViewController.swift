@@ -63,7 +63,7 @@ extension ExpoIntroductionViewController {
     updateNumberOfVisitorsLabel(from: data)
   }
   
-  private func formatNumber(of number: Int) -> Result<String, ExpoAppError> {
+  func formatNumber(of number: Int) -> Result<String, ExpoAppError> {
     let numberFormatter: NumberFormatter = NumberFormatter()
     numberFormatter.numberStyle = .decimal
     

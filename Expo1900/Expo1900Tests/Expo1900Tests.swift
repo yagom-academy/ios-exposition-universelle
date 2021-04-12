@@ -27,5 +27,9 @@ final class Expo1900Tests: XCTestCase {
     XCTAssertEqual(CustomJSONDecoder.decode(to: ExpoIntroduction.self, from: "invalidJSONFileName"),
                    .failure(ExpoAppError.invalidJSONFileName("invalidJSONFileName")))
   }
+  
+  func test_formatNumber() {
+    XCTAssertEqual(ExpoIntroductionViewController().formatNumber(of: 1234567890), .success("1,234,567,890"))
+  }
 }
 
