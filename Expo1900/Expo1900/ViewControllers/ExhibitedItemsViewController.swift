@@ -21,19 +21,14 @@ class ExhibitedItemsViewController: UIViewController {
         
         let nibName = UINib(nibName: "ItemTableViewCell", bundle: nil)
         exhibitedItemsTable.register(nibName, forCellReuseIdentifier: "itemCell")
-        
         self.navigationItem.title = "한국의 출품작"
-
         parseExhibitedItems()
     }
     
     private func parseExhibitedItems() {
         let jsonDecoder = JSONDecoder()
-        
         guard let itemJsonData = NSDataAsset(name: "items") else { return }
-        
         guard let items = try? jsonDecoder.decode([ExhibitedItem].self, from: itemJsonData.data) else { return }
-        
         self.items = items
     }
 }
@@ -42,9 +37,7 @@ extension ExhibitedItemsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemDetail") as? ItemDetailViewController else { return }
-        
         itemDetailViewController.exhibitedItem = items[indexPath.row]
-        
         self.navigationController?.pushViewController(itemDetailViewController, animated: true)
     }
 }
@@ -57,11 +50,9 @@ extension ExhibitedItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemTableViewCell
-        
         cell.itemTitle.text = items[indexPath.row].name
         cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
         cell.itemShortDescription.text = items[indexPath.row].shortDescription
-        
         return cell
     }
 }
