@@ -10,7 +10,7 @@ final class MainViewController: VerticalScrollViewController {
     
     private var expositionData = ExpositionUnivereselle1900()
     private var titleLabel = ExpositionLabel()
-    private var posterImageView = UIImageView()
+    private var posterImageView = UIImageView() 
     private var visitorsLabel = ExpositionLabel()
     private var locationLabel = ExpositionLabel()
     private var durationLabel = ExpositionLabel()
@@ -18,7 +18,7 @@ final class MainViewController: VerticalScrollViewController {
     private var leftkoreanFlagImageView = UIImageView()
     private var rightkoreanFlagImageView = UIImageView()
     private var moveToKoreanItemsButton = UIButton()
-    private var moveToKoreanItemsView = UIStackView()
+    private var moveToKoreanItemsStackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,11 +66,11 @@ final class MainViewController: VerticalScrollViewController {
         stackView.addArrangedSubview(leftkoreanFlagImageView)
         stackView.addArrangedSubview(moveToKoreanItemsButton)
         stackView.addArrangedSubview(rightkoreanFlagImageView)
-        moveToKoreanItemsView = stackView
+        moveToKoreanItemsStackView = stackView
     }
     
     private func lineUpContentsAtInterval(of interval: CGFloat) {
-        let contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemsView]
+        let contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemsStackView]
         
         contents.enumerated().forEach({ (index, item) in
             scrollView.addSubview(item)
@@ -115,6 +115,14 @@ final class MainViewController: VerticalScrollViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.addTarget(self, action: #selector(touchUpMoveToKoreanItemsButton), for: .touchUpInside)
         moveToKoreanItemsButton = button
+    }
+    
+    @objc func touchUpMoveToKoreanItemsButton() {
+        let rootVc = KoreanItemsRootViewController()
+        let navigationViewController = UINavigationController(rootViewController: rootVc)
+        navigationViewController.modalPresentationStyle = .fullScreen
+        present(navigationViewController, animated: true, completion: nil)
     }
 }

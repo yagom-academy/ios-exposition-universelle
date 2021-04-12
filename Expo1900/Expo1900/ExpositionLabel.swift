@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionLabel: UILabel {
+final class ExpositionLabel: UILabel {
     
     init() {
         super.init(frame: .null)

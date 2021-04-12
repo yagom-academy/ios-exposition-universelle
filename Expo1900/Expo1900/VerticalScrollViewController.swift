@@ -8,7 +8,7 @@
 import UIKit
 
 class VerticalScrollViewController: UIViewController {
-    var scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.translatesAutoresizingMaskIntoConstraints = false
         scrollview.bounces = true

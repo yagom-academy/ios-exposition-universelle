@@ -17,6 +17,8 @@
 		1CC0C302261CC0F20052647E /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD1E81261C347600D9D477 /* Error.swift */; };
 		1CF47F29262065EA00CD1E93 /* ExpositionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */; };
 		1CF47F2D262085BA00CD1E93 /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F2C262085BA00CD1E93 /* VerticalScrollViewController.swift */; };
+		1CF47F652623465F00CD1E93 /* KoreanItemsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */; };
+		1CF47F7326241D3500CD1E93 /* KoreanItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */; };
 		1CFD1E82261C347600D9D477 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD1E81261C347600D9D477 /* Error.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -44,6 +46,8 @@
 		1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle1900.swift; sourceTree = "<group>"; };
 		1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionLabel.swift; sourceTree = "<group>"; };
 		1CF47F2C262085BA00CD1E93 /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
+		1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemsRootViewController.swift; sourceTree = "<group>"; };
+		1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemCell.swift; sourceTree = "<group>"; };
 		1CFD1E81261C347600D9D477 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		27B7FCC6914C961CF596F75C /* Pods_Expo1900.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expo1900.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FFAE516913B339DB1E1FAA /* Pods-Expo1900.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expo1900.release.xcconfig"; path = "Target Support Files/Pods-Expo1900/Pods-Expo1900.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				1CF47F2C262085BA00CD1E93 /* VerticalScrollViewController.swift */,
+				1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */,
+				1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */,
 				1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
@@ -306,6 +312,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF47F7326241D3500CD1E93 /* KoreanItemCell.swift in Sources */,
+				1CF47F652623465F00CD1E93 /* KoreanItemsRootViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				1CF47F2D262085BA00CD1E93 /* VerticalScrollViewController.swift in Sources */,
 				1C8AD0CF261BF74C00EAD240 /* ExpositionUniverselle1900.swift in Sources */,
