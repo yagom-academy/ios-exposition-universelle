@@ -11,4 +11,11 @@ class ItemsCustomCell: UITableViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var shortDescLabel: UILabel!
+    
+    func configureCell(data: KoreaItems) {
+        itemImageView.image = UIImage(named: data.imageName)
+        nameLabel.text = data.name
+        shortDescLabel.text = data.shortDesc
+    }
+    
 }

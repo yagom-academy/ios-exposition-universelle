@@ -20,12 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         jsonPaser()
-        
-        titleLabel.text = expositionUniverselles.title
-        visitorsLabel.text = String(expositionUniverselles.visitors)
-        locationLabel.text = expositionUniverselles.location
-        durationLabel.text = expositionUniverselles.duration
-        descLabel.text = expositionUniverselles.description
+        configureView(data: expositionUniverselles)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,4 +39,13 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    func configureView(data: ExpositionUniverselle) {
+        titleLabel.text = data.title
+        visitorsLabel.text = String(data.visitors)
+        locationLabel.text = data.location
+        durationLabel.text = data.duration
+        descLabel.text = data.description
+    }
+    
 }

@@ -46,12 +46,14 @@ class ItemsViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
 }
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         itemData = items[indexPath.row]
     }
+    
 }
 
 extension ItemsViewController: UITableViewDataSource {
@@ -63,11 +65,10 @@ extension ItemsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCustomCell", for: indexPath) as? ItemsCustomCell else {
             return UITableViewCell()
         }
-        
-        cell.itemImageView.image = UIImage(named: items[indexPath.row].imageName)
-        cell.nameLabel.text = items[indexPath.row].name
-        cell.shortDescLabel.text = items[indexPath.row].shortDesc
+       
+        cell.configureCell(data: items[indexPath.row])
         
         return cell
     }
+    
 }

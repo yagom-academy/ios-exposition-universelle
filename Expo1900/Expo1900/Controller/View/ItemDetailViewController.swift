@@ -8,13 +8,13 @@
 import UIKit
 
 class ItemDetailViewController: UIViewController {
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemDescLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemDescLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureCell(data: itemData)
+        configureDetailView(data: itemData)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,9 +22,10 @@ class ItemDetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    func configureCell(data: KoreaItems) {
+    func configureDetailView(data: KoreaItems) {
         title = data.name
         itemImageView.image = UIImage(named: data.imageName)
         itemDescLabel.text = data.description
     }
+    
 }

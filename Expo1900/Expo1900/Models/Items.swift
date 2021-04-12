@@ -19,4 +19,5 @@ struct KoreaItems: Decodable {
         case shortDesc = "short_desc"
         case description = "desc"
     }
+    
 }
