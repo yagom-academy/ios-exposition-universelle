@@ -24,7 +24,7 @@ final class ExpoViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    func loadJsonData() -> ExpoInfo? {
+    private func loadJsonData() -> ExpoInfo? {
         let decoder = JSONDecoder()
         guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return nil }
         
@@ -36,7 +36,7 @@ final class ExpoViewController: UIViewController {
         }
     }
     
-    func updateUI() {
+    private func updateUI() {
         let expoInformation = loadJsonData()
         expoTitleLabel.text = expoInformation?.title
         locationLabel.text = expoInformation?.location
@@ -46,7 +46,7 @@ final class ExpoViewController: UIViewController {
         visitorsLabel.text = String(visitors) + "명"
     }
     
-    @IBAction func touchUpKoreaEntryWorkButton() {
+    @IBAction private func touchUpKoreaEntryWorkButton() {
         guard let koreaEntryWorkViewController = self.storyboard?.instantiateViewController(identifier: "entryWorkVC") as? EntryWorkViewController else { return }
         self.navigationController?.pushViewController(koreaEntryWorkViewController, animated: false)
     }
