@@ -29,10 +29,6 @@ class MainViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    @IBAction func didTapItemListButton() {
-        navigationController?.pushViewController(ItemTableViewController(), animated: true)
-    }
-    
     
     func setupInitialScreenView() {
         do {
