@@ -8,9 +8,9 @@
 import UIKit
 
 final class KoreanEntryTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemShortDescLabel: UILabel!
-    @IBOutlet weak var itemTitleLabel: UILabel!
-    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemShortDescLabel: UILabel!
+    @IBOutlet private weak var itemTitleLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
     
     func setCell(_ data: Item) {
         itemTitleLabel.text = data.name

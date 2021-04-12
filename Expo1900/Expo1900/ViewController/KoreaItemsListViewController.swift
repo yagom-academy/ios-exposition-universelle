@@ -15,7 +15,7 @@ final class KoreaItemsListViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "한국의 출품작"
         decodeData()
-        setKoreanEntryTableViewCell()
+        setKoreaListTableViewCell()
         self.koreaItemsListTableView.delegate = self
         self.koreaItemsListTableView.dataSource = self
     }
@@ -36,9 +36,9 @@ final class KoreaItemsListViewController: UIViewController {
         }
     }
     
-    private func setKoreanEntryTableViewCell() {
-        let koreaEntryTableViewCell = UINib(nibName: String(describing: KoreanEntryTableViewCell.self), bundle: nil)
-        self.koreaItemsListTableView.register(koreaEntryTableViewCell, forCellReuseIdentifier: "koreaItemListTableViewCell")
+    private func setKoreaListTableViewCell() {
+        let koreaItemTableViewCell = UINib(nibName: String(describing: KoreanEntryTableViewCell.self), bundle: nil)
+        self.koreaItemsListTableView.register(koreaItemTableViewCell, forCellReuseIdentifier: "koreaItemListTableViewCell")
     }
 }
 
