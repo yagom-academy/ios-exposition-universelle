@@ -12,3 +12,7 @@
 - 4/7(수): pr 피드백 수정, unittest, try문 공부
 - 4/8(목): 스크롤 뷰 공부 및 구현
 - 4/9(금): tablbview 공부 및 구현
+
+## 앱 화면
+### 오토레이아웃을 제대로 적용하기 전
+![](./images/step2_with_autoLayout.gif)
