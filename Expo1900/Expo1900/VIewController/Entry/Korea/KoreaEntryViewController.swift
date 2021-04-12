@@ -16,7 +16,7 @@ final class KoreaEntryViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         registerXib()
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = KoreaEntryConstant.navigationTitle
         
         if appDelegate?.koreaEntrys.isEmpty == true {
             switch try? initKoreaEntryData() {
@@ -33,12 +33,12 @@ final class KoreaEntryViewController: UIViewController {
 // MARK: - Init Setting
     
     private func registerXib() {
-        let nibName = UINib(nibName: "KoreaEntryTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "KoreaEntryCell")
+        let nibName = UINib(nibName: KoreaEntryConstant.cellNibName, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: KoreaEntryConstant.cellIdentifier)
     }
     
     private func initKoreaEntryData() throws -> Result<[StateEntry], ExpoError> {
-        guard let dataAsset = NSDataAsset(name: "items") else {
+        guard let dataAsset = NSDataAsset(name: KoreaEntryConstant.koreaEntryJson) else {
             return .failure(ExpoError.itemsData)
         }
         return .success(try JSONDecoder().decode([StateEntry].self, from: dataAsset.data))
@@ -54,7 +54,7 @@ extension KoreaEntryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreaEntryCell", for: indexPath) as? KoreaEntryTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryConstant.cellIdentifier, for: indexPath) as? KoreaEntryTableViewCell,
               let koreaEntry = appDelegate?.koreaEntrys[indexPath.row] else {
             
             return UITableViewCell()
@@ -68,5 +68,14 @@ extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let data = appDelegate?.koreaEntrys[indexPath.row] else { return }
         self.navigationController?.pushViewController(KoreaDetailEntryViewController.initDetailEntryData(data), animated: true)
+    }
+}
+
+extension KoreaEntryViewController {
+    enum KoreaEntryConstant {
+        static let navigationTitle = "한국의 출품작"
+        static let koreaEntryJson = "items"
+        static let cellNibName = "KoreaEntryTableViewCell"
+        static let cellIdentifier = "KoreaEntryCell"
     }
 }

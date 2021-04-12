@@ -48,7 +48,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initExpoData() throws -> Result<Expo, ExpoError> {
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let dataAsset = NSDataAsset(name: ExpoConstant.expoJson) else {
             return .failure(ExpoError.expoData)
         }
         return .success(try JSONDecoder().decode(Expo.self, from: dataAsset.data))
@@ -56,11 +56,11 @@ final class ExpoViewController: UIViewController {
     
     private func initUI() {
         guard let expo = appDelegate?.expoData else { return }
-        self.navigationController?.title = "메인"
+        self.navigationController?.title = ExpoConstant.pageTitle
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = "방문객 : " + creatVisitorsComma(expo.visitors)
-        locationLabel.text = "개최지 : " + expo.location
-        durationLabel.text = "개최 기간 : " + expo.duration
+        visitorsLabel.text = PostWord.visitors + creatVisitorsComma(expo.visitors)
+        locationLabel.text = PostWord.location + expo.location
+        durationLabel.text = PostWord.duration + expo.duration
         descrtiptionLabel.text = expo.description
     }
     
@@ -93,5 +93,18 @@ final class ExpoViewController: UIViewController {
         
         backgroundImage.alpha = 0.15
         self.view.sendSubviewToBack(backgroundImage)
+    }
+}
+
+extension ExpoViewController {
+    enum ExpoConstant {
+        static let expoJson = "exposition_universelle_1900"
+        static let pageTitle = "메인"
+    }
+    
+    enum PostWord {
+        static let visitors = "방문객 : "
+        static let location = "개최지 : "
+        static let duration = "개최 기간 : "
     }
 }
