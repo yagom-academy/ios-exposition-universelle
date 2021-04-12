@@ -26,7 +26,7 @@ class ExhibitOfKoreaViewController: UIViewController {
         let tableViewNib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(tableViewNib, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         
-        switch initExpoData(fileName: fileName.items.rawValue, model: [ExhibitItem].self) {
+        switch initExpoData(fileName: fileName.items, model: [ExhibitItem].self) {
         case .success(let data):
             exhibitItem = data
         case .failure(let error):
@@ -74,7 +74,7 @@ extension ExhibitOfKoreaViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableViewIndex = indexPath.row
-        self.performSegue(withIdentifier: SegueIdentifier.exhibitOfKoreaToExhibitOfKoreaItem.rawValue, sender: nil)
+        self.performSegue(withIdentifier: SegueIdentifier.exhibitOfKoreaToExhibitOfKoreaItem, sender: nil)
     }
     
 }
