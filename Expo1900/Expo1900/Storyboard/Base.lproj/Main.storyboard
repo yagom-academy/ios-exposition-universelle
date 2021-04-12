@@ -30,6 +30,9 @@
                             <constraint firstItem="55J-Br-jdq" firstAttribute="trailing" secondItem="rNr-QY-cIX" secondAttribute="trailing" id="oV0-xS-BQp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="koreaItemsListTableView" destination="rNr-QY-cIX" id="E7E-6M-UUr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faH-j9-PvN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

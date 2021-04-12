@@ -9,6 +9,7 @@ import Foundation
 
 enum ExpoError: Error {
     case invalidExpoData
+    case invalidItemData
 }
 
 extension ExpoError: LocalizedError {
@@ -16,6 +17,8 @@ extension ExpoError: LocalizedError {
         switch self {
         case .invalidExpoData:
             return "ExpoData를 불러올 수 없습니다"
+        case .invalidItemData:
+            return "ItemData를 불러올 수 없습니다"
         }
     }
 }
