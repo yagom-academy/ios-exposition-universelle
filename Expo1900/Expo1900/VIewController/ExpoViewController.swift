@@ -23,7 +23,7 @@ final class ExpoViewController: UIViewController {
             case .success(let data):
                 appDelegate?.expoData = data
                 initUI()
-                setLableAttribute()
+                setLabelAttribute()
             case .failure(let error):
                 alterError(error)
             case .none:
@@ -42,7 +42,7 @@ final class ExpoViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    @IBAction func touchUpMoveToKoreaitems(_ sender: Any) {
+    @IBAction func touchUpMoveToKoreaItems(_ sender: Any) {
         let koreaEntryViewController = KoreaEntryViewController()
         self.navigationController?.pushViewController(koreaEntryViewController, animated: true)
     }
@@ -73,7 +73,7 @@ final class ExpoViewController: UIViewController {
         return decimalStyleValue + " 명"
     }
 
-    private func setLableAttribute() {
+    private func setLabelAttribute() {
         expoTitleLabel.numberOfLines = 2
         expoTitleLabel.textAlignment = .center
         expoTitleLabel.adjustsFontSizeToFitWidth = true
