@@ -40,7 +40,7 @@ class ExpositionViewController: UIViewController {
         do {
             self.expoData = try JSONDecoder().decode(Exposition.self, from: dataAsset.data)
         } catch {
-            print(error.localizedDescription)
+            implementErrorAlert(ExpoError.invalidExpoData)
         }
     }
     
