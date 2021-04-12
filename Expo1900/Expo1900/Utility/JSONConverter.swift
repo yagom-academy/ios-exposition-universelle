@@ -25,8 +25,19 @@ enum JSONConverterError: Error, Equatable {
 /// (Zedd체 따라해봤습니다...깨알 이스터에그)
 struct JSONConverter<T: Decodable> {
     
-    /// extractData라는 메서드와 decodeAsset이라는 메서드를 통합하여 실행하는 메서드
-    static func parse(assetName: String) -> Result<T, JSONConverterError> { 
+    /// extractData라는 메서드와 decodeAsset이라는 메서드를 통합하여 실행하는 메서드이다.
+    /// 반환값은 Result 타입을 가지는데, success의 경우 제네릭 타입을 반환하고,
+    /// failure의 경우에는 throw 되는 에러 case 를  보여준다.
+    static func parse(assetName: String) -> Result<T, JSONConverterError> {
+        do {
+            return .success(try decodeAsset(of: extractData(assetName: assetName)))
+        } catch JSONConverterError.inputWrongAssetName {
+            return .failure(JSONConverterError.inputWrongAssetName(assetName))
+        } catch JSONConverterError.isNotMatchingType {
+            return .failure(JSONConverterError.isNotMatchingType)
+        } catch {
+            return .failure(JSONConverterError.otherError)
+        }
     }
     
     /// JSON 파일을 가져와 NSDataAsset 타입으로 리턴해 주는 메서드
