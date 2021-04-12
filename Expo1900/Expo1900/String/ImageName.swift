@@ -5,7 +5,7 @@
 //  Created by 최정민 on 2021/04/12.
 //
 
-class imageName {
+class ImageName {
     static let bangjja = "bangjja"
     static let buddhism = "buddhism"
     static let flag = "flag"
