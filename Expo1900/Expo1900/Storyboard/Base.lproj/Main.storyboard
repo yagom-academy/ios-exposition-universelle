@@ -25,61 +25,52 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="4HQ-gB-EmD">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="4HQ-gB-EmD">
                                         <rect key="frame" x="120" y="100.66666666666667" width="174" height="243.66666666666663"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4HQ-gB-EmD" secondAttribute="height" multiplier="5:7" id="BQD-fn-1pe"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객 : 12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f79-j6-MLf">
-                                        <rect key="frame" x="140" y="364.33333333333331" width="134.33333333333337" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="JqO-0O-6TZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객 : 12345" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f79-j6-MLf">
+                                        <rect key="frame" x="153" y="364.33333333333331" width="108" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최지 : 지구" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6m-Ez-bah">
-                                        <rect key="frame" x="151.66666666666666" y="400.33333333333331" width="110.66666666666666" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="laV-VF-1qY"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최지 : 지구" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6m-Ez-bah">
+                                        <rect key="frame" x="163.66666666666666" y="399.66666666666669" width="87" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간 : 오늘 내일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gJ-6z-Aky">
-                                        <rect key="frame" x="118" y="436.33333333333331" width="178" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="X4d-XV-EmW"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간 : 오늘 내일" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gJ-6z-Aky">
+                                        <rect key="frame" x="137.33333333333331" y="435" width="139.33333333333331" height="20.333333333333314"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설 명 !" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA2-E1-Oa9">
-                                        <rect key="frame" x="20" y="477.33333333333331" width="374" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설 명 !" textAlignment="justified" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA2-E1-Oa9">
+                                        <rect key="frame" x="20" y="475.33333333333331" width="374" height="15.666666666666686"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="PfZ-jV-Bcn">
-                                        <rect key="frame" x="59.666666666666657" y="510" width="45" height="45"/>
+                                        <rect key="frame" x="59.666666666666657" y="503.33333333333326" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PfZ-jV-Bcn" secondAttribute="height" multiplier="1:1" id="cM0-HM-vuT"/>
                                             <constraint firstAttribute="height" constant="45" id="uZC-wT-W0J"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="jdR-w9-MJB">
-                                        <rect key="frame" x="301" y="510" width="45" height="45"/>
+                                        <rect key="frame" x="301" y="503.33333333333326" width="45" height="45"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRQ-Kq-8uN">
-                                        <rect key="frame" x="144.66666666666666" y="517.66666666666663" width="124.99999999999997" height="30"/>
+                                        <rect key="frame" x="144.66666666666666" y="511" width="124.99999999999997" height="30"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <state key="normal" title="한국 출품작 보러가기"/>
                                         <connections>
-                                            <action selector="touchUpMoveToKoreaitems:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIn-Pc-OjF"/>
+                                            <action selector="touchUpMoveToKoreaItems:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIn-Pc-OjF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -90,22 +81,28 @@
                                     <constraint firstItem="GRQ-Kq-8uN" firstAttribute="top" secondItem="nA2-E1-Oa9" secondAttribute="bottom" constant="20" id="Hc1-am-pbY"/>
                                     <constraint firstItem="jdR-w9-MJB" firstAttribute="leading" secondItem="GRQ-Kq-8uN" secondAttribute="trailing" constant="31.5" id="J6k-Zd-8mA"/>
                                     <constraint firstItem="W6m-Ez-bah" firstAttribute="top" secondItem="f79-j6-MLf" secondAttribute="bottom" constant="15" id="Kzd-Ed-VDG"/>
+                                    <constraint firstItem="3gJ-6z-Aky" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GkX-85-A0D" secondAttribute="leading" constant="10" id="Laq-KV-8H7"/>
                                     <constraint firstItem="f79-j6-MLf" firstAttribute="centerX" secondItem="4HQ-gB-EmD" secondAttribute="centerX" id="Llx-3Y-zfd"/>
                                     <constraint firstItem="jdR-w9-MJB" firstAttribute="width" secondItem="PfZ-jV-Bcn" secondAttribute="width" id="Mfv-EN-8Wm"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f79-j6-MLf" secondAttribute="trailing" constant="10" id="Qsh-FA-iuO"/>
                                     <constraint firstAttribute="trailing" secondItem="4HQ-gB-EmD" secondAttribute="trailing" constant="120" id="RQW-SB-s2b"/>
                                     <constraint firstItem="4HQ-gB-EmD" firstAttribute="top" secondItem="8MR-hT-I6m" secondAttribute="bottom" constant="25" id="SdD-Jw-I3a"/>
                                     <constraint firstItem="GRQ-Kq-8uN" firstAttribute="leading" secondItem="PfZ-jV-Bcn" secondAttribute="trailing" constant="40" id="TsL-Ws-mW7"/>
+                                    <constraint firstItem="f79-j6-MLf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GkX-85-A0D" secondAttribute="leading" constant="10" id="bCb-Vk-oy9"/>
                                     <constraint firstItem="4HQ-gB-EmD" firstAttribute="centerX" secondItem="8MR-hT-I6m" secondAttribute="centerX" id="blB-ub-c1U"/>
                                     <constraint firstAttribute="bottom" secondItem="GRQ-Kq-8uN" secondAttribute="bottom" constant="30" id="dAu-vZ-FL5"/>
                                     <constraint firstItem="PfZ-jV-Bcn" firstAttribute="centerY" secondItem="GRQ-Kq-8uN" secondAttribute="centerY" id="eg5-NI-CwU"/>
                                     <constraint firstItem="GRQ-Kq-8uN" firstAttribute="centerX" secondItem="GkX-85-A0D" secondAttribute="centerX" id="fCd-R1-I7e"/>
                                     <constraint firstItem="W6m-Ez-bah" firstAttribute="centerX" secondItem="4HQ-gB-EmD" secondAttribute="centerX" id="hD4-Cw-bY2"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W6m-Ez-bah" secondAttribute="trailing" constant="10" id="hWJ-te-uwK"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3gJ-6z-Aky" secondAttribute="trailing" constant="10" id="imM-TX-5yK"/>
                                     <constraint firstItem="3gJ-6z-Aky" firstAttribute="top" secondItem="W6m-Ez-bah" secondAttribute="bottom" constant="15" id="jMp-Hu-mj1"/>
                                     <constraint firstItem="8MR-hT-I6m" firstAttribute="top" secondItem="GkX-85-A0D" secondAttribute="top" constant="35" id="lPM-6C-6VA"/>
                                     <constraint firstItem="jdR-w9-MJB" firstAttribute="height" secondItem="PfZ-jV-Bcn" secondAttribute="height" id="oaY-Kf-vi5"/>
                                     <constraint firstItem="3gJ-6z-Aky" firstAttribute="centerX" secondItem="4HQ-gB-EmD" secondAttribute="centerX" id="pkd-Hu-7uh"/>
                                     <constraint firstItem="4HQ-gB-EmD" firstAttribute="leading" secondItem="GkX-85-A0D" secondAttribute="leading" constant="120" id="ry5-ts-fEj"/>
                                     <constraint firstItem="f79-j6-MLf" firstAttribute="top" secondItem="4HQ-gB-EmD" secondAttribute="bottom" constant="20" id="yM1-55-FTg"/>
+                                    <constraint firstItem="W6m-Ez-bah" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GkX-85-A0D" secondAttribute="leading" constant="10" id="zZn-hm-nXf"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Mfm-O9-lXa"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="7ms-f4-Sjn"/>
@@ -130,15 +127,11 @@
                     <navigationItem key="navigationItem" id="RF0-Dz-2yB"/>
                     <connections>
                         <outlet property="backgroundImage" destination="qEy-Ze-L8D" id="Mo2-lE-KbY"/>
-                        <outlet property="desc" destination="nA2-E1-Oa9" id="hzI-tZ-dw7"/>
-                        <outlet property="duration" destination="3gJ-6z-Aky" id="l6n-8w-5Sp"/>
-                        <outlet property="expoImage" destination="4HQ-gB-EmD" id="oiI-dd-lGz"/>
-                        <outlet property="expoTitle" destination="8MR-hT-I6m" id="zov-Wm-OEs"/>
-                        <outlet property="koreaImageLeft" destination="PfZ-jV-Bcn" id="gAN-we-GOQ"/>
-                        <outlet property="koreaImageRight" destination="jdR-w9-MJB" id="QxE-aS-a1c"/>
-                        <outlet property="koreaItemsPageButton" destination="GRQ-Kq-8uN" id="LF4-xj-B68"/>
-                        <outlet property="location" destination="W6m-Ez-bah" id="V0E-vk-wfF"/>
-                        <outlet property="visitors" destination="f79-j6-MLf" id="mCN-h7-scz"/>
+                        <outlet property="descrtiptionLabel" destination="nA2-E1-Oa9" id="hzI-tZ-dw7"/>
+                        <outlet property="durationLabel" destination="3gJ-6z-Aky" id="l6n-8w-5Sp"/>
+                        <outlet property="expoTitleLabel" destination="8MR-hT-I6m" id="zov-Wm-OEs"/>
+                        <outlet property="locationLabel" destination="W6m-Ez-bah" id="V0E-vk-wfF"/>
+                        <outlet property="visitorsLabel" destination="f79-j6-MLf" id="mCN-h7-scz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

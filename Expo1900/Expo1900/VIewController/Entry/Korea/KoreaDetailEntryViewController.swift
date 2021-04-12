@@ -11,31 +11,35 @@ final class KoreaDetailEntryViewController: UIViewController {
     @IBOutlet private weak var detailImage: UIImageView!
     @IBOutlet private weak var descriptionLable: UILabel!
     
-    private var detailEntry: StateEntry
-
+    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewDidLoad() {
-        do {
-            try setDetailEntry()
-        } catch {
-            alterError(error)
+        setDetailEntry()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if appDelegate?.shouldSupportAllOrientation == false {
+            appDelegate?.shouldSupportAllOrientation = true
+            descriptionLable.font = UIFont.preferredFont(forTextStyle: .footnote)
+        } else {
+            appDelegate?.shouldSupportAllOrientation = false
+            descriptionLable.font = UIFont.preferredFont(forTextStyle: .body)
         }
     }
     
-    init(_ EntryValue: StateEntry) {
-        detailEntry = EntryValue
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    static func initDetailEntryData(_ data: StateEntry) -> KoreaDetailEntryViewController {
+        let viewController = KoreaDetailEntryViewController()
+        viewController.appDelegate?.detailEntry = data
+        return viewController
     }
     
 // MARK: - Init Setting
 
-    private func setDetailEntry() throws {
-        detailImage.image = UIImage(named: detailEntry.imageName)
-        descriptionLable.text = detailEntry.description
-        self.navigationItem.title = detailEntry.name
+    private func setDetailEntry() {
+        guard let value = appDelegate?.detailEntry else { return }
+        detailImage.image = UIImage(named: value.imageName)
+        descriptionLable.text = value.description
+        self.navigationItem.title = value.name
         
         descriptionLable.lineBreakStrategy = .hangulWordPriority
         descriptionLable.textAlignment = .justified

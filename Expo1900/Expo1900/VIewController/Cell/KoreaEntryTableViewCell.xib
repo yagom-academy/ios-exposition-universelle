@@ -26,16 +26,16 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TBO-mJ-z0S">
                         <rect key="frame" x="120" y="20" width="222" height="85"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeC-CL-0Sk">
-                                <rect key="frame" x="0.0" y="0.0" width="222" height="26.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeC-CL-0Sk">
+                                <rect key="frame" x="0.0" y="0.0" width="222" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrF-Eb-bCC">
-                                <rect key="frame" x="0.0" y="26.5" width="222" height="58.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrF-Eb-bCC">
+                                <rect key="frame" x="0.0" y="24" width="222" height="61"/>
                                 <string key="text">백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,백운사상,,,,,,,,,,,백운사상,,,,,,</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -58,7 +58,7 @@
             <connections>
                 <outlet property="descriptionLable" destination="jrF-Eb-bCC" id="jWt-Cq-ocw"/>
                 <outlet property="entryImage" destination="afj-40-qvE" id="HEq-q6-aiw"/>
-                <outlet property="title" destination="FeC-CL-0Sk" id="2N7-zZ-162"/>
+                <outlet property="titleLabel" destination="FeC-CL-0Sk" id="2N7-zZ-162"/>
             </connections>
             <point key="canvasLocation" x="234.78260869565219" y="155.35714285714286"/>
         </tableViewCell>

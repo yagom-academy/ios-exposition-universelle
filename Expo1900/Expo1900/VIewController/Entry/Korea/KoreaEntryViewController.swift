@@ -10,32 +10,38 @@ import UIKit
 final class KoreaEntryViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
-    private var koreaEntrys: [StateEntry] = []
-    
+    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
+
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
-        do {
-            try initKoreaEntryData()
-            registerXib()
-        } catch {
-            alterError(error)
+        registerXib()
+        self.navigationItem.title = KoreaEntryConstant.navigationTitle
+        
+        if appDelegate?.koreaEntrys.isEmpty == true {
+            switch try? initKoreaEntryData() {
+            case .success(let data):
+                appDelegate?.koreaEntrys = data
+            case .failure(let error):
+                alterError(error)
+            case .none:
+                alterError(ExpoError.unknown)
+            }
         }
     }
     
 // MARK: - Init Setting
     
     private func registerXib() {
-        let nibName = UINib(nibName: "KoreaEntryTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "KoreaEntryCell")
+        let nibName = UINib(nibName: KoreaEntryConstant.cellNibName, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: KoreaEntryConstant.cellIdentifier)
     }
     
-    private func initKoreaEntryData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else {
-            throw ExpoError.itemsData
+    private func initKoreaEntryData() throws -> Result<[StateEntry], ExpoError> {
+        guard let dataAsset = NSDataAsset(name: KoreaEntryConstant.koreaEntryJson) else {
+            return .failure(ExpoError.itemsData)
         }
-        self.koreaEntrys = try JSONDecoder().decode([StateEntry].self, from: dataAsset.data)
-        self.navigationItem.title = "한국의 출품작"
+        return .success(try JSONDecoder().decode([StateEntry].self, from: dataAsset.data))
     }
 }
 
@@ -43,23 +49,33 @@ final class KoreaEntryViewController: UIViewController {
 
 extension KoreaEntryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return koreaEntrys.count
+        guard let count = appDelegate?.koreaEntrys.count else { return 0 }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreaEntryCell", for: indexPath) as? KoreaEntryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryConstant.cellIdentifier, for: indexPath) as? KoreaEntryTableViewCell,
+              let koreaEntry = appDelegate?.koreaEntrys[indexPath.row] else {
+            
             return UITableViewCell()
         }
-        let koreaEntry = self.koreaEntrys[indexPath.row]
         cell.setCell(koreaEntry)
-        
         return cell
     }
 }
 
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let koreaDetailEntryViewController = KoreaDetailEntryViewController(self.koreaEntrys[indexPath.row])
-        self.navigationController?.pushViewController(koreaDetailEntryViewController, animated: true)
+        guard let data = appDelegate?.koreaEntrys[indexPath.row] else { return }
+        self.navigationController?.pushViewController(KoreaDetailEntryViewController.initDetailEntryData(data), animated: true)
+    }
+}
+
+extension KoreaEntryViewController {
+    enum KoreaEntryConstant {
+        static let navigationTitle = "한국의 출품작"
+        static let koreaEntryJson = "items"
+        static let cellNibName = "KoreaEntryTableViewCell"
+        static let cellIdentifier = "KoreaEntryCell"
     }
 }

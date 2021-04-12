@@ -23,13 +23,14 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B7-0D-tx3">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="HKv-ec-Eq6">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="HKv-ec-Eq6">
                             <rect key="frame" x="70" y="30" width="274" height="274"/>
                             <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="Q3U-nL-3fo"/>
                                 <constraint firstAttribute="width" secondItem="HKv-ec-Eq6" secondAttribute="height" multiplier="1:1" id="udb-0d-LF0"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huM-LS-q7u">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huM-LS-q7u">
                             <rect key="frame" x="20" y="334" width="374" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <nil key="textColor"/>
@@ -51,13 +52,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="HKv-ec-Eq6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="7Dz-FL-a80"/>
+                <constraint firstItem="HKv-ec-Eq6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" priority="750" constant="70" id="7Dz-FL-a80"/>
+                <constraint firstItem="HKv-ec-Eq6" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="84V-cX-pmA"/>
                 <constraint firstAttribute="bottom" secondItem="7B7-0D-tx3" secondAttribute="bottom" id="RDW-tw-6Ad"/>
                 <constraint firstItem="7B7-0D-tx3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TzU-L8-GhN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HKv-ec-Eq6" secondAttribute="trailing" constant="70" id="aWU-Sd-TGg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HKv-ec-Eq6" secondAttribute="trailing" priority="750" constant="70" id="aWU-Sd-TGg"/>
                 <constraint firstItem="7B7-0D-tx3" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kHl-ge-E5f"/>
                 <constraint firstItem="7B7-0D-tx3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vWy-We-Cqd"/>
-                <constraint firstItem="7B7-0D-tx3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="zfG-G5-QAc"/>
             </constraints>
             <point key="canvasLocation" x="24.637681159420293" y="152.67857142857142"/>
         </view>

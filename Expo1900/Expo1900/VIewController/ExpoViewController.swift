@@ -8,55 +8,60 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
-    @IBOutlet private weak var expoTitle: UILabel!
-    @IBOutlet private weak var expoImage: UIImageView!
-    @IBOutlet private weak var visitors: UILabel!
-    @IBOutlet private weak var location: UILabel!
-    @IBOutlet private weak var duration: UILabel!
-    @IBOutlet private weak var desc: UILabel!
-    @IBOutlet private weak var koreaItemsPageButton: UIButton!
-    @IBOutlet private weak var koreaImageLeft: UIImageView!
-    @IBOutlet private weak var koreaImageRight: UIImageView!
+    @IBOutlet private weak var expoTitleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descrtiptionLabel: UILabel!
     @IBOutlet private weak var backgroundImage: UIImageView!
     
-    private var expoData: Expo?
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
     override func viewDidLoad() {
-        do {
-            try initExpoData()
-            try initUI()
-            setLableAttribute()
-        } catch {
-            alterError(error)
+        if appDelegate?.expoData == nil {
+            switch try? initExpoData() {
+            case .success(let data):
+                appDelegate?.expoData = data
+                initUI()
+                setLabelAttribute()
+            case .failure(let error):
+                alterError(error)
+            case .none:
+                alterError(ExpoError.unknown)
+            }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        appDelegate?.shouldSupportAllOrientation = false
     }
     
-    @IBAction func touchUpMoveToKoreaitems(_ sender: Any) {
-        let koreaEntryViewController = KoreaEntryViewController()
-        self.navigationController?.pushViewController(koreaEntryViewController, animated: true)
+    override func viewWillDisappear(_ animated: Bool) {
+        appDelegate?.shouldSupportAllOrientation = true
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    private func initExpoData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
-            throw ExpoError.expoData
-        }
-        self.expoData = try JSONDecoder().decode(Expo.self, from: dataAsset.data)
+    @IBAction func touchUpMoveToKoreaItems(_ sender: Any) {
+        let koreaEntryViewController = KoreaEntryViewController()
+        self.navigationController?.pushViewController(koreaEntryViewController, animated: true)
     }
     
-    private func initUI() throws {
-        guard let expo = expoData else {
-            throw ExpoError.expoData
+    private func initExpoData() throws -> Result<Expo, ExpoError> {
+        guard let dataAsset = NSDataAsset(name: ExpoConstant.expoJson) else {
+            return .failure(ExpoError.expoData)
         }
-        expoTitle.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
-        visitors.text = "방문객 : " + creatVisitorsComma(expo.visitors)
-        location.text = "개최지 : " + expo.location
-        duration.text = "개최 기간 : " + expo.duration
-        desc.text = expo.description
+        return .success(try JSONDecoder().decode(Expo.self, from: dataAsset.data))
+    }
+    
+    private func initUI() {
+        guard let expo = appDelegate?.expoData else { return }
+        self.navigationController?.title = ExpoConstant.pageTitle
+        expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
+        visitorsLabel.text = PostWord.visitors + creatVisitorsComma(expo.visitors)
+        locationLabel.text = PostWord.location + expo.location
+        durationLabel.text = PostWord.duration + expo.duration
+        descrtiptionLabel.text = expo.description
     }
     
     private func creatVisitorsComma(_ visitors: UInt) -> String {
@@ -68,16 +73,38 @@ final class ExpoViewController: UIViewController {
         return decimalStyleValue + " 명"
     }
 
-    private func setLableAttribute() {
-        expoTitle.numberOfLines = 2
-        expoTitle.textAlignment = .center
-        expoTitle.adjustsFontSizeToFitWidth = true
+    private func setLabelAttribute() {
+        expoTitleLabel.numberOfLines = 2
+        expoTitleLabel.textAlignment = .center
+        expoTitleLabel.adjustsFontSizeToFitWidth = true
         
-        desc.numberOfLines = 0
-        desc.lineBreakStrategy = .hangulWordPriority
-        desc.textAlignment = .justified
+        visitorsLabel.textAlignment = .center
+        visitorsLabel.adjustsFontSizeToFitWidth = true
+        
+        locationLabel.textAlignment = .center
+        locationLabel.adjustsFontSizeToFitWidth = true
+        
+        durationLabel.textAlignment = .center
+        durationLabel.adjustsFontSizeToFitWidth = true
+        
+        descrtiptionLabel.numberOfLines = 0
+        descrtiptionLabel.lineBreakStrategy = .hangulWordPriority
+        descrtiptionLabel.textAlignment = .justified
         
         backgroundImage.alpha = 0.15
         self.view.sendSubviewToBack(backgroundImage)
+    }
+}
+
+extension ExpoViewController {
+    enum ExpoConstant {
+        static let expoJson = "exposition_universelle_1900"
+        static let pageTitle = "메인"
+    }
+    
+    enum PostWord {
+        static let visitors = "방문객 : "
+        static let location = "개최지 : "
+        static let duration = "개최 기간 : "
     }
 }
