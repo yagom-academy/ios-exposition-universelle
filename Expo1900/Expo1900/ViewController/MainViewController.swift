@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch initExpoData(fileName: fileName.expositionUniverselle1900, model: MainOfExposition.self) {
+        switch initExpoData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self) {
         case .success(let data):
             let title = data.title.components(separatedBy: "(")
             var visitorsNumber:String = String(data.visitors)
@@ -37,13 +37,13 @@ class MainViewController: UIViewController {
             }
             
             expoTitle.text = title[0] + "\n" + "(" + title[1]
-            expoImage.image = UIImage(named: imageName.poster)
+            expoImage.image = UIImage(named: ImageName.poster)
             expoVisitior.text = "방문객 : " + visitorsNumber + "명"
             expoLocation.text = "개최지 : " + data.location
             expoDuration.text = "개최기간 : " + data.duration
             expoDescription.text = data.description
-            leftFalgImage.image = UIImage(named: imageName.flag)
-            rightFlagImage.image = UIImage(named: imageName.flag)
+            leftFalgImage.image = UIImage(named: ImageName.flag)
+            rightFlagImage.image = UIImage(named: ImageName.flag)
             EnterExhibitOfKoreaButton.setTitle("한국의 출품작 보러가기", for: .normal)
             
         case .failure(let error):

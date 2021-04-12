@@ -26,7 +26,7 @@ class ExhibitOfKoreaViewController: UIViewController {
         let tableViewNib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(tableViewNib, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         
-        switch initExpoData(fileName: fileName.items, model: [ExhibitItem].self) {
+        switch initExpoData(fileName: FileName.items, model: [ExhibitItem].self) {
         case .success(let data):
             exhibitItem = data
         case .failure(let error):
