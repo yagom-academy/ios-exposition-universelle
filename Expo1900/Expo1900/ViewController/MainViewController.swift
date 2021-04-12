@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
             var visitorsNumber:String = String(data.visitors)
         
             for offsetElement in 0..<(String(data.visitors).count-1)/3 {
-                visitorsNumber.insert(",", at: visitorsNumber.index(visitorsNumber.endIndex, offsetBy: -( 3 * (offsetElement+1) + offsetElement)))
+                visitorsNumber.insert(",", at: visitorsNumber.index(visitorsNumber.endIndex, offsetBy: -( 3 * (offsetElement + 1) + offsetElement)))
             }
             
             expoTitle.text = title[0] + "\n" + "(" + title[1]
