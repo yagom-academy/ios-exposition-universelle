@@ -30,11 +30,7 @@ class MainViewController: UIViewController {
         switch initExpoData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self) {
         case .success(let data):
             let title = data.title.components(separatedBy: "(")
-            var visitorsNumber:String = String(data.visitors)
-        
-            for offsetElement in 0..<(String(data.visitors).count-1)/3 {
-                visitorsNumber.insert(",", at: visitorsNumber.index(visitorsNumber.endIndex, offsetBy: -( 3 * (offsetElement + 1) + offsetElement)))
-            }
+            let visitorsNumber:String = changeNumberFormat(number: data.visitors)
             
             expoTitle.text = title[0] + "\n" + "(" + title[1]
             expoImage.image = UIImage(named: ImageName.poster)
@@ -54,6 +50,17 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func changeNumberFormat(number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let demicalStyleNumber = numberFormatter.string(from: NSNumber(value:number)) else {
+            return "error"
+        }
+        
+        return demicalStyleNumber
     }
     
 }
