@@ -19,7 +19,6 @@ final class ExpoViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
     override func viewDidLoad() {
-        
         switch try? initExpoData() {
         case .success(let data):
             expoData = data
@@ -39,12 +38,12 @@ final class ExpoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         appDelegate?.shouldSupportAllOrientation = true
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func touchUpMoveToKoreaitems(_ sender: Any) {
         let koreaEntryViewController = KoreaEntryViewController()
         self.navigationController?.pushViewController(koreaEntryViewController, animated: true)
-        self.navigationController?.navigationBar.isHidden = false
     }
     
     private func initExpoData() throws -> Result<Expo, ExpoError> {
