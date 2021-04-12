@@ -17,13 +17,13 @@ import UIKit
 ///         let location: String
 ///     }
 ///
-///     // exposition.dataset
-///     guard let exposition: Exposition = JSONParser<Exposition>.parse("exposition") else { return }
+///     // exposition.dataset이 존재한다면
+///     guard let expo: Exposition = try? JSONParser<Exposition>.parse("exposition").get() else { return }
 ///
-///     print(exposition.title)
+///     print(expo.title)
 enum JSONParser<Type: Decodable> {
     
-    /// 주어진 dataset 이름으로 지정한 타입의 인스턴스를 반환한다.
+    /// 주어진 dataset 이름을 통해 지정한 타입의 인스턴스나 실패한 경우의 Error를 반환한다.
     static func parse(_ dataName: String) -> Result<Type, JSONParserError> {
         guard let dataAsset = extractData(from: dataName) else {
             return .failure(.invalidAssetName(dataName))
