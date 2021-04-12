@@ -19,9 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet private var rightFlagImage: UIImageView!
     @IBOutlet private var EnterExhibitOfKoreaButton: UIButton!
     @IBAction private func EnterExhibitOfKoreaButton(_ sender: Any) {
-        
         self.performSegue(withIdentifier: SegueIdentifier.mainToExhibitOfKorea, sender: nil)
-        
     }
     
     override func viewDidLoad() {
@@ -31,7 +29,6 @@ class MainViewController: UIViewController {
         case .success(let data):
             let title = data.title.components(separatedBy: "(")
             let visitorsNumber:String = changeNumberFormat(number: data.visitors)
-            
             expoTitle.text = title[0] + "\n" + "(" + title[1]
             expoImage.image = UIImage(named: ImageName.poster)
             expoVisitior.text = "방문객 : " + visitorsNumber + "명"
@@ -41,7 +38,6 @@ class MainViewController: UIViewController {
             leftFalgImage.image = UIImage(named: ImageName.flag)
             rightFlagImage.image = UIImage(named: ImageName.flag)
             EnterExhibitOfKoreaButton.setTitle("한국의 출품작 보러가기", for: .normal)
-            
         case .failure(let error):
             print(error.localizedDescription)
         }
@@ -62,16 +58,14 @@ class MainViewController: UIViewController {
         
         return demicalStyleNumber
     }
-    
 }
 
 extension UIViewController {
-    
     func initExpoData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
         switch loadData(name: fileName) {
         case .success(let data):
             return decodeData(data: data, model: model)
-        case .failure :
+        case .failure:
             return .failure(DataError.LoadJSON)
         }
     }

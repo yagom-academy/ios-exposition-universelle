@@ -8,9 +8,8 @@
 import UIKit
 
 class ExhibitOfKoreaViewController: UIViewController {
-
-    @IBOutlet private var tableView: UITableView!
     
+    @IBOutlet private var tableView: UITableView!
     private var exhibitItem: [ExhibitItem] = []
     private var tableViewIndex: Int = -1
     
@@ -23,6 +22,7 @@ class ExhibitOfKoreaViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
         let tableViewNib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(tableViewNib, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         
@@ -35,7 +35,6 @@ class ExhibitOfKoreaViewController: UIViewController {
         
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,12 +65,10 @@ extension ExhibitOfKoreaViewController: UITableViewDataSource {
 }
 
 extension ExhibitOfKoreaViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableViewIndex = indexPath.row
         self.performSegue(withIdentifier: SegueIdentifier.exhibitOfKoreaToExhibitOfKoreaItem, sender: nil)
     }
-    
 }
 
 extension ExhibitOfKoreaViewController {
