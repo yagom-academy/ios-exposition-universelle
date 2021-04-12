@@ -67,6 +67,10 @@
                             <constraint firstItem="vQO-fQ-oxZ" firstAttribute="leading" secondItem="DZK-mN-iq2" secondAttribute="leading" id="oki-fc-l4S"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemDescriptionLabel" destination="mVu-RX-vYK" id="Pbz-fx-0h6"/>
+                        <outlet property="itemImageView" destination="MEj-6O-3zy" id="63O-3Y-Oxb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9l-8i-KFp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
