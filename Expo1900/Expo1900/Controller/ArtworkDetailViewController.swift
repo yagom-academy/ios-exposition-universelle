@@ -6,44 +6,30 @@
 //
 
 import UIKit
+import OSLog
 
 final class ArtworkDetailViewController: UIViewController {
-  
-  @IBOutlet weak var artworkImage: UIImageView!
-  @IBOutlet weak var artworkDescription: UITextView!
-  
-  var artworkIdentifier: Int?
+  @IBOutlet weak var artworkImageView: UIImageView!
+  @IBOutlet weak var descriptionTextView: UITextView!
+  var artwork: Artwork?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // MARK: - Decode JSON and update UI
     
-    let decodedResult: Result = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
+    guard let artwork: Artwork = artwork else { return }
     
-    switch decodedResult {
-    case .success(let artworks):
-      updateUI(from: artworks)
-    case .failure(let error):
-      debugPrint(error)
-    }
+    insertDataToUI(from: artwork)
   }
 }
 
+// MARK: - Method for inserting data to the UI elements
+
 extension ArtworkDetailViewController {
-  
-  // MARK: - Method for updating the UI
-  
-  @discardableResult
-  private func updateUI(from data: [Artwork]) -> Result<Int, ExpoAppError> {
-    guard let artworkIdentifier: Int = artworkIdentifier else {
-      debugPrint(ExpoAppError.foundNil("artworkIdentifier"))
-      return .failure(ExpoAppError.foundNil("artworkIdentifier"))
-    }
-    
-    self.navigationItem.title = data[artworkIdentifier].name
-    artworkImage.image = UIImage(named: data[artworkIdentifier].imageName)
-    artworkDescription.text = data[artworkIdentifier].description
-    return .success(artworkIdentifier)
+  private func insertDataToUI(from data: Artwork) {
+    self.navigationItem.title = data.name
+    artworkImageView.image = UIImage(named: data.imageName)
+    descriptionTextView.text = data.description
   }
 }
