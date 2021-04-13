@@ -15,16 +15,20 @@ class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decodeExposition()
+        do {
+            try decodeExposition()
+        } catch {
+            print("decodeExpositionError")
+        }
     }
 
-    func decodeExposition() {
+    func decodeExposition() throws {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return }
-        guard let exposition = try? jsonDecoder.decode(Exposition.self, from: dataAsset.data) else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { throw ExpositionError.readFile}
+        guard let exposition = try? jsonDecoder.decode(Exposition.self, from: dataAsset.data) else { throw ExpositionError.decodeData }
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        guard let visitor = numberFormatter.string(from: NSNumber(value: exposition.visitors)) else { return }
+        guard let visitor = numberFormatter.string(from: NSNumber(value: exposition.visitors)) else { throw ExpositionError.numberToString }
         
         expositionVisitor.text = "방문객 : " + visitor + " 명"
         expositionLocation.text = "개최지 : " + exposition.location
