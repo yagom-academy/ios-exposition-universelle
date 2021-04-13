@@ -10,20 +10,19 @@ import UIKit
 class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescLabel: UILabel!
-    var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
+    var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "데이터 전달받지 못함")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureDetailView(data: itemData)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+    func receiveItemData(data: KoreaItems) {
+        self.itemData = data
     }
     
-    private func configureDetailView(data: KoreaItems) {
+    func configureDetailView(data: KoreaItems) {
         title = data.name
         itemImageView.image = UIImage(named: data.imageName)
         itemDescLabel.text = data.description

@@ -7,11 +7,10 @@
 
 import UIKit
 
-var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
-
 class ItemsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var items: [KoreaItems] = []
+    var itemDetailData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,26 +29,20 @@ class ItemsViewController: UIViewController {
         self.tableView.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            let itemDetailViewController = segue.destination as? ItemDetailViewController
+            if let index = sender as? Int {
+                itemDetailViewController?.receiveItemData(data: items[index])
+            }
+        }
     }
 
-    
 }
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let itemDetailViewController = self.storyboard?.instantiateViewController(identifier: "itemDetailView") as? ItemDetailViewController else {
-                    return
-                }
-        itemDetailViewController.itemData = items[indexPath.row]
-        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
+        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
     }
     
 }

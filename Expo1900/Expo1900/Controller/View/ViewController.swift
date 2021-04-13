@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     private func configureView(data: ExpositionUniverselle) {
         titleLabel.text = data.title
         visitorsLabel.text = String(data.visitors)
