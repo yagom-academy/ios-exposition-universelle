@@ -9,9 +9,8 @@ import UIKit
 
 final class ArtworkDetailViewController: UIViewController {
   
-  @IBOutlet weak var artworkImage: UIImageView!
-  @IBOutlet weak var artworkDescription: UITextView!
-  
+  @IBOutlet weak var artworkImageView: UIImageView!
+  @IBOutlet weak var descriptionTextView: UITextView!
   var artworkIdentifier: Int?
   
   override func viewDidLoad() {
@@ -19,7 +18,7 @@ final class ArtworkDetailViewController: UIViewController {
     
     // MARK: - Decode JSON and update UI
     
-    let decodedResult: Result = CustomJSONDecoder.decode(to: [Artwork].self, from: "items")
+    let decodedResult: Result = ExpoJSONDecoder.decode(to: [Artwork].self, from: "items")
     
     switch decodedResult {
     case .success(let artworks):
@@ -42,8 +41,8 @@ extension ArtworkDetailViewController {
     }
     
     self.navigationItem.title = data[artworkIdentifier].name
-    artworkImage.image = UIImage(named: data[artworkIdentifier].imageName)
-    artworkDescription.text = data[artworkIdentifier].description
+    artworkImageView.image = UIImage(named: data[artworkIdentifier].imageName)
+    descriptionTextView.text = data[artworkIdentifier].description
     return .success(artworkIdentifier)
   }
 }
