@@ -14,8 +14,8 @@ final class ArtworksTableViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // MARK: - Decode JSON and insert to the UI elements
     
+    // MARK: - Decode JSON and insert to the UI elements
     let decodedResult: Result = ExpoJSONDecoder.decode(to: [Artwork].self,from: ExpoData.artworks)
     
     switch decodedResult {
@@ -28,7 +28,6 @@ final class ArtworksTableViewController: UIViewController {
 }
 
 // MARK: - Table view data source
-  
 extension ArtworksTableViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return artworks.count
@@ -49,7 +48,6 @@ extension ArtworksTableViewController: UITableViewDataSource {
 }
 
 // MARK: - Table view delegate
-
 extension ArtworksTableViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: false)
@@ -57,7 +55,6 @@ extension ArtworksTableViewController: UITableViewDelegate {
 }
 
 // MARK: - View controller: segue
-
 extension ArtworksTableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let indexPath = tableView.indexPathForSelectedRow

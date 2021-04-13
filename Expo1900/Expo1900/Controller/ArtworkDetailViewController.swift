@@ -17,7 +17,6 @@ final class ArtworkDetailViewController: UIViewController {
     super.viewDidLoad()
     
     // MARK: - Decode JSON and update UI
-    
     guard let artwork: Artwork = artwork else { return }
     
     insertDataToUI(from: artwork)
@@ -25,7 +24,6 @@ final class ArtworkDetailViewController: UIViewController {
 }
 
 // MARK: - Method for inserting data to the UI elements
-
 extension ArtworkDetailViewController {
   private func insertDataToUI(from data: Artwork) {
     self.navigationItem.title = data.name
