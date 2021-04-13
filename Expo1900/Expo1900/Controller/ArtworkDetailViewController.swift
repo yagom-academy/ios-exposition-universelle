@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 final class ArtworkDetailViewController: UIViewController {
   @IBOutlet weak var artworkImageView: UIImageView!
@@ -21,7 +22,7 @@ final class ArtworkDetailViewController: UIViewController {
     
     switch decodedResult {
     case .success(let artworks):
-      updateUI(from: artworks)
+      insertDataToUI(from: artworks)
     case .failure(let error):
       debugPrint(error)
     }
@@ -32,9 +33,9 @@ final class ArtworkDetailViewController: UIViewController {
 
 extension ArtworkDetailViewController {
   @discardableResult
-  private func updateUI(from data: [Artwork]) -> Result<Int, ExpoAppError> {
+  private func insertDataToUI(from data: [Artwork]) -> Result<Int, ExpoAppError> {
     guard let artworkIdentifier: Int = artworkIdentifier else {
-      debugPrint(ExpoAppError.foundNil("artworkIdentifier"))
+      os_log("TableView의 indexPath.row가 nil이에요.", log: .ui, type: .error)
       return .failure(ExpoAppError.foundNil("artworkIdentifier"))
     }
     
