@@ -12,11 +12,11 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "detailView" {
-          let vc = segue.destination as? DetailViewController
+          let detailvc = segue.destination as? DetailViewController
           
           if let index = sender as? Int {
               let exhibitionWorkCatalog = viewModel.exhibitionWorkInfo(at: index)
-              vc?.viewModel.update(model: exhibitionWorkCatalog)
+              detailvc?.viewModel.update(model: exhibitionWorkCatalog)
           }
       }
   }
