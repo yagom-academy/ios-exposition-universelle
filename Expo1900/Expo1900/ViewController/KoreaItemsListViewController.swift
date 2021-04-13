@@ -50,9 +50,7 @@ extension KoreaItemsListViewController: UITableViewDelegate {
             return
         }
         
-        itemInfoViewController.paramTitle = self.itemsData[indexPath.row].name
-        itemInfoViewController.paramImage = self.itemsData[indexPath.row].imageName
-        itemInfoViewController.paramDescription = self.itemsData[indexPath.row].description
+        itemInfoViewController.paramItem = self.itemsData[indexPath.row]
         self.navigationController?.pushViewController(itemInfoViewController, animated: false)
     }
 }

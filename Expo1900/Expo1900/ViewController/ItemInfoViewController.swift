@@ -12,9 +12,7 @@ final class ItemInfoViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescriptionLabel: UILabel!
     
-    var paramTitle: String?
-    var paramImage: String?
-    var paramDescription: String?
+    var paramItem: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +21,12 @@ final class ItemInfoViewController: UIViewController {
     }
     
     private func initializeViews() {
-        self.navigationItem.title = paramTitle
-        guard let imageName = paramImage else {
+        self.navigationItem.title = paramItem?.name
+        guard let imageName = paramItem?.imageName else {
             return
         }
         self.itemImageView.image = UIImage(named: imageName)
-        self.itemDescriptionLabel.text = paramDescription
+        self.itemDescriptionLabel.text = paramItem?.description
     }
     
     private func setLabelAttributes() {
