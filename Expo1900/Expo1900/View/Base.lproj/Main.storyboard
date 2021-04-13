@@ -133,7 +133,7 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="6PF-sP-6bm" id="Z0n-e3-07c"/>
                         <outlet property="durationLabel" destination="IBO-7c-rZz" id="led-MX-Uva"/>
-                        <outlet property="expoPoster" destination="0Mm-LZ-6Jq" id="MMP-SS-AQ7"/>
+                        <outlet property="expoPosterImageView" destination="0Mm-LZ-6Jq" id="MMP-SS-AQ7"/>
                         <outlet property="locationLabel" destination="DGN-wd-zEG" id="PtL-0B-o5r"/>
                         <outlet property="numberOfVisitorsLabel" destination="q9r-Vv-YlV" id="qZu-oz-8RP"/>
                         <outlet property="titleLabel" destination="W9n-k2-cQd" id="n4n-u0-fYK"/>
@@ -203,9 +203,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="artworkImageView" destination="iFk-je-OfD" id="8Mt-IW-2gB"/>
-                                            <outlet property="artworkShortDescriptionLabel" destination="N0K-GJ-zUp" id="jbU-M7-QAC"/>
-                                            <outlet property="artworkTitleLabel" destination="DvP-hq-pfF" id="vMW-sg-jkq"/>
+                                            <outlet property="cellImageView" destination="iFk-je-OfD" id="8Mt-IW-2gB"/>
+                                            <outlet property="shortDescriptionLabel" destination="N0K-GJ-zUp" id="jbU-M7-QAC"/>
+                                            <outlet property="titleLabel" destination="DvP-hq-pfF" id="vMW-sg-jkq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -228,7 +228,7 @@
                         <barButtonItem key="backBarButtonItem" title="한국의 출품작" id="Qt4-uo-DfA"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="artworksTableView" destination="iAO-ZJ-Agr" id="aLj-zn-rca"/>
+                        <outlet property="tableView" destination="iAO-ZJ-Agr" id="aLj-zn-rca"/>
                         <segue destination="1Bi-c2-xrB" kind="show" identifier="showDetail" id="TGD-qi-4cb"/>
                     </connections>
                 </viewController>
@@ -293,8 +293,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="aJW-rm-gt5"/>
                     <connections>
-                        <outlet property="artworkDescription" destination="P6Q-Kz-bwu" id="90L-1i-RDk"/>
-                        <outlet property="artworkImage" destination="Qan-4E-yVI" id="ZQh-Gy-9lM"/>
+                        <outlet property="artworkImageView" destination="Qan-4E-yVI" id="ZQh-Gy-9lM"/>
+                        <outlet property="descriptionTextView" destination="P6Q-Kz-bwu" id="90L-1i-RDk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgH-IO-mcL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
