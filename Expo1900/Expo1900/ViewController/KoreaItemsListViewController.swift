@@ -64,7 +64,7 @@ extension KoreaItemsListViewController: UITableViewDataSource {
         guard let cell = koreaItemsListTableView.dequeueReusableCell(withIdentifier: KoreaItemsListConstant.koreaItemsListCell, for: indexPath) as? KoreanEntryTableViewCell else {
             return UITableViewCell()
         }
-        cell.setCell(itemsData[indexPath.row])
+        cell.set(itemsData[indexPath.row])
         return cell
     }
 }

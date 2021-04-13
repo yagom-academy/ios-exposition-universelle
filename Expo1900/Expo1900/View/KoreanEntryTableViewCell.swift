@@ -12,7 +12,7 @@ final class KoreanEntryTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemTitleLabel: UILabel!
     @IBOutlet private weak var itemImageView: UIImageView!
     
-    func setCell(_ data: Item) {
+    func set(_ data: Item) {
         itemTitleLabel.text = data.name
         itemImageView.image = UIImage(named: data.imageName)
         itemShortDescLabel.text = data.shortDesc
