@@ -33,8 +33,10 @@ final class KoreanItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = koreanItemData.name
         setUpScrollView()
         setContentsVertically(intervalOf: 10)
+        itemImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
     }
     
     private func setUpScrollView() {

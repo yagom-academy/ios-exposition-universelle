@@ -99,6 +99,7 @@ final class MainViewController: UIViewController {
         let rootVc = KoreanItemsRootViewController()
         let navigationViewController = UINavigationController(rootViewController: rootVc)
         navigationViewController.modalPresentationStyle = .fullScreen
+//        navigationController?.navigationBar.topItem?.title = "한국의 출품작"
         present(navigationViewController, animated: true, completion: nil)
     }
 }
