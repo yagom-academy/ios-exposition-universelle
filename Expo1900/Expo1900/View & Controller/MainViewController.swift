@@ -77,6 +77,14 @@ final class MainViewController: UIViewController {
         setStackViewOfMainScrollView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     private func setUpMainScrollView() {
         view.addSubview(mainScrollView)
         NSLayoutConstraint.activate([
@@ -99,9 +107,6 @@ final class MainViewController: UIViewController {
     }
     
     @objc func touchUpMoveToKoreanItemsButton() {
-        let rootVc = KoreanItemsRootViewController(coder: NSCoder())
-        let navigationViewController = UINavigationController(rootViewController: rootVc)
-        navigationViewController.modalPresentationStyle = .fullScreen
-        present(navigationViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(KoreanItemsRootViewController(coder: NSCoder()), animated: true)
     }
 }

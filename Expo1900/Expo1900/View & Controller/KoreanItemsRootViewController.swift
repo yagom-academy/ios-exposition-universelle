@@ -37,7 +37,7 @@ final class KoreanItemsRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.topItem?.title = "한국의 출품작"
+        navigationItem.title = "한국의 출품작"
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .white
@@ -59,12 +59,11 @@ final class KoreanItemsRootViewController: UIViewController {
 
 extension KoreanItemsRootViewController: UITableViewDelegate {
     @objc private func touchUpBackButton() {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(KoreanItemViewController(data: koreanItemsData[indexPath.row]), animated: true)
     }
 }

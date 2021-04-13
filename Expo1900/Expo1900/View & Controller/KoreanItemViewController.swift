@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreanItemViewController: UIViewController {
-    private let koreanItemData: KoreanItem
+    private let koreanItems: KoreanItem
     
     private let mainScrollView: UIScrollView = {
         let scrollview = UIScrollView()
@@ -29,15 +29,15 @@ final class KoreanItemViewController: UIViewController {
     }()
     
     lazy var itemImageView: ExpositionImageView = {
-        let imageView = ExpositionImageView(imageName: koreanItemData.imageName)
+        let imageView = ExpositionImageView(imageName: koreanItems.imageName)
         imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
         return imageView
     }()
-    lazy var itemDescriptionLabel = ExpositionLabel(text: koreanItemData.description, textStyle: .body)
+    lazy var itemDescriptionLabel = ExpositionLabel(text: koreanItems.description, textStyle: .body)
     lazy var contents = [itemImageView, itemDescriptionLabel]
     
     init(data: KoreanItem) {
-        koreanItemData = data
+        koreanItems = data
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,13 +47,14 @@ final class KoreanItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
         setTitleOfNavigationBar()
         setUpMainScrollView()
         setStackViewOfMainScrollView()
     }
     
     private func setTitleOfNavigationBar() {
-        navigationItem.title = koreanItemData.name
+        navigationItem.title = koreanItems.name
     }
     
     private func setUpMainScrollView() {
