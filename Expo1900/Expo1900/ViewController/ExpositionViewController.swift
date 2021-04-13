@@ -26,7 +26,7 @@ final class ExpositionViewController: UIViewController {
         decodeExpoData()
         setTitleLabelAttribute()
         initializeViews()
-        self.navigationItem.title = "메인"
+        self.navigationItem.title = ExpositionConstant.title
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +34,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func decodeExpoData() {
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900", bundle: .main) else {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: ExpositionConstant.expoJson, bundle: .main) else {
             return
         }
         do {
@@ -49,14 +49,14 @@ final class ExpositionViewController: UIViewController {
             return
         }
         titleLabel.text = data.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = "방문객 : \(data.visitorsStringFormat)"
-        locationLabel.text = "개최지 : \(data.location)"
-        durationLabel.text = "개최 기간 : \(data.duration)"
+        visitorsLabel.text = PrePhraseInLabel.visitors + data.visitorsStringFormat
+        locationLabel.text = PrePhraseInLabel.location + data.location
+        durationLabel.text = PrePhraseInLabel.duration + data.duration
         descriptionLabel.text = data.description
-        posterImageView.image = UIImage(named: "poster")
-        itemsListPageButton.setTitle("한국의 출품작 보러가기", for: .normal)
-        leftOnButtonImageView.image = UIImage(named: "flag")
-        rightOnButtonImageView.image = UIImage(named: "flag")
+        posterImageView.image = UIImage(named: ExpositionConstant.posterImage)
+        itemsListPageButton.setTitle(ExpositionConstant.listPageButtonTitle, for: .normal)
+        leftOnButtonImageView.image = UIImage(named: ExpositionConstant.flagImage)
+        rightOnButtonImageView.image = UIImage(named: ExpositionConstant.flagImage)
     }
     
     private func setTitleLabelAttribute() {
@@ -67,7 +67,24 @@ final class ExpositionViewController: UIViewController {
     
     @IBAction private func pushItemsListPageButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let viewController = storyboard.instantiateViewController(identifier: "KoreanItemsListVC")
+        let viewController = storyboard.instantiateViewController(identifier: ExpositionConstant.koreaItemListPageIdentifier)
         self.navigationController?.pushViewController(viewController, animated: false)
+    }
+}
+
+extension ExpositionViewController {
+    enum ExpositionConstant {
+        static let expoJson = "exposition_universelle_1900"
+        static let title = "메인"
+        static let posterImage = "poster"
+        static let flagImage = "flag"
+        static let listPageButtonTitle = "한국의 출품작 보러가기"
+        static let koreaItemListPageIdentifier = "KoreanItemsListVC"
+    }
+    
+    enum PrePhraseInLabel {
+        static let visitors = "방문객 : "
+        static let location = "개최지 : "
+        static let duration = "개최 기간: "
     }
 }

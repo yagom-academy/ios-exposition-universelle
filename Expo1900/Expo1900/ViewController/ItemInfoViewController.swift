@@ -30,6 +30,6 @@ final class ItemInfoViewController: UIViewController {
     }
     
     private func setLabelAttributes() {
-        itemDescriptionLabel.numberOfLines = 0
+        itemDescriptionLabel.numberOfLines = Int.zero
     }
 }

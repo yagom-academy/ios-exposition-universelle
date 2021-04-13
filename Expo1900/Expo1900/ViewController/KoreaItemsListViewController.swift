@@ -13,7 +13,7 @@ final class KoreaItemsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = KoreaItemsListConstant.title
         decodeData()
         setKoreaListTableViewCell()
         self.koreaItemsListTableView.delegate = self
@@ -27,7 +27,7 @@ final class KoreaItemsListViewController: UIViewController {
     
     private func decodeData() {
         let decoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "items", bundle: .main) else {
+        guard let dataAsset = NSDataAsset(name: KoreaItemsListConstant.itemsJson, bundle: .main) else {
             return
         }
         do {
@@ -39,14 +39,14 @@ final class KoreaItemsListViewController: UIViewController {
     
     private func setKoreaListTableViewCell() {
         let koreaItemTableViewCell = UINib(nibName: String(describing: KoreanEntryTableViewCell.self), bundle: nil)
-        self.koreaItemsListTableView.register(koreaItemTableViewCell, forCellReuseIdentifier: "koreaItemListTableViewCell")
+        self.koreaItemsListTableView.register(koreaItemTableViewCell, forCellReuseIdentifier: KoreaItemsListConstant.koreaItemsListCell)
     }
 }
 
 extension KoreaItemsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        guard let itemInfoViewController = storyboard.instantiateViewController(identifier: "itemInfoVC") as? ItemInfoViewController else {
+        guard let itemInfoViewController = storyboard.instantiateViewController(identifier: KoreaItemsListConstant.itemInfoPageIdentifier) as? ItemInfoViewController else {
             return
         }
         
@@ -63,10 +63,19 @@ extension KoreaItemsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = koreaItemsListTableView.dequeueReusableCell(withIdentifier: "koreaItemListTableViewCell", for: indexPath) as? KoreanEntryTableViewCell else {
+        guard let cell = koreaItemsListTableView.dequeueReusableCell(withIdentifier: KoreaItemsListConstant.koreaItemsListCell, for: indexPath) as? KoreanEntryTableViewCell else {
             return UITableViewCell()
         }
         cell.setCell(itemsData[indexPath.row])
         return cell
+    }
+}
+
+extension KoreaItemsListViewController {
+    enum KoreaItemsListConstant {
+        static let title = "한국의 출품작"
+        static let itemsJson = "items"
+        static let koreaItemsListCell = "koreaItemListTableViewCell"
+        static let itemInfoPageIdentifier = "itemInfoVC"
     }
 }
