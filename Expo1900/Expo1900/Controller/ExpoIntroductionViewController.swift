@@ -39,7 +39,7 @@ final class ExpoIntroductionViewController: UIViewController {
     
     switch decodedResult {
     case .success(let expoIntroduction):
-      updateUI(from: expoIntroduction)
+      insertDataToUI(from: expoIntroduction)
     case .failure(let error):
       debugPrint(error)
     }
@@ -61,7 +61,7 @@ extension ExpoIntroductionViewController {
   // MARK: - Methods for updating the UI
   
   private func updateNumberOfVisitorsLabel(from data: ExpoIntroduction) {
-    switch formatNumber(of: data.visitors) {
+    switch formattedNumber(data.visitors) {
     case .success(let formattedNumber):
       numberOfVisitorsLabel.text = Affix.Prefix.visitor.rawValue + formattedNumber +
         Affix.Suffix.visitorSuffix.rawValue
@@ -72,7 +72,7 @@ extension ExpoIntroductionViewController {
     }
   }
   
-  private func updateUI(from data: ExpoIntroduction) {
+  private func insertDataToUI(from data: ExpoIntroduction) {
     titleLabel.text = data.title
     expoPosterImageView.image = UIImage(named: "poster")
     locationLabel.text = Affix.Prefix.location.rawValue + data.location
@@ -82,14 +82,14 @@ extension ExpoIntroductionViewController {
     updateNumberOfVisitorsLabel(from: data)
   }
   
-  func formatNumber(of number: Int) -> Result<String, ExpoAppError> {
+  func formattedNumber(_ number: Int) -> Result<String, ExpoAppError> {
     let numberFormatter: NumberFormatter = NumberFormatter()
     numberFormatter.numberStyle = .decimal
     
-    guard let formattedNumber: String = numberFormatter.string(from: NSNumber(value: number)) else {
+    guard let formatted: String = numberFormatter.string(from: NSNumber(value: number)) else {
       return .failure(ExpoAppError.numberFormattingFailed(number))
     }
     
-    return .success(formattedNumber)
+    return .success(formatted)
   }
 }

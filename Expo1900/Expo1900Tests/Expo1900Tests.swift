@@ -34,7 +34,7 @@ final class Expo1900Tests: XCTestCase {
   
   func test_formatNumber() {
     XCTAssertEqual(
-      ExpoIntroductionViewController().formatNumber(of: 1234567890),
+      ExpoIntroductionViewController().formattedNumber(1234567890),
       .success("1,234,567,890")
     )
   }
