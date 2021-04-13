@@ -8,7 +8,7 @@
 import UIKit
 
 /// Decodable 프로토콜을 준수하는 타입에 대해 타입 이름과 파일 이름 입력만으로 JSON 디코딩을 도와주는 메서드를 제공하는 타입.
-struct CustomJSONDecoder {
+struct ExpoJSONDecoder {
   static let jsonDecoder = JSONDecoder()
   
   /// 변환할 타입과 JSON 파일 이름을 전달인자로 받아 지정된 타입으로 디코딩 결과를 반환한다.
