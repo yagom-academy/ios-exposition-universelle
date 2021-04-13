@@ -10,11 +10,6 @@ import UIKit
 final class KoreanItemsRootViewController: UIViewController {
     private var koreanItemsData = [KoreanItem]()
     
-    private lazy var backButton = UIBarButtonItem(title: "메인",
-                                                  style: .plain,
-                                                  target: self,
-                                                  action: #selector(touchUpBackButton))
-    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +36,6 @@ final class KoreanItemsRootViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .white
-        navigationItem.leftBarButtonItem = backButton
         view.addSubview(tableView)
         setConstraint()
     }
@@ -58,10 +52,6 @@ final class KoreanItemsRootViewController: UIViewController {
 }
 
 extension KoreanItemsRootViewController: UITableViewDelegate {
-    @objc private func touchUpBackButton() {
-        navigationController?.popViewController(animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         navigationController?.pushViewController(KoreanItemViewController(data: koreanItemsData[indexPath.row]), animated: true)
