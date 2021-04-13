@@ -39,7 +39,7 @@ final class ExpoIntroductionViewController: UIViewController {
     
     switch decodedResult {
     case .success(let expoIntroduction):
-      insertDataToUI(from: expoIntroduction)
+      insertDataToUI(with: expoIntroduction)
     case .failure(let error):
       debugPrint(error)
     }
@@ -71,7 +71,7 @@ extension ExpoIntroductionViewController {
     }
   }
   
-  private func insertDataToUI(from data: ExpoIntroduction) {
+  private func insertDataToUI(with data: ExpoIntroduction) {
     titleLabel.text = data.title
     expoPosterImageView.image = UIImage(named: "poster")
     locationLabel.text = Affix.Prefix.location + data.location

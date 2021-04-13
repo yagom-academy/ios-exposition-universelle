@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import OSLog
 @testable import Expo1900
 
 final class Expo1900Tests: XCTestCase {

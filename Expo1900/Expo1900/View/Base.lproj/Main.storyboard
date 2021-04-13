@@ -203,15 +203,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellImageView" destination="iFk-je-OfD" id="8Mt-IW-2gB"/>
                                             <outlet property="shortDescriptionLabel" destination="N0K-GJ-zUp" id="jbU-M7-QAC"/>
+                                            <outlet property="thumbnailImageView" destination="iFk-je-OfD" id="8Mt-IW-2gB"/>
                                             <outlet property="titleLabel" destination="DvP-hq-pfF" id="vMW-sg-jkq"/>
+                                            <segue destination="1Bi-c2-xrB" kind="show" identifier="showDetail" id="LAP-eE-Y9E"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="6nj-jU-mX6" id="cib-ji-g4w"/>
-                                    <outlet property="delegate" destination="6nj-jU-mX6" id="Yaj-fB-Rul"/>
+                                    <outlet property="dataSource" destination="6nj-jU-mX6" id="KhH-qe-WNz"/>
+                                    <outlet property="delegate" destination="6nj-jU-mX6" id="CSf-2m-Xqy"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -229,7 +230,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="iAO-ZJ-Agr" id="aLj-zn-rca"/>
-                        <segue destination="1Bi-c2-xrB" kind="show" identifier="showDetail" id="TGD-qi-4cb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nz-Mq-ogD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -239,7 +239,7 @@
         <!--Artwork Detail View Controller-->
         <scene sceneID="DDi-BZ-6r3">
             <objects>
-                <viewController id="1Bi-c2-xrB" customClass="ArtworkDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArtworkDetailViewController" id="1Bi-c2-xrB" customClass="ArtworkDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEi-kp-6rg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

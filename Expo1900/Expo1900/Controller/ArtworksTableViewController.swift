@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 final class ArtworksTableViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
@@ -14,8 +15,8 @@ final class ArtworksTableViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.delegate = self
-    tableView.dataSource = self
+//    tableView.delegate = self
+//    tableView.dataSource = self
     
     // MARK: - Decode JSON and insert to the UI elements
     
@@ -43,7 +44,7 @@ extension ArtworksTableViewController: UITableViewDataSource {
       for: indexPath
     ) as! ArtworkTableViewCell
     
-    cell.cellImageView.image = UIImage(named: artworks[indexPath.row].imageName)
+    cell.thumbnailImageView.image = UIImage(named: artworks[indexPath.row].imageName)
     cell.titleLabel.text = artworks[indexPath.row].name
     cell.shortDescriptionLabel.text = artworks[indexPath.row].shortDescription
     
@@ -56,7 +57,6 @@ extension ArtworksTableViewController: UITableViewDataSource {
 extension ArtworksTableViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: false)
-    performSegue(withIdentifier: "showDetail", sender: indexPath.row)
   }
 }
 
@@ -64,11 +64,16 @@ extension ArtworksTableViewController: UITableViewDelegate {
 
 extension ArtworksTableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let indexPath = tableView.indexPathForSelectedRow
+
     if segue.identifier == "showDetail" {
       let followingViewController = segue.destination as? ArtworkDetailViewController
-      if let identifier: Int = sender as? Int {
-        followingViewController?.artworkIdentifier = identifier
+      guard let rowOfIndexPath: Int = indexPath?.row else {
+        os_log(.fault, log: .ui, "indexPath가 nil입니다.")
+        return
       }
+      
+      followingViewController?.artwork = artworks[rowOfIndexPath]
     }
   }
 }
