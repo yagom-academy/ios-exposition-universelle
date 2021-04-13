@@ -24,7 +24,7 @@ import UIKit
 enum JSONParser<Type: Decodable> {
     
     /// 주어진 dataset 이름을 통해 지정한 타입의 인스턴스나 실패한 경우의 Error를 반환한다.
-    static func parse(_ dataName: String) -> Result<Type, JSONParserError> {
+    static func parse(_ dataName: String) -> Result<Type, JSONParser.Error> {
         guard let dataAsset = extractData(from: dataName) else {
             return .failure(.invalidAssetName(dataName))
         }
@@ -50,9 +50,9 @@ enum JSONParser<Type: Decodable> {
         
         return decoded
     }
-}
-
-enum JSONParserError: Error, Equatable {
-    case invalidAssetName(String)
-    case dataCorrupted(String)
+    
+    enum Error: Swift.Error, Equatable {
+        case invalidAssetName(String)
+        case dataCorrupted(String)
+    }
 }
