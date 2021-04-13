@@ -8,9 +8,9 @@
 import UIKit
 
 final class KoreanItemViewController: UIViewController {
-    let koreanItemData: KoreanItem
+    private let koreanItemData: KoreanItem
     
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.translatesAutoresizingMaskIntoConstraints = false
         scrollview.backgroundColor = .white

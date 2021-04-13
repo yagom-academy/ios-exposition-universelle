@@ -17,7 +17,7 @@ final class ExpositionLabel: UILabel {
         lineBreakStrategy = .hangulWordPriority
         numberOfLines = 0
     }
-    
+     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

@@ -10,13 +10,13 @@ import UIKit
 final class KoreanItemCell: UITableViewCell {
     static let identifier = "KoreanItemCell"
     
-    let itemImageView: UIImageView = {
+    private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -24,7 +24,7 @@ final class KoreanItemCell: UITableViewCell {
         return label
     }()
     
-    let shortDescriptionLabel: UILabel = {
+    private let shortDescriptionLabel: UILabel = {
         let label  = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0

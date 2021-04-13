@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreanItemsRootViewController: UIViewController {
-    var koreanItemsData = [KoreanItem]()
+    private var koreanItemsData = [KoreanItem]()
     
     private lazy var backButton = UIBarButtonItem(title: "메인",
                                                   style: .plain,
@@ -34,7 +34,7 @@ final class KoreanItemsRootViewController: UIViewController {
         setConstraint()
     }
     
-    func getKoreanItemsData() {
+    private func getKoreanItemsData() {
         guard let dataAsset = NSDataAsset(name: "items") else {
             return
         }
@@ -45,7 +45,7 @@ final class KoreanItemsRootViewController: UIViewController {
         }
     }
     
-    func setConstraint() {
+    private func setConstraint() {
         tableView.rowHeight = 100
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
