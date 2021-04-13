@@ -14,10 +14,6 @@ final class ArtworksTableViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-//    tableView.delegate = self
-//    tableView.dataSource = self
-    
     // MARK: - Decode JSON and insert to the UI elements
     
     let decodedResult: Result = ExpoJSONDecoder.decode(to: [Artwork].self,from: ExpoData.artworks)
