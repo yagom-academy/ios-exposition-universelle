@@ -96,7 +96,7 @@ final class MainViewController: UIViewController {
     }
     
     @objc func touchUpMoveToKoreanItemsButton() {
-        let rootVc = KoreanItemsRootViewController()
+        let rootVc = KoreanItemsRootViewController(coder: NSCoder())
         let navigationViewController = UINavigationController(rootViewController: rootVc)
         navigationViewController.modalPresentationStyle = .fullScreen
         present(navigationViewController, animated: true, completion: nil)

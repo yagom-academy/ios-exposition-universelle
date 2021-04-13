@@ -22,27 +22,28 @@ final class KoreanItemsRootViewController: UIViewController {
         return tableView
     }()
     
+    required init(coder: NSCoder) {
+        if let dataAsset = NSDataAsset(name: "items") {
+            do {
+                koreanItemsData =  try JSONDecoder().decode([KoreanItem].self, from: dataAsset.data)
+            } catch {
+                koreanItemsData = [KoreanItem]()
+            }
+        } else {
+            koreanItemsData = [KoreanItem]()
+        }
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.topItem?.title = "한국의 출품작"
-        getKoreanItemsData()
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .white
         navigationItem.leftBarButtonItem = backButton
         view.addSubview(tableView)
         setConstraint()
-    }
-    
-    private func getKoreanItemsData() {
-        guard let dataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        do {
-            koreanItemsData =  try JSONDecoder().decode([KoreanItem].self, from: dataAsset.data)
-        } catch {
-            return
-        }
     }
     
     private func setConstraint() {
