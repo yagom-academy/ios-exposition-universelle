@@ -36,7 +36,7 @@ final class KoreanItemCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         accessoryType = .disclosureIndicator
         addContentView()
-        setConstraint()
+        setConstraintsOfContents()
     }
     
     required init?(coder: NSCoder) {
@@ -49,19 +49,41 @@ final class KoreanItemCell: UITableViewCell {
         addSubview(shortDescriptionLabel)
     }
     
-    private func setConstraint() {
+    private func setConstraintsOfContents() {
+        setLabelsConstraint()
+        setImageViewsConstraint()
+    }
+    
+    private func setLabelsConstraint() {
+        setTitleLabelConstraint()
+        setShortDescriptionLabelConstraint()
+    }
+    private func setImageViewsConstraint() {
+        setItemImageViewConstraint()
+    }
+    
+    private func setTitleLabelConstraint() {
         NSLayoutConstraint.activate([
-            itemImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            itemImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
-            itemImageView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
-            
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor)
+        ])
+    }
+
+    private func setShortDescriptionLabelConstraint() {
+        NSLayoutConstraint.activate([
             shortDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             shortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             shortDescriptionLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
             shortDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+    }
+    
+    private func setItemImageViewConstraint() {
+        NSLayoutConstraint.activate([
+            itemImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            itemImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
+            itemImageView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8)
         ])
     }
 }
