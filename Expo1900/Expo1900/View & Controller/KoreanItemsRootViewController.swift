@@ -61,7 +61,7 @@ extension KoreanItemsRootViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         modalPresentationStyle = .fullScreen
-//        present(UIViewController(KoreanItemViewController), animated: true, completion: nil)
+        navigationController?.pushViewController(KoreanItemViewController(data: koreanItemsData[indexPath.row]), animated: true)
     }
 }
 

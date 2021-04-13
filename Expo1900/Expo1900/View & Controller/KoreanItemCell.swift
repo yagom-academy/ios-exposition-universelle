@@ -20,19 +20,20 @@ class KoreanItemCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
     }()
     let shortDescriptionLabel: UILabel = {
         let label  = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        accessoryType = .disclosureIndicator
         addContentView()
         setConstraint()
     }
@@ -60,10 +61,11 @@ class KoreanItemCell: UITableViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
-            
             shortDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            shortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             shortDescriptionLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
-            shortDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            shortDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
+    
 }

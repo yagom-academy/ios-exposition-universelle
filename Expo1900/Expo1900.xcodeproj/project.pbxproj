@@ -12,10 +12,10 @@
 		1C06F09B261C56A0008E62CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		1C7350EE2624306E00957CAA /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7350ED2624306E00957CAA /* DefaultValues.swift */; };
 		1C7350FA262435E100957CAA /* KoreanItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7350F9262435E100957CAA /* KoreanItemViewController.swift */; };
+		1C73510926255EF500957CAA /* ExpositionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C73510826255EF500957CAA /* ExpositionImageView.swift */; };
 		1C8AD0CA261B58D100EAD240 /* KoreanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0C9261B58D100EAD240 /* KoreanItem.swift */; };
 		1C8AD0CF261BF74C00EAD240 /* ExpositionUniverselle1900.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */; };
 		1CF47F29262065EA00CD1E93 /* ExpositionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */; };
-		1CF47F2D262085BA00CD1E93 /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F2C262085BA00CD1E93 /* VerticalScrollViewController.swift */; };
 		1CF47F652623465F00CD1E93 /* KoreanItemsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */; };
 		1CF47F7326241D3500CD1E93 /* KoreanItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */; };
 		1CFD1E82261C347600D9D477 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD1E81261C347600D9D477 /* Error.swift */; };
@@ -43,10 +43,10 @@
 		1C06F093261C4F56008E62CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C7350ED2624306E00957CAA /* DefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValues.swift; sourceTree = "<group>"; };
 		1C7350F9262435E100957CAA /* KoreanItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemViewController.swift; sourceTree = "<group>"; };
+		1C73510826255EF500957CAA /* ExpositionImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionImageView.swift; sourceTree = "<group>"; };
 		1C8AD0C9261B58D100EAD240 /* KoreanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItem.swift; sourceTree = "<group>"; };
 		1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle1900.swift; sourceTree = "<group>"; };
 		1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionLabel.swift; sourceTree = "<group>"; };
-		1CF47F2C262085BA00CD1E93 /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
 		1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemsRootViewController.swift; sourceTree = "<group>"; };
 		1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemCell.swift; sourceTree = "<group>"; };
 		1CFD1E81261C347600D9D477 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -89,6 +89,19 @@
 				1C06F093261C4F56008E62CF /* Info.plist */,
 			);
 			path = Expo1900Tests;
+			sourceTree = "<group>";
+		};
+		1C7350FF2625325200957CAA /* View & Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */,
+				1C7350F9262435E100957CAA /* KoreanItemViewController.swift */,
+				1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */,
+				1C73510826255EF500957CAA /* ExpositionImageView.swift */,
+				1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */,
+			);
+			path = "View & Controller";
 			sourceTree = "<group>";
 		};
 		1CFD1E86261C47A400D9D477 /* Model */ = {
@@ -143,14 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				1CFD1E86261C47A400D9D477 /* Model */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				1C7350FF2625325200957CAA /* View & Controller */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
-				1CF47F2C262085BA00CD1E93 /* VerticalScrollViewController.swift */,
-				1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */,
-				1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */,
-				1C7350F9262435E100957CAA /* KoreanItemViewController.swift */,
-				1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -316,8 +324,8 @@
 				1CF47F652623465F00CD1E93 /* KoreanItemsRootViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				1C7350FA262435E100957CAA /* KoreanItemViewController.swift in Sources */,
+				1C73510926255EF500957CAA /* ExpositionImageView.swift in Sources */,
 				1C7350EE2624306E00957CAA /* DefaultValues.swift in Sources */,
-				1CF47F2D262085BA00CD1E93 /* VerticalScrollViewController.swift in Sources */,
 				1C8AD0CF261BF74C00EAD240 /* ExpositionUniverselle1900.swift in Sources */,
 				1C8AD0CA261B58D100EAD240 /* KoreanItem.swift in Sources */,
 				1CF47F29262065EA00CD1E93 /* ExpositionLabel.swift in Sources */,
