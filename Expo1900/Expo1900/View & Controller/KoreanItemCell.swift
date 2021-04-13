@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreanItemCell: UITableViewCell {
-    static let identifier = "KoreanItemCell"
+    static let reuseIdentifier = "KoreanItemCell"
     
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
@@ -41,10 +41,6 @@ final class KoreanItemCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     private func addContentView() {

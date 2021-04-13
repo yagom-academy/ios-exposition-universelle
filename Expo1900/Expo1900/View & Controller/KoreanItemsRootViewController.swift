@@ -18,7 +18,7 @@ final class KoreanItemsRootViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(KoreanItemCell.self, forCellReuseIdentifier: KoreanItemCell.identifier)
+        tableView.register(KoreanItemCell.self, forCellReuseIdentifier: KoreanItemCell.reuseIdentifier)
         return tableView
     }()
     
@@ -76,7 +76,7 @@ extension KoreanItemsRootViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemCell.identifier, for: indexPath) as? KoreanItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemCell.reuseIdentifier, for: indexPath) as? KoreanItemCell else {
             return UITableViewCell()
         }
         let koreanItemData = koreanItemsData[indexPath.row]
