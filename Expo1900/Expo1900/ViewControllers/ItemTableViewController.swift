@@ -16,7 +16,8 @@ class ItemTableViewController: UITableViewController {
         // 내 자신한테 delegate와 dataSource를 위임 해주는 것
         self.tableView.delegate = self
         self.tableView.dataSource = self
-//        self.tableView.register(ItemTableCell.self, forCellReuseIdentifier: "ItemTableCell")
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
 
         do {
             try parseItemsData()
@@ -40,7 +41,21 @@ class ItemTableViewController: UITableViewController {
         cell.itemName.text = items[indexPath.row].name
         cell.itemShortDescription.text = items[indexPath.row].shortDescription
         cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
+        cell.itemDescription = items[indexPath.row].description
+        cell.itemImageName = items[indexPath.row].imageName
+        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: ItemViewController = segue.destination as? ItemViewController else { return }
+        
+        guard let cell: ItemTableViewCell = sender as? ItemTableViewCell else { return }
+        
+        nextViewController.itemTitleToSet = cell.itemName.text
+        nextViewController.descriptionToSet = cell.itemDescription
+        nextViewController.imageToSet = cell.itemImageName
+        
     }
     
     func parseItemsData() throws {
