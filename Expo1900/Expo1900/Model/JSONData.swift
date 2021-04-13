@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Decodable, Equatable {
+struct HeritageItem: Decodable, Equatable {
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
@@ -22,11 +22,11 @@ struct Item: Decodable, Equatable {
 }
 
 struct ExpoOfParis: Decodable, Equatable {
-    let titile: String
-    let visitor: Int
+    let title: String
+    let visitors: Int
     let location: String
     let duration: String
     let description: String
-    let item: [Item]?
+    let items: [HeritageItem]?
 }
 
