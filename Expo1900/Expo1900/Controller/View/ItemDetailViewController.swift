@@ -10,7 +10,7 @@ import UIKit
 class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescLabel: UILabel!
-    var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "데이터 전달받지 못함")
+    private var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "데이터 전달받지 못함")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class ItemDetailViewController: UIViewController {
         self.itemData = data
     }
     
-    func configureDetailView(data: KoreaItems) {
+    private func configureDetailView(data: KoreaItems) {
         title = data.name
         itemImageView.image = UIImage(named: data.imageName)
         itemDescLabel.text = data.description
