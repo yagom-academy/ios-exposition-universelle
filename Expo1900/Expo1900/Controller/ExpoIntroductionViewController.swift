@@ -34,7 +34,7 @@ final class ExpoIntroductionViewController: UIViewController {
     
     let decodedResult: Result = ExpoJSONDecoder.decode(
       to: ExpoIntroduction.self,
-      from: "exposition_universelle_1900"
+      from: ExpoData.expoIntroduction.rawValue
     )
     
     switch decodedResult {

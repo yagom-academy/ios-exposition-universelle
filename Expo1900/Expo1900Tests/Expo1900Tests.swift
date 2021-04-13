@@ -19,20 +19,24 @@ final class Expo1900Tests: XCTestCase {
   }
   
   func test_customJSONDecoder_decode() {
-    XCTAssertNotNil(ExpoJSONDecoder.decode(to: ExpoIntroduction.self,
-                                             from: "exposition_universelle_1900"))
-    XCTAssertNotNil(ExpoJSONDecoder.decode(to: [Artwork].self, from: "items"))
+    XCTAssertNotNil(
+      ExpoJSONDecoder.decode(to: ExpoIntroduction.self,from: ExpoData.expoIntroduction.rawValue)
+    )
+    XCTAssertNotNil(ExpoJSONDecoder.decode(to: [Artwork].self, from: ExpoData.artworks.rawValue))
   }
   
   func test_customJSONDecoder_decode_withInvalidJSONFile() {
-    XCTAssertEqual(ExpoJSONDecoder.decode(to: ExpoIntroduction.self,
-                                            from: "invalidJSONFileName"),
-                   .failure(ExpoAppError.invalidJSONFileName("invalidJSONFileName")))
+    XCTAssertEqual(
+      ExpoJSONDecoder.decode(to: ExpoIntroduction.self,from: "invalidJSONFileName"),
+      .failure(ExpoAppError.invalidJSONFileName("invalidJSONFileName"))
+    )
   }
   
   func test_formatNumber() {
-    XCTAssertEqual(ExpoIntroductionViewController().formatNumber(of: 1234567890),
-                   .success("1,234,567,890"))
+    XCTAssertEqual(
+      ExpoIntroductionViewController().formatNumber(of: 1234567890),
+      .success("1,234,567,890")
+    )
   }
 }
 

@@ -18,7 +18,10 @@ final class ArtworkDetailViewController: UIViewController {
     
     // MARK: - Decode JSON and update UI
     
-    let decodedResult: Result = ExpoJSONDecoder.decode(to: [Artwork].self, from: "items")
+    let decodedResult: Result = ExpoJSONDecoder.decode(
+      to: [Artwork].self,
+      from: ExpoData.artworks.rawValue
+    )
     
     switch decodedResult {
     case .success(let artworks):
