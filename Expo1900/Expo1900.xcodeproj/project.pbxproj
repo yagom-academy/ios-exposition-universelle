@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70207EBA26257CF8002215AB /* ExpoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70207EB926257CF8002215AB /* ExpoError.swift */; };
+		70207EBD26257D02002215AB /* CustomJsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70207EBC26257D02002215AB /* CustomJsonDecoder.swift */; };
 		70962213261AF53C00F838A9 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70962212261AF53C00F838A9 /* Items.swift */; };
 		70962216261AF57200F838A9 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70962215261AF57200F838A9 /* ExpositionUniverselle.swift */; };
 		7099F4DD26202640001DADA5 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099F4DC26202640001DADA5 /* ItemsViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70207EB926257CF8002215AB /* ExpoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoError.swift; sourceTree = "<group>"; };
+		70207EBC26257D02002215AB /* CustomJsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomJsonDecoder.swift; sourceTree = "<group>"; };
 		70962212261AF53C00F838A9 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		70962215261AF57200F838A9 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
 		7099F4DC26202640001DADA5 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 			children = (
 				70962215261AF57200F838A9 /* ExpositionUniverselle.swift */,
 				70962212261AF53C00F838A9 /* Items.swift */,
+				70207EB926257CF8002215AB /* ExpoError.swift */,
+				70207EBC26257D02002215AB /* CustomJsonDecoder.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +202,8 @@
 				7099F4DD26202640001DADA5 /* ItemsViewController.swift in Sources */,
 				7099F4EA26204336001DADA5 /* ItemDetailViewController.swift in Sources */,
 				70962213261AF53C00F838A9 /* Items.swift in Sources */,
+				70207EBA26257CF8002215AB /* ExpoError.swift in Sources */,
+				70207EBD26257D02002215AB /* CustomJsonDecoder.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,

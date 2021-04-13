@@ -10,6 +10,7 @@ import UIKit
 class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescLabel: UILabel!
+    var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()

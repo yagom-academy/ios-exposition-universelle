@@ -19,7 +19,13 @@ class ItemsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        jsonPaser()
+        let itemsData = CustomJsonDecoder.jsonFileDecode(fileName: "items", model: [KoreaItems].self)
+        switch itemsData {
+        case .success(let result):
+            items = result
+        case .failure(let error):
+            print(error.rawValue)
+        }
         
         self.tableView.reloadData()
     }
@@ -33,25 +39,17 @@ class ItemsViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
-    
-    func jsonPaser() {
-        let jsonDecoder = JSONDecoder()
-        guard let itemsData: NSDataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        do {
-            items = try jsonDecoder.decode([KoreaItems].self, from: itemsData.data)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
+
     
 }
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemData = items[indexPath.row]
+        guard let itemDetailViewController = self.storyboard?.instantiateViewController(identifier: "itemDetailView") as? ItemDetailViewController else {
+                    return
+                }
+        itemDetailViewController.itemData = items[indexPath.row]
+        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
     }
     
 }

@@ -14,30 +14,21 @@ class ViewController: UIViewController {
     @IBOutlet private weak var descLabel: UILabel!
     @IBOutlet private weak var itemsbutton: UIButton!
     
-    var expositionUniverselles: ExpositionUniverselle = ExpositionUniverselle(title: "", visitors: 0, location: "", duration: "", description: "")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        jsonPaser()
-        configureView(data: expositionUniverselles)
+        let expositionUniverselles = CustomJsonDecoder.jsonFileDecode(fileName: "exposition_universelle_1900", model: ExpositionUniverselle.self)
+        switch expositionUniverselles {
+        case .success(let result):
+            configureView(data: result)
+        case .failure(let error):
+            print(error.rawValue)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    func jsonPaser() {
-        let jsonDecoder = JSONDecoder()
-        guard let expositionUniversellesData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            return
-        }
-        do {
-            self.expositionUniverselles = try jsonDecoder.decode(ExpositionUniverselle.self, from: expositionUniversellesData.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     private func configureView(data: ExpositionUniverselle) {

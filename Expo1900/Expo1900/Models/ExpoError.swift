@@ -1,12 +1,13 @@
 //
-//  ErrorType.swift
+//  ExpoError.swift
 //  Expo1900
 //
-//  Created by 기원우 on 2021/04/12.
+//  Created by 기원우 on 2021/04/13.
 //
 
 import Foundation
 
-enum Error: Error {
-    case <#case#>
+enum ExpoError: String, Error {
+    case invaildJsonFileName
+    case failJsonParser
 }
