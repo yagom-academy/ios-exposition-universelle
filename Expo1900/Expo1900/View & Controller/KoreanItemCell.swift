@@ -7,8 +7,7 @@
 
 import UIKit
 
-class KoreanItemCell: UITableViewCell {
-    
+final class KoreanItemCell: UITableViewCell {
     static let identifier = "KoreanItemCell"
     
     let itemImageView: UIImageView = {
@@ -16,6 +15,7 @@ class KoreanItemCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +23,7 @@ class KoreanItemCell: UITableViewCell {
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
     }()
+    
     let shortDescriptionLabel: UILabel = {
         let label  = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -67,5 +68,4 @@ class KoreanItemCell: UITableViewCell {
             shortDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
-    
 }

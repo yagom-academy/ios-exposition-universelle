@@ -8,7 +8,6 @@
 import UIKit
 
 final class ExpositionLabel: UILabel {
-    
     init(frame: CGRect = .zero, text: String, textStyle: UIFont.TextStyle) {
         super.init(frame: frame)
         self.text = text
@@ -22,5 +21,4 @@ final class ExpositionLabel: UILabel {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
 }

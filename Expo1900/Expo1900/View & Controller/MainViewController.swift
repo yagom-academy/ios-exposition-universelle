@@ -8,6 +8,7 @@ import UIKit
 
 final class MainViewController: UIViewController {
     private let expositionData: ExpositionUnivereselle1900
+    
     private let scrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.backgroundColor = .white
@@ -15,12 +16,14 @@ final class MainViewController: UIViewController {
         scrollview.bounces = true
         return scrollview
     }()
+    
     private lazy var titleLabel = ExpositionLabel(text: expositionData.title, textStyle: .largeTitle)
     private let posterImageView = ExpositionImageView(imageName: "poster")
     private lazy var visitorsLabel = ExpositionLabel(text: "방문객 : " + String(expositionData.visitors) + " 명", textStyle: .subheadline)
     private lazy var locationLabel = ExpositionLabel(text: "개최지 : " + expositionData.location, textStyle: .subheadline)
     private lazy var durationLabel = ExpositionLabel(text: "개최기간 : " + expositionData.duration, textStyle: .subheadline)
     private lazy var descriptionLabel = ExpositionLabel(text: expositionData.description, textStyle: .body)
+    
     private let moveToKoreanItemsStackView: UIStackView = {
         let stackView = UIStackView()
         let moveToKoreanItemsButton: UIButton = {
@@ -31,6 +34,7 @@ final class MainViewController: UIViewController {
             button.addTarget(self, action: #selector(touchUpMoveToKoreanItemsButton), for: .touchUpInside)
             return button
         }()
+        
         let leftkoreanFlagImageView = ExpositionImageView(imageName: "flag")
         let rightkoreanFlagImageView = ExpositionImageView(imageName: "flag")
         stackView.translatesAutoresizingMaskIntoConstraints = false

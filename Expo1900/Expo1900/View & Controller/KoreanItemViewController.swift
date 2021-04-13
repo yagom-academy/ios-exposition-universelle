@@ -7,8 +7,9 @@
 
 import UIKit
 
-class KoreanItemViewController: UIViewController {
+final class KoreanItemViewController: UIViewController {
     let koreanItemData: KoreanItem
+    
     let scrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.translatesAutoresizingMaskIntoConstraints = false
@@ -16,6 +17,7 @@ class KoreanItemViewController: UIViewController {
         scrollview.bounces = true
         return scrollview
     }()
+    
     lazy var itemImageView = ExpositionImageView(imageName: koreanItemData.imageName)
     lazy var itemDescriptionLabel = ExpositionLabel(text: koreanItemData.description, textStyle: .body)
     lazy var contents = [itemImageView, itemDescriptionLabel]

@@ -8,7 +8,6 @@
 import UIKit
 
 final class ExpositionImageView: UIImageView {
-    
     init(imageName: String) {
         let image = UIImage(named: imageName) ?? UIImage(systemName: "zzz")
         super.init(image: image)
@@ -20,5 +19,4 @@ final class ExpositionImageView: UIImageView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

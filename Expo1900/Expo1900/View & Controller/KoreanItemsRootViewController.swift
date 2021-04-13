@@ -7,12 +7,14 @@
 
 import UIKit
 
-class KoreanItemsRootViewController: UIViewController {
+final class KoreanItemsRootViewController: UIViewController {
     var koreanItemsData = [KoreanItem]()
+    
     private lazy var backButton = UIBarButtonItem(title: "메인",
                                                   style: .plain,
                                                   target: self,
                                                   action: #selector(touchUpBackButton))
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
