@@ -24,7 +24,9 @@ final class ItemInfoViewController: UIViewController {
     
     private func initializeViews() {
         self.navigationItem.title = paramTitle
-        guard let imageName = paramImage else { return }
+        guard let imageName = paramImage else {
+            return
+        }
         self.itemImageView.image = UIImage(named: imageName)
         self.itemDescriptionLabel.text = paramDescription
     }
