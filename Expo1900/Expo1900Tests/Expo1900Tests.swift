@@ -20,9 +20,9 @@ final class Expo1900Tests: XCTestCase {
   
   func test_customJSONDecoder_decode() {
     XCTAssertNotNil(
-      ExpoJSONDecoder.decode(to: ExpoIntroduction.self,from: ExpoData.expoIntroduction.rawValue)
+      ExpoJSONDecoder.decode(to: ExpoIntroduction.self,from: ExpoData.expoIntroduction)
     )
-    XCTAssertNotNil(ExpoJSONDecoder.decode(to: [Artwork].self, from: ExpoData.artworks.rawValue))
+    XCTAssertNotNil(ExpoJSONDecoder.decode(to: [Artwork].self, from: ExpoData.artworks))
   }
   
   func test_customJSONDecoder_decode_withInvalidJSONFile() {

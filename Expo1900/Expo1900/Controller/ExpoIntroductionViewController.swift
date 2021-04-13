@@ -16,14 +16,14 @@ final class ExpoIntroductionViewController: UIViewController {
   @IBOutlet weak var descriptionTextView: UITextView!
   
   private enum Affix {
-    enum Prefix: String {
-      case visitor = "방문객: "
-      case location = "개최지: "
-      case duration = "개최 기간: "
+    enum Prefix {
+      static let visitor: String = "방문객: "
+      static let location: String = "개최지: "
+      static let duration: String = "개최 기간: "
     }
     
-    enum Suffix: String {
-      case visitorSuffix = " 명"
+    enum Suffix {
+      static let visitorSuffix: String = " 명"
     }
   }
 
@@ -34,7 +34,7 @@ final class ExpoIntroductionViewController: UIViewController {
     
     let decodedResult: Result = ExpoJSONDecoder.decode(
       to: ExpoIntroduction.self,
-      from: ExpoData.expoIntroduction.rawValue
+      from: ExpoData.expoIntroduction
     )
     
     switch decodedResult {
@@ -62,8 +62,8 @@ extension ExpoIntroductionViewController {
   private func updateNumberOfVisitorsLabel(from data: ExpoIntroduction) {
     switch formattedNumber(data.visitors) {
     case .success(let formattedNumber):
-      numberOfVisitorsLabel.text = Affix.Prefix.visitor.rawValue + formattedNumber +
-        Affix.Suffix.visitorSuffix.rawValue
+      numberOfVisitorsLabel.text = Affix.Prefix.visitor + formattedNumber +
+        Affix.Suffix.visitorSuffix
     case .failure(ExpoAppError.numberFormattingFailed(let number)):
       debugPrint(ExpoAppError.numberFormattingFailed(number))
     case .failure(_):
@@ -74,8 +74,8 @@ extension ExpoIntroductionViewController {
   private func insertDataToUI(from data: ExpoIntroduction) {
     titleLabel.text = data.title
     expoPosterImageView.image = UIImage(named: "poster")
-    locationLabel.text = Affix.Prefix.location.rawValue + data.location
-    durationLabel.text = Affix.Prefix.duration.rawValue + data.duration
+    locationLabel.text = Affix.Prefix.location + data.location
+    durationLabel.text = Affix.Prefix.duration + data.duration
     descriptionTextView.text = data.description
     
     updateNumberOfVisitorsLabel(from: data)

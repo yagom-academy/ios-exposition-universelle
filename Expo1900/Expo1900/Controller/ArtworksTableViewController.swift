@@ -19,10 +19,7 @@ final class ArtworksTableViewController: UIViewController {
     
     // MARK: - Decode JSON and insert to the UI elements
     
-    let decodedResult: Result = ExpoJSONDecoder.decode(
-      to: [Artwork].self,
-      from: ExpoData.artworks.rawValue
-    )
+    let decodedResult: Result = ExpoJSONDecoder.decode(to: [Artwork].self,from: ExpoData.artworks)
     
     switch decodedResult {
     case .success(let result):
