@@ -14,6 +14,18 @@ final class ExpoIntroductionViewController: UIViewController {
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var durationLabel: UILabel!
   @IBOutlet weak var descriptionTextView: UITextView!
+  
+  private enum Affix {
+    enum Prefix: String {
+      case visitor = "방문객: "
+      case location = "개최지: "
+      case duration = "개최 기간: "
+    }
+    
+    enum Suffix: String {
+      case visitorSuffix = " 명"
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,8 +63,8 @@ extension ExpoIntroductionViewController {
   private func updateNumberOfVisitorsLabel(from data: ExpoIntroduction) {
     switch formatNumber(of: data.visitors) {
     case .success(let formattedNumber):
-      numberOfVisitorsLabel.text = ExpoIntroductionAffix.Prefix.visitor.rawValue + formattedNumber +
-        ExpoIntroductionAffix.Suffix.visitorSuffix.rawValue
+      numberOfVisitorsLabel.text = Affix.Prefix.visitor.rawValue + formattedNumber +
+        Affix.Suffix.visitorSuffix.rawValue
     case .failure(ExpoAppError.numberFormattingFailed(let number)):
       debugPrint(ExpoAppError.numberFormattingFailed(number))
     case .failure(_):
@@ -63,8 +75,8 @@ extension ExpoIntroductionViewController {
   private func updateUI(from data: ExpoIntroduction) {
     titleLabel.text = data.title
     expoPosterImageView.image = UIImage(named: "poster")
-    locationLabel.text = ExpoIntroductionAffix.Prefix.location.rawValue + data.location
-    durationLabel.text = ExpoIntroductionAffix.Prefix.duration.rawValue + data.duration
+    locationLabel.text = Affix.Prefix.location.rawValue + data.location
+    durationLabel.text = Affix.Prefix.duration.rawValue + data.duration
     descriptionTextView.text = data.description
     
     updateNumberOfVisitorsLabel(from: data)
