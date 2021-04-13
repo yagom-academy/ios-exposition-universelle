@@ -9,12 +9,22 @@ import UIKit
 final class MainViewController: UIViewController {
     private let expositionData: ExpositionUnivereselle1900
     
-    private let scrollView: UIScrollView = {
+    private let mainScrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.backgroundColor = .white
         scrollview.translatesAutoresizingMaskIntoConstraints = false
         scrollview.bounces = true
         return scrollview
+    }()
+    
+    private let stackViewOfMainScrollView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+        return stackView
     }()
     
     private lazy var titleLabel = ExpositionLabel(text: expositionData.title, textStyle: .largeTitle)
@@ -63,36 +73,29 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpScrollView()
-        setContentsVertically(intervalOf: 10)
+        setUpMainScrollView()
+        setStackViewOfMainScrollView()
     }
     
-    private func setUpScrollView() {
-        view.addSubview(scrollView)
+    private func setUpMainScrollView() {
+        view.addSubview(mainScrollView)
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
-    private func setContentsVertically(intervalOf interval: CGFloat) {
-        contents.enumerated().forEach({ (index, item) in
-            scrollView.addSubview(item)
-            item.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-            item.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -20).isActive = true
-            
-            if index == 0 {
-                item.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-            } else {
-                item.topAnchor.constraint(equalTo: contents[index-1].bottomAnchor, constant: interval).isActive = true
-            }
-            
-            if index == contents.count - 1 {
-                item.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-            }
-        })
+    private func setStackViewOfMainScrollView() {
+        mainScrollView.addSubview(stackViewOfMainScrollView)
+        NSLayoutConstraint.activate([
+            stackViewOfMainScrollView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
+            stackViewOfMainScrollView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
+            stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
+            stackViewOfMainScrollView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor)
+        ])
+        contents.forEach({ stackViewOfMainScrollView.addArrangedSubview($0) })
     }
     
     @objc func touchUpMoveToKoreanItemsButton() {

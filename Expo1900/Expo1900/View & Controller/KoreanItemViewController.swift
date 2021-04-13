@@ -48,7 +48,7 @@ final class KoreanItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitleOfNavigationBar()
-        setUpScrollView()
+        setUpMainScrollView()
         setStackViewOfMainScrollView()
     }
     
@@ -56,7 +56,7 @@ final class KoreanItemViewController: UIViewController {
         navigationItem.title = koreanItemData.name
     }
     
-    private func setUpScrollView() {
+    private func setUpMainScrollView() {
         view.addSubview(mainScrollView)
         NSLayoutConstraint.activate([
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
