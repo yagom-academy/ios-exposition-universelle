@@ -34,7 +34,7 @@ final class KoreanItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScrollView()
-        setContents()
+        setContentsVertically(intervalOf: 10)
     }
     
     private func setUpScrollView() {
@@ -45,11 +45,7 @@ final class KoreanItemViewController: UIViewController {
         scrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
-    private func setContents() {
-        setConstraint(intervalOf: 10)
-        contents.forEach({ scrollView.addSubview($0) })
-    }
-    private func setConstraint(intervalOf interval: CGFloat) {
+    private func setContentsVertically(intervalOf interval: CGFloat) {
         contents.enumerated().forEach({ (index, item) in
             scrollView.addSubview(item)
             item.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
