@@ -11,7 +11,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   let viewModel = CatalogViewModel()
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "showDetail" {
+      if segue.identifier == "detailView" {
           let vc = segue.destination as? DetailViewController
           
           if let index = sender as? Int {
@@ -40,6 +40,6 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   
   func tableView(_ tableView: UITableView,
                  didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+    performSegue(withIdentifier: "detailView", sender: indexPath.row)
   }
 }
