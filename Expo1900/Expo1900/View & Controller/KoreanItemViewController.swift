@@ -47,10 +47,13 @@ final class KoreanItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = koreanItemData.name
+        setTitleOfNavigationBar()
         setUpScrollView()
         setStackViewOfMainScrollView()
-        itemImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
+    }
+    
+    private func setTitleOfNavigationBar() {
+        navigationItem.title = koreanItemData.name
     }
     
     private func setUpScrollView() {
