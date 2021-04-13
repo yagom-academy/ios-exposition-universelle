@@ -10,7 +10,7 @@ import UIKit
 final class KoreanItemViewController: UIViewController {
     private let koreanItemData: KoreanItem
     
-    private let scrollView: UIScrollView = {
+    private let mainScrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.translatesAutoresizingMaskIntoConstraints = false
         scrollview.backgroundColor = .white
@@ -18,7 +18,21 @@ final class KoreanItemViewController: UIViewController {
         return scrollview
     }()
     
-    lazy var itemImageView = ExpositionImageView(imageName: koreanItemData.imageName)
+    private let stackViewOfMainScrollView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    lazy var itemImageView: ExpositionImageView = {
+        let imageView = ExpositionImageView(imageName: koreanItemData.imageName)
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
+        return imageView
+    }()
     lazy var itemDescriptionLabel = ExpositionLabel(text: koreanItemData.description, textStyle: .body)
     lazy var contents = [itemImageView, itemDescriptionLabel]
     
@@ -35,35 +49,28 @@ final class KoreanItemViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = koreanItemData.name
         setUpScrollView()
-        setContentsVertically(intervalOf: 10)
+        setStackViewOfMainScrollView()
         itemImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
     }
     
     private func setUpScrollView() {
-        view.addSubview(scrollView)
+        view.addSubview(mainScrollView)
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            scrollView.heightAnchor.constraint(equalTo: view.heightAnchor)
+            mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainScrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            mainScrollView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
     }
     
-    private func setContentsVertically(intervalOf interval: CGFloat) {
-        contents.enumerated().forEach({ (index, item) in
-            scrollView.addSubview(item)
-            item.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            item.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -20).isActive = true
-            
-            if index == 0 {
-                item.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-            } else {
-                item.topAnchor.constraint(equalTo: contents[index-1].bottomAnchor, constant: interval).isActive = true
-            }
-            
-            if index == contents.count - 1 {
-                item.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-            }
-        })
+    private func setStackViewOfMainScrollView() {
+        mainScrollView.addSubview(stackViewOfMainScrollView)
+        NSLayoutConstraint.activate([
+            stackViewOfMainScrollView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
+            stackViewOfMainScrollView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
+            stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
+            stackViewOfMainScrollView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor)
+        ])
+        contents.forEach({ stackViewOfMainScrollView.addArrangedSubview($0) })
     }
 }

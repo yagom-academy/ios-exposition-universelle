@@ -50,26 +50,26 @@ final class KoreanItemCell: UITableViewCell {
     }
     
     private func setConstraintsOfContents() {
-        setLabelsConstraint()
-        setImageViewsConstraint()
+        setConstraintsOfLabels()
+        setConstraintsOfImageViews()
     }
     
-    private func setLabelsConstraint() {
-        setTitleLabelConstraint()
-        setShortDescriptionLabelConstraint()
+    private func setConstraintsOfLabels() {
+        setConstraintsOfTitleLabel()
+        setConstraintsOfShortDescriptionLabel()
     }
-    private func setImageViewsConstraint() {
-        setItemImageViewConstraint()
+    private func setConstraintsOfImageViews() {
+        setConstraintsOfItemImageView()
     }
     
-    private func setTitleLabelConstraint() {
+    private func setConstraintsOfTitleLabel() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor)
         ])
     }
 
-    private func setShortDescriptionLabelConstraint() {
+    private func setConstraintsOfShortDescriptionLabel() {
         NSLayoutConstraint.activate([
             shortDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             shortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -78,7 +78,7 @@ final class KoreanItemCell: UITableViewCell {
         ])
     }
     
-    private func setItemImageViewConstraint() {
+    private func setConstraintsOfItemImageView() {
         NSLayoutConstraint.activate([
             itemImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
