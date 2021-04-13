@@ -6,10 +6,9 @@
 //
 
 import UIKit
-
-class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "TableViewCell"
+    static let reuseIdentifier = String(describing: TableViewCell.self)
     @IBOutlet var exhibitItemImage: UIImageView!
     @IBOutlet var exhibitItemName: UILabel!
     @IBOutlet var exhibitItemShortDescription: UILabel!
@@ -21,7 +20,7 @@ class TableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        print("@@@@@@@@@@@@@@@@@")
         // Configure the view for the selected state
     }
 

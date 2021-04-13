@@ -8,16 +8,16 @@
 import Foundation
 
 enum DataError: Error {
-    case LoadJSON
-    case DecodeJSON
+    case loadJSON
+    case decodeJSON
 }
 
 extension DataError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .LoadJSON:
+        case .loadJSON:
             return "Failed to load JSON data."
-        case .DecodeJSON:
+        case .decodeJSON:
             return "Failed to decode JSON data"
         }
     }
