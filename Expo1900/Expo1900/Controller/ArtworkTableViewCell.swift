@@ -9,7 +9,7 @@ import UIKit
 
 final class ArtworkTableViewCell: UITableViewCell {
   
-  @IBOutlet weak var artworkImageView: UIImageView!
-  @IBOutlet weak var artworkTitleLabel: UILabel!
-  @IBOutlet weak var artworkShortDescriptionLabel: UILabel!
+  @IBOutlet weak var cellImageView: UIImageView!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var shortDescriptionLabel: UILabel!
 }
