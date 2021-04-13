@@ -8,7 +8,6 @@
 import UIKit
 
 final class ArtworkDetailViewController: UIViewController {
-  
   @IBOutlet weak var artworkImageView: UIImageView!
   @IBOutlet weak var descriptionTextView: UITextView!
   var artworkIdentifier: Int?
@@ -32,10 +31,9 @@ final class ArtworkDetailViewController: UIViewController {
   }
 }
 
+// MARK: - Method for inserting data to the UI elements
+
 extension ArtworkDetailViewController {
-  
-  // MARK: - Method for updating the UI
-  
   @discardableResult
   private func updateUI(from data: [Artwork]) -> Result<Int, ExpoAppError> {
     guard let artworkIdentifier: Int = artworkIdentifier else {

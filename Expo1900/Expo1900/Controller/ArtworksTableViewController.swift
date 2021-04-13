@@ -8,9 +8,7 @@
 import UIKit
 
 final class ArtworksTableViewController: UIViewController {
-  
   @IBOutlet weak var tableView: UITableView!
-  
   private var artworks: [Artwork] = []
   
   override func viewDidLoad() {
@@ -19,7 +17,7 @@ final class ArtworksTableViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
-    // MARK: - Decode JSON and update UI
+    // MARK: - Decode JSON and insert to the UI elements
     
     let decodedResult: Result = ExpoJSONDecoder.decode(
       to: [Artwork].self,
@@ -34,10 +32,10 @@ final class ArtworksTableViewController: UIViewController {
     }
   }
 }
+
+// MARK: - Table view data source
   
-extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSource {
-  // MARK: - Table view data source
-  
+extension ArtworksTableViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return artworks.count
   }
@@ -54,18 +52,20 @@ extension ArtworksTableViewController: UITableViewDelegate, UITableViewDataSourc
     
     return cell
   }
-  
-  // MARK: - Table view delegate
-  
+}
+
+// MARK: - Table view delegate
+
+extension ArtworksTableViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: false)
     performSegue(withIdentifier: "showDetail", sender: indexPath.row)
   }
 }
 
+// MARK: - View controller: segue
+
 extension ArtworksTableViewController {
-  // MARK: - View controller: segue
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
       let followingViewController = segue.destination as? ArtworkDetailViewController

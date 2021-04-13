@@ -30,7 +30,7 @@ final class ExpoIntroductionViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // MARK: - Decode JSON and update UI
+    // MARK: - Decode JSON and insert to the UI elements
     
     let decodedResult: Result = ExpoJSONDecoder.decode(
       to: ExpoIntroduction.self,
@@ -56,10 +56,9 @@ final class ExpoIntroductionViewController: UIViewController {
   }
 }
 
+// MARK: - Methods for inserting data to the UI elements
+
 extension ExpoIntroductionViewController {
-  
-  // MARK: - Methods for updating the UI
-  
   private func updateNumberOfVisitorsLabel(from data: ExpoIntroduction) {
     switch formattedNumber(data.visitors) {
     case .success(let formattedNumber):
