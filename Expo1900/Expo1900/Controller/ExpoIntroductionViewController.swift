@@ -9,7 +9,7 @@ import UIKit
 final class ExpoIntroductionViewController: UIViewController {
   
   @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var expoPoster: UIImageView!
+  @IBOutlet weak var expoPosterImageView: UIImageView!
   @IBOutlet weak var numberOfVisitorsLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var durationLabel: UILabel!
@@ -20,8 +20,10 @@ final class ExpoIntroductionViewController: UIViewController {
     
     // MARK: - Decode JSON and update UI
     
-    let decodedResult: Result = CustomJSONDecoder.decode(to: ExpoIntroduction.self,
-                                                         from: "exposition_universelle_1900")
+    let decodedResult: Result = ExpoJSONDecoder.decode(
+      to: ExpoIntroduction.self,
+      from: "exposition_universelle_1900"
+    )
     
     switch decodedResult {
     case .success(let expoIntroduction):
@@ -49,8 +51,8 @@ extension ExpoIntroductionViewController {
   private func updateNumberOfVisitorsLabel(from data: ExpoIntroduction) {
     switch formatNumber(of: data.visitors) {
     case .success(let formattedNumber):
-      numberOfVisitorsLabel.text = ExpoIntroductionAffix.visitorPrefix.rawValue + formattedNumber +
-        ExpoIntroductionAffix.visitorSuffix.rawValue
+      numberOfVisitorsLabel.text = ExpoIntroductionAffix.Prefix.visitor.rawValue + formattedNumber +
+        ExpoIntroductionAffix.Suffix.visitorSuffix.rawValue
     case .failure(ExpoAppError.numberFormattingFailed(let number)):
       debugPrint(ExpoAppError.numberFormattingFailed(number))
     case .failure(_):
@@ -60,9 +62,9 @@ extension ExpoIntroductionViewController {
   
   private func updateUI(from data: ExpoIntroduction) {
     titleLabel.text = data.title
-    expoPoster.image = UIImage(named: "poster")
-    locationLabel.text = ExpoIntroductionAffix.locationPrefix.rawValue + data.location
-    durationLabel.text = ExpoIntroductionAffix.durationPrefix.rawValue + data.duration
+    expoPosterImageView.image = UIImage(named: "poster")
+    locationLabel.text = ExpoIntroductionAffix.Prefix.location.rawValue + data.location
+    durationLabel.text = ExpoIntroductionAffix.Prefix.duration.rawValue + data.duration
     descriptionTextView.text = data.description
     
     updateNumberOfVisitorsLabel(from: data)
