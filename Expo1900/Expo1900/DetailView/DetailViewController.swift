@@ -8,7 +8,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-  
   @IBOutlet var imgView: UIImageView!
   @IBOutlet var descriptionLabel: UILabel!
   @IBOutlet var nameLabel: UINavigationItem!
@@ -20,7 +19,6 @@ class DetailViewController: UIViewController {
   }
   
   func updateUI() {
-    
     if let detailInfo = self.viewModel.exhibitionWorkCell {
       imgView.image = detailInfo.image
       nameLabel.title = detailInfo.name

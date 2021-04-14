@@ -21,7 +21,7 @@ class JsonFile {
     
     return decodeData
   }
-
+  
   private func jsonPath(_ fileName: String) throws -> String {
     guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else {
       throw JsonDecodingError.failedToFindJSON
