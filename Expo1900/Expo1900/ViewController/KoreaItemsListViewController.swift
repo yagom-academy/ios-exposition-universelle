@@ -22,7 +22,6 @@ final class KoreaItemsListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        self.koreaItemsListTableView.reloadData()
     }
     
     private func decodeData() {
@@ -51,7 +50,7 @@ extension KoreaItemsListViewController: UITableViewDelegate {
         }
         
         itemInfoViewController.paramItem = self.itemsData[indexPath.row]
-        self.navigationController?.pushViewController(itemInfoViewController, animated: false)
+        self.navigationController?.pushViewController(itemInfoViewController, animated: true)
     }
 }
 
@@ -64,6 +63,7 @@ extension KoreaItemsListViewController: UITableViewDataSource {
         guard let cell = koreaItemsListTableView.dequeueReusableCell(withIdentifier: KoreaItemsListConstant.koreaItemsListCell, for: indexPath) as? KoreanEntryTableViewCell else {
             return UITableViewCell()
         }
+        cell.selectionStyle = .none
         cell.set(itemsData[indexPath.row])
         return cell
     }

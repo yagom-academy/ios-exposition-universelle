@@ -68,7 +68,7 @@ final class ExpositionViewController: UIViewController {
     @IBAction private func pushItemsListPageButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let viewController = storyboard.instantiateViewController(identifier: ExpositionConstant.koreaItemListPageIdentifier)
-        self.navigationController?.pushViewController(viewController, animated: false)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
