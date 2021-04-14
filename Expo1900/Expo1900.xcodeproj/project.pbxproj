@@ -15,6 +15,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		FFFC9EB7261F217200AB4619 /* ExpoUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC9EB6261F217200AB4619 /* ExpoUniverselle.swift */; };
 		FFFC9EBA261F21DA00AB4619 /* ExpoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC9EB9261F21DA00AB4619 /* ExpoItem.swift */; };
+		FFFEB8982626B14200310B55 /* ExpoMainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFEB8972626B14200310B55 /* ExpoMainStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFFC9EB6261F217200AB4619 /* ExpoUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoUniverselle.swift; sourceTree = "<group>"; };
 		FFFC9EB9261F21DA00AB4619 /* ExpoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItem.swift; sourceTree = "<group>"; };
+		FFFEB8972626B14200310B55 /* ExpoMainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMainStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				FFFC9EB6261F217200AB4619 /* ExpoUniverselle.swift */,
 				FFFC9EB9261F21DA00AB4619 /* ExpoItem.swift */,
 				C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */,
+				FFFEB8972626B14200310B55 /* ExpoMainStackView.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFFEB8982626B14200310B55 /* ExpoMainStackView.swift in Sources */,
 				FFFC9EB7261F217200AB4619 /* ExpoUniverselle.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
