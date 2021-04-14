@@ -8,6 +8,8 @@
 import UIKit
 
 final class KoreanItemsRootViewController: UIViewController {
+    let koreanItemRootViewTitle = "한국의 출품작"
+    
     private let koreanItems: [KoreanItem] = {
         var items = [KoreanItem]()
         if let dataAsset = NSDataAsset(name: "items") {
@@ -20,7 +22,7 @@ final class KoreanItemsRootViewController: UIViewController {
         return items
     }()
     
-    private let tableView: UITableView = {
+    private let mainTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(KoreanItemCell.self, forCellReuseIdentifier: KoreanItemCell.reuseIdentifier)
@@ -29,21 +31,21 @@ final class KoreanItemsRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "한국의 출품작"
-        tableView.delegate = self
-        tableView.dataSource = self
+        navigationItem.title = koreanItemRootViewTitle
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
         view.backgroundColor = .white
-        view.addSubview(tableView)
+        view.addSubview(mainTableView)
         setConstraint()
     }
     
     private func setConstraint() {
-        tableView.rowHeight = 100
+        mainTableView.rowHeight = 100
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            mainTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mainTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
 }

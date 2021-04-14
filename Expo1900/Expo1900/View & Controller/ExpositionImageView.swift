@@ -11,12 +11,17 @@ final class ExpositionImageView: UIImageView {
     init(imageName: String) {
         let image = UIImage(named: imageName) ?? UIImage(systemName: "zzz")
         super.init(image: image)
-        translatesAutoresizingMaskIntoConstraints = false
-        contentMode = .scaleAspectFit
-        sizeToFit()
+        setUpExpositionImageView()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setUpExpositionImageView()
+    }
+    
+    private func setUpExpositionImageView() {
+        translatesAutoresizingMaskIntoConstraints = false
+        contentMode = .scaleAspectFit
+        sizeToFit()
     }
 }

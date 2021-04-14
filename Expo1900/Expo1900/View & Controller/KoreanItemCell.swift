@@ -34,13 +34,22 @@ final class KoreanItemCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        accessoryType = .disclosureIndicator
+        setUpKoreanItemCell()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setUpKoreanItemCell()
+    }
+    
+    private func setUpKoreanItemCell() {
+        setAccessoryType()
         addContentView()
         setConstraintsOfContents()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func setAccessoryType() {
+        accessoryType = .disclosureIndicator
     }
     
     private func addContentView() {

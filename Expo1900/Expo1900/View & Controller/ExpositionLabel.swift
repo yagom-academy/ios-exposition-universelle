@@ -12,13 +12,17 @@ final class ExpositionLabel: UILabel {
         super.init(frame: frame)
         self.text = text
         font = UIFont.preferredFont(forTextStyle: textStyle)
-        translatesAutoresizingMaskIntoConstraints = false
-        textAlignment = .center
-        lineBreakStrategy = .hangulWordPriority
-        numberOfLines = 0
+        setUpExpositionLabel()
     }
      
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    private func setUpExpositionLabel() {
+        translatesAutoresizingMaskIntoConstraints = false
+        textAlignment = .center
+        lineBreakStrategy = .hangulWordPriority
+        numberOfLines = 0
     }
 }

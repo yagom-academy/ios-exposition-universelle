@@ -7,17 +7,20 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    private let expositionData: ExpositionUnivereselle1900 = {
-        var data = ExpositionUnivereselle1900()
-        if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
-            do {
-                data =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
-            } catch {
-                data = ExpositionUnivereselle1900()
-            }
-        }
-        return data
-    }()
+    
+    private enum PrefixText {
+        static let visitors = "방문객 : "
+        static let location = "개최지 : "
+        static let duration = "개최기간 : "
+    }
+    
+    private enum PostfixText {
+        static let visitors = " 명"
+    }
+    
+    private let mainViewTitle = "메인"
+    
+    private let expositionData: ExpositionUnivereselle1900
     
     private let mainScrollView: UIScrollView = {
         let scrollview = UIScrollView()
@@ -39,9 +42,9 @@ final class MainViewController: UIViewController {
     
     private lazy var titleLabel = ExpositionLabel(text: expositionData.title, textStyle: .largeTitle)
     private let posterImageView = ExpositionImageView(imageName: "poster")
-    private lazy var visitorsLabel = ExpositionLabel(text: "방문객 : " + String(expositionData.visitors) + " 명", textStyle: .subheadline)
-    private lazy var locationLabel = ExpositionLabel(text: "개최지 : " + expositionData.location, textStyle: .subheadline)
-    private lazy var durationLabel = ExpositionLabel(text: "개최기간 : " + expositionData.duration, textStyle: .subheadline)
+    private lazy var visitorsLabel = ExpositionLabel(text: PrefixText.visitors + String(expositionData.visitors) + PostfixText.visitors, textStyle: .subheadline)
+    private lazy var locationLabel = ExpositionLabel(text: PrefixText.location + expositionData.location, textStyle: .subheadline)
+    private lazy var durationLabel = ExpositionLabel(text: PrefixText.duration + expositionData.duration, textStyle: .subheadline)
     private lazy var descriptionLabel = ExpositionLabel(text: expositionData.description, textStyle: .body)
     
     private let moveToKoreanItemsStackView: UIStackView = {
@@ -67,6 +70,32 @@ final class MainViewController: UIViewController {
     }()
     
     private lazy var contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemsStackView]
+    
+    init() {
+        if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
+            do {
+                expositionData =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
+            } catch {
+                expositionData = ExpositionUnivereselle1900()
+            }
+        } else {
+            expositionData = ExpositionUnivereselle1900()
+        }
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
+            do {
+                expositionData =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
+            } catch {
+                expositionData = ExpositionUnivereselle1900()
+            }
+        } else {
+            expositionData = ExpositionUnivereselle1900()
+        }
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,4 +135,5 @@ final class MainViewController: UIViewController {
     @objc func touchUpMoveToKoreanItemsButton() {
         navigationController?.pushViewController(KoreanItemsRootViewController(), animated: true)
     }
+    
 }
