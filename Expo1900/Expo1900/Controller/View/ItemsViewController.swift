@@ -10,7 +10,6 @@ import UIKit
 class ItemsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var items: [KoreaItems] = []
-    var itemDetailData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +31,18 @@ class ItemsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             let itemDetailViewController = segue.destination as? ItemDetailViewController
-            if let index = sender as? Int {
-                itemDetailViewController?.receiveItemData(data: items[index])
-            }
+            guard let cell = sender as? UITableViewCell else { return }
+            guard let indexPath = tableView.indexPath(for: cell) else { return }
+            
+            itemDetailViewController?.receiveDetailData(data: items[indexPath.row])
+            
         }
     }
-
 }
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+
     }
     
 }
@@ -56,7 +56,7 @@ extension ItemsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemsCustomCell", for: indexPath) as? ItemsCustomCell else {
             return UITableViewCell()
         }
-       
+        
         cell.configureCell(data: items[indexPath.row])
         
         return cell

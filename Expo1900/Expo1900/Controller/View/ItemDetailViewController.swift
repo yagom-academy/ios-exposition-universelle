@@ -10,16 +10,16 @@ import UIKit
 class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescLabel: UILabel!
-    private var itemData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "데이터 전달받지 못함")
+    private var detailData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDetailView(data: itemData)
+        configureDetailView(data: detailData)
     }
     
-    func receiveItemData(data: KoreaItems) {
-        self.itemData = data
+    func receiveDetailData(data: KoreaItems) {
+        self.detailData = data
     }
     
     private func configureDetailView(data: KoreaItems) {
