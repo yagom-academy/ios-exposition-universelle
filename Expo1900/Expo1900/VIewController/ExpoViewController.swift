@@ -78,12 +78,15 @@ final class ExpoViewController: UIViewController {
         expoTitleLabel.textAlignment = .center
         expoTitleLabel.adjustsFontSizeToFitWidth = true
         
+        visitorsLabel.numberOfLines = 0
         visitorsLabel.textAlignment = .center
         visitorsLabel.adjustsFontSizeToFitWidth = true
         
+        locationLabel.numberOfLines = 0
         locationLabel.textAlignment = .center
         locationLabel.adjustsFontSizeToFitWidth = true
         
+        durationLabel.numberOfLines = 0
         durationLabel.textAlignment = .center
         durationLabel.adjustsFontSizeToFitWidth = true
         
