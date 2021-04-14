@@ -34,6 +34,40 @@ class ExpoMainStackView: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
+    
+    func setAttribute() {
+        axis = .vertical
+        alignment = .center
+        distribution = .fill
+        spacing = 10
+        
+        visitorsStackView.setSubStackView()
+        locationStackView.setSubStackView()
+        durationStackView.setSubStackView()
+        
+        itemsListStackView.axis = .horizontal
+        itemsListStackView.alignment = .center
+        itemsListStackView.distribution = .fill
+        itemsListStackView.spacing = 20
+        
+        expoTitle.font = UIFont.systemFont(ofSize: 24)
+        
+        expoPoster.image = UIImage(named: "poster")
+        
+        visitorsTitle.font = UIFont.systemFont(ofSize: 20)
+        locationTitle.font = UIFont.systemFont(ofSize: 20)
+        durationTitle.font = UIFont.systemFont(ofSize: 20)
+        visitorsTitle.text = "방문객 :"
+        locationTitle.text = "개최지 :"
+        durationTitle.text = "개최 기간 :"
+        
+        expoDescription.numberOfLines = 0
+        expoDescription.lineBreakMode = .byWordWrapping
+        
+        itemsList.setTitle("한국의 출품작 보러가기", for: .normal)
+        itemsListLeftImage.image = UIImage(named: "flag")
+        itemsListRightImage.image = UIImage(named: "flag")
+    }
 }
 
 extension UIStackView {
@@ -42,11 +76,5 @@ extension UIStackView {
         alignment = .fill
         distribution = .fillProportionally
         spacing = 10
-    }
-}
-
-extension UILabel {
-    func setSubTitle() {
-        font = UIFont.systemFont(ofSize: 20)
     }
 }
