@@ -20,13 +20,21 @@ final class ExpositionViewController: UIViewController {
     @IBOutlet private weak var rightOnButtonImageView: UIImageView!
     
     private var expoData: Exposition?
+    private let navigationTitle: String = "메인"
+    private let posterImage: String  = "poster"
+    private let flagImage: String = "flag"
+    private let listPageButtonTitle = "한국의 출품작 보러가기"
+    private let PrePhraseVisitors: String = "방문객 : "
+    private let PrePhraseLocation: String = "개최지 : "
+    private let PrePhraseDuration: String = "개최 기간 : "
+    private let titleLineNumber: Int = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeExpoData()
         setTitleLabelAttribute()
         initializeViews()
-        self.navigationItem.title = ExpositionConstant.title
+        self.navigationItem.title = navigationTitle
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +42,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func decodeExpoData() {
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: ExpositionConstant.expoJson, bundle: .main) else {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900", bundle: .main) else {
             return
         }
         do {
@@ -49,42 +57,25 @@ final class ExpositionViewController: UIViewController {
             return
         }
         titleLabel.text = data.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = PrePhraseInLabel.visitors + data.visitorsStringFormat
-        locationLabel.text = PrePhraseInLabel.location + data.location
-        durationLabel.text = PrePhraseInLabel.duration + data.duration
+        visitorsLabel.text = PrePhraseVisitors + data.visitorsStringFormat
+        locationLabel.text = PrePhraseLocation + data.location
+        durationLabel.text = PrePhraseDuration + data.duration
         descriptionLabel.text = data.description
-        posterImageView.image = UIImage(named: ExpositionConstant.posterImage)
-        itemsListPageButton.setTitle(ExpositionConstant.listPageButtonTitle, for: .normal)
-        leftOnButtonImageView.image = UIImage(named: ExpositionConstant.flagImage)
-        rightOnButtonImageView.image = UIImage(named: ExpositionConstant.flagImage)
+        posterImageView.image = UIImage(named: posterImage)
+        itemsListPageButton.setTitle(listPageButtonTitle, for: .normal)
+        leftOnButtonImageView.image = UIImage(named: flagImage)
+        rightOnButtonImageView.image = UIImage(named: flagImage)
     }
     
     private func setTitleLabelAttribute() {
         titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = 2
-        descriptionLabel.numberOfLines = 0
+        titleLabel.numberOfLines = titleLineNumber
+        descriptionLabel.numberOfLines = Int.zero
     }
     
     @IBAction private func pushItemsListPageButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let viewController = storyboard.instantiateViewController(identifier: ExpositionConstant.koreaItemListPageIdentifier)
+        let viewController = storyboard.instantiateViewController(identifier: "KoreanItemsListVC")
         self.navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension ExpositionViewController {
-    enum ExpositionConstant {
-        static let expoJson = "exposition_universelle_1900"
-        static let title = "메인"
-        static let posterImage = "poster"
-        static let flagImage = "flag"
-        static let listPageButtonTitle = "한국의 출품작 보러가기"
-        static let koreaItemListPageIdentifier = "KoreanItemsListVC"
-    }
-    
-    enum PrePhraseInLabel {
-        static let visitors = "방문객 : "
-        static let location = "개최지 : "
-        static let duration = "개최 기간 : "
     }
 }
