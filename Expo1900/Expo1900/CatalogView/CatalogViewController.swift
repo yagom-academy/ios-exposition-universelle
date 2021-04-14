@@ -27,15 +27,15 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                   for: indexPath) as? ListCell else {
+    guard let catalogCell = tableView.dequeueReusableCell(withIdentifier: "catalogCell",
+                                                   for: indexPath) as? CatalogCell else {
       return UITableViewCell()
     }
     
     let exhibitionWorkInfo = viewModel.exhibitionWorkInfo(at: indexPath.row)
-    cell.update(info: exhibitionWorkInfo)
+    catalogCell.update(info: exhibitionWorkInfo)
     
-    return cell
+    return catalogCell
   }
   
   func tableView(_ tableView: UITableView,

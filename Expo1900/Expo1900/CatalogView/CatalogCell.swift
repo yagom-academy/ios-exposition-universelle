@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: custom cell
-class ListCell: UITableViewCell {
+class CatalogCell: UITableViewCell {
   @IBOutlet var imgView: UIImageView!
   @IBOutlet var nameLabel: UILabel!
   @IBOutlet var shortDescriptionLabel: UILabel!
