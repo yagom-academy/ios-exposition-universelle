@@ -48,6 +48,7 @@ class ExpoMainViewController: UIViewController {
     
     @objc func presentExpoItemList(_ sender: UIButton) {
         let vc = ExpoListViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
     
@@ -77,7 +78,7 @@ class ExpoMainViewController: UIViewController {
         
         let expoStackViewConstraints: [NSLayoutConstraint] = ([
             expoStackView.topAnchor.constraint(equalTo: expoContentView.layoutMarginsGuide.topAnchor, constant: 10),
-            expoStackView.bottomAnchor.constraint(equalTo: expoContentView.layoutMarginsGuide.bottomAnchor, constant: 10),
+            expoStackView.bottomAnchor.constraint(equalTo: expoContentView.layoutMarginsGuide.bottomAnchor, constant: -10),
             expoStackView.leadingAnchor.constraint(equalTo: expoContentView.layoutMarginsGuide.leadingAnchor, constant: 10),
             expoStackView.trailingAnchor.constraint(equalTo: expoContentView.layoutMarginsGuide.trailingAnchor, constant: -10)
         ])
