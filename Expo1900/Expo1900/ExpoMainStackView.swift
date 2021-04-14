@@ -35,7 +35,7 @@ class ExpoMainStackView: UIStackView {
         super.init(frame: frame)
     }
     
-    func setAttribute() {
+    func setSubviewsAttribute() {
         axis = .vertical
         alignment = .center
         distribution = .fill
@@ -67,6 +67,38 @@ class ExpoMainStackView: UIStackView {
         itemsList.setTitle("한국의 출품작 보러가기", for: .normal)
         itemsListLeftImage.image = UIImage(named: "flag")
         itemsListRightImage.image = UIImage(named: "flag")
+    }
+    
+    func setSubviewsConstraints() {
+        let itemsListImageWidth: CGFloat = 40
+        let itemsListImageHeight: CGFloat = 30
+        
+        addArrangedSubview(expoTitle)
+        addArrangedSubview(expoPoster)
+        addArrangedSubview(visitorsStackView)
+        addArrangedSubview(locationStackView)
+        addArrangedSubview(durationStackView)
+        addArrangedSubview(itemsListStackView)
+        
+        visitorsStackView.addArrangedSubview(visitorsTitle)
+        visitorsStackView.addArrangedSubview(visitorsText)
+        locationStackView.addArrangedSubview(locationTitle)
+        locationStackView.addArrangedSubview(locationText)
+        durationStackView.addArrangedSubview(durationTitle)
+        durationStackView.addArrangedSubview(durationText)
+        itemsListStackView.addArrangedSubview(itemsListLeftImage)
+        itemsListStackView.addArrangedSubview(itemsList)
+        itemsListStackView.addArrangedSubview(itemsListRightImage)
+        
+        itemsListLeftImage.translatesAutoresizingMaskIntoConstraints = false
+        itemsListRightImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            itemsListLeftImage.widthAnchor.constraint(equalToConstant: itemsListImageWidth),
+            itemsListLeftImage.heightAnchor.constraint(equalToConstant: itemsListImageHeight),
+            itemsListRightImage.widthAnchor.constraint(equalToConstant: itemsListImageWidth),
+            itemsListRightImage.heightAnchor.constraint(equalToConstant: itemsListImageHeight)
+        ])
     }
 }
 
