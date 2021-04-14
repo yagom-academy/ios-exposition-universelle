@@ -57,10 +57,7 @@ extension ExhibitOfKoreaViewController: UITableViewDataSource {
             return UITableViewCell()
         }
             
-        cell.exhibitItemImage.image = UIImage(named: exhibitItem[indexPath.row].imageName)
-        cell.exhibitItemName.text = exhibitItem[indexPath.row].name
-        cell.exhibitItemShortDescription.text = exhibitItem[indexPath.row].shortDescriptions
-        cell.exhibitItemShortDescription.numberOfLines = 0
+        cell.setUpDataOfCell(exhibitItem: exhibitItem[indexPath.row])
             
         return cell
     }

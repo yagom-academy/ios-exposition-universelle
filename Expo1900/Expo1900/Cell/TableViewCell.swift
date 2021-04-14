@@ -13,14 +13,11 @@ final class TableViewCell: UITableViewCell {
     @IBOutlet var exhibitItemName: UILabel!
     @IBOutlet var exhibitItemShortDescription: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+    func setUpDataOfCell(exhibitItem: ExhibitItem){
+        self.exhibitItemImage.image = UIImage(named: exhibitItem.imageName)
+        self.exhibitItemName.text = exhibitItem.name
+        self.exhibitItemShortDescription.text = exhibitItem.shortDescriptions
+        self.exhibitItemShortDescription.numberOfLines = 0
     }
 
 }
