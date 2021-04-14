@@ -10,7 +10,7 @@ import UIKit
 class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescLabel: UILabel!
-    private var detailData: KoreaItems = KoreaItems(name: "", imageName: "", shortDesc: "", description: "")
+    private var detailData: KoreaItems?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +22,13 @@ class ItemDetailViewController: UIViewController {
         self.detailData = data
     }
     
-    private func configureDetailView(data: KoreaItems) {
-        title = data.name
-        itemImageView.image = UIImage(named: data.imageName)
-        itemDescLabel.text = data.description
+    private func configureDetailView(data: KoreaItems?) {
+        guard let detailData = data else {
+            return
+        }
+        title = detailData.name
+        itemImageView.image = UIImage(named: detailData.imageName)
+        itemDescLabel.text = detailData.description
     }
     
 }
