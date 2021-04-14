@@ -12,7 +12,7 @@ class ExpoMainStackView: UIStackView {
     let visitorsStackView = UIStackView()
     let locationStackView = UIStackView()
     let durationStackView = UIStackView()
-    let itemsListStackView = UIStackView()
+    let itemListStackView = UIStackView()
 
     let expoTitle = UILabel()
     let expoPoster = UIImageView()
@@ -23,9 +23,9 @@ class ExpoMainStackView: UIStackView {
     let durationTitle = UILabel()
     let durationText = UILabel()
     let expoDescription = UILabel()
-    let itemsListLeftImage = UIImageView()
-    let itemsList = UIButton(type: .system)
-    let itemsListRightImage = UIImageView()
+    let itemListLeftImage = UIImageView()
+    let itemList = UIButton(type: .system)
+    let itemListRightImage = UIImageView()
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -51,10 +51,10 @@ class ExpoMainStackView: UIStackView {
         locationStackView.setSubStackView()
         durationStackView.setSubStackView()
         
-        itemsListStackView.axis = .horizontal
-        itemsListStackView.alignment = .center
-        itemsListStackView.distribution = .fill
-        itemsListStackView.spacing = 20
+        itemListStackView.axis = .horizontal
+        itemListStackView.alignment = .center
+        itemListStackView.distribution = .fill
+        itemListStackView.spacing = 20
         
         expoTitle.font = UIFont.systemFont(ofSize: 24)
         
@@ -71,9 +71,9 @@ class ExpoMainStackView: UIStackView {
         expoDescription.numberOfLines = 0
         expoDescription.lineBreakMode = .byWordWrapping
         
-        itemsList.setTitle("한국의 출품작 보러가기", for: .normal)
-        itemsListLeftImage.image = UIImage(named: "flag")
-        itemsListRightImage.image = UIImage(named: "flag")
+        itemList.setTitle("한국의 출품작 보러가기", for: .normal)
+        itemListLeftImage.image = UIImage(named: "flag")
+        itemListRightImage.image = UIImage(named: "flag")
     }
     
     func setSubviewsConstraints() {
@@ -86,7 +86,7 @@ class ExpoMainStackView: UIStackView {
         addArrangedSubview(locationStackView)
         addArrangedSubview(durationStackView)
         addArrangedSubview(expoDescription)
-        addArrangedSubview(itemsListStackView)
+        addArrangedSubview(itemListStackView)
         
         visitorsStackView.addArrangedSubview(visitorsTitle)
         visitorsStackView.addArrangedSubview(visitorsText)
@@ -94,18 +94,18 @@ class ExpoMainStackView: UIStackView {
         locationStackView.addArrangedSubview(locationText)
         durationStackView.addArrangedSubview(durationTitle)
         durationStackView.addArrangedSubview(durationText)
-        itemsListStackView.addArrangedSubview(itemsListLeftImage)
-        itemsListStackView.addArrangedSubview(itemsList)
-        itemsListStackView.addArrangedSubview(itemsListRightImage)
+        itemListStackView.addArrangedSubview(itemListLeftImage)
+        itemListStackView.addArrangedSubview(itemList)
+        itemListStackView.addArrangedSubview(itemListRightImage)
         
-        itemsListLeftImage.translatesAutoresizingMaskIntoConstraints = false
-        itemsListRightImage.translatesAutoresizingMaskIntoConstraints = false
+        itemListLeftImage.translatesAutoresizingMaskIntoConstraints = false
+        itemListRightImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            itemsListLeftImage.widthAnchor.constraint(equalToConstant: itemsListImageWidth),
-            itemsListLeftImage.heightAnchor.constraint(equalToConstant: itemsListImageHeight),
-            itemsListRightImage.widthAnchor.constraint(equalToConstant: itemsListImageWidth),
-            itemsListRightImage.heightAnchor.constraint(equalToConstant: itemsListImageHeight)
+            itemListLeftImage.widthAnchor.constraint(equalToConstant: itemsListImageWidth),
+            itemListLeftImage.heightAnchor.constraint(equalToConstant: itemsListImageHeight),
+            itemListRightImage.widthAnchor.constraint(equalToConstant: itemsListImageWidth),
+            itemListRightImage.heightAnchor.constraint(equalToConstant: itemsListImageHeight)
         ])
     }
 }

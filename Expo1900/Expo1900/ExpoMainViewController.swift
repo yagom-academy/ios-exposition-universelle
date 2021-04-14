@@ -39,9 +39,16 @@ class ExpoMainViewController: UIViewController {
             expoStackView.locationText.text = result.location
             expoStackView.durationText.text = result.duration
             expoStackView.expoDescription.text = result.description
+            
+            expoStackView.itemList.addTarget(self, action: #selector(presentExpoItemList(_:)), for: .touchUpInside)
         } catch {
             print("parsing failed")
         }
+    }
+    
+    @objc func presentExpoItemList(_ sender: UIButton) {
+        let vc = ExpoListViewController()
+        present(vc, animated: true)
     }
     
     func setExpoScrollViewConstraints() {
@@ -54,8 +61,8 @@ class ExpoMainViewController: UIViewController {
         expoStackView.translatesAutoresizingMaskIntoConstraints = false
         
         let expoScrollViewConstraints: [NSLayoutConstraint] = ([
-            expoScrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            expoScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            expoScrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            expoScrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             expoScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             expoScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
