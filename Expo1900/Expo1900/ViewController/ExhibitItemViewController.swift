@@ -8,7 +8,8 @@
 import UIKit
 
 class ExhibitItemViewController: UIViewController {
-
+    
+    static let storyboardID = "ExhibitItemViewController"
     @IBOutlet private var exhibitItemImage: UIImageView!
     @IBOutlet private var exhibitItemDescriptions: UILabel!
     var tableViewIndex: Int = -1

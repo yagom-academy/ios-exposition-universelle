@@ -9,10 +9,10 @@ import UIKit
 
 class ExhibitOfKoreaViewController: UIViewController {
     
+    static let storyboardID = "ExhibitOfKoreaViewController"
     @IBOutlet private var tableView: UITableView!
     private var exhibitItem: [ExhibitItem] = []
-    private var tableViewIndex: Int = -1
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationBar()
@@ -65,19 +65,10 @@ extension ExhibitOfKoreaViewController: UITableViewDataSource {
 
 extension ExhibitOfKoreaViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableViewIndex = indexPath.row
-        self.performSegue(withIdentifier: SegueIdentifier.exhibitOfKoreaToExhibitOfKoreaItem, sender: nil)
+        guard let exhibitItemViewController = self.storyboard?.instantiateViewController(withIdentifier: ExhibitItemViewController.storyboardID) as? ExhibitItemViewController else { return }
+        exhibitItemViewController.tableViewIndex = indexPath.row
+        navigationController?.pushViewController(exhibitItemViewController, animated: true)
     }
 }
 
-extension ExhibitOfKoreaViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        
-        guard let exhibitItemViewController = destination as? ExhibitItemViewController else {
-            return
-        }
-        
-        exhibitItemViewController.tableViewIndex = self.tableViewIndex
-    }
-}
+

@@ -19,7 +19,10 @@ class MainViewController: UIViewController {
     @IBOutlet private var rightFlagImage: UIImageView!
     @IBOutlet private var enterExhibitOfKoreaButton: UIButton!
     @IBAction private func enterExhibitOfKoreaButton(_ sender: Any) {
-        self.performSegue(withIdentifier: SegueIdentifier.mainToExhibitOfKorea, sender: nil)
+        guard let exhibitOfKoreaViewController = self.storyboard?.instantiateViewController(identifier: ExhibitOfKoreaViewController.storyboardID) as? ExhibitOfKoreaViewController else {
+            return
+        }
+        navigationController?.pushViewController(exhibitOfKoreaViewController, animated: true)
     }
     
     override func viewDidLoad() {
