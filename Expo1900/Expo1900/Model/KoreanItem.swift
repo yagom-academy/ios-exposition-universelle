@@ -8,18 +8,11 @@
 import Foundation
 
 struct KoreanItem: Decodable {
-    let name: String
-    let imageName: String
-    let shortDescription: String
-    let description: String
-    
-    init() {
-        name = DefaultValues.text
-        imageName = DefaultValues.text
-        shortDescription = DefaultValues.text
-        description = DefaultValues.text
-    }
-    
+    var name: String = DefaultValues.text
+    var imageName: String = DefaultValues.text
+    var shortDescription: String = DefaultValues.text
+    var description: String = DefaultValues.text
+
     private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"

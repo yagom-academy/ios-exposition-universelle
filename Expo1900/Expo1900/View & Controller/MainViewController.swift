@@ -7,7 +7,17 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    private let expositionData: ExpositionUnivereselle1900
+    private let expositionData: ExpositionUnivereselle1900 = {
+        var data = ExpositionUnivereselle1900()
+        if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
+            do {
+                data =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
+            } catch {
+                data = ExpositionUnivereselle1900()
+            }
+        }
+        return data
+    }()
     
     private let mainScrollView: UIScrollView = {
         let scrollview = UIScrollView()
@@ -58,22 +68,8 @@ final class MainViewController: UIViewController {
     
     private lazy var contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemsStackView]
     
-    required init(coder: NSCoder) {
-        if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
-            do {
-                expositionData =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
-            } catch {
-                expositionData = ExpositionUnivereselle1900()
-            }
-        } else {
-            expositionData = ExpositionUnivereselle1900()
-        }
-        super.init(nibName: nil, bundle: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "메인"
         setUpMainScrollView()
         setStackViewOfMainScrollView()
     }
@@ -108,6 +104,6 @@ final class MainViewController: UIViewController {
     }
     
     @objc func touchUpMoveToKoreanItemsButton() {
-        navigationController?.pushViewController(KoreanItemsRootViewController(coder: NSCoder()), animated: true)
+        navigationController?.pushViewController(KoreanItemsRootViewController(), animated: true)
     }
 }

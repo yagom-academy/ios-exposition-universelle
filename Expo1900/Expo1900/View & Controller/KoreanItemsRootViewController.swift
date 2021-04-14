@@ -8,7 +8,17 @@
 import UIKit
 
 final class KoreanItemsRootViewController: UIViewController {
-    private var koreanItemsData = [KoreanItem]()
+    private let koreanItems: [KoreanItem] = {
+        var items = [KoreanItem]()
+        if let dataAsset = NSDataAsset(name: "items") {
+            do {
+                items =  try JSONDecoder().decode([KoreanItem].self, from: dataAsset.data)
+            } catch {
+                items = [KoreanItem]()
+            }
+        }
+        return items
+    }()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -16,19 +26,6 @@ final class KoreanItemsRootViewController: UIViewController {
         tableView.register(KoreanItemCell.self, forCellReuseIdentifier: KoreanItemCell.reuseIdentifier)
         return tableView
     }()
-    
-    required init(coder: NSCoder) {
-        if let dataAsset = NSDataAsset(name: "items") {
-            do {
-                koreanItemsData =  try JSONDecoder().decode([KoreanItem].self, from: dataAsset.data)
-            } catch {
-                koreanItemsData = [KoreanItem]()
-            }
-        } else {
-            koreanItemsData = [KoreanItem]()
-        }
-        super.init(nibName: nil, bundle: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,22 +50,23 @@ final class KoreanItemsRootViewController: UIViewController {
 
 extension KoreanItemsRootViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        navigationController?.pushViewController(KoreanItemViewController(data: koreanItemsData[indexPath.row]), animated: true)
+        let koreanItemViewcontroller = KoreanItemViewController()
+        koreanItemViewcontroller.koreanItem = koreanItems[indexPath.row]
+        navigationController?.pushViewController(koreanItemViewcontroller, animated: true)
     }
 }
 
 extension KoreanItemsRootViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        koreanItemsData.count
+        koreanItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemCell.reuseIdentifier, for: indexPath) as? KoreanItemCell else {
             return UITableViewCell()
         }
-        let koreanItemData = koreanItemsData[indexPath.row]
+        let koreanItemData = koreanItems[indexPath.row]
         cell.itemImageView.image = UIImage(named: koreanItemData.imageName)
         cell.titleLabel.text = koreanItemData.name
         cell.shortDescriptionLabel.text = koreanItemData.shortDescription

@@ -8,17 +8,9 @@
 import Foundation
 
 struct ExpositionUnivereselle1900: Decodable {
-    var title: String
-    var visitors: Int
-    var location: String
-    var duration: String
-    var description: String
-    
-    init() {
-        title = DefaultValues.text
-        visitors = DefaultValues.number
-        location = DefaultValues.text
-        duration = DefaultValues.text
-        description = DefaultValues.text
-    }
+    var title: String = DefaultValues.text
+    var visitors: Int = DefaultValues.number
+    var location: String = DefaultValues.text
+    var duration: String = DefaultValues.text
+    var description: String = DefaultValues.text
 }
