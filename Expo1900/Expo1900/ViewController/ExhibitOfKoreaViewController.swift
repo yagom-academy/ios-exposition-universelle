@@ -17,7 +17,7 @@ class ExhibitOfKoreaViewController: UIViewController {
         super.viewDidLoad()
         initNavigationBar()
         initThingsUsedInTableView()
-        let resultOfFetch = setUpExpoData(fileName: FileName.items, model: [ExhibitItem].self)
+        let resultOfFetch = setUpData(fileName: FileName.items, model: [ExhibitItem].self)
         switch resultOfFetch {
         case .success(let data):
             exhibitItem = data
@@ -66,7 +66,7 @@ extension ExhibitOfKoreaViewController: UITableViewDataSource {
 extension ExhibitOfKoreaViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let exhibitItemViewController = self.storyboard?.instantiateViewController(withIdentifier: ExhibitItemViewController.storyboardID) as? ExhibitItemViewController else { return }
-        exhibitItemViewController.tableViewIndex = indexPath.row
+        exhibitItemViewController.exhibitItemData = exhibitItem[indexPath.row]
         navigationController?.pushViewController(exhibitItemViewController, animated: true)
     }
 }

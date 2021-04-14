@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let resultOfFetch = setUpExpoData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self)
+        let resultOfFetch = setUpData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self)
         switch resultOfFetch {
         case .success(let data):
             initMainSceneData(data: data)
@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
     
     private func initMainSceneData(data: MainOfExposition) {
         let title = data.title.components(separatedBy: "(")
-        let visitorsNumber:String = changeNumberDecimalFormat(number: data.visitors)
+        guard let visitorsNumber = changeNumberDecimalFormat(number: data.visitors) else { return }
         expoTitle.text = title[0] + "\n" + "(" + title[1]
         expoImage.image = UIImage(named: ImageName.poster)
         expoVisitior.text = "방문객" + " : " + visitorsNumber + "명"
@@ -54,12 +54,12 @@ class MainViewController: UIViewController {
         enterExhibitOfKoreaButton.setTitle("한국의 출품작 보러가기", for: .normal)
     }
     
-    private func changeNumberDecimalFormat(number: Int) -> String {
+    private func changeNumberDecimalFormat(number: Int) -> String? {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
         guard let demicalStyleNumber = numberFormatter.string(from: NSNumber(value:number)) else {
-            return "Failed to change format"
+            return nil
         }
         
         return demicalStyleNumber
@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
 }
 
 extension UIViewController {
-    func setUpExpoData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
+    func setUpData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
         switch loadData(name: fileName) {
         case .success(let data):
             return decodeData(data: data, model: model)

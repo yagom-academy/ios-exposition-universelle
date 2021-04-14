@@ -12,18 +12,13 @@ class ExhibitItemViewController: UIViewController {
     static let storyboardID = "ExhibitItemViewController"
     @IBOutlet private var exhibitItemImage: UIImageView!
     @IBOutlet private var exhibitItemDescriptions: UILabel!
-    var tableViewIndex: Int = -1
+    var exhibitItemData: ExhibitItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let resultOfFetch = setUpExpoData(fileName: FileName.items, model: [ExhibitItem].self)
-        switch resultOfFetch {
-        case .success(let data):
-            self.navigationItem.title = data[tableViewIndex].name
-            exhibitItemImage.image = UIImage(named: data[tableViewIndex].imageName)
-            exhibitItemDescriptions.text = data[tableViewIndex].descriptions
-        case .failure(let error):
-            print(error.localizedDescription)
-        }
+        guard let exhibitItemData = exhibitItemData else { return }
+        self.navigationItem.title = exhibitItemData.name
+        exhibitItemImage.image = UIImage(named: exhibitItemData.imageName)
+        exhibitItemDescriptions.text = exhibitItemData.descriptions
     }
 }
