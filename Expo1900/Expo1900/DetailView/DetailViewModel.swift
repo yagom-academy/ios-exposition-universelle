@@ -8,9 +8,9 @@
 import Foundation
 
 class DetailViewModel {
-  var exhibitionWorkCell: ExhibitionWorkCell?
+  var exhibitionWorkCell: ExhibitionWorkInfo?
   
-  func update(model: ExhibitionWorkCell?) {
+  func update(model: ExhibitionWorkInfo?) {
     exhibitionWorkCell = model
   }
 }
