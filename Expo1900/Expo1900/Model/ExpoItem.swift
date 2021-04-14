@@ -8,9 +8,8 @@
 import Foundation
 
 struct ExpoItem : Decodable {
-    let expoTitle, location, description : String
+    let expoTitle, location, description, openingPeriod : String
     let numberOfVisitors : Int
-    let openingPeriod : Date
     
     enum CodingKeys : String, CodingKey {
         case expoTitle = "title"
