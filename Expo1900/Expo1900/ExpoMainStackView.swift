@@ -29,10 +29,16 @@ class ExpoMainStackView: UIStackView {
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
+        
+        setSubviewsAttribute()
+        setSubviewsConstraints()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setSubviewsAttribute()
+        setSubviewsConstraints()
     }
     
     func setSubviewsAttribute() {
@@ -61,6 +67,7 @@ class ExpoMainStackView: UIStackView {
         locationTitle.text = "개최지 :"
         durationTitle.text = "개최 기간 :"
         
+        expoDescription.textAlignment = .left
         expoDescription.numberOfLines = 0
         expoDescription.lineBreakMode = .byWordWrapping
         
@@ -78,6 +85,7 @@ class ExpoMainStackView: UIStackView {
         addArrangedSubview(visitorsStackView)
         addArrangedSubview(locationStackView)
         addArrangedSubview(durationStackView)
+        addArrangedSubview(expoDescription)
         addArrangedSubview(itemsListStackView)
         
         visitorsStackView.addArrangedSubview(visitorsTitle)
