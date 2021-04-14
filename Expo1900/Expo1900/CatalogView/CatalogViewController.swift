@@ -8,17 +8,20 @@
 import UIKit
 
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+  static let cellIdentifier = "catalogCell"
+  static let segueIdentifier = "detailView"
+  
   let viewModel = CatalogViewModel()
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "showDetail" {
-          let vc = segue.destination as? DetailViewController
-          
-          if let index = sender as? Int {
-              let exhibitionWorkCatalog = viewModel.exhibitionWorkInfo(at: index)
-              vc?.viewModel.update(model: exhibitionWorkCatalog)
-          }
+    if segue.identifier == "detailView" {
+      let detailvc = segue.destination as? DetailViewController
+      
+      if let index = sender as? Int {
+        let exhibitionWorkCatalog = viewModel.exhibitionWorkInfo(at: index)
+        detailvc?.viewModel.update(model: exhibitionWorkCatalog)
       }
+    }
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,19 +30,20 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                   for: indexPath) as? ListCell else {
+    guard let catalogCell = tableView.dequeueReusableCell(
+            withIdentifier: CatalogViewController.cellIdentifier, for: indexPath) as?
+            CatalogCell else {
       return UITableViewCell()
     }
     
     let exhibitionWorkInfo = viewModel.exhibitionWorkInfo(at: indexPath.row)
-    cell.update(info: exhibitionWorkInfo)
+    catalogCell.update(info: exhibitionWorkInfo)
     
-    return cell
+    return catalogCell
   }
   
   func tableView(_ tableView: UITableView,
                  didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "showDetail", sender: indexPath.row)
+    performSegue(withIdentifier: CatalogViewController.segueIdentifier, sender: indexPath.row)
   }
 }

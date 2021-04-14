@@ -8,12 +8,12 @@
 import UIKit
 
 // MARK: custom cell
-class ListCell: UITableViewCell {
+class CatalogCell: UITableViewCell {
   @IBOutlet var imgView: UIImageView!
   @IBOutlet var nameLabel: UILabel!
   @IBOutlet var shortDescriptionLabel: UILabel!
   
-  func update(info: ExhibitionWorkCell) {
+  func update(info: ExhibitionWorkInfo) {
     imgView.image = info.image
     nameLabel.text = info.name
     shortDescriptionLabel.text = info.shortDescription

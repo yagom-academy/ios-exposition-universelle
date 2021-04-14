@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ExhibitionWorkCell {
+struct ExhibitionWorkInfo {
   var name: String
   var imageName: String
   var shortDescription: String
