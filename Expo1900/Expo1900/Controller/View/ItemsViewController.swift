@@ -31,9 +31,9 @@ class ItemsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             let itemDetailViewController = segue.destination as? ItemDetailViewController
-            guard let testIndexPath = tableView.indexPathForSelectedRow else { return }
+            guard let index = tableView.indexPathForSelectedRow else { return }
             
-            itemDetailViewController?.receiveDetailData(data: items[testIndexPath.row])
+            itemDetailViewController?.receiveDetailData(data: items[index.row])
             
         }
     }
@@ -41,7 +41,6 @@ class ItemsViewController: UIViewController {
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
     }
     
 }
