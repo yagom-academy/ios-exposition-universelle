@@ -39,7 +39,6 @@ final class KoreanItemCell: UITableViewCell {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUpKoreanItemCell()
     }
     
     private func setUpKoreanItemCell() {

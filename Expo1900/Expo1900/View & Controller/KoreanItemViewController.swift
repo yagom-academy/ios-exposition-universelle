@@ -36,7 +36,6 @@ final class KoreanItemViewController: UIViewController {
     lazy var itemDescriptionLabel = ExpositionLabel(text: koreanItem.description, textStyle: .body)
     lazy var contents = [itemImageView, itemDescriptionLabel]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false

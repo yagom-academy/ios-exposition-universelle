@@ -7,19 +7,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    
-    private enum PrefixText {
-        static let visitors = "방문객 : "
-        static let location = "개최지 : "
-        static let duration = "개최기간 : "
-    }
-    
-    private enum PostfixText {
-        static let visitors = " 명"
-    }
-    
     private let mainViewTitle = "메인"
-    
     private let expositionData: ExpositionUnivereselle1900
     
     private let mainScrollView: UIScrollView = {
@@ -135,5 +123,4 @@ final class MainViewController: UIViewController {
     @objc func touchUpMoveToKoreanItemsButton() {
         navigationController?.pushViewController(KoreanItemsRootViewController(), animated: true)
     }
-    
 }

@@ -17,6 +17,7 @@ final class ExpositionLabel: UILabel {
      
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setUpExpositionLabel()
     }
     
     private func setUpExpositionLabel() {
