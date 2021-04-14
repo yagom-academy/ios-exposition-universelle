@@ -8,6 +8,9 @@
 import UIKit
 
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+  static let cellIdentifier = "catalogCell"
+  static let segueIdentifier = "detailView"
+  
   let viewModel = CatalogViewModel()
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,8 +30,9 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let catalogCell = tableView.dequeueReusableCell(withIdentifier: "catalogCell",
-                                                   for: indexPath) as? CatalogCell else {
+    guard let catalogCell = tableView.dequeueReusableCell(
+            withIdentifier: CatalogViewController.cellIdentifier, for: indexPath) as?
+            CatalogCell else {
       return UITableViewCell()
     }
     
@@ -40,6 +44,6 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   
   func tableView(_ tableView: UITableView,
                  didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "detailView", sender: indexPath.row)
+    performSegue(withIdentifier: CatalogViewController.segueIdentifier, sender: indexPath.row)
   }
 }
