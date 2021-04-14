@@ -15,7 +15,7 @@ class ExhibitItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let resultOfFetch = fetchExpoData(fileName: FileName.items, model: [ExhibitItem].self)
+        let resultOfFetch = setUpExpoData(fileName: FileName.items, model: [ExhibitItem].self)
         switch resultOfFetch {
         case .success(let data):
             self.navigationItem.title = data[tableViewIndex].name

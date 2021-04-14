@@ -17,7 +17,7 @@ class ExhibitOfKoreaViewController: UIViewController {
         super.viewDidLoad()
         initNavigationBar()
         initThingsUsedInTableView()
-        let resultOfFetch = fetchExpoData(fileName: FileName.items, model: [ExhibitItem].self)
+        let resultOfFetch = setUpExpoData(fileName: FileName.items, model: [ExhibitItem].self)
         switch resultOfFetch {
         case .success(let data):
             exhibitItem = data

@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let resultOfFetch = fetchExpoData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self)
+        let resultOfFetch = setUpExpoData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self)
         switch resultOfFetch {
         case .success(let data):
             initMainSceneData(data: data)
@@ -64,7 +64,7 @@ class MainViewController: UIViewController {
 }
 
 extension UIViewController {
-    func fetchExpoData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
+    func setUpExpoData<T: Decodable>(fileName: String, model: T.Type) -> Result<T, DataError> {
         switch loadData(name: fileName) {
         case .success(let data):
             return decodeData(data: data, model: model)
