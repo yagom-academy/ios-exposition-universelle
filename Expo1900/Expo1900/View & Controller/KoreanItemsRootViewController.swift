@@ -32,6 +32,8 @@ final class KoreanItemsRootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = koreanItemRootViewTitle
+        mainTableView.rowHeight = UITableView.automaticDimension
+        mainTableView.estimatedRowHeight = 120
         mainTableView.delegate = self
         mainTableView.dataSource = self
         view.backgroundColor = .white
@@ -40,7 +42,7 @@ final class KoreanItemsRootViewController: UIViewController {
     }
     
     private func setConstraint() {
-        mainTableView.rowHeight = 100
+        mainTableView.rowHeight = UITableView.automaticDimension
         NSLayoutConstraint.activate([
             mainTableView.topAnchor.constraint(equalTo: view.topAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
