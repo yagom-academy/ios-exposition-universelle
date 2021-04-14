@@ -9,7 +9,6 @@ import UIKit
 
 class ExpoMainStackView: UIStackView {
 
-    let mainStackView = UIStackView()
     let visitorsStackView = UIStackView()
     let locationStackView = UIStackView()
     let durationStackView = UIStackView()
@@ -27,4 +26,27 @@ class ExpoMainStackView: UIStackView {
     let itemsListLeftImage = UIImageView()
     let itemsList = UIButton(type: .system)
     let itemsListRightImage = UIImageView()
+    
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+}
+
+extension UIStackView {
+    func setSubStackView() {
+        axis = .horizontal
+        alignment = .fill
+        distribution = .fillProportionally
+        spacing = 10
+    }
+}
+
+extension UILabel {
+    func setSubTitle() {
+        font = UIFont.systemFont(ofSize: 20)
+    }
 }
