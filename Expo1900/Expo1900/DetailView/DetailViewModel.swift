@@ -8,9 +8,16 @@
 import Foundation
 
 class DetailViewModel {
-  var exhibitionWorkCell: ExhibitionWorkInfo?
+  private var info: ExhibitionWorkInfo?
   
   func update(model: ExhibitionWorkInfo?) {
-    exhibitionWorkCell = model
+    info = model
+  }
+  
+  func exhibitionWorkInfo() -> ExhibitionWorkInfo? {
+    guard let exhibitionWorkInfo = info else {
+      return nil
+    }
+    return exhibitionWorkInfo
   }
 }

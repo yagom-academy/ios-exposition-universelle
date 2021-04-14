@@ -8,7 +8,7 @@
 import Foundation
 
 class CatalogViewModel {
-  var exhibitionWorkCatalog: [ExhibitionWorkInfo] = []
+  private var exhibitionWorkCatalog: [ExhibitionWorkInfo] = []
   
   init() {
     let jsonFile = JsonFile(fileName: "items")
