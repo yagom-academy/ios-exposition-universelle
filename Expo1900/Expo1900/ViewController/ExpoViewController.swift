@@ -42,7 +42,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func updateUI(_ expoInformation: ExpoInfo) {
-        expoTitleLabel.text = expoInformation.title
+        expoTitleLabel.text = expoInformation.title.replacingOccurrences(of: "(", with: "\n(")
         locationLabel.text = expoInformation.location
         durationLabel.text = expoInformation.duration
         descriptionLabel.text = expoInformation.description
