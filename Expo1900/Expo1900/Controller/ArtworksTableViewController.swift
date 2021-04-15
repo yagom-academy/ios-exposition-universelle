@@ -13,7 +13,7 @@ final class ArtworksTableViewController: UIViewController {
   @IBOutlet private weak var tableView: UITableView!
   private var artworks: [Artwork] = []
   
-  // MARK: - Namespace
+  // MARK: - Namespaces
   private enum Identifier {
     enum Segue {
       static let artworkDetail: String = "showDetail"
