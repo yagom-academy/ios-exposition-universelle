@@ -10,7 +10,7 @@ import UIKit
 final class KoreanItemCell: UITableViewCell {
     static let reuseIdentifier = "KoreanItemCell"
     
-    let itemImageView: UIImageView = {
+    private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -18,7 +18,7 @@ final class KoreanItemCell: UITableViewCell {
         return imageView
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -26,7 +26,7 @@ final class KoreanItemCell: UITableViewCell {
         return label
     }()
     
-    let shortDescriptionLabel: UILabel = {
+    private let shortDescriptionLabel: UILabel = {
         let label  = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -48,6 +48,24 @@ final class KoreanItemCell: UITableViewCell {
         setAccessoryType()
         addContentView()
         setConstraintsOfContents()
+    }
+    
+    func setKoreanItemCellContents(imageName: String, title: String, shortDescription: String) {
+        setItemImageView(imageName: imageName)
+        setTitleLabel(title: title)
+        setShortDescriptionLabel(shortDescription: shortDescription)
+    }
+    
+    private func setItemImageView(imageName: String) {
+        itemImageView.image = UIImage(named: imageName)
+    }
+    
+    private func setTitleLabel(title: String) {
+        titleLabel.text = title
+    }
+    
+    private func setShortDescriptionLabel(shortDescription: String) {
+        shortDescriptionLabel.text = shortDescription
     }
     
     private func setAccessoryType() {

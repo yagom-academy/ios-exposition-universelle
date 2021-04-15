@@ -75,9 +75,9 @@ extension KoreanItemsRootViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let koreanItemData = koreanItems[indexPath.row]
-        cell.itemImageView.image = UIImage(named: koreanItemData.imageName)
-        cell.titleLabel.text = koreanItemData.name
-        cell.shortDescriptionLabel.text = koreanItemData.shortDescription
+        cell.setKoreanItemCellContents(imageName: koreanItemData.imageName,
+                                       title: koreanItemData.name,
+                                       shortDescription: koreanItemData.shortDescription)
         return cell
     }
 }
