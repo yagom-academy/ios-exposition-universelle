@@ -23,7 +23,7 @@ final class ExpoIntroductionViewController: UIViewController {
     }
     
     enum Suffix {
-      static let visitorSuffix: String = " 명"
+      static let visitor: String = " 명"
     }
   }
 
@@ -61,7 +61,7 @@ extension ExpoIntroductionViewController {
     switch formattedNumber(data.visitors) {
     case .success(let formattedNumber):
       numberOfVisitorsLabel.text = Affix.Prefix.visitor + formattedNumber +
-        Affix.Suffix.visitorSuffix
+        Affix.Suffix.visitor
     case .failure(ExpoAppError.numberFormattingFailed(let number)):
       debugPrint(ExpoAppError.numberFormattingFailed(number))
     case .failure(_):
