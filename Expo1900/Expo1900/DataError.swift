@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DataError: LocalizedError {
+enum DataError: Error, LocalizedError {
     case incorrectAssert
     case failDecoding
     
