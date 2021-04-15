@@ -19,8 +19,6 @@ final class EntryWorkViewController: UIViewController {
         tableView.dataSource = self
         
         loadJsonData()
-        
-        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
