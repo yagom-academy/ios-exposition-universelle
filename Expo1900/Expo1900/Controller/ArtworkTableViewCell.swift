@@ -8,7 +8,7 @@
 import UIKit
 
 final class ArtworkTableViewCell: UITableViewCell {
-  @IBOutlet private weak var thumbnailImageView: UIImageView!
-  @IBOutlet private weak var titleLabel: UILabel!
-  @IBOutlet private weak var shortDescriptionLabel: UILabel!
+  @IBOutlet weak var thumbnailImageView: UIImageView!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var shortDescriptionLabel: UILabel!
 }
