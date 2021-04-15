@@ -30,3 +30,14 @@ struct ExpoOfParis: Decodable, Equatable {
     let items: [HeritageItem]?
 }
 
+func commaMaker(value: Int) -> String {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
+    let result = numberFormatter.string(from: NSNumber(value: value))!
+
+    return result
+}
+
+func insertNewLine(by separator: Character, into text: inout String) {
+    text = text.replacingOccurrences(of: "\(separator)", with: "\n " + "\(separator)")
+}

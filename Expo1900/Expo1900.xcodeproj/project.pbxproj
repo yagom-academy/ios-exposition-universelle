@@ -13,6 +13,7 @@
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		D0020E51262656C900896F4C /* JSONDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0020E50262656C900896F4C /* JSONDataTest.swift */; };
 		D02EF782261FFA9000FDADD6 /* JSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF781261FFA9000FDADD6 /* JSONConverterTests.swift */; };
 		D02EF789261FFD4A00FDADD6 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF788261FFD4A00FDADD6 /* JSONConverter.swift */; };
 		D02EF79E2620089300FDADD6 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF79D2620089300FDADD6 /* JSONData.swift */; };
@@ -37,6 +38,7 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0020E50262656C900896F4C /* JSONDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataTest.swift; sourceTree = "<group>"; };
 		D02EF773261FF9DC00FDADD6 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02EF777261FF9DC00FDADD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D02EF781261FFA9000FDADD6 /* JSONConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverterTests.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				D02EF777261FF9DC00FDADD6 /* Info.plist */,
 				D02EF781261FFA9000FDADD6 /* JSONConverterTests.swift */,
+				D0020E50262656C900896F4C /* JSONDataTest.swift */,
 			);
 			path = Expo1900Tests;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D02EF782261FFA9000FDADD6 /* JSONConverterTests.swift in Sources */,
+				D0020E51262656C900896F4C /* JSONDataTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
