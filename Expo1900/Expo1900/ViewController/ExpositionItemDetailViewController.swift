@@ -14,6 +14,7 @@ class ExpositionItemDetailViewController: UIViewController {
     
     var itemNameString: String?
     var itemDescriptionString: String?
+    var itemTitleString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,8 @@ class ExpositionItemDetailViewController: UIViewController {
     }
     
     func DetailViewUpdateUI() throws {
+        guard let itemTitle = itemTitleString else { throw ExpositionItemDetailError.itemNameString }
+            self.navigationItem.title = itemTitle
         guard let itemNameString = itemNameString else { throw ExpositionItemDetailError.itemNameString }
             itemName.image = UIImage(named: itemNameString)
         guard let itemDescriptionString = itemDescriptionString else { throw ExpositionItemDetailError.itemDescriptionString }

@@ -55,6 +55,7 @@ class ExpositionItemListTableViewController: UITableViewController {
                     preconditionFailure(
                         "Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
                 }
+        expositionItemDetail.itemTitleString = item.name
         expositionItemDetail.itemNameString = item.imageName
         expositionItemDetail.itemDescriptionString = item.description
         navigationController?.pushViewController(expositionItemDetail, animated: true)
