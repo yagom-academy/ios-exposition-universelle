@@ -1,5 +1,5 @@
 //
-//  Exposition.swift
+//  JSONModel.swift
 //  Expo1900
 //
 //  Created by duckbok on 2021/04/09.
