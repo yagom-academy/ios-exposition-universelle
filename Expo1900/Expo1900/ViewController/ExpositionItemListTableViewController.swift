@@ -45,4 +45,18 @@ class ExpositionItemListTableViewController: UITableViewController {
         cell.detailTextLabel?.text = item.shortDescription
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item: ExpositionItem = self.itemsArray[indexPath.row]
+        let viewControllerIdentifier = "ExpositionItemDetailViewController"
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let expositionItemDetail = storyboard
+                    .instantiateViewController(withIdentifier: viewControllerIdentifier) as? ExpositionItemDetailViewController else {
+                    preconditionFailure(
+                        "Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
+                }
+        expositionItemDetail.itemNameString = item.imageName
+        expositionItemDetail.itemDescriptionString = item.description
+        navigationController?.pushViewController(expositionItemDetail, animated: true)
+    }
 }
