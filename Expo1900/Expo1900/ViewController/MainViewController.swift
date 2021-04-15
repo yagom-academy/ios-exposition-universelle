@@ -95,8 +95,8 @@ final class MainViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: false)
+    private func setMainViewTitle() {
+        navigationItem.title = "메인"
     }
     
     private func setUpMainScrollView() {

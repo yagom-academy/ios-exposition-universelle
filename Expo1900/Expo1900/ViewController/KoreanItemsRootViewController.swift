@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreanItemsRootViewController: UIViewController {
-    let koreanItemRootViewTitle = "한국의 출품작"
+    private let koreanItemRootViewTitle = "한국의 출품작"
     
     private let koreanItems: [KoreanItem] = {
         var items = [KoreanItem]()
@@ -29,19 +29,23 @@ final class KoreanItemsRootViewController: UIViewController {
         return tableView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = koreanItemRootViewTitle
         mainTableView.rowHeight = UITableView.automaticDimension
-        mainTableView.estimatedRowHeight = 120
+        mainTableView.estimatedRowHeight = 150
         mainTableView.delegate = self
         mainTableView.dataSource = self
         view.backgroundColor = .white
         view.addSubview(mainTableView)
-        setConstraint()
+        addMainTableViewConstraint()
     }
     
-    private func setConstraint() {
+    private func addMainTableViewConstraint() {
         mainTableView.rowHeight = UITableView.automaticDimension
         NSLayoutConstraint.activate([
             mainTableView.topAnchor.constraint(equalTo: view.topAnchor),

@@ -79,7 +79,9 @@ final class KoreanItemCell: UITableViewCell {
             itemImageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
             itemImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             itemImageView.widthAnchor.constraint(equalToConstant: 100),
-            itemImageView.heightAnchor.constraint(equalToConstant: 60)
+            itemImageView.heightAnchor.constraint(equalToConstant: 60),
+            itemImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            itemImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     

@@ -33,12 +33,12 @@ final class KoreanItemViewController: UIViewController {
         imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
         return imageView
     }()
+    
     lazy var itemDescriptionLabel = ExpositionLabel(text: koreanItem.description, textStyle: .body)
     lazy var contents = [itemImageView, itemDescriptionLabel]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
         setTitleOfNavigationBar()
         setUpMainScrollView()
         setStackViewOfMainScrollView()
