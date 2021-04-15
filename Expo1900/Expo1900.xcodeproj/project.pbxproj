@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6660FDE0261E624D00E56701 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6660FDDF261E624D00E56701 /* Exposition.swift */; };
 		667064D82625962E001FCC4B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667064D72625962E001FCC4B /* Error.swift */; };
+		66993ED026268F03005944DF /* ExpositionItemListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66993ECF26268F03005944DF /* ExpositionItemListTableViewController.swift */; };
 		66B174B1261EF5BA003D97F8 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B174B0261EF5BA003D97F8 /* Expo1900Tests.swift */; };
 		66E5AAE5261C39880042CC91 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E5AAE4261C39880042CC91 /* ExpositionItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		6660FDDF261E624D00E56701 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		667064D72625962E001FCC4B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		66993ECF26268F03005944DF /* ExpositionItemListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemListTableViewController.swift; sourceTree = "<group>"; };
 		66B174AE261EF5BA003D97F8 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B174B0261EF5BA003D97F8 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		66B174B2261EF5BA003D97F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositonViewController.swift */,
+				66993ECF26268F03005944DF /* ExpositionItemListTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				6660FDE0261E624D00E56701 /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositonViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				66993ED026268F03005944DF /* ExpositionItemListTableViewController.swift in Sources */,
 				667064D82625962E001FCC4B /* Error.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
