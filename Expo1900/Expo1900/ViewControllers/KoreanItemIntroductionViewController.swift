@@ -32,7 +32,7 @@ final class KoreanItemIntroductionViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.sizeToFit()
-        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 500).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: ViewConstant.maximumImageViewHeight).isActive = true
         return imageView
     }()
     

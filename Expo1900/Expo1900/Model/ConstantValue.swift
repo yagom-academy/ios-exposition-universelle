@@ -27,4 +27,5 @@ enum ExpoAffix {
 
 enum ViewConstant {
     static let scrollBarWidth: CGFloat = 10
+    static let maximumImageViewHeight: CGFloat = 500
 }

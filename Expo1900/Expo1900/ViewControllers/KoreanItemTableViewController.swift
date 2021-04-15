@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreanItemTableViewController: UIViewController {
-    private let koreanItemTableViewTitle = "한국의 출품작"
+    private let koreanItemTableViewNavigationTitle = "한국의 출품작"
     
     private let koreanItems: [KoreanItem] = {
         var items = [KoreanItem]()
@@ -43,7 +43,7 @@ final class KoreanItemTableViewController: UIViewController {
     }
     
     private func setKoreanItemTableViewTitle() {
-        navigationItem.title = koreanItemTableViewTitle
+        navigationItem.title = koreanItemTableViewNavigationTitle
     }
     
     private func setKoreanItemTableViewDelegate() {

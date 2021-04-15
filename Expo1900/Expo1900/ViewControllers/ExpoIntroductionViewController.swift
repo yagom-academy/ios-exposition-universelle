@@ -7,7 +7,8 @@
 import UIKit
 
 final class ExpoIntroductionViewController: UIViewController {
-    private let navigationTitle = "메인"
+    
+    private let expoIntroductionNavigationTitle = "메인"
     private let expositionData: ExpositionUnivereselle1900
     
     private let introductionScrollView: UIScrollView = {
@@ -37,6 +38,8 @@ final class ExpoIntroductionViewController: UIViewController {
     
     private let moveToKoreanItemTableStackView: UIStackView = {
         let stackView = UIStackView()
+        let stackViewHeight: CGFloat = 30
+        
         let moveToKoreanItemsButton: UIButton = {
             let button = UIButton(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +53,7 @@ final class ExpoIntroductionViewController: UIViewController {
         let rightkoreanFlagImageView = ExpositionImageView(imageName: "flag")
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
-        stackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: stackViewHeight).isActive = true
         stackView.addArrangedSubview(leftkoreanFlagImageView)
         stackView.addArrangedSubview(moveToKoreanItemsButton)
         stackView.addArrangedSubview(rightkoreanFlagImageView)
