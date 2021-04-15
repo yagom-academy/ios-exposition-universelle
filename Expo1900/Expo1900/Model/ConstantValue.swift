@@ -8,11 +8,6 @@
 import Foundation
 import UIKit
 
-enum DefaultJSONValues {
-    static let text = "Not Found"
-    static let number = 0
-}
-
 enum ExpoAffix {
     enum Prefix {
         static let visitors = "방문객 : "

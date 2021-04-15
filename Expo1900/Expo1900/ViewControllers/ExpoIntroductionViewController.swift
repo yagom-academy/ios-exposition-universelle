@@ -9,7 +9,7 @@ import UIKit
 final class ExpoIntroductionViewController: UIViewController {
     
     private let expoIntroductionNavigationTitle = "메인"
-    private let expositionData: ExpositionUnivereselle1900
+    private var expositionData: ExpositionUnivereselle1900?
     
     private let introductionScrollView: UIScrollView = {
         let scrollview = UIScrollView()
@@ -29,18 +29,54 @@ final class ExpoIntroductionViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var titleLabel = ExpositionLabel(text: expositionData.title, textStyle: .largeTitle)
+    private var titleLabel: ExpositionLabel? {
+        if let title = expositionData?.title {
+            return ExpositionLabel(text: title, textStyle: .largeTitle)
+        } else {
+            return nil
+        }
+    }
+    
     private let posterImageView = ExpositionImageView(imageName: "poster")
-    private lazy var visitorsLabel = ExpositionLabel(text: ExpoAffix.Prefix.visitors + String(expositionData.visitors) + ExpoAffix.Suffix.visitors, textStyle: .subheadline)
-    private lazy var locationLabel = ExpositionLabel(text: ExpoAffix.Prefix.location + expositionData.location, textStyle: .subheadline)
-    private lazy var durationLabel = ExpositionLabel(text: ExpoAffix.Prefix.duration + expositionData.duration, textStyle: .subheadline)
-    private lazy var descriptionLabel = ExpositionLabel(text: expositionData.description, textStyle: .body)
+    
+    private var visitorsLabel: ExpositionLabel? {
+        if let visitors = expositionData?.visitors {
+            return ExpositionLabel(text: ExpoAffix.Prefix.visitors + String(visitors) + ExpoAffix.Suffix.visitors,
+                                   textStyle: .subheadline)
+        } else {
+            return nil
+        }
+    }
+    
+    private var locationLabel: ExpositionLabel? {
+        if let location = expositionData?.location {
+            return ExpositionLabel(text: ExpoAffix.Prefix.location + location, textStyle: .subheadline)
+        } else {
+            return nil
+        }
+    }
+    
+    private var durationLabel: ExpositionLabel? {
+        if let duration = expositionData?.duration {
+            return ExpositionLabel(text: ExpoAffix.Prefix.duration + duration, textStyle: .subheadline)
+        } else {
+            return nil
+        }
+    }
+    
+    private var descriptionLabel: ExpositionLabel? {
+        if let description = expositionData?.description {
+            return ExpositionLabel(text: description, textStyle: .body)
+        } else {
+            return nil
+        }
+    }
     
     private let moveToKoreanItemTableStackView: UIStackView = {
         let stackView = UIStackView()
         let stackViewHeight: CGFloat = 30
         
-        let moveToKoreanItemsButton: UIButton = {
+        let moveToKoreanItemTableViewButton: UIButton = {
             let button = UIButton(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
             button.setTitle("한국의 출품작 보러가기", for: .normal)
@@ -55,7 +91,7 @@ final class ExpoIntroductionViewController: UIViewController {
         stackView.distribution = .fillEqually
         stackView.heightAnchor.constraint(equalToConstant: stackViewHeight).isActive = true
         stackView.addArrangedSubview(leftkoreanFlagImageView)
-        stackView.addArrangedSubview(moveToKoreanItemsButton)
+        stackView.addArrangedSubview(moveToKoreanItemTableViewButton)
         stackView.addArrangedSubview(rightkoreanFlagImageView)
         return stackView
     }()
@@ -63,33 +99,16 @@ final class ExpoIntroductionViewController: UIViewController {
     private lazy var contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemTableStackView]
     
     init() {
-        if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
-            do {
-                expositionData =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
-            } catch {
-                expositionData = ExpositionUnivereselle1900()
-            }
-        } else {
-            expositionData = ExpositionUnivereselle1900()
-        }
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
-            do {
-                expositionData =  try JSONDecoder().decode(ExpositionUnivereselle1900.self, from: dataAsset.data)
-            } catch {
-                expositionData = ExpositionUnivereselle1900()
-            }
-        } else {
-            expositionData = ExpositionUnivereselle1900()
-        }
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        JsonFetcher.fetchJsonData(dataAssetName: "expositio_universelle_1900", completionHandler: fetchExpositionData(result:))
         view.backgroundColor = .white
         setExpoIntroductionViewTitle()
         setUpIntroductionScrollView()
@@ -98,6 +117,16 @@ final class ExpoIntroductionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func fetchExpositionData(result: Result<ExpositionUnivereselle1900, JsonDecodingError>) {
+        switch result {
+        case .success(let expositionData):
+            self.expositionData = expositionData
+        case .failure(let jsonError):
+            showAlert(failAlert(error: jsonError))
+            self.expositionData = nil
+        }
     }
     
     private func setExpoIntroductionViewTitle() {
@@ -112,7 +141,11 @@ final class ExpoIntroductionViewController: UIViewController {
     private func setUpIntroductionContentStackView() {
         introductionScrollView.addSubview(introductionContentStackView)
         addMainScrollViewConstraints()
-        contents.forEach({ introductionContentStackView.addArrangedSubview($0) })
+        contents.forEach({
+            if let content = $0 {
+                introductionContentStackView.addArrangedSubview(content)
+            }
+        })
     }
     
     private func addIntroductionScrollViewConstraints() {
