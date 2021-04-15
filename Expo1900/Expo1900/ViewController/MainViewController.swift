@@ -113,13 +113,17 @@ final class MainViewController: UIViewController {
     
     private func setStackViewOfMainScrollView() {
         mainScrollView.addSubview(stackViewOfMainScrollView)
+        addMainScrollViewConstraints()
+        contents.forEach({ stackViewOfMainScrollView.addArrangedSubview($0) })
+    }
+    
+    private func addMainScrollViewConstraints() {
         NSLayoutConstraint.activate([
             stackViewOfMainScrollView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
             stackViewOfMainScrollView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
             stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -ViewConstant.scrollBarWidth),
             stackViewOfMainScrollView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor)
         ])
-        contents.forEach({ stackViewOfMainScrollView.addArrangedSubview($0) })
     }
     
     @objc func touchUpMoveToKoreanItemsButton() {

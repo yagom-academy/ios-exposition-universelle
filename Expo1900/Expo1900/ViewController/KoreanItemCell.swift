@@ -47,7 +47,7 @@ final class KoreanItemCell: UITableViewCell {
     private func setUpKoreanItemCell() {
         setAccessoryType()
         addContentView()
-        setConstraintsOfContents()
+        addConstraintsOfContents()
     }
     
     func setKoreanItemCellContents(imageName: String, title: String, shortDescription: String) {
@@ -78,20 +78,20 @@ final class KoreanItemCell: UITableViewCell {
         contentView.addSubview(shortDescriptionLabel)
     }
     
-    private func setConstraintsOfContents() {
-        setConstraintsOfLabels()
-        setConstraintsOfImageViews()
+    private func addConstraintsOfContents() {
+        addConstraintsOfLabels()
+        addConstraintsOfImageViews()
     }
     
-    private func setConstraintsOfLabels() {
-        setConstraintsOfTitleLabel()
-        setConstraintsOfShortDescriptionLabel()
+    private func addConstraintsOfLabels() {
+        addConstraintsOfTitleLabel()
+        addConstraintsOfShortDescriptionLabel()
     }
-    private func setConstraintsOfImageViews() {
-        setConstraintsOfItemImageView()
+    private func addConstraintsOfImageViews() {
+        addConstraintsOfItemImageView()
     }
 
-    private func setConstraintsOfItemImageView() {
+    private func addConstraintsOfItemImageView() {
         NSLayoutConstraint.activate([
             itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             itemImageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
@@ -103,7 +103,7 @@ final class KoreanItemCell: UITableViewCell {
         ])
     }
     
-    private func setConstraintsOfTitleLabel() {
+    private func addConstraintsOfTitleLabel() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
@@ -112,7 +112,7 @@ final class KoreanItemCell: UITableViewCell {
         ])
     }
 
-    private func setConstraintsOfShortDescriptionLabel() {
+    private func addConstraintsOfShortDescriptionLabel() {
         NSLayoutConstraint.activate([
             shortDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             shortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
