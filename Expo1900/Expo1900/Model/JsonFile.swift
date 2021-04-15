@@ -16,8 +16,7 @@ class JsonFile {
   
   func decode<T: Decodable>(type: T) throws -> T {
     let filePath = try jsonPath(fileName)
-    let fileString = try jsonString(filePath, type)
-    let data = try jsonData(fileString)
+    let data = try jsonData(filePath)
     let decodeData = try jsonDecode(data, type)
     
     return decodeData
@@ -31,18 +30,8 @@ class JsonFile {
     return path
   }
   
-  private func jsonString<T: Decodable>(_ filePath: String, _ decodeType: T) throws -> String {
-    var jsonString = try String(contentsOfFile: filePath)
-    if T.self == Catalog.self {
-      jsonString = "{ \"catalog\": \(jsonString) }"
-    }
-    
-    return jsonString
-  }
-  
-  // FIXME: - 경고 발생 및 json String에 대해 보다 근본적인 해결이 필요함
-  private func jsonData(_ fileString: String) throws -> Data {
-    guard let jsonData = try? fileString.data(using: .utf8) else {
+  private func jsonData(_ filePath: String) throws -> Data {
+    guard let jsonData = try? String(contentsOfFile: filePath).data(using: .utf8) else {
       throw JsonDecodingError.failedToConvertJSON
     }
     

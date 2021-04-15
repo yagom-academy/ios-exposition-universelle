@@ -13,8 +13,8 @@ class CatalogViewModel {
   init() {
     let jsonFile = JsonFile(fileName: "items")
     do {
-      let exhibition = try jsonFile.decode(type: Catalog())
-      for work in exhibition.catalog {
+      let exhibition = try jsonFile.decode(type: [ExhibitionWork]())
+      for work in exhibition {
         let exhibitionWorkInfo = ExhibitionWorkInfo(name: work.name,
                                                     imageName: work.imageName,
                                                     shortDescription: work.shortDescription,
