@@ -9,6 +9,7 @@ import UIKit
 
 class ExpoListDetailViewController: UIViewController {
     
+    var itemTitle: String?
     var imageName: String?
     var descriptionText: String?
     
@@ -18,6 +19,10 @@ class ExpoListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+        
+        if let title = itemTitle {
+            self.navigationItem.title = title
+        }
         
         setItemAttribute()
         setItemConstraints()

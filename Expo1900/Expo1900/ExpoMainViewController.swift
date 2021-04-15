@@ -47,9 +47,8 @@ class ExpoMainViewController: UIViewController {
     }
     
     @objc func presentExpoItemList(_ sender: UIButton) {
-        let vc = ExpoListViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        let expoListViewController = ExpoListViewController()
+        navigationController?.pushViewController(expoListViewController, animated: true)
     }
     
     func setExpoScrollViewConstraints() {

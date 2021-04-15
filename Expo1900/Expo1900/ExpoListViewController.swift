@@ -14,6 +14,7 @@ class ExpoListViewController: UITableViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
     
+            self.navigationItem.title = "한국의 출품작"
             decodeExpoItem()
         }
     
@@ -55,13 +56,13 @@ class ExpoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let expoListViewController = ExpoListDetailViewController()
+        let expoListDetailViewController = ExpoListDetailViewController()
         let item = itemList[indexPath.row]
         
-        expoListViewController.imageName = item.imageName
-        expoListViewController.descriptionText = item.description
-        expoListViewController.modalPresentationStyle = .fullScreen
+        expoListDetailViewController.itemTitle = item.name
+        expoListDetailViewController.imageName = item.imageName
+        expoListDetailViewController.descriptionText = item.description
         
-        present(expoListViewController, animated: true)
+        navigationController?.pushViewController(expoListDetailViewController, animated: true)
     }
 }
