@@ -17,92 +17,104 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34P-cH-DNL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4U-1J-Eed">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="965"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="531.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파리 만국박람회 1900 (L'Exposition de Paris 1900)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmR-3C-lqc">
-                                                <rect key="frame" x="38" y="52" width="338" height="67.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파리 만국박람회 1900 (L'Exposition de Paris 1900)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmR-3C-lqc">
+                                                <rect key="frame" x="10" y="30" width="394" height="67.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="AE1-YC-2c2">
-                                                <rect key="frame" x="109" y="139.5" width="196" height="189"/>
+                                                <rect key="frame" x="107" y="117.5" width="200" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="eji-uU-QkF"/>
+                                                    <constraint firstAttribute="height" constant="200" id="p9F-D3-edb"/>
+                                                </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객  : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmJ-Gw-LZC">
-                                                <rect key="frame" x="176" y="338.5" width="62" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최지 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-8l-Csp">
-                                                <rect key="frame" x="178.5" y="367" width="57.5" height="20.5"/>
+                                                <rect key="frame" x="178.5" y="358" width="57.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggB-fg-oZc">
-                                                <rect key="frame" x="169" y="395.5" width="76.5" height="20.5"/>
+                                                <rect key="frame" x="169" y="388.5" width="76.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVN-tI-zFN">
-                                                <rect key="frame" x="10" y="426" width="394" height="415"/>
-                                                <string key="text">1900년 파리 만국박람회(지금의 세계 박람회[World’s Fair/Exposition/Expo])는 지난 세기를 기념하고 다음 세기를 향한 발전을 가속하자는 의미에서 1900년 4월 14일부터 11월 12일까지 프랑스 파리에서 열린 세계 박람회였다. 이 박람회에서 널리 선보였던 건축 양식이 바로 '아르누보'였다. 총 관람객수가 5000만 명에 달한 1900년 세계 박람회에서는 수많은 기계와 발명품, 그리고 건축물들이 전시됐는데 그 중에는 그랑드 루 드 파리 대관람차, 마트료시카 인형, 디젤 엔진, 유성영화, 에스컬레이터, 텔레그라폰 (최초의 자석식 녹음기) 등 지금도 널리 알려져 있는 것들도 등장했다.\n\n프랑스는 1855년에도 만국 박람회를 개최한 전력이 있었는데 전쟁 후 국가의 자부심과 신념을 다시 세우고자 하는 욕구로부터 비롯된 것이었다. 1900년 박람회가 성공을 거둔 것도 전후 국가 부흥이라는 똑같은 주제에 따른 것이었다. 1900년 파리 세계 박람회가 개최되기 8년 전인 1892년, 프랑스 정부는 새 세기의 도래를 환영하고 축하하는 박람회를 열 것이라고 발표했다.
+                                                <rect key="frame" x="10" y="419" width="394" height="42.5"/>
+                                                <string key="text">1900년 파리 만국박람회(지금의 세계 박
 </string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxt-Hf-6Lb">
-                                                <rect key="frame" x="127" y="880" width="160" height="17.5"/>
+                                                <rect key="frame" x="138" y="481.5" width="138" height="30"/>
                                                 <state key="normal" title="한국의 출품작 보러가기"/>
                                                 <connections>
                                                     <action selector="enterExhibitOfKoreaButton:" destination="UHs-vE-una" eventType="touchUpInside" id="v9l-e1-3tJ"/>
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="Wl7-SY-qgi">
-                                                <rect key="frame" x="35" y="865.5" width="41.5" height="46.5"/>
+                                                <rect key="frame" x="30" y="471.5" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="7Jx-fd-jEG"/>
+                                                    <constraint firstAttribute="width" constant="50" id="oeI-7x-sAk"/>
+                                                </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="c3z-9B-JqX">
-                                                <rect key="frame" x="337.5" y="865.5" width="41.5" height="46.5"/>
+                                                <rect key="frame" x="334" y="471.5" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="OFy-MC-S3y"/>
+                                                    <constraint firstAttribute="height" constant="50" id="bsc-y7-jV0"/>
+                                                </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객  : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmJ-Gw-LZC">
+                                                <rect key="frame" x="176" y="327.5" width="62" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="GmJ-Gw-LZC" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="13D-Km-4r7"/>
-                                            <constraint firstItem="ggB-fg-oZc" firstAttribute="top" secondItem="KYk-8l-Csp" secondAttribute="bottom" constant="8" symbolic="YES" id="3OI-fm-Rxc"/>
-                                            <constraint firstItem="AE1-YC-2c2" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="3zM-HL-2K1"/>
-                                            <constraint firstItem="bmR-3C-lqc" firstAttribute="top" secondItem="y4U-1J-Eed" secondAttribute="top" constant="52" id="8XE-nX-MKQ"/>
-                                            <constraint firstItem="Xxt-Hf-6Lb" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="BGR-wq-r03"/>
-                                            <constraint firstItem="Wl7-SY-qgi" firstAttribute="leading" secondItem="y4U-1J-Eed" secondAttribute="leading" constant="35" id="BTI-j1-tOe"/>
-                                            <constraint firstItem="bmR-3C-lqc" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="JxR-rZ-kwC"/>
-                                            <constraint firstItem="kVN-tI-zFN" firstAttribute="top" secondItem="ggB-fg-oZc" secondAttribute="bottom" constant="10" id="Knk-9w-nrw"/>
-                                            <constraint firstItem="GmJ-Gw-LZC" firstAttribute="top" secondItem="AE1-YC-2c2" secondAttribute="bottom" constant="10" id="OqF-op-7NF"/>
-                                            <constraint firstItem="c3z-9B-JqX" firstAttribute="centerY" secondItem="Xxt-Hf-6Lb" secondAttribute="centerY" id="OxQ-i9-f0Q"/>
-                                            <constraint firstAttribute="height" secondItem="kVN-tI-zFN" secondAttribute="height" constant="550" id="RXp-Jw-ZOs"/>
-                                            <constraint firstItem="Xxt-Hf-6Lb" firstAttribute="top" secondItem="kVN-tI-zFN" secondAttribute="bottom" constant="39" id="T8i-Va-ler"/>
-                                            <constraint firstItem="ggB-fg-oZc" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="TcL-v0-cV6"/>
-                                            <constraint firstItem="KYk-8l-Csp" firstAttribute="top" secondItem="GmJ-Gw-LZC" secondAttribute="bottom" constant="8" symbolic="YES" id="TvD-tc-nwv"/>
-                                            <constraint firstItem="AE1-YC-2c2" firstAttribute="width" secondItem="y4U-1J-Eed" secondAttribute="width" multiplier="0.47343" id="WQo-uk-mqk"/>
-                                            <constraint firstAttribute="trailing" secondItem="kVN-tI-zFN" secondAttribute="trailing" constant="10" id="YHn-7U-GR5"/>
-                                            <constraint firstItem="Wl7-SY-qgi" firstAttribute="centerY" secondItem="Xxt-Hf-6Lb" secondAttribute="centerY" id="ZRr-nq-bJs"/>
-                                            <constraint firstItem="KYk-8l-Csp" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="c1y-ar-1g1"/>
-                                            <constraint firstItem="AE1-YC-2c2" firstAttribute="top" secondItem="bmR-3C-lqc" secondAttribute="bottom" constant="20" id="iX5-xL-NEE"/>
-                                            <constraint firstAttribute="trailing" secondItem="c3z-9B-JqX" secondAttribute="trailing" constant="35" id="m7k-C0-OHL"/>
-                                            <constraint firstItem="kVN-tI-zFN" firstAttribute="leading" secondItem="y4U-1J-Eed" secondAttribute="leading" constant="10" id="x5p-hY-UO7"/>
+                                            <constraint firstItem="GmJ-Gw-LZC" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="4jt-0p-b5A"/>
+                                            <constraint firstItem="bmR-3C-lqc" firstAttribute="top" secondItem="y4U-1J-Eed" secondAttribute="top" constant="30" id="6tc-8C-pSr"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xxt-Hf-6Lb" secondAttribute="bottom" constant="20" id="Bke-XR-N2U"/>
+                                            <constraint firstItem="ggB-fg-oZc" firstAttribute="top" secondItem="KYk-8l-Csp" secondAttribute="bottom" constant="10" id="Cgi-Yy-r2N"/>
+                                            <constraint firstItem="GmJ-Gw-LZC" firstAttribute="top" secondItem="AE1-YC-2c2" secondAttribute="bottom" constant="10" id="HiS-ue-7rh"/>
+                                            <constraint firstItem="AE1-YC-2c2" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="IFO-vF-xos"/>
+                                            <constraint firstAttribute="trailing" secondItem="kVN-tI-zFN" secondAttribute="trailing" constant="10" id="MNi-oP-s65"/>
+                                            <constraint firstItem="c3z-9B-JqX" firstAttribute="centerY" secondItem="Xxt-Hf-6Lb" secondAttribute="centerY" id="Mbh-ET-Gs6"/>
+                                            <constraint firstItem="AE1-YC-2c2" firstAttribute="top" secondItem="bmR-3C-lqc" secondAttribute="bottom" constant="20" id="Uis-hW-H5n"/>
+                                            <constraint firstItem="Wl7-SY-qgi" firstAttribute="centerY" secondItem="Xxt-Hf-6Lb" secondAttribute="centerY" id="W1w-6y-AyF"/>
+                                            <constraint firstItem="ggB-fg-oZc" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="X9u-Lm-KyT"/>
+                                            <constraint firstItem="Xxt-Hf-6Lb" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="Zjz-3s-0Rj"/>
+                                            <constraint firstItem="Xxt-Hf-6Lb" firstAttribute="top" secondItem="kVN-tI-zFN" secondAttribute="bottom" constant="20" id="aJv-AP-DDI"/>
+                                            <constraint firstItem="kVN-tI-zFN" firstAttribute="top" secondItem="ggB-fg-oZc" secondAttribute="bottom" constant="10" id="aaK-R4-Qmp"/>
+                                            <constraint firstItem="bmR-3C-lqc" firstAttribute="leading" secondItem="y4U-1J-Eed" secondAttribute="leading" constant="10" id="fU2-ho-gpy"/>
+                                            <constraint firstItem="KYk-8l-Csp" firstAttribute="centerX" secondItem="y4U-1J-Eed" secondAttribute="centerX" id="hXS-Za-UQX"/>
+                                            <constraint firstItem="kVN-tI-zFN" firstAttribute="leading" secondItem="y4U-1J-Eed" secondAttribute="leading" constant="10" id="jFg-w8-Owv"/>
+                                            <constraint firstAttribute="trailing" secondItem="bmR-3C-lqc" secondAttribute="trailing" constant="10" id="oU7-hr-RUk"/>
+                                            <constraint firstItem="Wl7-SY-qgi" firstAttribute="leading" secondItem="y4U-1J-Eed" secondAttribute="leading" constant="30" id="uT2-Sd-e7t"/>
+                                            <constraint firstAttribute="trailing" secondItem="c3z-9B-JqX" secondAttribute="trailing" constant="30" id="zND-y0-wey"/>
+                                            <constraint firstItem="KYk-8l-Csp" firstAttribute="top" secondItem="GmJ-Gw-LZC" secondAttribute="bottom" constant="10" id="zld-LJ-oBF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="leading" secondItem="vtl-CA-EdO" secondAttribute="leading" id="Kuy-xX-ZiI"/>
-                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="trailing" secondItem="vtl-CA-EdO" secondAttribute="trailing" id="O1X-Pl-L2G"/>
-                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="bottom" secondItem="vtl-CA-EdO" secondAttribute="bottom" id="ST1-Sz-K2m"/>
-                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="width" secondItem="UFW-Aq-tVB" secondAttribute="width" id="sO9-Vk-4CK"/>
-                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="top" secondItem="vtl-CA-EdO" secondAttribute="top" id="tTo-Hh-Mtj"/>
+                                    <constraint firstAttribute="bottom" secondItem="y4U-1J-Eed" secondAttribute="bottom" id="59K-ul-4yr"/>
+                                    <constraint firstAttribute="trailing" secondItem="y4U-1J-Eed" secondAttribute="trailing" id="Gfg-aa-a0L"/>
+                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="width" secondItem="34P-cH-DNL" secondAttribute="width" id="aVk-6e-Zn6"/>
+                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="top" secondItem="34P-cH-DNL" secondAttribute="top" id="hz5-Rj-GBd"/>
+                                    <constraint firstItem="y4U-1J-Eed" firstAttribute="leading" secondItem="34P-cH-DNL" secondAttribute="leading" id="qAN-U7-oyf"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="vtl-CA-EdO"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="UFW-Aq-tVB"/>
@@ -111,17 +123,10 @@
                         <viewLayoutGuide key="safeArea" id="Egn-w0-zsF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Xxt-Hf-6Lb" firstAttribute="width" secondItem="Egn-w0-zsF" secondAttribute="width" multiplier="0.386473" id="6FA-zt-ngD"/>
-                            <constraint firstItem="Wl7-SY-qgi" firstAttribute="height" secondItem="Egn-w0-zsF" secondAttribute="height" multiplier="0.0599022" id="7ZX-wb-zGA"/>
-                            <constraint firstItem="34P-cH-DNL" firstAttribute="top" secondItem="hSz-SM-TVE" secondAttribute="top" id="9oY-I8-lHU"/>
-                            <constraint firstItem="34P-cH-DNL" firstAttribute="leading" secondItem="Egn-w0-zsF" secondAttribute="leading" id="Hxa-Fx-cCU"/>
-                            <constraint firstItem="AE1-YC-2c2" firstAttribute="height" secondItem="Egn-w0-zsF" secondAttribute="height" multiplier="0.244499" id="MbC-cm-AF9"/>
-                            <constraint firstItem="Wl7-SY-qgi" firstAttribute="width" secondItem="Egn-w0-zsF" secondAttribute="width" multiplier="0.1" id="Rad-Vi-lhe"/>
-                            <constraint firstItem="Xxt-Hf-6Lb" firstAttribute="height" secondItem="Egn-w0-zsF" secondAttribute="height" multiplier="0.0220049" id="Vet-UN-nXC"/>
-                            <constraint firstItem="c3z-9B-JqX" firstAttribute="width" secondItem="Egn-w0-zsF" secondAttribute="width" multiplier="0.1" id="dtD-Ov-X59"/>
-                            <constraint firstAttribute="bottom" secondItem="34P-cH-DNL" secondAttribute="bottom" id="jSB-yW-quX"/>
-                            <constraint firstItem="34P-cH-DNL" firstAttribute="trailing" secondItem="Egn-w0-zsF" secondAttribute="trailing" id="k5x-TD-Azj"/>
-                            <constraint firstItem="c3z-9B-JqX" firstAttribute="height" secondItem="Egn-w0-zsF" secondAttribute="height" multiplier="0.0599022" id="knr-dC-KhK"/>
+                            <constraint firstItem="34P-cH-DNL" firstAttribute="top" secondItem="Egn-w0-zsF" secondAttribute="top" id="B0s-CR-rqj"/>
+                            <constraint firstItem="34P-cH-DNL" firstAttribute="trailing" secondItem="Egn-w0-zsF" secondAttribute="trailing" id="Mw8-HL-yUd"/>
+                            <constraint firstAttribute="bottom" secondItem="34P-cH-DNL" secondAttribute="bottom" id="Uqq-Vv-2kc"/>
+                            <constraint firstItem="34P-cH-DNL" firstAttribute="leading" secondItem="Egn-w0-zsF" secondAttribute="leading" id="b5y-X4-k85"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AKz-hn-xko"/>
@@ -139,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BkT-aR-C07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626.08695652173913" y="732.58928571428567"/>
+            <point key="canvasLocation" x="624.63768115942037" y="732.58928571428567"/>
         </scene>
         <!--Exhibit Of Korea View Controller-->
         <scene sceneID="9Ac-G4-roL">
