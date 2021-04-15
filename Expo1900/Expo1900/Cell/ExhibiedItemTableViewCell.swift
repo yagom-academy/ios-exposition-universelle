@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+class ExhibiedItemTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemTitle: UILabel!
-    @IBOutlet weak var itemShortDescription: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var shortDescriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,3 +21,4 @@ class ItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
+

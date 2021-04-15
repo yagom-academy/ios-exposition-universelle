@@ -50,7 +50,7 @@ extension ExhibitedItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ExhibiedItemTableViewCell
         cell.itemTitle.text = items[indexPath.row].name
         cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
         cell.itemShortDescription.text = items[indexPath.row].shortDescription
