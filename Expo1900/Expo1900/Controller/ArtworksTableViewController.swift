@@ -37,6 +37,10 @@ final class ArtworksTableViewController: UIViewController {
       debugPrint(error)
     }
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    UINavigationController.attemptRotationToDeviceOrientation()
+  }
 }
 
 // MARK: - Table view data source
