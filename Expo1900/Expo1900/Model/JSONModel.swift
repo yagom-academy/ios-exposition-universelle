@@ -21,18 +21,14 @@ struct Exposition: Decodable, Equatable {
             
             formatter.numberStyle = .decimal
             guard let formatted = formatter.string(from: visitorsCount) else { return nil }
+            
             return formatted + " 명"
         }
     }
     
     var formattedTitle: String? {
         get {
-            var elements = title.components(separatedBy: "(")
-            var formatted = elements.removeFirst()
-            
-            formatted = elements.reduce(formatted) { $0 + "\n(" + $1 }
-
-            return formatted
+            return title.replacingOccurrences(of: "(", with: "\n(")
         }
     }
     
