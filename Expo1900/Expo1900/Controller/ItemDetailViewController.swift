@@ -8,22 +8,24 @@
 import UIKit
 
 class ItemDetailViewController: UIViewController {
+    
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var detailTextLabel: UILabel!
+    
+    var item: ExhibitionWorks?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        itemInformation()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func itemInformation() {
+        guard let item = item else {
+            return
+        }
+        self.navigationItem.title = ""
+        itemImageView.image = UIImage(named: item.imageName)
+        detailTextLabel.text = item.description
     }
-    */
-
 }

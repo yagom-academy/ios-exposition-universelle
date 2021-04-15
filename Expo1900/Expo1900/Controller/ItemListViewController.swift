@@ -9,6 +9,7 @@ import UIKit
 
 class ItemListViewController: UIViewController {
     
+    @IBOutlet weak var itemListTableView: UITableView!
     var items: [ExhibitionWorks] = []
 
     override func viewDidLoad() {
@@ -25,6 +26,14 @@ class ItemListViewController: UIViewController {
         } catch {
             print(ErrorData.dataDecodingError.errorMassege)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = itemListTableView.indexPathForSelectedRow, let nextVC = segue.destination as? ItemDetailViewController else {
+            print(ErrorData.unknown)
+            return
+        }
+        nextVC.item = items[indexPath.row]
     }
 }
 
