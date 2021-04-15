@@ -28,6 +28,7 @@ class ExhibitOfKoreaViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        setOrientation(orientation: .all)
     }
     
     private func initNavigationBar() {

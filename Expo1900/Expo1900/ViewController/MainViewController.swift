@@ -38,6 +38,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        setOrientation(orientation: .portrait)
     }
     
     private func initMainSceneData(data: MainOfExposition) {
@@ -64,6 +65,7 @@ class MainViewController: UIViewController {
         
         return demicalStyleNumber
     }
+    
 }
 
 extension UIViewController {
@@ -92,4 +94,11 @@ extension UIViewController {
             return .failure(DataError.decodeJSON)
         }
     }
+    func setOrientation(orientation: UIInterfaceOrientationMask){
+        guard let uiApplication = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        uiApplication.orientation = orientation
+    }
+    
 }
