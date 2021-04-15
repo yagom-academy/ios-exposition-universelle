@@ -44,6 +44,8 @@ class ExpoListDetailViewController: UIViewController {
             itemImage.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
             itemImage.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
             itemDescription.topAnchor.constraint(equalTo: itemImage.layoutMarginsGuide.bottomAnchor, constant: 20),
+            itemDescription.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            itemDescription.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             itemDescription.centerXAnchor.constraint(equalTo: itemImage.centerXAnchor)
         ])
     }
