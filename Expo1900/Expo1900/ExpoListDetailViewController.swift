@@ -18,5 +18,15 @@ class ExpoListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+        
+        setItemAttribute()
+    }
+    
+    func setItemAttribute() {
+        if let imageName = self.imageName,
+           let descriptionText = self.descriptionText {
+            itemImage.image = UIImage(named: imageName)
+            itemDescription.text = descriptionText
+        }
     }
 }

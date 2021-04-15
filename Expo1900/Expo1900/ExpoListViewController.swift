@@ -44,25 +44,24 @@ class ExpoListViewController: UITableViewController {
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "ListCell")
         let item = itemList[indexPath.row]
         
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableView.automaticDimension
-        
+        cell.accessoryType = .disclosureIndicator
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = .byWordWrapping
         cell.imageView?.image = UIImage(named: item.imageName)
         cell.textLabel?.text = item.name
         cell.detailTextLabel?.text = item.shortDescription
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ExpoListDetailViewController()
+        let expoListViewController = ExpoListDetailViewController()
         let item = itemList[indexPath.row]
         
-        vc.imageName = item.imageName
-        vc.descriptionText = item.description
-        vc.modalPresentationStyle = .fullScreen
+        expoListViewController.imageName = item.imageName
+        expoListViewController.descriptionText = item.description
+        expoListViewController.modalPresentationStyle = .fullScreen
         
-        present(vc, animated: true)
+        present(expoListViewController, animated: true)
     }
 }
