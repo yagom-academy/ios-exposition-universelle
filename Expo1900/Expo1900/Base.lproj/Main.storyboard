@@ -220,22 +220,25 @@
             </objects>
             <point key="canvasLocation" x="-205.59999999999999" y="104.1871921182266"/>
         </scene>
-        <!--Entries View Controller-->
+        <!--Entry Table View Controller-->
         <scene sceneID="jcz-SB-cQj">
             <objects>
-                <tableViewController id="7U7-OV-aa0" customClass="EntriesViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7U7-OV-aa0" customClass="EntryTableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="awV-xx-8NN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gib-mI-xcs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" id="gib-mI-xcs">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gib-mI-xcs" id="IaW-wN-qcz">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="U1p-ti-bD3" kind="show" id="4tX-kh-ceE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -248,6 +251,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlY-fh-WBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1649" y="104"/>
+        </scene>
+        <!--Entry View Controller-->
+        <scene sceneID="1fg-b3-Wp3">
+            <objects>
+                <viewController id="U1p-ti-bD3" customClass="EntryViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qsn-hT-zFb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wuc-Fm-egc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qSl-Yn-9Ie"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8nA-eG-0sF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2521" y="104"/>
         </scene>
     </scenes>
     <resources>
