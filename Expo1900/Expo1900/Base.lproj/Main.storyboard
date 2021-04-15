@@ -217,6 +217,79 @@
             </objects>
             <point key="canvasLocation" x="-113.04347826086958" y="0.6696428571428571"/>
         </scene>
+        <!--상세설명-->
+        <scene sceneID="Btv-ss-dD0">
+            <objects>
+                <viewController storyboardIdentifier="ExpositionItemDetailViewController" id="cVp-g1-gJz" userLabel="상세설명" customClass="ExpositionItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IpM-qL-XqD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8Y-0R-gIe">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-lX-gXg" userLabel="Contens View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="194"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ih4-Ck-hWd">
+                                                <rect key="frame" x="20" y="20" width="374" height="164"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wpH-Hu-FKY">
+                                                        <rect key="frame" x="103.5" y="0.0" width="167" height="164"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jikji" translatesAutoresizingMaskIntoConstraints="NO" id="HYl-Br-yO6">
+                                                                <rect key="frame" x="0.0" y="0.0" width="167" height="133.5"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao5-iz-Qn8" userLabel="Item Description">
+                                                                <rect key="frame" x="40" y="143.5" width="87.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Ih4-Ck-hWd" firstAttribute="top" secondItem="vbd-lX-gXg" secondAttribute="top" constant="20" id="FYT-Cl-MhZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ih4-Ck-hWd" secondAttribute="bottom" constant="10" id="Fyw-5r-G82"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ih4-Ck-hWd" secondAttribute="trailing" constant="20" id="MUm-OX-QnB"/>
+                                            <constraint firstItem="Ih4-Ck-hWd" firstAttribute="leading" secondItem="vbd-lX-gXg" secondAttribute="leading" constant="20" id="ywn-Cf-ojv"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vbd-lX-gXg" firstAttribute="leading" secondItem="M8Y-0R-gIe" secondAttribute="leading" id="3I5-YN-GPt"/>
+                                    <constraint firstAttribute="trailing" secondItem="vbd-lX-gXg" secondAttribute="trailing" id="DIx-GZ-0Zg"/>
+                                    <constraint firstItem="vbd-lX-gXg" firstAttribute="width" secondItem="M8Y-0R-gIe" secondAttribute="width" id="ZMM-E9-hAS"/>
+                                    <constraint firstItem="vbd-lX-gXg" firstAttribute="top" secondItem="M8Y-0R-gIe" secondAttribute="top" id="cj6-21-5Os"/>
+                                    <constraint firstAttribute="bottom" secondItem="vbd-lX-gXg" secondAttribute="bottom" id="yZq-Bd-igt"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="7zE-qt-vxt"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="I9r-l6-Guj"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ooO-mZ-CdL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ooO-mZ-CdL" firstAttribute="bottom" secondItem="M8Y-0R-gIe" secondAttribute="bottom" id="ErP-8V-Ltz"/>
+                            <constraint firstItem="M8Y-0R-gIe" firstAttribute="top" secondItem="ooO-mZ-CdL" secondAttribute="top" id="WSz-oL-ObX"/>
+                            <constraint firstItem="M8Y-0R-gIe" firstAttribute="leading" secondItem="ooO-mZ-CdL" secondAttribute="leading" id="fCG-3T-R00"/>
+                            <constraint firstItem="ooO-mZ-CdL" firstAttribute="trailing" secondItem="M8Y-0R-gIe" secondAttribute="trailing" id="n2S-xE-7GJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lxo-Hn-on3" userLabel="상세설명"/>
+                    <connections>
+                        <outlet property="itemDescription" destination="ao5-iz-Qn8" id="zJb-lY-ozS"/>
+                        <outlet property="itemName" destination="HYl-Br-yO6" id="v8C-TB-RMR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JL8-1I-PEb" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2272" y="1"/>
+        </scene>
     </scenes>
     <resources>
         <image name="flag" width="851" height="567"/>

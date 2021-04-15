@@ -15,11 +15,39 @@ enum ExpositionError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .readFile:
-            return "파일을 불러올 수 없습니다."
+            return "Exposition 파일을 불러올 수 없습니다."
         case .decodeData:
-            return "data를 decode한 결과 nil 입니다."
+            return "Exposition data를 decode한 결과 nil 입니다."
         case .numberToString:
             return "exposition.visitors를 numberFormatter로 String한 결과 nil 입니다."
+        }
+    }
+}
+
+enum ExpositionItemListError: Error, CustomStringConvertible {
+    case readFile
+    case decodeData
+
+    var description: String {
+        switch self {
+        case .readFile:
+            return "ExpositionItem 파일을 불러올 수 없습니다."
+        case .decodeData:
+            return "ExpositionItem data를 decode한 결과 nil 입니다."
+        }
+    }
+}
+
+enum ExpositionItemDetailError: Error, CustomStringConvertible {
+    case itemNameString
+    case itemDescriptionString
+
+    var description: String {
+        switch self {
+        case .itemNameString:
+            return "itemNameString의 값이 nil 입니다."
+        case .itemDescriptionString:
+            return "itemDescriptionString의 값이 nil 입니다."
         }
     }
 }

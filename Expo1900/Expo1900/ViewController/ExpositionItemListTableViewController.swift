@@ -31,8 +31,8 @@ class ExpositionItemListTableViewController: UITableViewController {
     func decodeExpositionItem() throws {
         self.tableView.dataSource = self
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else { throw ExpositionError.readFile }
-        guard let item = try? jsonDecoder.decode([ExpositionItem].self, from: dataAsset.data) else { throw ExpositionError.decodeData}
+        guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else { throw ExpositionItemListError.readFile }
+        guard let item = try? jsonDecoder.decode([ExpositionItem].self, from: dataAsset.data) else { throw ExpositionItemListError.decodeData }
         self.itemsArray = item
         self.tableView.reloadData()
     }
@@ -45,5 +45,4 @@ class ExpositionItemListTableViewController: UITableViewController {
         cell.detailTextLabel?.text = item.shortDescription
         return cell
     }
-
 }
