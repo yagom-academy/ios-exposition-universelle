@@ -17,6 +17,8 @@
 		D02EF782261FFA9000FDADD6 /* JSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF781261FFA9000FDADD6 /* JSONConverterTests.swift */; };
 		D02EF789261FFD4A00FDADD6 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF788261FFD4A00FDADD6 /* JSONConverter.swift */; };
 		D02EF79E2620089300FDADD6 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF79D2620089300FDADD6 /* JSONData.swift */; };
+		D0AEBE08262823F000811D99 /* KoreanHeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */; };
+		D0AEBE0C2628243500811D99 /* SecondViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE0B2628243500811D99 /* SecondViewTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		D02EF781261FFA9000FDADD6 /* JSONConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverterTests.swift; sourceTree = "<group>"; };
 		D02EF788261FFD4A00FDADD6 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		D02EF79D2620089300FDADD6 /* JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
+		D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHeritageViewController.swift; sourceTree = "<group>"; };
+		D0AEBE0B2628243500811D99 /* SecondViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -104,6 +109,7 @@
 				D02EF777261FF9DC00FDADD6 /* Info.plist */,
 				D02EF781261FFA9000FDADD6 /* JSONConverterTests.swift */,
 				D0020E50262656C900896F4C /* JSONDataTest.swift */,
+				D0AEBE0B2628243500811D99 /* SecondViewTest.swift */,
 			);
 			path = Expo1900Tests;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D02EF789261FFD4A00FDADD6 /* JSONConverter.swift in Sources */,
+				D0AEBE08262823F000811D99 /* KoreanHeritageViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				D02EF79E2620089300FDADD6 /* JSONData.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
@@ -237,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AEBE0C2628243500811D99 /* SecondViewTest.swift in Sources */,
 				D02EF782261FFA9000FDADD6 /* JSONConverterTests.swift in Sources */,
 				D0020E51262656C900896F4C /* JSONDataTest.swift in Sources */,
 			);

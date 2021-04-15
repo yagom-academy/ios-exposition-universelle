@@ -34,12 +34,9 @@ class ViewController: UIViewController {
         buttonRightImage.image = UIImage(named: "flag")
     }
     
-    @IBAction func koreanHeritageButton(_ sender: Any) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         inputData()
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 }
