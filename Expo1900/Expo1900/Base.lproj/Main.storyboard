@@ -199,7 +199,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1091.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfj-IR-o72">
-                                                <rect key="frame" x="10" y="257" width="394" height="791.5"/>
+                                                <rect key="frame" x="10" y="280" width="394" height="791.5"/>
                                                 <string key="text">《'백운화상초록불조직지심체요절》(白雲和尙抄錄佛祖直指心體要節)은 백운화상 경한(景閑)이 1372년에 초록한 불교 서적이다. 간단히 직지심체요절(直指心體要節) 또는 직지(直指, JUKJI)라고 부르기도 한다.
 
 1372년(공민왕 21)에 백운화상 경한이 임제종 18대 법손 석옥청공(石屋淸珙) 화상(和尙)으로부터 받아 온 《불조직지심체요절》을 증보하여 상·하 2권으로 엮은 것이다. 백운화상이 입적하고 3년 뒤인 1377년에 청주 흥덕사(興德寺)에서 금속활자로 찍어 낸 것이 초인본(初印本)이다. 이는 현존하는 금속활자로 인쇄된 책 중 가장 오래된 것이다. 금속활자본은 현재 하권만이 전해지고, 프랑스 국립도서관에 소장되어 있다. 고간본(古刊本)으로는 1378년 백운화상이 입적한 여주 취암사(鷲巖寺)에서 간행한 목판본이 있다. 목판본은 1992년 4월 20일 보물 제1132호로 지정되었고, 현재 한국학중앙연구원 장서각과 국립중앙도서관에 상하권 1책이 각각 소장되어 있다.
@@ -214,9 +214,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jikji" translatesAutoresizingMaskIntoConstraints="NO" id="Bfy-Nx-xcQ">
-                                                <rect key="frame" x="95" y="50" width="224" height="177"/>
+                                                <rect key="frame" x="107" y="50" width="200" height="200"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Bfy-Nx-xcQ" secondAttribute="height" multiplier="196:155" id="4s5-q7-4bl"/>
+                                                    <constraint firstAttribute="width" secondItem="Bfy-Nx-xcQ" secondAttribute="height" multiplier="1:1" id="4s5-q7-4bl"/>
+                                                    <constraint firstAttribute="width" constant="200" id="CfZ-fG-Rt6"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -227,7 +228,6 @@
                                             <constraint firstItem="cfj-IR-o72" firstAttribute="top" secondItem="Bfy-Nx-xcQ" secondAttribute="bottom" constant="30" id="BgQ-YK-IUY"/>
                                             <constraint firstItem="Bfy-Nx-xcQ" firstAttribute="centerX" secondItem="KJ8-xx-clT" secondAttribute="centerX" id="SA5-B2-P3Y"/>
                                             <constraint firstItem="cfj-IR-o72" firstAttribute="leading" secondItem="KJ8-xx-clT" secondAttribute="leading" constant="10" id="VxK-RL-RP7"/>
-                                            <constraint firstItem="Bfy-Nx-xcQ" firstAttribute="width" secondItem="KJ8-xx-clT" secondAttribute="width" multiplier="0.541063" id="gAn-wz-vSd"/>
                                             <constraint firstItem="Bfy-Nx-xcQ" firstAttribute="top" secondItem="KJ8-xx-clT" secondAttribute="top" constant="50" id="ixP-hT-8m4"/>
                                         </constraints>
                                     </view>
