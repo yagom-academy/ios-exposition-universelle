@@ -14,6 +14,10 @@ final class ExpoIntroductionViewController: UIViewController {
   @IBOutlet private weak var locationLabel: UILabel!
   @IBOutlet private weak var durationLabel: UILabel!
   @IBOutlet private weak var descriptionTextView: UITextView!
+  override var shouldAutorotate: Bool { return false }
+  override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation { return .portrait }
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return .portrait }
+  private let appDelegate = UIApplication.shared.delegate as! AppDelegate
   
   // MARK: - Namespace
   private enum Affix {
@@ -46,12 +50,12 @@ final class ExpoIntroductionViewController: UIViewController {
   }
 
   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+    appDelegate.shouldSupportAllOrientation = false
     self.navigationController?.isNavigationBarHidden = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
+    appDelegate.shouldSupportAllOrientation = true
     self.navigationController?.isNavigationBarHidden = false
   }
 }
