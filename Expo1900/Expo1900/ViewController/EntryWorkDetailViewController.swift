@@ -16,13 +16,13 @@ final class EntryWorkDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        updateUI(entryWorkItem)
     }
     
-    private func updateUI() {
-        self.navigationItem.title = entryWorkItem?.name
-        guard let imageName = entryWorkItem?.imageName else { return }
+    private func updateUI(_ item: EntryWorkItem?) {
+        self.navigationItem.title = item?.name
+        guard let imageName = item?.imageName else { return }
         entryWorkImageView.image = UIImage(named: imageName)
-        entryWorkDescriptionLabel.text = entryWorkItem?.description
+        entryWorkDescriptionLabel.text = item?.description
     }
 }
