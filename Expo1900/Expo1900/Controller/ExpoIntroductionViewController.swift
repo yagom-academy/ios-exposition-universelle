@@ -62,7 +62,7 @@ final class ExpoIntroductionViewController: UIViewController {
 
 // MARK: - Methods for configuring the UI elements
 extension ExpoIntroductionViewController {
-  private func insertDataToNumberOfVisitorsLabel(from data: ExpoIntroduction) {
+  private func configureNumberOfVisitorsLabel(with data: ExpoIntroduction) {
     switch formattedNumber(data.visitors) {
     case .success(let formattedNumber):
       numberOfVisitorsLabel.text = Affix.Prefix.visitor + formattedNumber +
@@ -81,7 +81,7 @@ extension ExpoIntroductionViewController {
     durationLabel.text = Affix.Prefix.duration + data.duration
     descriptionTextView.text = data.description
     
-    insertDataToNumberOfVisitorsLabel(from: data)
+    configureNumberOfVisitorsLabel(with: data)
   }
   
   func formattedNumber(_ number: Int) -> Result<String, ExpoAppError> {
