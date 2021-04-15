@@ -13,7 +13,7 @@ class CatalogCell: UITableViewCell {
   @IBOutlet var nameLabel: UILabel!
   @IBOutlet var shortDescriptionLabel: UILabel!
   
-  func update(info: ExhibitionWorkInfo) {
+  func update(info: ExhibitionWork) {
     imgView.image = info.image
     nameLabel.text = info.name
     shortDescriptionLabel.text = info.shortDescription

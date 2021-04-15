@@ -8,19 +8,12 @@
 import Foundation
 
 class CatalogViewModel {
-  private var exhibitionWorkCatalog: [ExhibitionWorkInfo] = []
+  private var exhibitionWorkCatalog: [ExhibitionWork] = []
   
   init() {
     let jsonFile = JsonFile(fileName: "items")
     do {
-      let exhibition = try jsonFile.decode(type: [ExhibitionWork]())
-      for work in exhibition {
-        let exhibitionWorkInfo = ExhibitionWorkInfo(name: work.name,
-                                                    imageName: work.imageName,
-                                                    shortDescription: work.shortDescription,
-                                                    description: work.description)
-        exhibitionWorkCatalog.append(exhibitionWorkInfo)
-      }
+      exhibitionWorkCatalog = try jsonFile.decode(type: [ExhibitionWork]())
     } catch {
       print(error)
     }
@@ -30,7 +23,7 @@ class CatalogViewModel {
     return exhibitionWorkCatalog.count
   }
   
-  func exhibitionWorkInfo(at index: Int) -> ExhibitionWorkInfo {
+  func exhibitionWorkInfo(at index: Int) -> ExhibitionWork {
     return exhibitionWorkCatalog[index]
   }
 }
