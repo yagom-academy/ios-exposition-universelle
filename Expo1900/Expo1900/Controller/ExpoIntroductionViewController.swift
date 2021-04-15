@@ -7,14 +7,15 @@
 import UIKit
 
 final class ExpoIntroductionViewController: UIViewController {
+  // MARK: - Properties
+  @IBOutlet private weak var titleLabel: UILabel!
+  @IBOutlet private weak var expoPosterImageView: UIImageView!
+  @IBOutlet private weak var numberOfVisitorsLabel: UILabel!
+  @IBOutlet private weak var locationLabel: UILabel!
+  @IBOutlet private weak var durationLabel: UILabel!
+  @IBOutlet private weak var descriptionTextView: UITextView!
   
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var expoPosterImageView: UIImageView!
-  @IBOutlet weak var numberOfVisitorsLabel: UILabel!
-  @IBOutlet weak var locationLabel: UILabel!
-  @IBOutlet weak var durationLabel: UILabel!
-  @IBOutlet weak var descriptionTextView: UITextView!
-  
+  // MARK: - Namespace
   private enum Affix {
     enum Prefix {
       static let visitor: String = "방문객: "
@@ -27,10 +28,10 @@ final class ExpoIntroductionViewController: UIViewController {
     }
   }
 
+  // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // MARK: - Decode JSON and insert to the UI elements
     let decodedResult: Result = ExpoJSONDecoder.decode(
       to: ExpoIntroduction.self,
       from: ExpoData.expoIntroduction
@@ -38,7 +39,7 @@ final class ExpoIntroductionViewController: UIViewController {
     
     switch decodedResult {
     case .success(let expoIntroduction):
-      insertDataToUI(with: expoIntroduction)
+      configureUI(with: expoIntroduction)
     case .failure(let error):
       debugPrint(error)
     }
@@ -55,7 +56,7 @@ final class ExpoIntroductionViewController: UIViewController {
   }
 }
 
-// MARK: - Methods for inserting data to the UI elements
+// MARK: - Methods for configuring the UI elements
 extension ExpoIntroductionViewController {
   private func insertDataToNumberOfVisitorsLabel(from data: ExpoIntroduction) {
     switch formattedNumber(data.visitors) {
@@ -69,7 +70,7 @@ extension ExpoIntroductionViewController {
     }
   }
   
-  private func insertDataToUI(with data: ExpoIntroduction) {
+  private func configureUI(with data: ExpoIntroduction) {
     titleLabel.text = data.title
     expoPosterImageView.image = UIImage(named: "poster")
     locationLabel.text = Affix.Prefix.location + data.location
