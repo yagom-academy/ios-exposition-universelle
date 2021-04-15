@@ -16,9 +16,11 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "detailView" {
       let detailvc = segue.destination as? DetailViewController
-      
-      if let index = sender as? Int {
-        let exhibitionWorkCatalog = viewModel.exhibitionWorkInfo(at: index)
+
+      if let cell = sender as? CatalogCell {
+        // FIXME: - table view 클릭한 cell의 index를 가져오는 방법 변경 요망
+        let cellIndex = Int(cell.frame.minY)/200
+        let exhibitionWorkCatalog = viewModel.exhibitionWorkInfo(at: cellIndex)
         detailvc?.viewModel.update(model: exhibitionWorkCatalog)
       }
     }
@@ -40,10 +42,5 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     catalogCell.update(info: exhibitionWorkInfo)
     
     return catalogCell
-  }
-  
-  func tableView(_ tableView: UITableView,
-                 didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: CatalogViewController.segueIdentifier, sender: indexPath.row)
   }
 }
