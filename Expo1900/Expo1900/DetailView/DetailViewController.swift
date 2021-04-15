@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
   }
   
   func updateUI() {
-    if let detailInfo = self.viewModel.exhibitionWorkInfo() {
+    if let detailInfo = self.viewModel.exhibitionWork() {
       imgView.image = detailInfo.image
       nameLabel.title = detailInfo.name
       descriptionLabel.text = detailInfo.description
