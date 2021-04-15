@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionItemListTableViewController: UITableViewController {
+final class ExpositionItemListTableViewController: UITableViewController {
     
     var itemsArray: [ExpositionItem] = []
     
@@ -28,7 +28,7 @@ class ExpositionItemListTableViewController: UITableViewController {
         return self.itemsArray.count
     }
     
-    func decodeExpositionItem() throws {
+    private func decodeExpositionItem() throws {
         self.tableView.dataSource = self
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") else { throw ExpositionItemListError.readFile }
@@ -49,12 +49,12 @@ class ExpositionItemListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item: ExpositionItem = self.itemsArray[indexPath.row]
         let viewControllerIdentifier = "ExpositionItemDetailViewController"
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                guard let expositionItemDetail = storyboard
-                    .instantiateViewController(withIdentifier: viewControllerIdentifier) as? ExpositionItemDetailViewController else {
-                    preconditionFailure(
-                        "Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
-                }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let expositionItemDetail = storyboard
+                .instantiateViewController(withIdentifier: viewControllerIdentifier) as? ExpositionItemDetailViewController else {
+            preconditionFailure(
+                "Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
+        }
         expositionItemDetail.itemImageNameString = item.imageName
         expositionItemDetail.itemDescriptionString = item.description
         expositionItemDetail.itemNameString = item.name

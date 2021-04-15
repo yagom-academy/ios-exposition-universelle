@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionItemDetailViewController: UIViewController {
+final class ExpositionItemDetailViewController: UIViewController {
     
     @IBOutlet weak var itemImageName: UIImageView!
     @IBOutlet weak var itemDescription: UILabel!
@@ -25,12 +25,12 @@ class ExpositionItemDetailViewController: UIViewController {
         }
     }
     
-    func DetailViewUpdateUI() throws {
+    private func DetailViewUpdateUI() throws {
         guard let itemName = itemNameString else { throw ExpositionItemDetailError.itemNameString }
-            self.navigationItem.title = itemName
+        self.navigationItem.title = itemName
         guard let itemImageNameString = itemImageNameString else { throw ExpositionItemDetailError.itemImageNameString }
-            itemImageName.image = UIImage(named: itemImageNameString)
+        itemImageName.image = UIImage(named: itemImageNameString)
         guard let itemDescriptionString = itemDescriptionString else { throw ExpositionItemDetailError.itemDescriptionString }
-            itemDescription.text = itemDescriptionString
+        itemDescription.text = itemDescriptionString
     }
 }

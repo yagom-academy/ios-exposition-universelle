@@ -11,7 +11,7 @@ enum ExpositionError: Error, CustomStringConvertible {
     case readFile
     case decodeData
     case numberToString
-
+    
     var description: String {
         switch self {
         case .readFile:
@@ -27,7 +27,7 @@ enum ExpositionError: Error, CustomStringConvertible {
 enum ExpositionItemListError: Error, CustomStringConvertible {
     case readFile
     case decodeData
-
+    
     var description: String {
         switch self {
         case .readFile:
@@ -42,7 +42,7 @@ enum ExpositionItemDetailError: Error, CustomStringConvertible {
     case itemImageNameString
     case itemDescriptionString
     case itemNameString
-
+    
     var description: String {
         switch self {
         case .itemImageNameString:

@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpositionViewController: UIViewController {
+final class ExpositionViewController: UIViewController {
     
     @IBOutlet weak var expositionTitle: UILabel!
     @IBOutlet weak var expositionVisitor: UILabel!
@@ -31,7 +31,7 @@ class ExpositionViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated) }
     
-    func decodeExposition() throws {
+    private func decodeExposition() throws {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { throw ExpositionError.readFile}
         guard let exposition = try? jsonDecoder.decode(Exposition.self, from: dataAsset.data) else { throw ExpositionError.decodeData }

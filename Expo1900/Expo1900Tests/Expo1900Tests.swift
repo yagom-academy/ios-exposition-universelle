@@ -11,7 +11,7 @@ import XCTest
 final class Expo1900Tests: XCTestCase {
     
     let jsonDecoder: JSONDecoder = JSONDecoder()
-
+    
     func testExpositionError() {
         guard let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { XCTFail("파일을 불러올 수 없습니다."); return }
         guard let exposition = try? jsonDecoder.decode(Exposition.self, from: dataAsset.data) else { XCTFail(); return }
