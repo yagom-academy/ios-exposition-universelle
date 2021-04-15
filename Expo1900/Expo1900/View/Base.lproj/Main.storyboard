@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,7 +119,7 @@
                             <constraint firstItem="lxj-XN-4gb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rwn-Jh-nul"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aXU-ad-1lq"/>
+                    <navigationItem key="navigationItem" title="메인" id="aXU-ad-1lq"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="LLD-dz-X5n" id="A0V-L4-Xqp"/>
                         <outlet property="durationLabel" destination="0Ff-64-bjs" id="aZn-Q6-X62"/>
@@ -132,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="713.04347826086962" y="89.732142857142847"/>
         </scene>
-        <!--Item List View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="2c3-vx-tWz">
             <objects>
                 <viewController id="BTR-sd-gYh" customClass="ItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -210,7 +210,7 @@
                             <constraint firstAttribute="bottom" secondItem="2wV-2t-gZp" secondAttribute="bottom" id="gtc-De-Xf7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fAD-Oh-iE2"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="fAD-Oh-iE2"/>
                     <connections>
                         <outlet property="itemListTableView" destination="2wV-2t-gZp" id="Zlm-pI-cHD"/>
                     </connections>
