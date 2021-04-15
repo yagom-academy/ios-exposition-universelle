@@ -20,6 +20,7 @@ class ExpoListDetailViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         
         setItemAttribute()
+        setItemConstraints()
     }
     
     func setItemAttribute() {
@@ -27,6 +28,23 @@ class ExpoListDetailViewController: UIViewController {
            let descriptionText = self.descriptionText {
             itemImage.image = UIImage(named: imageName)
             itemDescription.text = descriptionText
+            itemDescription.numberOfLines = 0
+            itemDescription.lineBreakMode = .byWordWrapping
         }
+    }
+    
+    func setItemConstraints() {
+        view.addSubview(itemImage)
+        view.addSubview(itemDescription)
+        
+        itemImage.translatesAutoresizingMaskIntoConstraints = false
+        itemDescription.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            itemImage.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            itemImage.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+            itemDescription.topAnchor.constraint(equalTo: itemImage.layoutMarginsGuide.bottomAnchor, constant: 20),
+            itemDescription.centerXAnchor.constraint(equalTo: itemImage.centerXAnchor)
+        ])
     }
 }
