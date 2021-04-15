@@ -8,8 +8,11 @@
 import UIKit
 
 class EntryTableViewController: UITableViewController {
+    var koreanEntryData: [Exposition.Entry]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        koreanEntryData = try? JSONParser<[Exposition.Entry]>.parse("items").get()
         navigationItem.title = "한국의 출품작"
     }
 
@@ -20,7 +23,7 @@ class EntryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let entryCell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        let entryCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         
         return entryCell
     }
