@@ -39,15 +39,18 @@ enum ExpositionItemListError: Error, CustomStringConvertible {
 }
 
 enum ExpositionItemDetailError: Error, CustomStringConvertible {
-    case itemNameString
+    case itemImageNameString
     case itemDescriptionString
+    case itemNameString
 
     var description: String {
         switch self {
-        case .itemNameString:
-            return "itemNameString의 값이 nil 입니다."
+        case .itemImageNameString:
+            return "itemImageNameString의 값이 nil 입니다."
         case .itemDescriptionString:
             return "itemDescriptionString의 값이 nil 입니다."
+        case .itemNameString:
+            return "itemNameString의 값이 nil 입니다."
         }
     }
 }

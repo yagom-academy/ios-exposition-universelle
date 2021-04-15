@@ -9,12 +9,12 @@ import UIKit
 
 class ExpositionItemDetailViewController: UIViewController {
     
-    @IBOutlet weak var itemName: UIImageView!
+    @IBOutlet weak var itemImageName: UIImageView!
     @IBOutlet weak var itemDescription: UILabel!
     
-    var itemNameString: String?
+    var itemImageNameString: String?
     var itemDescriptionString: String?
-    var itemTitleString: String?
+    var itemNameString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +26,10 @@ class ExpositionItemDetailViewController: UIViewController {
     }
     
     func DetailViewUpdateUI() throws {
-        guard let itemTitle = itemTitleString else { throw ExpositionItemDetailError.itemNameString }
-            self.navigationItem.title = itemTitle
-        guard let itemNameString = itemNameString else { throw ExpositionItemDetailError.itemNameString }
-            itemName.image = UIImage(named: itemNameString)
+        guard let itemName = itemNameString else { throw ExpositionItemDetailError.itemNameString }
+            self.navigationItem.title = itemName
+        guard let itemImageNameString = itemImageNameString else { throw ExpositionItemDetailError.itemImageNameString }
+            itemImageName.image = UIImage(named: itemImageNameString)
         guard let itemDescriptionString = itemDescriptionString else { throw ExpositionItemDetailError.itemDescriptionString }
             itemDescription.text = itemDescriptionString
     }
