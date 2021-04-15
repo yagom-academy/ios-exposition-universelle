@@ -25,7 +25,14 @@ class MainViewController: UIViewController {
         koreanEntryData = try? JSONParser<[Exposition.Entry]>.parse("items").get()
         
         setMainViewData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setMainViewData() {
