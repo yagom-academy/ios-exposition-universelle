@@ -30,14 +30,14 @@ final class ExpoViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func loadJsonData() -> Result<ExpoInfo, Error> {
+    private func loadJsonData() -> Result<ExpoInfo, DataError> {
         let decoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return .failure(DataError.incorrectAssert) }
+        guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return .failure(.incorrectAssert) }
             
         if let data = try? decoder.decode(ExpoInfo.self, from: dataAsset.data) {
             return .success(data)
         } else {
-            return .failure(DataError.failDecoding)
+            return .failure(.failDecoding)
         }
     }
     
