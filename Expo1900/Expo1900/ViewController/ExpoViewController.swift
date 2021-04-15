@@ -48,7 +48,7 @@ final class ExpoViewController: UIViewController {
     
     @IBAction private func touchUpKoreaEntryWorkButton() {
         guard let koreaEntryWorkViewController = self.storyboard?.instantiateViewController(identifier: "entryWorkVC") as? EntryWorkViewController else { return }
-        self.navigationController?.pushViewController(koreaEntryWorkViewController, animated: false)
+        self.navigationController?.pushViewController(koreaEntryWorkViewController, animated: true)
     }
 }
 

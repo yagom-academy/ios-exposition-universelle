@@ -58,6 +58,6 @@ extension EntryWorkViewController: UITableViewDelegate {
         guard let entryWorkDetailViewController = self.storyboard?.instantiateViewController(identifier: "entryWorkDetailVC") as? EntryWorkDetailViewController else { return }
         
         entryWorkDetailViewController.entryWorkItem = entryWorks[indexPath.row]
-        self.navigationController?.pushViewController(entryWorkDetailViewController, animated: false)
+        self.navigationController?.pushViewController(entryWorkDetailViewController, animated: true)
     }
 }
