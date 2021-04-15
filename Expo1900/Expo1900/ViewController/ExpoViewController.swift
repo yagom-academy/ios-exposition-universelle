@@ -17,33 +17,36 @@ final class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        
+        switch loadJsonData() {
+        case .success(let data):
+            updateUI(data)
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func loadJsonData() -> ExpoInfo? {
+    private func loadJsonData() -> Result<ExpoInfo, Error> {
         let decoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return nil }
-        
-        do {
-            return try decoder.decode(ExpoInfo.self, from: dataAsset.data)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return nil
+        guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return .failure(DataError.incorrectAssert) }
+            
+        if let data = try? decoder.decode(ExpoInfo.self, from: dataAsset.data) {
+            return .success(data)
+        } else {
+            return .failure(DataError.failDecoding)
         }
     }
     
-    private func updateUI() {
-        let expoInformation = loadJsonData()
-        expoTitleLabel.text = expoInformation?.title
-        locationLabel.text = expoInformation?.location
-        durationLabel.text = expoInformation?.duration
-        descriptionLabel.text = expoInformation?.description
-        guard let visitors = expoInformation?.visitors else { return }
-        guard let formattedVisitors = changeNumberStyleToComma(visitors) else { return }
+    private func updateUI(_ expoInformation: ExpoInfo) {
+        expoTitleLabel.text = expoInformation.title
+        locationLabel.text = expoInformation.location
+        durationLabel.text = expoInformation.duration
+        descriptionLabel.text = expoInformation.description
+        guard let formattedVisitors = changeNumberStyleToComma(expoInformation.visitors) else { return }
         visitorsLabel.text = formattedVisitors + " 명"
     }
     
