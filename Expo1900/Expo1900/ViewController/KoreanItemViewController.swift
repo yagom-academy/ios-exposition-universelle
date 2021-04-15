@@ -63,7 +63,7 @@ final class KoreanItemViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackViewOfMainScrollView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
             stackViewOfMainScrollView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
-            stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
+            stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -ViewConstant.scrollBarWidth),
             stackViewOfMainScrollView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor)
         ])
         contents.forEach({ stackViewOfMainScrollView.addArrangedSubview($0) })

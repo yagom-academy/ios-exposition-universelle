@@ -87,6 +87,8 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        setMainViewTitle()
         setUpMainScrollView()
         setStackViewOfMainScrollView()
     }
@@ -114,7 +116,7 @@ final class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackViewOfMainScrollView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
             stackViewOfMainScrollView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
-            stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
+            stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -ViewConstant.scrollBarWidth),
             stackViewOfMainScrollView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor)
         ])
         contents.forEach({ stackViewOfMainScrollView.addArrangedSubview($0) })

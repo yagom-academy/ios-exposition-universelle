@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum DefaultJSONValues {
     static let text = "Not Found"
@@ -20,4 +21,8 @@ enum PrefixText {
 
 enum PostfixText {
     static let visitors = " 명"
+}
+
+enum ViewConstant {
+    static let scrollBarWidth: CGFloat = 10
 }
