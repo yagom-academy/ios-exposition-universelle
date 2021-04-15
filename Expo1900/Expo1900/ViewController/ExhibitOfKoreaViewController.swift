@@ -33,8 +33,9 @@ class ExhibitOfKoreaViewController: UIViewController {
     
     private func initNavigationBar() {
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.topItem?.title = "메인"
+//        self.navigationController?.navigationBar.topItem?.title = "메인"
         self.navigationItem.title = "한국의 출품작"
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
     }
     
     private func initThingsUsedInTableView() {

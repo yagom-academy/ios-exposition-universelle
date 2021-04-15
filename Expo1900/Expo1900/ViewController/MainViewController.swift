@@ -51,11 +51,9 @@ class MainViewController: UIViewController {
     }
     
     private func createConstraints() {
-        
+        let spacing = 10.0
         enterExhibitOfKoreaButton.translatesAutoresizingMaskIntoConstraints = false
         enterExhibitOfKoreaButton.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
-        
-        let spacing = 10.0
         enterExhibitOfKoreaButton.titleLabel?.trailingAnchor.constraint(equalTo: enterExhibitOfKoreaButton.trailingAnchor,
                                                        constant: -CGFloat(spacing)).isActive = true
         enterExhibitOfKoreaButton.titleLabel?.leadingAnchor.constraint(equalTo: enterExhibitOfKoreaButton.leadingAnchor,
@@ -95,7 +93,6 @@ class MainViewController: UIViewController {
         guard let demicalStyleNumber = numberFormatter.string(from: NSNumber(value:number)) else {
             return nil
         }
-        
         return demicalStyleNumber
     }
     

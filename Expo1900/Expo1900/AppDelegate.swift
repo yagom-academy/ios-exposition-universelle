@@ -12,7 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var orientation = UIInterfaceOrientationMask.all
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        guard let uiFont = UIFont(name: "AlNile-Bold", size: 15) else {
+            return true
+        }
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue, NSAttributedString.Key.font: uiFont], for: UIControl.State.normal)
+
         return true
     }
 
