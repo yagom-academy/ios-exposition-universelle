@@ -54,4 +54,15 @@ class ExpoListViewController: UITableViewController {
         cell.detailTextLabel?.text = item.shortDescription
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ExpoListDetailViewController()
+        let item = itemList[indexPath.row]
+        
+        vc.imageName = item.imageName
+        vc.descriptionText = item.description
+        vc.modalPresentationStyle = .fullScreen
+        
+        present(vc, animated: true)
+    }
 }
