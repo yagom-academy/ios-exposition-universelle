@@ -18,7 +18,12 @@ final class EntryWorkViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        loadJsonData()
+        switch loadJsonData() {
+        case .success(let data):
+            entryWorks = data
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
         
         self.view.layoutIfNeeded()
     }
@@ -27,14 +32,14 @@ final class EntryWorkViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    private func loadJsonData() {
+    private func loadJsonData() -> Result<[EntryWorkItem], DataError> {
         let decoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset.init(name: "items") else { return }
+        guard let dataAsset = NSDataAsset.init(name: "items") else { return .failure(.incorrectAssert) }
         
-        do {
-            entryWorks = try decoder.decode([EntryWorkItem].self, from: dataAsset.data)
-        } catch let error as NSError {
-            print(error.localizedDescription)
+        if let data = try? decoder.decode([EntryWorkItem].self, from: dataAsset.data){
+            return .success(data)
+        } else {
+            return .failure(.failDecoding)
         }
     }
 }
