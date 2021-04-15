@@ -43,7 +43,15 @@ final class ExpoViewController: UIViewController {
         durationLabel.text = expoInformation?.duration
         descriptionLabel.text = expoInformation?.description
         guard let visitors = expoInformation?.visitors else { return }
-        visitorsLabel.text = String(visitors) + "명"
+        guard let formattedVisitors = changeNumberStyleToComma(visitors) else { return }
+        visitorsLabel.text = formattedVisitors + " 명"
+    }
+    
+    private func changeNumberStyleToComma(_ number: Int) -> String? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        return numberFormatter.string(for: number)
     }
     
     @IBAction private func touchUpKoreaEntryWorkButton() {
