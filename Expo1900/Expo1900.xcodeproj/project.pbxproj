@@ -19,6 +19,7 @@
 		D02EF79E2620089300FDADD6 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF79D2620089300FDADD6 /* JSONData.swift */; };
 		D0AEBE08262823F000811D99 /* KoreanHeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */; };
 		D0AEBE0C2628243500811D99 /* SecondViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE0B2628243500811D99 /* SecondViewTest.swift */; };
+		D0AEBE18262839C100811D99 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE17262839C100811D99 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D02EF79D2620089300FDADD6 /* JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHeritageViewController.swift; sourceTree = "<group>"; };
 		D0AEBE0B2628243500811D99 /* SecondViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewTest.swift; sourceTree = "<group>"; };
+		D0AEBE17262839C100811D99 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +93,10 @@
 			children = (
 				D02EF79A2620083D00FDADD6 /* Model */,
 				D02EF787261FFD2C00FDADD6 /* Utility */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				D0AEBE1B2628404F00811D99 /* View */,
+				D0F4C809262850850005FA66 /* ViewController */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -128,6 +130,23 @@
 				D02EF79D2620089300FDADD6 /* JSONData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D0AEBE1B2628404F00811D99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0AEBE17262839C100811D99 /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0F4C809262850850005FA66 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +255,7 @@
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				D02EF79E2620089300FDADD6 /* JSONData.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				D0AEBE18262839C100811D99 /* TableViewCell.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
