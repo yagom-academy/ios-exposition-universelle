@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
         koreanEntryData = try? JSONParser<[Exposition.Entry]>.parse("items").get()
         
         setMainViewData()
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func setMainViewData() {
