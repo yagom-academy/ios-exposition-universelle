@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class KoreanItemsRootViewController: UIViewController {
-    private let koreanItemRootViewTitle = "한국의 출품작"
+final class KoreanItemTableViewController: UIViewController {
+    private let koreanItemTableViewTitle = "한국의 출품작"
     
     private let koreanItems: [KoreanItem] = {
         var items = [KoreanItem]()
@@ -22,7 +22,7 @@ final class KoreanItemsRootViewController: UIViewController {
         return items
     }()
     
-    private let mainTableView: UITableView = {
+    private let koreanItemTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(KoreanItemCell.self, forCellReuseIdentifier: KoreanItemCell.reuseIdentifier)
@@ -35,39 +35,60 @@ final class KoreanItemsRootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = koreanItemRootViewTitle
-        mainTableView.rowHeight = UITableView.automaticDimension
-        mainTableView.estimatedRowHeight = 150
-        mainTableView.delegate = self
-        mainTableView.dataSource = self
         view.backgroundColor = .white
-        view.addSubview(mainTableView)
-        addMainTableViewConstraint()
+        setKoreanItemTableViewTitle()
+        setKoreanItemTableViewDelegate()
+        setKoreanItemTableViewDataSource()
+        setUpKoreanItemTalbeView()
     }
     
-    private func addMainTableViewConstraint() {
-        mainTableView.rowHeight = UITableView.automaticDimension
+    private func setKoreanItemTableViewTitle() {
+        navigationItem.title = koreanItemTableViewTitle
+    }
+    
+    private func setKoreanItemTableViewDelegate() {
+        koreanItemTableView.delegate = self
+    }
+    
+    private func setKoreanItemTableViewDataSource() {
+        koreanItemTableView.dataSource = self
+    }
+    
+    private func setUpKoreanItemTalbeView() {
+        view.addSubview(koreanItemTableView)
+        addKoreanItemTableViewConstraints()
+    }
+    
+    private func addKoreanItemTableViewConstraints() {
         NSLayoutConstraint.activate([
-            mainTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            mainTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            koreanItemTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            koreanItemTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            koreanItemTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            koreanItemTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
 }
 
-extension KoreanItemsRootViewController: UITableViewDelegate {
+extension KoreanItemTableViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let koreanItemViewcontroller = KoreanItemViewController()
-        koreanItemViewcontroller.koreanItem = koreanItems[indexPath.row]
+        let koreanItemViewcontroller = KoreanItemIntroductionViewController()
+        let itemTitle = koreanItems[indexPath.row].name
+        let itemImage = UIImage(named: koreanItems[indexPath.row].imageName)
+        let itemDescription = koreanItems[indexPath.row].description
+        koreanItemViewcontroller.setItemIntroductionContents(title: itemTitle, image: itemImage, description: itemDescription)
         navigationController?.pushViewController(koreanItemViewcontroller, animated: true)
     }
 }
 
-extension KoreanItemsRootViewController: UITableViewDataSource {
+extension KoreanItemTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         koreanItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

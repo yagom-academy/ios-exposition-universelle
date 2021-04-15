@@ -10,18 +10,18 @@
 		00477C6EB3D11628F07E50E1 /* Pods_Expo1900.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B7FCC6914C961CF596F75C /* Pods_Expo1900.framework */; };
 		1C06F092261C4F56008E62CF /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C06F091261C4F56008E62CF /* Expo1900Tests.swift */; };
 		1C06F09B261C56A0008E62CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
-		1C7350EE2624306E00957CAA /* ConstantValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7350ED2624306E00957CAA /* ConstantValues.swift */; };
-		1C7350FA262435E100957CAA /* KoreanItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7350F9262435E100957CAA /* KoreanItemViewController.swift */; };
+		1C7350EE2624306E00957CAA /* ConstantValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7350ED2624306E00957CAA /* ConstantValue.swift */; };
+		1C7350FA262435E100957CAA /* KoreanItemIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7350F9262435E100957CAA /* KoreanItemIntroductionViewController.swift */; };
 		1C73510926255EF500957CAA /* ExpositionImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C73510826255EF500957CAA /* ExpositionImageView.swift */; };
 		1C8AD0CA261B58D100EAD240 /* KoreanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0C9261B58D100EAD240 /* KoreanItem.swift */; };
 		1C8AD0CF261BF74C00EAD240 /* ExpositionUniverselle1900.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */; };
 		1CF47F29262065EA00CD1E93 /* ExpositionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */; };
-		1CF47F652623465F00CD1E93 /* KoreanItemsRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */; };
+		1CF47F652623465F00CD1E93 /* KoreanItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F642623465F00CD1E93 /* KoreanItemTableViewController.swift */; };
 		1CF47F7326241D3500CD1E93 /* KoreanItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */; };
 		1CFD1E82261C347600D9D477 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFD1E81261C347600D9D477 /* Error.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* ExpoIntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoIntroductionViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -41,13 +41,13 @@
 		1C06F08F261C4F56008E62CF /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C06F091261C4F56008E62CF /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		1C06F093261C4F56008E62CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1C7350ED2624306E00957CAA /* ConstantValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantValues.swift; sourceTree = "<group>"; };
-		1C7350F9262435E100957CAA /* KoreanItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemViewController.swift; sourceTree = "<group>"; };
+		1C7350ED2624306E00957CAA /* ConstantValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantValue.swift; sourceTree = "<group>"; };
+		1C7350F9262435E100957CAA /* KoreanItemIntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemIntroductionViewController.swift; sourceTree = "<group>"; };
 		1C73510826255EF500957CAA /* ExpositionImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionImageView.swift; sourceTree = "<group>"; };
 		1C8AD0C9261B58D100EAD240 /* KoreanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItem.swift; sourceTree = "<group>"; };
 		1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle1900.swift; sourceTree = "<group>"; };
 		1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionLabel.swift; sourceTree = "<group>"; };
-		1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemsRootViewController.swift; sourceTree = "<group>"; };
+		1CF47F642623465F00CD1E93 /* KoreanItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemTableViewController.swift; sourceTree = "<group>"; };
 		1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemCell.swift; sourceTree = "<group>"; };
 		1CFD1E81261C347600D9D477 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		27B7FCC6914C961CF596F75C /* Pods_Expo1900.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expo1900.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +55,7 @@
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* ExpoIntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoIntroductionViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,17 +91,25 @@
 			path = Expo1900Tests;
 			sourceTree = "<group>";
 		};
-		1C7350FF2625325200957CAA /* ViewController */ = {
+		1C1DE2B0262845E300FA2090 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
-				1CF47F642623465F00CD1E93 /* KoreanItemsRootViewController.swift */,
-				1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */,
-				1C7350F9262435E100957CAA /* KoreanItemViewController.swift */,
 				1C73510826255EF500957CAA /* ExpositionImageView.swift */,
 				1CF47F28262065EA00CD1E93 /* ExpositionLabel.swift */,
 			);
-			path = ViewController;
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1C7350FF2625325200957CAA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ExpoIntroductionViewController.swift */,
+				1CF47F642623465F00CD1E93 /* KoreanItemTableViewController.swift */,
+				1CF47F7226241D3500CD1E93 /* KoreanItemCell.swift */,
+				1C7350F9262435E100957CAA /* KoreanItemIntroductionViewController.swift */,
+				1C1DE2B0262845E300FA2090 /* CustomViews */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		1CFD1E86261C47A400D9D477 /* Model */ = {
@@ -110,7 +118,7 @@
 				1CFD1E81261C347600D9D477 /* Error.swift */,
 				1C8AD0C9261B58D100EAD240 /* KoreanItem.swift */,
 				1C8AD0CE261BF74C00EAD240 /* ExpositionUniverselle1900.swift */,
-				1C7350ED2624306E00957CAA /* ConstantValues.swift */,
+				1C7350ED2624306E00957CAA /* ConstantValue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				1CFD1E86261C47A400D9D477 /* Model */,
-				1C7350FF2625325200957CAA /* ViewController */,
+				1C7350FF2625325200957CAA /* ViewControllers */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
@@ -321,11 +329,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CF47F7326241D3500CD1E93 /* KoreanItemCell.swift in Sources */,
-				1CF47F652623465F00CD1E93 /* KoreanItemsRootViewController.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
-				1C7350FA262435E100957CAA /* KoreanItemViewController.swift in Sources */,
+				1CF47F652623465F00CD1E93 /* KoreanItemTableViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* ExpoIntroductionViewController.swift in Sources */,
+				1C7350FA262435E100957CAA /* KoreanItemIntroductionViewController.swift in Sources */,
 				1C73510926255EF500957CAA /* ExpositionImageView.swift in Sources */,
-				1C7350EE2624306E00957CAA /* ConstantValues.swift in Sources */,
+				1C7350EE2624306E00957CAA /* ConstantValue.swift in Sources */,
 				1C8AD0CF261BF74C00EAD240 /* ExpositionUniverselle1900.swift in Sources */,
 				1C8AD0CA261B58D100EAD240 /* KoreanItem.swift in Sources */,
 				1CF47F29262065EA00CD1E93 /* ExpositionLabel.swift in Sources */,

@@ -6,11 +6,11 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
-    private let mainViewTitle = "메인"
+final class ExpoIntroductionViewController: UIViewController {
+    private let navigationTitle = "메인"
     private let expositionData: ExpositionUnivereselle1900
     
-    private let mainScrollView: UIScrollView = {
+    private let introductionScrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.backgroundColor = .white
         scrollview.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +18,7 @@ final class MainViewController: UIViewController {
         return scrollview
     }()
     
-    private let stackViewOfMainScrollView: UIStackView = {
+    private let introductionContentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -30,12 +30,12 @@ final class MainViewController: UIViewController {
     
     private lazy var titleLabel = ExpositionLabel(text: expositionData.title, textStyle: .largeTitle)
     private let posterImageView = ExpositionImageView(imageName: "poster")
-    private lazy var visitorsLabel = ExpositionLabel(text: PrefixText.visitors + String(expositionData.visitors) + PostfixText.visitors, textStyle: .subheadline)
-    private lazy var locationLabel = ExpositionLabel(text: PrefixText.location + expositionData.location, textStyle: .subheadline)
-    private lazy var durationLabel = ExpositionLabel(text: PrefixText.duration + expositionData.duration, textStyle: .subheadline)
+    private lazy var visitorsLabel = ExpositionLabel(text: ExpoAffix.Prefix.visitors + String(expositionData.visitors) + ExpoAffix.Suffix.visitors, textStyle: .subheadline)
+    private lazy var locationLabel = ExpositionLabel(text: ExpoAffix.Prefix.location + expositionData.location, textStyle: .subheadline)
+    private lazy var durationLabel = ExpositionLabel(text: ExpoAffix.Prefix.duration + expositionData.duration, textStyle: .subheadline)
     private lazy var descriptionLabel = ExpositionLabel(text: expositionData.description, textStyle: .body)
     
-    private let moveToKoreanItemsStackView: UIStackView = {
+    private let moveToKoreanItemTableStackView: UIStackView = {
         let stackView = UIStackView()
         let moveToKoreanItemsButton: UIButton = {
             let button = UIButton(type: .system)
@@ -57,7 +57,7 @@ final class MainViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemsStackView]
+    private lazy var contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemTableStackView]
     
     init() {
         if let dataAsset = NSDataAsset(name: "exposition_universelle_1900") {
@@ -88,45 +88,49 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setMainViewTitle()
-        setUpMainScrollView()
-        setStackViewOfMainScrollView()
+        setExpoIntroductionViewTitle()
+        setUpIntroductionScrollView()
+        setUpIntroductionContentStackView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    private func setMainViewTitle() {
+    private func setExpoIntroductionViewTitle() {
         navigationItem.title = "메인"
     }
     
-    private func setUpMainScrollView() {
-        view.addSubview(mainScrollView)
-        NSLayoutConstraint.activate([
-            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+    private func setUpIntroductionScrollView() {
+        view.addSubview(introductionScrollView)
+        addIntroductionScrollViewConstraints()
     }
     
-    private func setStackViewOfMainScrollView() {
-        mainScrollView.addSubview(stackViewOfMainScrollView)
+    private func setUpIntroductionContentStackView() {
+        introductionScrollView.addSubview(introductionContentStackView)
         addMainScrollViewConstraints()
-        contents.forEach({ stackViewOfMainScrollView.addArrangedSubview($0) })
+        contents.forEach({ introductionContentStackView.addArrangedSubview($0) })
+    }
+    
+    private func addIntroductionScrollViewConstraints() {
+        NSLayoutConstraint.activate([
+            introductionScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            introductionScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            introductionScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            introductionScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
     
     private func addMainScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            stackViewOfMainScrollView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
-            stackViewOfMainScrollView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
-            stackViewOfMainScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -ViewConstant.scrollBarWidth),
-            stackViewOfMainScrollView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor)
+            introductionContentStackView.leadingAnchor.constraint(equalTo: introductionScrollView.leadingAnchor),
+            introductionContentStackView.topAnchor.constraint(equalTo: introductionScrollView.topAnchor),
+            introductionContentStackView.widthAnchor.constraint(equalTo: introductionScrollView.widthAnchor, constant: -ViewConstant.scrollBarWidth),
+            introductionContentStackView.bottomAnchor.constraint(equalTo: introductionScrollView.bottomAnchor)
         ])
     }
     
     @objc func touchUpMoveToKoreanItemsButton() {
-        navigationController?.pushViewController(KoreanItemsRootViewController(), animated: true)
+        navigationController?.pushViewController(KoreanItemTableViewController(), animated: true)
     }
 }
