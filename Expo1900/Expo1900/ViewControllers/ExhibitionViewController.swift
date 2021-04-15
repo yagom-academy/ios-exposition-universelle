@@ -17,7 +17,8 @@ class ExhibitionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initValues()
+        initViews()
+        changeViewsValue()
         self.navigationItem.backButtonTitle = "메인"
     }
     
@@ -31,24 +32,22 @@ class ExhibitionViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    private func initValues() {
+    private func changeViewsValue() {
+        changeFont(from: exhibitionVisitorsLabel, applyText: "방문객")
+        changeFont(from: exhibitionVenueLabel, applyText: "개최지")
+        changeFont(from: exhibitionHoldingPeriodLabel, applyText: "개최기간")
+    }
+    
+    private func initViews() {
         let jsonDecoder = JSONDecoder()
-        
         guard let exhibitionJsonData = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        
         guard let exhibitionInfomation = try? jsonDecoder.decode(ExhibitionInfomation.self, from: exhibitionJsonData.data) else { return }
         
         exhibitionTitleLabel.text = exhibitionInfomation.newlineTitle
         exhibitionTitleLabel.textAlignment = .center
-        
         exhibitionVisitorsLabel.text = "방문객 : " + exhibitionInfomation.formattedVistorsNumber + " 명"
         exhibitionVenueLabel.text = "개최지 : " + exhibitionInfomation.location
         exhibitionHoldingPeriodLabel.text = "개최기간 : " + exhibitionInfomation.duration
-        
-        changeFont(from: exhibitionVisitorsLabel, applyText: "방문객")
-        changeFont(from: exhibitionVenueLabel, applyText: "개최지")
-        changeFont(from: exhibitionHoldingPeriodLabel, applyText: "개최기간")
-        
         exhibitionDescriptionLabel.text = exhibitionInfomation.description
     }
     
