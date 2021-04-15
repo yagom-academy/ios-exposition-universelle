@@ -38,6 +38,10 @@ func commaMaker(value: Int) -> String {
     return result
 }
 
-func insertNewLine(by separator: Character, into text: inout String) {
-    text = text.replacingOccurrences(of: "\(separator)", with: "\n " + "\(separator)")
+func insertNewLine(by separator: Character, into text: String) -> String {
+    return text.replacingOccurrences(of: "\(separator)", with: "\n " + "\(separator)")
+}
+
+func insert명(at: String) -> String {
+    return at + "명"
 }

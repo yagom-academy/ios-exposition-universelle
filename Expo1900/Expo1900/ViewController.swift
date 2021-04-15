@@ -23,11 +23,10 @@ class ViewController: UIViewController {
     
     func inputData() {
         guard var newLinedExpoTitle = expoData?.title else { return }
-        insertNewLine(by: "(", into: &newLinedExpoTitle)
         
-        expoTitleLabel.text = newLinedExpoTitle
+        expoTitleLabel.text = insertNewLine(by: "(", into: newLinedExpoTitle)
         expoPosterImage.image = UIImage(named: "poster")
-        expoVisitors.text = String(commaMaker(value: (expoData?.visitors ?? 0))) + "명"
+        expoVisitors.text = insert명(at: String(commaMaker(value: expoData?.visitors ?? 0)))
         expoVenu.text = expoData?.location
         expoDuration.text = expoData?.duration
         expoDescription.text = expoData?.description
@@ -36,6 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func koreanHeritageButton(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {
