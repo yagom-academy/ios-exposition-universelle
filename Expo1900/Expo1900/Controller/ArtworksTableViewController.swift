@@ -18,6 +18,10 @@ final class ArtworksTableViewController: UIViewController {
     enum Segue {
       static let artworkDetail: String = "showDetail"
     }
+    
+    enum Cell {
+      static let artwork: String = "artworkTableViewCell"
+    }
   }
   
   private enum OSLogMessage {
@@ -51,7 +55,7 @@ extension ArtworksTableViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: ArtworkTableViewCell = tableView.dequeueReusableCell(
-      withIdentifier: "artworkTableViewCell",
+      withIdentifier: Identifier.Cell.artwork,
       for: indexPath
     ) as! ArtworkTableViewCell
     
