@@ -7,12 +7,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let decoder = Decoder()
+        let dataManager = DataPretreatment()
+        
+    do {
+        try dataManager.extractInternalData(from: "items")
+        decoder.decodeData([ExpositionItems].self, of: dataManager.data)
+    } catch {
+        print(error)
+        }
     }
-
-
 }
-
