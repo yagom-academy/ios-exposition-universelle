@@ -27,6 +27,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustButtonDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
+        
         let resultOfFetch = setUpData(fileName: FileName.expositionUniverselle1900, model: MainOfExposition.self)
         switch resultOfFetch {
         case .success(let data):
@@ -34,7 +37,36 @@ class MainViewController: UIViewController {
         case .failure(let error):
             print(error.localizedDescription)
         }
+        createConstraints()
     }
+    
+    @objc func adjustButtonDynamicType() {
+        enterExhibitOfKoreaButton.titleLabel?.adjustsFontForContentSizeCategory = true
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        DispatchQueue.main.async() {
+            self.enterExhibitOfKoreaButton.setNeedsUpdateConstraints()
+        }
+    }
+    
+    private func createConstraints() {
+        
+        enterExhibitOfKoreaButton.translatesAutoresizingMaskIntoConstraints = false
+        enterExhibitOfKoreaButton.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+        
+        let spacing = 10.0
+        enterExhibitOfKoreaButton.titleLabel?.trailingAnchor.constraint(equalTo: enterExhibitOfKoreaButton.trailingAnchor,
+                                                       constant: -CGFloat(spacing)).isActive = true
+        enterExhibitOfKoreaButton.titleLabel?.leadingAnchor.constraint(equalTo: enterExhibitOfKoreaButton.leadingAnchor,
+                                                      constant: CGFloat(spacing)).isActive = true
+        enterExhibitOfKoreaButton.titleLabel?.topAnchor.constraint(equalTo: enterExhibitOfKoreaButton.topAnchor,
+                                                  constant: CGFloat(spacing)).isActive = true
+        enterExhibitOfKoreaButton.titleLabel?.bottomAnchor.constraint(equalTo: enterExhibitOfKoreaButton.bottomAnchor,
+                                                     constant: -CGFloat(spacing)).isActive = true
+        enterExhibitOfKoreaButton.titleLabel?.textAlignment = .center
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -53,6 +85,7 @@ class MainViewController: UIViewController {
         leftFalgImage.image = UIImage(named: ImageName.flag)
         rightFlagImage.image = UIImage(named: ImageName.flag)
         enterExhibitOfKoreaButton.setTitle("한국의 출품작 보러가기", for: .normal)
+        enterExhibitOfKoreaButton.titleLabel?.numberOfLines = 0
     }
     
     private func changeNumberDecimalFormat(number: Int) -> String? {
