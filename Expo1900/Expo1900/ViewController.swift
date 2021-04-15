@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     
     func inputData() {
-        guard var newLinedExpoTitle = expoData?.title else { return }
+        guard let newLinedExpoTitle = expoData?.title else { return }
         
         expoTitleLabel.text = insertNewLine(by: "(", into: newLinedExpoTitle)
         expoPosterImage.image = UIImage(named: "poster")
