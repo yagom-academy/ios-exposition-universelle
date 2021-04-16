@@ -76,7 +76,14 @@ extension ExpoIntroductionViewController {
   
   private func configureTitleLabel(with data: ExpoIntroduction) {
     titleLabel.text = data.title
-    titleLabel.text = titleLabel.text?.replacingOccurrences(of: "박람회 1900", with: "박람회 1900\n")
+    
+    let newLineTargetString = titleLabel.text?.range(of: "1900")
+    
+    titleLabel.text = titleLabel.text?.replacingOccurrences(
+      of: "1900",
+      with: "1900\n",
+      range: newLineTargetString
+    )
   }
   
   private func configureUI(with data: ExpoIntroduction) {
