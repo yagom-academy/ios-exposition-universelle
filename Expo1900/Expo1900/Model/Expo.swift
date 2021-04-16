@@ -14,7 +14,7 @@ struct Expo: Decodable {
     let duration: String
     let description: String
     
-    private enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: CodingKey {
         case title, visitors, location, duration, description
     }
     

@@ -10,15 +10,13 @@ import UIKit
 
 protocol OrientaionMakeable {
     static var shared: OrientaionMake { get set }
-    var appDelegate: AppDelegate? { get set }
     func judgedOrientaionMake(_ isPortrait: Bool)
     func isOrientaionMake() -> Bool
 }
 
 final class OrientaionMake: OrientaionMakeable {
     static var shared = OrientaionMake()
-    var appDelegate = UIApplication.shared.delegate as? AppDelegate
-    var shouldSupportAllOrientation = true
+    private var shouldSupportAllOrientation = true
     
     private init() { }
     

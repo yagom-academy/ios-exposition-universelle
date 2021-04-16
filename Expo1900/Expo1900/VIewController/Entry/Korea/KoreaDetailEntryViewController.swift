@@ -19,11 +19,11 @@ final class KoreaDetailEntryViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if orientaionMask.shouldSupportAllOrientation == false {
-            orientaionMask.shouldSupportAllOrientation = true
+        if orientaionMask.isOrientaionMake() {
+            orientaionMask.judgedOrientaionMake(true)
             descriptionLable.font = UIFont.preferredFont(forTextStyle: .footnote)
         } else {
-            orientaionMask.shouldSupportAllOrientation = false
+            orientaionMask.judgedOrientaionMake(false)
             descriptionLable.font = UIFont.preferredFont(forTextStyle: .body)
         }
     }
