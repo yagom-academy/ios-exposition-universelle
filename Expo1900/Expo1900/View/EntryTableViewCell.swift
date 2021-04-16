@@ -8,10 +8,9 @@
 import UIKit
 
 class EntryTableViewCell: UITableViewCell {
-    let entryImageView = UIImageView()
-    let entryNameLabel = UILabel()
-    let entryShortDescriptionLabel = UILabel()
-    
+    private let entryImageView = UIImageView()
+    private let entryNameLabel = UILabel()
+    private let entryShortDescriptionLabel = UILabel()
     private let contentStackView = UIStackView()
     private let entryLabelStackView = UIStackView()
     
@@ -26,6 +25,12 @@ class EntryTableViewCell: UITableViewCell {
         setEntryImageView(withRatioOf: 0.21)
         setEntryNameLabel(in: .title1)
         setEntryShortDescriptionLabel(in: .body)
+    }
+    
+    func putEntryData(from entry: Exposition.Entry) {
+        entryImageView.image = UIImage(named: entry.imageName)
+        entryNameLabel.text = entry.name
+        entryShortDescriptionLabel.text = entry.shortDescription
     }
     
     private func setContentStackView() {

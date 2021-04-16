@@ -27,10 +27,8 @@ class EntryTableViewController: UITableViewController {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         guard let entryCell: EntryTableViewCell = cell as? EntryTableViewCell else { return cell }
         guard let entries: [Exposition.Entry] = entries else { return cell }
-
-        entryCell.entryImageView.image = UIImage(named: entries[indexPath.row].imageName)
-        entryCell.entryNameLabel.text = entries[indexPath.row].name
-        entryCell.entryShortDescriptionLabel.text = entries[indexPath.row].shortDescription
+        
+        entryCell.putEntryData(from: entries[indexPath.row])
         
         return entryCell
     }
