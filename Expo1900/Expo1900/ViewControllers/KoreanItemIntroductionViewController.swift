@@ -8,7 +8,6 @@
 import UIKit
 
 final class KoreanItemIntroductionViewController: UIViewController {
-    
     private let itemIntroductionScrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.translatesAutoresizingMaskIntoConstraints = false

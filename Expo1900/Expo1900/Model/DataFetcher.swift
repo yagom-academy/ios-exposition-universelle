@@ -14,10 +14,12 @@ enum JsonFetcher {
             completionHandler(.failure(.wrongJsonFileName(fileName: "\(dataAssetName)")))
             return
         }
+        
         guard let decodedData = try? JSONDecoder().decode(DecodeType.self, from: data) else {
             completionHandler(.failure(.jsonFormatFailed(fileName: "\(dataAssetName)")))
             return
         }
+        
         completionHandler(.success(decodedData))
     }
 }
@@ -28,6 +30,7 @@ enum ImageFetcher {
             completionHandler(imageView, .failure(.wrongImageName(fileName: imageFileName)))
             return
         }
+        
         completionHandler(imageView, .success(image))
     }
 }

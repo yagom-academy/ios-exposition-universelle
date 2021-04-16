@@ -8,7 +8,6 @@
 import UIKit
 
 final class KoreanItemTableViewController: UIViewController {
-    
     private let koreanItemTableViewNavigationTitle = "한국의 출품작"
     private var koreanItems: [KoreanItem]?
     
@@ -43,6 +42,7 @@ final class KoreanItemTableViewController: UIViewController {
         switch result {
         case .success(let koreanItemsData):
             self.koreanItems = koreanItemsData
+            
         case .failure(let jsonError):
             errorList.append(jsonError)
             self.koreanItems = nil
