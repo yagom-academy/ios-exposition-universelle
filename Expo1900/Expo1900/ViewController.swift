@@ -7,9 +7,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-    let cellIdentifier: String = "cell"
+    
+    @IBOutlet weak var expoTitleLabel: UILabel!
+    @IBOutlet weak var numberOfVisitorsLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var openingPeriodLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +28,17 @@ class ViewController: UIViewController {
         
         do {
             exposition = try jsonDecoder.decode(ExpoItem.self, from: dataAsset.data)
-            print(exposition.expoTitle)
-            print(exposition.description)
-            print(exposition.location)
-            print(exposition.numberOfVisitors)
-            print(exposition.openingPeriod)
+            expoTitleLabel.text = String(exposition.expoTitle)
+            numberOfVisitorsLabel.text = String(exposition.numberOfVisitors)
+            locationLabel.text = String(exposition.location)
+            openingPeriodLabel.text = String(exposition.openingPeriod)
+            descriptionLabel.text = String(exposition.description)
         } catch {
             print(error.localizedDescription)
         }
+        
+        
     }
+    
+
 }
