@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var expoLocation: UILabel!
     @IBOutlet weak var expoDuration: UILabel!
     @IBOutlet weak var expoDescription: UILabel!
-    @IBOutlet weak var changeViewToItemTableViewButton: UIButton!
+    @IBOutlet weak var screenTransitionToTableViewButton: UIButton!
     var expo: Expo?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,7 +22,11 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupInitialScreenView()
+        do {
+            try setupInitialScreenView()
+        } catch {
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -30,14 +34,18 @@ class MainViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    override open var shouldAutorotate: Bool {
+            return false
+        }
     
-    private func setupInitialScreenView() {
+    private func setupInitialScreenView() throws {
         do {
             try parseExpoData()
             updateUI()
             setAttributeOfLabel()
             
         } catch {
+            throw DataError.InvalidAccess
         }
     }
     
@@ -53,19 +61,13 @@ class MainViewController: UIViewController {
     
     private func setAttributeOfLabel() {
         expoTitle.adjustsFontSizeToFitWidth = true
-//        expoTitle.translatesAutoresizingMaskIntoConstraints = false
         expoVisitors.adjustsFontSizeToFitWidth = true
-//        expoVisitors.translatesAutoresizingMaskIntoConstraints = false
         expoLocation.adjustsFontSizeToFitWidth = true
-//        expoLocation.translatesAutoresizingMaskIntoConstraints = false
         expoDuration.adjustsFontSizeToFitWidth = true
-//        expoDuration.translatesAutoresizingMaskIntoConstraints = false
         expoDescription.adjustsFontSizeToFitWidth = true
-//        expoDescription.translatesAutoresizingMaskIntoConstraints = false
         expoDescription.lineBreakStrategy = .hangulWordPriority
-//        changeViewToItemTableViewButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        changeViewToItemTableViewButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        changeViewToItemTableViewButton.titleLabel?.numberOfLines = 0
+        screenTransitionToTableViewButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        screenTransitionToTableViewButton.titleLabel?.numberOfLines = 0
     }
     
     private func formatNumberStyle(_ input: Int) -> String {
@@ -86,6 +88,17 @@ class MainViewController: UIViewController {
             expo = try JSONDecoder().decode(Expo.self, from: asset.data)
         } catch {
             throw DataError.InvalidAccess
+        }
+    }
+}
+
+extension UINavigationController {
+    override open var shouldAutorotate: Bool {
+        get {
+            if let visibleViewController = visibleViewController {
+                return visibleViewController.shouldAutorotate
+            }
+            return super.shouldAutorotate
         }
     }
 }

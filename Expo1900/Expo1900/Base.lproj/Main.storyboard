@@ -59,7 +59,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2h-lq-o0a">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2h-lq-o0a">
                                                 <rect key="frame" x="50" y="408.33333333333331" width="328" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="한국의 출품작 보러가기"/>
@@ -88,7 +88,7 @@
                                             <constraint firstItem="aQu-p2-3id" firstAttribute="top" secondItem="XI9-HX-13s" secondAttribute="bottom" constant="10" id="2zL-08-Yxt"/>
                                             <constraint firstItem="XI9-HX-13s" firstAttribute="centerX" secondItem="WJN-fl-OTx" secondAttribute="centerX" id="3NP-Aa-IxL"/>
                                             <constraint firstAttribute="trailing" secondItem="KRv-gw-vbH" secondAttribute="trailing" constant="10" id="4IG-f2-bkL"/>
-                                            <constraint firstItem="U2h-lq-o0a" firstAttribute="leading" secondItem="WJN-fl-OTx" secondAttribute="leading" priority="250" constant="10" id="4qR-Yn-lrY"/>
+                                            <constraint firstItem="U2h-lq-o0a" firstAttribute="leading" secondItem="WJN-fl-OTx" secondAttribute="leading" priority="750" constant="10" id="4qR-Yn-lrY"/>
                                             <constraint firstAttribute="bottom" secondItem="Gkm-1f-Mmr" secondAttribute="bottom" constant="10" id="6Wu-5F-nkC"/>
                                             <constraint firstAttribute="bottom" secondItem="xXP-kX-xY7" secondAttribute="bottom" constant="10" id="7pG-nZ-1uZ"/>
                                             <constraint firstAttribute="trailing" secondItem="Cbl-ph-Kvq" secondAttribute="trailing" constant="10" id="CfP-Ro-GCv"/>
@@ -98,7 +98,7 @@
                                             <constraint firstItem="Cbl-ph-Kvq" firstAttribute="top" secondItem="aQu-p2-3id" secondAttribute="bottom" constant="15" id="HFf-2F-8RP"/>
                                             <constraint firstItem="KRv-gw-vbH" firstAttribute="leading" secondItem="WJN-fl-OTx" secondAttribute="leading" constant="10" id="I6p-Nf-iMx"/>
                                             <constraint firstItem="KRv-gw-vbH" firstAttribute="top" secondItem="Cbl-ph-Kvq" secondAttribute="bottom" constant="15" id="L4J-qC-iZx"/>
-                                            <constraint firstAttribute="trailing" secondItem="U2h-lq-o0a" secondAttribute="trailing" priority="250" constant="10" id="L4k-bo-S7B"/>
+                                            <constraint firstAttribute="trailing" secondItem="U2h-lq-o0a" secondAttribute="trailing" priority="750" constant="10" id="L4k-bo-S7B"/>
                                             <constraint firstAttribute="trailing" secondItem="CFu-FO-Tw6" secondAttribute="trailing" constant="10" id="Mo5-db-xOw"/>
                                             <constraint firstItem="XI9-HX-13s" firstAttribute="top" secondItem="CFu-FO-Tw6" secondAttribute="bottom" constant="10" id="O8O-By-rKf"/>
                                             <constraint firstItem="Cbl-ph-Kvq" firstAttribute="leading" secondItem="WJN-fl-OTx" secondAttribute="leading" constant="10" id="Ptz-F8-kEN"/>
@@ -138,12 +138,12 @@
                         <barButtonItem key="backBarButtonItem" title="메인" id="doB-iJ-btj"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="changeViewToItemTableViewButton" destination="U2h-lq-o0a" id="fPM-5p-cSy"/>
                         <outlet property="expoDescription" destination="4jB-rA-AMO" id="04r-LY-9Wl"/>
                         <outlet property="expoDuration" destination="KRv-gw-vbH" id="ita-pW-SN2"/>
                         <outlet property="expoLocation" destination="Cbl-ph-Kvq" id="yVH-EA-OGr"/>
                         <outlet property="expoTitle" destination="CFu-FO-Tw6" id="wXF-c5-9Mf"/>
                         <outlet property="expoVisitors" destination="aQu-p2-3id" id="uLy-Ud-LAT"/>
+                        <outlet property="screenTransitionToTableViewButton" destination="U2h-lq-o0a" id="fPM-5p-cSy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -203,9 +203,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="itemImage" destination="iTT-Cj-Lz6" id="uGf-hb-SAR"/>
-                                    <outlet property="itemName" destination="GI5-tK-P66" id="dpX-pu-CcE"/>
-                                    <outlet property="itemShortDescription" destination="pTs-C7-xLK" id="0ZF-j0-msz"/>
+                                    <outlet property="exhibitImage" destination="iTT-Cj-Lz6" id="uGf-hb-SAR"/>
+                                    <outlet property="exhibitName" destination="GI5-tK-P66" id="dpX-pu-CcE"/>
+                                    <outlet property="exhibitShortDescription" destination="pTs-C7-xLK" id="0ZF-j0-msz"/>
                                     <segue destination="WY6-bT-r57" kind="show" id="FFb-Er-w1K"/>
                                 </connections>
                             </tableViewCell>
@@ -284,8 +284,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="R6I-cW-fBe"/>
                     <connections>
-                        <outlet property="itemDescription" destination="2sd-ma-pUP" id="zj1-Kd-lYs"/>
-                        <outlet property="itemImage" destination="Soa-3i-DGR" id="CI5-1e-OKA"/>
+                        <outlet property="exhibitDescription" destination="2sd-ma-pUP" id="zj1-Kd-lYs"/>
+                        <outlet property="exhibitImage" destination="Soa-3i-DGR" id="CI5-1e-OKA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDl-tn-6W7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
