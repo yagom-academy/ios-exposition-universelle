@@ -23,8 +23,7 @@ final class KoreanItemTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        JsonFetcher.fetchJsonData(dataAssetName: "items", completionHandler: fetchKoreanItemsData(result:))
-        view.backgroundColor = .white
+        fetchKoreanItems()
         setKoreanItemTableViewTitle()
         setKoreanItemTableViewDelegate()
         setKoreanItemTableViewDataSource()
@@ -36,7 +35,11 @@ final class KoreanItemTableViewController: UIViewController {
         showFailAlerts()
     }
     
-    private func fetchKoreanItemsData(result: Result<[KoreanItem], ExpositionError>) {
+    private func fetchKoreanItems() {
+        JsonFetcher.fetchJsonData(dataAssetName: "items", completionHandler: fetchKoreanItemsDataCompletionHandler(result:))
+    }
+    
+    private func fetchKoreanItemsDataCompletionHandler(result: Result<[KoreanItem], ExpositionError>) {
         switch result {
         case .success(let koreanItemsData):
             self.koreanItems = koreanItemsData
