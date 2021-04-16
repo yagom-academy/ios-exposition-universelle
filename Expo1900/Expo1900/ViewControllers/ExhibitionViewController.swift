@@ -8,18 +8,18 @@ import UIKit
 
 class ExhibitionViewController: UIViewController {
     
-    @IBOutlet weak var exhibitionTitleLabel: UILabel!
-    @IBOutlet weak var exhibitionPosterImage: UIImageView!
-    @IBOutlet weak var exhibitionVisitorsLabel: UILabel!
-    @IBOutlet weak var exhibitionVenueLabel: UILabel!
-    @IBOutlet weak var exhibitionHoldingPeriodLabel: UILabel!
-    @IBOutlet weak var exhibitionDescriptionLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var visitorsLabel: UILabel!
+    @IBOutlet weak var venueLabel: UILabel!
+    @IBOutlet weak var holdingPeriodLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initViews()
         changeViewsValue()
-        self.navigationItem.backButtonTitle = "메인"
+        self.navigationItem.backButtonTitle = KoreanLetter.main
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +33,9 @@ class ExhibitionViewController: UIViewController {
     }
     
     private func changeViewsValue() {
-        changeFont(from: exhibitionVisitorsLabel, applyText: "방문객")
-        changeFont(from: exhibitionVenueLabel, applyText: "개최지")
-        changeFont(from: exhibitionHoldingPeriodLabel, applyText: "개최기간")
+        changeFont(from: visitorsLabel, applyText: KoreanLetter.visitor)
+        changeFont(from: venueLabel, applyText: KoreanLetter.venue)
+        changeFont(from: holdingPeriodLabel, applyText: KoreanLetter.holdingPeriod)
     }
     
     private func initViews() {
@@ -43,12 +43,12 @@ class ExhibitionViewController: UIViewController {
         guard let exhibitionJsonData = NSDataAsset(name: "exposition_universelle_1900") else { return }
         guard let exhibitionInfomation = try? jsonDecoder.decode(ExhibitionInfomation.self, from: exhibitionJsonData.data) else { return }
         
-        exhibitionTitleLabel.text = exhibitionInfomation.newlineTitle
-        exhibitionTitleLabel.textAlignment = .center
-        exhibitionVisitorsLabel.text = "방문객 : " + exhibitionInfomation.formattedVistorsNumber + " 명"
-        exhibitionVenueLabel.text = "개최지 : " + exhibitionInfomation.location
-        exhibitionHoldingPeriodLabel.text = "개최기간 : " + exhibitionInfomation.duration
-        exhibitionDescriptionLabel.text = exhibitionInfomation.description
+        titleLabel.text = exhibitionInfomation.newlineTitle
+        titleLabel.textAlignment = .center
+        visitorsLabel.text = KoreanLetter.visitor + SpecialSymbol.colonWithBlack + exhibitionInfomation.formattedVistorsNumber + KoreanLetter.person
+        venueLabel.text = KoreanLetter.venue + SpecialSymbol.colonWithBlack + exhibitionInfomation.location
+        holdingPeriodLabel.text = KoreanLetter.holdingPeriod + SpecialSymbol.colonWithBlack + exhibitionInfomation.duration
+        descriptionLabel.text = exhibitionInfomation.description
     }
     
     private func changeFont(from label: UILabel, applyText: String) {

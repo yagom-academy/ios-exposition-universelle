@@ -8,7 +8,7 @@
 import UIKit
 
 class ExhibiedItemTableViewCell: UITableViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var shortDescriptionLabel: UILabel!
 }

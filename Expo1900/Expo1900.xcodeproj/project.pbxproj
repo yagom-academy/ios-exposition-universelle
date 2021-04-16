@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C0D6602F2621F42C00606107 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6602E2621F42C00606107 /* ItemDetailViewController.swift */; };
+		C0EAB0802628752400A7B430 /* KoreanLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB07F2628752400A7B430 /* KoreanLetter.swift */; };
+		C0EAB0842628759800A7B430 /* SpecialSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB0832628759800A7B430 /* SpecialSymbol.swift */; };
 		C0F0CB6A261C4307008A110B /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0CB69261C4307008A110B /* Expo1900Tests.swift */; };
 		C0F0CB71261C4D42008A110B /* ExhibitedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F737EBC9261AFA5B005A518A /* ExhibitedItem.swift */; };
 		C0F0CB74261C5006008A110B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		C0D6602E2621F42C00606107 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		C0EAB07F2628752400A7B430 /* KoreanLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanLetter.swift; sourceTree = "<group>"; };
+		C0EAB0832628759800A7B430 /* SpecialSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialSymbol.swift; sourceTree = "<group>"; };
 		C0F0CB67261C4307008A110B /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F0CB69261C4307008A110B /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		C0F0CB6B261C4307008A110B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +76,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		C0EAB07E262874F600A7B430 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				C0EAB07F2628752400A7B430 /* KoreanLetter.swift */,
+				C0EAB0832628759800A7B430 /* SpecialSymbol.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		C0F0CB68261C4307008A110B /* Expo1900Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +115,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				C0EAB07E262874F600A7B430 /* Constant */,
 				C0D79D5A2624624F005E7644 /* Cell */,
 				F707BEDB26204F470011E4CC /* ViewControllers */,
 				F737EBC8261AF9B4005A518A /* Model */,
@@ -245,9 +259,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F0CB7F261C5A29008A110B /* ExhibitionInfomation.swift in Sources */,
+				C0EAB0842628759800A7B430 /* SpecialSymbol.swift in Sources */,
 				F707BEDF26204FDB0011E4CC /* ExhibitedItemsViewController.swift in Sources */,
 				C0D6602F2621F42C00606107 /* ItemDetailViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExhibitionViewController.swift in Sources */,
+				C0EAB0802628752400A7B430 /* KoreanLetter.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				F737EBCA261AFA5B005A518A /* ExhibitedItem.swift in Sources */,
 				F707BEE626208BD70011E4CC /* ExhibiedItemTableViewCell.swift in Sources */,
