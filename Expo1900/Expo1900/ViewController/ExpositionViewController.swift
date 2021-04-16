@@ -24,9 +24,9 @@ final class ExpositionViewController: UIViewController {
     private let posterImage: String  = "poster"
     private let flagImage: String = "flag"
     private let listPageButtonTitle = "한국의 출품작 보러가기"
-    private let PrePhraseVisitors: String = "방문객 : "
-    private let PrePhraseLocation: String = "개최지 : "
-    private let PrePhraseDuration: String = "개최 기간 : "
+    private let prePhraseVisitors: String = "방문객 : "
+    private let prePhraseLocation: String = "개최지 : "
+    private let prePhraseDuration: String = "개최 기간 : "
     private let titleLineNumber: Int = 2
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
@@ -61,9 +61,9 @@ final class ExpositionViewController: UIViewController {
             return
         }
         titleLabel.text = data.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = PrePhraseVisitors + data.visitorsStringFormat
-        locationLabel.text = PrePhraseLocation + data.location
-        durationLabel.text = PrePhraseDuration + data.duration
+        visitorsLabel.text = prePhraseVisitors + data.visitorsStringFormat
+        locationLabel.text = prePhraseLocation + data.location
+        durationLabel.text = prePhraseDuration + data.duration
         descriptionLabel.text = data.description
         posterImageView.image = UIImage(named: posterImage)
         itemsListPageButton.setTitle(listPageButtonTitle, for: .normal)
