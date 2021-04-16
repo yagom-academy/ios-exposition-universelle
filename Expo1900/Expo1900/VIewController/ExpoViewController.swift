@@ -57,7 +57,7 @@ final class ExpoViewController: UIViewController {
     
     private func initUI() {
         guard let expo = modelManager.expoData else { return }
-        self.navigationController?.title = Constant.pageTitle
+        self.navigationItem.title = Constant.pageTitle
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = PrefixWord.visitors + creatVisitorsComma(expo.visitors) + SuffixWord.visitors
         locationLabel.text = PrefixWord.location + expo.location
