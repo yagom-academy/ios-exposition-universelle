@@ -25,6 +25,7 @@ class KoreanHeritageDescriptionViewController: UIViewController {
         
         heritageImageView.image = UIImage(named: heritageItem.imageName)
         navigationItem.title = heritageItem.name
+        heritageImageView.contentMode = .scaleAspectFit
         heritageDescription.text = heritageItem.description
         
         view.addSubview(heritageScrollView)
@@ -35,6 +36,7 @@ class KoreanHeritageDescriptionViewController: UIViewController {
         heritageStackView.axis = .vertical
         heritageStackView.alignment = .fill
         heritageStackView.distribution = .fill
+        heritageStackView.spacing = 10
         heritageDescription.numberOfLines = 0
         
         heritageScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,12 +57,10 @@ class KoreanHeritageDescriptionViewController: UIViewController {
             heritageStackView.widthAnchor.constraint(equalTo: heritageScrollView.widthAnchor),
             
             heritageImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            heritageImageView.widthAnchor.constraint(equalTo: heritageStackView.widthAnchor, multiplier: 0.5),
-            heritageImageView.widthAnchor.constraint(equalTo: heritageImageView.heightAnchor),
-            heritageImageView.bottomAnchor.constraint(equalTo: heritageDescription.topAnchor),
+            heritageImageView.topAnchor.constraint(equalTo: heritageStackView.topAnchor, constant: 10),
+            heritageImageView.widthAnchor.constraint(equalTo: heritageStackView.widthAnchor, multiplier: 0.8),
             heritageDescription.widthAnchor.constraint(equalTo: heritageStackView.widthAnchor, multiplier: 0.9),
             heritageDescription.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        
     }
 }

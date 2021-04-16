@@ -47,11 +47,6 @@ class HeritageCell: UITableViewCell {
         
         self.accessoryType = .disclosureIndicator
         
-        
-//        heritageCell.addSubview(myImageView)
-//        heritageCell.addSubview(myStackView)
-//        heritageCell.addSubview(myRightImageView)
-//
         contentView.addSubview(myImageView)
         contentView.addSubview(myStackView)
         contentView.addSubview(myRightImageView)

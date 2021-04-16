@@ -9,14 +9,11 @@ import UIKit
 
 class KoreanHeritageViewController: UITableViewController {
     
-    
-    
     let expoData = try? JSONConverter<[HeritageItem]>.parse(assetName: "items").get()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
