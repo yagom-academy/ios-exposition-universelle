@@ -24,12 +24,14 @@ final class EntryWorkViewController: UIViewController {
         case .failure(let error):
             print(error.localizedDescription)
         }
-        
-        self.view.layoutIfNeeded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.view.layoutIfNeeded()
     }
     
     private func loadJsonData() -> Result<[EntryWorkItem], DataError> {
