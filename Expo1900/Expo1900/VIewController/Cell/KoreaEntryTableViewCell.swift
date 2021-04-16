@@ -8,12 +8,12 @@
 import UIKit
 
 class KoreaEntryTableViewCell: UITableViewCell {
-    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLable: UILabel!
     
     func setCell(_ cellData: StateEntry) {
-        entryImage.image = UIImage(named: cellData.imageName)
+        entryImageView.image = UIImage(named: cellData.imageName)
         titleLabel.text = cellData.name
         descriptionLable.text = cellData.shortDescription
         descriptionLable.lineBreakStrategy = .hangulWordPriority

@@ -38,19 +38,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최지 : 지구" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6m-Ez-bah">
-                                        <rect key="frame" x="163.66666666666666" y="399.66666666666669" width="87" height="20.333333333333314"/>
+                                        <rect key="frame" x="163.66666666666666" y="399.66666666666669" width="87" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간 : 오늘 내일" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gJ-6z-Aky">
-                                        <rect key="frame" x="137.33333333333331" y="435" width="139.33333333333331" height="20.333333333333314"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간 : 오늘 내일" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gJ-6z-Aky">
+                                        <rect key="frame" x="137.33333333333331" y="434.66666666666669" width="139.33333333333331" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설 명 !" textAlignment="justified" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA2-E1-Oa9">
-                                        <rect key="frame" x="20" y="475.33333333333331" width="374" height="15.666666666666686"/>
+                                        <rect key="frame" x="20" y="475" width="374" height="16"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -126,7 +126,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RF0-Dz-2yB"/>
                     <connections>
-                        <outlet property="backgroundImage" destination="qEy-Ze-L8D" id="Mo2-lE-KbY"/>
+                        <outlet property="backgroundImageView" destination="qEy-Ze-L8D" id="Mo2-lE-KbY"/>
                         <outlet property="descrtiptionLabel" destination="nA2-E1-Oa9" id="hzI-tZ-dw7"/>
                         <outlet property="durationLabel" destination="3gJ-6z-Aky" id="l6n-8w-5Sp"/>
                         <outlet property="expoTitleLabel" destination="8MR-hT-I6m" id="zov-Wm-OEs"/>

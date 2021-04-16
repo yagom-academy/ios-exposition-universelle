@@ -8,14 +8,10 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var shouldSupportAllOrientation = true
-    var koreaEntrys: [StateEntry] = []
-    var detailEntry: StateEntry?
-    var expoData: Expo?
+    private var orientation: OrientaionMakeable = OrientaionMake.shared
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if shouldSupportAllOrientation == true {
+        if orientation.isOrientaionMake() {
             return UIInterfaceOrientationMask.all
         } else {
             return UIInterfaceOrientationMask.portrait

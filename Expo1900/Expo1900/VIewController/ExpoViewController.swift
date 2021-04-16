@@ -13,15 +13,16 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descrtiptionLabel: UILabel!
-    @IBOutlet private weak var backgroundImage: UIImageView!
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     
-    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private let orientaionMask = OrientaionMake.shared
+    private let modelManager = ModelManager.shared
 
     override func viewDidLoad() {
-        if appDelegate?.expoData == nil {
+        if modelManager.expoData == nil {
             switch try? initExpoData() {
             case .success(let data):
-                appDelegate?.expoData = data
+                modelManager.expoData = data
                 initUI()
                 setLabelAttribute()
             case .failure(let error):
@@ -34,11 +35,11 @@ final class ExpoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        appDelegate?.shouldSupportAllOrientation = false
+        orientaionMask.judgedOrientaionMake(false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        appDelegate?.shouldSupportAllOrientation = true
+        orientaionMask.judgedOrientaionMake(true)
         self.navigationController?.navigationBar.isHidden = false
     }
     
@@ -48,19 +49,19 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initExpoData() throws -> Result<Expo, ExpoError> {
-        guard let dataAsset = NSDataAsset(name: ExpoConstant.expoJson) else {
+        guard let dataAsset = NSDataAsset(name: Constant.expoJson) else {
             return .failure(ExpoError.expoData)
         }
         return .success(try JSONDecoder().decode(Expo.self, from: dataAsset.data))
     }
     
     private func initUI() {
-        guard let expo = appDelegate?.expoData else { return }
-        self.navigationController?.title = ExpoConstant.pageTitle
+        guard let expo = modelManager.expoData else { return }
+        self.navigationItem.title = Constant.pageTitle
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = PostWord.visitors + creatVisitorsComma(expo.visitors)
-        locationLabel.text = PostWord.location + expo.location
-        durationLabel.text = PostWord.duration + expo.duration
+        visitorsLabel.text = PrefixWord.visitors + creatVisitorsComma(expo.visitors) + SuffixWord.visitors
+        locationLabel.text = PrefixWord.location + expo.location
+        durationLabel.text = PrefixWord.duration + expo.duration
         descrtiptionLabel.text = expo.description
     }
     
@@ -68,9 +69,9 @@ final class ExpoViewController: UIViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         guard let decimalStyleValue = numberFormatter.string(from: NSNumber(value: Int(visitors))) else {
-            return ""
+            return String(visitors)
         }
-        return decimalStyleValue + " 명"
+        return decimalStyleValue
     }
 
     private func setLabelAttribute() {
@@ -78,12 +79,15 @@ final class ExpoViewController: UIViewController {
         expoTitleLabel.textAlignment = .center
         expoTitleLabel.adjustsFontSizeToFitWidth = true
         
+        visitorsLabel.numberOfLines = 0
         visitorsLabel.textAlignment = .center
         visitorsLabel.adjustsFontSizeToFitWidth = true
         
+        locationLabel.numberOfLines = 0
         locationLabel.textAlignment = .center
         locationLabel.adjustsFontSizeToFitWidth = true
         
+        durationLabel.numberOfLines = 0
         durationLabel.textAlignment = .center
         durationLabel.adjustsFontSizeToFitWidth = true
         
@@ -91,20 +95,24 @@ final class ExpoViewController: UIViewController {
         descrtiptionLabel.lineBreakStrategy = .hangulWordPriority
         descrtiptionLabel.textAlignment = .justified
         
-        backgroundImage.alpha = 0.15
-        self.view.sendSubviewToBack(backgroundImage)
+        backgroundImageView.alpha = 0.15
+        self.view.sendSubviewToBack(backgroundImageView)
     }
 }
 
 extension ExpoViewController {
-    enum ExpoConstant {
+    enum Constant {
         static let expoJson = "exposition_universelle_1900"
         static let pageTitle = "메인"
     }
     
-    enum PostWord {
+    enum PrefixWord {
         static let visitors = "방문객 : "
         static let location = "개최지 : "
         static let duration = "개최 기간 : "
+    }
+    
+    enum SuffixWord {
+        static let visitors = " 명"
     }
 }
