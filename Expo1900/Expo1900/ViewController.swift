@@ -22,17 +22,16 @@ class ViewController: UIViewController {
         var exposition: ExpoItem
         
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else {
-            return
-        }
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else { return }
         
         do {
             exposition = try jsonDecoder.decode(ExpoItem.self, from: dataAsset.data)
-            expoTitleLabel.text = String(exposition.expoTitle)
-            numberOfVisitorsLabel.text = String(exposition.numberOfVisitors)
-            locationLabel.text = String(exposition.location)
-            openingPeriodLabel.text = String(exposition.openingPeriod)
-            descriptionLabel.text = String(exposition.description)
+            expoTitleLabel.text = exposition.expoTitle
+            numberOfVisitorsLabel.text = "방문객 : \(exposition.numberOfVisitors) 명"
+            locationLabel.text = "개최지 : " + exposition.location
+            openingPeriodLabel.text = "개최 기간 : " + exposition.openingPeriod
+            descriptionLabel.text = exposition.description
         } catch {
             print(error.localizedDescription)
         }
