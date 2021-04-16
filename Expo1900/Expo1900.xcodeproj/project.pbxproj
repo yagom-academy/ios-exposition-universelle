@@ -91,6 +91,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				E2DC3C6A26298CF000D5C406 /* Error */,
 				E26887F52624B837003B9090 /* ViewController */,
 				E2AFD619261C64D200D12D52 /* Model */,
 				E26887F72624BB19003B9090 /* Cell */,
@@ -100,7 +101,6 @@
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
-				E292E94D26288488000D1408 /* DataError.swift */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -139,6 +139,14 @@
 				E2AFD61E261C6A1B00D12D52 /* EntryWorkItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E2DC3C6A26298CF000D5C406 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E292E94D26288488000D1408 /* DataError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
