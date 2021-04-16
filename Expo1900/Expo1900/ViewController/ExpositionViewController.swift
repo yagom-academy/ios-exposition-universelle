@@ -27,7 +27,6 @@ final class ExpositionViewController: UIViewController {
     private let prePhraseVisitors: String = "방문객 : "
     private let prePhraseLocation: String = "개최지 : "
     private let prePhraseDuration: String = "개최 기간 : "
-    private let titleLineNumber: Int = 2
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
@@ -73,7 +72,10 @@ final class ExpositionViewController: UIViewController {
     
     private func setTitleLabelAttribute() {
         titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = titleLineNumber
+        titleLabel.numberOfLines = Int.zero
+        visitorsLabel.numberOfLines = Int.zero
+        locationLabel.numberOfLines = Int.zero
+        durationLabel.numberOfLines = Int.zero
         descriptionLabel.numberOfLines = Int.zero
     }
     
