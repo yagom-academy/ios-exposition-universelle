@@ -284,9 +284,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Tpl-KN-QN8" kind="show" id="3zI-e7-yav"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -300,10 +297,10 @@
             </objects>
             <point key="canvasLocation" x="1910" y="-35"/>
         </scene>
-        <!--View Controller-->
+        <!--Korean Heritage Description View Controller-->
         <scene sceneID="gXk-G6-Bzc">
             <objects>
-                <viewController id="Tpl-KN-QN8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KoreanHeritageDescriptionViewController" id="Tpl-KN-QN8" customClass="KoreanHeritageDescriptionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uTu-U2-4fd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvW-8p-mY9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2830" y="-35"/>
+            <point key="canvasLocation" x="2829.5999999999999" y="-35.467980295566505"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eep-i6-5iL">

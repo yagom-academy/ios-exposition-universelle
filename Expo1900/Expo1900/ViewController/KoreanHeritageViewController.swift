@@ -28,10 +28,19 @@ class KoreanHeritageViewController: UITableViewController {
         guard let tableViewCell = temporaryCell as? HeritageCell else { return temporaryCell }
         guard let expoData = expoData else { return temporaryCell }
         
-        tableViewCell.myImageView.image = UIImage(named: expoData[indexPath[1]].imageName)
-        tableViewCell.myTitleLabel.text = expoData[indexPath[1]].name
-        tableViewCell.myShortDescription.text = expoData[indexPath[1]].shortDescription
+        tableViewCell.myImageView.image = UIImage(named: expoData[indexPath.row].imageName)
+        tableViewCell.myTitleLabel.text = expoData[indexPath.row].name
+        tableViewCell.myShortDescription.text = expoData[indexPath.row].shortDescription
         
         return tableViewCell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let expoData = expoData else { return }
+        
+        if let koreanHeritageViewController = storyboard?.instantiateViewController(identifier: "KoreanHeritageDescriptionViewController") as? KoreanHeritageDescriptionViewController {
+            koreanHeritageViewController.heritageItem = expoData[indexPath.row]
+            navigationController?.pushViewController(koreanHeritageViewController, animated: true)
+        }
     }
 }
