@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreaDetailEntryViewController: UIViewController {
-    @IBOutlet private weak var detailImage: UIImageView!
+    @IBOutlet private weak var detailImageView: UIImageView!
     @IBOutlet private weak var descriptionLable: UILabel!
     
     private let modelManager = ModelManager.shared
@@ -38,7 +38,7 @@ final class KoreaDetailEntryViewController: UIViewController {
 
     private func setDetailEntry() {
         guard let value = modelManager.detailEntry else { return }
-        detailImage.image = UIImage(named: value.imageName)
+        detailImageView.image = UIImage(named: value.imageName)
         descriptionLable.text = value.description
         self.navigationItem.title = value.name
         

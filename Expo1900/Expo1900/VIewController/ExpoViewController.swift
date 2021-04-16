@@ -13,7 +13,7 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descrtiptionLabel: UILabel!
-    @IBOutlet private weak var backgroundImage: UIImageView!
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     
     private let orientaionMask = OrientaionMake.shared
     private let modelManager = ModelManager.shared
@@ -49,7 +49,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initExpoData() throws -> Result<Expo, ExpoError> {
-        guard let dataAsset = NSDataAsset(name: ExpoConstant.expoJson) else {
+        guard let dataAsset = NSDataAsset(name: Constant.expoJson) else {
             return .failure(ExpoError.expoData)
         }
         return .success(try JSONDecoder().decode(Expo.self, from: dataAsset.data))
@@ -57,7 +57,7 @@ final class ExpoViewController: UIViewController {
     
     private func initUI() {
         guard let expo = modelManager.expoData else { return }
-        self.navigationController?.title = ExpoConstant.pageTitle
+        self.navigationController?.title = Constant.pageTitle
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = PrefixWord.visitors + creatVisitorsComma(expo.visitors) + SuffixWord.visitors
         locationLabel.text = PrefixWord.location + expo.location
@@ -95,13 +95,13 @@ final class ExpoViewController: UIViewController {
         descrtiptionLabel.lineBreakStrategy = .hangulWordPriority
         descrtiptionLabel.textAlignment = .justified
         
-        backgroundImage.alpha = 0.15
-        self.view.sendSubviewToBack(backgroundImage)
+        backgroundImageView.alpha = 0.15
+        self.view.sendSubviewToBack(backgroundImageView)
     }
 }
 
 extension ExpoViewController {
-    enum ExpoConstant {
+    enum Constant {
         static let expoJson = "exposition_universelle_1900"
         static let pageTitle = "메인"
     }
