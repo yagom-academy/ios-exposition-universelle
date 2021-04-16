@@ -39,7 +39,7 @@ final class KoreanItemCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUpKoreanItemCell()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -79,8 +79,8 @@ final class KoreanItemCell: UITableViewCell {
     }
     
     private func addContentConstraints() {
-        addLabelConstraints()
         addImageViewConstraints()
+        addLabelConstraints()
     }
     
     private func addLabelConstraints() {
@@ -90,32 +90,38 @@ final class KoreanItemCell: UITableViewCell {
     private func addImageViewConstraints() {
         addItemImageViewConstraints()
     }
-
+    
     private func addItemImageViewConstraints() {
         NSLayoutConstraint.activate([
             itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             itemImageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
             itemImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             itemImageView.widthAnchor.constraint(equalToConstant: 100),
-            itemImageView.heightAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, multiplier: 0.5),
-            itemImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            itemImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            itemImageView.heightAnchor.constraint(equalToConstant: 60)
         ])
+        
+        let itemImageViewTopConstraint = NSLayoutConstraint(item: itemImageView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 20)
+        itemImageViewTopConstraint.priority = .defaultLow
+        itemImageViewTopConstraint.isActive = true
+        
+        let itemImageViewBottomConstraint = NSLayoutConstraint(item: itemImageView, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1, constant: -20)
+        itemImageViewBottomConstraint.priority = .defaultLow
+        itemImageViewBottomConstraint.isActive = true
     }
     
     private func addTitleLabelConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: shortDescriptionLabel.topAnchor)
         ])
     }
-
+    
     private func addShortDescriptionLabelConstraints() {
         NSLayoutConstraint.activate([
             shortDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            shortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            shortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             shortDescriptionLabel.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor),
             shortDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
