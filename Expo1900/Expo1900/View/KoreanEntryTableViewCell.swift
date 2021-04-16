@@ -16,5 +16,6 @@ final class KoreanEntryTableViewCell: UITableViewCell {
         itemTitleLabel.text = data.name
         itemImageView.image = UIImage(named: data.imageName)
         itemShortDescLabel.text = data.shortDesc
+        itemTitleLabel.numberOfLines = Int.zero
     }
 }

@@ -12,6 +12,7 @@ final class KoreaItemsListViewController: UIViewController {
     
     private var itemsData: [Item] = []
     private let navigationTitle = "한국의 출품작"
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ final class KoreaItemsListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        appDelegate?.shouldSelectPortrait = false
     }
     
     private func decodeData() {

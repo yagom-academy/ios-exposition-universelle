@@ -28,6 +28,7 @@ final class ExpositionViewController: UIViewController {
     private let PrePhraseLocation: String = "개최지 : "
     private let PrePhraseDuration: String = "개최 기간 : "
     private let titleLineNumber: Int = 2
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,9 @@ final class ExpositionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate?.shouldSelectPortrait = true
+        let orientationValue = UIInterfaceOrientationMask.portrait.rawValue
+        UIDevice.current.setValue(orientationValue, forKey: "orientation")
     }
     
     private func decodeExpoData() {

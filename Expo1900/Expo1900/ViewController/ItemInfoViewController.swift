@@ -11,13 +11,19 @@ final class ItemInfoViewController: UIViewController {
 
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescriptionLabel: UILabel!
-    
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
     var paramItem: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeViews()
         setLabelAttributes()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        appDelegate?.shouldSelectPortrait = false
     }
     
     private func initializeViews() {
