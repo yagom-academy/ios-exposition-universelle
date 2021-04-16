@@ -74,13 +74,18 @@ extension ExpoIntroductionViewController {
     }
   }
   
-  private func configureUI(with data: ExpoIntroduction) {
+  private func configureTitleLabel(with data: ExpoIntroduction) {
     titleLabel.text = data.title
+    titleLabel.text = titleLabel.text?.replacingOccurrences(of: "박람회 1900", with: "박람회 1900\n")
+  }
+  
+  private func configureUI(with data: ExpoIntroduction) {
     expoPosterImageView.image = UIImage(named: "poster")
     locationLabel.text = Affix.Prefix.location + data.location
     durationLabel.text = Affix.Prefix.duration + data.duration
     descriptionTextView.text = data.description
     
+    configureTitleLabel(with: data)
     configureNumberOfVisitorsLabel(with: data)
   }
   
