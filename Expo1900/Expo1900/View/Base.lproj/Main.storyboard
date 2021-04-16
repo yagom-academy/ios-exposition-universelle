@@ -183,11 +183,12 @@
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                     </preferredSymbolConfiguration>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" ambiguous="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFk-je-OfD">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFk-je-OfD">
                                                     <rect key="frame" x="15" y="9" width="73" height="54"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="73" id="0xe-QJ-ABb"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54" id="lwc-o4-U62"/>
+                                                        <constraint firstAttribute="width" secondItem="iFk-je-OfD" secondAttribute="height" multiplier="73:54" id="OZX-aV-3cV"/>
+                                                        <constraint firstAttribute="height" constant="54" id="lwc-o4-U62"/>
                                                     </constraints>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
