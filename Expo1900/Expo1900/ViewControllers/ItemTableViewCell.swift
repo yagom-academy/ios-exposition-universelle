@@ -11,7 +11,4 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemShortDescription: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemName: UILabel!
-    var itemDescription: String?
-    var itemImageName: String?
-
 }

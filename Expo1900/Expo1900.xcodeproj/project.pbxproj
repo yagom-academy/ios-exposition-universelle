@@ -15,7 +15,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		EA01FA442621D0C600027995 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA01FA432621D0C600027995 /* ItemTableViewController.swift */; };
 		EA745308261C3EFF00370B3D /* ExpoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA745307261C3EFF00370B3D /* ExpoData.swift */; };
-		EA74530B261C3FFC00370B3D /* EntryItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA74530A261C3FFC00370B3D /* EntryItemData.swift */; };
+		EA74530B261C3FFC00370B3D /* ExhibitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA74530A261C3FFC00370B3D /* ExhibitData.swift */; };
 		EA745323261CC46400370B3D /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA745322261CC46400370B3D /* ErrorHandling.swift */; };
 		EA74532C261CC50F00370B3D /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA74532B261CC50F00370B3D /* Expo1900Tests.swift */; };
 		EA7EA2BF2625591700243D3C /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7EA2BE2625591700243D3C /* ItemViewController.swift */; };
@@ -43,7 +43,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA01FA432621D0C600027995 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		EA745307261C3EFF00370B3D /* ExpoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoData.swift; sourceTree = "<group>"; };
-		EA74530A261C3FFC00370B3D /* EntryItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemData.swift; sourceTree = "<group>"; };
+		EA74530A261C3FFC00370B3D /* ExhibitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitData.swift; sourceTree = "<group>"; };
 		EA745322261CC46400370B3D /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		EA745329261CC50F00370B3D /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA74532B261CC50F00370B3D /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				EA745322261CC46400370B3D /* ErrorHandling.swift */,
-				EA74530A261C3FFC00370B3D /* EntryItemData.swift */,
+				EA74530A261C3FFC00370B3D /* ExhibitData.swift */,
 				EA745307261C3EFF00370B3D /* ExpoData.swift */,
 			);
 			path = Model;
@@ -234,7 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
-				EA74530B261C3FFC00370B3D /* EntryItemData.swift in Sources */,
+				EA74530B261C3FFC00370B3D /* ExhibitData.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				EA745323261CC46400370B3D /* ErrorHandling.swift in Sources */,
 				EAAE8002262466FC00EE7F06 /* ItemTableViewCell.swift in Sources */,

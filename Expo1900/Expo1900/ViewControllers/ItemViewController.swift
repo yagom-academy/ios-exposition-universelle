@@ -8,22 +8,22 @@
 import UIKit
 
 class ItemViewController: UIViewController {
-    var itemTitleToSet: String?
-    var descriptionToSet: String?
-    var imageToSet: String?
+    var items: Exhibit?
     
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.itemDescription.text = self.descriptionToSet
-        self.itemImage.image = UIImage(named: imageToSet!)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = itemTitleToSet
+        guard let entryItems = items else { return }
+        self.itemImage.image = UIImage(named: entryItems.imageName)
+        self.itemDescription.text = entryItems.description
+        self.title = entryItems.name
 
     }
 
