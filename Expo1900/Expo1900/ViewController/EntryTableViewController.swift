@@ -34,4 +34,12 @@ class EntryTableViewController: UITableViewController {
         
         return entryCell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let entryViewController = storyboard?.instantiateViewController(identifier: "EntryViewController") as? EntryViewController {
+            entryViewController.entry = entries?[indexPath.row]
+            
+            navigationController?.pushViewController(entryViewController, animated: true)
+        }
+    }
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 class EntryViewController: UIViewController {
+    var entry: Exposition.Entry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

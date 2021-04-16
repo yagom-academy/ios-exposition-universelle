@@ -236,9 +236,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="U1p-ti-bD3" kind="show" id="4tX-kh-ceE"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -255,7 +252,7 @@
         <!--Entry View Controller-->
         <scene sceneID="1fg-b3-Wp3">
             <objects>
-                <viewController id="U1p-ti-bD3" customClass="EntryViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U1p-ti-bD3" customClass="EntryViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qsn-hT-zFb" userLabel="Entry View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
