@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52891630261EC1210035B7A7 /* ExpositionUniverselle1900.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289162F261EC1210035B7A7 /* ExpositionUniverselle1900.swift */; };
-		52891634261EC1470035B7A7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52891633261EC1470035B7A7 /* Entry.swift */; };
 		5289163D261EC1A30035B7A7 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289163C261EC1A30035B7A7 /* Expo1900Tests.swift */; };
+		52B68B6C26294CE90007B69F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B68B6B26294CE90007B69F /* Error.swift */; };
+		52B68B712629645F0007B69F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B68B702629645F0007B69F /* TableViewController.swift */; };
+		52B68B7726296B2A0007B69F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B68B7626296B2A0007B69F /* MainViewController.swift */; };
+		52B68B872629A9360007B69F /* KoreanItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B68B862629A9360007B69F /* KoreanItemImage.swift */; };
+		52B68B8B2629ACA70007B69F /* thridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B68B8A2629ACA70007B69F /* thridViewController.swift */; };
+		52B68B91262A2CA60007B69F /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B68B90262A2CA60007B69F /* Exposition.swift */; };
+		52B68B97262A2CD20007B69F /* KoreanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B68B96262A2CD20007B69F /* KoreanItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -29,15 +33,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5289162F261EC1210035B7A7 /* ExpositionUniverselle1900.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle1900.swift; sourceTree = "<group>"; };
-		52891633261EC1470035B7A7 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		5289163A261EC1A30035B7A7 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5289163C261EC1A30035B7A7 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		5289163E261EC1A30035B7A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B68B6B26294CE90007B69F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		52B68B702629645F0007B69F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		52B68B7626296B2A0007B69F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		52B68B862629A9360007B69F /* KoreanItemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemImage.swift; sourceTree = "<group>"; };
+		52B68B8A2629ACA70007B69F /* thridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thridViewController.swift; sourceTree = "<group>"; };
+		52B68B90262A2CA60007B69F /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		52B68B96262A2CD20007B69F /* KoreanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,8 +73,8 @@
 		5289162E261EC0ED0035B7A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5289162F261EC1210035B7A7 /* ExpositionUniverselle1900.swift */,
-				52891633261EC1470035B7A7 /* Entry.swift */,
+				52B68B90262A2CA60007B69F /* Exposition.swift */,
+				52B68B96262A2CD20007B69F /* KoreanItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +86,32 @@
 				5289163E261EC1A30035B7A7 /* Info.plist */,
 			);
 			path = Expo1900Tests;
+			sourceTree = "<group>";
+		};
+		52B68B6226294CC10007B69F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				52B68B6B26294CE90007B69F /* Error.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		52B68B6F262964450007B69F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				52B68B7626296B2A0007B69F /* MainViewController.swift */,
+				52B68B702629645F0007B69F /* TableViewController.swift */,
+				52B68B8A2629ACA70007B69F /* thridViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		52B68B852629A9230007B69F /* KoreanItemImage */ = {
+			isa = PBXGroup;
+			children = (
+				52B68B862629A9360007B69F /* KoreanItemImage.swift */,
+			);
+			path = KoreanItemImage;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -101,10 +135,12 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				52B68B852629A9230007B69F /* KoreanItemImage */,
+				52B68B6226294CC10007B69F /* Error */,
 				5289162E261EC0ED0035B7A7 /* Model */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				52B68B6F262964450007B69F /* ViewController */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -221,11 +257,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52891634261EC1470035B7A7 /* Entry.swift in Sources */,
-				52891630261EC1210035B7A7 /* ExpositionUniverselle1900.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				52B68B97262A2CD20007B69F /* KoreanItem.swift in Sources */,
+				52B68B712629645F0007B69F /* TableViewController.swift in Sources */,
+				52B68B8B2629ACA70007B69F /* thridViewController.swift in Sources */,
+				52B68B872629A9360007B69F /* KoreanItemImage.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				52B68B6C26294CE90007B69F /* Error.swift in Sources */,
+				52B68B91262A2CA60007B69F /* Exposition.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				52B68B7726296B2A0007B69F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Entry: Decodable {
+struct KoreanItem: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String
-    var Description: String
+    var description: String
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -19,4 +19,5 @@ struct Entry: Decodable {
         case shortDescription = "short_desc"
         case Description = "desc"
     }
+   
 }
