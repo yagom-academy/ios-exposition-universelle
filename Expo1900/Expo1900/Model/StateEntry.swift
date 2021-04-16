@@ -27,4 +27,20 @@ struct StateEntry: Decodable {
         self.shortDescription = (try? container.decode(String.self, forKey: .shortDescription)) ?? ""
         self.description = (try? container.decode(String.self, forKey: .description)) ?? ""
     }
+    
+    init(name: String, imageName: String, shortDescription: String, description: String) {
+        self.name = name
+        self.imageName = imageName
+        self.shortDescription = shortDescription
+        self.description = description
+    }
+}
+
+extension StateEntry: Equatable {
+    static func == (lhs: StateEntry, rhs: StateEntry) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.imageName == rhs.imageName &&
+            lhs.shortDescription == rhs.shortDescription &&
+            lhs.description == rhs.description
+    }
 }
