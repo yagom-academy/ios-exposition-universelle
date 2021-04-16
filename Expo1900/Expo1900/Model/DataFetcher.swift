@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum JsonFetcher {
-    static func fetchJsonData<DecodeType: Decodable>(dataAssetName: String, completionHandler: (Result<DecodeType, JsonDecodingError>) -> Void) {
+    static func fetchJsonData<DecodeType: Decodable>(dataAssetName: String, completionHandler: (Result<DecodeType, ExpositionError>) -> Void) {
         guard let data = NSDataAsset(name: dataAssetName)?.data else {
             completionHandler(.failure(.wrongJsonFileName(fileName: "\(dataAssetName)")))
             return
@@ -19,5 +19,15 @@ enum JsonFetcher {
             return
         }
         completionHandler(.success(decodedData))
+    }
+}
+
+enum ImageFetcher {
+    static func imageData(for imageView: UIImageView, imageFileName: String, completionHandler: (UIImageView, Result<UIImage, ExpositionError>) -> Void) {
+        guard let image = UIImage(named: imageFileName) else {
+            completionHandler(imageView, .failure(.wrongImageName(fileName: imageFileName)))
+            return
+        }
+        completionHandler(imageView, .success(image))
     }
 }

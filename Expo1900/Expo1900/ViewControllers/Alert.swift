@@ -7,17 +7,44 @@
 
 import Foundation
 import UIKit
-extension UIViewController {
-    func showAlert(_ alert: UIAlertController) {
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func failAlert(error: JsonDecodingError) -> UIAlertController {
+
+extension ExpoIntroductionViewController {
+    func showFailAlerts() {
+        guard let error = errorList.first else {
+            return
+        }
+        
+        func showNextError() {
+            self.errorList.removeFirst()
+            self.showFailAlerts()
+        }
+        
         let alert = UIAlertController(title: "앗! \(error.debugDescription)", message: "제작자에게 에러 로그를 전송해주시겠어요?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "예", style: .cancel)
-        let noAction = UIAlertAction(title: "아니오", style: .default)
+        let yesAction = UIAlertAction(title: "예", style: .cancel) { (action) in showNextError() }
+        let noAction = UIAlertAction(title: "아니오", style: .default) { (action) in showNextError() }
         alert.addAction(yesAction)
         alert.addAction(noAction)
-        return alert
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+
+extension KoreanItemTableViewController {
+    func showFailAlerts() {
+        guard let error = errorList.first else {
+            return
+        }
+        
+        func showNextError() {
+            self.errorList.removeFirst()
+            self.showFailAlerts()
+        }
+        
+        let alert = UIAlertController(title: "앗! \(error.debugDescription)", message: "제작자에게 에러 로그를 전송해주시겠어요?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "예", style: .cancel) { (action) in showNextError() }
+        let noAction = UIAlertAction(title: "아니오", style: .default) { (action) in showNextError() }
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true, completion: nil)
     }
 }

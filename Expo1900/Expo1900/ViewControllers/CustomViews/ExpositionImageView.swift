@@ -8,10 +8,8 @@
 import UIKit
 
 final class ExpositionImageView: UIImageView {
-   
-    init(imageName: String) {
-        let image = UIImage(named: imageName) ?? UIImage(systemName: "zzz")
-        super.init(image: image)
+    init() {
+        super.init(image: nil)
         setUpExpositionImageView()
     }
     

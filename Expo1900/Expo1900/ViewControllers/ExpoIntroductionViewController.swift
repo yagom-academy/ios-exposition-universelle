@@ -37,7 +37,7 @@ final class ExpoIntroductionViewController: UIViewController {
         }
     }
     
-    private let posterImageView = ExpositionImageView(imageName: "poster")
+    private let posterImageView = ExpositionImageView()
     
     private var visitorsLabel: ExpositionLabel? {
         if let visitors = expositionData?.visitors {
@@ -72,60 +72,73 @@ final class ExpoIntroductionViewController: UIViewController {
         }
     }
     
+    private let moveToKoreanItemTableViewButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.addTarget(self, action: #selector(touchUpMoveToKoreanItemsButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private let leftKoreanFlagImageView = ExpositionImageView()
+    private let rightKoreanFlagImageView = ExpositionImageView()
+    
     private let moveToKoreanItemTableStackView: UIStackView = {
         let stackView = UIStackView()
         let stackViewHeight: CGFloat = 30
-        
-        let moveToKoreanItemTableViewButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("한국의 출품작 보러가기", for: .normal)
-            button.titleLabel?.adjustsFontSizeToFitWidth = true
-            button.addTarget(self, action: #selector(touchUpMoveToKoreanItemsButton), for: .touchUpInside)
-            return button
-        }()
-        
-        let leftkoreanFlagImageView = ExpositionImageView(imageName: "flag")
-        let rightkoreanFlagImageView = ExpositionImageView(imageName: "flag")
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         stackView.heightAnchor.constraint(equalToConstant: stackViewHeight).isActive = true
-        stackView.addArrangedSubview(leftkoreanFlagImageView)
-        stackView.addArrangedSubview(moveToKoreanItemTableViewButton)
-        stackView.addArrangedSubview(rightkoreanFlagImageView)
         return stackView
     }()
     
     private lazy var contents = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, moveToKoreanItemTableStackView]
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+    var errorList = [ExpositionError]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        JsonFetcher.fetchJsonData(dataAssetName: "expositio_universelle_1900", completionHandler: fetchExpositionData(result:))
-        view.backgroundColor = .white
+        fetchExpositionData()
+        fetchImageData()
         setExpoIntroductionViewTitle()
+        setUpMoveToKoreanItemTalbeViewStackView()
         setUpIntroductionScrollView()
         setUpIntroductionContentStackView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+        showFailAlerts()
     }
     
-    private func fetchExpositionData(result: Result<ExpositionUnivereselle1900, JsonDecodingError>) {
+    private func fetchExpositionData() {
+        JsonFetcher.fetchJsonData(dataAssetName: "exposition_universelle_1900", completionHandler: fetchExpositionDataCompletionHandler(result:))
+    }
+    
+    private func fetchImageData() {
+        ImageFetcher.imageData(for: posterImageView, imageFileName: "poster", completionHandler: fetchImageDataCompletionHandler(imageView:result:))
+        ImageFetcher.imageData(for: leftKoreanFlagImageView, imageFileName: "flag", completionHandler: fetchImageDataCompletionHandler(imageView:result:))
+        ImageFetcher.imageData(for: rightKoreanFlagImageView, imageFileName: "flag", completionHandler: fetchImageDataCompletionHandler(imageView:result:))
+    }
+    
+    private func fetchExpositionDataCompletionHandler(result: Result<ExpositionUnivereselle1900, ExpositionError>) {
         switch result {
         case .success(let expositionData):
             self.expositionData = expositionData
         case .failure(let jsonError):
-            showAlert(failAlert(error: jsonError))
+            errorList.append(jsonError)
             self.expositionData = nil
+        }
+    }
+    
+    private func fetchImageDataCompletionHandler(imageView: UIImageView, result: Result<UIImage, ExpositionError>) {
+        switch result {
+        case .success(let image):
+            imageView.image = image
+        case .failure(let imageError):
+            errorList.append(imageError)
+            imageView.image = nil
         }
     }
     
@@ -136,6 +149,12 @@ final class ExpoIntroductionViewController: UIViewController {
     private func setUpIntroductionScrollView() {
         view.addSubview(introductionScrollView)
         addIntroductionScrollViewConstraints()
+    }
+    
+    private func setUpMoveToKoreanItemTalbeViewStackView() {
+        moveToKoreanItemTableStackView.addArrangedSubview(leftKoreanFlagImageView)
+        moveToKoreanItemTableStackView.addArrangedSubview(moveToKoreanItemTableViewButton)
+        moveToKoreanItemTableStackView.addArrangedSubview(rightKoreanFlagImageView)
     }
     
     private func setUpIntroductionContentStackView() {

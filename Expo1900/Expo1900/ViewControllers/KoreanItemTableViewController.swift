@@ -12,16 +12,6 @@ final class KoreanItemTableViewController: UIViewController {
     
     private var koreanItems: [KoreanItem]?
     
-    private func fetchKoreanItemsData(result: Result<[KoreanItem], JsonDecodingError>) {
-        switch result {
-        case .success(let koreanItemsData):
-            self.koreanItems = koreanItemsData
-        case .failure(let jsonError):
-            showAlert(failAlert(error: jsonError))
-            self.koreanItems = nil
-        }
-    }
-    
     private let koreanItemTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,9 +19,7 @@ final class KoreanItemTableViewController: UIViewController {
         return tableView
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+    var errorList = [ExpositionError]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +29,21 @@ final class KoreanItemTableViewController: UIViewController {
         setKoreanItemTableViewDelegate()
         setKoreanItemTableViewDataSource()
         setUpKoreanItemTalbeView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        showFailAlerts()
+    }
+    
+    private func fetchKoreanItemsData(result: Result<[KoreanItem], ExpositionError>) {
+        switch result {
+        case .success(let koreanItemsData):
+            self.koreanItems = koreanItemsData
+        case .failure(let jsonError):
+            errorList.append(jsonError)
+            self.koreanItems = nil
+        }
     }
     
     private func setKoreanItemTableViewTitle() {
@@ -74,12 +77,14 @@ extension KoreanItemTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let koreanItemViewcontroller = KoreanItemIntroductionViewController()
+        
         guard let itemTitle = koreanItems?[indexPath.row].name,
               let imageName = koreanItems?[indexPath.row].imageName,
               let itemImage = UIImage(named: imageName),
               let itemDescription = koreanItems?[indexPath.row].description else {
             return
         }
+        
         koreanItemViewcontroller.setItemIntroductionContents(title: itemTitle, image: itemImage, description: itemDescription)
         navigationController?.pushViewController(koreanItemViewcontroller, animated: true)
     }
@@ -88,9 +93,11 @@ extension KoreanItemTableViewController: UITableViewDelegate {
 extension KoreanItemTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         guard let count = koreanItems?.count else {
             return 0
         }
+        
         return count
     }
     
@@ -99,6 +106,7 @@ extension KoreanItemTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemCell.reuseIdentifier, for: indexPath) as? KoreanItemCell,
               let koreanItemData = koreanItems?[indexPath.row] else {
             return UITableViewCell()
