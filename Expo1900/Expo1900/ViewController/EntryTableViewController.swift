@@ -33,6 +33,8 @@ class EntryTableViewController: UITableViewController {
         return entryCell
     }
     
+    // MARK: - Table view delegate
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let entryViewController = storyboard?.instantiateViewController(identifier: "EntryViewController") as? EntryViewController {
             entryViewController.entry = entries?[indexPath.row]
