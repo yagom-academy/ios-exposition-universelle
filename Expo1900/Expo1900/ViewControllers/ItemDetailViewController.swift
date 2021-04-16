@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController {
+final class ItemDetailViewController: UIViewController {
     
     var exhibitedItem: ExhibitedItem?
     
@@ -16,8 +16,9 @@ class ItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = exhibitedItem?.name
-        itemImage.image = UIImage(named: exhibitedItem?.imageName ?? "")
-        itemDescription.text = exhibitedItem?.description
+        guard let exhibitedItem = self.exhibitedItem else { return }
+        self.navigationItem.title = exhibitedItem.name
+        itemImage.image = UIImage(named: exhibitedItem.imageName)
+        itemDescription.text = exhibitedItem.description
     }
 }

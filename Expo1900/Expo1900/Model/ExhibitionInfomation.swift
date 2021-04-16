@@ -21,6 +21,7 @@ struct ExhibitionInfomation: Decodable {
     var formattedVistorsNumber: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(for: visitors) ?? "0"
+        guard let formattedNumber = numberFormatter.string(for: visitors) else { return String(visitors) }
+        return formattedNumber
     }
 }

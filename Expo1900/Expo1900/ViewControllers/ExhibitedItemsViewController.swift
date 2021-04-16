@@ -19,9 +19,9 @@ class ExhibitedItemsViewController: UIViewController {
         exhibitedItemsTable.delegate = self
         exhibitedItemsTable.dataSource = self
         
-        let nibName = UINib(nibName: "ItemTableViewCell", bundle: nil)
+        let nibName = UINib(nibName: "ExhibiedItemTableViewCell", bundle: nil)
         exhibitedItemsTable.register(nibName, forCellReuseIdentifier: "itemCell")
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = KoreanLetter.koreanEntries
         parseExhibitedItems()
     }
     
@@ -50,10 +50,10 @@ extension ExhibitedItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemTableViewCell
-        cell.itemTitle.text = items[indexPath.row].name
-        cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
-        cell.itemShortDescription.text = items[indexPath.row].shortDescription
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ExhibiedItemTableViewCell
+        cell.titleLabel.text = items[indexPath.row].name
+        cell.photoImageView.image = UIImage(named: items[indexPath.row].imageName)
+        cell.shortDescriptionLabel.text = items[indexPath.row].shortDescription
         return cell
     }
 }
