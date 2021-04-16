@@ -12,6 +12,10 @@ final class KoreanEntryTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemTitleLabel: UILabel!
     @IBOutlet private weak var itemImageView: UIImageView!
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        self.selectionStyle = .none
+    }
+    
     func set(_ data: Item) {
         itemTitleLabel.text = data.name
         itemImageView.image = UIImage(named: data.imageName)
