@@ -12,5 +12,11 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = entry?.name
+        
+        if let entry = entry {
+            (view as? EntryView)?.putEntryData(from: entry)
+        }
     }
 }
