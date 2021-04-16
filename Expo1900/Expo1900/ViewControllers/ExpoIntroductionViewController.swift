@@ -7,7 +7,6 @@
 import UIKit
 
 final class ExpoIntroductionViewController: UIViewController {
-    
     private let expoIntroductionNavigationTitle = "메인"
     private var expositionData: ExpositionUnivereselle1900?
     
@@ -113,19 +112,26 @@ final class ExpoIntroductionViewController: UIViewController {
     }
     
     private func fetchExpositionData() {
-        JsonFetcher.fetchJsonData(dataAssetName: "exposition_universelle_1900", completionHandler: fetchExpositionDataCompletionHandler(result:))
+        JsonFetcher.fetchJsonData(dataAssetName: "exposition_universelle_1900",
+                                  completionHandler: fetchExpositionDataCompletionHandler(result:))
     }
     
     private func fetchImageData() {
-        ImageFetcher.imageData(for: posterImageView, imageFileName: "poster", completionHandler: fetchImageDataCompletionHandler(imageView:result:))
-        ImageFetcher.imageData(for: leftKoreanFlagImageView, imageFileName: "flag", completionHandler: fetchImageDataCompletionHandler(imageView:result:))
-        ImageFetcher.imageData(for: rightKoreanFlagImageView, imageFileName: "flag", completionHandler: fetchImageDataCompletionHandler(imageView:result:))
+        ImageFetcher.fetchImageData(for: posterImageView, imageFileName: "poster",
+                                    completionHandler: fetchImageDataCompletionHandler(imageView:result:))
+        
+        ImageFetcher.fetchImageData(for: leftKoreanFlagImageView, imageFileName: "flag",
+                                    completionHandler: fetchImageDataCompletionHandler(imageView:result:))
+        
+        ImageFetcher.fetchImageData(for: rightKoreanFlagImageView, imageFileName: "flag",
+                                    completionHandler: fetchImageDataCompletionHandler(imageView:result:))
     }
     
     private func fetchExpositionDataCompletionHandler(result: Result<ExpositionUnivereselle1900, ExpositionError>) {
         switch result {
         case .success(let expositionData):
             self.expositionData = expositionData
+            
         case .failure(let jsonError):
             errorList.append(jsonError)
             self.expositionData = nil
@@ -136,6 +142,7 @@ final class ExpoIntroductionViewController: UIViewController {
         switch result {
         case .success(let image):
             imageView.image = image
+            
         case .failure(let imageError):
             errorList.append(imageError)
             imageView.image = nil

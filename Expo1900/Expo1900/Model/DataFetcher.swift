@@ -23,7 +23,7 @@ enum JsonFetcher {
 }
 
 enum ImageFetcher {
-    static func imageData(for imageView: UIImageView, imageFileName: String, completionHandler: (UIImageView, Result<UIImage, ExpositionError>) -> Void) {
+    static func fetchImageData(for imageView: UIImageView, imageFileName: String, completionHandler: (UIImageView, Result<UIImage, ExpositionError>) -> Void) {
         guard let image = UIImage(named: imageFileName) else {
             completionHandler(imageView, .failure(.wrongImageName(fileName: imageFileName)))
             return

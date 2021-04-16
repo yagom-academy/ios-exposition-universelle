@@ -24,3 +24,9 @@ enum ViewConstant {
     static let scrollBarWidth: CGFloat = 10
     static let maximumImageViewHeight: CGFloat = 500
 }
+
+enum CellConstant {
+    static let imageViewWidth: CGFloat = 100
+    static let imageViewMaximumHeight: CGFloat = 60
+    static let contentViewMargin: CGFloat = 20
+}

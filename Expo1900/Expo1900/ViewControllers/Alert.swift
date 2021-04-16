@@ -28,7 +28,6 @@ extension ExpoIntroductionViewController {
     }
 }
 
-
 extension KoreanItemTableViewController {
     func showFailAlerts() {
         guard let error = errorList.first else {

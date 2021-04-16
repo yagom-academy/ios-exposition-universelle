@@ -8,8 +8,8 @@
 import UIKit
 
 final class KoreanItemTableViewController: UIViewController {
-    private let koreanItemTableViewNavigationTitle = "한국의 출품작"
     
+    private let koreanItemTableViewNavigationTitle = "한국의 출품작"
     private var koreanItems: [KoreanItem]?
     
     private let koreanItemTableView: UITableView = {
@@ -93,7 +93,6 @@ extension KoreanItemTableViewController: UITableViewDelegate {
 extension KoreanItemTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         guard let count = koreanItems?.count else {
             return 0
         }
@@ -106,7 +105,6 @@ extension KoreanItemTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemCell.reuseIdentifier, for: indexPath) as? KoreanItemCell,
               let koreanItemData = koreanItems?[indexPath.row] else {
             return UITableViewCell()
