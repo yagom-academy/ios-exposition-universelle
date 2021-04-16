@@ -19,12 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonRightImage: UIImageView!
     @IBOutlet weak var koreanHeritageButton: UIButton!
     
-    
-    
     func inputData() {
         guard let newLinedExpoTitle = expoData?.title else { return }
         
         expoTitleLabel.text = insertNewLine(by: "(", into: newLinedExpoTitle)
+        expoTitleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         expoPosterImage.image = UIImage(named: "poster")
         expoVisitors.text = insert명(at: String(commaMaker(value: expoData?.visitors ?? 0)))
         expoVenu.text = expoData?.location

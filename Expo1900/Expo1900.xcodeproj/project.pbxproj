@@ -19,7 +19,7 @@
 		D02EF79E2620089300FDADD6 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF79D2620089300FDADD6 /* JSONData.swift */; };
 		D0AEBE08262823F000811D99 /* KoreanHeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */; };
 		D0AEBE0C2628243500811D99 /* SecondViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE0B2628243500811D99 /* SecondViewTest.swift */; };
-		D0AEBE18262839C100811D99 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE17262839C100811D99 /* TableViewCell.swift */; };
+		D0AEBE18262839C100811D99 /* HeritageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AEBE17262839C100811D99 /* HeritageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		D02EF79D2620089300FDADD6 /* JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		D0AEBE07262823F000811D99 /* KoreanHeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHeritageViewController.swift; sourceTree = "<group>"; };
 		D0AEBE0B2628243500811D99 /* SecondViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewTest.swift; sourceTree = "<group>"; };
-		D0AEBE17262839C100811D99 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		D0AEBE17262839C100811D99 /* HeritageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 		D0AEBE1B2628404F00811D99 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D0AEBE17262839C100811D99 /* TableViewCell.swift */,
+				D0AEBE17262839C100811D99 /* HeritageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				D02EF79E2620089300FDADD6 /* JSONData.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
-				D0AEBE18262839C100811D99 /* TableViewCell.swift in Sources */,
+				D0AEBE18262839C100811D99 /* HeritageCell.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
