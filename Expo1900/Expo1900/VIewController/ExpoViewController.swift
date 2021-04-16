@@ -15,13 +15,14 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var descrtiptionLabel: UILabel!
     @IBOutlet private weak var backgroundImage: UIImageView!
     
-    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private let orientaionMask = OrientaionMake.shared
+    private let modelManager = ModelManager.shared
 
     override func viewDidLoad() {
-        if appDelegate?.expoData == nil {
+        if modelManager.expoData == nil {
             switch try? initExpoData() {
             case .success(let data):
-                appDelegate?.expoData = data
+                modelManager.expoData = data
                 initUI()
                 setLabelAttribute()
             case .failure(let error):
@@ -34,11 +35,11 @@ final class ExpoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        appDelegate?.shouldSupportAllOrientation = false
+        orientaionMask.judgedOrientaionMake(false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        appDelegate?.shouldSupportAllOrientation = true
+        orientaionMask.judgedOrientaionMake(true)
         self.navigationController?.navigationBar.isHidden = false
     }
     
@@ -55,12 +56,12 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initUI() {
-        guard let expo = appDelegate?.expoData else { return }
+        guard let expo = modelManager.expoData else { return }
         self.navigationController?.title = ExpoConstant.pageTitle
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = PostWord.visitors + creatVisitorsComma(expo.visitors)
-        locationLabel.text = PostWord.location + expo.location
-        durationLabel.text = PostWord.duration + expo.duration
+        visitorsLabel.text = PrefixWord.visitors + creatVisitorsComma(expo.visitors) + SuffixWord.visitors
+        locationLabel.text = PrefixWord.location + expo.location
+        durationLabel.text = PrefixWord.duration + expo.duration
         descrtiptionLabel.text = expo.description
     }
     
@@ -68,9 +69,9 @@ final class ExpoViewController: UIViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         guard let decimalStyleValue = numberFormatter.string(from: NSNumber(value: Int(visitors))) else {
-            return ""
+            return String(visitors)
         }
-        return decimalStyleValue + " 명"
+        return decimalStyleValue
     }
 
     private func setLabelAttribute() {
@@ -105,9 +106,13 @@ extension ExpoViewController {
         static let pageTitle = "메인"
     }
     
-    enum PostWord {
+    enum PrefixWord {
         static let visitors = "방문객 : "
         static let location = "개최지 : "
         static let duration = "개최 기간 : "
+    }
+    
+    enum SuffixWord {
+        static let visitors = " 명"
     }
 }

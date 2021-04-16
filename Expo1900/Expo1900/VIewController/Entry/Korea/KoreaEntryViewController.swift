@@ -10,7 +10,7 @@ import UIKit
 final class KoreaEntryViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
-    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private let modelManager = ModelManager.shared
 
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -18,10 +18,10 @@ final class KoreaEntryViewController: UIViewController {
         registerXib()
         self.navigationItem.title = KoreaEntryConstant.navigationTitle
         
-        if appDelegate?.koreaEntrys.isEmpty == true {
+        if modelManager.koreaEntrys.isEmpty == true {
             switch try? initKoreaEntryData() {
             case .success(let data):
-                appDelegate?.koreaEntrys = data
+                modelManager.koreaEntrys = data
             case .failure(let error):
                 alterError(error)
             case .none:
@@ -49,25 +49,22 @@ final class KoreaEntryViewController: UIViewController {
 
 extension KoreaEntryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = appDelegate?.koreaEntrys.count else { return 0 }
-        return count
+//        guard let count = modelManager.koreaEntrys.count else { return 0 }
+        return modelManager.koreaEntrys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryConstant.cellIdentifier, for: indexPath) as? KoreaEntryTableViewCell,
-              let koreaEntry = appDelegate?.koreaEntrys[indexPath.row] else {
-            
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryConstant.cellIdentifier, for: indexPath) as? KoreaEntryTableViewCell else {
             return UITableViewCell()
         }
-        cell.setCell(koreaEntry)
+        cell.setCell(modelManager.koreaEntrys[indexPath.row])
         return cell
     }
 }
 
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let data = appDelegate?.koreaEntrys[indexPath.row] else { return }
-        self.navigationController?.pushViewController(KoreaDetailEntryViewController.initDetailEntryData(data), animated: true)
+        self.navigationController?.pushViewController(KoreaDetailEntryViewController.initDetailEntryData(modelManager.koreaEntrys[indexPath.row]), animated: true)
     }
 }
 

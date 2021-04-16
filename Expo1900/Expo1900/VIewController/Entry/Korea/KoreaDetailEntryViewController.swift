@@ -11,32 +11,33 @@ final class KoreaDetailEntryViewController: UIViewController {
     @IBOutlet private weak var detailImage: UIImageView!
     @IBOutlet private weak var descriptionLable: UILabel!
     
-    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    private let modelManager = ModelManager.shared
+    private let orientaionMask = OrientaionMake.shared
     
     override func viewDidLoad() {
         setDetailEntry()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if appDelegate?.shouldSupportAllOrientation == false {
-            appDelegate?.shouldSupportAllOrientation = true
+        if orientaionMask.shouldSupportAllOrientation == false {
+            orientaionMask.shouldSupportAllOrientation = true
             descriptionLable.font = UIFont.preferredFont(forTextStyle: .footnote)
         } else {
-            appDelegate?.shouldSupportAllOrientation = false
+            orientaionMask.shouldSupportAllOrientation = false
             descriptionLable.font = UIFont.preferredFont(forTextStyle: .body)
         }
     }
     
     static func initDetailEntryData(_ data: StateEntry) -> KoreaDetailEntryViewController {
-        let viewController = KoreaDetailEntryViewController()
-        viewController.appDelegate?.detailEntry = data
+        let viewController = KoreaDetailEntryViewController(nibName: nil, bundle: nil)
+        viewController.modelManager.detailEntry = data
         return viewController
     }
-    
+
 // MARK: - Init Setting
 
     private func setDetailEntry() {
-        guard let value = appDelegate?.detailEntry else { return }
+        guard let value = modelManager.detailEntry else { return }
         detailImage.image = UIImage(named: value.imageName)
         descriptionLable.text = value.description
         self.navigationItem.title = value.name
