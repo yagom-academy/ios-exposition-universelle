@@ -19,11 +19,17 @@ class EntryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+            return koreanEntryData?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let entryCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        guard let entryCell: EntryTableViewCell = cell as? EntryTableViewCell else { return cell }
+        guard let koreanEntries: [Exposition.Entry] = koreanEntryData else { return cell }
+
+        entryCell.entryImageView.image = UIImage(named: koreanEntries[indexPath.row].imageName)
+        entryCell.entryNameLabel.text = koreanEntries[indexPath.row].name
+        entryCell.entryShortDescriptionLabel.text = koreanEntries[indexPath.row].shortDescription
         
         return entryCell
     }
