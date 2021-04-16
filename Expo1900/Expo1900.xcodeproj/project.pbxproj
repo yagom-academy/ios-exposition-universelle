@@ -14,6 +14,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D0005CFE26292047007F894C /* KoreanHeritageDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0005CFD26292047007F894C /* KoreanHeritageDescriptionViewController.swift */; };
+		D0005D0C26297E47007F894C /* KoreanHeritageDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0005D0B26297E47007F894C /* KoreanHeritageDescriptionView.swift */; };
 		D0020E51262656C900896F4C /* JSONDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0020E50262656C900896F4C /* JSONDataTest.swift */; };
 		D02EF782261FFA9000FDADD6 /* JSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF781261FFA9000FDADD6 /* JSONConverterTests.swift */; };
 		D02EF789261FFD4A00FDADD6 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02EF788261FFD4A00FDADD6 /* JSONConverter.swift */; };
@@ -43,6 +44,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0005CFD26292047007F894C /* KoreanHeritageDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHeritageDescriptionViewController.swift; sourceTree = "<group>"; };
+		D0005D0B26297E47007F894C /* KoreanHeritageDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHeritageDescriptionView.swift; sourceTree = "<group>"; };
 		D0020E50262656C900896F4C /* JSONDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataTest.swift; sourceTree = "<group>"; };
 		D02EF773261FF9DC00FDADD6 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D02EF777261FF9DC00FDADD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				D0AEBE17262839C100811D99 /* HeritageCell.swift */,
+				D0005D0B26297E47007F894C /* KoreanHeritageDescriptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				D0AEBE18262839C100811D99 /* HeritageCell.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				D0005D0C26297E47007F894C /* KoreanHeritageDescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

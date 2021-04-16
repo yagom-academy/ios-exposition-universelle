@@ -37,7 +37,7 @@ class HeritageCell: UITableViewCell {
         myShortDescription.numberOfLines = 0
         myStackView.axis = .vertical
         myStackView.alignment = .fill
-        myStackView.distribution = .fill
+        myStackView.distribution = .equalCentering
         myStackView.addArrangedSubview(myTitleLabel)
         myStackView.addArrangedSubview(myShortDescription)
         
@@ -61,6 +61,7 @@ class HeritageCell: UITableViewCell {
             
             myStackView.trailingAnchor.constraint(lessThanOrEqualTo: myRightImageView.leadingAnchor),
             myStackView.heightAnchor.constraint(lessThanOrEqualTo: contentView.heightAnchor),
+            myStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             myRightImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             myRightImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.05),
             myRightImageView.widthAnchor.constraint(equalTo: myRightImageView.heightAnchor),
