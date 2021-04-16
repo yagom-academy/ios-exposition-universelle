@@ -78,15 +78,28 @@ extension KoreanItemTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let koreanItemViewcontroller = KoreanItemIntroductionViewController()
         
-        guard let itemTitle = koreanItems?[indexPath.row].name,
-              let imageName = koreanItems?[indexPath.row].imageName,
-              let itemImage = UIImage(named: imageName),
-              let itemDescription = koreanItems?[indexPath.row].description else {
+        guard let item = koreanItems?[indexPath.row] else {
             return
         }
+        let itemTitle = item.name
         
-        koreanItemViewcontroller.setItemIntroductionContents(title: itemTitle, image: itemImage, description: itemDescription)
+        let itemImage = UIImageView()
+        ImageFetcher.fetchImageData(for: itemImage, imageFileName: item.imageName,
+                                    completionHandler: fetchImageDataCompletionHandler(imageView:result:))
+        let itemDescription = item.description
+        koreanItemViewcontroller.setItemIntroductionContents(title: itemTitle, image: itemImage.image, description: itemDescription)
         navigationController?.pushViewController(koreanItemViewcontroller, animated: true)
+    }
+    
+    private func fetchImageDataCompletionHandler(imageView: UIImageView, result: Result<UIImage, ExpositionError>) {
+        switch result {
+        case .success(let image):
+            imageView.image = image
+            
+        case .failure(let imageError):
+            errorList.append(imageError)
+            imageView.image = nil
+        }
     }
 }
 
