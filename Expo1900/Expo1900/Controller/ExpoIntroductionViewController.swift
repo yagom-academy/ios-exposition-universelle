@@ -51,12 +51,12 @@ final class ExpoIntroductionViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     appDelegate.shouldSupportAllOrientation = false
-    self.navigationController?.isNavigationBarHidden = true
+    navigationController?.setNavigationBarHidden(true, animated: true)
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     appDelegate.shouldSupportAllOrientation = true
-    self.navigationController?.isNavigationBarHidden = false
+    navigationController?.setNavigationBarHidden(false, animated: true)
   }
 }
 
