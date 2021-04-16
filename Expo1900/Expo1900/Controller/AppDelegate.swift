@@ -8,7 +8,6 @@ import UIKit
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-  
   var shouldSupportAllOrientation: Bool = false
   
   func application(
