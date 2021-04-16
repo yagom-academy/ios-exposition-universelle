@@ -18,6 +18,8 @@
 		C39A877E261C5548000AF183 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A877D261C5548000AF183 /* Item.swift */; };
 		C39A8787261C5633000AF183 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A8786261C5633000AF183 /* Expo1900Tests.swift */; };
 		C39A8791261C5C47000AF183 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39A8790261C5C47000AF183 /* StringExtension.swift */; };
+		C3D6BEC22629782300E31FF6 /* ItemInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D6BEC02629782300E31FF6 /* ItemInfo.storyboard */; };
+		C3D6BEC62629783800E31FF6 /* ItemList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3D6BEC52629783800E31FF6 /* ItemList.storyboard */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		C39A8786261C5633000AF183 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		C39A8788261C5633000AF183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C39A8790261C5C47000AF183 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		C3D6BEC12629782300E31FF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Expo1900/Storyboard/Base.lproj/ItemInfo.storyboard; sourceTree = "<group>"; };
+		C3D6BEC52629783800E31FF6 /* ItemList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ItemList.storyboard; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 		C32B24E926234902001A588F /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				C3D6BEC52629783800E31FF6 /* ItemList.storyboard */,
+				C3D6BEC02629782300E31FF6 /* ItemInfo.storyboard */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
@@ -262,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				C3D6BEC22629782300E31FF6 /* ItemInfo.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
+				C3D6BEC62629783800E31FF6 /* ItemList.storyboard in Resources */,
 				C34873F92624177300FF917A /* KoreanEntryTableViewCell.xib in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
@@ -308,6 +316,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C3D6BEC02629782300E31FF6 /* ItemInfo.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3D6BEC12629782300E31FF6 /* Base */,
+			);
+			name = ItemInfo.storyboard;
+			sourceTree = "<group>";
+		};
 		C79FF4BA2589F401005FB0FD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

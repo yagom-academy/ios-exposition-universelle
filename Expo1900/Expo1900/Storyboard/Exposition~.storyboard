@@ -11,7 +11,6 @@
         <!--Exposition View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ExpositionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -142,13 +141,13 @@
                         <outlet property="visitorsLabel" destination="1eG-y8-g7c" id="GLh-AI-bAo"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="62.946428571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Evb-cc-EqF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQG-WY-iPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WhI-Rx-DYv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5xO-PC-AdE">
@@ -160,24 +159,25 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WPR-uu-jhC"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQG-WY-iPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241" y="63"/>
         </scene>
-        <!--itemInfoVC-->
-        <scene sceneID="Jzu-kR-u1D">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="itemInfoVC" storyboardName="ItemInfo" referencedIdentifier="itemInfoVC" id="OgV-vq-zR7" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PSO-HV-bvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1050.7246376811595" y="-1231.4732142857142"/>
-        </scene>
         <!--KoreanItemsListVC-->
-        <scene sceneID="Zfy-ED-O07">
+        <scene sceneID="DV5-QS-BAf">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="KoreanItemsListVC" storyboardName="ItemList" referencedIdentifier="KoreanItemsListVC" id="cOR-kd-KLO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9c4-BL-jVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="KoreanItemsListVC" storyboardName="ItemList" referencedIdentifier="KoreanItemsListVC" id="dXI-7a-eLU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JAU-qV-AUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1051" y="-587"/>
+        </scene>
+        <!--itemInfoVC-->
+        <scene sceneID="fk1-Dq-drl">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="itemInfoVC" storyboardName="ItemInfo" referencedIdentifier="itemInfoVC" id="OII-zo-hSH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQU-xT-1j3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.7246376811595" y="-1231.4732142857142"/>
         </scene>
     </scenes>
     <resources>

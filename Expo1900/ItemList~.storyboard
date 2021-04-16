@@ -8,10 +8,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Korea Items List View Controller-->
+        <scene sceneID="aYI-dk-Fg2">
+            <objects>
+                <viewController storyboardIdentifier="KoreanItemsListVC" id="Bbb-51-27y" customClass="KoreaItemsListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v8b-yn-1Px">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rNr-QY-cIX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="55J-Br-jdq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rNr-QY-cIX" secondAttribute="bottom" id="HXI-Jc-uth"/>
+                            <constraint firstItem="rNr-QY-cIX" firstAttribute="top" secondItem="55J-Br-jdq" secondAttribute="top" id="TpC-yt-RHt"/>
+                            <constraint firstItem="rNr-QY-cIX" firstAttribute="leading" secondItem="55J-Br-jdq" secondAttribute="leading" id="hA3-Jq-Mhc"/>
+                            <constraint firstItem="55J-Br-jdq" firstAttribute="trailing" secondItem="rNr-QY-cIX" secondAttribute="trailing" id="oV0-xS-BQp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="koreaItemsListTableView" destination="rNr-QY-cIX" id="E7E-6M-UUr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faH-j9-PvN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1051" y="-587"/>
+        </scene>
         <!--Exposition View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ExpositionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -142,13 +171,13 @@
                         <outlet property="visitorsLabel" destination="1eG-y8-g7c" id="GLh-AI-bAo"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="62.946428571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Evb-cc-EqF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQG-WY-iPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WhI-Rx-DYv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5xO-PC-AdE">
@@ -160,6 +189,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WPR-uu-jhC"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQG-WY-iPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241" y="63"/>
         </scene>
@@ -170,14 +200,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSO-HV-bvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="-1231.4732142857142"/>
-        </scene>
-        <!--KoreanItemsListVC-->
-        <scene sceneID="Zfy-ED-O07">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="KoreanItemsListVC" storyboardName="ItemList" referencedIdentifier="KoreanItemsListVC" id="cOR-kd-KLO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9c4-BL-jVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1051" y="-587"/>
         </scene>
     </scenes>
     <resources>
