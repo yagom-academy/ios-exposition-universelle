@@ -5,13 +5,15 @@
 //  Created by Ryan-Son on 2021/04/07.
 //
 
-enum ExpoAppError: Error, CustomDebugStringConvertible, Equatable {
+enum ExpoAppError: Error, Equatable {
   case invalidJSONFileName(String)
   case invalidJSONFormat(String)
   case foundNil(String)
   case numberFormattingFailed(Int)
   case unknownError(String)
-  
+}
+
+extension ExpoAppError: CustomDebugStringConvertible {
   var debugDescription: String {
     switch self {
     case .invalidJSONFileName(let fileName):

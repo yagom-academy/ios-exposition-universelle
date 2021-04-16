@@ -9,23 +9,32 @@ import UIKit
 import OSLog
 
 final class ArtworkDetailViewController: UIViewController {
-  @IBOutlet weak var artworkImageView: UIImageView!
-  @IBOutlet weak var descriptionTextView: UITextView!
+  // MARK: - Properties
+  @IBOutlet private weak var artworkImageView: UIImageView!
+  @IBOutlet private weak var descriptionTextView: UITextView!
   var artwork: Artwork?
   
+  // MARK: - Namespace
+  private enum OSLogMessage {
+    static let artworkIsNil: StaticString = "Artwork가 Nil입니다."
+  }
+  
+  // MARK: - View life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // MARK: - Decode JSON and update UI
-    guard let artwork: Artwork = artwork else { return }
+    guard let artwork: Artwork = artwork else {
+      os_log(.fault, log: .data, OSLogMessage.artworkIsNil)
+      return
+    }
     
-    insertDataToUI(from: artwork)
+    configureUI(with: artwork)
   }
 }
 
-// MARK: - Method for inserting data to the UI elements
+// MARK: - Method for configure the UI elements
 extension ArtworkDetailViewController {
-  private func insertDataToUI(from data: Artwork) {
+  private func configureUI(with data: Artwork) {
     self.navigationItem.title = data.name
     artworkImageView.image = UIImage(named: data.imageName)
     descriptionTextView.text = data.description

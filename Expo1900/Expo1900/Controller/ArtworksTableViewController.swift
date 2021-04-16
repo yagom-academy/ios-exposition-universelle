@@ -9,13 +9,29 @@ import UIKit
 import OSLog
 
 final class ArtworksTableViewController: UIViewController {
-  @IBOutlet weak var tableView: UITableView!
+  // MARK: - Properties
+  @IBOutlet private weak var tableView: UITableView!
   private var artworks: [Artwork] = []
   
+  // MARK: - Namespaces
+  private enum Identifier {
+    enum Segue {
+      static let artworkDetail: String = "showDetail"
+    }
+    
+    enum Cell {
+      static let artwork: String = "artworkTableViewCell"
+    }
+  }
+  
+  private enum OSLogMessage {
+    static let indexPathIsNil: StaticString = "indexPath가 nil입니다."
+  }
+  
+  // MARK: - View life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // MARK: - Decode JSON and insert to the UI elements
     let decodedResult: Result = ExpoJSONDecoder.decode(to: [Artwork].self,from: ExpoData.artworks)
     
     switch decodedResult {
@@ -24,6 +40,10 @@ final class ArtworksTableViewController: UIViewController {
     case .failure(let error):
       debugPrint(error)
     }
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    UINavigationController.attemptRotationToDeviceOrientation()
   }
 }
 
@@ -35,7 +55,7 @@ extension ArtworksTableViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: ArtworkTableViewCell = tableView.dequeueReusableCell(
-      withIdentifier: "artworkTableViewCell",
+      withIdentifier: Identifier.Cell.artwork,
       for: indexPath
     ) as! ArtworkTableViewCell
     
@@ -57,16 +77,15 @@ extension ArtworksTableViewController: UITableViewDelegate {
 // MARK: - View controller: segue
 extension ArtworksTableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let indexPath = tableView.indexPathForSelectedRow
-
-    if segue.identifier == "showDetail" {
+    guard let indexPath = tableView.indexPath(for: sender as! UITableViewCell) else {
+      os_log(.fault, log: .ui, OSLogMessage.indexPathIsNil)
+      return
+    }
+    
+    if segue.identifier == Identifier.Segue.artworkDetail {
       let followingViewController = segue.destination as? ArtworkDetailViewController
-      guard let rowOfIndexPath: Int = indexPath?.row else {
-        os_log(.fault, log: .ui, "indexPath가 nil입니다.")
-        return
-      }
       
-      followingViewController?.artwork = artworks[rowOfIndexPath]
+      followingViewController?.artwork = artworks[indexPath.row]
     }
   }
 }

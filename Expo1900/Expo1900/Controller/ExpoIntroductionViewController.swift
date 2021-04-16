@@ -7,14 +7,19 @@
 import UIKit
 
 final class ExpoIntroductionViewController: UIViewController {
+  // MARK: - Properties
+  @IBOutlet private weak var titleLabel: UILabel!
+  @IBOutlet private weak var expoPosterImageView: UIImageView!
+  @IBOutlet private weak var numberOfVisitorsLabel: UILabel!
+  @IBOutlet private weak var locationLabel: UILabel!
+  @IBOutlet private weak var durationLabel: UILabel!
+  @IBOutlet private weak var descriptionTextView: UITextView!
+  override var shouldAutorotate: Bool { return false }
+  override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation { return .portrait }
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return .portrait }
+  private let appDelegate = UIApplication.shared.delegate as! AppDelegate
   
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var expoPosterImageView: UIImageView!
-  @IBOutlet weak var numberOfVisitorsLabel: UILabel!
-  @IBOutlet weak var locationLabel: UILabel!
-  @IBOutlet weak var durationLabel: UILabel!
-  @IBOutlet weak var descriptionTextView: UITextView!
-  
+  // MARK: - Namespace
   private enum Affix {
     enum Prefix {
       static let visitor: String = "방문객: "
@@ -23,14 +28,14 @@ final class ExpoIntroductionViewController: UIViewController {
     }
     
     enum Suffix {
-      static let visitorSuffix: String = " 명"
+      static let visitor: String = " 명"
     }
   }
 
+  // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // MARK: - Decode JSON and insert to the UI elements
     let decodedResult: Result = ExpoJSONDecoder.decode(
       to: ExpoIntroduction.self,
       from: ExpoData.expoIntroduction
@@ -38,30 +43,30 @@ final class ExpoIntroductionViewController: UIViewController {
     
     switch decodedResult {
     case .success(let expoIntroduction):
-      insertDataToUI(with: expoIntroduction)
+      configureUI(with: expoIntroduction)
     case .failure(let error):
       debugPrint(error)
     }
   }
 
   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+    appDelegate.shouldSupportAllOrientation = false
     self.navigationController?.isNavigationBarHidden = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
+    appDelegate.shouldSupportAllOrientation = true
     self.navigationController?.isNavigationBarHidden = false
   }
 }
 
-// MARK: - Methods for inserting data to the UI elements
+// MARK: - Methods for configuring the UI elements
 extension ExpoIntroductionViewController {
-  private func insertDataToNumberOfVisitorsLabel(from data: ExpoIntroduction) {
+  private func configureNumberOfVisitorsLabel(with data: ExpoIntroduction) {
     switch formattedNumber(data.visitors) {
     case .success(let formattedNumber):
       numberOfVisitorsLabel.text = Affix.Prefix.visitor + formattedNumber +
-        Affix.Suffix.visitorSuffix
+        Affix.Suffix.visitor
     case .failure(ExpoAppError.numberFormattingFailed(let number)):
       debugPrint(ExpoAppError.numberFormattingFailed(number))
     case .failure(_):
@@ -69,14 +74,19 @@ extension ExpoIntroductionViewController {
     }
   }
   
-  private func insertDataToUI(with data: ExpoIntroduction) {
+  private func configureTitleLabel(with data: ExpoIntroduction) {
     titleLabel.text = data.title
+    titleLabel.text = titleLabel.text?.replacingOccurrences(of: "박람회 1900", with: "박람회 1900\n")
+  }
+  
+  private func configureUI(with data: ExpoIntroduction) {
     expoPosterImageView.image = UIImage(named: "poster")
     locationLabel.text = Affix.Prefix.location + data.location
     durationLabel.text = Affix.Prefix.duration + data.duration
     descriptionTextView.text = data.description
     
-    insertDataToNumberOfVisitorsLabel(from: data)
+    configureTitleLabel(with: data)
+    configureNumberOfVisitorsLabel(with: data)
   }
   
   func formattedNumber(_ number: Int) -> Result<String, ExpoAppError> {
