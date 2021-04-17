@@ -12,7 +12,7 @@ struct KoreanItem: Decodable {
     let imageName: String
     let shortDescription: String
     let description: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
