@@ -45,5 +45,4 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.detailTextLabel?.text = item.shortDescription
         return cell
     }
-    
 }
