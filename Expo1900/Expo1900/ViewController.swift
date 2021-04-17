@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var openingPeriodLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBAction func moveByNavigator(_ sender: Any) {
+        guard let uvc = self.storyboard?.instantiateViewController(withIdentifier: "SecondVC") else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(uvc, animated: true)
+    }
     
     
     override func viewDidLoad() {
