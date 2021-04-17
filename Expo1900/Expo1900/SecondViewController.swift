@@ -17,6 +17,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.navigationController?.navigationBar.topItem?.title = "메인"
         self.navigationItem.title = "한국의 출품작"
         
         let jsonDecoder: JSONDecoder = JSONDecoder()
