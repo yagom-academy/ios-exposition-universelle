@@ -5,15 +5,13 @@
 //  Created by Sunny on 2021/04/14.
 //
 
-//struct KoreanItem : Decodable {
-//    let koreanTitle : String
-//    let englishTitle : String
-//    let shortDescription : String
-//    let fullDescription : String
-
 import UIKit
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    let cellIdentifier: String = "cell"
+    var koreanItems: [KoreanItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +29,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.reloadData()
         }
     
-    @IBOutlet weak var tableView: UITableView!
-    let cellIdentifier: String = "cell"
-    var koreanItems: [KoreanItem] = []
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.koreanItems.count
     }
@@ -43,8 +37,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
         
         let item: KoreanItem = self.koreanItems[indexPath.row]
-        
         cell.textLabel?.text = item.koreanTitle
+        cell.imageView?.image = UIImage(named: item.englishTitle)
         cell.detailTextLabel?.text = item.shortDescription
         return cell
     }
