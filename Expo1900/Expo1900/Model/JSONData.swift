@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Decodable {
+struct HeritageItem: Decodable, Equatable {
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
@@ -21,12 +21,27 @@ struct Item: Decodable {
     let description: String
 }
 
-struct ExpoOfParis: Decodable {
-    let titile: String
-    let visitor: Int
+struct ExpoOfParis: Decodable, Equatable {
+    let title: String
+    let visitors: Int
     let location: String
     let duration: String
     let description: String
-    let item: [Item]?
+    let items: [HeritageItem]?
 }
 
+func commaMaker(value: Int) -> String {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
+    let result = numberFormatter.string(from: NSNumber(value: value))!
+
+    return result
+}
+
+func insertNewLine(by separator: Character, into text: String) -> String {
+    return text.replacingOccurrences(of: "\(separator)", with: "\n" + "\(separator)")
+}
+
+func insert명(at: String) -> String {
+    return at + "명"
+}
