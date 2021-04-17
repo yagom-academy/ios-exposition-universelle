@@ -58,6 +58,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7y-oQ-f0y">
                                                 <rect key="frame" x="0.0" y="445" width="374" height="30"/>
                                                 <state key="normal" title="🇰🇷 한국의 출품작 보러가기 🇰🇷"/>
+                                                <connections>
+                                                    <segue destination="1ro-uW-xzE" kind="show" id="QhX-4d-GFJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -119,6 +122,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-201.44927536231884" y="75.669642857142847"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="y6s-nY-Fwc">
+            <objects>
+                <viewController id="1ro-uW-xzE" customClass="SecondViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q5h-qm-cHX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bl5-27-Qw6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t9F-zr-Y5N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gpa-Fv-j6k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893" y="84"/>
         </scene>
     </scenes>
     <resources>
