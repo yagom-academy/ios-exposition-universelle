@@ -29,13 +29,13 @@ class JSONParserTests: XCTestCase {
     }
     
     func test_에셋카탈로그에_있지만_배열타입의_프로퍼티와_다르면_dataCorrupted_에러를_가진다() {
-        let sut = JSONParser<[Entry]>.parse("exposition_universelle_1900")
+        let sut = JSONParser<[Exposition.Entry]>.parse("exposition_universelle_1900")
         
         XCTAssertEqual(sut, .failure(.dataCorrupted("exposition_universelle_1900")))
     }
     
     func test_에셋카탈로그에_있고_배열타입의_프로퍼티와_일치하면_해당_인스턴스를_가진다() {
-        let sut = JSONParser<[Entry]>.parse("items")
+        let sut = JSONParser<[Exposition.Entry]>.parse("items")
         
         XCTAssertNotNil(try sut.get())
     }
