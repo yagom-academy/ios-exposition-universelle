@@ -14,6 +14,7 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var KoreaEntryWorkButton: UIButton!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,11 @@ final class ExpoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate.shouldSupportAllOrientation = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        appDelegate.shouldSupportAllOrientation = true
     }
     
     private func loadJsonData() -> Result<ExpoInfo, DataError> {
