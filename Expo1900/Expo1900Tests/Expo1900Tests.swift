@@ -12,7 +12,7 @@ class Expo1900Tests: XCTestCase {
 
     var decoder = JSONDecoder()
     
-    func test_expoInfo() {
+    func test_expoInfo_decoding() {
         guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else {
             XCTFail("File Not Found")
             return
@@ -20,13 +20,14 @@ class Expo1900Tests: XCTestCase {
         
         do {
             let expoInfo = try decoder.decode(ExpoInfo.self, from: dataAsset.data)
-            print(expoInfo)
+            XCTAssertEqual(expoInfo.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
+            XCTAssertEqual(expoInfo.visitors, 48130300)
         } catch {
             XCTFail("Fail Decoding")
         }
     }
     
-    func test_entryWorkItem() {
+    func test_entryWorkItem_decoding() {
         var entryWorkItems: [EntryWorkItem]
         guard let dataAsset = NSDataAsset.init(name: "items") else {
             XCTFail("File Not Found")
@@ -35,7 +36,7 @@ class Expo1900Tests: XCTestCase {
         
         do {
             entryWorkItems = try decoder.decode([EntryWorkItem].self, from: dataAsset.data)
-            print(entryWorkItems)
+            XCTAssertEqual(entryWorkItems[0].name, "직지심체요절")
         } catch {
             XCTFail("Fail Decoding")
         }
