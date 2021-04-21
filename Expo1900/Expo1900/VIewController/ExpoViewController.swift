@@ -15,7 +15,6 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var descrtiptionLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
-    private let orientaionMask = OrientaionMake.shared
     private let modelManager = ModelManager.shared
 
     override func viewDidLoad() {
@@ -33,13 +32,19 @@ final class ExpoViewController: UIViewController {
         }
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        orientaionMask.judgedOrientaionMake(false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        orientaionMask.judgedOrientaionMake(true)
         self.navigationController?.navigationBar.isHidden = false
     }
     
@@ -116,3 +121,4 @@ extension ExpoViewController {
         static let visitors = " 명"
     }
 }
+

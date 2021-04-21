@@ -8,14 +8,9 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private var orientation: OrientaionMakeable = OrientaionMake.shared
-    
+
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if orientation.isOrientaionMake() {
-            return UIInterfaceOrientationMask.all
-        } else {
-            return UIInterfaceOrientationMask.portrait
-        }
+        return .all
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -12,20 +12,9 @@ final class KoreaDetailEntryViewController: UIViewController {
     @IBOutlet private weak var descriptionLable: UILabel!
     
     private let modelManager = ModelManager.shared
-    private let orientaionMask = OrientaionMake.shared
     
     override func viewDidLoad() {
         setDetailEntry()
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if orientaionMask.isOrientaionMake() {
-            orientaionMask.judgedOrientaionMake(true)
-            descriptionLable.font = UIFont.preferredFont(forTextStyle: .footnote)
-        } else {
-            orientaionMask.judgedOrientaionMake(false)
-            descriptionLable.font = UIFont.preferredFont(forTextStyle: .body)
-        }
     }
     
     static func initDetailEntryData(_ data: StateEntry) -> KoreaDetailEntryViewController {

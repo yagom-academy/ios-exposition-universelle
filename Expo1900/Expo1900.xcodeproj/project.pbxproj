@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BA558D652623F9F700D8C107 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA558D642623F9F700D8C107 /* Expo1900Tests.swift */; };
 		BA558D9226286DBF00D8C107 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA558D9126286DBF00D8C107 /* ModelManager.swift */; };
-		BA558D9726286F0400D8C107 /* OrientationMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA558D9626286F0400D8C107 /* OrientationMask.swift */; };
 		BAA9FD12261AD96A000EB716 /* StateEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD11261AD96A000EB716 /* StateEntry.swift */; };
 		BAA9FD16261AD9B6000EB716 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD15261AD9B6000EB716 /* Expo.swift */; };
 		BAA9FD1E261AE9E6000EB716 /* ExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD1D261AE9E6000EB716 /* ExpoViewController.swift */; };
@@ -21,6 +20,7 @@
 		BAA9FD61261DCA0A000EB716 /* KoreaDetailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD5F261DCA0A000EB716 /* KoreaDetailEntryViewController.swift */; };
 		BAA9FD62261DCA0A000EB716 /* KoreaDetailEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA9FD60261DCA0A000EB716 /* KoreaDetailEntryViewController.xib */; };
 		BAA9FD66261DF058000EB716 /* Alter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD65261DF058000EB716 /* Alter.swift */; };
+		BAF3B100263065A6006BD9DB /* Navigaation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3B0FF263065A6006BD9DB /* Navigaation.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
@@ -43,7 +43,6 @@
 		BA558D642623F9F700D8C107 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		BA558D662623F9F700D8C107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA558D9126286DBF00D8C107 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		BA558D9626286F0400D8C107 /* OrientationMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationMask.swift; sourceTree = "<group>"; };
 		BAA9FD11261AD96A000EB716 /* StateEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateEntry.swift; sourceTree = "<group>"; };
 		BAA9FD15261AD9B6000EB716 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		BAA9FD1D261AE9E6000EB716 /* ExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		BAA9FD5F261DCA0A000EB716 /* KoreaDetailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaDetailEntryViewController.swift; sourceTree = "<group>"; };
 		BAA9FD60261DCA0A000EB716 /* KoreaDetailEntryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KoreaDetailEntryViewController.xib; sourceTree = "<group>"; };
 		BAA9FD65261DF058000EB716 /* Alter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alter.swift; sourceTree = "<group>"; };
+		BAF3B0FF263065A6006BD9DB /* Navigaation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigaation.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,14 +89,6 @@
 				BA558D662623F9F700D8C107 /* Info.plist */,
 			);
 			path = Expo1900Tests;
-			sourceTree = "<group>";
-		};
-		BA558D9526286EC700D8C107 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				BA558D9626286F0400D8C107 /* OrientationMask.swift */,
-			);
-			path = Utility;
 			sourceTree = "<group>";
 		};
 		BAA9FD0C261AD90D000EB716 /* Model */ = {
@@ -160,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BAA9FD65261DF058000EB716 /* Alter.swift */,
+				BAF3B0FF263065A6006BD9DB /* Navigaation.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -185,7 +178,6 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				BA558D9526286EC700D8C107 /* Utility */,
 				BAA9FD64261DF031000EB716 /* extension */,
 				BAA9FD0F261AD91D000EB716 /* Error */,
 				BAA9FD0E261AD919000EB716 /* VIewController */,
@@ -310,7 +302,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA558D9726286F0400D8C107 /* OrientationMask.swift in Sources */,
 				BAA9FD16261AD9B6000EB716 /* Expo.swift in Sources */,
 				BAA9FD1E261AE9E6000EB716 /* ExpoViewController.swift in Sources */,
 				BAA9FD66261DF058000EB716 /* Alter.swift in Sources */,
@@ -321,6 +312,7 @@
 				BA558D9226286DBF00D8C107 /* ModelManager.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				BAA9FD12261AD96A000EB716 /* StateEntry.swift in Sources */,
+				BAF3B100263065A6006BD9DB /* Navigaation.swift in Sources */,
 				BAA9FD5A261DA317000EB716 /* KoreaEntryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
