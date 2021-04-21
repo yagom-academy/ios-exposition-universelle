@@ -3,8 +3,6 @@
 //  Expo1900
 //
 //  Created by 황인우 on 2021/04/10.
-//
-
 import UIKit
 
 class ItemTableViewController: UITableViewController {
@@ -24,6 +22,19 @@ class ItemTableViewController: UITableViewController {
             
         }
 
+    }
+    
+    private func parseItemsData() throws {
+        
+        guard let asset = NSDataAsset.init(name: "items") else {
+            return
+        }
+        
+        do {
+            exhibits = try JSONDecoder().decode([Exhibit].self, from: asset.data)
+        } catch {
+            throw DataError.InvalidAccess
+        }
     }
 
     // MARK: - Table view data source
@@ -45,26 +56,17 @@ class ItemTableViewController: UITableViewController {
         return cell
     }
     
+    // Mark - Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let nextViewController: ItemViewController = segue.destination as? ItemViewController else { return }
         guard let indexPathForSelectedRow = tableView.indexPathForSelectedRow else { return }
         nextViewController.exhibit = exhibits[safe: indexPathForSelectedRow.row]
     }
-    
-    func parseItemsData() throws {
-        
-        guard let asset = NSDataAsset.init(name: "items") else {
-            return
-        }
-        
-        do {
-            exhibits = try JSONDecoder().decode([Exhibit].self, from: asset.data)
-        } catch {
-            throw DataError.InvalidAccess
-        }
-    }
 }
+
+// Mark - Array extension
 
 extension Array {
     subscript (safe index: Int) -> Element? {

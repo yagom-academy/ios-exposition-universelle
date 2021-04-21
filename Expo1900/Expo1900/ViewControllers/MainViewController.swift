@@ -92,6 +92,8 @@ class MainViewController: UIViewController {
     }
 }
 
+// Mark UINavigationController extension
+
 extension UINavigationController {
     override open var shouldAutorotate: Bool {
         get {
