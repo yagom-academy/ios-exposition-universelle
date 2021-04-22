@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExpoViewController: UIViewController {
+final class ExpoViewController: UIViewController, JsonDecoding {
     @IBOutlet private weak var expoTitleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -15,31 +15,37 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var descrtiptionLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
-    private let orientaionMask = OrientaionMake.shared
-    private let modelManager = ModelManager.shared
-
+    private var expoData: Expo?
+    
     override func viewDidLoad() {
-        if modelManager.expoData == nil {
-            switch try? initExpoData() {
+        do {
+            let result: Result<Expo, ExpoError> = try jsonDecode(assetName: Constant.expoJson)
+            switch result {
             case .success(let data):
-                modelManager.expoData = data
+                expoData = data
                 initUI()
                 setLabelAttribute()
             case .failure(let error):
                 alterError(error)
-            case .none:
-                alterError(ExpoError.unknown)
             }
+        } catch {
+            alterError(ExpoError.expoData)
         }
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        orientaionMask.judgedOrientaionMake(false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        orientaionMask.judgedOrientaionMake(true)
         self.navigationController?.navigationBar.isHidden = false
     }
     
@@ -47,16 +53,9 @@ final class ExpoViewController: UIViewController {
         let koreaEntryViewController = KoreaEntryViewController()
         self.navigationController?.pushViewController(koreaEntryViewController, animated: true)
     }
-    
-    private func initExpoData() throws -> Result<Expo, ExpoError> {
-        guard let dataAsset = NSDataAsset(name: Constant.expoJson) else {
-            return .failure(ExpoError.expoData)
-        }
-        return .success(try JSONDecoder().decode(Expo.self, from: dataAsset.data))
-    }
-    
+
     private func initUI() {
-        guard let expo = modelManager.expoData else { return }
+        guard let expo = expoData else { return }
         self.navigationItem.title = Constant.pageTitle
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = PrefixWord.visitors + creatVisitorsComma(expo.visitors) + SuffixWord.visitors
@@ -116,3 +115,4 @@ extension ExpoViewController {
         static let visitors = " 명"
     }
 }
+
