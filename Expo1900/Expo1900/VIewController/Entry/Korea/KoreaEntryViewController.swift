@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class KoreaEntryViewController: UIViewController {
+final class KoreaEntryViewController: UIViewController, JsonDecoding {
     @IBOutlet private weak var tableView: UITableView!
     
     private var koreaEntrys: [StateEntry] = []
@@ -18,15 +18,16 @@ final class KoreaEntryViewController: UIViewController {
         registerXib()
         self.navigationItem.title = Constant.navigationTitle
         
-        if koreaEntrys.isEmpty == true {
-            switch try? initKoreaEntryData() {
+        do {
+            let result: Result<[StateEntry], ExpoError> = try jsonDecode(assetName: Constant.koreaEntryJson)
+            switch result {
             case .success(let data):
                 koreaEntrys = data
             case .failure(let error):
                 alterError(error)
-            case .none:
-                alterError(ExpoError.unknown)
             }
+        } catch {
+            alterError(ExpoError.itemsData)
         }
     }
     
@@ -35,13 +36,6 @@ final class KoreaEntryViewController: UIViewController {
     private func registerXib() {
         let nibName = UINib(nibName: Constant.cellNibName, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: Constant.cellIdentifier)
-    }
-    
-    private func initKoreaEntryData() throws -> Result<[StateEntry], ExpoError> {
-        guard let dataAsset = NSDataAsset(name: Constant.koreaEntryJson) else {
-            return .failure(ExpoError.itemsData)
-        }
-        return .success(try JSONDecoder().decode([StateEntry].self, from: dataAsset.data))
     }
 }
 

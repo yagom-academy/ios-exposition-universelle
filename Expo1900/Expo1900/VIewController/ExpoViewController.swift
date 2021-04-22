@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExpoViewController: UIViewController {
+final class ExpoViewController: UIViewController, JsonDecoding {
     @IBOutlet private weak var expoTitleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -16,19 +16,20 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
     private var expoData: Expo?
-
+    
     override func viewDidLoad() {
-        if expoData == nil {
-            switch try? initExpoData() {
+        do {
+            let result: Result<Expo, ExpoError> = try jsonDecode(assetName: Constant.expoJson)
+            switch result {
             case .success(let data):
                 expoData = data
                 initUI()
                 setLabelAttribute()
             case .failure(let error):
                 alterError(error)
-            case .none:
-                alterError(ExpoError.unknown)
             }
+        } catch {
+            alterError(ExpoError.expoData)
         }
     }
     
@@ -52,14 +53,7 @@ final class ExpoViewController: UIViewController {
         let koreaEntryViewController = KoreaEntryViewController()
         self.navigationController?.pushViewController(koreaEntryViewController, animated: true)
     }
-    
-    private func initExpoData() throws -> Result<Expo, ExpoError> {
-        guard let dataAsset = NSDataAsset(name: Constant.expoJson) else {
-            return .failure(ExpoError.expoData)
-        }
-        return .success(try JSONDecoder().decode(Expo.self, from: dataAsset.data))
-    }
-    
+
     private func initUI() {
         guard let expo = expoData else { return }
         self.navigationItem.title = Constant.pageTitle
