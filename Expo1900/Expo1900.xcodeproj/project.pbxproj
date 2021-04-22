@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BA558D652623F9F700D8C107 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA558D642623F9F700D8C107 /* Expo1900Tests.swift */; };
-		BA558D9226286DBF00D8C107 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA558D9126286DBF00D8C107 /* ModelManager.swift */; };
 		BAA9FD12261AD96A000EB716 /* StateEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD11261AD96A000EB716 /* StateEntry.swift */; };
 		BAA9FD16261AD9B6000EB716 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD15261AD9B6000EB716 /* Expo.swift */; };
 		BAA9FD1E261AE9E6000EB716 /* ExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA9FD1D261AE9E6000EB716 /* ExpoViewController.swift */; };
@@ -42,7 +41,6 @@
 		BA558D622623F9F700D8C107 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA558D642623F9F700D8C107 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		BA558D662623F9F700D8C107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA558D9126286DBF00D8C107 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		BAA9FD11261AD96A000EB716 /* StateEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateEntry.swift; sourceTree = "<group>"; };
 		BAA9FD15261AD9B6000EB716 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		BAA9FD1D261AE9E6000EB716 /* ExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			children = (
 				BAA9FD15261AD9B6000EB716 /* Expo.swift */,
 				BAA9FD11261AD96A000EB716 /* StateEntry.swift */,
-				BA558D9126286DBF00D8C107 /* ModelManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,7 +306,6 @@
 				BAA9FD39261AEBC9000EB716 /* ExpoError.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				BAA9FD54261DA1DB000EB716 /* KoreaEntryViewController.swift in Sources */,
-				BA558D9226286DBF00D8C107 /* ModelManager.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				BAA9FD12261AD96A000EB716 /* StateEntry.swift in Sources */,
 				BAF3B100263065A6006BD9DB /* Navigaation.swift in Sources */,

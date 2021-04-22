@@ -11,7 +11,7 @@ final class KoreaDetailEntryViewController: UIViewController {
     @IBOutlet private weak var detailImageView: UIImageView!
     @IBOutlet private weak var descriptionLable: UILabel!
     
-    private let modelManager = ModelManager.shared
+    private var detailEntry: StateEntry?
     
     override func viewDidLoad() {
         setDetailEntry()
@@ -19,14 +19,14 @@ final class KoreaDetailEntryViewController: UIViewController {
     
     static func initDetailEntryData(_ data: StateEntry) -> KoreaDetailEntryViewController {
         let viewController = KoreaDetailEntryViewController(nibName: nil, bundle: nil)
-        viewController.modelManager.detailEntry = data
+        viewController.detailEntry = data
         return viewController
     }
 
 // MARK: - Init Setting
 
     private func setDetailEntry() {
-        guard let value = modelManager.detailEntry else { return }
+        guard let value = detailEntry else { return }
         detailImageView.image = UIImage(named: value.imageName)
         descriptionLable.text = value.description
         self.navigationItem.title = value.name

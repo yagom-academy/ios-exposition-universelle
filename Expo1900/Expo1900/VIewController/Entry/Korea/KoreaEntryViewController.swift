@@ -10,7 +10,7 @@ import UIKit
 final class KoreaEntryViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
-    private let modelManager = ModelManager.shared
+    private var koreaEntrys: [StateEntry] = []
 
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -18,10 +18,10 @@ final class KoreaEntryViewController: UIViewController {
         registerXib()
         self.navigationItem.title = Constant.navigationTitle
         
-        if modelManager.koreaEntrys.isEmpty == true {
+        if koreaEntrys.isEmpty == true {
             switch try? initKoreaEntryData() {
             case .success(let data):
-                modelManager.koreaEntrys = data
+                koreaEntrys = data
             case .failure(let error):
                 alterError(error)
             case .none:
@@ -50,21 +50,21 @@ final class KoreaEntryViewController: UIViewController {
 extension KoreaEntryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        guard let count = modelManager.koreaEntrys.count else { return 0 }
-        return modelManager.koreaEntrys.count
+        return koreaEntrys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellIdentifier, for: indexPath) as? KoreaEntryTableViewCell else {
             return UITableViewCell()
         }
-        cell.setCell(modelManager.koreaEntrys[indexPath.row])
+        cell.setCell(koreaEntrys[indexPath.row])
         return cell
     }
 }
 
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(KoreaDetailEntryViewController.initDetailEntryData(modelManager.koreaEntrys[indexPath.row]), animated: true)
+        self.navigationController?.pushViewController(KoreaDetailEntryViewController.initDetailEntryData(koreaEntrys[indexPath.row]), animated: true)
     }
 }
 

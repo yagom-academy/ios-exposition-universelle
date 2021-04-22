@@ -15,13 +15,13 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var descrtiptionLabel: UILabel!
     @IBOutlet private weak var backgroundImageView: UIImageView!
     
-    private let modelManager = ModelManager.shared
+    private var expoData: Expo?
 
     override func viewDidLoad() {
-        if modelManager.expoData == nil {
+        if expoData == nil {
             switch try? initExpoData() {
             case .success(let data):
-                modelManager.expoData = data
+                expoData = data
                 initUI()
                 setLabelAttribute()
             case .failure(let error):
@@ -61,7 +61,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func initUI() {
-        guard let expo = modelManager.expoData else { return }
+        guard let expo = expoData else { return }
         self.navigationItem.title = Constant.pageTitle
         expoTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = PrefixWord.visitors + creatVisitorsComma(expo.visitors) + SuffixWord.visitors
