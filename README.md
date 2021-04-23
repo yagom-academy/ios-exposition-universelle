@@ -10,7 +10,7 @@
 
 1. [기능](#기능)
 2. [설계 & 구현](#설계-&-구현)
-3. [Trouble Shooting](Trouble-Shooting)
+3. [Trouble Shooting](#trouble-shooting)
 4. [학습 내용](#학습-내용)
 
 
