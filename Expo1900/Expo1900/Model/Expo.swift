@@ -14,7 +14,7 @@ struct Expo: Decodable {
     let duration: String
     let description: String
     
-    private enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: CodingKey {
         case title, visitors, location, duration, description
     }
     
@@ -26,5 +26,22 @@ struct Expo: Decodable {
         self.duration = (try? container.decode(String.self, forKey: .duration)) ?? ""
         self.description = (try? container.decode(String.self, forKey: .description)) ?? ""
     }
+    
+    init(title: String, visitors: UInt, location: String, duration: String, description: String) {
+        self.title = title
+        self.visitors = visitors
+        self.location = location
+        self.duration = duration
+        self.description = description
+    }
 }
 
+extension Expo: Equatable {
+    static func == (lhs: Expo, rhs: Expo) -> Bool {
+        return lhs.title == rhs.title &&
+            lhs.visitors == rhs.visitors &&
+            lhs.location == rhs.location &&
+            lhs.duration == rhs.duration &&
+            lhs.description == rhs.description
+    }
+}

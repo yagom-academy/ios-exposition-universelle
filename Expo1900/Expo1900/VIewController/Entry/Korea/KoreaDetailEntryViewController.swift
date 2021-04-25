@@ -8,34 +8,28 @@
 import UIKit
 
 final class KoreaDetailEntryViewController: UIViewController {
-    @IBOutlet private weak var detailImage: UIImageView!
+    @IBOutlet private weak var detailImageView: UIImageView!
     @IBOutlet private weak var descriptionLable: UILabel!
     
-    private var detailEntry: StateEntry
-
+    private var detailEntry: StateEntry?
+    
     override func viewDidLoad() {
-        do {
-            try setDetailEntry()
-        } catch {
-            alterError(error)
-        }
+        setDetailEntry()
     }
     
-    init(_ EntryValue: StateEntry) {
-        detailEntry = EntryValue
-        super.init(nibName: nil, bundle: nil)
+    static func initDetailEntryData(_ data: StateEntry) -> KoreaDetailEntryViewController {
+        let viewController = KoreaDetailEntryViewController(nibName: nil, bundle: nil)
+        viewController.detailEntry = data
+        return viewController
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
 // MARK: - Init Setting
 
-    private func setDetailEntry() throws {
-        detailImage.image = UIImage(named: detailEntry.imageName)
-        descriptionLable.text = detailEntry.description
-        self.navigationItem.title = detailEntry.name
+    private func setDetailEntry() {
+        guard let value = detailEntry else { return }
+        detailImageView.image = UIImage(named: value.imageName)
+        descriptionLable.text = value.description
+        self.navigationItem.title = value.name
         
         descriptionLable.lineBreakStrategy = .hangulWordPriority
         descriptionLable.textAlignment = .justified

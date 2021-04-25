@@ -8,10 +8,10 @@
 import Foundation
 
 struct StateEntry: Decodable {
-    var name: String
-    var imageName: String
-    var shortDescription: String
-    var description: String
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
         case name
@@ -28,3 +28,4 @@ struct StateEntry: Decodable {
         self.description = (try? container.decode(String.self, forKey: .description)) ?? ""
     }
 }
+
