@@ -8,38 +8,31 @@
 import XCTest
 @testable import Expo1900
 class Expo1900Tests: XCTestCase {
-    private var sut_Expo: Expo?
-    private var sut_Item: [Item]?
+    private var sut_expo: Expo?
+    private var sut_exhibit: [Exhibit]?
 
     override func setUpWithError() throws {
+        try super.setUpWithError()
+        guard let expoDataAsset = NSDataAsset.init(name: "exposition_universelle_1900"),
+              let exhibitDataAsset = NSDataAsset.init(name: "items") else { return }
+        sut_expo = try JSONDecoder().decode(Expo.self, from: expoDataAsset.data)
+        sut_exhibit = try JSONDecoder().decode([Exhibit].self, from: exhibitDataAsset.data)
     }
 
     override func tearDownWithError() throws {
-        try setUpWithError()
-        sut_Expo = nil
-        sut_Item = nil
+        try super.tearDownWithError()
+        sut_expo = nil
+        sut_exhibit = nil
     }
     
-    func test_ExpoData() {
-        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else {
-            return
-        }
-        do {
-            sut_Expo = try JSONDecoder().decode(Expo.self, from: asset.data)
-            XCTAssertEqual(sut_Expo?.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)" )
-        } catch {
-        }
+    func test_parsingValidExpoData() {
+
+        XCTAssertEqual(sut_expo?.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)" )
     }
     
-    func test_itemData() {
-        guard let asset = NSDataAsset.init(name: "items") else {
-            return
-        }
-        do {
-            sut_Item = try JSONDecoder().decode([Item].self, from: asset.data)
-            XCTAssertEqual(sut_Item?.first?.name, "직지심체요절")
-        } catch {
-            
-        }
+    func test_ParsingValidExhibitData() {
+
+        XCTAssertEqual(sut_exhibit?.first?.name, "직지심체요절")
+
     }
 }

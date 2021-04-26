@@ -6,7 +6,8 @@
 //
 
 import Foundation
-struct Item {
+
+struct Exhibit {
     var name: String
     var imageName: String
     var shortDescription: String
@@ -19,7 +20,7 @@ struct Item {
         case description = "desc"
     }
 }
-extension Item: Decodable {
+extension Exhibit: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         imageName = (try? container.decode(String.self, forKey: .imageName)) ?? ""
