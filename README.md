@@ -2,5 +2,8 @@
 
 ### 만국박람회 프로젝트 저장소
 
-- 이 저장소를 자신의 저장소로 fork하여 프로젝트를 진행합니다
 
+
+## Step1 UML
+
+![image](https://user-images.githubusercontent.com/55867479/124550862-4b887380-de6c-11eb-9be3-a29c71c2b39a.png)
