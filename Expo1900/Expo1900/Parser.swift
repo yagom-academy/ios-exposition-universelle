@@ -1,10 +1,3 @@
-//
-//  Parser.swift
-//  Expo1900
-//
-//  Created by yun on 2021/07/06.
-//
-
 import Foundation
 
 struct Parser {
