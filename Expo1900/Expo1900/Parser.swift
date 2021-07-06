@@ -9,12 +9,19 @@ import Foundation
 
 struct Parser {
     let fileName: String
-//    var expo: Exposition? {
-//
-//    }
-//    var items: [Item]? {
-//
-//    }
+    var expo: Exposition? {
+        guard let data = readLocalJSONFile(forName: fileName), let exposition = parseToExposition(data: data) else {
+            return nil
+        }
+        return exposition
+    }
+    
+    var items: [KoreanItem]? {
+        guard let data = readLocalJSONFile(forName: fileName), let items = parseToItems(data: data) else {
+            return nil
+        }
+        return items
+    }
     
     func readLocalJSONFile(forName name: String) -> Data? {
         do {
