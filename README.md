@@ -2,5 +2,5 @@
 
 ### 만국박람회 프로젝트 저장소
 
-![UML](./ios-exposition-universelle/UML.png)
+![UML](./image/UML.png)
 
