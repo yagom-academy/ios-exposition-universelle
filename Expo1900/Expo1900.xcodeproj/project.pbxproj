@@ -10,7 +10,7 @@
 		272824F626931ECB002EF5B3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272824F526931ECA002EF5B3 /* Item.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -22,7 +22,7 @@
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,24 +41,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		272824F1269313A1002EF5B3 /* View */ = {
+		272824F1269313A1002EF5B3 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
-			path = View;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		272824F2269313AA002EF5B3 /* Controller */ = {
+		272824F2269313AA002EF5B3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		272824F4269313FA002EF5B3 /* Other */ = {
+		272824F4269313FA002EF5B3 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
@@ -66,7 +66,7 @@
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 			);
-			path = Other;
+			path = App;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -88,21 +88,21 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				D422DB0326931CFB00200B11 /* Model */,
-				272824F4269313FA002EF5B3 /* Other */,
-				272824F2269313AA002EF5B3 /* Controller */,
-				272824F1269313A1002EF5B3 /* View */,
+				D422DB0326931CFB00200B11 /* JSONModel */,
+				272824F4269313FA002EF5B3 /* App */,
+				272824F2269313AA002EF5B3 /* ViewController */,
+				272824F1269313A1002EF5B3 /* Storyboard */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
 		};
-		D422DB0326931CFB00200B11 /* Model */ = {
+		D422DB0326931CFB00200B11 /* JSONModel */ = {
 			isa = PBXGroup;
 			children = (
 				D422DB0426931D0300200B11 /* Exposition.swift */,
 				272824F526931ECA002EF5B3 /* Item.swift */,
 			);
-			path = Model;
+			path = JSONModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272824F626931ECB002EF5B3 /* Item.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				D422DB0526931D0300200B11 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
@@ -326,7 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Other/Info.plist;
+				INFOPLIST_FILE = Expo1900/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,7 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Other/Info.plist;
+				INFOPLIST_FILE = Expo1900/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
