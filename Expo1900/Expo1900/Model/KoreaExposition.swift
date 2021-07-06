@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct KoreaExposition: Decodable {
     let name: String
     let imageName: String
@@ -21,16 +20,3 @@ struct KoreaExposition: Decodable {
         case description = "desc"
     }
 }
-
-
-//extension KoreaExposition: Decodable {
-//    init(from decoder: Decoder) throws {
-//        let values = try decoder.container(keyedBy: CodingKeys.self)
-//        name = try values.decode(String.self, forKey: .name)
-//        imageName = try values.decode(String.self, forKey: .imageName)
-//        shortDescription = try values.decode(String.self, forKey: .shortDescription)
-//        description = try values.decode(String.self, forKey: .description)
-//    }
-//}
-
-
