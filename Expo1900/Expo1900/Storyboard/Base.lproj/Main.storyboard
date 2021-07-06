@@ -80,6 +80,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="pAG-h4-X3k" id="uPx-6q-USe"/>
+                        <outlet property="durationLabel" destination="jpj-tD-RIU" id="bbS-iY-84u"/>
+                        <outlet property="locationLabel" destination="SCv-CS-68h" id="FoQ-d1-8IT"/>
+                        <outlet property="titleLabel" destination="Odo-b9-j0n" id="zaf-R2-4hF"/>
+                        <outlet property="visitorsLabel" destination="jMM-r5-vTC" id="h3r-i2-krQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
