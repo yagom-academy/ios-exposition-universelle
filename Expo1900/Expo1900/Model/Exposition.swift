@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Exposition: Codable {
+    private(set) var title: String
+    private(set) var visitors: Int
+    private(set) var location: String
+    private(set) var duration: String
+    private(set) var description: String
+}
