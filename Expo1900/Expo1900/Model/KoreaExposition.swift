@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct KoreaExposition {
+struct KoreaExposition: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
