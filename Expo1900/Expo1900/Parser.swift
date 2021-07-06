@@ -1,7 +1,7 @@
 import Foundation
 
 struct Parser {
-    let fileName: String
+    private let fileName: String
     var expo: Exposition? {
         guard let data = readLocalJSONFile(forName: fileName), let exposition = parseToExposition(data: data) else {
             return nil
@@ -16,7 +16,7 @@ struct Parser {
         return items
     }
     
-    func readLocalJSONFile(forName name: String) -> Data? {
+    private func readLocalJSONFile(forName name: String) -> Data? {
         do {
             if let bundlePath = Bundle.main.path(forResource: name, ofType: "json"),
                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
@@ -29,7 +29,7 @@ struct Parser {
         return nil
     }
     
-    func parseToExposition(data: Data) -> Exposition? {
+    private func parseToExposition(data: Data) -> Exposition? {
         do {
             let expo = try JSONDecoder().decode(Exposition.self, from: data)
             return expo
@@ -39,7 +39,7 @@ struct Parser {
         return nil
     }
     
-    func parseToItems(data: Data) -> [KoreanItem]? {
+    private func parseToItems(data: Data) -> [KoreanItem]? {
         do {
             let items = try JSONDecoder().decode([KoreanItem].self, from: data)
             return items
