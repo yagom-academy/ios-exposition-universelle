@@ -1,6 +1,7 @@
-## iOS 커리어 스타터 캠프
+# 만국박람회 프로젝트 - 잼킹, 수박, 조이 @타일러
 
-### 만국박람회 프로젝트 저장소
+## Step1
 
-- 이 저장소를 자신의 저장소로 fork하여 프로젝트를 진행합니다
+### UML
+![Exposition](https://user-images.githubusercontent.com/52592748/124546959-5f30db80-de66-11eb-9411-e612f03363ed.png)
 
