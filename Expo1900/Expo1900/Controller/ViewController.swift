@@ -36,6 +36,14 @@ class ViewController: UIViewController {
         mainDuration.text = expo.duration
         mainDescription.text = expo.description
     }
-
+    
+    @IBAction func moveSecond(_ sender: UIButton) {
+        
+        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondVC") else { return
+        }
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
 }
+
 
