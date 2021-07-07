@@ -9,20 +9,17 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var mainTitle: UILabel!
-    @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var mainVisitor: UILabel!
     @IBOutlet weak var mainLocation: UILabel!
     @IBOutlet weak var mainDuration: UILabel!
     @IBOutlet weak var mainDescription: UILabel!
-    @IBOutlet weak var leftKoreaImage: UIImageView!
     @IBOutlet weak var moveButton: UIButton!
-    @IBOutlet weak var rightKoreaImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle1900") else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         guard let expo = try? jsonDecoder.decode(InformationOfExpo.self, from: dataAsset.data) else { return }
         
         inputData(expo)
