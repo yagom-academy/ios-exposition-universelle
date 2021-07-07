@@ -14,3 +14,11 @@ struct InformationOfExpo: Decodable {
     let duration: String
     let description: String
 }
+
+extension InformationOfExpo {
+    var visitorsWithComma: String {
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: visitors as NSNumber) ?? ""
+    }
+}

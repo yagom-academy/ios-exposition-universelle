@@ -41,11 +41,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C79FF4A82589F401005FB0FD = {
+		758CAE2F2695DA6700C5EB02 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758CAE302695DA6F00C5EB02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		758CAE312695DAB100C5EB02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4D9EB50B2694295D001DD820 /* InformationOfExpo.swift */,
 				758CADDD26941A4900C5EB02 /* InformationOfKoreanHeritage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C79FF4A82589F401005FB0FD = {
+			isa = PBXGroup;
+			children = (
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
@@ -62,12 +89,9 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				758CAE312695DAB100C5EB02 /* Model */,
+				758CAE302695DA6F00C5EB02 /* View */,
+				758CAE2F2695DA6700C5EB02 /* Controller */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
