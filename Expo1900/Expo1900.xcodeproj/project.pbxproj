@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		272824F626931ECB002EF5B3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272824F526931ECA002EF5B3 /* Item.swift */; };
+		637DFB662695988D00A3E586 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DFB652695988D00A3E586 /* String+Extension.swift */; };
 		63C94510269434DD00FB7B83 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9450F269434DD00FB7B83 /* JSONDecodable.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		272824F526931ECA002EF5B3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		637DFB652695988D00A3E586 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		63C9450F269434DD00FB7B83 /* JSONDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		637DFB642695986800A3E586 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				637DFB652695988D00A3E586 /* String+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		63C94511269448E300FB7B83 /* Procotol */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				637DFB642695986800A3E586 /* Extension */,
 				63C94511269448E300FB7B83 /* Procotol */,
 				D422DB0326931CFB00200B11 /* JSONModel */,
 				272824F4269313FA002EF5B3 /* App */,
@@ -249,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272824F626931ECB002EF5B3 /* Item.swift in Sources */,
+				637DFB662695988D00A3E586 /* String+Extension.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				D422DB0526931D0300200B11 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
