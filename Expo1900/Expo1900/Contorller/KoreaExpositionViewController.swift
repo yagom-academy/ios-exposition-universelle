@@ -8,16 +8,18 @@
 import UIKit
 
 class KoreaExpositionViewController: UIViewController {
-
+    
+    
+    //직지, 거문고, 가야금, 훈민정음
+    
     @IBOutlet weak var koreaExpositionTableView: UITableView!
     var koreaExpositions: [KoreaExposition] = []
     let tableViewCellIdentifer = "KoreaExpositionCell"
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         decodingKoreaExpositionData()
         koreaExpositionTableView.dataSource = self
-        // Do any additional setup after loading the view.
     }
     
     func decodingKoreaExpositionData() {
@@ -30,18 +32,22 @@ class KoreaExpositionViewController: UIViewController {
             }
         }
     }
-    
-
 }
 
 extension KoreaExpositionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return koreaExpositions.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifer, for: indexPath)
+
+        guard let customCell = cell as? KoreaExpositionCustomCell else {
+            return cell
+        }
+        
+        let test = koreaExpositions[indexPath.row]
+
+        return customCell
     }
-    
-    
 }
