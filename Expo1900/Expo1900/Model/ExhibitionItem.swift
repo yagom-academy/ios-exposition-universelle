@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpositionItem: Codable {
+struct ExhibitionItem: Codable {
     private(set) var name: String
     private(set) var imageName: String
     private(set) var shortDescription: String
