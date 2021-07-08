@@ -165,17 +165,63 @@
                     <view key="view" contentMode="scaleToFill" id="2wo-4y-SfK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qUf-x1-LLZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="KoreanEntryListCell" textLabel="C6q-cb-v8N" detailTextLabel="KJ7-Vi-OPA" imageView="Z08-UW-FKB" rowHeight="150" style="IBUITableViewCellStyleSubtitle" id="3fb-is-pc0">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fb-is-pc0" id="yNe-8D-SyI">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C6q-cb-v8N">
+                                                    <rect key="frame" x="262" y="55" width="33" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KJ7-Vi-OPA">
+                                                    <rect key="frame" x="262" y="78.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="woodshoes" id="Z08-UW-FKB">
+                                                    <rect key="frame" x="20" y="0.0" width="227" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yRz-SN-ko8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qUf-x1-LLZ" firstAttribute="top" secondItem="yRz-SN-ko8" secondAttribute="top" id="2c2-1x-zla"/>
+                            <constraint firstItem="yRz-SN-ko8" firstAttribute="bottom" secondItem="qUf-x1-LLZ" secondAttribute="bottom" id="9cY-ra-406"/>
+                            <constraint firstItem="qUf-x1-LLZ" firstAttribute="leading" secondItem="yRz-SN-ko8" secondAttribute="leading" id="Cco-E2-cFt"/>
+                            <constraint firstItem="yRz-SN-ko8" firstAttribute="trailing" secondItem="qUf-x1-LLZ" secondAttribute="trailing" id="ol8-1c-4J4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GWO-oY-8Hk"/>
+                    <connections>
+                        <outlet property="entryTableView" destination="qUf-x1-LLZ" id="ak4-V1-iQm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwH-4b-0sR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="88"/>
+            <point key="canvasLocation" x="1982.608695652174" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>
+        <image name="woodshoes" width="293" height="194"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
