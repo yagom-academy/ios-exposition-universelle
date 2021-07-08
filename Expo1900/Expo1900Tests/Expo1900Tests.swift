@@ -20,6 +20,13 @@ class Expo1900Tests: XCTestCase {
         
         let expositionInformation = try? jsonDecoder?.decode(ExpositionInformation.self, from: dataAsset.data)
         XCTAssertNotNil(expositionInformation, "exposition_universelle_1900 디코딩 성공!")
+    }
+    
+    func test_items을_디코딩을_성공한다() {
+        guard let dataAsset = NSDataAsset(name: "items") else { return }
         
+        let exhibitionItem = try? jsonDecoder?.decode([ExhibitionItem].self, from: dataAsset.data)
+        XCTAssertNotNil(exhibitionItem, "items 디코딩 성공!")
     }
 }
+
