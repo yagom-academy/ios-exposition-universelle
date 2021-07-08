@@ -14,21 +14,28 @@ class ParsingManager {
     
     private init() {}
     
-    func parsing<T: Codable>(about type: T.Type) -> Result<[T], Error> {
+    func parsing<T: Codable>(about type: T.Type) -> Result<[T], ParsingError> {
+        
+        let jsonDecoder = JSONDecoder()
+        var parsedData = [T]()
         switch type {
         case is ExpoIntroduction.Type:
             guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
-                fatalError()
+                return .failure(.dataSetNotFound)
             }
             let data = asset.data
-            print(String(data: data, encoding: .utf8))
-            break
+            do {
+                let result = try jsonDecoder.decode(T.self, from: data)
+                parsedData.append(result)
+                return .success(parsedData)
+            } catch {
+                return .failure(.decodingFailed)
+            }
         case is ExpoEntry.Type:
             break
         default:
-            print("실패")
-            break
+            return .failure(.invalidType)
         }
-        return .failure(NSError())
+        return .failure(.unknown)
     }
 }
