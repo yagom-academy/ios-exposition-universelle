@@ -8,11 +8,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +32,13 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: JSONDecodable {
-    typealias T = Exposition
+    typealias JSONModel = Exposition
     
-    func getExposition() -> Exposition? {
+    private func getExposition() -> Exposition? {
         return try? decodeJSON(fileName: .expositionFileName)
     }
     
-    func initView() {
+    private func initView() {
         guard let currentExposition = getExposition() else {
             return
         }
@@ -51,17 +51,17 @@ extension MainViewController: JSONDecodable {
         descriptionLabel.text = currentExposition.description
     }
     
-    func formattingTitle(title: String) -> String {
+    private func formattingTitle(title: String) -> String {
         return title.replacingOccurrences(of: String.bracket, with: String.newLine + String.bracket)
     }
     
-    func formattingVisitors(visitors: UInt) -> String {
+    private func formattingVisitors(visitors: UInt) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         return numberFormatter.string(from: NSNumber(value: visitors)) ?? .zero
     }
     
-    func modifySize(of range: String, in label: UILabel) {
+    private func modifySize(of range: String, in label: UILabel) {
         guard let text = label.text else {
             return
         }
@@ -73,7 +73,7 @@ extension MainViewController: JSONDecodable {
         label.attributedText = attributedStr
     }
     
-    func styleLabelHeaders() {
+    private func styleLabelHeaders() {
         modifySize(of: .visitor , in: visitorsLabel)
         modifySize(of: .location , in: locationLabel)
         modifySize(of: .duration , in: durationLabel)
