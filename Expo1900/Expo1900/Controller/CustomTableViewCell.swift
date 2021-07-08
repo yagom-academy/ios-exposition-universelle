@@ -9,6 +9,10 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var koreanHeritageImage: UIImageView!
+    @IBOutlet weak var koreanHeritageTitle: UILabel!
+    @IBOutlet weak var koreanHeritageDescription: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
