@@ -11,31 +11,51 @@ class ParsingManager {
     static let shared = ParsingManager()
     private let expoIntroductionFileName = "exposition_universelle_1900"
     private let expoEntryFileName = "items"
+    private let jsonDecoder = JSONDecoder()
     
     private init() {}
-    
+}
+
+extension ParsingManager {
     func parsing<T: Codable>(about type: T.Type) -> Result<[T], ParsingError> {
-        
-        let jsonDecoder = JSONDecoder()
-        var parsedData = [T]()
         switch type {
         case is ExpoIntroduction.Type:
-            guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
-                return .failure(.dataSetNotFound)
-            }
-            let data = asset.data
             do {
-                let result = try jsonDecoder.decode(T.self, from: data)
-                parsedData.append(result)
+                let assetData = try bringAsset(name: expoIntroductionFileName)
+                let parsedData = try decode(from: assetData, to: type, isArray: false)
                 return .success(parsedData)
             } catch {
                 return .failure(.decodingFailed)
             }
         case is ExpoEntry.Type:
-            break
+            do {
+                let assetData = try bringAsset(name: expoEntryFileName)
+                let parsedData = try decode(from: assetData, to: type, isArray: true)
+                return .success(parsedData)
+            } catch {
+                return .failure(.unknown)
+            }
         default:
             return .failure(.invalidType)
         }
-        return .failure(.unknown)
+    }
+    
+    private func bringAsset(name fileName: String) throws -> Data {
+        guard let asset = NSDataAsset(name: fileName) else {
+            throw ParsingError.dataSetNotFound
+        }
+        return asset.data
+    }
+    
+    private func decode<T: Codable>(from data: Data, to parsedType: T.Type, isArray: Bool) throws -> [T] {
+        if isArray {
+            let decodedResult = try jsonDecoder.decode([T].self, from: data)
+            return decodedResult
+        } else {
+            var parsedData = [T]()
+            let decodedResult = try jsonDecoder.decode(T.self, from: data)
+            parsedData.append(decodedResult)
+            return parsedData
+        }
     }
 }
