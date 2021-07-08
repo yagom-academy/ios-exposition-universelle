@@ -163,12 +163,16 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="koreanHeritageDescription" destination="g4N-HH-6gh" id="ps1-rC-Oha"/>
                                             <outlet property="koreanHeritageImage" destination="WS1-rq-GUq" id="JNQ-Ak-u5e"/>
+                                            <outlet property="koreanHeritageShortDescription" destination="g4N-HH-6gh" id="ps1-rC-Oha"/>
                                             <outlet property="koreanHeritageTitle" destination="K42-IC-7lv" id="1q2-wX-03E"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="avq-eH-yMT" id="uiw-7P-ZCt"/>
+                                    <outlet property="delegate" destination="avq-eH-yMT" id="WAl-4u-6pE"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vNZ-cW-VLM"/>

@@ -11,7 +11,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var koreanHeritageImage: UIImageView!
     @IBOutlet weak var koreanHeritageTitle: UILabel!
-    @IBOutlet weak var koreanHeritageDescription: UILabel!
+    @IBOutlet weak var koreanHeritageShortDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

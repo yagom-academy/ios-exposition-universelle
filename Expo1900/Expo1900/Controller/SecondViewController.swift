@@ -7,7 +7,8 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     var informationOfKoreanHeritages: [InformationOfKoreanHeritage] = []
 
@@ -23,6 +24,24 @@ class SecondViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+        
+        tableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return informationOfKoreanHeritages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let koreanHeritage = informationOfKoreanHeritages[indexPath.row]
+        cell.koreanHeritageImage.image = UIImage(named: koreanHeritage.imageName)
+        cell.koreanHeritageTitle.text = koreanHeritage.name
+        cell.koreanHeritageShortDescription.text = koreanHeritage.shortDescription
+        
+        return cell
+    }
 }
