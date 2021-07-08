@@ -8,13 +8,9 @@
 import UIKit
 
 class KoreaExpositionViewController: UIViewController {
-    
-    
-    //직지, 거문고, 가야금, 훈민정음
-    
     @IBOutlet weak var koreaExpositionTableView: UITableView!
     var koreaExpositions: [KoreaExposition] = []
-    let tableViewCellIdentifer = "KoreaExpositionCell"
+    let tableViewCellIdentifer: String = "KoreaExpositionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +19,8 @@ class KoreaExpositionViewController: UIViewController {
     }
     
     func decodingKoreaExpositionData() {
-        let decoder = JSONDecoder()
-        if let dataAsset = NSDataAsset.init(name: "items") {
+        let decoder: JSONDecoder = JSONDecoder()
+        if let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") {
             do {
                 koreaExpositions = try decoder.decode([KoreaExposition].self, from: dataAsset.data)
             } catch {
@@ -38,16 +34,16 @@ extension KoreaExpositionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return koreaExpositions.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifer, for: indexPath)
-
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifer, for: indexPath)
         guard let customCell = cell as? KoreaExpositionCustomCell else {
             return cell
         }
-        
-        let test = koreaExpositions[indexPath.row]
-
+        let koreaExpositionItem: KoreaExposition = koreaExpositions[indexPath.row]
+        customCell.titleLabel.text = koreaExpositionItem.name
+        customCell.shortDescriptionLabel.text = koreaExpositionItem.shortDescription
+        customCell.itemImage.image = UIImage(named: koreaExpositionItem.imageName)
         return customCell
     }
 }
