@@ -8,22 +8,21 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    var informationOfKoreanHeritages: [InformationOfKoreanHeritage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+            return
+        }
+        do {
+            self.informationOfKoreanHeritages = try jsonDecoder.decode([InformationOfKoreanHeritage].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
