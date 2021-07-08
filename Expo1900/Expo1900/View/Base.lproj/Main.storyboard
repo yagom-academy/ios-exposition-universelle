@@ -123,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="75"/>
         </scene>
-        <!--Second View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="Ev7-kC-nmJ">
             <objects>
                 <viewController storyboardIdentifier="SecondVC" id="avq-eH-yMT" customClass="SecondViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -191,6 +191,7 @@
                             <constraint firstItem="vNZ-cW-VLM" firstAttribute="trailing" secondItem="L50-h5-cos" secondAttribute="trailing" id="xRT-TS-o6E"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="Uen-JW-jSg"/>
                     <connections>
                         <outlet property="tableView" destination="L50-h5-cos" id="nxi-cC-70Z"/>
                     </connections>
@@ -198,6 +199,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00f-Wb-pW2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1768.1159420289857" y="75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GLn-ue-e24">
+            <objects>
+                <viewController storyboardIdentifier="ThirdVC" id="5Fc-Lc-dik" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N2m-8a-g1f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v85-SO-pbQ">
+                                <rect key="frame" x="74" y="96" width="240" height="128"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uW9-uh-lZo">
+                                <rect key="frame" x="74" y="275" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a8H-Be-tXJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uW9-uh-lZo" firstAttribute="leading" secondItem="a8H-Be-tXJ" secondAttribute="leading" constant="74" id="AHe-9u-3U6"/>
+                            <constraint firstItem="a8H-Be-tXJ" firstAttribute="bottom" secondItem="v85-SO-pbQ" secondAttribute="bottom" constant="638" id="Gqt-Ld-mMo"/>
+                            <constraint firstItem="a8H-Be-tXJ" firstAttribute="trailing" secondItem="uW9-uh-lZo" secondAttribute="trailing" constant="100" id="QVS-4W-2wT"/>
+                            <constraint firstItem="v85-SO-pbQ" firstAttribute="top" secondItem="a8H-Be-tXJ" secondAttribute="top" constant="52" id="Vbt-mC-zAA"/>
+                            <constraint firstItem="a8H-Be-tXJ" firstAttribute="trailing" secondItem="v85-SO-pbQ" secondAttribute="trailing" constant="100" id="dsP-j6-LQU"/>
+                            <constraint firstItem="a8H-Be-tXJ" firstAttribute="bottom" secondItem="uW9-uh-lZo" secondAttribute="bottom" constant="459" id="p5E-UI-Zcp"/>
+                            <constraint firstItem="uW9-uh-lZo" firstAttribute="top" secondItem="v85-SO-pbQ" secondAttribute="bottom" constant="51" id="vsz-9F-7Gu"/>
+                            <constraint firstItem="v85-SO-pbQ" firstAttribute="leading" secondItem="a8H-Be-tXJ" secondAttribute="leading" constant="74" id="wDb-Uu-gOk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cai-HZ-Vru"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9k-IK-09b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2587" y="75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9zO-NC-h8Q">
@@ -221,6 +261,9 @@
     <resources>
         <image name="flag" width="851" height="567"/>
         <image name="poster" width="144" height="200"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

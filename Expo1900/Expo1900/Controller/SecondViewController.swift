@@ -11,7 +11,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     var informationOfKoreanHeritages: [InformationOfKoreanHeritage] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
