@@ -25,7 +25,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             print(error.localizedDescription)
         }
         
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +37,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             return UITableViewCell()
         }
         
-        let koreanHeritage = informationOfKoreanHeritages[indexPath.row]
+        let koreanHeritage: InformationOfKoreanHeritage = self.informationOfKoreanHeritages[indexPath.row]
         cell.koreanHeritageImage.image = UIImage(named: koreanHeritage.imageName)
         cell.koreanHeritageTitle.text = koreanHeritage.name
         cell.koreanHeritageShortDescription.text = koreanHeritage.shortDescription
