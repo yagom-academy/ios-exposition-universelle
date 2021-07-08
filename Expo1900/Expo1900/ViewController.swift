@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
@@ -34,6 +33,16 @@ class ViewController: UIViewController {
         locationLabel.text = "개최지 : \(validExpoData.location)"
         durationLabel.text = "개최 기간 : \(validExpoData.duration)"
         expoDescription.text = validExpoData.description
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden.toggle()
     }
 }
 
