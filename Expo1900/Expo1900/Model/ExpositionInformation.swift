@@ -8,9 +8,9 @@
 import Foundation
 
 struct ExpositionInformation: Codable {
-    private(set) var title: String
-    private(set) var visitors: UInt
-    private(set) var location: String
-    private(set) var duration: String
-    private(set) var description: String
+    private let title: String
+    private let visitors: UInt
+    private let location: String
+    private let duration: String
+    private let description: String
 }

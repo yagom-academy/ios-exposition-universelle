@@ -8,10 +8,10 @@
 import Foundation
 
 struct ExhibitionItem: Codable {
-    private(set) var name: String
-    private(set) var imageName: String
-    private(set) var shortDescription: String
-    private(set) var description: String
+    private let name: String
+    private let imageName: String
+    private let shortDescription: String
+    private let description: String
     
     private enum CondingKeys: String, CodingKey {
         case name
