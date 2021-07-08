@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                             <constraint firstItem="NkG-uV-DLp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="teG-pI-xOh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7PN-gb-Z61"/>
+                    <navigationItem key="navigationItem" title="메인" id="7PN-gb-Z61"/>
                     <connections>
                         <outlet property="mainDescription" destination="3TX-ps-Dsr" id="19Y-ZT-5GC"/>
                         <outlet property="mainDuration" destination="wQ9-T5-Om8" id="2c9-03-ZvL"/>
@@ -123,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="75"/>
         </scene>
-        <!--Root View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="f8e-1G-ywk">
             <objects>
                 <tableViewController storyboardIdentifier="SecondVC" id="yO0-NK-Org" sceneMemberID="viewController">
@@ -146,7 +146,7 @@
                             <outlet property="delegate" destination="yO0-NK-Org" id="e5Z-rc-V4K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="hxW-xz-3iQ"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="cli-qL-yei" userLabel="한국의 출품작"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IF2-4U-Ogn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
