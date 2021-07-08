@@ -20,9 +20,5 @@ class WorldsExpoViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func showEntriesButtonDidTap(_ sender: UIButton) {
-    }
-    
 }
 
