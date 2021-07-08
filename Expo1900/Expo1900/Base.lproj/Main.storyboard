@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YGK-8D-koY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YGK-8D-koY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,35 +20,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8f-jV-los">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="647"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="694"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="파리 만국박람회 1900 (L'Exposition de Paris 1900)" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3s-SD-Tvf">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객 : 48,130,300 명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfP-IX-5X0">
-                                                <rect key="frame" x="125.5" y="302" width="163.5" height="20.5"/>
+                                                <rect key="frame" x="125.5" y="349" width="163.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최지 : 프랑스 파리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ko-UG-E6b">
-                                                <rect key="frame" x="139.5" y="332.5" width="135.5" height="20.5"/>
+                                                <rect key="frame" x="139.5" y="379.5" width="135.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzi-cD-mc6">
-                                                <rect key="frame" x="175.5" y="363" width="63.5" height="20.5"/>
+                                                <rect key="frame" x="175.5" y="410" width="63.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-Yj-Ulc">
-                                                <rect key="frame" x="10" y="393.5" width="394" height="183.5"/>
+                                                <rect key="frame" x="10" y="440.5" width="394" height="183.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -56,10 +56,10 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="7mh-ME-Aqe">
-                                                <rect key="frame" x="0.0" y="92" width="414" height="200"/>
+                                                <rect key="frame" x="0.0" y="139" width="414" height="200"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-lJ-37C">
-                                                <rect key="frame" x="108" y="597" width="198" height="30"/>
+                                                <rect key="frame" x="108" y="644" width="198" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="srg-H1-Bbx">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -155,7 +155,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemListCell" rowHeight="121" id="ipe-AA-1Nn" customClass="ItemListCell" customModule="Expo1900" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="121"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ipe-AA-1Nn" id="vi9-7V-Xbq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
@@ -183,6 +183,11 @@
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemImage" destination="45Z-yC-clO" id="KmC-Jq-7a8"/>
+                                            <outlet property="itemName" destination="7K6-aJ-3Ty" id="FNL-3F-xPA"/>
+                                            <outlet property="shortDescription" destination="W0I-XY-YNg" id="i3o-b5-NGT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -197,6 +202,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KFd-GR-RTT"/>
+                    <connections>
+                        <outlet property="tableView" destination="eJr-gw-Lpy" id="ikl-1t-zPM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42h-lK-7tR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

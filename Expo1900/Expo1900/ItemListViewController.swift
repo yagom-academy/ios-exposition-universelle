@@ -9,10 +9,13 @@ import UIKit
 
 class ItemListViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     var itemList: [KoreanItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: "items") else {
             return
@@ -32,8 +35,14 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemListCell", for: indexPath) else {
-            <#statements#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemListCell", for: indexPath) as? ItemListCell else {
+            return UITableViewCell()
         }
+        let item = itemList[indexPath.row]
+        cell.itemName.text = item.itemName
+        cell.itemImage.image = UIImage(named: item.imageName)
+        cell.shortDescription.text = item.shortDescription
+        
+        return cell
     }
 }
