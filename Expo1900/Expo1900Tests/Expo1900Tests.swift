@@ -28,25 +28,5 @@ class Expo1900Tests: XCTestCase {
         let exhibitionItem = try? jsonDecoder?.decode([ExhibitionItem].self, from: dataAsset.data)
         XCTAssertNotNil(exhibitionItem, "items 디코딩 성공!")
     }
-    
-    func test_에셋_파일명이_잘못되어_디코딩을_실패한다() {
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_190") else {
-            XCTFail("파일이 없습니다.")
-            return
-        }
-        
-        let expositionInformation = try? jsonDecoder?.decode(ExpositionInformation.self, from: dataAsset.data)
-        XCTAssertNil(expositionInformation, "exposition_universelle_1900 디코딩 실패!")
-    }
-    
-    func test_디코딩_타입이_잘못되어_디코딩을_실패한다() {
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            XCTFail("파일이 없습니다.")
-            return
-        }
-        
-        let expositionInformation = try? jsonDecoder?.decode(ExhibitionItem.self, from: dataA sset.data)
-        XCTAssertNotNil(expositionInformation, "디코딩 실패!")
-    }
 }
 
