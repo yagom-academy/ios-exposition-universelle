@@ -142,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="632" y="-431"/>
         </scene>
-        <!--View Controller-->
+        <!--Item List View Controller-->
         <scene sceneID="waf-JJ-NUD">
             <objects>
-                <viewController id="Bew-Po-Iaj" sceneMemberID="viewController">
+                <viewController id="Bew-Po-Iaj" customClass="ItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="caQ-fl-FGA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +154,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="121" id="ipe-AA-1Nn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemListCell" rowHeight="121" id="ipe-AA-1Nn" customClass="ItemListCell" customModule="Expo1900" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ipe-AA-1Nn" id="vi9-7V-Xbq">

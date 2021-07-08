@@ -28,10 +28,12 @@ class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return itemList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemListCell", for: indexPath) else {
+            <#statements#>
+        }
     }
 }
