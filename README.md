@@ -6,5 +6,5 @@
 
 # UML
 
+<img width="790" alt="스크린샷 2021-07-09 오후 2 58 10" src="https://user-images.githubusercontent.com/79059747/125030435-15463080-e0c6-11eb-9bc7-65614bad31d9.png">
 
-![image](./Expo1900/Step1_UML.png)
