@@ -2,10 +2,13 @@
 import UIKit
 
 class ItemListViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-    var itemList: [KoreanItem] = []
+    //MARK: - IBOutlets
+    @IBOutlet private weak var tableView: UITableView!
     
+    //MARK: - Properties
+    private var itemList: [KoreanItem] = []
+    
+    //MARK: - LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -14,15 +17,19 @@ class ItemListViewController: UIViewController {
         let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
         let jsonDecoder = JSONDecoder()
+        
         guard let dataAsset = NSDataAsset(name: "items") else {
             return
         }
+        
         do {
-        itemList = try jsonDecoder.decode([KoreanItem].self, from: dataAsset.data)
+            itemList = try jsonDecoder.decode([KoreanItem].self, from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }
     }
+    
+    //MARK: - Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowItemDetailSegue",
            let destination = segue.destination as? DetailViewController,
@@ -36,6 +43,7 @@ class ItemListViewController: UIViewController {
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
+    //MARK: - Protocol Requirements
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemList.count
     }
@@ -44,6 +52,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemListCell", for: indexPath) as? ItemListCell else {
             return UITableViewCell()
         }
+        
         let item = itemList[indexPath.row]
         cell.itemName.text = item.itemName
         cell.itemImage.image = UIImage(named: item.imageName)

@@ -1,24 +1,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var expoData: Exposition?
+    //MARK: - Properties
+    private var expoData: Exposition?
     
-    @IBOutlet weak var expoTitle: UITextView!
-    @IBOutlet weak var expoPoster: UIImageView!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var expoDescription: UITextView!
+    //MARK: - IBOutlets
+    @IBOutlet private weak var expoTitle: UITextView!
+    @IBOutlet private weak var expoPoster: UIImageView!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var expoDescription: UITextView!
     
-    
+    //MARK: - LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "메인"
         let jsonDecoder = JSONDecoder()
+        
         guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
         }
+        
         do {
             expoData = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
         } catch {
@@ -35,12 +38,12 @@ class ViewController: UIViewController {
         durationLabel.text = "개최 기간 : \(validExpoData.duration)"
         expoDescription.text = validExpoData.description
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden.toggle()

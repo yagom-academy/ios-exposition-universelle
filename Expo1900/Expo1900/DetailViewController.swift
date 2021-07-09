@@ -9,28 +9,30 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    //MARK: - IBOutlets
+    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var itemDescription: UITextView!
     
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemDescription: UITextView!
-    
+    //MARK: - LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guard let validItem = item else {
             return
         }
         navigationItem.title = validItem.itemName
-
-        navigationItem
+        
         itemImage.image = UIImage(named: validItem.imageName)
         itemDescription.text = validItem.description
         
     }
     
-    var item: KoreanItem?
+    //MARK: - Properties
+    private var item: KoreanItem?
     
+    //MARK: - Methods
     func getParsedData(with koreanItem: KoreanItem) {
         item = koreanItem
     }
-
     
 }

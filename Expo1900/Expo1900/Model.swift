@@ -2,7 +2,7 @@ import Foundation
 
 struct Exposition: Codable {
     let title: String
-    let visitors: UInt
+    let visitors: Int
     let location: String
     let duration: String
     let description: String
@@ -24,7 +24,7 @@ struct KoreanItem: Codable {
     let shortDescription: String
     let description: String
     
-    enum CodingKeys: String , CodingKey {
+    private enum CodingKeys: String , CodingKey {
         case itemName = "name"
         case imageName = "image_name"
         case shortDescription = "short_desc"
