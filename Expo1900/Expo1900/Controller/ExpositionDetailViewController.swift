@@ -10,10 +10,18 @@ import UIKit
 class ExpositionDetailViewController: UIViewController {
 	@IBOutlet weak var itemImage: UIImageView!
 	@IBOutlet weak var itemDescriptionLabel: UILabel!
-	var itemName: String = ""
 
+    var expositionItem: ExpositionItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        itemImage.image = expositionItem?.image
+        itemDescriptionLabel.text = expositionItem?.description
+        self.navigationItem.title = expositionItem?.name
+    }
+    
+    func configure(expositionItem: ExpositionItem) {
+        self.expositionItem = expositionItem
     }
 	
 }
