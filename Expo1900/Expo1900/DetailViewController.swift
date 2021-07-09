@@ -15,7 +15,14 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let validItem = item else {
+            return
+        }
+        navigationItem.title = validItem.itemName
 
+        navigationItem
+        itemImage.image = UIImage(named: validItem.imageName)
+        itemDescription.text = validItem.description
         
     }
     

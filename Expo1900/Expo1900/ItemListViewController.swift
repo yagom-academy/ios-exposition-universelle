@@ -1,9 +1,3 @@
-//
-//  ItemListViewController.swift
-//  Expo1900
-//
-//  Created by yun on 2021/07/08.
-//
 
 import UIKit
 
@@ -16,6 +10,9 @@ class ItemListViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.navigationItem.title = "한국의 출품작"
+        let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: "items") else {
             return
@@ -25,8 +22,17 @@ class ItemListViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowItemDetailSegue",
+           let destination = segue.destination as? DetailViewController,
+           let cell  = sender as? ItemListCell,
+           let indexPath = tableView.indexPath(for: cell) {
+            let itemData = itemList[indexPath.row]
+            destination.getParsedData(with: itemData)
+        }
+    }
+    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
