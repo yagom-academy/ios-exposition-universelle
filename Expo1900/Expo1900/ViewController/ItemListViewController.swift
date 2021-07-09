@@ -8,11 +8,20 @@
 import UIKit
 
 class ItemListViewController: UIViewController {
-    var items = [Item]()
+    @IBOutlet private weak var itemListTableView: UITableView!
+    private var items = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initItems()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = itemListTableView.indexPathForSelectedRow,
+              let itemDetailView = segue.destination as? ItemDetailViewController else {
+            return
+        }
+        itemDetailView.setItem(item: items[indexPath.row])
     }
 }
 
@@ -33,7 +42,11 @@ extension ItemListViewController: UITableViewDataSource {
 extension ItemListViewController: JSONDecodable {
     typealias JSONModel = [Item]
     
-    func initItems() {
-        items = try! decodeJSON(fileName: .itemsFileName)
+    private func initItems() {
+        do {
+            items = try decodeJSON(fileName: .itemsFileName)
+        } catch {
+            self.navigationItem.title = .pageError
+        }
     }
 }

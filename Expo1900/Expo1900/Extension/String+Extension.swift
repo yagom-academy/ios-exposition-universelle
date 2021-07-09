@@ -19,4 +19,5 @@ extension String {
     static let colon = ": "
     static let blank = ""
     static let people = " 명"
+    static let pageError = "페이지 오류"
 }
