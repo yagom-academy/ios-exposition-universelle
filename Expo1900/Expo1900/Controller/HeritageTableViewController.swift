@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HeritageTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - IBOulet
     @IBOutlet weak private var tableView: UITableView!
@@ -56,7 +56,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextVC: ThirdViewController = self.storyboard?.instantiateViewController(identifier: "ThirdVC") as? ThirdViewController else {
+        guard let nextVC: DetailHeritageViewController = self.storyboard?.instantiateViewController(identifier: "ThirdVC") as? DetailHeritageViewController else {
             return
         }
         nextVC.koreanHeritage = informationOfKoreanHeritages[indexPath.row]

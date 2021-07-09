@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     //MARK: - IBOulet
     @IBOutlet weak private var mainTitle: UILabel!
