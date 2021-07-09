@@ -8,15 +8,13 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var itemShortDescriptionLabel: UILabel!
-    var itemLongDescription: String?
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemNameLabel: UILabel!
+    @IBOutlet private weak var itemShortDescriptionLabel: UILabel!
     
     func transfer(data: Item) {
         itemImageView.image = UIImage(named: data.imageName)
         itemNameLabel.text = data.name
         itemShortDescriptionLabel.text = data.shortDescription
-        itemLongDescription = data.description
     }
 }

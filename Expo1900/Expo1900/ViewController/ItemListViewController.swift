@@ -15,7 +15,7 @@ class ItemListViewController: UIViewController {
         super.viewDidLoad()
         initItems()
     }
-    
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = itemListTableView.indexPathForSelectedRow,
               let itemDetailView = segue.destination as? ItemDetailViewController else {
@@ -30,8 +30,15 @@ extension ItemListViewController: UITableViewDataSource {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemTableViewCell else {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "itemCell",
+                for: indexPath
+        ) as? ItemTableViewCell
+        else {
             return UITableViewCell()
         }
         cell.transfer(data: items[indexPath.row])
