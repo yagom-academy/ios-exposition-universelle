@@ -68,7 +68,7 @@
                                                                 <rect key="frame" x="138" y="0.0" width="138" height="567"/>
                                                                 <state key="normal" title="한국의 출품작"/>
                                                                 <connections>
-                                                                    <action selector="moveSecond:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GdO-d0-oga"/>
+                                                                    <action selector="moveHeritageTableVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="avh-fX-X5R"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="ysu-W6-xVg">
@@ -200,17 +200,14 @@
             </objects>
             <point key="canvasLocation" x="1768.1159420289857" y="75"/>
         </scene>
-        <!--View Controller-->
+        <!--Third View Controller-->
         <scene sceneID="GLn-ue-e24">
             <objects>
-                <viewController storyboardIdentifier="ThirdVC" id="5Fc-Lc-dik" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdVC" id="5Fc-Lc-dik" customClass="ThirdViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N2m-8a-g1f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v85-SO-pbQ">
-                                <rect key="frame" x="74" y="96" width="240" height="128"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uW9-uh-lZo">
                                 <rect key="frame" x="74" y="275" width="240" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -219,6 +216,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v85-SO-pbQ">
+                                <rect key="frame" x="74" y="95" width="240" height="118"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEXT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycm-AH-gEw">
+                                <rect key="frame" x="173" y="44" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a8H-Be-tXJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -234,6 +241,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cai-HZ-Vru"/>
+                    <connections>
+                        <outlet property="koreanHeritageDescription" destination="uW9-uh-lZo" id="w69-7h-HTL"/>
+                        <outlet property="koreanHeritageImage" destination="v85-SO-pbQ" id="K5a-VF-8nM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9k-IK-09b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

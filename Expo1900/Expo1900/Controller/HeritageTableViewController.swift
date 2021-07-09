@@ -9,16 +9,26 @@ import UIKit
 
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
-    var informationOfKoreanHeritages: [InformationOfKoreanHeritage] = []
+    //MARK: - IBOulet
+    @IBOutlet weak private var tableView: UITableView!
     
+    //MARK: - Property
+    private var informationOfKoreanHeritages: [InformationOfKoreanHeritage] = []
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        decodingJson()
+    }
+    
+    //MARK: - Method
+    private func decodingJson() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
             return
         }
+        
         do {
             self.informationOfKoreanHeritages = try jsonDecoder.decode([InformationOfKoreanHeritage].self, from: dataAsset.data)
         } catch {
@@ -43,5 +53,13 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         cell.koreanHeritageShortDescription.text = koreanHeritage.shortDescription
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nextVC: ThirdViewController = self.storyboard?.instantiateViewController(identifier: "ThirdVC") as? ThirdViewController else {
+            return
+        }
+        nextVC.koreanHeritage = informationOfKoreanHeritages[indexPath.row]
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
