@@ -8,11 +8,22 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemDescription: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    var item: KoreanItem?
+    
+    func getParsedData(with koreanItem: KoreanItem) {
+        item = koreanItem
     }
 
+    
 }
