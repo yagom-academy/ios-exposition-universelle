@@ -35,12 +35,5 @@ class WorldsExpoViewController: UIViewController {
             showAlert(error: parsedError)
         }
     }
-    
-    func showAlert(error: ParsingError) {
-        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
 }
 

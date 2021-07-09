@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C413361A26973FF2009E9F81 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C413361926973FF2009E9F81 /* ParsingError.swift */; };
+		C413361D26984CDE009E9F81 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C413361C26984CDE009E9F81 /* UIViewController+Extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* WorldsExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* WorldsExpoViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		C413361926973FF2009E9F81 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
+		C413361C26984CDE009E9F81 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		C413361B26984CBE009E9F81 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C413361C26984CDE009E9F81 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +84,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				C413361B26984CBE009E9F81 /* Extension */,
 				C413361826973FAD009E9F81 /* Error */,
 				DFE47955269723E1000433E5 /* Manager */,
 				E9DB10A126944AF100DD18FE /* Controller */,
@@ -192,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C413361D26984CDE009E9F81 /* UIViewController+Extension.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* WorldsExpoViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
