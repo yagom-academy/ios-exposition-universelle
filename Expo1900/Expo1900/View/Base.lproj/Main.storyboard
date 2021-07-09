@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,7 +114,7 @@
                             <constraint firstItem="Vbk-fQ-oQF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c3M-7g-0Tg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eW8-pN-yWz"/>
+                    <navigationItem key="navigationItem" title="메인" id="eW8-pN-yWz"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="pAG-h4-X3k" id="uPx-6q-USe"/>
                         <outlet property="durationLabel" destination="jpj-tD-RIU" id="bbS-iY-84u"/>
@@ -127,7 +127,7 @@
             </objects>
             <point key="canvasLocation" x="1894" y="138"/>
         </scene>
-        <!--Item List View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="duu-mO-sg3">
             <objects>
                 <viewController id="uqk-lu-jY8" customClass="ItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,7 +187,7 @@
                             <constraint firstAttribute="trailing" secondItem="bA9-C4-rss" secondAttribute="trailing" id="vzg-m8-Vhc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qBQ-S1-pdB"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="qBQ-S1-pdB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8h-OQ-IC3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

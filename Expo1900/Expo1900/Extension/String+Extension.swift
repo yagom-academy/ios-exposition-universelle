@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     static let expositionFileName = "exposition_universelle_1900"
+    static let itemsFileName = "items"
     static let bracket = "("
     static let newLine = "\n"
     static let zero = "0"
