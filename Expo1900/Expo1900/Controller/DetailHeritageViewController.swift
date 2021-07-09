@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class DetailHeritageViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet weak private var koreanHeritageImage: UIImageView!
