@@ -15,8 +15,6 @@ class KoreanEntryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         entryTableView.dataSource = self
-
-        // Do any additional setup after loading the view.
     }
 }
 

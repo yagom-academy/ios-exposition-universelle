@@ -18,6 +18,29 @@ class WorldsExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setComponent()
+    }
+    
+    func setComponent() {
+        let parsedResult = ParsingManager.shared.parse(name: "exposition_universelle_1900", to: ExpoIntroduction.self)
+        switch parsedResult {
+        case .success(let parsedData):
+            titleLabel.text = parsedData.title
+            visitorCountLabel.text = String(parsedData.visitors)
+            locationLabel.text = parsedData.location
+            durationLabel.text = parsedData.duration
+            descriptionTextView.text = parsedData.description
+        case .failure(let parsedError):
+            showAlert(error: parsedError)
+        }
+    }
+    
+    func showAlert(error: ParsingError) {
+        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 
