@@ -17,45 +17,13 @@ class ParsingManager {
 }
 
 extension ParsingManager {
-    func parsing<T: Codable>(about type: T.Type) -> Result<[T], ParsingError> {
-        switch type {
-        case is ExpoIntroduction.Type:
-            do {
-                let assetData = try bringAsset(name: expoIntroductionFileName)
-                let parsedData = try decode(from: assetData, to: type, isArray: false)
-                return .success(parsedData)
-            } catch {
-                return .failure(.decodingFailed)
-            }
-        case is ExpoEntry.Type:
-            do {
-                let assetData = try bringAsset(name: expoEntryFileName)
-                let parsedData = try decode(from: assetData, to: type, isArray: true)
-                return .success(parsedData)
-            } catch {
-                return .failure(.unknown)
-            }
-        default:
-            return .failure(.invalidType)
+    func parse<T: Codable>(name: String, to type: T.Type) -> Result<T, ParsingError> {
+        guard let asset: NSDataAsset = NSDataAsset(name: name) else {
+            return .failure(.dataSetNotFound)
         }
-    }
-    
-    private func bringAsset(name fileName: String) throws -> Data {
-        guard let asset = NSDataAsset(name: fileName) else {
-            throw ParsingError.dataSetNotFound
+        guard let data = try? jsonDecoder.decode(type, from: asset.data) else {
+            return .failure(.decodingFailed)
         }
-        return asset.data
-    }
-    
-    private func decode<T: Codable>(from data: Data, to parsedType: T.Type, isArray: Bool) throws -> [T] {
-        if isArray {
-            let decodedResult = try jsonDecoder.decode([T].self, from: data)
-            return decodedResult
-        } else {
-            var parsedData = [T]()
-            let decodedResult = try jsonDecoder.decode(T.self, from: data)
-            parsedData.append(decodedResult)
-            return parsedData
-        }
+        return .success(data)
     }
 }
