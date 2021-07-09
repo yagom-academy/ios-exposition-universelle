@@ -12,11 +12,11 @@ enum DecoderError: Error {
 }
 
 protocol JSONDecodable {
-    associatedtype T: Decodable
+    associatedtype JSONModel: Decodable
 }
 
 extension JSONDecodable {
-    func decodeJSON(fileName: String) throws -> T {
+    func decodeJSON(fileName: String) throws -> JSONModel {
         guard let convertedAsset = NSDataAsset(name: fileName) else {
             throw DecoderError.invaildFileName
         }
@@ -24,7 +24,7 @@ extension JSONDecodable {
         do {
             let decoder = JSONDecoder()
             
-            return try decoder.decode(T.self, from: convertedAsset.data)
+            return try decoder.decode(JSONModel.self, from: convertedAsset.data)
         } catch {
             throw error
         }

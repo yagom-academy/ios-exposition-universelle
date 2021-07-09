@@ -9,7 +9,7 @@ import XCTest
 
 class Expo1900Tests: XCTestCase {
     class Test: JSONDecodable {
-        typealias T = Exposition
+        typealias JSONModel = Exposition
     }
     let cut = Test()
     
