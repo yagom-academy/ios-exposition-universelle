@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FairJSONDecoder {
     static let shared = FairJSONDecoder()

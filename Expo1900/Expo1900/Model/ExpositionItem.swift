@@ -20,7 +20,7 @@ struct Item: Codable {
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
-        case shortDescription = "short_description"
+        case shortDescription = "short_desc"
         case description = "desc"
     }
 }
