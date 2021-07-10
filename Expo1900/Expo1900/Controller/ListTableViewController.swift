@@ -2,7 +2,7 @@
 //  ListTableViewController.swift
 //  Expo1900
 //
-//  Created by 신동훈 on 2021/07/10.
+//  Created by Hosinging, EHD on 2021/07/10.
 //
 
 import UIKit
@@ -10,11 +10,11 @@ import UIKit
 enum TestError: Error {
     case testError
 }
+
 class ListTableViewController: UITableViewController {
 
     var items: [Item] = []
     let showItemDetailSegue = "showItemDetailSegue"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,15 +44,19 @@ class ListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 0
+        return items.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell else {
+            return UITableViewCell()
+        }
+        let itemOfRow = items[indexPath.row]
+        cell.itemImageView.image = UIImage(named: itemOfRow.imageName)
+        cell.itemNameLabel.text = itemOfRow.name
+        cell.itemShortDescription.text = itemOfRow.shortDescription
+        return cell
+    }
+    
 }

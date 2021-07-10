@@ -1,7 +1,7 @@
 //
 //  Expo1900 - ViewController.swift
 //  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
+//  Copyright © Hosinging, EHD. All rights reserved.
 // 
 
 import UIKit

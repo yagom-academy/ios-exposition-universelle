@@ -2,7 +2,7 @@
 //  ListTableViewCell.swift
 //  Expo1900
 //
-//  Created by 신동훈 on 2021/07/10.
+//  Created by Hosinging, EHD on 2021/07/10.
 //
 
 import UIKit
