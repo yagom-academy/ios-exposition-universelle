@@ -16,6 +16,7 @@ class KoreaExpositionViewController: UIViewController {
         super.viewDidLoad()
         decodingKoreaExpositionData()
         koreaExpositionTableView.dataSource = self
+        koreaExpositionTableView.delegate = self
     }
     
     func decodingKoreaExpositionData() {
@@ -30,7 +31,7 @@ class KoreaExpositionViewController: UIViewController {
     }
 }
 
-extension KoreaExpositionViewController: UITableViewDataSource {
+extension KoreaExpositionViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return koreaExpositions.count
     }
@@ -45,5 +46,9 @@ extension KoreaExpositionViewController: UITableViewDataSource {
         customCell.shortDescriptionLabel.text = koreaExpositionItem.shortDescription
         customCell.itemImage.image = UIImage(named: koreaExpositionItem.imageName)
         return customCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "MoveToDetail", sender: indexPath)
     }
 }
