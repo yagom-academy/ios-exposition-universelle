@@ -11,7 +11,7 @@
         <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="2500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="2500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-3V-Rv9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPz-qd-GK9">
                                                 <rect key="frame" x="8" y="10" width="398" height="30"/>
@@ -74,26 +74,8 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-pp-dQO">
-                                                <rect key="frame" x="8" y="400.5" width="398" height="1014.5"/>
-                                                <mutableString key="text">
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData </mutableString>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-pp-dQO">
+                                                <rect key="frame" x="8" y="400.5" width="398" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -116,7 +98,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9W-CV-0cL">
-                                                <rect key="frame" x="20" y="2444" width="374" height="48"/>
+                                                <rect key="frame" x="20" y="1944" width="374" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="vat-9d-0RJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
@@ -170,7 +152,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="wPz-qd-GK9" secondAttribute="trailing" id="VoQ-kv-Dfz"/>
                                             <constraint firstItem="Iuc-yo-X6j" firstAttribute="top" secondItem="aNR-HC-Z9E" secondAttribute="bottom" constant="10" id="Vp9-XN-29y"/>
                                             <constraint firstItem="wp8-pg-L2g" firstAttribute="centerX" secondItem="yCe-3V-Rv9" secondAttribute="centerX" id="WcT-b9-04H"/>
-                                            <constraint firstAttribute="height" constant="2500" id="cI8-yS-ZAn"/>
+                                            <constraint firstAttribute="height" constant="2000" id="cI8-yS-ZAn"/>
                                             <constraint firstItem="9vB-QK-QD4" firstAttribute="top" secondItem="wPz-qd-GK9" secondAttribute="bottom" constant="10" id="eSi-dR-bAu"/>
                                             <constraint firstItem="wPz-qd-GK9" firstAttribute="top" secondItem="yCe-3V-Rv9" secondAttribute="top" constant="10" id="fZL-UT-4MT"/>
                                             <constraint firstItem="wPz-qd-GK9" firstAttribute="leading" secondItem="yCe-3V-Rv9" secondAttribute="leadingMargin" id="nZr-VD-afF"/>
@@ -204,6 +186,15 @@
                         <barButtonItem key="backBarButtonItem" title="메인" id="dth-fz-HuL"/>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="2500"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Kkg-pp-dQO" id="fgR-48-W8P"/>
+                        <outlet property="expositionPoster" destination="ySP-Ya-pjN" id="t7e-qW-aCb"/>
+                        <outlet property="expositionTitleLabel" destination="wPz-qd-GK9" id="3L7-1s-61c"/>
+                        <outlet property="expositionTitleLableInFrench" destination="9vB-QK-QD4" id="vr0-GS-UJb"/>
+                        <outlet property="locationLabel" destination="xeY-s8-2nq" id="hfd-U6-wdQ"/>
+                        <outlet property="numberOfVisitorsLabel" destination="N3i-1l-B62" id="fa8-3b-3hZ"/>
+                        <outlet property="periodLabel" destination="dYy-gV-CM3" id="LFh-Dv-OTQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
