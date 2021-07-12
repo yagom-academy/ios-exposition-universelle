@@ -19,6 +19,7 @@ class ListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showItemDetailSegue, let destination = segue.destination as? ItemTableViewController, let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             let item = items[indexPath.row]
+            
             destination.itemName = item.name
             destination.itemImage = UIImage(named: item.imageName)
             destination.itemDescription = item.description;
