@@ -315,6 +315,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wDW-Wz-UN6"/>
+                    <connections>
+                        <outlet property="entryDescriptionTextView" destination="pXn-Zt-Uuf" id="kUL-5F-Za1"/>
+                        <outlet property="entryImageView" destination="jCN-HQ-Y5V" id="fr8-Gx-Ehe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lng-Xd-2rP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

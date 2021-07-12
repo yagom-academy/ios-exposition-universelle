@@ -8,27 +8,30 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
+    
+    
+    @IBOutlet weak var entryImageView: UIImageView!
+    @IBOutlet weak var entryDescriptionTextView: UITextView!
     private var entryItem: ExpoEntry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setComponent()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension EntryDetailViewController {
     func configureEntryItem(from data: ExpoEntry) {
         entryItem = data
+    }
+}
+
+extension EntryDetailViewController {
+    func setComponent() {
+        guard let entryItem = entryItem else {
+            return
+        }
+        entryImageView.image = UIImage(named: entryItem.imageName)
+        entryDescriptionTextView.text = entryItem.description
     }
 }
