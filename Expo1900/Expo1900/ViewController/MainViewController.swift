@@ -6,6 +6,52 @@
 
 import UIKit
 
+extension Exposition {
+    enum Prefix: CustomStringConvertible {
+        case visitor
+        case location
+        case duration
+        
+        var description: String {
+            switch self {
+            case .visitor:
+                return "방문객 : "
+            case .location:
+                return "개최지 : "
+            case .duration:
+                return "개최 기간 : "
+            }
+        }
+    }
+    
+    var formattedTitle: String {
+        return format(title: self.title)
+    }
+    
+    var formattedVisitor: String {
+        return Prefix.visitor.description + format(visitors: self.visitors) + String.people
+    }
+    
+    var formattedLocation: String {
+        return Prefix.location.description + self.location
+    }
+    
+    var formattedDuration: String {
+        return Prefix.duration.description + self.duration
+    }
+    
+    private func format(title: String) -> String {
+        return title.replacingOccurrences(of: String.bracket,
+                                          with: String.newLine + String.bracket)
+    }
+    
+    private func format(visitors: UInt) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: visitors)) ?? .zero
+    }
+}
+
 class MainViewController: UIViewController {
     
     @IBOutlet private weak var titleLabel: UILabel!
@@ -44,30 +90,17 @@ extension MainViewController {
         guard let currentExposition = initExposition() else {
             return
         }
-        let titleText = format(title: currentExposition.title)
-        let visitorsText = format(visitors: currentExposition.visitors)
-        titleLabel.text = titleText
-        visitorsLabel.text = .visitor + visitorsText + .people
-        locationLabel.text = .location + currentExposition.location
-        durationLabel.text = .duration + currentExposition.duration
+        titleLabel.text = currentExposition.formattedTitle
+        visitorsLabel.text = currentExposition.formattedVisitor
+        locationLabel.text = currentExposition.formattedLocation
+        durationLabel.text = currentExposition.formattedDuration
         descriptionLabel.text = currentExposition.description
     }
     
-    private func format(title: String) -> String {
-        return title.replacingOccurrences(of: String.bracket,
-                                          with: String.newLine + String.bracket)
-    }
-    
-    private func format(visitors: UInt) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(from: NSNumber(value: visitors)) ?? .zero
-    }
-    
     private func styleLabelHeaders() {
-        modifySize(of: .visitor , in: visitorsLabel)
-        modifySize(of: .location , in: locationLabel)
-        modifySize(of: .duration , in: durationLabel)
+        modifySize(of: Exposition.Prefix.visitor.description , in: visitorsLabel)
+        modifySize(of: Exposition.Prefix.location.description , in: locationLabel)
+        modifySize(of: Exposition.Prefix.duration.description , in: durationLabel)
     }
     
     private func modifySize(of range: String, in label: UILabel) {
