@@ -8,11 +8,19 @@
 import UIKit
 
 class KoreaExpositionDetailViewController: UIViewController {
-    @IBOutlet weak var itemIamge: UIImageView!
+    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    var koreaExpositionItem: KoreaExposition?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        matchInitialValue()
+    }
+    func matchInitialValue() {
+        if let unwrappedKoreaExpositionItem = koreaExpositionItem {
+            itemImage.image = UIImage(named: unwrappedKoreaExpositionItem.imageName)
+            descriptionLabel.text = unwrappedKoreaExpositionItem.description
+        }
     }
 }
 

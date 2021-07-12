@@ -19,6 +19,16 @@ class KoreaExpositionViewController: UIViewController {
         koreaExpositionTableView.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MoveToDetail" {
+            if let detailViewController = segue.destination as? KoreaExpositionDetailViewController,
+               let index = sender as? Int {
+                let detailData: KoreaExposition = koreaExpositions[index]
+                detailViewController.koreaExpositionItem = detailData
+            }
+        }
+    }
+    
     func decodingKoreaExpositionData() {
         let decoder: JSONDecoder = JSONDecoder()
         if let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") {
@@ -49,6 +59,7 @@ extension KoreaExpositionViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "MoveToDetail", sender: indexPath)
+        performSegue(withIdentifier: "MoveToDetail", sender: indexPath.row)
     }
 }
+

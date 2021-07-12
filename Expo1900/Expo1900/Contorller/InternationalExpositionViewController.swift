@@ -8,7 +8,7 @@
 import UIKit
 
 class InternationalExpositionViewController: UIViewController {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -17,7 +17,7 @@ class InternationalExpositionViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var koreaFlagImage: UIImageView!
     var internationalExposition: InternationalExposition?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         decodingInternationalExpositionData()
@@ -37,13 +37,15 @@ class InternationalExpositionViewController: UIViewController {
     }
     
     func matchingInitialValue() {
-        titleLabel.text = internationalExposition?.title
-        itemImage.image = UIImage(named: "poster")
-        visitorsLabel.text = "\(internationalExposition?.visitors ?? 0)"
-        locationLabel.text = internationalExposition?.location
-        durationLabel.text = internationalExposition?.duration
-        descriptionLabel.text = internationalExposition?.description
-        koreaFlagImage.image = UIImage(named: "flag")
+        if let unwrappedInternationalExposition = internationalExposition {
+            titleLabel.text = unwrappedInternationalExposition.title
+            itemImage.image = UIImage(named: "poster")
+            visitorsLabel.text = String(unwrappedInternationalExposition.visitors)
+            locationLabel.text = unwrappedInternationalExposition.location
+            durationLabel.text = unwrappedInternationalExposition.duration
+            descriptionLabel.text = unwrappedInternationalExposition.description
+            koreaFlagImage.image = UIImage(named: "flag")
+        }
     }
-
+    
 }
