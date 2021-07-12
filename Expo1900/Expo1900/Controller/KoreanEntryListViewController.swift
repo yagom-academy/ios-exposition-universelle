@@ -39,7 +39,7 @@ extension KoreanEntryListViewController {
         guard let indexPath = entryTableView.indexPathForSelectedRow,
               segue.identifier == showDetailSegueIdentifier,
               let detailViewController = segue.destination as? EntryDetailViewController else {
-            return
+            return showAlert(error: DataTransferError.sendingError)
         }
         detailViewController.configureEntryItem(from: entryList[indexPath.row])
     }

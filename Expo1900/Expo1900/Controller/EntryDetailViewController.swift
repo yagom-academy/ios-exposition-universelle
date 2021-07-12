@@ -29,7 +29,7 @@ extension EntryDetailViewController {
 extension EntryDetailViewController {
     func setComponent() {
         guard let entryItem = entryItem else {
-            return
+            return showAlert(error: DataTransferError.recievingError)
         }
         entryImageView.image = UIImage(named: entryItem.imageName)
         entryDescriptionTextView.text = entryItem.description
