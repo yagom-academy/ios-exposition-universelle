@@ -18,11 +18,21 @@ class InternationalExpositionViewController: UIViewController {
     @IBOutlet weak var koreaFlagImage: UIImageView!
     var internationalExposition: InternationalExposition?
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated )
+        self.navigationItem.title = "메인"
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated )
+
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         decodingInternationalExpositionData()
         matchingInitialValue()
-        // Do any additional setup after loading the view.
     }
     
     func decodingInternationalExpositionData() {

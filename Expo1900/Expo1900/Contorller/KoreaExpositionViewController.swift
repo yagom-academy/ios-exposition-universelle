@@ -9,11 +9,15 @@ import UIKit
 
 class KoreaExpositionViewController: UIViewController {
     @IBOutlet weak var koreaExpositionTableView: UITableView!
+    @IBOutlet weak var koreaExpositionViewTitle: UINavigationItem!
     var koreaExpositions: [KoreaExposition] = []
     let tableViewCellIdentifer: String = "KoreaExpositionCell"
-    
+    let viewTitle: String = "한국의 출품작"
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        koreaExpositionViewTitle.title = viewTitle
         decodingKoreaExpositionData()
         koreaExpositionTableView.dataSource = self
         koreaExpositionTableView.delegate = self
