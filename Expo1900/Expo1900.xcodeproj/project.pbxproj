@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C413361A26973FF2009E9F81 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C413361926973FF2009E9F81 /* ParsingError.swift */; };
 		C413361D26984CDE009E9F81 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C413361C26984CDE009E9F81 /* UIViewController+Extension.swift */; };
+		C495E2F9269C319600564B15 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495E2F8269C319600564B15 /* EntryDetailViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* WorldsExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* WorldsExpoViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		C413361926973FF2009E9F81 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
 		C413361C26984CDE009E9F81 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C495E2F8269C319600564B15 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* WorldsExpoViewController.swift */,
 				E9DB10B2269703AE00DD18FE /* KoreanEntryListViewController.swift */,
+				C495E2F8269C319600564B15 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				DF3AE3C226944502000BF31A /* ExpoIntroduction.swift in Sources */,
 				DFE47957269723F5000433E5 /* ParsingManager.swift in Sources */,
 				E9DB10A326944B6E00DD18FE /* ExpoEntry.swift in Sources */,
+				C495E2F9269C319600564B15 /* EntryDetailViewController.swift in Sources */,
 				E9DB10B3269703AE00DD18FE /* KoreanEntryListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

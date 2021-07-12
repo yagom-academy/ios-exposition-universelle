@@ -32,6 +32,19 @@ extension KoreanEntryListViewController {
     }
 }
 
+//MARK:- Send Data
+extension KoreanEntryListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let showDetailSegueIdentifier = "ShowEntryDetailSegue"
+        guard let indexPath = entryTableView.indexPathForSelectedRow,
+              segue.identifier == showDetailSegueIdentifier,
+              let detailViewController = segue.destination as? EntryDetailViewController else {
+            return
+        }
+        detailViewController.configureEntryItem(from: entryList[indexPath.row])
+    }
+}
+
 //MARK:- Conform to UITableViewDataSource
 extension KoreanEntryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
