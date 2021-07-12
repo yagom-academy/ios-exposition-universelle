@@ -13,3 +13,5 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemShortDescription: UILabel!
 }
+
+

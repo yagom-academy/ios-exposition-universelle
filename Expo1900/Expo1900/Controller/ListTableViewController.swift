@@ -16,6 +16,15 @@ class ListTableViewController: UITableViewController {
     var items: [Item] = []
     let showItemDetailSegue = "showItemDetailSegue"
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showItemDetailSegue, let destination = segue.destination as? ItemTableViewController, let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            let item = items[indexPath.row]
+            destination.itemName = item.name
+            destination.itemImage = UIImage(named: item.imageName)
+            destination.itemDescription = item.description;
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)

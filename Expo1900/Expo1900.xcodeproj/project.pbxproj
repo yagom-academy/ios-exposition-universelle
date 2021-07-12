@@ -15,6 +15,7 @@
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		D3CC2153269C62D400686A29 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CC2152269C62D400686A29 /* ItemTableViewController.swift */; };
 		D3DED563269962690052818F /* FairJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DED562269962690052818F /* FairJSONDecoder.swift */; };
 		D3DED56A269979250052818F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DED569269979250052818F /* ListTableViewCell.swift */; };
 		D3DED56D269979D40052818F /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DED56C269979D40052818F /* ListTableViewController.swift */; };
@@ -31,6 +32,7 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3CC2152269C62D400686A29 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		D3DED562269962690052818F /* FairJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairJSONDecoder.swift; sourceTree = "<group>"; };
 		D3DED569269979250052818F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		D3DED56C269979D40052818F /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				D3DED56C269979D40052818F /* ListTableViewController.swift */,
+				D3CC2152269C62D400686A29 /* ItemTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DED56A269979250052818F /* ListTableViewCell.swift in Sources */,
+				D3CC2153269C62D400686A29 /* ItemTableViewController.swift in Sources */,
 				D3DED563269962690052818F /* FairJSONDecoder.swift in Sources */,
 				2BA1BBE02695724100DE3842 /* ExpositionItem.swift in Sources */,
 				D3DED56D269979D40052818F /* ListTableViewController.swift in Sources */,
