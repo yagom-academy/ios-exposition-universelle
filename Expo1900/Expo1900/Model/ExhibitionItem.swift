@@ -8,10 +8,10 @@
 import Foundation
 
 struct ExhibitionItem: Decodable {
-    private let name: String
-    private let imageName: String
-    private let shortDescription: String
-    private let description: String
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
         case name

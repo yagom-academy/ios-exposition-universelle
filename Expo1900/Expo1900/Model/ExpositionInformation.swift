@@ -8,9 +8,9 @@
 import Foundation
 
 struct ExpositionInformation: Decodable {
-    private let title: String
-    private let visitors: UInt
-    private let location: String
-    private let duration: String
-    private let description: String
+    let title: String
+    let visitors: UInt
+    let location: String
+    let duration: String
+    let description: String
 }
