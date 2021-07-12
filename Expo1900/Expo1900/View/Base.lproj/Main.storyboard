@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NZI-xK-sAQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NZI-xK-sAQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,6 +76,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uch-hQ-jZs">
                                                 <rect key="frame" x="100" y="384.5" width="177" height="30"/>
                                                 <state key="normal" title="한국의 출품작 보러가기"/>
+                                                <connections>
+                                                    <segue destination="gbo-QL-FgT" kind="show" id="Ufu-AL-ZFd"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mP-Ka-f21">
                                                 <rect key="frame" x="116" y="256.5" width="45" height="21"/>
@@ -168,7 +171,9 @@
                             <constraint firstItem="OqC-1Z-dNc" firstAttribute="leading" secondItem="q2y-u1-ADw" secondAttribute="leading" id="qlD-Sh-Adq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WSA-GK-CCY"/>
+                    <navigationItem key="navigationItem" id="WSA-GK-CCY">
+                        <barButtonItem key="backBarButtonItem" title="메인" id="u6g-9G-CKB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionTextView" destination="nCl-7r-6gd" id="jtm-2J-LLp"/>
                         <outlet property="durationLabel" destination="JGW-fg-gWu" id="eZS-lu-eSh"/>
@@ -197,28 +202,28 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="KoreanEntryListCell" textLabel="C6q-cb-v8N" detailTextLabel="KJ7-Vi-OPA" imageView="Z08-UW-FKB" rowHeight="150" style="IBUITableViewCellStyleSubtitle" id="3fb-is-pc0">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="150"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3fb-is-pc0" id="yNe-8D-SyI">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C6q-cb-v8N">
-                                                    <rect key="frame" x="262.5" y="55" width="33" height="20.5"/>
+                                                    <rect key="frame" x="262" y="55" width="33" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KJ7-Vi-OPA">
-                                                    <rect key="frame" x="262.5" y="78.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="262" y="78.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="woodshoes" id="Z08-UW-FKB">
-                                                    <rect key="frame" x="20" y="0.0" width="227.5" height="150"/>
+                                                    <rect key="frame" x="20" y="0.0" width="227" height="150"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -229,27 +234,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYO-zU-hKe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="02b-LB-cuZ">
-                                        <barButtonItem key="leftBarButtonItem" title="메인" image="chevron.backward" catalog="system" id="GVa-Kz-NZe"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yRz-SN-ko8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dYO-zU-hKe" firstAttribute="leading" secondItem="yRz-SN-ko8" secondAttribute="leading" id="0sR-Ew-yPO"/>
-                            <constraint firstItem="qUf-x1-LLZ" firstAttribute="top" secondItem="dYO-zU-hKe" secondAttribute="bottom" id="2c2-1x-zla"/>
-                            <constraint firstItem="dYO-zU-hKe" firstAttribute="top" secondItem="yRz-SN-ko8" secondAttribute="top" id="3hc-MJ-H7l"/>
                             <constraint firstItem="yRz-SN-ko8" firstAttribute="bottom" secondItem="qUf-x1-LLZ" secondAttribute="bottom" id="9cY-ra-406"/>
+                            <constraint firstItem="qUf-x1-LLZ" firstAttribute="top" secondItem="yRz-SN-ko8" secondAttribute="top" id="Bl3-0E-IaU"/>
                             <constraint firstItem="qUf-x1-LLZ" firstAttribute="leading" secondItem="yRz-SN-ko8" secondAttribute="leading" id="Cco-E2-cFt"/>
-                            <constraint firstItem="dYO-zU-hKe" firstAttribute="trailing" secondItem="yRz-SN-ko8" secondAttribute="trailing" id="DMH-ys-qpi"/>
                             <constraint firstItem="yRz-SN-ko8" firstAttribute="trailing" secondItem="qUf-x1-LLZ" secondAttribute="trailing" id="ol8-1c-4J4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="i0Q-Ll-bhM"/>
                     <connections>
                         <outlet property="entryTableView" destination="qUf-x1-LLZ" id="ak4-V1-iQm"/>
                     </connections>
@@ -263,11 +258,11 @@
             <objects>
                 <viewController id="MWs-Gr-s4P" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rtn-6Z-9s9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ue-sz-TFF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sWP-ih-Kyu">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="471.5"/>
@@ -327,7 +322,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="flag" width="851" height="567"/>
         <image name="poster" width="144" height="200"/>
         <image name="woodshoes" width="293" height="194"/>

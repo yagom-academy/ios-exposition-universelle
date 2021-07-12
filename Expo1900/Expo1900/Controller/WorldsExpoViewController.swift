@@ -22,6 +22,16 @@ class WorldsExpoViewController: UIViewController {
         setComponent()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     func setComponent() {
         let parsedResult = ParsingManager.shared.parse(name: "exposition_universelle_1900", to: ExpoIntroduction.self)
         switch parsedResult {
