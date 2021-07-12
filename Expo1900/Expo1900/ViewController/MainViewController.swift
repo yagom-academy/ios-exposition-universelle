@@ -25,23 +25,24 @@ extension Exposition {
     }
     
     var formattedTitle: String {
-        return format(title: self.title)
+        format(title: self.title)
     }
     
     var formattedVisitor: String {
-        return Prefix.visitor.description + format(visitors: self.visitors) + String.people
+        let people = " 명"
+        return Prefix.visitor.description + format(visitors: self.visitors) + people
     }
     
     var formattedLocation: String {
-        return Prefix.location.description + self.location
+        Prefix.location.description + self.location
     }
     
     var formattedDuration: String {
-        return Prefix.duration.description + self.duration
+        Prefix.duration.description + self.duration
     }
     
     private func format(title: String) -> String {
-        return title.replacingOccurrences(of: String.bracket,
+        title.replacingOccurrences(of: String.bracket,
                                           with: String.newLine + String.bracket)
     }
     
@@ -81,7 +82,9 @@ extension MainViewController: JSONDecodable {
     typealias JSONModel = Exposition
     
     private func initExposition() -> Exposition? {
-        return try? decodeJSON(fileName: .expositionFileName)
+        let expositionFileName = "exposition_universelle_1900"
+
+        return try? decodeJSON(fileName: expositionFileName)
     }
 }
 
@@ -108,7 +111,7 @@ extension MainViewController {
             return
         }
         let targetRange = (text as NSString)
-            .range(of: range.replacingOccurrences(of: String.colon, with: String.blank))
+            .range(of: range.replacingOccurrences(of: String.colonAndSpace, with: String.blank))
         let fontSize = UIFont.systemFont(ofSize: label.font.pointSize + 4)
         let attributedString = NSMutableAttributedString(string: text)
         attributedString.addAttribute(.font, value: fontSize, range: targetRange)

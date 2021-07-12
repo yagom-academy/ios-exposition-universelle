@@ -27,7 +27,7 @@ class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        items.count
     }
     
     func tableView(
@@ -50,8 +50,10 @@ extension ItemListViewController: JSONDecodable {
     typealias JSONModel = [Item]
     
     private func initItems() {
+        let itemsFileName = "items"
+
         do {
-            items = try decodeJSON(fileName: .itemsFileName)
+            items = try decodeJSON(fileName: itemsFileName)
         } catch {
             self.navigationItem.title = .pageError
         }
