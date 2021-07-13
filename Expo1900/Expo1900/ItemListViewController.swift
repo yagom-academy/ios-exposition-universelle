@@ -6,7 +6,7 @@ class ItemListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     //MARK: - Properties
-    private var itemList: [KoreanItem] = []
+    private var itemList = Parser().items
     private let koreanEntry = "한국의 출품작"
     
     //MARK: - LifeCycles
@@ -17,17 +17,6 @@ class ItemListViewController: UIViewController {
         self.navigationItem.title = koreanEntry
         let backBarButtonItem = UIBarButtonItem(title: koreanEntry, style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
-        let jsonDecoder = JSONDecoder()
-        
-        guard let dataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        do {
-            itemList = try jsonDecoder.decode([KoreanItem].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     //MARK: - Methods
