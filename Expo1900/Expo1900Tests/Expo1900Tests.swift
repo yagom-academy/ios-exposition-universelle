@@ -10,8 +10,7 @@ import XCTest
 
 class Expo1900Tests: XCTestCase {
     //TODO:
-    //      존재하는 파일이기는 하나 JSON파일이 아니거나 -> rtf
-    //                          형식이 올바르지 않은경우
+    //      존재하는 파일이기는 하나 형식이 올바르지 않은경우
     //      데이터와 모델의 타입이 상호 호환되지 않는경우
     let sut = ParsingManager.shared
     
@@ -42,6 +41,18 @@ class Expo1900Tests: XCTestCase {
     func test_rtf파일을_가져와서파싱했을때_에러가발생할것이다() {
         //given
         let expectInputFileName = "daejeon_expo2"
+        
+        //when
+        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let expectResult: Result<ExpoIntroduction, ParsingError> = .failure(.decodingFailed)
+        
+        //then
+        XCTAssertEqual(outputValue, expectResult)
+    }
+    
+    func test_JSON문법에어긋나는파일을_가져와서파싱했을때_에러가발생할것이다() {
+        //given
+        let expectInputFileName = "daejeon_expo3"
         
         //when
         let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
