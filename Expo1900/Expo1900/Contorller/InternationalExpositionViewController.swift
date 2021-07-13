@@ -8,15 +8,14 @@
 import UIKit
 
 class InternationalExpositionViewController: UIViewController {
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var koreaFlagImage: UIImageView!
-    var internationalExposition: InternationalExposition?
+    @IBOutlet var koreaFlagImages: [UIImageView]!
+    private var internationalExposition: InternationalExposition?
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated )
@@ -25,9 +24,7 @@ class InternationalExpositionViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated )
-
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,26 +32,30 @@ class InternationalExpositionViewController: UIViewController {
         matchingInitialValue()
     }
     
-    func decodingInternationalExpositionData() {
+    private func decodingInternationalExpositionData() {
         let decoder: JSONDecoder = JSONDecoder()
         if let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") {
             do {
                 internationalExposition = try decoder.decode(InternationalExposition.self, from: dataAsset.data)
+            } catch DecodingError.dataCorrupted {
+                print("DecodingError.dataCorrupted")
             } catch {
-                print("Decoding Error")
+                print("unknown error")
             }
         }
     }
     
-    func matchingInitialValue() {
+    private func matchingInitialValue() {
         if let unwrappedInternationalExposition = internationalExposition {
             titleLabel.text = unwrappedInternationalExposition.title
             itemImage.image = UIImage(named: "poster")
-            visitorsLabel.text = String(unwrappedInternationalExposition.visitors)
-            locationLabel.text = unwrappedInternationalExposition.location
-            durationLabel.text = unwrappedInternationalExposition.duration
+            visitorsLabel.text = "방문객: " + String(unwrappedInternationalExposition.visitors) + " 명"
+            locationLabel.text = "개최지: " + unwrappedInternationalExposition.location
+            durationLabel.text = "개최 기간: " + unwrappedInternationalExposition.duration
             descriptionLabel.text = unwrappedInternationalExposition.description
-            koreaFlagImage.image = UIImage(named: "flag")
+            for imageView in koreaFlagImages {
+                imageView.image = UIImage(named: "flag")
+            }
         }
     }
     

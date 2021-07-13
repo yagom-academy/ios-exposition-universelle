@@ -15,16 +15,15 @@ class KoreaExpositionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        matchInitialValue()
-        
+        matchingInitialValue()
     }
-    func matchInitialValue() {
+    
+    private func matchingInitialValue() {
         if let unwrappedKoreaExpositionItem = koreaExpositionItem {
             itemImage.image = UIImage(named: unwrappedKoreaExpositionItem.imageName)
             descriptionLabel.text = unwrappedKoreaExpositionItem.description
             detailViewTitle.title = unwrappedKoreaExpositionItem.name
         }
     }
-   
 }
 

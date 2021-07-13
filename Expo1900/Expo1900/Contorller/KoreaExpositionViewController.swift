@@ -10,9 +10,10 @@ import UIKit
 class KoreaExpositionViewController: UIViewController {
     @IBOutlet weak var koreaExpositionTableView: UITableView!
     @IBOutlet weak var koreaExpositionViewTitle: UINavigationItem!
-    var koreaExpositions: [KoreaExposition] = []
-    let tableViewCellIdentifer: String = "KoreaExpositionCell"
-    let viewTitle: String = "한국의 출품작"
+    private var koreaExpositions: [KoreaExposition] = []
+    private let tableViewCellIdentifer: String = "KoreaExpositionCell"
+    private let viewTitle: String = "한국의 출품작"
+    private let moveToDetailSegueName: String = "MoveToDetail"
 
 
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class KoreaExpositionViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MoveToDetail" {
+        if segue.identifier == moveToDetailSegueName {
             if let detailViewController = segue.destination as? KoreaExpositionDetailViewController,
                let index = sender as? Int {
                 let detailData: KoreaExposition = koreaExpositions[index]
@@ -33,7 +34,7 @@ class KoreaExpositionViewController: UIViewController {
         }
     }
     
-    func decodingKoreaExpositionData() {
+    private func decodingKoreaExpositionData() {
         let decoder: JSONDecoder = JSONDecoder()
         if let dataAsset: NSDataAsset = NSDataAsset.init(name: "items") {
             do {
@@ -63,7 +64,7 @@ extension KoreaExpositionViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "MoveToDetail", sender: indexPath.row)
+        performSegue(withIdentifier: moveToDetailSegueName, sender: indexPath.row)
     }
 }
 
