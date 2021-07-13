@@ -121,10 +121,10 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="gJy-0g-iov" id="TEc-8t-825"/>
                         <outlet property="durationLabel" destination="eQx-M6-HLM" id="pqi-1H-v5Z"/>
-                        <outlet property="leftFlagImage" destination="x8U-Pz-QHG" id="u21-Bw-BSo"/>
+                        <outlet property="leftFlagImageView" destination="x8U-Pz-QHG" id="u21-Bw-BSo"/>
                         <outlet property="locationLabel" destination="N9g-hh-tZt" id="ZaX-EI-Sqw"/>
-                        <outlet property="mainImage" destination="c9u-Vw-mbq" id="DCd-Mg-yOu"/>
-                        <outlet property="rightFlagImage" destination="z9o-GO-xJa" id="iTN-mC-P3r"/>
+                        <outlet property="mainImageView" destination="c9u-Vw-mbq" id="DCd-Mg-yOu"/>
+                        <outlet property="rightFlagImageView" destination="z9o-GO-xJa" id="iTN-mC-P3r"/>
                         <outlet property="titleLabel" destination="akt-Vx-8dd" id="Yuw-sr-ans"/>
                         <outlet property="visitorsLabel" destination="du4-CK-igt" id="FUO-ih-f6f"/>
                     </connections>
@@ -187,9 +187,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="itemImage" destination="GtU-bU-moD" id="NTq-hT-pge"/>
-                                            <outlet property="name" destination="rvz-EO-Xz3" id="tT0-5F-HL1"/>
-                                            <outlet property="shortDescription" destination="BLX-gp-sjT" id="JTt-OJ-MLh"/>
+                                            <outlet property="itemImageView" destination="GtU-bU-moD" id="NTq-hT-pge"/>
+                                            <outlet property="nameLabel" destination="rvz-EO-Xz3" id="tT0-5F-HL1"/>
+                                            <outlet property="shortDescriptionLabel" destination="BLX-gp-sjT" id="JTt-OJ-MLh"/>
                                             <segue destination="hZ8-kK-S9c" kind="show" identifier="DetailViewSegue" id="xdc-6Q-whX"/>
                                         </connections>
                                     </tableViewCell>
@@ -240,7 +240,7 @@
                     <navigationItem key="navigationItem" id="oWa-wo-Nvl"/>
                     <connections>
                         <outlet property="itemDescriptionLabel" destination="AUf-EW-D7Q" id="JE3-1n-wIp"/>
-                        <outlet property="itemImage" destination="vnR-1j-2MD" id="O1T-GX-Bnq"/>
+                        <outlet property="itemImageView" destination="vnR-1j-2MD" id="O1T-GX-Bnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xF-aK-x2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

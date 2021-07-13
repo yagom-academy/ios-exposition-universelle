@@ -8,7 +8,13 @@
 import UIKit
 
 class ExpositionListCell: UITableViewCell {
-    @IBOutlet private weak var itemImage: UIImageView!
-    @IBOutlet private weak var name: UILabel!
-    @IBOutlet private weak var shortDescription: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var shortDescriptionLabel: UILabel!
+    
+    func configure(expositionItem: ExpositionItem) {
+        nameLabel.text = expositionItem.name
+        shortDescriptionLabel.text = expositionItem.shortDescription
+        itemImageView.image = expositionItem.image
+    }
 }

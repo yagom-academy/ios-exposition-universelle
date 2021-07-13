@@ -21,7 +21,6 @@ struct JSONParser {
         guard let result = try? decoder.decode(type, from: asset.data) else {
             return .failure(.failedToDecode)
         }
-        
         return .success(result)
     }
 }

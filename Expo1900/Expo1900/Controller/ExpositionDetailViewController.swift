@@ -8,14 +8,14 @@
 import UIKit
 
 class ExpositionDetailViewController: UIViewController {
-    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescriptionLabel: UILabel!
     
     var expositionItem: ExpositionItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemImage.image = expositionItem?.image
+        itemImageView.image = expositionItem?.image
         itemDescriptionLabel.text = expositionItem?.description
         self.navigationItem.title = expositionItem?.name
     }
@@ -23,5 +23,4 @@ class ExpositionDetailViewController: UIViewController {
     func configure(expositionItem: ExpositionItem) {
         self.expositionItem = expositionItem
     }
-    
 }

@@ -8,9 +8,10 @@
 import UIKit
 
 class ExpositionListViewController: UIViewController {
+    @IBOutlet private var expositionTableView: UITableView!
+    
     private let cellReuseIdentifier = "ExpositionListCell"
     var expositionItems: [ExpositionItem]?
-    @IBOutlet private var expositionTableView: UITableView!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailViewSegue",
@@ -27,7 +28,6 @@ class ExpositionListViewController: UIViewController {
         super.viewDidLoad()
         expositionTableView.delegate = self
         expositionTableView.dataSource = self
-        
         expositionItems = try? JSONParser.parse(name: "items", type: [ExpositionItem].self).get()
     }
 }
@@ -36,16 +36,13 @@ extension ExpositionListViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expositionItems?.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ExpositionListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ExpositionListCell,
+              let expositionItem = expositionItems?[indexPath.row] else {
             return UITableViewCell()
         }
-        
-        let expositionItem = expositionItems?[indexPath.row]
-        cell.name.text = expositionItem?.name
-        cell.shortDescription.text = expositionItem?.shortDescription
-        cell.itemImage.image = expositionItem?.image
+        cell.configure(expositionItem: expositionItem)
         return cell
     }
 }
