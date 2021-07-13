@@ -6,7 +6,7 @@
 
 import UIKit
 
-extension Exposition {
+extension ExpositionModel {
     enum Prefix: CustomStringConvertible {
         case visitor
         case location
@@ -78,21 +78,9 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: JSONDecodable {
-    typealias JSONModel = Exposition
-    
-    private func initExposition() -> Exposition? {
-        let expositionFileName = "exposition_universelle_1900"
-
-        return try? decodeJSON(fileName: expositionFileName)
-    }
-}
-
 extension MainViewController {
     private func initView() {
-        guard let currentExposition = initExposition() else {
-            return
-        }
+        let currentExposition = ExpositionModel()
         titleLabel.text = currentExposition.formattedTitle
         visitorsLabel.text = currentExposition.formattedVisitor
         locationLabel.text = currentExposition.formattedLocation
@@ -101,9 +89,9 @@ extension MainViewController {
     }
     
     private func styleLabelHeaders() {
-        modifySize(of: Exposition.Prefix.visitor.description , in: visitorsLabel)
-        modifySize(of: Exposition.Prefix.location.description , in: locationLabel)
-        modifySize(of: Exposition.Prefix.duration.description , in: durationLabel)
+        modifySize(of: ExpositionModel.Prefix.visitor.description , in: visitorsLabel)
+        modifySize(of: ExpositionModel.Prefix.location.description , in: locationLabel)
+        modifySize(of: ExpositionModel.Prefix.duration.description , in: durationLabel)
     }
     
     private func modifySize(of range: String, in label: UILabel) {

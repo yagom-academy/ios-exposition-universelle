@@ -34,14 +34,15 @@ extension ItemListViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        let cellIdentifier = "itemCell"
         guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "itemCell",
+                withIdentifier: cellIdentifier,
                 for: indexPath
         ) as? ItemTableViewCell
         else {
             return UITableViewCell()
         }
-        cell.transfer(data: items[indexPath.row])
+        cell.configure(data: items[indexPath.row])
         return cell
     }
 }

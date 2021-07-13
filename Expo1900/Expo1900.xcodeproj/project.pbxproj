@@ -20,6 +20,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D422DB0526931D0300200B11 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422DB0426931D0300200B11 /* Exposition.swift */; };
 		D422DB1D269451A000200B11 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422DB1C269451A000200B11 /* Expo1900Tests.swift */; };
+		D4564737269D66CF0057C8CB /* ExpositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4564736269D66CF0057C8CB /* ExpositionModel.swift */; };
 		D466BE8A2697E56100A0596C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466BE892697E56100A0596C /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		D422DB1A269451A000200B11 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D422DB1C269451A000200B11 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		D422DB1E269451A000200B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4564736269D66CF0057C8CB /* ExpositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionModel.swift; sourceTree = "<group>"; };
 		D466BE892697E56100A0596C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 			children = (
 				D422DB0426931D0300200B11 /* Exposition.swift */,
 				272824F526931ECA002EF5B3 /* Item.swift */,
+				D4564736269D66CF0057C8CB /* ExpositionModel.swift */,
 			);
 			path = JSONModel;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				D422DB0526931D0300200B11 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				D4564737269D66CF0057C8CB /* ExpositionModel.swift in Sources */,
 				D466BE8A2697E56100A0596C /* ItemDetailViewController.swift in Sources */,
 				63C94510269434DD00FB7B83 /* JSONDecodable.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
