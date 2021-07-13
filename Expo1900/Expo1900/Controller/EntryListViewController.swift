@@ -8,6 +8,7 @@
 import UIKit
 
 class EntryListViewController: UIViewController, UITableViewDataSource {
+    
     // MARK: @IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -43,7 +44,9 @@ class EntryListViewController: UIViewController, UITableViewDataSource {
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationController?.isNavigationBarHidden = false
+        
         let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: entryDataIdentifier) else {
             return
@@ -54,13 +57,21 @@ class EntryListViewController: UIViewController, UITableViewDataSource {
             print(error.localizedDescription)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let nextViewController = segue.destination as? EntryDetailViewController else {
+            return
+        }
+        guard let cell = sender as? CustomTableViewCell else {
+            return
+        }
+        guard let index = tableView.indexPath(for: cell)?.row else {
+            return
+        }
+        
+        nextViewController.entryTitle = entries[index].name
+        nextViewController.entryImageName = entries[index].imageName
+        nextViewController.entryDescription = entries[index].description
     }
-    */
 }

@@ -41,6 +41,12 @@ class ExpositionViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     // MARK: Functions
     func updateUI() {
         titleLabel.text = exposition?.title
