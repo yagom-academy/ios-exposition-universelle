@@ -26,4 +26,16 @@ class Expo1900Tests: XCTestCase {
         //then
         XCTAssertEqual(outputValue, expectResult)
     }
+    
+    func test_존재하지않는파일을_가져와서파싱했을때_에러가발생할것이다() {
+        //given
+        let expectInputFileName = ""
+        
+        //when
+        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let expectResult: Result<ExpoIntroduction, ParsingError> = .failure(.dataSetNotFound)
+        
+        //then
+        XCTAssertEqual(outputValue, expectResult)
+    }
 }
