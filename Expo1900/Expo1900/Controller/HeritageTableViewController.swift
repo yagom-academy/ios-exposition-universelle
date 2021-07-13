@@ -8,14 +8,15 @@
 import UIKit
 
 class HeritageTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    let jsonDecoder = JsonDecoder()
-    let heritageTableViewCellIdentifier = "customCell"
-    let detailHeritageViewControllerIdentifier = "ThirdVC"
+
     //MARK: - IBOulet
     @IBOutlet weak private var tableView: UITableView!
     
     //MARK: - Property
+    private let jsonDecoder = JsonDecoder()
     private var informationOfKoreanHeritages: [InformationOfKoreanHeritage] = []
+    private let heritageTableViewCellIdentifier = "customCell"
+    private let detailHeritageViewControllerIdentifier = "ThirdVC"
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -45,10 +46,10 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextVC: DetailHeritageViewController = self.storyboard?.instantiateViewController(identifier: self.detailHeritageViewControllerIdentifier) as? DetailHeritageViewController else {
+        guard let convertDetailHeritageViewController: DetailHeritageViewController = self.storyboard?.instantiateViewController(identifier: self.detailHeritageViewControllerIdentifier) as? DetailHeritageViewController else {
             return
         }
-        nextVC.koreanHeritage = informationOfKoreanHeritages[indexPath.row]
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        convertDetailHeritageViewController.koreanHeritage = informationOfKoreanHeritages[indexPath.row]
+        self.navigationController?.pushViewController(convertDetailHeritageViewController, animated: true)
     }
 }

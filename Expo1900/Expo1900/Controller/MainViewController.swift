@@ -7,14 +7,17 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var jsonDecoder = JsonDecoder()
-    let heritageTableViewControllerIdentifier = "SecondVC"
+   
     //MARK: - IBOulet
     @IBOutlet weak private var mainTitle: UILabel!
     @IBOutlet weak private var mainVisitor: UILabel!
     @IBOutlet weak private var mainLocation: UILabel!
     @IBOutlet weak private var mainDuration: UILabel!
     @IBOutlet weak private var mainDescription: UILabel!
+    
+    //MARK: - Property
+    var jsonDecoder = JsonDecoder()
+    let heritageTableViewControllerIdentifier = "SecondVC"
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -44,8 +47,8 @@ class MainViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction private func moveHeritageTableVC(_ sender: UIButton) {
-        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: self.heritageTableViewControllerIdentifier) else { return }
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        guard let convertHeritageTableViewController = self.storyboard?.instantiateViewController(withIdentifier: self.heritageTableViewControllerIdentifier) else { return }
+        self.navigationController?.pushViewController(convertHeritageTableViewController, animated: true)
     }
     
 }
