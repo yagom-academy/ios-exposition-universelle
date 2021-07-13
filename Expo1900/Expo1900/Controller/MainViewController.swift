@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak private var mainLocation: UILabel!
     @IBOutlet weak private var mainDuration: UILabel!
     @IBOutlet weak private var mainDescription: UILabel!
-    @IBOutlet weak private var moveButton: UIButton!
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -36,9 +35,9 @@ class MainViewController: UIViewController {
     //MARK: - Method
     private func inputData(_ expo: InformationOfExpo) {
         mainTitle.text = expo.title
-        mainVisitor.text = expo.visitorsWithComma
-        mainLocation.text = expo.location
-        mainDuration.text = expo.duration
+        mainVisitor.text = "방문객 : " + expo.visitorsWithComma + "명"
+        mainLocation.text = "개최지 : " + expo.location
+        mainDuration.text = "개최 기간 : " + expo.duration
         mainDescription.text = expo.description
     }
     
