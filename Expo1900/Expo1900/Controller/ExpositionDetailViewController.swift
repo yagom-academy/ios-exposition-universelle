@@ -8,9 +8,9 @@
 import UIKit
 
 class ExpositionDetailViewController: UIViewController {
-	@IBOutlet weak var itemImage: UIImageView!
-	@IBOutlet weak var itemDescriptionLabel: UILabel!
-
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    
     var expositionItem: ExpositionItem?
     
     override func viewDidLoad() {
@@ -23,5 +23,5 @@ class ExpositionDetailViewController: UIViewController {
     func configure(expositionItem: ExpositionItem) {
         self.expositionItem = expositionItem
     }
-	
+    
 }
