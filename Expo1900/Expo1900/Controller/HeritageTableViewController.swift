@@ -37,10 +37,8 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
         guard let cell: CustomHeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.heritageTableViewCellIdentifier, for: indexPath) as? CustomHeritageTableViewCell else {
             return UITableViewCell()
         }
-        
         let koreanHeritage: InformationOfKoreanHeritage = self.informationOfKoreanHeritages[indexPath.row]
         cell.configure(title: koreanHeritage.name, shortDescription: koreanHeritage.shortDescription, imageName: koreanHeritage.imageName)
-        
         return cell
     }
     
