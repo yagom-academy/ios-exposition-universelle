@@ -13,4 +13,17 @@ struct ExpositionInformation: Decodable {
     let location: String
     let duration: String
     let description: String
+    
+    var formattedTitle: String? {
+        if let findIndex: String.Index = title.firstIndex(of: "(") {
+           return title[..<findIndex] + "\n" + title[findIndex...]
+        }
+        return nil
+    }
+    
+    var formattedVisitors: String? {
+        var formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return "\(formatter.string(from: NSNumber(value: visitors)) ?? "")명"
+    }
 }
