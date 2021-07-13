@@ -13,6 +13,9 @@ class DetailViewController: UIViewController {
     @IBOutlet private weak var itemImage: UIImageView!
     @IBOutlet private weak var itemDescription: UITextView!
     
+    //MARK: - Properties
+    private var item: KoreanItem?
+    
     //MARK: - LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +29,6 @@ class DetailViewController: UIViewController {
         itemDescription.text = validItem.description
         
     }
-    
-    //MARK: - Properties
-    private var item: KoreanItem?
     
     //MARK: - Methods
     func getParsedData(with koreanItem: KoreanItem) {

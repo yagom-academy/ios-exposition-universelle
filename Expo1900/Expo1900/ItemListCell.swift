@@ -11,5 +11,6 @@ class ItemListCell: UITableViewCell {
     //MARK: - IBOutlets
     @IBOutlet var itemImage: UIImageView!
     @IBOutlet var itemName: UILabel!
-    @IBOutlet var shortDescription: UITextView!
+    @IBOutlet var shortDescription: UILabel!
+
 }

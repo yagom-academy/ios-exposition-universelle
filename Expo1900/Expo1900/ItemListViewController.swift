@@ -58,7 +58,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.itemName.text = item.itemName
         cell.itemImage.image = UIImage(named: item.imageName)
         cell.shortDescription.text = item.shortDescription
-        
+        cell.shortDescription.numberOfLines = 0
         return cell
     }
 }

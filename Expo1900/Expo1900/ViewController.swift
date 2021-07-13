@@ -1,8 +1,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //MARK: - Properties
-    private var expoData: Exposition?
     
     //MARK: - IBOutlets
     @IBOutlet private weak var expoTitle: UITextView!
@@ -11,6 +9,9 @@ class ViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var expoDescription: UITextView!
+    
+    //MARK: - Properties
+    private var expoData: Exposition?
     
     //MARK: - LifeCycles
     override func viewDidLoad() {
