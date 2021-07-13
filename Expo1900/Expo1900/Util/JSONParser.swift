@@ -12,7 +12,7 @@ enum JSONParserError: Error {
     case failedToDecode
 }
 
-struct JSONParser {
+enum JSONParser {
     static func parse<T: Decodable>(name: String, type: T.Type) -> Result<T, JSONParserError> {
         guard let asset = NSDataAsset(name: name) else {
             return .failure(.invalidName)
