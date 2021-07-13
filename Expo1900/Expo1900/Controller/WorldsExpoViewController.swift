@@ -36,7 +36,7 @@ class WorldsExpoViewController: UIViewController {
 extension WorldsExpoViewController {
     private func queryData() {
         let expoIntroductionFileName = "exposition_universelle_1900"
-        let parsedResult = ParsingManager.shared.parse(name: expoIntroductionFileName, to: ExpoIntroduction.self)
+        let parsedResult = ParsingManager.shared.parse(from: expoIntroductionFileName, to: ExpoIntroduction.self)
         
         switch parsedResult {
         case .success(let introductionContents):

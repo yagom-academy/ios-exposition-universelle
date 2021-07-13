@@ -26,7 +26,7 @@ class KoreanEntryListViewController: UIViewController {
 extension KoreanEntryListViewController {
     private func obtainEntryItemsData() {
         let expoEntryItemsFileName = "items"
-        let parsedResult = ParsingManager.shared.parse(name: expoEntryItemsFileName, to: [ExpoEntry].self)
+        let parsedResult = ParsingManager.shared.parse(from: expoEntryItemsFileName, to: [ExpoEntry].self)
         
         switch parsedResult {
         case .success(let entryItemsContents):
