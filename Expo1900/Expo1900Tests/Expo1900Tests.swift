@@ -9,9 +9,6 @@ import XCTest
 @testable import Expo1900
 
 class Expo1900Tests: XCTestCase {
-    //TODO:
-    //      존재하는 파일이기는 하나 형식이 올바르지 않은경우
-    //      데이터와 모델의 타입이 상호 호환되지 않는경우
     let sut = ParsingManager.shared
     
     func test_테스트파일을_가져와서파싱했을때_모델타입에적절한데이터가들어올것이다() {
@@ -53,6 +50,18 @@ class Expo1900Tests: XCTestCase {
     func test_JSON문법에어긋나는파일을_가져와서파싱했을때_에러가발생할것이다() {
         //given
         let expectInputFileName = "daejeon_expo3"
+        
+        //when
+        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let expectResult: Result<ExpoIntroduction, ParsingError> = .failure(.decodingFailed)
+        
+        //then
+        XCTAssertEqual(outputValue, expectResult)
+    }
+    
+    func test_모델과호환되지않는파일을_가져와서파싱했을때_에러가발생할것이다() {
+        //given
+        let expectInputFileName = "daejeon_expo4"
         
         //when
         let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
