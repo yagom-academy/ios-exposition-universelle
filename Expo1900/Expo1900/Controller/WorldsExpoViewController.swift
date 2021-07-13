@@ -15,7 +15,7 @@ class WorldsExpoViewController: UIViewController {
     @IBOutlet weak private var durationLabel: UILabel!
     @IBOutlet weak private var descriptionTextView: UITextView!
     
-    //MARK: Lifecycle
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         queryData()
