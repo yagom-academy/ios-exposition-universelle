@@ -7,15 +7,18 @@
 
 import UIKit
 
+//MARK: - Error Type
 enum DecodingError: Error {
     case failedToDecode
 }
 
 class ListTableViewController: UITableViewController {
-
+    
+    //MARK: - Property
     private var items: [Item] = []
     private let showItemDetailSegue = "showItemDetailSegue"
     
+    //MARK: - Preprocess Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showItemDetailSegue, let destination = segue.destination as? ItemTableViewController, let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             let item = items[indexPath.row]
@@ -26,6 +29,7 @@ class ListTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -41,6 +45,7 @@ class ListTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - Method
     private func obtainExpositionItemData(completion: @escaping (Result<[Item], DecodingError>) -> ()) {
         guard let itemDataAsset: NSDataAsset = NSDataAsset(name: "items") else {
             return

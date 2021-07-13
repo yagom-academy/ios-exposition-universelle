@@ -31,6 +31,7 @@ class MainViewController: UIViewController {
         try? obtainExpositionData()
     }
   
+    //MARK: - Method
     private func obtainExpositionData() throws {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else { return }
         do {

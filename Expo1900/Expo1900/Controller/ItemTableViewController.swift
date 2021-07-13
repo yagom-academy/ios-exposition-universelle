@@ -10,16 +10,18 @@ import UIKit
 
 class ItemTableViewController: UITableViewController {
     
+    //MARK: - Property
     var itemName: String?
     var itemImage: UIImage?
     var itemDescription: String?
     
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = itemName
     }
     
-    //tableView dataSource
+    //MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
