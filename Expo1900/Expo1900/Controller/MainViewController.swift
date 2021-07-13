@@ -8,6 +8,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     var jsonDecoder = JsonDecoder()
+    let heritageTableViewControllerIdentifier = "SecondVC"
     //MARK: - IBOulet
     @IBOutlet weak private var mainTitle: UILabel!
     @IBOutlet weak private var mainVisitor: UILabel!
@@ -43,8 +44,7 @@ class MainViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction private func moveHeritageTableVC(_ sender: UIButton) {
-        
-        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondVC") else { return }
+        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: self.heritageTableViewControllerIdentifier) else { return }
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
