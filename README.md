@@ -8,8 +8,7 @@
 
 
 ### UML
-![UMLv2](https://user-images.githubusercontent.com/28389897/125457641-1e29f0db-1378-469c-9c25-409c3c042b9e.png)
-
+![image](https://user-images.githubusercontent.com/59643667/125462069-37423bdf-61e3-4093-a4d0-fb7b2ae90760.png)
 
 
 ### 핵심 키워드
