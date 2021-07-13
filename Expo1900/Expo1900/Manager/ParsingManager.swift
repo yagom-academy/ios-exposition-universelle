@@ -11,11 +11,6 @@ class ParsingManager {
     //MARK: Singleton Instance
     static let shared = ParsingManager()
     
-    //MARK: Properties
-    private let expoIntroductionFileName = "exposition_universelle_1900"
-    private let expoEntryFileName = "items"
-    private let jsonDecoder = JSONDecoder()
-    
     //MARK: Initializer
     private init() {}
 }
@@ -26,7 +21,7 @@ extension ParsingManager {
         guard let asset = NSDataAsset(name: fileName) else {
             return .failure(.dataSetNotFound)
         }
-        guard let data = try? jsonDecoder.decode(type, from: asset.data) else {
+        guard let data = try? JSONDecoder().decode(type, from: asset.data) else {
             return .failure(.decodingFailed)
         }
         
