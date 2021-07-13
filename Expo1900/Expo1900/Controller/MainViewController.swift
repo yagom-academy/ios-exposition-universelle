@@ -7,7 +7,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+    var jsonDecoder = JsonDecoder()
     //MARK: - IBOulet
     @IBOutlet weak private var mainTitle: UILabel!
     @IBOutlet weak private var mainVisitor: UILabel!
@@ -19,8 +19,10 @@ class MainViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        decodeJson()
+        guard let value = try? jsonDecoder.decode(name: "exposition_universelle_1900", type: InformationOfExpo.self) else {
+            return
+        }
+        inputData(value)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,13 +34,6 @@ class MainViewController: UIViewController {
     }
     
     //MARK: - Method
-    private func decodeJson() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        guard let expo = try? jsonDecoder.decode(InformationOfExpo.self, from: dataAsset.data) else { return }
-        inputData(expo)
-    }
-    
     private func inputData(_ expo: InformationOfExpo) {
         mainTitle.text = expo.title
         mainVisitor.text = expo.visitorsWithComma

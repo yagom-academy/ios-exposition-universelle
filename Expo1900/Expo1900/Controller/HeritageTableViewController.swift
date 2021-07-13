@@ -8,7 +8,7 @@
 import UIKit
 
 class HeritageTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    let jsonDecoder = JsonDecoder()
     //MARK: - IBOulet
     @IBOutlet weak private var tableView: UITableView!
     
@@ -18,26 +18,13 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        decodingJson()
+        guard let value = try? jsonDecoder.decode(name: "items", type: [InformationOfKoreanHeritage].self) else {
+            return
+        }
+        informationOfKoreanHeritages = value
     }
     
     //MARK: - Method
-    private func decodingJson() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        do {
-            self.informationOfKoreanHeritages = try jsonDecoder.decode([InformationOfKoreanHeritage].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        self.tableView.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return informationOfKoreanHeritages.count
     }
