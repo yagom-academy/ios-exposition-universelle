@@ -18,6 +18,7 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guard let value = try? jsonDecoder.decode(name: "items", type: [InformationOfKoreanHeritage].self) else {
             return
         }

@@ -19,6 +19,7 @@ class DetailHeritageViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         showInformationOfkoreanHeritage()
     }
     
