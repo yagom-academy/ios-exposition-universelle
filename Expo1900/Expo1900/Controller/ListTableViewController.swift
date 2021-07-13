@@ -22,7 +22,7 @@ class ListTableViewController: UITableViewController {
             
             destination.itemName = item.name
             destination.itemImage = UIImage(named: item.imageName)
-            destination.itemDescription = item.description;
+            destination.itemDescription = item.description
         }
     }
     

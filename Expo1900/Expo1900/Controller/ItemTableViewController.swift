@@ -16,7 +16,7 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.title = itemName
+        navigationItem.title = itemName
     }
     
     //tableView dataSource
