@@ -31,4 +31,12 @@ class ExpositionInformationViewController: UIViewController {
         descriptionLabel.text = expositionInformation.description
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
 }

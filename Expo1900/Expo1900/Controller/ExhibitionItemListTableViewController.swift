@@ -15,6 +15,16 @@ class ExhibitionItemListTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         exhibitionTableView.dataSource = self
+        
+        let jsonDecoder = JSONDecoder()
+        guard let data = NSDataAsset(name: "items") else {
+            return
+        }
+        do {
+            exhibitionItems = try jsonDecoder.decode([ExhibitionItem].self, from: data.data)
+        } catch {
+            print(error)
+        }
     }
 }
 
@@ -30,7 +40,8 @@ extension ExhibitionItemListTableViewController: UITableViewDataSource {
         content.image = UIImage(named: exhibitionItems[indexPath.row].imageName)
         content.text = exhibitionItems[indexPath.row].name
         content.secondaryText = exhibitionItems[indexPath.row].shortDescription
-    
+        
+        content.imageProperties.maximumSize = CGSize(width: 70, height: 150)
         cell.contentConfiguration = content
         
         return cell

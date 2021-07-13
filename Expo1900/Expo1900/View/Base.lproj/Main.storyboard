@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Exposition Information View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ExpositionInformationViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,7 +134,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iPP-hu-Brk" secondAttribute="bottom" id="Whh-YM-3Ch"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FJz-Q5-AHI"/>
+                    <navigationItem key="navigationItem" title="메인" id="FJz-Q5-AHI"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="ig0-Nh-F0W" id="y4r-OB-nks"/>
                         <outlet property="durationLabel" destination="2VT-yt-8NP" id="b7G-zt-b6o"/>
@@ -147,7 +147,7 @@
             </objects>
             <point key="canvasLocation" x="874.76635514018687" y="136.71706263498922"/>
         </scene>
-        <!--Exhibition Item List Table View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="dFk-rv-VaY">
             <objects>
                 <viewController id="YGW-a8-CU2" customClass="ExhibitionItemListTableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -198,7 +198,7 @@
                             <constraint firstItem="o9h-0a-OBb" firstAttribute="top" secondItem="MTy-D1-f3J" secondAttribute="top" id="zok-LY-yu6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SVD-f1-YBp"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="SVD-f1-YBp"/>
                     <connections>
                         <outlet property="exhibitionTableView" destination="o9h-0a-OBb" id="Yxz-2t-0MU"/>
                     </connections>
