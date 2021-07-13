@@ -15,46 +15,89 @@ class Expo1900Tests: XCTestCase {
         typealias JSONModel = [Item]
     }
     
-    let cutWithExposition = ExpositionTest()
-    let cutWithItems = ItemTest()
+    var cutWithExposition: ExpositionTest!
+    var cutWithItems: ItemTest!
+    
+    override func setUp() {
+        super.setUp()
+        cutWithExposition = ExpositionTest()
+        cutWithItems = ItemTest()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        cutWithExposition = nil
+        cutWithItems = nil
+    }
+    
+    func test_파일이름이exposition블라블라일때_에러를던지지않는다() {
+        //Given
+        let fileName = "exposition_universelle_1900"
+        //When
+        let testFunction = cutWithExposition.decodeJSON
+        //Then
+        XCTAssertNoThrow(try testFunction(fileName))
+    }
+    
+    func test_파일이름이items일때_에러를던지지않는다() {
+        //Given
+        let fileName = "items"
+        //When
+        let testFunction = cutWithItems.decodeJSON
+        //Then
+        XCTAssertNoThrow(try testFunction(fileName))
+    }
     
     func test_파일이름이exposition블라블라일때_Exposition의title은_파리만국박람회블라블라() {
         //Given
         let fileName = "exposition_universelle_1900"
-        let expectInputValue = "파리 만국박람회 1900(L'Exposition de Paris 1900)"
+        let expectedInputValue = "파리 만국박람회 1900(L'Exposition de Paris 1900)"
         //When
-        let expectResult = try? cutWithExposition.decodeJSON(fileName: fileName)
+        let expectedResult = try? cutWithExposition.decodeJSON(fileName: fileName)
         //Then
-        XCTAssertEqual(expectInputValue, expectResult?.title)
+        XCTAssertEqual(expectedInputValue, expectedResult?.title)
     }
     
-    func test_파일이름이itesm일때_Item의첫번째요소의타이틀은_직지심체요절이다() {
+    func test_파일이름이items일때_Item의첫번째요소의타이틀은_직지심체요절이다() {
         //Given
         let fileName = "items"
-        let expectInputValue = "직지심체요절"
+        let expectedInputValue = "직지심체요절"
         //When
-        let expectResult = try? cutWithItems.decodeJSON(fileName: fileName).first?.name
+        let expectedResult = try? cutWithItems.decodeJSON(fileName: fileName).first?.name
         //Then
-        XCTAssertEqual(expectInputValue, expectResult)
+        XCTAssertEqual(expectedInputValue, expectedResult)
     }
     
-    func test_파일이름이itesm일때_Item의마지막요소의타이틀은_거문고이다() {
+    func test_파일이름이items일때_Item의마지막요소의타이틀은_거문고이다() {
         //Given
         let fileName = "items"
-        let expectInputValue = "거문고"
+        let expectedInputValue = "거문고"
         //When
-        let expectResult = try? cutWithItems.decodeJSON(fileName: fileName).last?.name
+        let expectedResult = try? cutWithItems.decodeJSON(fileName: fileName).last?.name
         //Then
-        XCTAssertEqual(expectInputValue, expectResult)
+        XCTAssertEqual(expectedInputValue, expectedResult)
     }
     
-    func test_파일이름이itesm일때_Item의카운트는_13개이다() {
+    func test_파일이름이items일때_Item의카운트는_13개이다() {
         //Given
         let fileName = "items"
-        let expectInputValue = 13
+        let expectedInputValue = 13
         //When
-        let expectResult = try? cutWithItems.decodeJSON(fileName: fileName).count
+        let expectedResult = try? cutWithItems.decodeJSON(fileName: fileName).count
         //Then
-        XCTAssertEqual(expectInputValue, expectResult)
+        XCTAssertEqual(expectedInputValue, expectedResult)
+    }
+    
+    func test_파일이름이items일때_name이_직지심체요절인요소가있다() {
+        //Given
+        let fileName = "items"
+        let expectedInputValue = "직지심체요절"
+        //When
+        let decodedItems = try? cutWithItems.decodeJSON(fileName: fileName)
+        let expectedResult = decodedItems?.contains { item in
+            item.name == expectedInputValue
+        }
+        //Then
+        XCTAssertTrue(expectedResult == true)
     }
 }
