@@ -9,11 +9,11 @@ import UIKit
 class MainViewController: UIViewController {
    
     //MARK: - IBOulet
-    @IBOutlet weak private var mainTitle: UILabel!
-    @IBOutlet weak private var mainVisitor: UILabel!
-    @IBOutlet weak private var mainLocation: UILabel!
-    @IBOutlet weak private var mainDuration: UILabel!
-    @IBOutlet weak private var mainDescription: UILabel!
+    @IBOutlet weak private var mainTitleLabel: UILabel!
+    @IBOutlet weak private var mainVisitorLabel: UILabel!
+    @IBOutlet weak private var mainLocationLabel: UILabel!
+    @IBOutlet weak private var mainDurationLabel: UILabel!
+    @IBOutlet weak private var mainDescriptionLabel: UILabel!
     
     //MARK: - Property
     var jsonDecoder = JsonDecoder()
@@ -39,11 +39,11 @@ class MainViewController: UIViewController {
     
     //MARK: - Method
     private func inputData(_ expo: InformationOfExpo) {
-        mainTitle.text = expo.title
-        mainVisitor.text = "방문객 : " + expo.visitorsWithComma + "명"
-        mainLocation.text = "개최지 : " + expo.location
-        mainDuration.text = "개최 기간 : " + expo.duration
-        mainDescription.text = expo.description
+        mainTitleLabel.text = expo.title
+        mainVisitorLabel.text = "방문객 : " + expo.visitorsWithComma + "명"
+        mainLocationLabel.text = "개최지 : " + expo.location
+        mainDurationLabel.text = "개최 기간 : " + expo.duration
+        mainDescriptionLabel.text = expo.description
     }
     
     // MARK: - IBAction
