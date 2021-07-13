@@ -15,12 +15,12 @@ class ExpositionListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailViewSegue",
-           let detailView = segue.destination as? ExpositionDetailViewController,
+           let detailViewController = segue.destination as? ExpositionDetailViewController,
            let cell = sender as? UITableViewCell,
            let indexPath = expositionTableView.indexPath(for: cell),
            let expositionItem = expositionItems?[indexPath.row]
         {
-            detailView.configure(expositionItem: expositionItem)
+            detailViewController.configure(expositionItem: expositionItem)
         }
     }
     
@@ -42,7 +42,7 @@ extension ExpositionListViewController: UITableViewDelegate, UITableViewDataSour
               let expositionItem = expositionItems?[indexPath.row] else {
             return UITableViewCell()
         }
-        cell.configure(expositionItem: expositionItem)
+        cell.updateUI(expositionItem: expositionItem)
         return cell
     }
 }

@@ -21,6 +21,10 @@ class MainViewController: UIViewController {
         guard let exposition = try? JSONParser.parse(name: "exposition_universelle_1900", type: Exposition.self).get() else {
             return
         }
+        updateUI(exposition: exposition)
+    }
+    
+    func updateUI(exposition: Exposition) {
         let numberFommater = NumberFormatter()
         numberFommater.numberStyle = .decimal
         guard let visitors = numberFommater.string(for: exposition.visitors) else {

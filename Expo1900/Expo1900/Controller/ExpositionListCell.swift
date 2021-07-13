@@ -12,7 +12,7 @@ class ExpositionListCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var shortDescriptionLabel: UILabel!
     
-    func configure(expositionItem: ExpositionItem) {
+    func updateUI(expositionItem: ExpositionItem) {
         nameLabel.text = expositionItem.name
         shortDescriptionLabel.text = expositionItem.shortDescription
         itemImageView.image = expositionItem.image
