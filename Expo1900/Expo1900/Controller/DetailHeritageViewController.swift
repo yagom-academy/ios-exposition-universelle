@@ -14,7 +14,7 @@ class DetailHeritageViewController: UIViewController {
     @IBOutlet weak private var koreanHeritageDescription: UITextView!
     
     //MARK: - Property
-    var koreanHeritage: InformationOfKoreanHeritage?
+    private var koreanHeritage: InformationOfKoreanHeritage?
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -24,6 +24,10 @@ class DetailHeritageViewController: UIViewController {
     }
     
     //MARK: - Method
+    func configure(koreanHeritage: InformationOfKoreanHeritage) {
+        self.koreanHeritage = koreanHeritage
+    }
+    
     private func showInformationOfkoreanHeritage() {
         guard let koreanHeritage = koreanHeritage else {
             return

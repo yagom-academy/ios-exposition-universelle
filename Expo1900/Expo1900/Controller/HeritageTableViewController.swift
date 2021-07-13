@@ -39,9 +39,7 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
         }
         
         let koreanHeritage: InformationOfKoreanHeritage = self.informationOfKoreanHeritages[indexPath.row]
-        cell.koreanHeritageImage.image = UIImage(named: koreanHeritage.imageName)
-        cell.koreanHeritageTitle.text = koreanHeritage.name
-        cell.koreanHeritageShortDescription.text = koreanHeritage.shortDescription
+        cell.configure(title: koreanHeritage.name, shortDescription: koreanHeritage.shortDescription, imageName: koreanHeritage.imageName)
         
         return cell
     }
@@ -50,7 +48,7 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
         guard let convertDetailHeritageViewController: DetailHeritageViewController = self.storyboard?.instantiateViewController(identifier: self.detailHeritageViewControllerIdentifier) as? DetailHeritageViewController else {
             return
         }
-        convertDetailHeritageViewController.koreanHeritage = informationOfKoreanHeritages[indexPath.row]
+        convertDetailHeritageViewController.configure(koreanHeritage: informationOfKoreanHeritages[indexPath.row])
         self.navigationController?.pushViewController(convertDetailHeritageViewController, animated: true)
     }
 }

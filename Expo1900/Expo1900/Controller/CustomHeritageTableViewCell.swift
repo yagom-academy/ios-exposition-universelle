@@ -9,9 +9,15 @@ import UIKit
 
 class CustomHeritageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var koreanHeritageImage: UIImageView!
-    @IBOutlet weak var koreanHeritageTitle: UILabel!
-    @IBOutlet weak var koreanHeritageShortDescription: UILabel!
+    @IBOutlet weak private var koreanHeritageImage: UIImageView!
+    @IBOutlet weak private var koreanHeritageTitle: UILabel!
+    @IBOutlet weak private var koreanHeritageShortDescription: UILabel!
+    
+    func configure(title: String, shortDescription: String, imageName: String) {
+        koreanHeritageImage.image = UIImage(named: imageName)
+        koreanHeritageTitle.text = title
+        koreanHeritageShortDescription.text = shortDescription
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
