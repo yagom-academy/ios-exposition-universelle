@@ -9,6 +9,7 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
     
+    //MARK: - @IBOutlet
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemShortDescription: UILabel!

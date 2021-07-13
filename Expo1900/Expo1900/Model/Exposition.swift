@@ -8,6 +8,8 @@
 import Foundation
 
 struct Exposition: Codable {
+    
+    //MARK: - Property
     let title: String
     let visitors: UInt
     let location: String

@@ -9,7 +9,11 @@ import Foundation
 import UIKit
 
 class FairJSONDecoder {
+    
+    //MARK: - Singleton
     static let shared = FairJSONDecoder()
     private init(){}
+    
+    //MARK: - Property
     let decoder: JSONDecoder = JSONDecoder()
 }

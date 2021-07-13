@@ -8,10 +8,14 @@
 import Foundation
 
 struct ExpositionItem: Codable {
+    
+    //MARK: -Property
     let items: [Item]
 }
 
 struct Item: Codable {
+    
+    //MARK: - Property
     let name: String
     let imageName: String
     let shortDescription: String
