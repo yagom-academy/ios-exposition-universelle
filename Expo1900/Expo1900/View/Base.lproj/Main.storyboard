@@ -174,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826.15384615384608" y="-14.218009478672984"/>
+            <point key="canvasLocation" x="763" y="-14"/>
         </scene>
         <!--한국의 출품작-->
         <scene sceneID="9NT-IO-z68">
@@ -253,14 +253,53 @@
                     <view key="view" contentMode="scaleToFill" id="azE-t1-De6">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bz-y7-NbG">
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Mek-mB-zgP">
+                                        <rect key="frame" x="16" y="0.0" width="358" height="201"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mn8-pO-k9t">
+                                                <rect key="frame" x="0.0" y="0.0" width="358" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="K3F-6M-OIF"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFd-fp-ox4">
+                                                <rect key="frame" x="161.33333333333334" y="184" width="35.333333333333343" height="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mek-mB-zgP" firstAttribute="width" secondItem="5bz-y7-NbG" secondAttribute="width" constant="-32" id="9zO-5G-AeK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mek-mB-zgP" secondAttribute="trailing" constant="16" id="VaW-M4-gDb"/>
+                                    <constraint firstItem="Mek-mB-zgP" firstAttribute="leading" secondItem="5bz-y7-NbG" secondAttribute="leading" constant="16" id="g0S-Pa-OpS"/>
+                                    <constraint firstItem="Mek-mB-zgP" firstAttribute="top" secondItem="5bz-y7-NbG" secondAttribute="top" id="tFE-OG-iBY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mek-mB-zgP" secondAttribute="bottom" id="vPT-S6-Cs5"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Ddb-Ea-NpO"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="YaD-QZ-wNs"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OFG-2N-y2x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OFG-2N-y2x" firstAttribute="bottom" secondItem="5bz-y7-NbG" secondAttribute="bottom" id="Jyh-tR-0GP"/>
+                            <constraint firstItem="5bz-y7-NbG" firstAttribute="leading" secondItem="OFG-2N-y2x" secondAttribute="leading" id="MYl-KY-tBd"/>
+                            <constraint firstItem="5bz-y7-NbG" firstAttribute="top" secondItem="OFG-2N-y2x" secondAttribute="top" id="YD6-bo-x3U"/>
+                            <constraint firstItem="OFG-2N-y2x" firstAttribute="trailing" secondItem="5bz-y7-NbG" secondAttribute="trailing" id="nS6-4c-hBc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5uf-GL-E3i"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkp-ie-Nwy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366" y="-14"/>
+            <point key="canvasLocation" x="2364.6153846153848" y="-14.218009478672984"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bf0-0w-oUR">
