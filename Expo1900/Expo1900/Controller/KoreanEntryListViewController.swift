@@ -47,7 +47,7 @@ extension KoreanEntryListViewController {
               let detailViewController = segue.destination as? EntryDetailViewController else {
             return showAlert(error: DataTransferError.sendingError)
         }
-        detailViewController.configureEntryItem(from: entryItems[indexPath.row])
+        detailViewController.configure(with: entryItems[indexPath.row])
     }
 }
 
