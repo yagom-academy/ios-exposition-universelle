@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
+    // MARK: @IBOutlets
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var entryTitleLabel: UILabel!
     @IBOutlet weak var entryDetailLabel: UILabel!
@@ -22,5 +23,4 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

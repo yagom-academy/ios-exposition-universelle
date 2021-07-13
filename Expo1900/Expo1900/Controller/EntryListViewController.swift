@@ -7,38 +7,19 @@
 
 import UIKit
 
-class EntryListViewController: UIViewController, UITableViewDataSource {
+class EntryListViewController: UIViewController {
     
     // MARK: @IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-    let cellIdentifier = "EntryCell"
-    let entryDataIdentifier = "items"
-    var entries = [Entry]() {
+    private let cellIdentifier = "EntryCell"
+    private let entryDataIdentifier = "items"
+    
+    private var entries = [Entry]() {
         didSet {
             self.tableView.reloadData()
         }
-    }
-    
-    // MARK: TableView DataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.entries.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: self.cellIdentifier,
-            for: indexPath
-        ) as? CustomTableViewCell else {
-            return UITableViewCell()
-        }
-        let entry = self.entries[indexPath.row]
-        cell.entryImageView.image = UIImage(named: entry.imageName ?? "")
-        cell.entryTitleLabel.text = entry.name
-        cell.entryDetailLabel.text = entry.shortDescription
-        
-        return cell
     }
     
     // MARK: Life Cycle
@@ -73,5 +54,27 @@ class EntryListViewController: UIViewController, UITableViewDataSource {
         nextViewController.entryTitle = entries[index].name
         nextViewController.entryImageName = entries[index].imageName
         nextViewController.entryDescription = entries[index].description
+    }
+}
+
+extension EntryListViewController: UITableViewDataSource {
+    // MARK: TableView DataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.entries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: self.cellIdentifier,
+            for: indexPath
+        ) as? CustomTableViewCell else {
+            return UITableViewCell()
+        }
+        let entry = self.entries[indexPath.row]
+        cell.entryImageView.image = UIImage(named: entry.imageName ?? "")
+        cell.entryTitleLabel.text = entry.name
+        cell.entryDetailLabel.text = entry.shortDescription
+        
+        return cell
     }
 }

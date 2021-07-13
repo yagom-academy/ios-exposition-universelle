@@ -16,13 +16,13 @@ class ExpositionViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: Properties
-    var exposition: Exposition? {
+    private var exposition: Exposition? {
         didSet {
             self.updateUI()
         }
     }
-    let numberFormatter = NumberFormatter()
-    let expositionDataIdentifier = "exposition_universelle_1900"
+    private let numberFormatter = NumberFormatter()
+    private let expositionDataIdentifier = "exposition_universelle_1900"
     
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -48,7 +48,7 @@ class ExpositionViewController: UIViewController {
     }
     
     // MARK: Functions
-    func updateUI() {
+    private func updateUI() {
         titleLabel.text = exposition?.title
         guard let stringNumber = numberFormatter.string(from: NSNumber(value: (exposition?.visitors)!)) else {
             return
