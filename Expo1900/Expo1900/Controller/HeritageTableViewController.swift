@@ -9,6 +9,8 @@ import UIKit
 
 class HeritageTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let jsonDecoder = JsonDecoder()
+    let heritageTableViewCellIdentifier = "customCell"
+    let detailHeritageViewControllerIdentifier = "ThirdVC"
     //MARK: - IBOulet
     @IBOutlet weak private var tableView: UITableView!
     
@@ -31,7 +33,7 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: CustomHeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomHeritageTableViewCell else {
+        guard let cell: CustomHeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.heritageTableViewCellIdentifier, for: indexPath) as? CustomHeritageTableViewCell else {
             return UITableViewCell()
         }
         
@@ -44,7 +46,7 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextVC: DetailHeritageViewController = self.storyboard?.instantiateViewController(identifier: "ThirdVC") as? DetailHeritageViewController else {
+        guard let nextVC: DetailHeritageViewController = self.storyboard?.instantiateViewController(identifier: self.detailHeritageViewControllerIdentifier) as? DetailHeritageViewController else {
             return
         }
         nextVC.koreanHeritage = informationOfKoreanHeritages[indexPath.row]
