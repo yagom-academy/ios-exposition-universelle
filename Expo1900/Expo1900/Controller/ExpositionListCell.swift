@@ -8,7 +8,7 @@
 import UIKit
 
 class ExpositionListCell: UITableViewCell {
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var shortDescription: UILabel!
+    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var name: UILabel!
+    @IBOutlet private weak var shortDescription: UILabel!
 }

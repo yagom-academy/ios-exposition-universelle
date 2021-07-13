@@ -10,7 +10,7 @@ import UIKit
 class ExpositionListViewController: UIViewController {
     private let cellReuseIdentifier = "ExpositionListCell"
     var expositionItems: [ExpositionItem]?
-    @IBOutlet var expositionTableView: UITableView!
+    @IBOutlet private var expositionTableView: UITableView!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailViewSegue",

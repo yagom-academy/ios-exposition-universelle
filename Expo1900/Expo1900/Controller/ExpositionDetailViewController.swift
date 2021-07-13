@@ -8,8 +8,8 @@
 import UIKit
 
 class ExpositionDetailViewController: UIViewController {
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var itemDescriptionLabel: UILabel!
     
     var expositionItem: ExpositionItem?
     
