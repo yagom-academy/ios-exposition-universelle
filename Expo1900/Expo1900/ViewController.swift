@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     //MARK: - LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "메인"
         let jsonDecoder = JSONDecoder()
         
         guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {

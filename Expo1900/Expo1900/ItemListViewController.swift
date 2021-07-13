@@ -7,14 +7,15 @@ class ItemListViewController: UIViewController {
     
     //MARK: - Properties
     private var itemList: [KoreanItem] = []
+    private let koreanEntry = "한국의 출품작"
     
     //MARK: - LifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        self.navigationItem.title = "한국의 출품작"
-        let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
+        self.navigationItem.title = koreanEntry
+        let backBarButtonItem = UIBarButtonItem(title: koreanEntry, style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
         let jsonDecoder = JSONDecoder()
         
@@ -49,7 +50,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemListCell", for: indexPath) as? ItemListCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemListCell.self), for: indexPath) as? ItemListCell else {
             return UITableViewCell()
         }
         
