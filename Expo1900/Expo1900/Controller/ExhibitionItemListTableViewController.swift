@@ -9,12 +9,13 @@ import UIKit
 class ExhibitionItemListTableViewController: UIViewController {
     
     var exhibitionItems: [ExhibitionItem] = []
-    
+    var delegate: ExhibitionItemGettable?
     @IBOutlet var exhibitionTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         exhibitionTableView.dataSource = self
+        exhibitionTableView.delegate = self
         
         let jsonDecoder = JSONDecoder()
         guard let data = NSDataAsset(name: "items") else {
@@ -45,5 +46,16 @@ extension ExhibitionItemListTableViewController: UITableViewDataSource {
         cell.contentConfiguration = content
         
         return cell
+    }
+}
+
+extension ExhibitionItemListTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? ExhibitionItemDetailViewController else {
+            return
+        }
+        delegate = detailViewController
+        delegate?.getExhibitionItem(exhibitionItems[indexPath.row])
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

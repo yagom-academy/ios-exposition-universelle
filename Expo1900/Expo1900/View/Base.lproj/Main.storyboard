@@ -182,9 +182,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="S5U-C6-qdy" kind="show" id="5Ri-tW-0Fj"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -207,21 +204,74 @@
             </objects>
             <point key="canvasLocation" x="1614" y="137"/>
         </scene>
-        <!--View Controller-->
+        <!--Exhibition Item Detail View Controller-->
         <scene sceneID="5Ea-e6-3Jn">
             <objects>
-                <viewController id="S5U-C6-qdy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="S5U-C6-qdy" customClass="ExhibitionItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8xh-vf-bdy">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e5D-Cx-QMp">
+                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edl-fj-Q25">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="231.66666666666666"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HqI-wf-58l">
+                                                <rect key="frame" x="128.33333333333331" y="20" width="171.33333333333331" height="171.33333333333334"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="HqI-wf-58l" secondAttribute="height" multiplier="1:1" id="llV-bP-CWR"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u98-tD-Kf6">
+                                                <rect key="frame" x="10" y="201.33333333333334" width="408" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="u98-tD-Kf6" firstAttribute="top" secondItem="HqI-wf-58l" secondAttribute="bottom" constant="10" id="DGO-o2-Hhm"/>
+                                            <constraint firstItem="u98-tD-Kf6" firstAttribute="leading" secondItem="Edl-fj-Q25" secondAttribute="leading" constant="10" id="ND8-40-Igs"/>
+                                            <constraint firstAttribute="trailing" secondItem="u98-tD-Kf6" secondAttribute="trailing" constant="10" id="dq2-oS-McX"/>
+                                            <constraint firstItem="HqI-wf-58l" firstAttribute="centerX" secondItem="Edl-fj-Q25" secondAttribute="centerX" id="ruH-Rp-gEL"/>
+                                            <constraint firstAttribute="bottom" secondItem="u98-tD-Kf6" secondAttribute="bottom" constant="10" id="uht-Pt-mmM"/>
+                                            <constraint firstItem="HqI-wf-58l" firstAttribute="top" secondItem="Edl-fj-Q25" secondAttribute="top" constant="20" id="v2a-Gn-vmF"/>
+                                            <constraint firstItem="HqI-wf-58l" firstAttribute="width" secondItem="Edl-fj-Q25" secondAttribute="width" multiplier="0.4" id="yZY-jY-LiI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Edl-fj-Q25" firstAttribute="bottom" secondItem="8fC-99-d9p" secondAttribute="bottom" id="7Cp-HU-7rH"/>
+                                    <constraint firstItem="ziw-0W-cAO" firstAttribute="trailing" secondItem="Edl-fj-Q25" secondAttribute="trailing" id="Svf-Me-8hF"/>
+                                    <constraint firstItem="Edl-fj-Q25" firstAttribute="top" secondItem="8fC-99-d9p" secondAttribute="top" id="aqm-iA-ilS"/>
+                                    <constraint firstItem="Edl-fj-Q25" firstAttribute="width" secondItem="ziw-0W-cAO" secondAttribute="width" id="cmi-dx-rdO"/>
+                                    <constraint firstItem="Edl-fj-Q25" firstAttribute="leading" secondItem="ziw-0W-cAO" secondAttribute="leading" id="l06-oT-7rV"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="8fC-99-d9p"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ziw-0W-cAO"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lF7-x7-iSP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e5D-Cx-QMp" firstAttribute="leading" secondItem="lF7-x7-iSP" secondAttribute="leading" id="1yq-3N-UE7"/>
+                            <constraint firstItem="lF7-x7-iSP" firstAttribute="bottom" secondItem="e5D-Cx-QMp" secondAttribute="bottom" id="ZoO-XY-dzA"/>
+                            <constraint firstItem="lF7-x7-iSP" firstAttribute="trailing" secondItem="e5D-Cx-QMp" secondAttribute="trailing" id="iak-kb-r7d"/>
+                            <constraint firstItem="e5D-Cx-QMp" firstAttribute="top" secondItem="lF7-x7-iSP" secondAttribute="top" id="qqx-RA-cL6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ot5-vh-Skp"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="u98-tD-Kf6" id="R1V-SB-U9t"/>
+                        <outlet property="exhibitionItemImage" destination="HqI-wf-58l" id="cw7-UZ-wsF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M84-4e-huh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2323" y="137"/>
+            <point key="canvasLocation" x="2433.6448598130842" y="136.71706263498922"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jgs-kf-kOo">
