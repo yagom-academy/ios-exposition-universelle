@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let exposition = try? JSONParser.parse(name: "exposition_universelle_1900", type: Exposition.self).get() else {
+        guard let exposition = try? JSONParser.parse(name: JSONAsset.mainDataName, type: Exposition.self).get() else {
             return
         }
         updateUI(exposition: exposition)

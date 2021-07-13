@@ -15,11 +15,15 @@ class ExpositionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemImageView.image = expositionItem?.image
-        itemDescriptionLabel.text = expositionItem?.description
-        self.navigationItem.title = expositionItem?.name
+        updateUI()
     }
     
+    private func updateUI() {
+        itemImageView.image = expositionItem?.image
+        itemDescriptionLabel.text = expositionItem?.description
+        navigationItem.title = expositionItem?.name
+    }
+
     func configure(expositionItem: ExpositionItem) {
         self.expositionItem = expositionItem
     }

@@ -15,6 +15,6 @@ struct Exposition: Decodable {
     let description: String
     
     var image: UIImage? {
-        return UIImage(named: "poster")
+        return UIImage(named: ImageAsset.poster)
     }
 }

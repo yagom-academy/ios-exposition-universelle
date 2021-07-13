@@ -10,11 +10,10 @@ import UIKit
 class ExpositionListViewController: UIViewController {
     @IBOutlet private var expositionTableView: UITableView!
     
-    private let cellReuseIdentifier = "ExpositionListCell"
     var expositionItems: [ExpositionItem]?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetailViewSegue",
+        if segue.identifier == Identifier.detailViewSegue,
            let detailViewController = segue.destination as? ExpositionDetailViewController,
            let cell = sender as? UITableViewCell,
            let indexPath = expositionTableView.indexPath(for: cell),
@@ -26,19 +25,18 @@ class ExpositionListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        expositionTableView.delegate = self
         expositionTableView.dataSource = self
-        expositionItems = try? JSONParser.parse(name: "items", type: [ExpositionItem].self).get()
+        expositionItems = try? JSONParser.parse(name: JSONAsset.expositionDataName, type: [ExpositionItem].self).get()
     }
 }
 
-extension ExpositionListViewController: UITableViewDelegate, UITableViewDataSource {
+extension ExpositionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expositionItems?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ExpositionListCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.expositionCell, for: indexPath) as? ExpositionListCell,
               let expositionItem = expositionItems?[indexPath.row] else {
             return UITableViewCell()
         }
