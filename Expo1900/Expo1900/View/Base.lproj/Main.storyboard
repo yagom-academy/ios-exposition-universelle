@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="2100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="2200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFX-hv-wgt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="2100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="2200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCe-3V-Rv9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPz-qd-GK9">
                                                 <rect key="frame" x="8" y="10" width="398" height="30"/>
@@ -74,9 +74,9 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-pp-dQO">
-                                                <rect key="frame" x="8" y="400.5" width="398" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-pp-dQO">
+                                                <rect key="frame" x="8" y="400.5" width="398" height="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -98,7 +98,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9W-CV-0cL">
-                                                <rect key="frame" x="20" y="1944" width="374" height="48"/>
+                                                <rect key="frame" x="20" y="2144" width="374" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="vat-9d-0RJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
@@ -152,7 +152,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="wPz-qd-GK9" secondAttribute="trailing" id="VoQ-kv-Dfz"/>
                                             <constraint firstItem="Iuc-yo-X6j" firstAttribute="top" secondItem="aNR-HC-Z9E" secondAttribute="bottom" constant="10" id="Vp9-XN-29y"/>
                                             <constraint firstItem="wp8-pg-L2g" firstAttribute="centerX" secondItem="yCe-3V-Rv9" secondAttribute="centerX" id="WcT-b9-04H"/>
-                                            <constraint firstAttribute="height" constant="2000" id="cI8-yS-ZAn"/>
+                                            <constraint firstAttribute="height" constant="2200" id="cI8-yS-ZAn"/>
                                             <constraint firstItem="9vB-QK-QD4" firstAttribute="top" secondItem="wPz-qd-GK9" secondAttribute="bottom" constant="10" id="eSi-dR-bAu"/>
                                             <constraint firstItem="wPz-qd-GK9" firstAttribute="top" secondItem="yCe-3V-Rv9" secondAttribute="top" constant="10" id="fZL-UT-4MT"/>
                                             <constraint firstItem="wPz-qd-GK9" firstAttribute="leading" secondItem="yCe-3V-Rv9" secondAttribute="leadingMargin" id="nZr-VD-afF"/>
@@ -185,7 +185,7 @@
                     <navigationItem key="navigationItem" title="메인" id="3eZ-r3-6Zw">
                         <barButtonItem key="backBarButtonItem" title="메인" id="dth-fz-HuL"/>
                     </navigationItem>
-                    <size key="freeformSize" width="414" height="2100"/>
+                    <size key="freeformSize" width="414" height="2200"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="Kkg-pp-dQO" id="fgR-48-W8P"/>
                         <outlet property="expositionPoster" destination="ySP-Ya-pjN" id="t7e-qW-aCb"/>

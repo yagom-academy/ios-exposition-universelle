@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     //MARK: - NumberForamtter
-    var numberFormatter: NumberFormatter = {
+    private var numberFormatter: NumberFormatter = {
        let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         return formatter
@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
         try? obtainExpositionData()
     }
   
-    func obtainExpositionData() throws {
+    private func obtainExpositionData() throws {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else { return }
         do {
             let expositionData = try FairJSONDecoder.shared.decoder.decode(Exposition.self, from: dataAsset.data)
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
             periodLabel.text = expositionData.duration
             descriptionLabel.text = expositionData.description
         } catch {
-            throw TestError.testError
+            throw DecodingError.failedToDecode
         }
         
     }

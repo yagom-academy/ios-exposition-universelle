@@ -7,14 +7,14 @@
 
 import UIKit
 
-enum TestError: Error {
-    case testError
+enum DecodingError: Error {
+    case failedToDecode
 }
 
 class ListTableViewController: UITableViewController {
 
-    var items: [Item] = []
-    let showItemDetailSegue = "showItemDetailSegue"
+    private var items: [Item] = []
+    private let showItemDetailSegue = "showItemDetailSegue"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showItemDetailSegue, let destination = segue.destination as? ItemTableViewController, let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
@@ -29,7 +29,7 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData { (result: Result<[Item], TestError>) in
+        obtainExpositionItemData { (result: Result<[Item], DecodingError>) in
             switch result {
             case .success(let data):
                 self.items = data
@@ -41,7 +41,7 @@ class ListTableViewController: UITableViewController {
         }
     }
     
-    func obtainExpositionItemData(completion: @escaping (Result<[Item], TestError>) -> ()) {
+    private func obtainExpositionItemData(completion: @escaping (Result<[Item], DecodingError>) -> ()) {
         guard let itemDataAsset: NSDataAsset = NSDataAsset(name: "items") else {
             return
         }
