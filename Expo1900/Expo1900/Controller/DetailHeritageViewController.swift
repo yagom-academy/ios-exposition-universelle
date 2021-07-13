@@ -19,11 +19,11 @@ class DetailHeritageViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        informationOfkoreanHeritage()
+        showInformationOfkoreanHeritage()
     }
     
     //MARK: - Method
-    private func informationOfkoreanHeritage() {
+    private func showInformationOfkoreanHeritage() {
         guard let koreanHeritage = koreanHeritage else {
             return
         }

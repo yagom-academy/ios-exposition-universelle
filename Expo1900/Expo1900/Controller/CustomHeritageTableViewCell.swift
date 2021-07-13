@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class CustomHeritageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var koreanHeritageImage: UIImageView!
     @IBOutlet weak var koreanHeritageTitle: UILabel!
