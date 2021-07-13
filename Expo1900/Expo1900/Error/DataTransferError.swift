@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK:- Data Transfer Related Error
 enum DataTransferError: Error, LocalizedError {
     case sendingError
     case recievingError
