@@ -23,10 +23,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let value = try? jsonDecoder.decode(name: "exposition_universelle_1900", type: InformationOfExpo.self) else {
-            return
-        }
-        inputData(value)
+        fetchUniverselleInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +39,15 @@ class MainViewController: UIViewController {
     }
     
     //MARK: - Method
-    private func inputData(_ expo: InformationOfExpo) {
+    
+    private func fetchUniverselleInfo() {
+        guard let value = try? jsonDecoder.decode(name: "exposition_universelle_1900", type: InformationOfExpo.self) else {
+            return
+        }
+        updateMainView(value)
+    }
+    
+    private func updateMainView(_ expo: InformationOfExpo) {
         mainTitleLabel.text = expo.title
         mainVisitorLabel.text = "방문객 : " + expo.visitorsWithComma + "명"
         mainLocationLabel.text = "개최지 : " + expo.location

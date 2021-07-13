@@ -22,13 +22,17 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchKoreanHeritageInfo()
+    }
+    
+    //MARK: - Method
+    private func fetchKoreanHeritageInfo() {
         guard let value = try? jsonDecoder.decode(name: "items", type: [InformationOfKoreanHeritage].self) else {
             return
         }
         informationOfKoreanHeritages = value
     }
     
-    //MARK: - Method
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return informationOfKoreanHeritages.count
     }
