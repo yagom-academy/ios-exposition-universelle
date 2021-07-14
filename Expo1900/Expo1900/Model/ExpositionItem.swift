@@ -5,13 +5,16 @@
 //  Created by Terry Lee on 2021/07/06.
 //
 
-import Foundation
+import UIKit
 
 struct ExpositionItem: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
     let description: String
+    var image: UIImage? {
+        return UIImage(named: imageName)
+    }
     
     enum CodingKeys: String, CodingKey {
         case name
