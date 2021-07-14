@@ -11,7 +11,7 @@ class ItemTableViewController: UITableViewController {
     
     //MARK: - Property
     var item: Entry?
-
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class ItemTableViewController: UITableViewController {
             return UITableViewCell()
         }
         if let item = item {
-        cell.itemImageView.image = UIImage(named: item.imageName)
+            cell.itemImageView.image = UIImage(named: item.imageName)
             cell.itemDescrption.text = item.description
         }
         return cell

@@ -7,7 +7,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     //MARK: - Label
     @IBOutlet weak var expositionTitleLabel: UILabel!
     @IBOutlet weak var expositionTitleLableInFrench: UILabel!
@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
     
     //MARK: - NumberForamtter
     private var numberFormatter: NumberFormatter = {
-       let formatter = NumberFormatter()
+        let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         return formatter
     }()
@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-  
+    
     //MARK: - Method
     private func obtainExpositionData() throws -> Exposition {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else { fatalError() }
@@ -45,7 +45,6 @@ class MainViewController: UIViewController {
         } catch {
             throw DecodingError.failedToDecode
         }
-        
     }
     
     private func setMainViewUIComponents(expositionData: Exposition) {
@@ -61,7 +60,7 @@ class MainViewController: UIViewController {
         periodLabel.text = expositionData.duration
         descriptionLabel.text = expositionData.description
     }
-
+    
 }
 
 
