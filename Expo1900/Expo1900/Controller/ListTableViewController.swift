@@ -47,6 +47,7 @@ class ListTableViewController: UITableViewController {
             completion(.success(expositionDatas))
         } catch {
             print(String(describing: error))
+            completion(.failure(DecodingError.failedToDecode))
         }
     }
 
