@@ -7,25 +7,17 @@
 
 import UIKit
 
-//MARK: - Error Type
-enum DecodingError: Error {
-    case failedToDecode
-}
-
 class ListTableViewController: UITableViewController {
     
     //MARK: - Property
-    private var items: [Item] = []
+    private var items: [Entry] = []
     private let showItemDetailSegue = "showItemDetailSegue"
     
     //MARK: - Preprocess Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showItemDetailSegue, let destination = segue.destination as? ItemTableViewController, let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             let item = items[indexPath.row]
-            
-            destination.itemName = item.name
-            destination.itemImage = UIImage(named: item.imageName)
-            destination.itemDescription = item.description
+            destination.item = item
         }
     }
     
@@ -33,7 +25,7 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
-        obtainExpositionItemData { (result: Result<[Item], DecodingError>) in
+        obtainExpositionItemData { (result: Result<[Entry], DecodingError>) in
             switch result {
             case .success(let data):
                 self.items = data
@@ -46,12 +38,12 @@ class ListTableViewController: UITableViewController {
     }
     
     //MARK: - Method
-    private func obtainExpositionItemData(completion: @escaping (Result<[Item], DecodingError>) -> ()) {
+    private func obtainExpositionItemData(completion: @escaping (Result<[Entry], DecodingError>) -> ()) {
         guard let itemDataAsset: NSDataAsset = NSDataAsset(name: "items") else {
             return
         }
         do {
-            let expositionDatas = try FairJSONDecoder.shared.decoder.decode([Item].self, from: itemDataAsset.data)
+            let expositionDatas = try FairJSONDecoder.shared.decoder.decode([Entry].self, from: itemDataAsset.data)
             completion(.success(expositionDatas))
         } catch {
             print(String(describing: error))
@@ -73,5 +65,4 @@ class ListTableViewController: UITableViewController {
         cell.itemShortDescription.text = itemOfRow.shortDescription
         return cell
     }
-    
 }

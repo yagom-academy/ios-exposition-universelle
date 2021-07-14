@@ -5,20 +5,17 @@
 //  Created by Hosinging, EHD on 2021/07/12.
 //
 
-import Foundation
 import UIKit
 
 class ItemTableViewController: UITableViewController {
     
     //MARK: - Property
-    var itemName: String?
-    var itemImage: UIImage?
-    var itemDescription: String?
-    
+    var item: Entry?
+
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = itemName
+        navigationItem.title = item?.name
     }
     
     //MARK: - Table view data source
@@ -30,8 +27,10 @@ class ItemTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
-        cell.itemImageView.image = itemImage
-        cell.itemDescrption.text = itemDescription
+        if let item = item {
+        cell.itemImageView.image = UIImage(named: item.imageName)
+            cell.itemDescrption.text = item.description
+        }
         return cell
     }
 }

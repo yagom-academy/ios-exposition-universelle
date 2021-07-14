@@ -28,29 +28,38 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        try? obtainExpositionData()
+        do {
+            let expositionData = try obtainExpositionData()
+            setMainViewUIComponents(expositionData: expositionData)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
   
     //MARK: - Method
-    private func obtainExpositionData() throws {
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else { return }
+    private func obtainExpositionData() throws -> Exposition {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else { fatalError() }
         do {
             let expositionData = try FairJSONDecoder.shared.decoder.decode(Exposition.self, from: dataAsset.data)
-            let titles = expositionData.title.components(separatedBy: "(")
-            if let firstTitle = titles.first, let secondTitle = titles.last {
-                expositionTitleLabel.text = firstTitle
-                expositionTitleLableInFrench.text = "(\(secondTitle)"
-            }
-            expositionPoster.image = UIImage(named: "poster")
-            guard let visitors = numberFormatter.string(for: expositionData.visitors) else { return }
-            numberOfVisitorsLabel.text = "\(visitors) 명"
-            locationLabel.text = expositionData.location
-            periodLabel.text = expositionData.duration
-            descriptionLabel.text = expositionData.description
+            return expositionData
         } catch {
             throw DecodingError.failedToDecode
         }
         
+    }
+    
+    private func setMainViewUIComponents(expositionData: Exposition) {
+        let titles = expositionData.title.components(separatedBy: "(")
+        if let firstTitle = titles.first, let secondTitle = titles.last {
+            expositionTitleLabel.text = firstTitle
+            expositionTitleLableInFrench.text = "(\(secondTitle)"
+        }
+        expositionPoster.image = UIImage(named: "poster")
+        guard let visitors = numberFormatter.string(for: expositionData.visitors) else { return }
+        numberOfVisitorsLabel.text = "\(visitors) 명"
+        locationLabel.text = expositionData.location
+        periodLabel.text = expositionData.duration
+        descriptionLabel.text = expositionData.description
     }
 
 }

@@ -10,10 +10,10 @@ import Foundation
 struct ExpositionItem: Codable {
     
     //MARK: -Property
-    let items: [Item]
+    let entryList: [Entry]
 }
 
-struct Item: Codable {
+struct Entry: Codable {
     
     //MARK: - Property
     let name: String

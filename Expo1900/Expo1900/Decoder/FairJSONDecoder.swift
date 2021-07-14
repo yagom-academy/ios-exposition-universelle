@@ -4,9 +4,11 @@
 //
 //  Created by Hosinging, EHD on 2021/07/10.
 //
-
-import Foundation
 import UIKit
+
+enum DecodingError: Error {
+    case failedToDecode
+}
 
 class FairJSONDecoder {
     
