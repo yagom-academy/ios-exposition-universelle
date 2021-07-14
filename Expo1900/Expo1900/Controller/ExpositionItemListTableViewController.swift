@@ -1,0 +1,60 @@
+//
+//  Expo1900 - ViewController.swift
+//  Created by yagom. 
+//  Copyright © yagom academy. All rights reserved.
+// 
+
+import UIKit
+
+class ExpositionItemListTableViewController: UIViewController {
+    private var expositionItems: [ExpositionItem] = []
+    
+    @IBOutlet private var expositionItemTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        expositionItemTableView.dataSource = self
+        expositionItemTableView.delegate = self
+        
+        guard let jsonData = NSDataAsset(name: String(describing: JsonFileName.items))?.data else {
+            return
+        }
+        do {
+            expositionItems = try JSONDecoder().decode([ExpositionItem].self, from: jsonData)
+        } catch {
+            print(error)
+        }
+    }
+}
+
+// MARK:- UITableViewDataSource
+extension ExpositionItemListTableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expositionItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "expositionItemCell", for: indexPath)
+        
+        var content = cell.defaultContentConfiguration()
+        content.image = UIImage(named: expositionItems[indexPath.row].imageName)
+        content.text = expositionItems[indexPath.row].name
+        content.secondaryText = expositionItems[indexPath.row].shortDescription
+        content.imageProperties.maximumSize = CGSize(width: 70, height: 150)
+        cell.contentConfiguration = content
+        
+        return cell
+    }
+}
+
+// MARK:- UITableViewDelegate
+extension ExpositionItemListTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? ExpositionItemDetailViewController else {
+            return
+        }
+        
+        detailViewController.configure(expositionItems[indexPath.row])
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}

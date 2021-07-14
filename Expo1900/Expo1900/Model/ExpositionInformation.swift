@@ -8,15 +8,15 @@
 import Foundation
 
 struct ExpositionInformation: Decodable {
-    let title: String
-    let visitors: UInt
+    private let title: String
+    private let visitors: UInt
     let location: String
     let duration: String
     let description: String
     
     var formattedTitle: String? {
         if let findIndex: String.Index = title.firstIndex(of: "(") {
-           return title[..<findIndex] + "\n" + title[findIndex...]
+            return title[..<findIndex] + "\n" + title[findIndex...]
         }
         return nil
     }

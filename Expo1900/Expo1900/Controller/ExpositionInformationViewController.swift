@@ -9,26 +9,21 @@ import UIKit
 
 class ExpositionInformationViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let jsonDecoder = JSONDecoder()
-        guard let data = NSDataAsset(name: String(describing: JsonFileName.exposition_universelle_1900)) else {
+ 
+        guard let jsonData = NSDataAsset(name: String(describing: JsonFileName.exposition_universelle_1900))?.data else {
             return
         }
-        guard let expositionInformation = try? jsonDecoder.decode(ExpositionInformation.self,
-                                                                  from: data.data) else { return }
-        titleLabel.text = expositionInformation.formattedTitle
-        visitorsLabel.text = expositionInformation.formattedVisitors
-        locationLabel.text = expositionInformation.location
-        durationLabel.text = expositionInformation.duration
-        descriptionLabel.text = expositionInformation.description
+        guard let expositionInformation = try? JSONDecoder().decode(ExpositionInformation.self,
+                                                                  from: jsonData) else { return }
+        setUpLabels(to: expositionInformation)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,5 +32,13 @@ class ExpositionInformationViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func setUpLabels(to item: ExpositionInformation) {
+        titleLabel.text = item.formattedTitle
+        visitorsLabel.text = item.formattedVisitors
+        locationLabel.text = item.location
+        durationLabel.text = item.duration
+        descriptionLabel.text = item.description
     }
 }
