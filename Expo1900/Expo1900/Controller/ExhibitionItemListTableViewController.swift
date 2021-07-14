@@ -7,9 +7,8 @@
 import UIKit
 
 class ExhibitionItemListTableViewController: UIViewController {
-    
     var exhibitionItems: [ExhibitionItem] = []
-    var delegate: ExhibitionItemGettable?
+    
     @IBOutlet var exhibitionTableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,6 +28,7 @@ class ExhibitionItemListTableViewController: UIViewController {
     }
 }
 
+// MARK:- UITableViewDataSource
 extension ExhibitionItemListTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exhibitionItems.count
@@ -49,13 +49,14 @@ extension ExhibitionItemListTableViewController: UITableViewDataSource {
     }
 }
 
+// MARK:- UITableViewDelegate
 extension ExhibitionItemListTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? ExhibitionItemDetailViewController else {
             return
         }
-        delegate = detailViewController
-        delegate?.getExhibitionItem(exhibitionItems[indexPath.row])
+        
+        detailViewController.configure(exhibitionItems[indexPath.row])
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

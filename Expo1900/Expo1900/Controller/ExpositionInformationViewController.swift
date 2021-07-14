@@ -30,7 +30,7 @@ class ExpositionInformationViewController: UIViewController {
         durationLabel.text = expositionInformation.duration
         descriptionLabel.text = expositionInformation.description
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -38,5 +38,4 @@ class ExpositionInformationViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
 }

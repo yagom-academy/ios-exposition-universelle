@@ -7,28 +7,24 @@
 
 import UIKit
 
-protocol ExhibitionItemGettable {
-    func getExhibitionItem(_ item: ExhibitionItem)
-}
-
-class ExhibitionItemDetailViewController: UIViewController, ExhibitionItemGettable {
+class ExhibitionItemDetailViewController: UIViewController {
   
-    var exhibitionItem: ExhibitionItem?
-    @IBOutlet weak var exhibitionItemImage: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    private var exhibitionItem: ExhibitionItem?
+    
+    @IBOutlet private weak var exhibitionItemImage: UIImageView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let image = exhibitionItem?.imageName else {
             return
         }
+        self.navigationItem.title = exhibitionItem?.name
         self.exhibitionItemImage.image = UIImage(named: image)
         self.descriptionLabel.text = exhibitionItem?.description
-        
     }
     
-    func getExhibitionItem(_ item: ExhibitionItem) {
+    func configure(_ item: ExhibitionItem) {
         self.exhibitionItem = item
     }
 }
-
