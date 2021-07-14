@@ -19,7 +19,7 @@ class ExpositionInformationViewController: UIViewController {
         super.viewDidLoad()
         
         let jsonDecoder = JSONDecoder()
-        guard let data = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let data = NSDataAsset(name: String(describing: JsonFileName.exposition_universelle_1900)) else {
             return
         }
         guard let expositionInformation = try? jsonDecoder.decode(ExpositionInformation.self,

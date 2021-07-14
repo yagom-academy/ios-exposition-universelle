@@ -22,7 +22,7 @@ struct ExpositionInformation: Decodable {
     }
     
     var formattedVisitors: String? {
-        var formatter = NumberFormatter()
+        let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         return "\(formatter.string(from: NSNumber(value: visitors)) ?? "")명"
     }

@@ -17,7 +17,7 @@ class ExhibitionItemListTableViewController: UIViewController {
         exhibitionTableView.delegate = self
         
         let jsonDecoder = JSONDecoder()
-        guard let data = NSDataAsset(name: "items") else {
+        guard let data = NSDataAsset(name: String(describing: JsonFileName.items)) else {
             return
         }
         do {
@@ -41,7 +41,6 @@ extension ExhibitionItemListTableViewController: UITableViewDataSource {
         content.image = UIImage(named: exhibitionItems[indexPath.row].imageName)
         content.text = exhibitionItems[indexPath.row].name
         content.secondaryText = exhibitionItems[indexPath.row].shortDescription
-        
         content.imageProperties.maximumSize = CGSize(width: 70, height: 150)
         cell.contentConfiguration = content
         
