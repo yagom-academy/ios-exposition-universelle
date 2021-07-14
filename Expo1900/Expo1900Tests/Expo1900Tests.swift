@@ -11,9 +11,9 @@ import XCTest
 class Expo1900Tests: XCTestCase {
     var jsonDecoder: JSONDecoder!
     let expositionInformation = ExpositionInformation.init(title: "0", visitors: 0, location: "0", duration: "0", description: "0")
-    let exhibitionItems = [ExhibitionItem.init(name: "1", imageName: "1", shortDescription: "1", description: "1")
-                           ,ExhibitionItem.init(name: "2", imageName: "2", shortDescription: "2", description: "2")
-                           ,ExhibitionItem.init(name: "3", imageName: "3", shortDescription: "3", description: "3")]
+    let expositionItems = [ExpositionItem.init(name: "1", imageName: "1", shortDescription: "1", description: "1")
+                           ,ExpositionItem.init(name: "2", imageName: "2", shortDescription: "2", description: "2")
+                           ,ExpositionItem.init(name: "3", imageName: "3", shortDescription: "3", description: "3")]
     
     override func setUp() {
         jsonDecoder = JSONDecoder()
@@ -28,13 +28,27 @@ class Expo1900Tests: XCTestCase {
         XCTAssertEqual(decodedResult, expositionInformation)
     }
     
-    func test_ExhibitionItem_타입으로_디코딩을_성공한다() {
+    func test_ExpositionItem_타입으로_디코딩을_성공한다() {
         // given
-        let jsonData = try! JSONEncoder().encode(exhibitionItems)
+        let jsonData = try! JSONEncoder().encode(expositionItems)
         // when
-        let decodedResult = try! jsonDecoder.decode([ExhibitionItem].self, from: jsonData)
+        let decodedResult = try! jsonDecoder.decode([ExpositionItem].self, from: jsonData)
         // then
-        XCTAssertEqual(decodedResult, exhibitionItems)
+        XCTAssertEqual(decodedResult, expositionItems)
+    }
+    
+    func test_ExpositionInformation_타입으로_디코딩을_실패한다() {
+        // given
+        let jsonData = try! JSONEncoder().encode(expositionInformation)
+        // when, then
+        XCTAssertThrowsError(try jsonDecoder.decode(ExpositionItem.self, from: jsonData))
+    }
+    
+    func test_ExpositionItem_타입으로_디코딩을_실패한다() {
+        // given
+        let jsonData = try! JSONEncoder().encode(expositionItems)
+        // when, then
+        XCTAssertThrowsError(try jsonDecoder.decode([ExpositionInformation].self, from: jsonData))
     }
 }
 
@@ -67,7 +81,7 @@ extension ExpositionInformation: Equatable {
     }
 }
 
-extension ExhibitionItem: Encodable {
+extension ExpositionItem: Encodable {
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
@@ -84,8 +98,8 @@ extension ExhibitionItem: Encodable {
     }
 }
 
-extension ExhibitionItem: Equatable {
-    public static func == (lhs: ExhibitionItem, rhs: ExhibitionItem) -> Bool {
+extension ExpositionItem: Equatable {
+    public static func == (lhs: ExpositionItem, rhs: ExpositionItem) -> Bool {
         return lhs.name == rhs.name &&
             lhs.imageName == rhs.imageName &&
             lhs.shortDescription == rhs.shortDescription &&

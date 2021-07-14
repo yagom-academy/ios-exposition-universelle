@@ -8,8 +8,8 @@
 import Foundation
 
 struct ExpositionInformation: Decodable {
-    private let title: String
-    private let visitors: UInt
+    let title: String
+    let visitors: UInt
     let location: String
     let duration: String
     let description: String
