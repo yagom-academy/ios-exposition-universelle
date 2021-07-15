@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class EntryTableViewCell: UITableViewCell {
+    static let registerID: String = "\(EntryTableViewCell.self)"
+    
     // MARK: @IBOutlets
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var entryTitleLabel: UILabel!

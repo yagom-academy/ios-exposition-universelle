@@ -22,7 +22,6 @@ class ExpositionViewController: UIViewController {
         }
     }
     private let numberFormatter = NumberFormatter()
-    private let expositionDataIdentifier = "exposition_universelle_1900"
     
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -42,6 +41,8 @@ class ExpositionViewController: UIViewController {
     // MARK: Functions
     private func fetchExpositionData() -> Exposition? {
         let jsonDecoder = JSONDecoder()
+        let expositionDataIdentifier = "exposition_universelle_1900"
+        
         guard let dataAsset = NSDataAsset(name: expositionDataIdentifier) else {
             return nil
         }

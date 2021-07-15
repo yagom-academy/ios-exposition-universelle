@@ -13,9 +13,6 @@ class EntryListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-    private let cellIdentifier = "EntryCell"
-    private let entryDataIdentifier = "items"
-    
     private var entries = [Entry]() {
         didSet {
             self.tableView.reloadData()
@@ -38,6 +35,8 @@ class EntryListViewController: UIViewController {
     // MARK: Functions
     private func fetchEntryData() -> [Entry]? {
         let jsonDecoder = JSONDecoder()
+        let entryDataIdentifier = "items"
+        
         guard let dataAsset = NSDataAsset(name: entryDataIdentifier) else {
             return nil
         }
@@ -54,7 +53,7 @@ class EntryListViewController: UIViewController {
         guard let nextViewController = segue.destination as? EntryDetailViewController else {
             return
         }
-        guard let cell = sender as? CustomTableViewCell else {
+        guard let cell = sender as? EntryTableViewCell else {
             return
         }
         guard let index = tableView.indexPath(for: cell)?.row else {
@@ -75,9 +74,9 @@ extension EntryListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: self.cellIdentifier,
+            withIdentifier: EntryTableViewCell.registerID,
             for: indexPath
-        ) as? CustomTableViewCell else {
+        ) as? EntryTableViewCell else {
             return UITableViewCell()
         }
         let entry = self.entries[indexPath.row]

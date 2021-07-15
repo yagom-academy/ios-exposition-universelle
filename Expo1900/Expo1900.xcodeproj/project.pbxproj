@@ -11,7 +11,7 @@
 		A965A9A9269333480056A99F /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965A9A8269333480056A99F /* Exposition.swift */; };
 		A965A9AC269334240056A99F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965A9AB269334240056A99F /* Entry.swift */; };
 		A997C501269D2EC900B3B3ED /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C500269D2EC900B3B3ED /* EntryListViewController.swift */; };
-		A997C504269D340700B3B3ED /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C503269D340700B3B3ED /* CustomTableViewCell.swift */; };
+		A997C504269D340700B3B3ED /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A997C503269D340700B3B3ED /* EntryTableViewCell.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */; };
@@ -25,7 +25,7 @@
 		A965A9A8269333480056A99F /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		A965A9AB269334240056A99F /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A997C500269D2EC900B3B3ED /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
-		A997C503269D340700B3B3ED /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		A997C503269D340700B3B3ED /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
 				A997C500269D2EC900B3B3ED /* EntryListViewController.swift */,
-				A997C503269D340700B3B3ED /* CustomTableViewCell.swift */,
+				A997C503269D340700B3B3ED /* EntryTableViewCell.swift */,
 				798449A4269D7B7900EA7CA4 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
@@ -179,7 +179,7 @@
 				A965A9AC269334240056A99F /* Entry.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				A965A9A9269333480056A99F /* Exposition.swift in Sources */,
-				A997C504269D340700B3B3ED /* CustomTableViewCell.swift in Sources */,
+				A997C504269D340700B3B3ED /* EntryTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				798449A5269D7B7900EA7CA4 /* EntryDetailViewController.swift in Sources */,
