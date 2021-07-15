@@ -8,9 +8,9 @@
 
 
 ### UML
-![uml-exposition-universelle](https://user-images.githubusercontent.com/28389897/124568272-b3948500-de7f-11eb-9d54-024269b9bab4.png)
+![image](https://user-images.githubusercontent.com/59643667/125462069-37423bdf-61e3-4093-a4d0-fb7b2ae90760.png)
 
 
 ### 핵심 키워드
-- JSON
+- JSON / Codable
 - UITableView
