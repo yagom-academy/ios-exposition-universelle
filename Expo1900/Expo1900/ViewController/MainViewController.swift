@@ -60,3 +60,16 @@ extension MainViewController {
         label.attributedText = attributedString
     }
 }
+
+extension UINavigationController {
+    open override var shouldAutorotate: Bool {
+        if self.topViewController is MainViewController {
+            return false
+        }
+        return true
+    }
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+}
