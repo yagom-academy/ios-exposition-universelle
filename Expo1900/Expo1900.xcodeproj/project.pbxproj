@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4D9EB50C2694295D001DD820 /* InformationOfExpo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9EB50B2694295D001DD820 /* InformationOfExpo.swift */; };
+		757954DB26A0485B00770917 /* HeritageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757954DA26A0485B00770917 /* HeritageTableViewCell.swift */; };
+		758702C7269C5C4C009211BC /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758702C6269C5C4C009211BC /* JsonDecoder.swift */; };
 		758CADDE26941A4900C5EB02 /* InformationOfKoreanHeritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758CADDD26941A4900C5EB02 /* InformationOfKoreanHeritage.swift */; };
+		758CAE3F2696FE1900C5EB02 /* HeritageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758CAE3E2696FE1900C5EB02 /* HeritageTableViewController.swift */; };
+		758CAE4126970F7A00C5EB02 /* DetailHeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758CAE4026970F7A00C5EB02 /* DetailHeritageViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -19,11 +23,15 @@
 
 /* Begin PBXFileReference section */
 		4D9EB50B2694295D001DD820 /* InformationOfExpo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationOfExpo.swift; sourceTree = "<group>"; };
+		757954DA26A0485B00770917 /* HeritageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeritageTableViewCell.swift; sourceTree = "<group>"; };
+		758702C6269C5C4C009211BC /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
 		758CADDD26941A4900C5EB02 /* InformationOfKoreanHeritage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationOfKoreanHeritage.swift; sourceTree = "<group>"; };
+		758CAE3E2696FE1900C5EB02 /* HeritageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageTableViewController.swift; sourceTree = "<group>"; };
+		758CAE4026970F7A00C5EB02 /* DetailHeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeritageViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,11 +49,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C79FF4A82589F401005FB0FD = {
+		758CAE2F2695DA6700C5EB02 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				757954DA26A0485B00770917 /* HeritageTableViewCell.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				758CAE3E2696FE1900C5EB02 /* HeritageTableViewController.swift */,
+				758CAE4026970F7A00C5EB02 /* DetailHeritageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		758CAE302695DA6F00C5EB02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		758CAE312695DAB100C5EB02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4D9EB50B2694295D001DD820 /* InformationOfExpo.swift */,
 				758CADDD26941A4900C5EB02 /* InformationOfKoreanHeritage.swift */,
+				758702C6269C5C4C009211BC /* JsonDecoder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C79FF4A82589F401005FB0FD = {
+			isa = PBXGroup;
+			children = (
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
@@ -62,12 +101,9 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				758CAE312695DAB100C5EB02 /* Model */,
+				758CAE302695DA6F00C5EB02 /* View */,
+				758CAE2F2695DA6700C5EB02 /* Controller */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
@@ -144,9 +180,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				758CADDE26941A4900C5EB02 /* InformationOfKoreanHeritage.swift in Sources */,
+				758702C7269C5C4C009211BC /* JsonDecoder.swift in Sources */,
 				4D9EB50C2694295D001DD820 /* InformationOfExpo.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				757954DB26A0485B00770917 /* HeritageTableViewCell.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				758CAE3F2696FE1900C5EB02 /* HeritageTableViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				758CAE4126970F7A00C5EB02 /* DetailHeritageViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
