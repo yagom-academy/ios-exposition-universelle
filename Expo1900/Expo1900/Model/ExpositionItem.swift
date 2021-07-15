@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct ExpositionItem: Codable {
-    
-    //MARK: -Property
-    let entryList: [Entry]
-}
-
 struct Entry: Codable {
     
     //MARK: - Property

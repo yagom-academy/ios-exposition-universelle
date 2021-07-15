@@ -6,10 +6,6 @@
 //
 import UIKit
 
-enum DecodingError: Error {
-    case failedToDecode
-}
-
 class FairJSONDecoder {
     
     //MARK: - Singleton

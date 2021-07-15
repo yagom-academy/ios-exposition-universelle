@@ -10,6 +10,7 @@
 		2BA1BBDE2695722C00DE3842 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1BBDD2695722C00DE3842 /* Exposition.swift */; };
 		2BA1BBE02695724100DE3842 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1BBDF2695724100DE3842 /* ExpositionItem.swift */; };
 		2BA1BC1B269C683700DE3842 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1BC1A269C683700DE3842 /* ItemTableViewCell.swift */; };
+		2BA1BC5326A05EFA00DE3842 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1BC5226A05EFA00DE3842 /* ErrorType.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
@@ -26,6 +27,7 @@
 		2BA1BBDD2695722C00DE3842 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		2BA1BBDF2695724100DE3842 /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
 		2BA1BC1A269C683700DE3842 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		2BA1BC5226A05EFA00DE3842 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2BA1BC5126A05EEB00DE3842 /* ErrorType */ = {
+			isa = PBXGroup;
+			children = (
+				2BA1BC5226A05EFA00DE3842 /* ErrorType.swift */,
+			);
+			path = ErrorType;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				2BA1BC5126A05EEB00DE3842 /* ErrorType */,
 				D3DED567269978C70052818F /* Controller */,
 				D3DED5652699788F0052818F /* View */,
 				D3DED561269962230052818F /* Decoder */,
@@ -204,6 +215,7 @@
 				D3DED563269962690052818F /* FairJSONDecoder.swift in Sources */,
 				2BA1BBE02695724100DE3842 /* ExpositionItem.swift in Sources */,
 				D3DED56D269979D40052818F /* ListTableViewController.swift in Sources */,
+				2BA1BC5326A05EFA00DE3842 /* ErrorType.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				2BA1BBDE2695722C00DE3842 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,

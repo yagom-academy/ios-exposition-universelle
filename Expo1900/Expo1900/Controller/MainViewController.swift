@@ -42,7 +42,9 @@ class MainViewController: UIViewController {
     
     //MARK: - Method
     private func obtainExpositionData() throws -> Exposition {
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else { fatalError() }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition") else {
+            throw ImportAssetDataError.invalidInformation
+        }
         do {
             let expositionData = try FairJSONDecoder.shared.decoder.decode(Exposition.self, from: dataAsset.data)
             return expositionData
