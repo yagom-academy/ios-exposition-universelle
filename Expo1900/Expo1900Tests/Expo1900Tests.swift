@@ -9,14 +9,13 @@ import XCTest
 @testable import Expo1900
 
 class Expo1900Tests: XCTestCase {
-    let sut = ParsingManager.shared
     
     func test_테스트파일을_가져와서파싱했을때_모델타입에적절한데이터가들어올것이다() {
         //given
         let expectInputFileName = "daejeon_expo"
         
         //when
-        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let outputValue = ParsingManager.shared.parse(from: expectInputFileName, to: ExpoIntroduction.self)
         let expectResult: Result<ExpoIntroduction, ParsingError> = .success(ExpoIntroduction(title: "대전 EXPO 1993", visitors: 1000, location: "대한민국 대전", duration: "1993", description: "꿈돌이와 함께하는 대전 EXPO"))
         
         //then
@@ -28,7 +27,7 @@ class Expo1900Tests: XCTestCase {
         let expectInputFileName = ""
         
         //when
-        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let outputValue = ParsingManager.shared.parse(from: expectInputFileName, to: ExpoIntroduction.self)
         let expectResult: Result<ExpoIntroduction, ParsingError> = .failure(.dataSetNotFound)
         
         //then
@@ -40,7 +39,7 @@ class Expo1900Tests: XCTestCase {
         let expectInputFileName = "daejeon_expo2"
         
         //when
-        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let outputValue = ParsingManager.shared.parse(from: expectInputFileName, to: ExpoIntroduction.self)
         let expectResult: Result<ExpoIntroduction, ParsingError> = .failure(.decodingFailed)
         
         //then
@@ -52,7 +51,7 @@ class Expo1900Tests: XCTestCase {
         let expectInputFileName = "daejeon_expo3"
         
         //when
-        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let outputValue = ParsingManager.shared.parse(from: expectInputFileName, to: ExpoIntroduction.self)
         let expectResult: Result<ExpoIntroduction, ParsingError> = .failure(.decodingFailed)
         
         //then
@@ -64,7 +63,7 @@ class Expo1900Tests: XCTestCase {
         let expectInputFileName = "daejeon_expo4"
         
         //when
-        let outputValue = sut.parse(from: expectInputFileName, to: ExpoIntroduction.self)
+        let outputValue = ParsingManager.shared.parse(from: expectInputFileName, to: ExpoIntroduction.self)
         let expectResult: Result<ExpoIntroduction, ParsingError> = .failure(.decodingFailed)
         
         //then
