@@ -13,6 +13,8 @@ class HeritageTableViewCell: UITableViewCell {
     @IBOutlet weak private var koreanHeritageTitle: UILabel!
     @IBOutlet weak private var koreanHeritageShortDescription: UILabel!
     
+    static let identifier = "customCell"
+    
     func configure(koreanHeritage: InformationOfKoreanHeritage) {
         koreanHeritageImage.image = UIImage(named: koreanHeritage.imageName)
         koreanHeritageTitle.text = koreanHeritage.name

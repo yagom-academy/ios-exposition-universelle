@@ -15,7 +15,6 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     //MARK: - Property
     private let jsonDecoder = JsonDecoder()
     private var informationOfKoreanHeritages: [InformationOfKoreanHeritage] = []
-    private let heritageTableViewCellIdentifier = "customCell"
     private let detailHeritageViewControllerIdentifier = "ThirdVC"
     
     //MARK: - Life Cycle
@@ -38,7 +37,7 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: CustomHeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.heritageTableViewCellIdentifier, for: indexPath) as? CustomHeritageTableViewCell else {
+        guard let cell: HeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: HeritageTableViewCell.identifier, for: indexPath) as? HeritageTableViewCell else {
             return UITableViewCell()
         }
         let koreanHeritage: InformationOfKoreanHeritage = self.informationOfKoreanHeritages[indexPath.row]
