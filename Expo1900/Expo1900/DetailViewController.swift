@@ -11,7 +11,7 @@ class DetailViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet private weak var itemImage: UIImageView!
-    @IBOutlet private weak var itemDescription: UITextView!
+    @IBOutlet private weak var itemDescription: UILabel!
     
     //MARK: - Properties
     private var item: KoreanItem?
