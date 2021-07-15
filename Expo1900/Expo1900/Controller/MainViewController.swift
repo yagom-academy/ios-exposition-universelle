@@ -27,13 +27,17 @@ class MainViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
         do {
             let expositionData = try obtainExpositionData()
             setMainViewUIComponents(expositionData: expositionData)
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //MARK: - Method
@@ -60,7 +64,6 @@ class MainViewController: UIViewController {
         periodLabel.text = expositionData.duration
         descriptionLabel.text = expositionData.description
     }
-    
 }
 
 
