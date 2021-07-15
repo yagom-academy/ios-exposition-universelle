@@ -16,8 +16,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak private var mainDescriptionLabel: UILabel!
     
     //MARK: - Property
-    var jsonDecoder = JsonDecoder()
-    let heritageTableViewControllerIdentifier = "SecondVC"
+    private var jsonDecoder = JsonDecoder()
+    private let heritageTableViewControllerIdentifier = "SecondVC"
     
     //MARK: - Life cycle
     override func viewDidLoad() {

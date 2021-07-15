@@ -42,7 +42,7 @@ class HeritageTableViewController: UIViewController, UITableViewDataSource, UITa
             return UITableViewCell()
         }
         let koreanHeritage: InformationOfKoreanHeritage = self.informationOfKoreanHeritages[indexPath.row]
-        cell.configure(title: koreanHeritage.name, shortDescription: koreanHeritage.shortDescription, imageName: koreanHeritage.imageName)
+        cell.configure(koreanHeritage: koreanHeritage)
         return cell
     }
     
