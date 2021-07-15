@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     //MARK: - Properties
     private var expoData: Exposition?
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     //MARK: - LifeCycles
     override func viewDidLoad() {
@@ -26,11 +27,13 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate?.shouldSetPortraitOrientation = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden.toggle()
+        appDelegate?.shouldSetPortraitOrientation = false
     }
     
     //MARK:- Methods
