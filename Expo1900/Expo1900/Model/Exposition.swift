@@ -14,6 +14,7 @@ struct Exposition: Codable {
     let duration: String?
     let description: String?
     
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.title = try? container.decode(String.self, forKey: .title)

@@ -28,8 +28,8 @@ class EntryListViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
-        if let result = fetchEntryData() {
-            entries = result
+        if let data = fetchEntryData() {
+            entries = data
         } else {
             print("JSON 데이터 불러오기 실패")
         }
@@ -49,7 +49,6 @@ class EntryListViewController: UIViewController {
             return nil
         }
     }
-    
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nextViewController = segue.destination as? EntryDetailViewController else {

@@ -27,8 +27,9 @@ class ExpositionViewController: UIViewController {
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         numberFormatter.numberStyle = .decimal
-
+        
         exposition = fetchExpositionData()
     }
     
@@ -52,7 +53,6 @@ class ExpositionViewController: UIViewController {
             return nil
         }
     }
-    
     private func updateUI() {
         titleLabel.text = exposition?.title
         guard let stringNumber = numberFormatter.string(from: NSNumber(value: (exposition?.visitors)!)) else {
