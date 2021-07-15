@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         guard let validExpoData = expoData else {
             return
         }
-        configureCells(validExpoData)
+        configureMainScreen(validExpoData)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     //MARK:- Methods
-    private func configureCells(_ validExpoData: Exposition) {
+    private func configureMainScreen(_ validExpoData: Exposition) {
         visitorsLabel.text = "방문객 : \(validExpoData.formattedVisitors) 명"
         locationLabel.text = "개최지 : \(validExpoData.location)"
         durationLabel.text = "개최 기간 : \(validExpoData.duration)"
