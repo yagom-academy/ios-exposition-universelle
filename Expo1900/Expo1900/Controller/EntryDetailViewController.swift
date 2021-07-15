@@ -14,16 +14,18 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: Properties
-    var entryTitle: String?
-    var entryImageName: String?
-    var entryDescription: String?
+    var entry: Entry?
     
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        entryImageView.image = UIImage(named: entryImageName ?? "")
-        descriptionLabel.text = entryDescription
-        self.title = entryTitle
+        updateUI()
+    }
+    
+    func updateUI() {
+        entryImageView.image = UIImage(named: entry?.imageName ?? "")
+        descriptionLabel.text = entry?.description
+        self.title = entry?.name
     }
 }

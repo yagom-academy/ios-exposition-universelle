@@ -24,6 +24,7 @@ class EntryListViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = false
+        tableView.delegate = self
         
         if let data = fetchEntryData() {
             entries = data
@@ -48,22 +49,6 @@ class EntryListViewController: UIViewController {
             return nil
         }
     }
-    // MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController = segue.destination as? EntryDetailViewController else {
-            return
-        }
-        guard let cell = sender as? EntryTableViewCell else {
-            return
-        }
-        guard let index = tableView.indexPath(for: cell)?.row else {
-            return
-        }
-        
-        nextViewController.entryTitle = entries[index].name
-        nextViewController.entryImageName = entries[index].imageName
-        nextViewController.entryDescription = entries[index].description
-    }
 }
 
 extension EntryListViewController: UITableViewDataSource {
@@ -85,5 +70,15 @@ extension EntryListViewController: UITableViewDataSource {
         cell.entryDetailLabel.text = entry.shortDescription
         
         return cell
+    }
+}
+
+extension EntryListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = storyboard?.instantiateViewController(identifier: "EntryDetailViewController") as? EntryDetailViewController else {
+            return
+        }
+        detailVC.entry = entries[indexPath.row]
+        self.navigationController?.pushViewController(detailVC, animated: false)
     }
 }
