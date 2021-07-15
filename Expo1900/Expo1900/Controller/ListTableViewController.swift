@@ -50,7 +50,7 @@ class ListTableViewController: UITableViewController {
             completion(.failure(DecodingError.failedToDecode))
         }
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -61,9 +61,9 @@ class ListTableViewController: UITableViewController {
             return UITableViewCell()
         }
         let itemOfRow = items[indexPath.row]
-        cell.itemImageView.image = UIImage(named: itemOfRow.imageName)
-        cell.itemNameLabel.text = itemOfRow.name
-        cell.itemShortDescription.text = itemOfRow.shortDescription
+        if let itemImage = UIImage(named: itemOfRow.imageName) {
+            cell.configure(itemImage: itemImage, itemName: itemOfRow.name, itemShortDescription: itemOfRow.shortDescription)
+        }
         return cell
     }
 }

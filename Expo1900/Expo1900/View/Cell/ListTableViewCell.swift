@@ -12,7 +12,14 @@ class ListTableViewCell: UITableViewCell {
     //MARK: - @IBOutlet
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var itemShortDescription: UILabel!
+    @IBOutlet weak var itemShortDescriptionLabel: UILabel!
+    
+    func configure(itemImage: UIImage, itemName: String, itemShortDescription: String) {
+        itemImageView.image = itemImage
+        itemNameLabel.text = itemName
+        itemShortDescriptionLabel.text = itemShortDescription
+    }
 }
+
 
 

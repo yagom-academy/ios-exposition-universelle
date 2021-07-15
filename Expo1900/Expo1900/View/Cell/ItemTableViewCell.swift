@@ -11,5 +11,11 @@ class ItemTableViewCell: UITableViewCell {
     
     //MARK: - @IBOutlet
     @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemDescrption: UILabel!
+    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    
+    func configure(itemImage: UIImage, itemDescription: String) {
+        itemImageView.image = itemImage
+        itemDescriptionLabel.text = itemDescription
+    }
+    
 }

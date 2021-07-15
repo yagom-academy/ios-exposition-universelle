@@ -27,9 +27,8 @@ class ItemTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
-        if let item = item {
-            cell.itemImageView.image = UIImage(named: item.imageName)
-            cell.itemDescrption.text = item.description
+        if let item = item, let itemImage = UIImage(named: item.imageName) {
+            cell.configure(itemImage: itemImage , itemDescription: item.description)
         }
         return cell
     }
