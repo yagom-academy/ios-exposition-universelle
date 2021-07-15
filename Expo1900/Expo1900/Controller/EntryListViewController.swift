@@ -28,14 +28,25 @@ class EntryListViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
+        if let result = fetchEntryData() {
+            entries = result
+        } else {
+            print("JSON 데이터 불러오기 실패")
+        }
+    }
+    
+    // MARK: Functions
+    private func fetchEntryData() -> [Entry]? {
         let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: entryDataIdentifier) else {
-            return
+            return nil
         }
         do {
-            self.entries = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
+            let decodedData = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
+            return decodedData
         } catch {
             print(error.localizedDescription)
+            return nil
         }
     }
     

@@ -27,18 +27,9 @@ class ExpositionViewController: UIViewController {
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         numberFormatter.numberStyle = .decimal
-        
-        let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: expositionDataIdentifier) else {
-            return
-        }
-        do {
-            self.exposition = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+
+        exposition = fetchExpositionData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +39,20 @@ class ExpositionViewController: UIViewController {
     }
     
     // MARK: Functions
+    private func fetchExpositionData() -> Exposition? {
+        let jsonDecoder = JSONDecoder()
+        guard let dataAsset = NSDataAsset(name: expositionDataIdentifier) else {
+            return nil
+        }
+        do {
+            let decodedData = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
+            return decodedData
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     private func updateUI() {
         titleLabel.text = exposition?.title
         guard let stringNumber = numberFormatter.string(from: NSNumber(value: (exposition?.visitors)!)) else {
