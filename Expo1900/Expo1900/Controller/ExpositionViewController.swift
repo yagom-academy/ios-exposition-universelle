@@ -56,7 +56,8 @@ class ExpositionViewController: UIViewController {
     }
     private func updateUI() {
         titleLabel.text = exposition?.title
-        guard let stringNumber = numberFormatter.string(from: NSNumber(value: (exposition?.visitors)!)) else {
+        guard let visitors = exposition?.visitors,
+              let stringNumber = numberFormatter.string(from: NSNumber(value: visitors)) else {
             return
         }
         visitorsLabel.text = stringNumber
