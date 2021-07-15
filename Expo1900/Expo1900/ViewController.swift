@@ -3,12 +3,12 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet private weak var expoTitle: UITextView!
+    @IBOutlet private weak var expoTitle: UILabel!
     @IBOutlet private weak var expoPoster: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var expoDescription: UITextView!
+    @IBOutlet private weak var expoDescription: UILabel!
     
     //MARK: - Properties
     private var expoData: Exposition?
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     //MARK:- Methods
     private func configureCells(_ validExpoData: Exposition) {
-        expoTitle.text = validExpoData.title
+//        expoTitle.text = validExpoData.title
         visitorsLabel.text = "방문객 : \(validExpoData.formattedVisitors) 명"
         locationLabel.text = "개최지 : \(validExpoData.location)"
         durationLabel.text = "개최 기간 : \(validExpoData.duration)"
