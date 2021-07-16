@@ -11,7 +11,7 @@ class DetailHeritageViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet weak private var koreanHeritageImage: UIImageView!
-    @IBOutlet weak private var koreanHeritageDescription: UITextView!
+    @IBOutlet weak private var koreanHeritageDescription: UILabel!
     
     //MARK: - Property
     private var koreanHeritage: InformationOfKoreanHeritage?
