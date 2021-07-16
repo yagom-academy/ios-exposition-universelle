@@ -1,4 +1,3 @@
-
 import UIKit
 
 class ItemListViewController: UIViewController {
@@ -29,7 +28,6 @@ class ItemListViewController: UIViewController {
             destination.getParsedData(with: itemData)
         }
     }
-    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -37,8 +35,6 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemList.count
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemListCell.self), for: indexPath) as? ItemListCell else {

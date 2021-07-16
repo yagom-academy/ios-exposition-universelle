@@ -1,10 +1,3 @@
-//
-//  DetailViewController.swift
-//  Expo1900
-//
-//  Created by yun on 2021/07/08.
-//
-
 import UIKit
 
 class DetailViewController: UIViewController {
@@ -24,15 +17,12 @@ class DetailViewController: UIViewController {
             return
         }
         navigationItem.title = validItem.itemName
-        
         itemImage.image = UIImage(named: validItem.imageName)
         itemDescription.text = validItem.description
-        
     }
     
     //MARK: - Methods
     func getParsedData(with koreanItem: KoreanItem) {
         item = koreanItem
     }
-    
 }

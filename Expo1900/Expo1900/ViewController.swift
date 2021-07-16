@@ -4,7 +4,6 @@ class ViewController: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet private weak var expoTitle: UILabel!
-    @IBOutlet private weak var expoPoster: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!

@@ -1,9 +1,3 @@
-//
-//  ItemListCell.swift
-//  Expo1900
-//
-//  Created by yun on 2021/07/08.
-
 import UIKit
 
 class ItemListCell: UITableViewCell {
@@ -13,6 +7,7 @@ class ItemListCell: UITableViewCell {
     @IBOutlet private var itemName: UILabel!
     @IBOutlet private var shortDescription: UILabel!
 
+    //MARK:- Methods
     func configureCell(_ item: KoreanItem) {
         itemName.text = item.itemName
         itemImage.image = UIImage(named: item.imageName)
