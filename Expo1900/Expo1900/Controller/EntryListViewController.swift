@@ -65,10 +65,12 @@ extension EntryListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let entry = self.entries[indexPath.row]
-        cell.entryImageView.image = UIImage(named: entry.imageName ?? "")
         cell.entryTitleLabel.text = entry.name
         cell.entryDetailLabel.text = entry.shortDescription
         
+        cell.heigthConstraint.constant = cell.entryTitleLabel.bounds.height + cell.entryDetailLabel.bounds.height
+        cell.entryImageView.image = UIImage(named: entry.imageName ?? "")
+
         return cell
     }
 }

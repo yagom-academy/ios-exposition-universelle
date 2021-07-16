@@ -21,6 +21,7 @@ class ExpositionViewController: UIViewController {
             self.updateUI()
         }
     }
+    private let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     private let numberFormatter = NumberFormatter()
     
     // MARK: Life cycle
@@ -34,8 +35,17 @@ class ExpositionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        appDelegate.changeMask(.portrait)
+        
+        let orientation = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
         
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        appDelegate.changeMask(.all)
     }
     
     // MARK: Functions
@@ -56,7 +66,7 @@ class ExpositionViewController: UIViewController {
     }
     
     private func updateUI() {
-        titleLabel.text = exposition?.title
+        titleLabel.text = exposition?.divideTitle()
         guard let visitors = exposition?.visitors,
               let stringNumber = numberFormatter.string(from: NSNumber(value: visitors)) else {
             return
@@ -66,8 +76,6 @@ class ExpositionViewController: UIViewController {
         durationLabel.text = exposition?.duration
         descriptionLabel.text = exposition?.description
     }
-    
-
 }
 
 class CustomUILabel: UILabel, CustomLabelable {

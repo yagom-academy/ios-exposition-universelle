@@ -12,8 +12,10 @@ class EntryTableViewCell: UITableViewCell {
     
     // MARK: @IBOutlets
     @IBOutlet weak var entryImageView: UIImageView!
-    @IBOutlet weak var entryTitleLabel: UILabel!
+    @IBOutlet weak var entryTitleLabel: CustomUILabel!
     @IBOutlet weak var entryDetailLabel: UILabel!
+    
+    @IBOutlet weak var heigthConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
