@@ -9,6 +9,8 @@ import UIKit
 
 class ExpositionInformationViewController: UIViewController {
     
+    private let expositionInformationManager = ExpositionInformationManager()
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -17,13 +19,12 @@ class ExpositionInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        guard let jsonData = NSDataAsset(name: String(describing: JsonFileName.exposition_universelle_1900))?.data else {
-            return
+        
+        do {
+            let resultData = try expositionInformationManager.decodejsonData()
+            setUpLabels(to: resultData)
+        } catch {
         }
-        guard let expositionInformation = try? JSONDecoder().decode(ExpositionInformation.self,
-                                                                  from: jsonData) else { return }
-        setUpLabels(to: expositionInformation)
     }
 
     override func viewWillAppear(_ animated: Bool) {

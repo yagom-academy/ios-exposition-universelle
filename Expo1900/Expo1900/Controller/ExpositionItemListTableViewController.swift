@@ -7,6 +7,7 @@
 import UIKit
 
 class ExpositionItemListTableViewController: UIViewController {
+    private let expositionItemManager = ExpositionItemManager()
     private var expositionItems: [ExpositionItem] = []
     
     @IBOutlet private var expositionItemTableView: UITableView!
@@ -16,13 +17,9 @@ class ExpositionItemListTableViewController: UIViewController {
         expositionItemTableView.dataSource = self
         expositionItemTableView.delegate = self
         
-        guard let jsonData = NSDataAsset(name: String(describing: JsonFileName.items))?.data else {
-            return
-        }
         do {
-            expositionItems = try JSONDecoder().decode([ExpositionItem].self, from: jsonData)
+            expositionItems = try expositionItemManager.decodejsonData()
         } catch {
-            print(error)
         }
     }
 }
