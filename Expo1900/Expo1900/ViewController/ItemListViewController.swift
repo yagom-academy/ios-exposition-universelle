@@ -14,6 +14,11 @@ class ItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initItems()
+        initVoiceOver(title: self.navigationController?.navigationBar.topItem?.title)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,6 +36,10 @@ class ItemListViewController: UIViewController {
         }
         
         items = parsed
+    }
+    
+    func initVoiceOver(title: String?) {
+        self.navigationController?.navigationBar.topItem?.accessibilityLabel = "\(title ?? .blank)으로 돌아가기"
     }
 }
 
