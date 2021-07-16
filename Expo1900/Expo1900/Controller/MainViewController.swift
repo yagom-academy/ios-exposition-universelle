@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     //MARK: - Property
     private var jsonDecoder = JsonDecoder()
     private let heritageTableViewControllerIdentifier = "SecondVC"
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -30,12 +31,14 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        appDelegate.shouldSupportAllOrientation = true
     }
     
     //MARK: - Method
