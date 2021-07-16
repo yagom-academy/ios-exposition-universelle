@@ -60,6 +60,26 @@ class Expo1900Tests: XCTestCase {
         } catch {
         }
     }
+    
+    func test_ExpositionInformation_title_원하는결과로_반환된다() {
+        // given
+        let dummyTitle: String = "엘렌(거주지: 중국옆동네)"
+        // when
+        let sut = ExpositionInformation.init(title: dummyTitle, visitors: 1, location: "", duration: "", description: "")
+        // then
+        let 예상결과 = "엘렌\n(거주지: 중국옆동네)"
+        XCTAssertEqual(sut.formattedTitle, 예상결과)
+    }
+    
+    func test_ExpositionInformation_visitors_원하는결과로_반환된다() {
+        // given
+        let dummyVisitors: UInt = 30000000
+        // when
+        let sut = ExpositionInformation.init(title: "", visitors: dummyVisitors, location: "", duration: "", description: "")
+        // then
+        let 예상결과 = "30,000,000명"
+        XCTAssertEqual(sut.formattedVisitors, 예상결과)
+    }
 }
 
 extension ExpositionInformation: Encodable {
