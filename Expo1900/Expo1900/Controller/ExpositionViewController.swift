@@ -9,10 +9,10 @@ import UIKit
 class ExpositionViewController: UIViewController {
     
     // MARK: @IBOutlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var titleLabel: CustomUILabel!
+    @IBOutlet weak var visitorsLabel: CustomUILabel!
+    @IBOutlet weak var locationLabel: CustomUILabel!
+    @IBOutlet weak var durationLabel: CustomUILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: Properties
@@ -54,6 +54,7 @@ class ExpositionViewController: UIViewController {
             return nil
         }
     }
+    
     private func updateUI() {
         titleLabel.text = exposition?.title
         guard let visitors = exposition?.visitors,
@@ -64,5 +65,29 @@ class ExpositionViewController: UIViewController {
         locationLabel.text = exposition?.location
         durationLabel.text = exposition?.duration
         descriptionLabel.text = exposition?.description
+    }
+    
+
+}
+
+class CustomUILabel: UILabel, CustomLabelable {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setLabelAutoSizeFont()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setLabelAutoSizeFont()
+    }
+}
+
+protocol CustomLabelable: CustomUILabel {
+    func setLabelAutoSizeFont()
+}
+
+extension CustomLabelable where Self: UILabel{
+    func setLabelAutoSizeFont(){
+        self.adjustsFontSizeToFitWidth = true
     }
 }
