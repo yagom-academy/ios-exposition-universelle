@@ -17,8 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
     
-    
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,8 @@ class MainViewController: UIViewController {
         }
         updateUI(exposition: exposition)
     }
+    
+    
     
     func updateUI(exposition: Exposition) {
         let numberFommater = NumberFormatter()
@@ -49,11 +50,15 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        appDelegate.shouldSupportAllOrientation = true
     }
 }
 
