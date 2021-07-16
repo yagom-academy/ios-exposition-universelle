@@ -28,7 +28,7 @@ class KoreaExpositionViewController: UIViewController {
         koreaExpositionTableView.delegate = self
     }
     
-    func moveToDetail(indexPath: IndexPath) {
+    private func moveToDetail(indexPath: IndexPath) {
         let koreaExpostionDetailStoryBoard = UIStoryboard.init(name: "KoreaExpositionDetail", bundle: nil)
         guard let koreaExpostionDetailVC = koreaExpostionDetailStoryBoard.instantiateViewController(withIdentifier: "KoreaExpositionDetailVC") as? KoreaExpositionDetailViewController else {
             return
