@@ -19,7 +19,12 @@ class ExpositionItemListTableViewController: UIViewController {
         
         do {
             expositionItems = try expositionItemManager.decodejsonData()
+        } catch let error as JsonDataFetchError {
+            let alert = UIAlertController(title: error.description.title, message: error.description.message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } catch {
+            
         }
     }
 }

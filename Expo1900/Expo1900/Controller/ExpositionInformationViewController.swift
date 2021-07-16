@@ -23,10 +23,14 @@ class ExpositionInformationViewController: UIViewController {
         do {
             let resultData = try expositionInformationManager.decodejsonData()
             setUpLabels(to: resultData)
+        } catch let error as JsonDataFetchError {
+            let alert = UIAlertController(title: error.description.title, message: error.description.message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } catch {
+            
         }
     }
-
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
