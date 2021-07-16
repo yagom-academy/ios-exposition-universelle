@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3F5AFD4B269C2C8A00245676 /* KoreaExpositionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5AFD4A269C2C8A00245676 /* KoreaExpositionDetailViewController.swift */; };
+		3F61660526A15111009EC115 /* KoreaExposition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F61660426A15111009EC115 /* KoreaExposition.storyboard */; };
+		3F61660926A15123009EC115 /* KoreaExpositionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F61660826A15123009EC115 /* KoreaExpositionDetail.storyboard */; };
 		3FD0D55D269591FF006C0939 /* KoreaExpositionCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD0D55C269591FE006C0939 /* KoreaExpositionCustomCell.swift */; };
 		3FE0ECE52694262F007B7D8C /* InternationalExposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0ECE42694262F007B7D8C /* InternationalExposition.swift */; };
 		3FE0ECF226942C01007B7D8C /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0ECF126942C01007B7D8C /* Expo1900Tests.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		3F5AFD4A269C2C8A00245676 /* KoreaExpositionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaExpositionDetailViewController.swift; sourceTree = "<group>"; };
+		3F61660426A15111009EC115 /* KoreaExposition.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KoreaExposition.storyboard; sourceTree = "<group>"; };
+		3F61660826A15123009EC115 /* KoreaExpositionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KoreaExpositionDetail.storyboard; sourceTree = "<group>"; };
 		3FD0D55C269591FE006C0939 /* KoreaExpositionCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaExpositionCustomCell.swift; sourceTree = "<group>"; };
 		3FE0ECE42694262F007B7D8C /* InternationalExposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternationalExposition.swift; sourceTree = "<group>"; };
 		3FE0ECEF26942C01007B7D8C /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +125,8 @@
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				3F61660426A15111009EC115 /* KoreaExposition.storyboard */,
+				3F61660826A15123009EC115 /* KoreaExpositionDetail.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,7 +231,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F61660926A15123009EC115 /* KoreaExpositionDetail.storyboard in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				3F61660526A15111009EC115 /* KoreaExposition.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);

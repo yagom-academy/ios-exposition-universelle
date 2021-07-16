@@ -7,15 +7,18 @@
 
 import UIKit
 
+
 class KoreaExpositionDetailViewController: UIViewController {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var detailViewTitle: UINavigationItem!
-    var koreaExpositionItem: KoreaExposition?
+
+    private var koreaExpositionItem: KoreaExposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         matchingInitialValue()
+        self.navigationItem.title = koreaExpositionItem?.name
     }
     
     private func matchingInitialValue() {
@@ -24,6 +27,12 @@ class KoreaExpositionDetailViewController: UIViewController {
             descriptionLabel.text = unwrappedKoreaExpositionItem.description
             detailViewTitle.title = unwrappedKoreaExpositionItem.name
         }
+    }
+}
+
+extension KoreaExpositionDetailViewController: DataSendable {
+    func sendData(item: KoreaExposition) {
+        koreaExpositionItem = item
     }
 }
 

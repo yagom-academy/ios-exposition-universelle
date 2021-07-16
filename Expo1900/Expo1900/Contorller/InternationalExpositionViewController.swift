@@ -32,6 +32,12 @@ class InternationalExpositionViewController: UIViewController {
         matchingInitialValue()
     }
     
+    @IBAction func touchUpMoveToKoreaExpositionButton(_ sender: UIButton) {
+        let koreaExpositionStoryboard = UIStoryboard.init(name: "KoreaExposition", bundle: nil)
+        let koreaExpositionVC = koreaExpositionStoryboard.instantiateViewController(withIdentifier: "KoreaExpositionVC")
+        self.navigationController?.pushViewController(koreaExpositionVC, animated: true)
+    }
+    
     private func decodingInternationalExpositionData() {
         let decoder: JSONDecoder = JSONDecoder()
         if let dataAsset: NSDataAsset = NSDataAsset.init(name: "exposition_universelle_1900") {
@@ -58,5 +64,4 @@ class InternationalExpositionViewController: UIViewController {
             }
         }
     }
-    
 }

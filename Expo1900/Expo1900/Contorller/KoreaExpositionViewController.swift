@@ -7,31 +7,35 @@
 
 import UIKit
 
+protocol DataSendable {
+    func sendData(item: KoreaExposition)
+}
+
 class KoreaExpositionViewController: UIViewController {
     @IBOutlet weak var koreaExpositionTableView: UITableView!
-    @IBOutlet weak var koreaExpositionViewTitle: UINavigationItem!
     private var koreaExpositions: [KoreaExposition] = []
     private let tableViewCellIdentifer: String = "KoreaExpositionCell"
     private let viewTitle: String = "한국의 출품작"
     private let moveToDetailSegueName: String = "MoveToDetail"
 
+    var delegate: DataSendable?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        koreaExpositionViewTitle.title = viewTitle
+        self.navigationItem.title = viewTitle
         decodingKoreaExpositionData()
         koreaExpositionTableView.dataSource = self
         koreaExpositionTableView.delegate = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == moveToDetailSegueName {
-            if let detailViewController = segue.destination as? KoreaExpositionDetailViewController,
-               let index = sender as? Int {
-                let detailData: KoreaExposition = koreaExpositions[index]
-                detailViewController.koreaExpositionItem = detailData
-            }
+    func moveToDetail(indexPath: IndexPath) {
+        let koreaExpostionDetailStoryBoard = UIStoryboard.init(name: "KoreaExpositionDetail", bundle: nil)
+        guard let koreaExpostionDetailVC = koreaExpostionDetailStoryBoard.instantiateViewController(withIdentifier: "KoreaExpositionDetailVC") as? KoreaExpositionDetailViewController else {
+            return
         }
+        self.delegate = koreaExpostionDetailVC
+        delegate?.sendData(item: koreaExpositions[indexPath.row])
+        self.navigationController?.pushViewController(koreaExpostionDetailVC, animated: true)
     }
     
     private func decodingKoreaExpositionData() {
@@ -57,14 +61,12 @@ extension KoreaExpositionViewController: UITableViewDataSource, UITableViewDeleg
             return cell
         }
         let koreaExpositionItem: KoreaExposition = koreaExpositions[indexPath.row]
-        customCell.titleLabel.text = koreaExpositionItem.name
-        customCell.shortDescriptionLabel.text = koreaExpositionItem.shortDescription
-        customCell.itemImage.image = UIImage(named: koreaExpositionItem.imageName)
+        customCell.configuateCell(item: koreaExpositionItem)
+
         return customCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: moveToDetailSegueName, sender: indexPath.row)
+        moveToDetail(indexPath: indexPath)
     }
 }
-
