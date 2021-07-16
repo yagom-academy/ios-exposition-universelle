@@ -8,7 +8,6 @@
 import UIKit
 
 class ExpositionItemDetailViewController: UIViewController {
-  
     private var expositionItem: ExpositionItem?
     
     @IBOutlet private weak var expositionItemImage: UIImageView!
@@ -16,12 +15,16 @@ class ExpositionItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let expositionItemImage = expositionItem?.imageName else {
-            return
-        }
+        
         self.navigationItem.title = expositionItem?.name
-        self.expositionItemImage.image = UIImage(named: expositionItemImage)
         self.descriptionLabel.text = expositionItem?.description
+        
+        if let expositionItemImage = expositionItem?.imageName {
+            self.expositionItemImage.image = UIImage(named: expositionItemImage)
+        } else {
+            let image = UIImage(systemName: "questionmark.folder")
+            self.expositionItemImage.image = image?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        }
     }
     
     func configure(_ item: ExpositionItem) {
