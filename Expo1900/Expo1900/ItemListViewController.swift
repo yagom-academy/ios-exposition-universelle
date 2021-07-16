@@ -38,19 +38,15 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         return itemList.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemListCell.self), for: indexPath) as? ItemListCell else {
             return UITableViewCell()
         }
         
         let item = itemList[indexPath.row]
-        cell.itemName.text = item.itemName
-        cell.itemName.accessibilityValue = item.itemName
-        cell.itemImage.image = UIImage(named: item.imageName)
-        cell.itemImage.accessibilityValue = "\(cell.itemName) image"
-        cell.shortDescription.text = item.shortDescription
-        cell.shortDescription.accessibilityValue = item.shortDescription
-        cell.shortDescription.numberOfLines = 0
+        cell.configureCell(item)
         return cell
     }
 }
