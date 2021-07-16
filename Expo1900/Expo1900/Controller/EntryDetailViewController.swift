@@ -14,7 +14,7 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: Properties
-    var entry: Entry?
+    private var entry: Entry?
     
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -27,5 +27,11 @@ class EntryDetailViewController: UIViewController {
         entryImageView.image = UIImage(named: entry?.imageName ?? "")
         descriptionLabel.text = entry?.description
         self.title = entry?.name
+    }
+    
+    static func updateModel(by entry: Entry) -> EntryDetailViewController? {
+        let vcInstance = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "EntryDetailViewController") as? EntryDetailViewController
+        vcInstance?.entry = entry
+        return vcInstance
     }
 }

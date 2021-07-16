@@ -75,10 +75,11 @@ extension EntryListViewController: UITableViewDataSource {
 
 extension EntryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailVC = storyboard?.instantiateViewController(identifier: "EntryDetailViewController") as? EntryDetailViewController else {
-            return
+        let selectedEntry = entries[indexPath.row]
+        if let detailVC = EntryDetailViewController.updateModel(by: selectedEntry) {
+            self.navigationController?.pushViewController(detailVC, animated: false)
+        } else {
+            print("detailVC 인스턴스 생성 실패")
         }
-        detailVC.entry = entries[indexPath.row]
-        self.navigationController?.pushViewController(detailVC, animated: false)
     }
 }
