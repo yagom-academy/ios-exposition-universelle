@@ -48,8 +48,8 @@ class MainViewController: UIViewController {
     }
     
     private func updateMainView(_ expo: InformationOfExpo) {
-        mainTitleLabel.text = expo.title
-        mainVisitorLabel.text = expo.visitorsWithComma + "명"
+        mainTitleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
+        mainVisitorLabel.text = expo.visitorsWithComma + " 명"
         mainLocationLabel.text = expo.location
         mainDurationLabel.text = expo.duration
         mainDescriptionLabel.text = expo.description
