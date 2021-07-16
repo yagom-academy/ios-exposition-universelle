@@ -13,6 +13,7 @@
 		9BCDAD2126A13FE30060A4A4 /* ExpositionInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCDAD2026A13FE30060A4A4 /* ExpositionInformationManager.swift */; };
 		9BCDAD2326A140E60060A4A4 /* JsonDataFetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCDAD2226A140E60060A4A4 /* JsonDataFetchError.swift */; };
 		9BCDAD2526A143B00060A4A4 /* ExpositionItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCDAD2426A143B00060A4A4 /* ExpositionItemManager.swift */; };
+		9BCDAD2926A1584E0060A4A4 /* UIAlertAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCDAD2826A1584E0060A4A4 /* UIAlertAction+Extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionItemListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionItemListTableViewController.swift */; };
@@ -41,6 +42,7 @@
 		9BCDAD2026A13FE30060A4A4 /* ExpositionInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInformationManager.swift; sourceTree = "<group>"; };
 		9BCDAD2226A140E60060A4A4 /* JsonDataFetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataFetchError.swift; sourceTree = "<group>"; };
 		9BCDAD2426A143B00060A4A4 /* ExpositionItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemManager.swift; sourceTree = "<group>"; };
+		9BCDAD2826A1584E0060A4A4 /* UIAlertAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BCDAD2A26A15CA70060A4A4 /* ETC */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				9BCDAD2826A1584E0060A4A4 /* UIAlertAction+Extension.swift */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+			);
+			path = ETC;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -95,12 +108,10 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				D18E9C062693FC700099EF15 /* Model */,
 				D18E9C052693FC610099EF15 /* Controller */,
 				D18E9C042693FC540099EF15 /* View */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				9BCDAD2A26A15CA70060A4A4 /* ETC */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
@@ -251,6 +262,7 @@
 				D18E9C0A2693FC8E0099EF15 /* ExpositionItem.swift in Sources */,
 				9BCDAD2126A13FE30060A4A4 /* ExpositionInformationManager.swift in Sources */,
 				741E4BB4269D4FD400B60B6A /* ExpositionInformationViewController.swift in Sources */,
+				9BCDAD2926A1584E0060A4A4 /* UIAlertAction+Extension.swift in Sources */,
 				9BCDAD2326A140E60060A4A4 /* JsonDataFetchError.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionItemListTableViewController.swift in Sources */,
 				D18E9C082693FC830099EF15 /* ExpositionInformation.swift in Sources */,

@@ -25,7 +25,7 @@ class ExpositionInformationViewController: UIViewController {
             setUpLabels(to: resultData)
         } catch let error as JsonDataFetchError {
             let alert = UIAlertController(title: error.description.title, message: error.description.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction.ActionType.ok.action())
             self.present(alert, animated: true, completion: nil)
         } catch {
             

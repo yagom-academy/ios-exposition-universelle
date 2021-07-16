@@ -9,6 +9,7 @@ import UIKit
 
 class ExpositionItemDetailViewController: UIViewController {
     private var expositionItem: ExpositionItem?
+    static let identifier: String = "DetailViewController"
     
     @IBOutlet private weak var expositionItemImage: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
@@ -31,3 +32,4 @@ class ExpositionItemDetailViewController: UIViewController {
         self.expositionItem = item
     }
 }
+

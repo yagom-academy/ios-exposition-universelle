@@ -9,6 +9,7 @@ import UIKit
 class ExpositionItemListTableViewController: UIViewController {
     private let expositionItemManager = ExpositionItemManager()
     private var expositionItems: [ExpositionItem] = []
+    private static let expositionItemCellIdentifier = "expositionItemCell"
     
     @IBOutlet private var expositionItemTableView: UITableView!
     
@@ -21,7 +22,7 @@ class ExpositionItemListTableViewController: UIViewController {
             expositionItems = try expositionItemManager.decodejsonData()
         } catch let error as JsonDataFetchError {
             let alert = UIAlertController(title: error.description.title, message: error.description.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction.ActionType.ok.action())
             self.present(alert, animated: true, completion: nil)
         } catch {
             
@@ -36,7 +37,7 @@ extension ExpositionItemListTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "expositionItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExpositionItemListTableViewController.expositionItemCellIdentifier, for: indexPath)
         
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(named: expositionItems[indexPath.row].imageName)
@@ -52,7 +53,7 @@ extension ExpositionItemListTableViewController: UITableViewDataSource {
 // MARK:- UITableViewDelegate
 extension ExpositionItemListTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailViewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? ExpositionItemDetailViewController else {
+        guard let detailViewController = storyboard?.instantiateViewController(identifier: ExpositionItemDetailViewController.identifier) as? ExpositionItemDetailViewController else {
             return
         }
         
