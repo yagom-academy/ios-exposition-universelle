@@ -34,7 +34,9 @@ class MainViewController: UIViewController {
         guard let visitors = numberFommater.string(for: exposition.visitors) else {
             return
         }
-        titleKRLabel.text = exposition.title
+        let titles = exposition.title.split(separator: "(")
+        titleKRLabel.text = "\(titles[0])"
+        titleENLabel.text = "(\(titles[1])"
         mainImageView.image = exposition.image
         visitorsLabel.text = "\(visitors) 명"
         locationLabel.text = exposition.location
