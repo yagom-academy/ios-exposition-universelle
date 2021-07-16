@@ -7,7 +7,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleKRLabel: UILabel!
+    @IBOutlet private weak var titleENLabel: UILabel!
     @IBOutlet private weak var mainImageView: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -15,6 +16,9 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +34,14 @@ class MainViewController: UIViewController {
         guard let visitors = numberFommater.string(for: exposition.visitors) else {
             return
         }
-        titleLabel.text = exposition.title
+        titleKRLabel.text = exposition.title
         mainImageView.image = exposition.image
         visitorsLabel.text = "\(visitors) 명"
         locationLabel.text = exposition.location
         durationLabel.text = exposition.duration
-        // descriptionLabel.text = exposition.description
-        // leftFlagImageView.image = UIImage(named: "flag")
-        // rightFlagImageView.image = UIImage(named: "flag")
+        descriptionLabel.text = exposition.description
+        leftFlagImageView.image = UIImage(named: "flag")
+        rightFlagImageView.image = UIImage(named: "flag")
     }
     
     override func viewWillAppear(_ animated: Bool) {
