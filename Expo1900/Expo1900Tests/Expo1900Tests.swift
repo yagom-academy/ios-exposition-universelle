@@ -9,21 +9,19 @@ import XCTest
 
 @testable import Expo1900
 class Expo1900Tests: XCTestCase {
-    var jsonDecoder: JSONDecoder!
-    let expositionInformation = ExpositionInformation.init(title: "0", visitors: 0, location: "0", duration: "0", description: "0")
-    let expositionItems = [ExpositionItem.init(name: "1", imageName: "1", shortDescription: "1", description: "1")
+    private var expositionItemManager: ExpositionItemManager! = .init()
+    private var expositionInformationManager: ExpositionInformationManager! = .init()
+    
+    private let expositionInformation = ExpositionInformation.init(title: "0", visitors: 0, location: "0", duration: "0", description: "0")
+    private let expositionItems = [ExpositionItem.init(name: "1", imageName: "1", shortDescription: "1", description: "1")
                            ,ExpositionItem.init(name: "2", imageName: "2", shortDescription: "2", description: "2")
                            ,ExpositionItem.init(name: "3", imageName: "3", shortDescription: "3", description: "3")]
-    
-    override func setUp() {
-        jsonDecoder = JSONDecoder()
-    }
     
     func test_ExpositionInformation_타입으로_디코딩을_성공한다() {
         // given
         let jsonData = try! JSONEncoder().encode(expositionInformation)
         // when
-        let decodedResult = try! jsonDecoder.decode(ExpositionInformation.self, from: jsonData)
+        let decodedResult = try! expositionInformationManager.decodejsonData(jsonData: jsonData)
         // then
         XCTAssertEqual(decodedResult, expositionInformation)
     }
@@ -32,23 +30,35 @@ class Expo1900Tests: XCTestCase {
         // given
         let jsonData = try! JSONEncoder().encode(expositionItems)
         // when
-        let decodedResult = try! jsonDecoder.decode([ExpositionItem].self, from: jsonData)
+        let decodedResult = try! expositionItemManager.decodejsonData(jsonData: jsonData)
         // then
         XCTAssertEqual(decodedResult, expositionItems)
     }
     
-    func test_ExpositionInformation_타입으로_디코딩을_실패한다() {
-        // given
-        let jsonData = try! JSONEncoder().encode(expositionInformation)
-        // when, then
-        XCTAssertThrowsError(try jsonDecoder.decode(ExpositionItem.self, from: jsonData))
-    }
-    
-    func test_ExpositionItem_타입으로_디코딩을_실패한다() {
+    func test_ExpositionInformation_디코딩을_실패해_failDecoding에러가발생한다() {
         // given
         let jsonData = try! JSONEncoder().encode(expositionItems)
-        // when, then
-        XCTAssertThrowsError(try jsonDecoder.decode([ExpositionInformation].self, from: jsonData))
+        // when
+        do {
+            _ = try expositionInformationManager.decodejsonData(jsonData: jsonData)
+        } catch let error as JsonDataFetchError {
+        // then
+            XCTAssertEqual(error, JsonDataFetchError.failDecoding)
+        } catch {
+        }
+    }
+    
+    func test_ExpositionItem_타입으로_디코딩을_실패해_failDecoding에러가발생한다() {
+        // given
+        let jsonData = try! JSONEncoder().encode(expositionInformation)
+        // when
+        do {
+            _ = try expositionItemManager.decodejsonData(jsonData: jsonData)
+        } catch let error as JsonDataFetchError {
+        // then
+            XCTAssertEqual(error, JsonDataFetchError.failDecoding)
+        } catch {
+        }
     }
 }
 
@@ -104,5 +114,26 @@ extension ExpositionItem: Equatable {
             lhs.imageName == rhs.imageName &&
             lhs.shortDescription == rhs.shortDescription &&
             lhs.description == rhs.description
+    }
+}
+
+
+extension ExpositionInformationManager {
+    public func decodejsonData(jsonData: Data) throws -> ExpositionInformation {
+        do {
+            return try JSONDecoder().decode(ExpositionInformation.self, from: jsonData)
+        } catch {
+            throw JsonDataFetchError.failDecoding
+        }
+    }
+}
+
+extension ExpositionItemManager {
+    public func decodejsonData(jsonData: Data) throws -> [ExpositionItem] {
+        do {
+            return try JSONDecoder().decode([ExpositionItem].self, from: jsonData)
+        } catch {
+            throw JsonDataFetchError.failDecoding
+        }
     }
 }
