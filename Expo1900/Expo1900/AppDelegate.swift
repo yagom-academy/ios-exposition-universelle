@@ -8,8 +8,16 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    var shouldSetPortraitOrientation = true
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if shouldSetPortraitOrientation {
+            return UIInterfaceOrientationMask.portrait
+        } else {
+            return UIInterfaceOrientationMask.all
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

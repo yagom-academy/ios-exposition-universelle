@@ -1,4 +1,3 @@
-
 import UIKit
 
 class ItemListViewController: UIViewController {
@@ -29,7 +28,6 @@ class ItemListViewController: UIViewController {
             destination.getParsedData(with: itemData)
         }
     }
-    
 }
 
 extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -44,10 +42,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let item = itemList[indexPath.row]
-        cell.itemName.text = item.itemName
-        cell.itemImage.image = UIImage(named: item.imageName)
-        cell.shortDescription.text = item.shortDescription
-        cell.shortDescription.numberOfLines = 0
+        cell.configureCell(item)
         return cell
     }
 }
