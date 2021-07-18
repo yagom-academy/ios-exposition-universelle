@@ -31,43 +31,20 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: JSONDecodable {
-    typealias JSONModel = Exposition
-    
-    private func initExposition() -> Exposition? {
-        return try? decodeJSON(fileName: .expositionFileName)
-    }
-}
-
 extension MainViewController {
     private func initView() {
-        guard let currentExposition = initExposition() else {
-            return
-        }
-        let titleText = format(title: currentExposition.title)
-        let visitorsText = format(visitors: currentExposition.visitors)
-        titleLabel.text = titleText
-        visitorsLabel.text = .visitor + visitorsText + .people
-        locationLabel.text = .location + currentExposition.location
-        durationLabel.text = .duration + currentExposition.duration
+        let currentExposition = ParsedExposition()
+        titleLabel.text = currentExposition.title
+        visitorsLabel.text = currentExposition.visitors
+        locationLabel.text = currentExposition.location
+        durationLabel.text = currentExposition.duration
         descriptionLabel.text = currentExposition.description
     }
     
-    private func format(title: String) -> String {
-        return title.replacingOccurrences(of: String.bracket,
-                                          with: String.newLine + String.bracket)
-    }
-    
-    private func format(visitors: UInt) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(from: NSNumber(value: visitors)) ?? .zero
-    }
-    
     private func styleLabelHeaders() {
-        modifySize(of: .visitor , in: visitorsLabel)
-        modifySize(of: .location , in: locationLabel)
-        modifySize(of: .duration , in: durationLabel)
+        modifySize(of: ParsedExposition.Prefix.visitor , in: visitorsLabel)
+        modifySize(of: ParsedExposition.Prefix.location , in: locationLabel)
+        modifySize(of: ParsedExposition.Prefix.duration , in: durationLabel)
     }
     
     private func modifySize(of range: String, in label: UILabel) {
@@ -75,7 +52,7 @@ extension MainViewController {
             return
         }
         let targetRange = (text as NSString)
-            .range(of: range.replacingOccurrences(of: String.colon, with: String.blank))
+            .range(of: range.replacingOccurrences(of: String.colonAndSpace, with: String.blank))
         let fontSize = UIFont.systemFont(ofSize: label.font.pointSize + 4)
         let attributedString = NSMutableAttributedString(string: text)
         attributedString.addAttribute(.font, value: fontSize, range: targetRange)

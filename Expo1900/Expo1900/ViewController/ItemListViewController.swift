@@ -23,37 +23,35 @@ class ItemListViewController: UIViewController {
         }
         itemDetailView.setItem(item: items[indexPath.row])
     }
+    
+    func initItems() {
+        guard let parsed = ParsedItems().items else {
+            self.navigationItem.title = .pageError
+            return
+        }
+        
+        items = parsed
+    }
 }
 
 extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        items.count
     }
     
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        let cellIdentifier = "itemCell"
         guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "itemCell",
+                withIdentifier: cellIdentifier,
                 for: indexPath
         ) as? ItemTableViewCell
         else {
             return UITableViewCell()
         }
-        cell.transfer(data: items[indexPath.row])
+        cell.configure(data: items[indexPath.row])
         return cell
-    }
-}
-
-extension ItemListViewController: JSONDecodable {
-    typealias JSONModel = [Item]
-    
-    private func initItems() {
-        do {
-            items = try decodeJSON(fileName: .itemsFileName)
-        } catch {
-            self.navigationItem.title = .pageError
-        }
     }
 }

@@ -12,7 +12,7 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemNameLabel: UILabel!
     @IBOutlet private weak var itemShortDescriptionLabel: UILabel!
     
-    func transfer(data: Item) {
+    func configure(data: Item) {
         itemImageView.image = UIImage(named: data.imageName)
         itemNameLabel.text = data.name
         itemShortDescriptionLabel.text = data.shortDescription

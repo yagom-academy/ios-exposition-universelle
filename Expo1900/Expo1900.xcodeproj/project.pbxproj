@@ -10,7 +10,8 @@
 		272824F626931ECB002EF5B3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272824F526931ECA002EF5B3 /* Item.swift */; };
 		273CFCA82695A8C300B338E0 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273CFCA72695A8C300B338E0 /* ItemListViewController.swift */; };
 		632D2F832697DC0E007700D8 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2F822697DC0E007700D8 /* ItemTableViewCell.swift */; };
-		637DFB662695988D00A3E586 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DFB652695988D00A3E586 /* String+Extension.swift */; };
+		637DFB662695988D00A3E586 /* String+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DFB652695988D00A3E586 /* String+Constants.swift */; };
+		63A338D5269E8F9100B13357 /* ParsedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A338D4269E8F9100B13357 /* ParsedItems.swift */; };
 		63C94510269434DD00FB7B83 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C9450F269434DD00FB7B83 /* JSONDecodable.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -20,6 +21,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D422DB0526931D0300200B11 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422DB0426931D0300200B11 /* Exposition.swift */; };
 		D422DB1D269451A000200B11 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422DB1C269451A000200B11 /* Expo1900Tests.swift */; };
+		D4564737269D66CF0057C8CB /* ParsedExposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4564736269D66CF0057C8CB /* ParsedExposition.swift */; };
 		D466BE8A2697E56100A0596C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466BE892697E56100A0596C /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +39,8 @@
 		272824F526931ECA002EF5B3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		273CFCA72695A8C300B338E0 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		632D2F822697DC0E007700D8 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
-		637DFB652695988D00A3E586 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		637DFB652695988D00A3E586 /* String+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Constants.swift"; sourceTree = "<group>"; };
+		63A338D4269E8F9100B13357 /* ParsedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedItems.swift; sourceTree = "<group>"; };
 		63C9450F269434DD00FB7B83 /* JSONDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		D422DB1A269451A000200B11 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D422DB1C269451A000200B11 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		D422DB1E269451A000200B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4564736269D66CF0057C8CB /* ParsedExposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedExposition.swift; sourceTree = "<group>"; };
 		D466BE892697E56100A0596C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +110,7 @@
 		637DFB642695986800A3E586 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				637DFB652695988D00A3E586 /* String+Extension.swift */,
+				637DFB652695988D00A3E586 /* String+Constants.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -155,6 +159,8 @@
 			children = (
 				D422DB0426931D0300200B11 /* Exposition.swift */,
 				272824F526931ECA002EF5B3 /* Item.swift */,
+				D4564736269D66CF0057C8CB /* ParsedExposition.swift */,
+				63A338D4269E8F9100B13357 /* ParsedItems.swift */,
 			);
 			path = JSONModel;
 			sourceTree = "<group>";
@@ -271,11 +277,13 @@
 				272824F626931ECB002EF5B3 /* Item.swift in Sources */,
 				632D2F832697DC0E007700D8 /* ItemTableViewCell.swift in Sources */,
 				273CFCA82695A8C300B338E0 /* ItemListViewController.swift in Sources */,
-				637DFB662695988D00A3E586 /* String+Extension.swift in Sources */,
+				637DFB662695988D00A3E586 /* String+Constants.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				D422DB0526931D0300200B11 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				D4564737269D66CF0057C8CB /* ParsedExposition.swift in Sources */,
 				D466BE8A2697E56100A0596C /* ItemDetailViewController.swift in Sources */,
+				63A338D5269E8F9100B13357 /* ParsedItems.swift in Sources */,
 				63C94510269434DD00FB7B83 /* JSONDecodable.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
