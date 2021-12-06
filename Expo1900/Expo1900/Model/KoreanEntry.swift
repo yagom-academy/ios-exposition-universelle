@@ -1,5 +1,5 @@
 //
-//  ExpoItem.swift
+//  KoreanEntry.swift
 //  Expo1900
 //
 //  Created by 박병호 on 2021/12/06.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpoItem: Codable {
+struct KoreanEntry: Codable {
     let name: String
     let imageName: String
     let shortDesc: String
