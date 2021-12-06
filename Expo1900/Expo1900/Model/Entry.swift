@@ -1,8 +1,8 @@
 import Foundation
 
-struct Entry {
+struct Entry: Decodable {
     let name: String
-    let imageName: String
-    let description: String
-    let shortDescription: String
+    let image_name: String
+    let short_desc: String
+    let desc: String
 }
