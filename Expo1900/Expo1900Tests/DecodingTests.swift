@@ -30,9 +30,11 @@ class DecodingTests: XCTestCase {
         do {
             let entries = try jsonDecoder.decode([Entry].self, from: data.data)
             
-            XCTAssertEqual(entries[0].short_desc, "백운화상 경한(景閑)이 1372년에 초록한 불교 서적")
+            XCTAssertEqual(entries[0].shortDescription, "백운화상 경한(景閑)이 1372년에 초록한 불교 서적")
         } catch {
+            print(error)
             XCTAssert(false)
+            
         }
     }
 }
