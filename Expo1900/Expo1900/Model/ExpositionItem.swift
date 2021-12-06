@@ -1,6 +1,6 @@
 import Foundation
 
-struct ExpositionItem: Codable {
+struct ExpositionItem: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
