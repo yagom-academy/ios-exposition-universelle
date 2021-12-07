@@ -8,6 +8,7 @@
 import UIKit
 
 enum JSONParser<Element: Decodable> {
+    
     static func decode(from jsonName: String) -> Element? {
         guard let dataAsset = NSDataAsset(name: jsonName) else {
             return nil

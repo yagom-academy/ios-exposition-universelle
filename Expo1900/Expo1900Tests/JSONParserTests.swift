@@ -9,15 +9,6 @@ import XCTest
 @testable import Expo1900
 
 class JSONParserTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        // JSON 데이터를 가지고 와야 하나...??
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
     
     func test_파리만국박람회정보_JSON데이터가_정상적으로_파싱되는지() {
         let jsonName = "exposition_universelle_1900"
