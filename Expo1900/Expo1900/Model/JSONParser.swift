@@ -13,8 +13,7 @@ enum JSONParser<Element: Decodable> {
             return nil
         }
         
-        let decoder = JSONDecoder()
-        let decodedData = try? decoder.decode(Element.self, from: dataAsset.data)
+        let decodedData = try? JSONDecoder().decode(Element.self, from: dataAsset.data)
         
         return decodedData
     }
