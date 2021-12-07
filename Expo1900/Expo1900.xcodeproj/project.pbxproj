@@ -41,6 +41,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		478CD464275F0A2C00C2BD07 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		478CD465275F0A3200C2BD07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				478CD460275EF6A500C2BD07 /* ExpoItems.swift */,
+				478CD462275EF71B00C2BD07 /* ExpoMainInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		478CD466275F0A3E00C2BD07 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +89,10 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				478CD466275F0A3E00C2BD07 /* Controller */,
+				478CD465275F0A3200C2BD07 /* Model */,
+				478CD464275F0A2C00C2BD07 /* View */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
-				478CD460275EF6A500C2BD07 /* ExpoItems.swift */,
-				478CD462275EF71B00C2BD07 /* ExpoMainInfo.swift */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
