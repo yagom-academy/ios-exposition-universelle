@@ -1,15 +1,11 @@
 import Foundation
 
-struct ExpoEntry {
+struct ExpoEntry: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
     let description: String
-}
-
-extension ExpoEntry: Decodable { }
-
-extension ExpoEntry {
+    
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
