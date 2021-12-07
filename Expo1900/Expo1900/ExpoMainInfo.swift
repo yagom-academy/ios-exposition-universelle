@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+struct ExpoMainInfo: Codable {
+    let title: String
+    let visitors: Int
+    let location: String
+    let duration: String
+    let explanation: String
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case visitors
+        case location
+        case duration
+        case explanation = "description"
+    }
+}
