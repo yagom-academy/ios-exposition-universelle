@@ -1,4 +1,4 @@
-struct ExpositionInfomation: Decodable {
+struct ExpositionInformation: Decodable {
     let title: String
     let visitors: Int
     let location: String
