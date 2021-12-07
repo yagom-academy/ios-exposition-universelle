@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2534DD2C275DF4B700D01D3D /* KoreanEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DD2B275DF4B700D01D3D /* KoreanEntry.swift */; };
 		2534DD2E275E061C00D01D3D /* ParisExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DD2D275E061C00D01D3D /* ParisExpoInformation.swift */; };
+		2534DD43275EFAB000D01D3D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DD42275EFAB000D01D3D /* JSONParser.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		2534DD2B275DF4B700D01D3D /* KoreanEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntry.swift; sourceTree = "<group>"; };
 		2534DD2D275E061C00D01D3D /* ParisExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoInformation.swift; sourceTree = "<group>"; };
+		2534DD42275EFAB000D01D3D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			children = (
 				2534DD2B275DF4B700D01D3D /* KoreanEntry.swift */,
 				2534DD2D275E061C00D01D3D /* ParisExpoInformation.swift */,
+				2534DD42275EFAB000D01D3D /* JSONParser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2534DD43275EFAB000D01D3D /* JSONParser.swift in Sources */,
 				2534DD2C275DF4B700D01D3D /* KoreanEntry.swift in Sources */,
 				2534DD2E275E061C00D01D3D /* ParisExpoInformation.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
