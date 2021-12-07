@@ -16,13 +16,22 @@ class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        
+        updateLabels()
     }
 
     func updateLabels() {
-        let expostion = Exposition()
+        do {
+            let expostion = try Exposition()
+            titleLabel.text = expostion.title
+            visitorsLabel.text = String(expostion.visitors)
+            locationLabel.text = expostion.location
+            durationLabel.text = expostion.duration
+            descriptionLabel.text = expostion.description
+        } catch Expo1900Error.dataNotFoundInAsset(let fileName) {
+            print(Expo1900Error.dataNotFoundInAsset(fileName).description)
+        } catch {
+            print(error)
+        }
     }
 }
 
