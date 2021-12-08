@@ -38,7 +38,7 @@ class JsonDecodeTests: XCTestCase {
         let result = try? decoder.decode([ExpositionEntry].self, from: asset.data)
         
         XCTAssertEqual(result?[1].name, comparisonTarget.name)
-        XCTAssertEqual(result?[1].imageName, comparisonTarget.imageName)
+        XCTAssertNotNil(result?[1].image)
         XCTAssertEqual(result?[1].shortDescription, comparisonTarget.shortDescription)
         XCTAssertEqual(result?[1].description, comparisonTarget.description)
     }
