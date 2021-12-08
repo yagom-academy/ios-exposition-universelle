@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-struct Entry: Codable {
+struct Entry: Decodable {
     let name: String
     let image: String
     let simpleDescription: String
