@@ -18,6 +18,10 @@ class ExpositionViewController: UIViewController {
         super.viewDidLoad()
         updateLabels()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 
     func updateLabels() {
         do {

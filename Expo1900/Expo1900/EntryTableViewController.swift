@@ -8,6 +8,10 @@ class EntryTableViewController: UITableViewController {
         super.viewDidLoad()
         parseEntries()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
