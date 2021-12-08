@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KoreanEntry: Codable {
+struct KoreanEntry: Decodable {
     let name: String
     let imageName: String
     let shortDesc: String
