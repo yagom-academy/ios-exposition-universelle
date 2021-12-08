@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08A269312760DAC1001DF39C /* ExpoInformationScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269302760DAC1001DF39C /* ExpoInformationScrollView.swift */; };
+		08A269332760DBDB001DF39C /* InformationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269322760DBDB001DF39C /* InformationStackView.swift */; };
+		08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269342760DEE8001DF39C /* CustomButtonStackView.swift */; };
 		08CB4FED275DE63800784B89 /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB4FEC275DE63800784B89 /* ExpoInformation.swift */; };
 		08CB4FF5275DFDD800784B89 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB4FF4275DFDD800784B89 /* ParserTests.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08A269302760DAC1001DF39C /* ExpoInformationScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformationScrollView.swift; sourceTree = "<group>"; };
+		08A269322760DBDB001DF39C /* InformationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationStackView.swift; sourceTree = "<group>"; };
+		08A269342760DEE8001DF39C /* CustomButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStackView.swift; sourceTree = "<group>"; };
 		08CB4FEC275DE63800784B89 /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		08CB4FF2275DFDD800784B89 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08CB4FF4275DFDD800784B89 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 		08CB4FEA275DE49400784B89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08A269302760DAC1001DF39C /* ExpoInformationScrollView.swift */,
+				08A269322760DBDB001DF39C /* InformationStackView.swift */,
+				08A269342760DEE8001DF39C /* CustomButtonStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,7 +259,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBCC3F26275DF1520049EBCB /* Parser.swift in Sources */,
+				08A269332760DBDB001DF39C /* InformationStackView.swift in Sources */,
+				08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				08A269312760DAC1001DF39C /* ExpoInformationScrollView.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				08CB4FED275DE63800784B89 /* ExpoInformation.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
