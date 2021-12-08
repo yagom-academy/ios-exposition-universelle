@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--직지-->
+        <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
@@ -67,29 +67,10 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <constraint firstAttribute="bottom" secondItem="6kM-eX-VbT" secondAttribute="bottom" id="sG3-xP-ARq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="직지" id="jfo-oK-6Js"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="947.82608695652186" y="109.82142857142857"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sZY-6c-V31">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eDd-Ue-3Po" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wkX-vf-cdp">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Z8s-JX-Mb7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wzU-jC-m09" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="37.681159420289859" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>
