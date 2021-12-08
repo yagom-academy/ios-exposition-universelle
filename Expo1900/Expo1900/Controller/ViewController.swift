@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
-    
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private var flagImages: [UIImageView]!
@@ -22,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        setupUI()
         updateUI()
     }
     
@@ -38,9 +38,15 @@ class ViewController: UIViewController {
         visitorsLabel.text = ": \(exposition.visitors.formattedString) 명"
         locationLabel.text = ": \(exposition.location)"
         durationLabel.text = ": \(exposition.duration)"
-        descriptionTextView.text = exposition.description
+        descriptionLabel.text = exposition.description
         
         posterImage.image = UIImage(named: "poster")
         flagImages.forEach { $0.image = UIImage(named: "flag") }
+    }
+    
+    private func setupUI() {
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakStrategy = .hangulWordPriority
+        flagImages.forEach { $0.contentMode = .scaleAspectFit }
     }
 }
