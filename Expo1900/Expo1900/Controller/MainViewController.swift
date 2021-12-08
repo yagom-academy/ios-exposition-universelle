@@ -17,9 +17,29 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        parsing()
     }
-
-
+    
+    func parsing() {
+        let expoFileName = "exposition_universelle_1900"
+        let parsedResult = JSONParse<Exposition>.decode(fileName: expoFileName)
+        
+        switch parsedResult {
+        case .failure(let parsingError):
+            showAlert(message: parsingError.errorDescription ?? parsingError.localizedDescription)
+            return
+        case .success(let contents):
+            setUpView(contents: contents)
+        }
+    }
+    
+    func setUpView(contents: Exposition) {
+        titleLabel.text = contents.title
+        visitorsLabel.text = contents.visitors.description
+        locationLabel.text = contents.location
+        durationLabel.text = contents.duration
+        descriptionLabel.text = contents.description
+        posterImageView.image = UIImage(named: "poster")
+    }
 }
 
