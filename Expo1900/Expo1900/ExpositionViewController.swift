@@ -23,7 +23,7 @@ class ExpositionViewController: UIViewController {
         do {
             let expostion = try Exposition()
             titleLabel.text = expostion.title
-            visitorsLabel.text = "방문객 : \(expostion.visitors)"
+            visitorsLabel.text = "방문객 : \(expostion.visitors.decimalString) 명"
             locationLabel.text = "개최지 : \(expostion.location)"
             durationLabel.text = "개최 기간 : \(expostion.duration)"
             descriptionLabel.text = expostion.description
