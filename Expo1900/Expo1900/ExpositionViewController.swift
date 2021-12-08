@@ -23,9 +23,9 @@ class ExpositionViewController: UIViewController {
         do {
             let expostion = try Exposition()
             titleLabel.text = expostion.title
-            visitorsLabel.text = String(expostion.visitors)
-            locationLabel.text = expostion.location
-            durationLabel.text = expostion.duration
+            visitorsLabel.text = "방문객 : \(expostion.visitors)"
+            locationLabel.text = "개최지 : \(expostion.location)"
+            durationLabel.text = "개최 기간 : \(expostion.duration)"
             descriptionLabel.text = expostion.description
         } catch Expo1900Error.dataNotFoundInAsset(let fileName) {
             print(Expo1900Error.dataNotFoundInAsset(fileName).description)
