@@ -1,4 +1,4 @@
-struct ExpositionSubmission: Decodable {
+struct ExpositionEntry: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String

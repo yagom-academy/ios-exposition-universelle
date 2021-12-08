@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A0EB497275F190900C6C9A8 /* ExpositionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EB496275F190900C6C9A8 /* ExpositionInformation.swift */; };
-		63B18B0C275F1CDA004524FB /* ExpositionSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B18B0B275F1CDA004524FB /* ExpositionSubmission.swift */; };
+		63B18B0C275F1CDA004524FB /* ExpositionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B18B0B275F1CDA004524FB /* ExpositionEntry.swift */; };
 		89F79706275F24190021A048 /* JsonDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F79705275F24190021A048 /* JsonDecodeTests.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		3A0EB496275F190900C6C9A8 /* ExpositionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInformation.swift; sourceTree = "<group>"; };
-		63B18B0B275F1CDA004524FB /* ExpositionSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionSubmission.swift; sourceTree = "<group>"; };
+		63B18B0B275F1CDA004524FB /* ExpositionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionEntry.swift; sourceTree = "<group>"; };
 		89F79703275F24190021A048 /* JsonDecodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonDecodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F79705275F24190021A048 /* JsonDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecodeTests.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				3A0EB496275F190900C6C9A8 /* ExpositionInformation.swift */,
-				63B18B0B275F1CDA004524FB /* ExpositionSubmission.swift */,
+				63B18B0B275F1CDA004524FB /* ExpositionEntry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
-				63B18B0C275F1CDA004524FB /* ExpositionSubmission.swift in Sources */,
+				63B18B0C275F1CDA004524FB /* ExpositionEntry.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				3A0EB497275F190900C6C9A8 /* ExpositionInformation.swift in Sources */,
