@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--한국의 출품작-->
+        <!--Table View Controller-->
         <scene sceneID="6i8-H4-vAp">
             <objects>
                 <tableViewController id="U7I-QJ-DT9" sceneMemberID="viewController">
@@ -51,27 +51,10 @@
                             <outlet property="delegate" destination="U7I-QJ-DT9" id="cw2-be-LbK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="한국의 출품작" id="o7z-2E-iPK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9k-Bp-5zK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-283" y="166"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="R5L-sp-Y13">
-            <objects>
-                <navigationController id="RFa-CX-JBg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IrJ-Mb-hKB">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="U7I-QJ-DT9" kind="relationship" relationship="rootViewController" id="Z4u-QN-XfY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1UK-Ja-Td2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1175" y="166"/>
         </scene>
     </scenes>
     <resources>
