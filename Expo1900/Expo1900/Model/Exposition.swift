@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 struct Exposition: Decodable {
     let title: String
