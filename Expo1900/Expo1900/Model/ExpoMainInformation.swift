@@ -15,10 +15,7 @@ struct ExpoMainInformation: Codable {
     let explanation: String
 
     enum CodingKeys: String, CodingKey {
-        case title
-        case visitors
-        case location
-        case duration
+        case title, visitors, location, duration
         case explanation = "description"
     }
 }
