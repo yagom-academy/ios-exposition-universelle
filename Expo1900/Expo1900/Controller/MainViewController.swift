@@ -1,9 +1,3 @@
-//
-//  Expo1900 - ViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
-
 import UIKit
 
 class MainViewController: UIViewController {
@@ -14,7 +8,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         parsing()
@@ -44,11 +38,29 @@ class MainViewController: UIViewController {
     }
     
     func setUpView(contents: Exposition) {
-        titleLabel.text = contents.title
-        visitorsLabel.text = contents.visitors.description
-        locationLabel.text = contents.location
-        durationLabel.text = contents.duration
+        let colon = ": "
+        let people = " 명"
+        
+        titleLabel.text =  contents.title
+        visitorsLabel.text = CategoryPrefix.visitor + colon + contents.visitorsDescription + people
+        locationLabel.text = CategoryPrefix.location + colon + contents.location
+        durationLabel.text = CategoryPrefix.duration + colon + contents.duration
         descriptionLabel.text = contents.description
         posterImageView.image = UIImage(named: "poster")
+        
+        editFontSize(of: CategoryPrefix.visitor, in: visitorsLabel)
+        editFontSize(of: CategoryPrefix.location, in: locationLabel)
+        editFontSize(of: CategoryPrefix.duration, in: durationLabel)
+    }
+    
+    func editFontSize(of prefix: String ,in label: UILabel) {
+        guard let text = label.text else {
+            return
+        }
+        let fontSize = UIFont.systemFont(ofSize: label.font.pointSize + 3)
+        let attributedString = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: prefix)
+        attributedString.addAttribute(.font, value: fontSize, range: range)
+        label.attributedText = attributedString
     }
 }
