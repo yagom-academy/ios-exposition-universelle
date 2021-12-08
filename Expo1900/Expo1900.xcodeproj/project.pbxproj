@@ -22,6 +22,7 @@
 		DE930FDD275E0DD800373866 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDC275E0DD800373866 /* Exposition.swift */; };
 		DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDE275F7D4A00373866 /* JSONParser.swift */; };
 		DE930FE2275F82F000373866 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FE1275F82F000373866 /* ParsingError.swift */; };
+		DE930FE427609EFE00373866 /* ExpositionItemList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE930FE327609EFE00373866 /* ExpositionItemList.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		DE930FDC275E0DD800373866 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		DE930FDE275F7D4A00373866 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		DE930FE1275F82F000373866 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
+		DE930FE327609EFE00373866 /* ExpositionItemList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExpositionItemList.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4BA2589F401005FB0FD /* Exposition.storyboard */,
+				DE930FE327609EFE00373866 /* ExpositionItemList.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				DE930FE427609EFE00373866 /* ExpositionItemList.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Exposition.storyboard in Resources */,
 			);
