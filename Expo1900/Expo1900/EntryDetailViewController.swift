@@ -17,6 +17,7 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateEntry()
+        setNavigationTitle()
     }
     
     func updateEntry() {
@@ -26,5 +27,9 @@ class EntryDetailViewController: UIViewController {
 
         entryImage.image = UIImage(named: entry.imageName)
         entryDescription.text = entry.description
+    }
+    
+    func setNavigationTitle() {
+        self.navigationItem.title = entry?.name
     }
 }

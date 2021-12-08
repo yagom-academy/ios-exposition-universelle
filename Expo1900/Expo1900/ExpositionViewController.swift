@@ -17,6 +17,7 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabels()
+        setNavigationTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +37,10 @@ class ExpositionViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    func setNavigationTitle() {
+        self.navigationItem.title = "메인"
     }
 }
 

@@ -7,6 +7,7 @@ class EntryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         parseEntries()
+        setNavigationTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +61,10 @@ class EntryTableViewController: UITableViewController {
         } catch {
             print(error)
         }
+    }
+    
+    func setNavigationTitle() {
+        self.navigationItem.title = "한국의 출품작"
     }
 }
 
