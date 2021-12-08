@@ -8,9 +8,9 @@
 import Foundation
 
 struct Exposition: Codable {
-    let title: String
-    let visitors: Int
-    let location: String
-    let duration: String
-    let description: String
+    var title: String = ""
+    var visitors: Int = 0
+    var location: String = ""
+    var duration: String = ""
+    var description: String = ""
 }

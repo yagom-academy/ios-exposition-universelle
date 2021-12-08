@@ -7,6 +7,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var exposition: Exposition = Exposition()
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -19,8 +21,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        fetchData()
     }
-
-
+    
+    func fetchData() {
+        do {
+            exposition = try JSONParser<Exposition>.decode(fileName: "exposition_universelle_1900")
+        } catch {
+            print(error)
+        }
+    }
 }
