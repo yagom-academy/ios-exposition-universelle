@@ -10,6 +10,44 @@ import XCTest
 
 class JSONParserTests: XCTestCase {
     
+    func test_존재하지않는_JSON이름으로_파싱하면_nil_반환되는지() {
+        let jsonName = "not_Existing_JSON_name"
+
+        let result = JSONParser<[KoreanEntry]>.decode(from: jsonName)
+        
+        XCTAssertNil(result)
+    }
+    
+    func test_JSON데이터에_null값이존재해서_decoding_실패하면_nil_반환되는지() {
+        let mockJSON = """
+        {
+            "name":"직지심체요절",
+            "image_name":"jikji",
+            "short_desc":"백운화상 경한(景閑)이 1372년에 초록한 불교 서적",
+            "desc":null
+        }
+        """.data(using: .utf8)!
+        
+        let result = try? JSONDecoder().decode(KoreanEntry.self, from: mockJSON)
+        
+        XCTAssertNil(result)
+    }
+    
+    func test_정의하지않은_키값이존재해서_decoding_실패하면_nil_반환되는지() {
+        let mockJSON = """
+        {
+            "not_defined":"직지심체요절",
+            "image_name":"jikji",
+            "short_desc":"백운화상 경한(景閑)이 1372년에 초록한 불교 서적",
+            "desc":null
+        }
+        """.data(using: .utf8)!
+        
+        let result = try? JSONDecoder().decode(KoreanEntry.self, from: mockJSON)
+        
+        XCTAssertNil(result)
+    }
+    
     func test_파리만국박람회정보_JSON데이터가_정상적으로_파싱되는지() {
         let jsonName = "exposition_universelle_1900"
         let expectedTitle = "파리 만국박람회 1900(L'Exposition de Paris 1900)"
