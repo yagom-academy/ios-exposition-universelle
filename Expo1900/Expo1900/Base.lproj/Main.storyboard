@@ -160,25 +160,46 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="GBF-aS-fgw"/>
+                    <connections>
+                        <segue destination="TsC-EY-jwB" kind="show" identifier="toEntryDetail" id="WvU-me-ayV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWI-jj-OIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1682.608695652174" y="139.95535714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Entry Detail View Controller-->
         <scene sceneID="gqv-oT-wcE">
             <objects>
-                <viewController id="TsC-EY-jwB" sceneMemberID="viewController">
+                <viewController id="TsC-EY-jwB" customClass="EntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gBd-4W-A0c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VNl-Qd-zv2">
+                                <rect key="frame" x="66" y="122" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVB-zy-7xf">
+                                <rect key="frame" x="95" y="299" width="218" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="umO-d0-Zuo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aP2-Yt-Kaa"/>
+                    <connections>
+                        <outlet property="entryDescription" destination="LVB-zy-7xf" id="uyQ-zi-nfa"/>
+                        <outlet property="entryImage" destination="VNl-Qd-zv2" id="VBL-HB-BzD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXj-sk-32X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2588" y="140"/>
+            <point key="canvasLocation" x="2586.9565217391305" y="139.95535714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d97-FU-lgz">

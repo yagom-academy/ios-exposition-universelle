@@ -7,7 +7,6 @@ class EntryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         parseEntries()
-        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,6 +27,20 @@ class EntryTableViewController: UITableViewController {
         cell.contentConfiguration = content
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toEntryDetail", sender: entries[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let entryDetailViewController = segue.destination as? EntryDetailViewController else {
+            return
+        }
+        guard let entry = sender as? Entry else {
+            return
+        }
+        entryDetailViewController.entry = entry
     }
     
     func parseEntries() {
