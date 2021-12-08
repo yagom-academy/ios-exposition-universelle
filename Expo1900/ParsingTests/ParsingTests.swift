@@ -3,12 +3,6 @@ import XCTest
 
 class ParsingTests: XCTestCase {
     
-    override func setUpWithError() throws {
-    }
-
-    override func tearDownWithError() throws {
-    }
-    
     func testParsingExpoInfo() {
         guard let expo1900 = NSDataAsset(name: "exposition_universelle_1900", bundle: .main)?.data else {
             XCTFail()
