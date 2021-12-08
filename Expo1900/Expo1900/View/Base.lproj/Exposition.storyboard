@@ -87,6 +87,16 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFr-oc-Fzd">
+                                                <rect key="frame" x="138" y="550" width="138" height="30"/>
+                                                <state key="normal" title="한국의 출품작 보러가기"/>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J02-og-hjJ">
+                                                <rect key="frame" x="69" y="543" width="54" height="45"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qdw-I4-N9H">
+                                                <rect key="frame" x="293" y="543" width="54" height="45"/>
+                                            </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r5B-Lq-GzM">
                                                 <rect key="frame" x="15" y="407" width="384" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,16 +105,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFr-oc-Fzd">
-                                                <rect key="frame" x="184" y="550" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J02-og-hjJ">
-                                                <rect key="frame" x="69" y="543" width="54" height="45"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qdw-I4-N9H">
-                                                <rect key="frame" x="293" y="543" width="54" height="45"/>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -148,6 +148,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="N2P-xg-Myd"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="r5B-Lq-GzM" id="w1s-oi-mfi"/>
+                        <outlet property="durationLabel" destination="W7x-kW-vwl" id="fXq-Ye-QVA"/>
+                        <outlet property="locationLabel" destination="KBn-RI-R6M" id="iPS-up-rCe"/>
+                        <outlet property="posterImage" destination="hMd-Zo-bkh" id="ZZM-UK-rsP"/>
+                        <outlet property="titleLabel" destination="0n5-FG-yqm" id="O78-rp-PLr"/>
+                        <outlet property="visitorsLabel" destination="GuA-Xb-WtR" id="eTq-j6-ZgZ"/>
+                        <outletCollection property="flagImages" destination="Qdw-I4-N9H" collectionClass="NSMutableArray" id="y3b-2b-VGw"/>
+                        <outletCollection property="flagImages" destination="J02-og-hjJ" collectionClass="NSMutableArray" id="VqC-el-4mO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
