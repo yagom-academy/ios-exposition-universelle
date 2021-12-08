@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UINavigationControllerDelegate {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -17,18 +17,17 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.delegate = self
         parsing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func parsing() {
