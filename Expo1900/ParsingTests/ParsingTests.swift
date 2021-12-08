@@ -15,7 +15,6 @@ class ParsingTests: XCTestCase {
             return
         }
         let decoder = JSONDecoder()
-        
         XCTAssertNoThrow(try decoder.decode(ExpoInfo.self, from: expo1900))
     }
     
@@ -25,8 +24,6 @@ class ParsingTests: XCTestCase {
             return
         }
         let decoder = JSONDecoder()
-        
         XCTAssertNoThrow(try decoder.decode([ItemInfo].self, from: items))
     }
 }
-
