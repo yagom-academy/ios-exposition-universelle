@@ -26,10 +26,9 @@ struct ExpositionInformation: Decodable {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case title
+        case title, description
         case visitorsInformation = "visitors"
         case locationInformation = "location"
         case durationInformation = "duration"
-        case description
     }
 }
