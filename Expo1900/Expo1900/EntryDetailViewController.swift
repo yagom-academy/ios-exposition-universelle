@@ -1,35 +1,25 @@
-//
-//  EntryDetailViewController.swift
-//  Expo1900
-//
-//  Created by 권나영 on 2021/12/08.
-//
-
 import UIKit
 
 class EntryDetailViewController: UIViewController {
 
-    @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryDescription: UILabel!
+    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var entryDescription: UILabel!
     
     var entry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateEntry()
+        setViewsFromEntry()
         setNavigationTitle()
     }
     
-    func updateEntry() {
-        guard let entry = entry else {
-            return
-        }
-
+    private func setViewsFromEntry() {
+        guard let entry = entry else { return }
         entryImage.image = UIImage(named: entry.imageName)
         entryDescription.text = entry.description
     }
     
-    func setNavigationTitle() {
+    private func setNavigationTitle() {
         self.navigationItem.title = entry?.name
     }
 }

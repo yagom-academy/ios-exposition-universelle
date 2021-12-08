@@ -8,39 +8,41 @@ import UIKit
 
 class ExpositionViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateLabels()
-        setNavigationTitle()
+        
+        guard let exposition = parseExpositionFromAsset() else { return }
+        setLabels(from: exposition)
+    }
+    
+    private func parseExpositionFromAsset() -> Exposition? {
+        do {
+            return try Exposition()
+        } catch Expo1900Error.dataNotFoundInAsset(let fileName) {
+            print(Expo1900Error.dataNotFoundInAsset(fileName))
+            return nil
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
+    private func setLabels(from exposition: Exposition) {
+        titleLabel.text = exposition.title
+        visitorsLabel.text = exposition.visitorsDescription
+        locationLabel.text = exposition.locationDescription
+        durationLabel.text = exposition.durationDescription
+        descriptionLabel.text = exposition.description
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-
-    func updateLabels() {
-        do {
-            let expostion = try Exposition()
-            titleLabel.text = expostion.title
-            visitorsLabel.text = "방문객 : \(expostion.visitors.decimalString) 명"
-            locationLabel.text = "개최지 : \(expostion.location)"
-            durationLabel.text = "개최 기간 : \(expostion.duration)"
-            descriptionLabel.text = expostion.description
-        } catch Expo1900Error.dataNotFoundInAsset(let fileName) {
-            print(Expo1900Error.dataNotFoundInAsset(fileName).description)
-        } catch {
-            print(error)
-        }
-    }
-    
-    func setNavigationTitle() {
-        self.navigationItem.title = "메인"
     }
 }
 

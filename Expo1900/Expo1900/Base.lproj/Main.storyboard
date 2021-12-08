@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Exposition View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ExpositionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                             <constraint firstAttribute="trailing" secondItem="QhU-cg-yQj" secondAttribute="trailing" constant="12" id="zxe-vh-ZoO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="imm-en-L81"/>
+                    <navigationItem key="navigationItem" title="메인" id="imm-en-L81"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="uVu-2I-2rV" id="Zbz-rj-7wy"/>
                         <outlet property="durationLabel" destination="iaO-XX-REJ" id="Jwf-bu-nnT"/>
@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="779.71014492753625" y="139.95535714285714"/>
         </scene>
-        <!--Entry Table View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="8TU-vR-rGN">
             <objects>
                 <tableViewController id="2lj-Zg-rdr" customClass="EntryTableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -159,7 +159,7 @@
                             <outlet property="delegate" destination="2lj-Zg-rdr" id="Lny-Dc-aSz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="GBF-aS-fgw"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="GBF-aS-fgw"/>
                     <connections>
                         <segue destination="TsC-EY-jwB" kind="show" identifier="toEntryDetail" id="WvU-me-ayV"/>
                     </connections>

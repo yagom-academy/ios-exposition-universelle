@@ -7,9 +7,19 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
+    var visitorsDescription: String {
+        return "방문객 : \(visitors.decimalString) 명"
+    }
+    var locationDescription: String {
+        return "개최지 : \(location)"
+    }
+    var durationDescription: String {
+        return "개최 기간 : \(duration)"
+    }
+    
     init() throws {
-        guard let data = NSDataAsset(name: "exposition_universelle_1900") else {
-            throw Expo1900Error.dataNotFoundInAsset("exposition_universelle_1900")
+        guard let data = NSDataAsset(name: JSONAssetNameList.exposition.rawValue) else {
+            throw Expo1900Error.dataNotFoundInAsset(JSONAssetNameList.exposition.rawValue)
         }
         
         self = try JSONDecoder.shared.decode(Exposition.self, from: data.data)

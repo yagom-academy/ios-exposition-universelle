@@ -2,12 +2,24 @@ import UIKit
 
 class EntryTableViewController: UITableViewController {
 
-    var entries: [Entry] = []
+    private var entries: [Entry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        parseEntries()
-        setNavigationTitle()
+        parseEntriesFromAsset()
+    }
+    
+    private func parseEntriesFromAsset() {
+        do {
+            guard let data = NSDataAsset(name: JSONAssetNameList.entry.rawValue) else {
+                throw Expo1900Error.dataNotFoundInAsset(JSONAssetNameList.entry.rawValue)
+            }
+            entries = try JSONDecoder.shared.decode([Entry].self, from: data.data)
+        } catch Expo1900Error.dataNotFoundInAsset(let fileName) {
+            print(Expo1900Error.dataNotFoundInAsset(fileName))
+        } catch {
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,15 +32,12 @@ class EntryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
-        
         var content = cell.defaultContentConfiguration()
         
         let entry = entries[indexPath.row]
-        
         content.text = entry.name
         content.secondaryText = entry.shortDescription
         content.image = UIImage(named: entry.imageName)
-        
         cell.contentConfiguration = content
         
         return cell
@@ -40,31 +49,10 @@ class EntryTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let entryDetailViewController = segue.destination as? EntryDetailViewController else {
-            return
-        }
-        guard let entry = sender as? Entry else {
-            return
-        }
+        guard let entryDetailViewController = segue.destination as? EntryDetailViewController,
+              let entry = sender as? Entry else { return }
+        
         entryDetailViewController.entry = entry
-    }
-    
-    func parseEntries() {
-        do {
-            guard let data = NSDataAsset(name: "items") else {
-                throw Expo1900Error.dataNotFoundInAsset("items")
-            }
-            
-            entries = try JSONDecoder.shared.decode([Entry].self, from: data.data)
-        } catch Expo1900Error.dataNotFoundInAsset(let fileName) {
-            print(Expo1900Error.dataNotFoundInAsset(fileName).description)
-        } catch {
-            print(error)
-        }
-    }
-    
-    func setNavigationTitle() {
-        self.navigationItem.title = "한국의 출품작"
     }
 }
 
