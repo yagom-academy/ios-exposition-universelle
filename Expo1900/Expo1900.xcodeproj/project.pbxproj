@@ -13,6 +13,7 @@
 		3672FFCD276081C600B8B245 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3696A862275E119900A6012A /* ExpositionItem.swift */; };
 		3672FFCE276081C900B8B245 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FE1275F82F000373866 /* ParsingError.swift */; };
 		3672FFD02760A28500B8B245 /* ExpositionItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3672FFCF2760A28500B8B245 /* ExpositionItem.storyboard */; };
+		3672FFD32760D62600B8B245 /* Int+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672FFD22760D62600B8B245 /* Int+Formatter.swift */; };
 		3696A863275E119900A6012A /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3696A862275E119900A6012A /* ExpositionItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 		3672FFC22760813A00B8B245 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3672FFC42760813A00B8B245 /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		3672FFCF2760A28500B8B245 /* ExpositionItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExpositionItem.storyboard; sourceTree = "<group>"; };
+		3672FFD22760D62600B8B245 /* Int+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Formatter.swift"; sourceTree = "<group>"; };
 		3696A862275E119900A6012A /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 			path = Expo1900Tests;
 			sourceTree = "<group>";
 		};
+		3672FFD12760D59100B8B245 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3672FFD22760D62600B8B245 /* Int+Formatter.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				3672FFD12760D59100B8B245 /* Extension */,
 				DE930FE0275F82D400373866 /* Error */,
 				C9C0DD21275E09F8009931D1 /* View */,
 				C9C0DD20275E09F1009931D1 /* Controller */,
@@ -265,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3672FFD32760D62600B8B245 /* Int+Formatter.swift in Sources */,
 				3696A863275E119900A6012A /* ExpositionItem.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */,

@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        updateUI()
     }
     
     func fetchData() {
@@ -30,5 +31,16 @@ class ViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    func updateUI() {
+        titleLabel.text = exposition.title
+        visitorsLabel.text = ": \(exposition.visitors.formattedString) 명"
+        locationLabel.text = ": \(exposition.location)"
+        durationLabel.text = ": \(exposition.duration)"
+        descriptionTextView.text = exposition.description
+        
+        posterImage.image = UIImage(named: "poster")
+        flagImages.forEach { $0.image = UIImage(named: "flag") }
     }
 }
