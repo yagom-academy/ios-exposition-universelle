@@ -60,3 +60,17 @@ extension ExpositionItemTableViewController {
         return cell
     }
 }
+
+// MARK: - Table view delegate
+
+extension ExpositionItemTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "ExpositionItem", bundle: nil)
+
+        let expositionItemViewController = storyboard.instantiateViewController(identifier: "expositionItem") { coder in
+            return ExpositionItemViewController(coder: coder, expositionItem: self.expositionItem[indexPath.row])
+        }
+
+        self.navigationController?.pushViewController(expositionItemViewController, animated: true)
+    }
+}
