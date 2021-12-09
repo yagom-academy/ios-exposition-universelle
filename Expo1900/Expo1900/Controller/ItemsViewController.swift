@@ -9,7 +9,7 @@ import UIKit
 
 class ItemsViewController: UIViewController {
 
-    @IBOutlet weak var itemsTableView: UITableView!
+    @IBOutlet private weak var itemsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class ItemsViewController: UIViewController {
         itemsTableView.dataSource = self
     }
     
-    func setTitle() {
+    private func setTitle() {
         self.title = "한국의 출품작"
     }
 }
