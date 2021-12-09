@@ -8,8 +8,13 @@ import UIKit
 
 class ExpoMainViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var visitersLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var explainationTextView: UITextView!
     let expoMainInformationJSONFile = "exposition_universelle_1900"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let expoMainInformation = decodeExpoMainInformationJsonData() else {
