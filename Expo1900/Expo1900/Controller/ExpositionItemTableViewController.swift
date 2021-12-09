@@ -13,6 +13,12 @@ class ExpositionItemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func fetchData() {
@@ -21,6 +27,10 @@ class ExpositionItemTableViewController: UITableViewController {
         } catch {
             print(error)
         }
+    }
+    
+    func setupUI() {
+        self.title = "한국의 출품작"
     }
 }
 
