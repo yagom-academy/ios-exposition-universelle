@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		337EF5D02761D6A60092AB98 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EF5CF2761D6A60092AB98 /* Parser.swift */; };
 		33AFF2D427608F5B0060CA88 /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AFF2D327608F5B0060CA88 /* NumberFormatter+Extension.swift */; };
 		33E5DE54275F4655004799A6 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E5DE53275F4655004799A6 /* ItemInfo.swift */; };
 		6B04B0AA275F48ED004F1199 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B04B0A9275F48ED004F1199 /* ParsingTests.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		337EF5CF2761D6A60092AB98 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		33AFF2D327608F5B0060CA88 /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
 		33E5DE53275F4655004799A6 /* ItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
 		6B04B0A7275F48ED004F1199 /* ParsingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				E9178E2A275E2AF5008F4D23 /* ExpoInfo.swift */,
 				33E5DE53275F4655004799A6 /* ItemInfo.swift */,
 				33AFF2D327608F5B0060CA88 /* NumberFormatter+Extension.swift */,
+				337EF5CF2761D6A60092AB98 /* Parser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				33E5DE54275F4655004799A6 /* ItemInfo.swift in Sources */,
 				33AFF2D427608F5B0060CA88 /* NumberFormatter+Extension.swift in Sources */,
+				337EF5D02761D6A60092AB98 /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
