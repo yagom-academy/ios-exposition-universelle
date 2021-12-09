@@ -16,6 +16,17 @@ class ExpositionItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        setupUI()
+    }
+    
+    init?(coder: NSCoder, expositionItem: ExpositionItem) {
+        self.expositionItem = [expositionItem]
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.expositionItem = []
+        super.init(coder: coder)
     }
     
     func updateUI() {
@@ -28,13 +39,9 @@ class ExpositionItemViewController: UIViewController {
         itemDescriptionLabel.text = item.description
     }
     
-    init?(coder: NSCoder, expositionItem: ExpositionItem) {
-        self.expositionItem = [expositionItem]
-        super.init(coder: coder)
-    }
-    
-    required init?(coder: NSCoder) {
-        self.expositionItem = []
-        super.init(coder: coder)
+    func setupUI() {
+        itemDescriptionLabel.numberOfLines = 0
+        itemDescriptionLabel.lineBreakStrategy = .hangulWordPriority
+        itemImage.contentMode = .scaleAspectFit
     }
 }
