@@ -1,19 +1,15 @@
-//
-//  ItemListViewController.swift
-//  Expo1900
-//
-//  Created by 임지성 on 2021/12/08.
-//
-
 import UIKit
 
 class ItemListViewController: UIViewController {
-
+    @IBOutlet weak var itemListTableVIew: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
+        itemListTableVIew.register(nib, forCellReuseIdentifier: "TableViewCell")
     }
+    
+   
     
 
     /*
