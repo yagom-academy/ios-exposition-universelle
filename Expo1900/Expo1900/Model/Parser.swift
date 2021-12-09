@@ -6,19 +6,25 @@ enum Paser {
     
     static func parsedExpoInfo() throws -> ExpoInfo {
         guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else {
-            fatalError()
+            throw ParserError.invaildFileName
         }
-        let result = try decoder.decode(ExpoInfo.self, from: data)
-        
-        return result
+        do {
+            let result = try decoder.decode(ExpoInfo.self, from: data)
+            return result
+        } catch {
+            throw ParserError.failToParseExpoInfo
+        }
     }
     
     static func parsedItemsInfo() throws -> [ItemInfo] {
         guard let data = NSDataAsset(name: "items", bundle: .main)?.data else {
-            fatalError()
+            throw ParserError.invaildFileName
         }
-        let result = try decoder.decode([ItemInfo].self, from: data)
-        
-        return result
+        do {
+            let result = try decoder.decode([ItemInfo].self, from: data)
+            return result
+        } catch {
+            throw ParserError.failToParseItemsInfo
+        }
     }
 }
