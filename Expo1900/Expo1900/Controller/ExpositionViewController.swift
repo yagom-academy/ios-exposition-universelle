@@ -7,7 +7,8 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
-    var exposition: Exposition = Exposition()
+    // MARK: - Properties
+    private var exposition: Exposition = Exposition()
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -18,6 +19,7 @@ class ExpositionViewController: UIViewController {
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private var flagImages: [UIImageView]!
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
@@ -30,7 +32,8 @@ class ExpositionViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func fetchData() {
+    // MARK: - Methods
+    private func fetchData() {
         do {
             exposition = try JSONParser<Exposition>.decode(fileName: "exposition_universelle_1900")
         } catch {
@@ -38,7 +41,17 @@ class ExpositionViewController: UIViewController {
         }
     }
     
-    func updateUI() {
+    private func setupUI() {
+        titleLabel.numberOfLines = 0
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakStrategy = .hangulWordPriority
+        
+        flagImages.forEach { $0.contentMode = .scaleAspectFit }
+    }
+    
+    private func updateUI() {
+        self.title = "메인"
+        
         titleLabel.text = exposition.title
         visitorsLabel.text = ": \(exposition.visitors.formattedString) 명"
         locationLabel.text = ": \(exposition.location)"
@@ -48,20 +61,11 @@ class ExpositionViewController: UIViewController {
         posterImage.image = UIImage(named: "poster")
         flagImages.forEach { $0.image = UIImage(named: "flag") }
     }
-    
-    private func setupUI() {
-        self.title = "메인"
-        
-        titleLabel.numberOfLines = 0
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.lineBreakStrategy = .hangulWordPriority
-        
-        flagImages.forEach { $0.contentMode = .scaleAspectFit }
-    }
 }
 
+// MARK: - IBAction
 extension ExpositionViewController {
-    @IBAction func touchUpPushExpositionItemTableButton(_ sender: UIButton) {
+    @IBAction private func touchUpPushExpositionItemTableButton(_ sender: UIButton) {
         let expositionItemTableStoryboard = UIStoryboard(name: "ExpositionItemTable", bundle: nil)
         
         let expositionItemTableViewController = expositionItemTableStoryboard.instantiateViewController(withIdentifier: "ExpositionItemTable")
