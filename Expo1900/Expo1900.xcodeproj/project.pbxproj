@@ -12,6 +12,7 @@
 		2534DD43275EFAB000D01D3D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DD42275EFAB000D01D3D /* JSONParser.swift */; };
 		2534DD902761E2CD00D01D3D /* KoreanEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DD8F2761E2CD00D01D3D /* KoreanEntryTableViewController.swift */; };
 		2534DD922761F58600D01D3D /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DD912761F58600D01D3D /* EntryTableViewCell.swift */; };
+		2534DD942762046100D01D3D /* EntryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DD932762046100D01D3D /* EntryDataSource.swift */; };
 		C185230D275F25A9003C5792 /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185230C275F25A9003C5792 /* JSONParserTests.swift */; };
 		C1ECA3442760D91C002712D4 /* ParisExpoInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ECA3432760D91C002712D4 /* ParisExpoInformationViewController.swift */; };
 		C1ECA3462761EB30002712D4 /* JSONFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ECA3452761EB30002712D4 /* JSONFileName.swift */; };
@@ -38,6 +39,7 @@
 		2534DD42275EFAB000D01D3D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		2534DD8F2761E2CD00D01D3D /* KoreanEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryTableViewController.swift; sourceTree = "<group>"; };
 		2534DD912761F58600D01D3D /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
+		2534DD932762046100D01D3D /* EntryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDataSource.swift; sourceTree = "<group>"; };
 		C185230A275F25A9003C5792 /* JSONParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C185230C275F25A9003C5792 /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		C1ECA3432760D91C002712D4 /* ParisExpoInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoInformationViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				2534DD2D275E061C00D01D3D /* ParisExpoInformation.swift */,
 				2534DD42275EFAB000D01D3D /* JSONParser.swift */,
 				C1ECA3452761EB30002712D4 /* JSONFileName.swift */,
+				2534DD932762046100D01D3D /* EntryDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1ECA3462761EB30002712D4 /* JSONFileName.swift in Sources */,
+				2534DD942762046100D01D3D /* EntryDataSource.swift in Sources */,
 				C1ECA3442760D91C002712D4 /* ParisExpoInformationViewController.swift in Sources */,
 				2534DD43275EFAB000D01D3D /* JSONParser.swift in Sources */,
 				2534DD2C275DF4B700D01D3D /* KoreanEntry.swift in Sources */,
