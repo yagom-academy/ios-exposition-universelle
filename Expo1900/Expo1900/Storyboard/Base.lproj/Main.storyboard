@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,17 +20,16 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cab-2a-ova">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Im0-Sl-l5t">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jih-0u-MmZ" userLabel="Content Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Im0-Sl-l5t" firstAttribute="top" secondItem="cab-2a-ova" secondAttribute="top" constant="401" id="1wm-UW-FLy"/>
-                                    <constraint firstItem="Im0-Sl-l5t" firstAttribute="leading" secondItem="cab-2a-ova" secondAttribute="leading" constant="87" id="IbC-yS-zq1"/>
-                                    <constraint firstAttribute="trailing" secondItem="Im0-Sl-l5t" secondAttribute="trailing" constant="87" id="OQ5-U9-MQI"/>
-                                    <constraint firstAttribute="bottom" secondItem="Im0-Sl-l5t" secondAttribute="bottom" constant="367" id="i7q-c6-r9w"/>
-                                    <constraint firstItem="Im0-Sl-l5t" firstAttribute="width" secondItem="cab-2a-ova" secondAttribute="width" multiplier="0.57971" id="q0f-zP-X2u"/>
+                                    <constraint firstItem="jih-0u-MmZ" firstAttribute="bottom" secondItem="021-qB-fxo" secondAttribute="bottom" id="Jtu-gK-eij"/>
+                                    <constraint firstItem="jih-0u-MmZ" firstAttribute="leading" secondItem="021-qB-fxo" secondAttribute="leading" id="QuE-Xo-CGN"/>
+                                    <constraint firstItem="jih-0u-MmZ" firstAttribute="trailing" secondItem="021-qB-fxo" secondAttribute="trailing" id="YcQ-Nt-2Eq"/>
+                                    <constraint firstItem="jih-0u-MmZ" firstAttribute="top" secondItem="021-qB-fxo" secondAttribute="top" id="r1Z-vl-YXy"/>
+                                    <constraint firstItem="jih-0u-MmZ" firstAttribute="width" secondItem="cmZ-wI-Wb2" secondAttribute="width" id="tze-Ef-S1c"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="021-qB-fxo"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="cmZ-wI-Wb2"/>
