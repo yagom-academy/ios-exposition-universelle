@@ -19,5 +19,9 @@ class EntryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-
+    func setCustomCellComponents(image: UIImage, title: String, shortDescription: String) {
+        entryImage.image = image
+        entryTitleLabel.text = title
+        entryShortDescriptionLabel.text = shortDescription
+    }
 }
