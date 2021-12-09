@@ -16,9 +16,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setViewsToDefault()
     }
-
-
+    
+    private func setViewsToDefault() {
+        do {
+            let data = try Parser.parsedExpoInfo()
+            titleLabel.text = data.title
+            visitorValueLabel.text = data.formattedVisitors
+            locationValueLabel.text = data.location
+            durationValueLabel.text = data.duration
+            titleLabel.font = UIFont.systemFont(ofSize: 28)
+            setTextViewToDefault(with: data.description)
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    private func setTextViewToDefault(with data: String) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakStrategy = .hangulWordPriority
+        let attribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 17),
+            .paragraphStyle: paragraphStyle]
+        descriptionTextView.attributedText = NSAttributedString(
+            string: data.description,
+            attributes: attribute)
+        descriptionTextView.textAlignment = .left
+    }
 }
-
