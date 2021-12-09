@@ -25,6 +25,7 @@
 		DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDE275F7D4A00373866 /* JSONParser.swift */; };
 		DE930FE2275F82F000373866 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FE1275F82F000373866 /* ParsingError.swift */; };
 		DE930FE427609EFE00373866 /* ExpositionItemList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE930FE327609EFE00373866 /* ExpositionItemList.storyboard */; };
+		DE9310082761D1EB00373866 /* ExpositionItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9310072761D1EB00373866 /* ExpositionItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		DE930FDE275F7D4A00373866 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		DE930FE1275F82F000373866 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
 		DE930FE327609EFE00373866 /* ExpositionItemList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExpositionItemList.storyboard; sourceTree = "<group>"; };
+		DE9310072761D1EB00373866 /* ExpositionItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				DE9310072761D1EB00373866 /* ExpositionItemTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				3696A863275E119900A6012A /* ExpositionItem.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */,
+				DE9310082761D1EB00373866 /* ExpositionItemTableViewController.swift in Sources */,
 				DE930FDD275E0DD800373866 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				DE930FE2275F82F000373866 /* ParsingError.swift in Sources */,
