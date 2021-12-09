@@ -12,4 +12,13 @@ enum Paser {
         
         return result
     }
+    
+    static func parsedItemsInfo() throws -> [ItemInfo] {
+        guard let data = NSDataAsset(name: "items", bundle: .main)?.data else {
+            fatalError()
+        }
+        let result = try decoder.decode([ItemInfo].self, from: data)
+        
+        return result
+    }
 }
