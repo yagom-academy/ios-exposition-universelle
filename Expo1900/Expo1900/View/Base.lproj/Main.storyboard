@@ -129,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" rowHeight="136" id="T6i-jh-5Tm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" rowHeight="136" id="T6i-jh-5Tm" customClass="EntryTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T6i-jh-5Tm" id="dm8-QP-jA4">
@@ -142,15 +142,15 @@
                                                 <constraint firstAttribute="width" secondItem="2pm-CE-AEC" secondAttribute="height" multiplier="1:1" id="oGj-zW-OXp"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="백운화상 경한이 1372년에 초록한 불교 서적" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-K2-pmj">
-                                            <rect key="frame" x="146" y="38" width="231" height="41"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-3K-PFn">
+                                            <rect key="frame" x="146" y="0.0" width="145" height="30"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-3K-PFn">
-                                            <rect key="frame" x="146" y="0.0" width="130" height="30"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="백운화상 경한이 1372년에 초록한 불교 서적" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-K2-pmj">
+                                            <rect key="frame" x="146" y="38" width="231" height="41"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -167,6 +167,11 @@
                                         <constraint firstItem="4eD-K2-pmj" firstAttribute="leading" secondItem="X6T-3K-PFn" secondAttribute="leading" id="lRD-dy-kjK"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="entryImage" destination="2pm-CE-AEC" id="lSj-Go-kB5"/>
+                                    <outlet property="entryShortDescriptionLabel" destination="4eD-K2-pmj" id="XCR-ej-qo8"/>
+                                    <outlet property="entryTitleLabel" destination="X6T-3K-PFn" id="U8R-3p-aeC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
