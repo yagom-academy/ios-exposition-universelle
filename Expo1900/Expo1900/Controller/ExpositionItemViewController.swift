@@ -15,6 +15,17 @@ class ExpositionItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+    }
+    
+    func updateUI() {
+        guard let item = expositionItem.first else {
+            return
+        }
+        
+        self.title = item.name
+        itemImage.image = UIImage(named: item.imageName)
+        itemDescriptionLabel.text = item.description
     }
     
     init?(coder: NSCoder, expositionItem: ExpositionItem) {

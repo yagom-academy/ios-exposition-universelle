@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HQ-Uq-jP7">
-                                                <rect key="frame" x="87" y="109" width="241" height="128"/>
+                                                <rect key="frame" x="86" y="109" width="242" height="128"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcw-Z4-8O4">
                                                 <rect key="frame" x="15" y="357" width="384" height="21"/>
@@ -36,9 +36,11 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Jcw-Z4-8O4" firstAttribute="leading" secondItem="I8H-AV-5IF" secondAttribute="leading" constant="15" id="HCy-T2-d0n"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5HQ-Uq-jP7" secondAttribute="trailing" constant="30" id="IGS-cR-jot"/>
                                             <constraint firstItem="5HQ-Uq-jP7" firstAttribute="centerX" secondItem="I8H-AV-5IF" secondAttribute="centerX" id="SjN-oD-iYl"/>
                                             <constraint firstAttribute="trailing" secondItem="Jcw-Z4-8O4" secondAttribute="trailing" constant="15" id="bug-zk-GUj"/>
                                             <constraint firstItem="Jcw-Z4-8O4" firstAttribute="top" secondItem="5HQ-Uq-jP7" secondAttribute="bottom" constant="15" id="jks-3J-Aqy"/>
+                                            <constraint firstItem="5HQ-Uq-jP7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I8H-AV-5IF" secondAttribute="leading" constant="30" id="nXZ-qi-S9u"/>
                                             <constraint firstAttribute="bottom" secondItem="Jcw-Z4-8O4" secondAttribute="bottom" constant="15" id="vTd-xq-My7"/>
                                         </constraints>
                                     </view>
