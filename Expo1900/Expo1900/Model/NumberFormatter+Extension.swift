@@ -1,9 +1,3 @@
-//
-//  NumberFormatter+Extension.swift
-//  Expo1900
-//
-//  Created by 이승재 on 2021/12/08.
-//
 
 import Foundation
 
