@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     private func setViewsToDefault() {
         do {
             let data = try Parser.parsedExpoInfo()
-            titleLabel.text = data.title
+            titleLabel.text = data.formattedTitle
             visitorValueLabel.text = data.formattedVisitors
             locationValueLabel.text = data.location
             durationValueLabel.text = data.duration

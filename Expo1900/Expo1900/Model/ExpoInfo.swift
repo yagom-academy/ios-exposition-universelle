@@ -10,6 +10,10 @@ struct ExpoInfo: Decodable {
 }
 
 extension ExpoInfo {
+    var formattedTitle: String {
+        return self.title.replacingOccurrences(of: "(", with: "\n(")
+    }
+    
     var formattedVisitors: String {
         guard let formatted = NumberFormatter.decimal.string(for: self.visitors) else {
             return ""
