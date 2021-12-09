@@ -120,21 +120,52 @@
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="-82.366071428571431"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Korean Entry Table View Controller-->
         <scene sceneID="ZeV-vG-P0y">
             <objects>
-                <tableViewController id="3LE-sI-z7K" sceneMemberID="viewController">
+                <tableViewController id="3LE-sI-z7K" customClass="KoreanEntryTableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lFf-Sg-cdN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="T6i-jh-5Tm">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="136" id="T6i-jh-5Tm">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T6i-jh-5Tm" id="dm8-QP-jA4">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pm-CE-AEC">
+                                            <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="2pm-CE-AEC" secondAttribute="height" multiplier="1:1" id="oGj-zW-OXp"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="백운화상 경한이 1372년에 초록한 불교 서적" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eD-K2-pmj">
+                                            <rect key="frame" x="146" y="38" width="231" height="41"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-3K-PFn">
+                                            <rect key="frame" x="146" y="0.0" width="130" height="30"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4eD-K2-pmj" firstAttribute="top" secondItem="X6T-3K-PFn" secondAttribute="bottom" constant="8" id="9bM-oy-cgI"/>
+                                        <constraint firstItem="X6T-3K-PFn" firstAttribute="top" secondItem="2pm-CE-AEC" secondAttribute="top" id="BA7-A3-wrW"/>
+                                        <constraint firstAttribute="bottom" secondItem="2pm-CE-AEC" secondAttribute="bottom" id="QIx-lX-Gt6"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4eD-K2-pmj" secondAttribute="trailing" id="U81-cP-cyb"/>
+                                        <constraint firstItem="2pm-CE-AEC" firstAttribute="leading" secondItem="dm8-QP-jA4" secondAttribute="leading" id="WA9-16-3Vk"/>
+                                        <constraint firstItem="2pm-CE-AEC" firstAttribute="top" secondItem="dm8-QP-jA4" secondAttribute="top" id="eft-Ld-uMp"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="X6T-3K-PFn" secondAttribute="trailing" id="gOa-kT-UL7"/>
+                                        <constraint firstItem="X6T-3K-PFn" firstAttribute="leading" secondItem="2pm-CE-AEC" secondAttribute="trailing" constant="10" id="jsW-H1-6dw"/>
+                                        <constraint firstItem="4eD-K2-pmj" firstAttribute="leading" secondItem="X6T-3K-PFn" secondAttribute="leading" id="lRD-dy-kjK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -147,7 +178,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ne5-J9-9p7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856" y="-82"/>
+            <point key="canvasLocation" x="855.07246376811599" y="-82.366071428571431"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lXX-Bk-hMz">
