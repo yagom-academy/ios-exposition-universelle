@@ -8,17 +8,20 @@
 import UIKit
 
 class ExpositionItemViewController: UIViewController {
-    var expositionItem: [ExpositionItem]
+    // MARK: - Properties
+    private var expositionItem: [ExpositionItem]
     
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var itemDescriptionLabel: UILabel!
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
         setupUI()
+        updateUI()
     }
     
+    // MARK: - Initializer
     init?(coder: NSCoder, expositionItem: ExpositionItem) {
         self.expositionItem = [expositionItem]
         super.init(coder: coder)
@@ -29,7 +32,14 @@ class ExpositionItemViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    func updateUI() {
+    // MARK: - Methods
+    private func setupUI() {
+        itemDescriptionLabel.numberOfLines = 0
+        itemDescriptionLabel.lineBreakStrategy = .hangulWordPriority
+        itemImage.contentMode = .scaleAspectFit
+    }
+    
+    private func updateUI() {
         guard let item = expositionItem.first else {
             return
         }
@@ -37,11 +47,5 @@ class ExpositionItemViewController: UIViewController {
         self.title = item.name
         itemImage.image = UIImage(named: item.imageName)
         itemDescriptionLabel.text = item.description
-    }
-    
-    func setupUI() {
-        itemDescriptionLabel.numberOfLines = 0
-        itemDescriptionLabel.lineBreakStrategy = .hangulWordPriority
-        itemImage.contentMode = .scaleAspectFit
     }
 }
