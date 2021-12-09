@@ -1,7 +1,7 @@
 
 import UIKit
 
-enum Paser {
+enum Parser {
     static private let decoder = JSONDecoder()
     
     static func parsedExpoInfo() throws -> ExpoInfo {
