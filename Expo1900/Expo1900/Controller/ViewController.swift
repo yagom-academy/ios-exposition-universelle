@@ -19,6 +19,16 @@ class ViewController: UIViewController {
         setViewsToDefault()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     private func setViewsToDefault() {
         do {
             let data = try Parser.parsedExpoInfo()
