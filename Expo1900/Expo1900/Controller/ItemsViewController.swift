@@ -11,6 +11,7 @@ class ItemsViewController: UIViewController {
         super.viewDidLoad()
         setTitle()
         itemsTableView.dataSource = self
+        itemsTableView.estimatedRowHeight = 100
         setItems()
     }
     
@@ -38,10 +39,20 @@ class ItemsViewController: UIViewController {
 
 extension ItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let itemCell: ItemTableViewCell = tableView.dequeueReusableCell(
+            withIdentifier: "itemCell") as! ItemTableViewCell
+        
+        let item: ItemInfo = self.items[indexPath.row]
+        itemCell.itemImageView.image = UIImage(named: "\(item.imageName)")
+        itemCell.itemTitleLabel.text = item.name
+        itemCell.itemDescriptionLabel.text = item.shortDescription
+        itemCell.itemDescriptionLabel.numberOfLines = 0
+        itemCell.accessoryType = .disclosureIndicator
+        
+        return itemCell
     }
 }
