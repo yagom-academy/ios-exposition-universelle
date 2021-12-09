@@ -11,14 +11,25 @@ class ItemsViewController: UIViewController {
 
     @IBOutlet private weak var itemsTableView: UITableView!
     
+    var items: [ItemInfo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitle()
         itemsTableView.dataSource = self
+        setItems()
     }
     
     private func setTitle() {
         self.title = "한국의 출품작"
+    }
+    
+    private func setItems() {
+        do {
+            self.items = try Parser.parsedItemsInfo()
+        } catch {
+            
+        }
     }
 }
 
