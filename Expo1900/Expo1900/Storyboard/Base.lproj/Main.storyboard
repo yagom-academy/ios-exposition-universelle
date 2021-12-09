@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Udj-0P-USC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Udj-0P-USC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +19,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cab-2a-ova">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jih-0u-MmZ" userLabel="Content Stack View">
-                                        <rect key="frame" x="0.0" y="95" width="414" height="1210"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jih-0u-MmZ" userLabel="Content Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1210"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTH-fM-agW" userLabel="Title Label">
                                                 <rect key="frame" x="186.5" y="0.0" width="41.5" height="20.5"/>
@@ -177,7 +176,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="109" id="2Xr-Fy-zTR" customClass="ItemTableViewCell" customModule="Expo1900" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="109"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Xr-Fy-zTR" id="p6m-cy-wOZ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
@@ -191,16 +190,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1cU-Kz-pEK">
-                                                    <rect key="frame" x="95" y="34" width="279" height="41"/>
+                                                    <rect key="frame" x="95" y="34" width="319" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EA-4R-DPw" userLabel="Item Title Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="279" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="319" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhn-UL-QRq" userLabel="Item Description Label">
-                                                            <rect key="frame" x="0.0" y="20.5" width="279" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="20.5" width="319" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -214,7 +213,9 @@
                                                 <constraint firstItem="fT8-xs-53t" firstAttribute="centerY" secondItem="p6m-cy-wOZ" secondAttribute="centerY" id="Vrt-Kk-BM5"/>
                                                 <constraint firstItem="fT8-xs-53t" firstAttribute="top" relation="greaterThanOrEqual" secondItem="p6m-cy-wOZ" secondAttribute="top" constant="15" id="ZG3-G8-qWQ"/>
                                                 <constraint firstItem="fT8-xs-53t" firstAttribute="leading" secondItem="p6m-cy-wOZ" secondAttribute="leading" constant="15" id="bYP-m4-vtz"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="1cU-Kz-pEK" secondAttribute="trailing" constant="20" id="vSV-DD-ayE"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1cU-Kz-pEK" secondAttribute="bottom" constant="15" id="fYx-0B-gDZ"/>
+                                                <constraint firstItem="1cU-Kz-pEK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="p6m-cy-wOZ" secondAttribute="top" constant="15" id="ijn-4o-ntF"/>
+                                                <constraint firstAttribute="trailing" secondItem="1cU-Kz-pEK" secondAttribute="trailing" id="vSV-DD-ayE"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fT8-xs-53t" secondAttribute="bottom" constant="15" id="yhN-j4-Gp6"/>
                                             </constraints>
                                         </tableViewCellContentView>

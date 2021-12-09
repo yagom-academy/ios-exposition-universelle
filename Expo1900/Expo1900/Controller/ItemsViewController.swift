@@ -52,6 +52,7 @@ extension ItemsViewController: UITableViewDataSource {
         itemCell.itemDescriptionLabel.text = item.shortDescription
         itemCell.itemDescriptionLabel.numberOfLines = 0
         itemCell.accessoryType = .disclosureIndicator
+        itemCell.itemTitleLabel.font = UIFont.systemFont(ofSize: 30)
         
         return itemCell
     }
