@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpoMainViewController: UIViewController {
 
     let expoMainInformationJSONFile = "exposition_universelle_1900"
 
