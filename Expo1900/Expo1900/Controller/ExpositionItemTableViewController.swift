@@ -8,12 +8,14 @@
 import UIKit
 
 class ExpositionItemTableViewController: UITableViewController {
-    var expositionItem: [ExpositionItem] = []
+    // MARK: - Properties
+    var expositionItems: [ExpositionItem] = []
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
-        setupUI()
+        updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,39 +23,39 @@ class ExpositionItemTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    // MARK: - Methods
     func fetchData() {
         do {
-            expositionItem = try JSONParser<[ExpositionItem]>.decode(fileName: "items")
+            expositionItems = try JSONParser<[ExpositionItem]>.decode(fileName: "items")
         } catch {
             print(error)
         }
     }
     
-    func setupUI() {
+    func updateUI() {
         self.title = "한국의 출품작"
     }
 }
 
 // MARK: - Table view data source
-
 extension ExpositionItemTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expositionItem.count
+        return expositionItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpositionItem", for: indexPath)
-        let data = expositionItem[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpositionItemCell", for: indexPath)
+        let expositionItem = expositionItems[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
         
-        content.image = UIImage(named: data.imageName)
-        content.text = data.name
-        content.secondaryText = data.shortDescription
+        content.image = UIImage(named: expositionItem.imageName)
+        content.text = expositionItem.name
+        content.secondaryText = expositionItem.shortDescription
         
         cell.contentConfiguration = content
         
@@ -62,13 +64,14 @@ extension ExpositionItemTableViewController {
 }
 
 // MARK: - Table view delegate
-
 extension ExpositionItemTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ExpositionItem", bundle: nil)
+        let selectedItem = self.expositionItems[indexPath.row]
+        
+        let expositionItemStoryboard = UIStoryboard(name: "ExpositionItem", bundle: nil)
 
-        let expositionItemViewController = storyboard.instantiateViewController(identifier: "expositionItem") { coder in
-            return ExpositionItemViewController(coder: coder, expositionItem: self.expositionItem[indexPath.row])
+        let expositionItemViewController = expositionItemStoryboard.instantiateViewController(identifier: "expositionItem") { coder in
+            return ExpositionItemViewController(coder: coder, expositionItem: selectedItem)
         }
 
         self.navigationController?.pushViewController(expositionItemViewController, animated: true)
