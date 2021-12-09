@@ -24,15 +24,17 @@ class ViewController: UIViewController {
         do {
             let jsonData = try convertToNSDataAsset(from: expoMainInformationJSONFile)
             expoMainInformation = try jsonDecoder.decode(ExpoMainInformation.self, from: jsonData.data)
+        } catch JSONDataError.fileConversionFailed(let fileName) {
+            print(JSONDataError.fileConversionFailed(fileName).description)
         } catch {
             print(error.localizedDescription)
         }
         return expoMainInformation
     }
     
-    func convertToNSDataAsset(from file: String) throws -> NSDataAsset  {
-        guard let jsonData = NSDataAsset(name: file) else {
-            throw fatalError()
+    func convertToNSDataAsset(from fileName: String) throws -> NSDataAsset  {
+        guard let jsonData = NSDataAsset(name: fileName) else {
+            throw JSONDataError.fileConversionFailed(fileName)
         }
         return jsonData
     }
