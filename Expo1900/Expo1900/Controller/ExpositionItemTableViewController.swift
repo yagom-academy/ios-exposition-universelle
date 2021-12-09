@@ -34,4 +34,19 @@ extension ExpositionItemTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expositionItem.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpositionItem", for: indexPath)
+        let data = expositionItem[indexPath.row]
+        
+        var content = cell.defaultContentConfiguration()
+        
+        content.image = UIImage(named: data.imageName)
+        content.text = data.name
+        content.secondaryText = data.shortDescription
+        
+        cell.contentConfiguration = content
+        
+        return cell
+    }
 }
