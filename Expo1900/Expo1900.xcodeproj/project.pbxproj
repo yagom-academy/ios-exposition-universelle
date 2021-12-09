@@ -21,6 +21,7 @@
 		C79FF4BC2589F401005FB0FD /* Exposition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Exposition.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		C949CBBF2761E724009B4961 /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949CBBE2761E724009B4961 /* ExpositionItemViewController.swift */; };
 		DE930FDD275E0DD800373866 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDC275E0DD800373866 /* Exposition.swift */; };
 		DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDE275F7D4A00373866 /* JSONParser.swift */; };
 		DE930FE2275F82F000373866 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FE1275F82F000373866 /* ParsingError.swift */; };
@@ -52,6 +53,7 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C949CBBE2761E724009B4961 /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
 		DE930FDC275E0DD800373866 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		DE930FDE275F7D4A00373866 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		DE930FE1275F82F000373866 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
 				DE9310072761D1EB00373866 /* ExpositionItemTableViewController.swift */,
+				C949CBBE2761E724009B4961 /* ExpositionItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				DE9310082761D1EB00373866 /* ExpositionItemTableViewController.swift in Sources */,
 				DE930FDD275E0DD800373866 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				C949CBBF2761E724009B4961 /* ExpositionItemViewController.swift in Sources */,
 				DE930FE2275F82F000373866 /* ParsingError.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
