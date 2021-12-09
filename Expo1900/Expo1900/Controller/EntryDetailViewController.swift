@@ -11,9 +11,22 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet weak var entryImage: UIImageView!
     @IBOutlet weak var entryDescriptionLabel: UILabel!
     
+    var entry: KoreanEntry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setEntryDescriptionLabel()
+        setEntryImage()
+    }
+    
+    func setEntryDescriptionLabel() {
+        entryDescriptionLabel.text = entry?.description
+    }
+    
+    func setEntryImage() {
+        guard let imageName = entry?.imageName else {
+            return
+        }
+        entryImage.image = UIImage(named: imageName)
     }
 }

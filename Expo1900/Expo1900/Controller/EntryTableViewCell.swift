@@ -13,12 +13,6 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet weak var entryTitleLabel: UILabel!
     @IBOutlet weak var entryShortDescriptionLabel: UILabel!
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func setCustomCellComponents(image: String, title: String, shortDescription: String) {
         entryImage.image = UIImage(named: image)
         entryTitleLabel.text = title
