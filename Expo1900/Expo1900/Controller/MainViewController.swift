@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
         let colon = ": "
         let people = " 명"
         
-        titleLabel.text =  contents.title
+        titleLabel.text =  contents.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = CategoryPrefix.visitor + colon + contents.visitorsDescription + people
         locationLabel.text = CategoryPrefix.location + colon + contents.location
         durationLabel.text = CategoryPrefix.duration + colon + contents.duration
