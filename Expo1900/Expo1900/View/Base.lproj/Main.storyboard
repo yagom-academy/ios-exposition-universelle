@@ -21,11 +21,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fje-jf-q6V">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LOL-lo-Bzb">
-                                        <rect key="frame" x="0.0" y="10" width="414" height="1677"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LOL-lo-Bzb">
+                                        <rect key="frame" x="0.0" y="10" width="414" height="1687"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8X-SI-tdT">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="67.5"/>
+                                                <rect key="frame" x="38" y="0.0" width="338" height="67.5"/>
                                                 <string key="text">파리 만국박람회 1900
 (L'Exposition de Paris 1900)</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -33,22 +33,22 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="7Qv-gc-rSI">
-                                                <rect key="frame" x="0.0" y="77.5" width="414" height="200"/>
+                                                <rect key="frame" x="135" y="77.5" width="144" height="200"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="visitors: 48130300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78b-Vh-0Cs">
-                                                <rect key="frame" x="0.0" y="287.5" width="414" height="20.5"/>
+                                                <rect key="frame" x="135.5" y="287.5" width="143" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location: 프랑스 파리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwm-G6-oFX">
-                                                <rect key="frame" x="0.0" y="318" width="414" height="20.5"/>
+                                                <rect key="frame" x="133.5" y="318" width="147" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duration: 1900. 04. 14 - 1900. 11. 12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1Z-ie-wUV">
-                                                <rect key="frame" x="0.0" y="348.5" width="414" height="20.5"/>
+                                                <rect key="frame" x="72" y="348.5" width="270" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -60,14 +60,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Fni-QG-Wyj">
-                                                <rect key="frame" x="0.0" y="1647" width="414" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fni-QG-Wyj">
+                                                <rect key="frame" x="57" y="1647" width="300" height="40"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="9e2-Li-v7g">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="9e2-Li-v7g" secondAttribute="height" multiplier="1:1" id="QsK-3i-U2O"/>
+                                                            <constraint firstAttribute="width" constant="40" id="iBI-cs-JgV"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAU-d8-PLr">
-                                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                                                        <rect key="frame" x="60" y="0.0" width="180" height="40"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
                                                         <connections>
@@ -75,12 +79,13 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="Rsf-ID-Rua">
-                                                        <rect key="frame" x="276" y="0.0" width="138" height="30"/>
+                                                        <rect key="frame" x="260" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="hst-nb-RTx"/>
+                                                            <constraint firstAttribute="width" secondItem="Rsf-ID-Rua" secondAttribute="height" multiplier="1:1" id="lsw-37-d5t"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="HjQ-pE-LeP"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
