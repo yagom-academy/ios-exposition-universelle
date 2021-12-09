@@ -9,5 +9,5 @@ struct Exposition: Decodable {
 }
 
 struct ExpositionPoster {
-    let image: String
+    let imageResourceLocator: String
 }
