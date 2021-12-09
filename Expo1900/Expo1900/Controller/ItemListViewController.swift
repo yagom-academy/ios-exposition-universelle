@@ -7,6 +7,7 @@ class ItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "한국의 출품작"
+        itemListTableVIew.delegate = self
         itemListTableVIew.dataSource = self
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
         itemListTableVIew.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
@@ -40,5 +41,11 @@ extension ItemListViewController: UITableViewDataSource {
         cell.itemShortDescriptionLabel.text = item.shortDescription
         
         return cell
+    }
+}
+
+extension ItemListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ItemDetailView", sender: nil)
     }
 }
