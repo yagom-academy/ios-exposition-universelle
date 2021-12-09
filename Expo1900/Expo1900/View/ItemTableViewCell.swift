@@ -1,9 +1,3 @@
-//
-//  ItemTableViewCell.swift
-//  Expo1900
-//
-//  Created by 이승재 on 2021/12/09.
-//
 
 import UIKit
 
