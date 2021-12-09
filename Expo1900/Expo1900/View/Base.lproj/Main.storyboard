@@ -104,7 +104,9 @@
                             <constraint firstItem="fje-jf-q6V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="igT-YQ-apR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FSR-3D-KSY"/>
+                    <navigationItem key="navigationItem" id="FSR-3D-KSY">
+                        <barButtonItem key="backBarButtonItem" title="메인" id="uab-Gh-gAh"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="Lz9-fP-FQ6" id="QwV-3A-pV1"/>
                         <outlet property="durationLabel" destination="m1Z-ie-wUV" id="s2f-fi-IgS"/>
@@ -120,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="-82.366071428571431"/>
         </scene>
-        <!--Korean Entry Table View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="ZeV-vG-P0y">
             <objects>
                 <tableViewController id="3LE-sI-z7K" customClass="KoreanEntryTableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -179,7 +181,7 @@
                             <outlet property="delegate" destination="3LE-sI-z7K" id="qoY-Oq-VzM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gB4-C2-eKA"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="gB4-C2-eKA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ne5-J9-9p7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
