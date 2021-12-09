@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LOL-lo-Bzb">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1671.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2207.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8X-SI-tdT">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
@@ -59,12 +59,29 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAU-d8-PLr">
-                                                <rect key="frame" x="0.0" y="1640.5" width="414" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Fni-QG-Wyj">
+                                                <rect key="frame" x="0.0" y="1640.5" width="414" height="567"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="9e2-Li-v7g">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="567"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAU-d8-PLr">
+                                                        <rect key="frame" x="138" y="0.0" width="138" height="567"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <connections>
+                                                            <segue destination="3LE-sI-z7K" kind="show" id="bXi-c8-xN2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="Rsf-ID-Rua">
+                                                        <rect key="frame" x="276" y="0.0" width="138" height="567"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Fni-QG-Wyj" firstAttribute="width" secondItem="LOL-lo-Bzb" secondAttribute="width" id="YwT-KC-A7h"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -95,7 +112,8 @@
                         <outlet property="parisExpoPosterImage" destination="7Qv-gc-rSI" id="TKd-3R-69N"/>
                         <outlet property="titleLabel" destination="i8X-SI-tdT" id="Na8-ZY-2Xw"/>
                         <outlet property="visitorLabel" destination="78b-Vh-0Cs" id="5DY-UU-HAs"/>
-                        <segue destination="3LE-sI-z7K" kind="show" id="OYA-pN-8fi"/>
+                        <outletCollection property="koreanFlag" destination="9e2-Li-v7g" collectionClass="NSMutableArray" id="R6L-0N-Yxs"/>
+                        <outletCollection property="koreanFlag" destination="Rsf-ID-Rua" collectionClass="NSMutableArray" id="cUa-tY-dQo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,9 +144,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="gB4-C2-eKA"/>
-                    <connections>
-                        <segue destination="CDG-N4-sIy" kind="show" id="SNt-nd-yPl"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ne5-J9-9p7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="flag" width="851" height="567"/>
         <image name="poster" width="144" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

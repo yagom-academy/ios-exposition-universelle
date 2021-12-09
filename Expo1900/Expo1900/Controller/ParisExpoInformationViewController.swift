@@ -14,16 +14,19 @@ class ParisExpoInformationViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet var koreanFlag: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabel()
         setImage()
-        // Do any additional setup after loading the view.
     }
     
     func setImage() {
         parisExpoPosterImage.image = UIImage(named: "poster")
+        koreanFlag.forEach({ image in
+            image.image = UIImage(named: "flag")
+        })
     }
     
     func setLabel() {
