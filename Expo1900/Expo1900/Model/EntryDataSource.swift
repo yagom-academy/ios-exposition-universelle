@@ -10,7 +10,6 @@ import UIKit
 class EntryDataSource: NSObject, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -19,9 +18,12 @@ class EntryDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+            as? EntryTableViewCell else {
+            fatalError()
+        }
         guard let entries = JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry) else {
-            return cell
+            fatalError()
         }
         let entry = entries[indexPath.row]
         
