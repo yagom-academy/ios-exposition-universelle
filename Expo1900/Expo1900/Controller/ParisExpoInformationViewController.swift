@@ -33,9 +33,9 @@ class ParisExpoInformationViewController: UIViewController {
     }
     
     func setImage() {
-        parisExpoPosterImage.image = UIImage(named: "poster")
+        parisExpoPosterImage.image = UIImage(named: AssetName.parisExpoPoster)
         koreanFlagImage.forEach({ image in
-            image.image = UIImage(named: "flag")
+            image.image = UIImage(named: AssetName.koreanFlag)
         })
     }
     
