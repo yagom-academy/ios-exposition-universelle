@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             titleLabel.font = UIFont.systemFont(ofSize: 28)
             setTextViewToDefault(with: data.description)
         } catch let error {
-            print(error)
+            showAlert(message: error.localizedDescription)
         }
     }
     
