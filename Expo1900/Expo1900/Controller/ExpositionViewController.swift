@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpositionViewController: UIViewController {
     var exposition: Exposition = Exposition()
     
     @IBOutlet private weak var titleLabel: UILabel!
@@ -23,6 +23,11 @@ class ViewController: UIViewController {
         fetchData()
         setupUI()
         updateUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func fetchData() {
@@ -45,13 +50,17 @@ class ViewController: UIViewController {
     }
     
     private func setupUI() {
+        self.title = "메인"
+        
+        titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakStrategy = .hangulWordPriority
+        
         flagImages.forEach { $0.contentMode = .scaleAspectFit }
     }
 }
 
-extension ViewController {
+extension ExpositionViewController {
     @IBAction func touchUpPushExpositionItemTableButton(_ sender: UIButton) {
         let expositionItemTableStoryboard = UIStoryboard(name: "ExpositionItemTable", bundle: nil)
         
