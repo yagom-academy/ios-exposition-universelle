@@ -18,8 +18,8 @@ class ParisExpoInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabel()
-        setImage()
+        setLabels()
+        setImages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,14 +32,14 @@ class ParisExpoInformationViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    func setImage() {
+    func setImages() {
         parisExpoPosterImage.image = UIImage(named: AssetName.parisExpoPoster)
         koreanFlagImage.forEach({ image in
             image.image = UIImage(named: AssetName.koreanFlag)
         })
     }
     
-    func setLabel() {
+    func setLabels() {
         let result = JSONParser<ParisExpoInformation>.decode(from: JSONFileName.parisExpoInformation)
 
         titleLabel.text = result?.title
