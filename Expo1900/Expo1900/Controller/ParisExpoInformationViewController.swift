@@ -14,7 +14,7 @@ class ParisExpoInformationViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet var koreanFlag: [UIImageView]!
+    @IBOutlet var koreanFlagImage: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +24,13 @@ class ParisExpoInformationViewController: UIViewController {
     
     func setImage() {
         parisExpoPosterImage.image = UIImage(named: "poster")
-        koreanFlag.forEach({ image in
+        koreanFlagImage.forEach({ image in
             image.image = UIImage(named: "flag")
         })
     }
     
     func setLabel() {
-        let jsonName = "exposition_universelle_1900"
-        let result = JSONParser<ParisExpoInformation>.decode(from: jsonName)
+        let result = JSONParser<ParisExpoInformation>.decode(from: JSONFileName.parisExpoInformation)
 
         titleLabel.text = result?.title
         visitorLabel.text = result?.visitors.description
