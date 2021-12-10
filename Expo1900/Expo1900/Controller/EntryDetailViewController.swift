@@ -8,8 +8,8 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
-    @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryDescriptionLabel: UILabel!
+    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var entryDescriptionLabel: UILabel!
     
     var entry: KoreanEntry?
     
@@ -20,11 +20,11 @@ class EntryDetailViewController: UIViewController {
         setEntryImage()
     }
     
-    func setEntryDescriptionLabel() {
+    private func setEntryDescriptionLabel() {
         entryDescriptionLabel.text = entry?.description
     }
     
-    func setEntryImage() {
+    private func setEntryImage() {
         guard let imageName = entry?.imageName else {
             return
         }

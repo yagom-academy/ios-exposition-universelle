@@ -8,10 +8,9 @@
 import UIKit
 
 class EntryTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryTitleLabel: UILabel!
-    @IBOutlet weak var entryShortDescriptionLabel: UILabel!
+    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var entryTitleLabel: UILabel!
+    @IBOutlet private weak var entryShortDescriptionLabel: UILabel!
     
     func setCustomCellComponents(image: String, title: String, shortDescription: String) {
         entryImage.image = UIImage(named: image)
