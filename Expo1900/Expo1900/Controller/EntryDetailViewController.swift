@@ -1,7 +1,7 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
-    @IBOutlet weak var detailStackView: EntryDetailStackView!
+    @IBOutlet private weak var detailStackView: EntryDetailStackView!
     
     var expoEntry: ExpoEntry?
     
@@ -10,7 +10,7 @@ class EntryDetailViewController: UIViewController {
         setUpDetailView()
     }
     
-    func setUpDetailView() {
+    private func setUpDetailView() {
         guard let data = expoEntry else {
             return
         }

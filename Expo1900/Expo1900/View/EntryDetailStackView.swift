@@ -18,7 +18,7 @@ class EntryDetailStackView: UIStackView {
         entryDescriptionLabel.text = data.description
     }
     
-    func setUpStyle() {
+    private func setUpStyle() {
         self.spacing = 10
         entryDescriptionLabel.numberOfLines = 0
     }

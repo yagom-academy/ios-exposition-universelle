@@ -17,7 +17,7 @@ class EntryListViewController: UITableViewController {
 // MARK: - Method
 
 extension EntryListViewController {
-    func setTitle() {
+    private func setTitle() {
         self.title = "한국의 출품작"
     }
 }
@@ -44,7 +44,7 @@ extension EntryListViewController {
 // MARK: - Navigation
 
 extension EntryListViewController {
-    static let showDetailSegueIdentifier = "showDetailSegueIdentifier"
+    static private let showDetailSegueIdentifier = "showDetailSegueIdentifier"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == Self.showDetailSegueIdentifier,
