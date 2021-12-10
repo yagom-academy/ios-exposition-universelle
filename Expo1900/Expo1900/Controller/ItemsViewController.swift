@@ -11,7 +11,7 @@ class ItemsViewController: UIViewController {
         super.viewDidLoad()
         setTitle()
         itemsTableView.dataSource = self
-        itemsTableView.estimatedRowHeight = 100
+        itemsTableView.estimatedRowHeight = 109
         setItems()
     }
     
