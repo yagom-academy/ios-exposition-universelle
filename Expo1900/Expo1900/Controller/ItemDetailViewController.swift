@@ -3,7 +3,7 @@ import UIKit
 
 class ItemDetailViewController: UIViewController {
     
-    var itemInfo: ItemInfo
+    private var itemInfo: ItemInfo
     
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescriptionTextView: UITextView!
