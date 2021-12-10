@@ -10,29 +10,37 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var modelForMainView = ModelForMainView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         guard let data = NSDataAsset(name: "exposition_universelle_1900") else {
             fatalError()
         }
         
         let decoder = JSONDecoder()
-        let expositionData = try? decoder.decode(Exposition.self, from: data.data)
+        guard let expositionData = try? decoder.decode(Exposition.self, from: data.data) else { return }
         
-
-        let titleLabelWithLine = expositionData?.title.replacingOccurrences(of: "(", with: "\n(")
-      
-        titleLabel.text = titleLabelWithLine
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
-        titleLabel.adjustsFontForContentSizeCategory = true
-        imageView.image = UIImage(named: "poster")
-        visitorCountLabel.text = expositionData?.visitors.description
-        locationLabel.text = expositionData?.location
-        durationLabel.text = expositionData?.duration
-        descriptionLabel.text = expositionData?.description
+        modelForMainView.setUpData(with: expositionData)
+        updateUI(with: modelForMainView)
     }
     
+    //가공된 데이터를 뷰에 보여줌
+    func updateUI(with data: ModelForMainView) {
+
+        titleLabel.text = data.title
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        
+        imageView.image = data.image
+        
+        visitorCountLabel.text = data.visitors
+        locationLabel.text = data.location
+        durationLabel.text = data.duration
+        descriptionLabel.text = data.description
+    }
+
 
 }
 
