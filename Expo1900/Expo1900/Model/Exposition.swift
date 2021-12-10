@@ -12,5 +12,9 @@ struct Exposition: Codable {
     var visitors: Int
     var location: String
     var duration: String
-    var description: String 
+    var description: String
+    
+    var titleWithLineBreak: String {
+        return title.replacingOccurrences(of: "(", with: "\n(")
+    }
 }

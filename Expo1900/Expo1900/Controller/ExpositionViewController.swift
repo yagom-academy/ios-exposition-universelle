@@ -43,6 +43,7 @@ class ExpositionViewController: UIViewController {
     }
     
     private func setupUI() {
+        titleLabel.font = .preferredFont(forTextStyle: .title2)
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakStrategy = .hangulWordPriority
@@ -57,7 +58,7 @@ class ExpositionViewController: UIViewController {
             return
         }
         
-        titleLabel.text = exposition.title
+        titleLabel.text = exposition.titleWithLineBreak
         visitorsLabel.text = ": \(exposition.visitors.formattedString) 명"
         locationLabel.text = ": \(exposition.location)"
         durationLabel.text = ": \(exposition.duration)"
