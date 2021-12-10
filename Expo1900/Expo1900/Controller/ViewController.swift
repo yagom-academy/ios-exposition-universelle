@@ -36,6 +36,7 @@ extension ViewController {
             self.visitorValueLabel.text = data.formattedVisitors
             self.locationValueLabel.text = data.location
             self.durationValueLabel.text = data.duration
+            self.titleLabel.numberOfLines = 0
             self.titleLabel.font = UIFont.systemFont(ofSize: 28)
             setTextViewToDefault(with: data.description)
         } catch let error {
@@ -52,6 +53,8 @@ extension ViewController {
         self.descriptionTextView.attributedText = NSAttributedString(
             string: data.description,
             attributes: attribute)
+        self.descriptionTextView.allowsEditingTextAttributes = false
+        self.descriptionTextView.isScrollEnabled = false
     }
     
     private func showAlert(message: String) {
