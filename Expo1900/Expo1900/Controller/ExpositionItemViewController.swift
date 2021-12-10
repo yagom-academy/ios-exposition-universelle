@@ -9,7 +9,7 @@ import UIKit
 
 class ExpositionItemViewController: UIViewController {
     // MARK: - Properties
-    private var expositionItem: [ExpositionItem]
+    private var expositionItem: ExpositionItem?
     
     @IBOutlet private weak var itemImage: UIImageView!
     @IBOutlet private weak var itemDescriptionLabel: UILabel!
@@ -23,12 +23,11 @@ class ExpositionItemViewController: UIViewController {
     
     // MARK: - Initializer
     init?(coder: NSCoder, expositionItem: ExpositionItem) {
-        self.expositionItem = [expositionItem]
+        self.expositionItem = expositionItem
         super.init(coder: coder)
     }
     
     required init?(coder: NSCoder) {
-        self.expositionItem = []
         super.init(coder: coder)
     }
     
@@ -40,12 +39,12 @@ class ExpositionItemViewController: UIViewController {
     }
     
     private func updateUI() {
-        guard let item = expositionItem.first else {
+        guard let expositionItem = expositionItem else {
             return
         }
         
-        self.title = item.name
-        itemImage.image = UIImage(named: item.imageName)
-        itemDescriptionLabel.text = item.description
+        self.title = expositionItem.name
+        itemImage.image = UIImage(named: expositionItem.imageName)
+        itemDescriptionLabel.text = expositionItem.description
     }
 }
