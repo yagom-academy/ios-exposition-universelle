@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewsToDefault()
-        self.navigationController?.navigationBar.topItem?.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,13 +29,14 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func setViewsToDefault() {
+        self.navigationController?.navigationBar.topItem?.title = "메인"
         do {
             let data = try Parser.parsedExpoInfo()
-            titleLabel.text = data.formattedTitle
-            visitorValueLabel.text = data.formattedVisitors
-            locationValueLabel.text = data.location
-            durationValueLabel.text = data.duration
-            titleLabel.font = UIFont.systemFont(ofSize: 28)
+            self.titleLabel.text = data.formattedTitle
+            self.visitorValueLabel.text = data.formattedVisitors
+            self.locationValueLabel.text = data.location
+            self.durationValueLabel.text = data.duration
+            self.titleLabel.font = UIFont.systemFont(ofSize: 28)
             setTextViewToDefault(with: data.description)
         } catch let error {
             showAlert(message: error.localizedDescription)
@@ -49,7 +49,7 @@ extension ViewController {
         let attribute: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 17),
             .paragraphStyle: paragraphStyle]
-        descriptionTextView.attributedText = NSAttributedString(
+        self.descriptionTextView.attributedText = NSAttributedString(
             string: data.description,
             attributes: attribute)
     }
