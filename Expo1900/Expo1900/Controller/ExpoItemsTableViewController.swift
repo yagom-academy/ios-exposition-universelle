@@ -2,18 +2,22 @@
 //  ExpoItemsTableViewController.swift
 //  Expo1900
 //
-//  Created by Jun Bang on 2021/12/10.
+//  Created by Aladdin on 2021/12/10.
 //
 
 import UIKit
 
 class ExpoItemsTableViewController: UIViewController {
     
+    @IBOutlet weak var expoItemTableVIew: UITableView!
+    
     let expoItemsJSONFile = "items"
     var expoItems: ExpoItems = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupExpoItemsTableView()
+        expoItemTableVIew.dataSource = self
     }
     
     private func setupExpoItemsTableView() {
