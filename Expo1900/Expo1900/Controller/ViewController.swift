@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         super.viewDidDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
-
 }
 
 // MARK: - CustomView SetUp
