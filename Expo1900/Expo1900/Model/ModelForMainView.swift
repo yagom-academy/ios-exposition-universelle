@@ -17,7 +17,9 @@ struct ModelForMainView {
         self.description = description
     }
     
-    mutating func setUpData(with data: Exposition) {
+    mutating func setUpData() {
+        let expositionIdentifier = "exposition_universelle_1900"
+        let data = JsonParser.decodeData(of: expositionIdentifier)
         title = data.title.replacingOccurrences(of: "(", with: "\n(")
         visitors = "방문객 : " + data.visitor + "명"
         location = "개최지 : " + data.location

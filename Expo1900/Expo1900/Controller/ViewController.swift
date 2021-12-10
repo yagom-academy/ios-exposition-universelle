@@ -9,24 +9,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var modelForMainView = ModelForMainView()
-    let expositionIdentifier = "exposition_universelle_1900"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let expositionData = JsonParser.decodeData(of: expositionIdentifier)
-        modelForMainView.setUpData(with: expositionData)
-        updateUI(with: modelForMainView)
+        updateUI()
     }
     
-    func updateUI(with data: ModelForMainView) {
-        titleLabel.text = data.title
-        imageView.image = data.image
-        visitorCountLabel.text = data.visitors
-        locationLabel.text = data.location
-        durationLabel.text = data.duration
-        descriptionLabel.text = data.description
+    func updateUI() {
+        var modelForMainView = ModelForMainView()
+        modelForMainView.setUpData()
+        
+        titleLabel.text = modelForMainView.title
+        imageView.image = modelForMainView.image
+        visitorCountLabel.text = modelForMainView.visitors
+        locationLabel.text = modelForMainView.location
+        durationLabel.text = modelForMainView.duration
+        descriptionLabel.text = modelForMainView.description
     }
 }
 
