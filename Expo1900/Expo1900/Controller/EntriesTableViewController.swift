@@ -29,4 +29,12 @@ class EntriesTableViewController: UITableViewController {
         cell.contentConfiguration = contents
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let entryDetailViewController = storyboard?.instantiateViewController(withIdentifier: "entryDetailView") as? EntryDetailViewController else {
+            return
+        }
+        entryDetailViewController.item = expositionEntries?[indexPath.row]
+        navigationController?.pushViewController(entryDetailViewController, animated: true)
+    }
 }

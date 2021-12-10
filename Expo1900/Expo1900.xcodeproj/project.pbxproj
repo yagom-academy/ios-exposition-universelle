@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A0EB497275F190900C6C9A8 /* ExpositionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0EB496275F190900C6C9A8 /* ExpositionInformation.swift */; };
+		3AD80167276332BD005DB2B9 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD80166276332BD005DB2B9 /* EntryDetailViewController.swift */; };
 		63B18B0C275F1CDA004524FB /* ExpositionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B18B0B275F1CDA004524FB /* ExpositionEntry.swift */; };
 		894199152762E9C200D6015E /* EntriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894199142762E9C200D6015E /* EntriesTableViewController.swift */; };
 		89F79706275F24190021A048 /* JsonDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F79705275F24190021A048 /* JsonDecodeTests.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		3A0EB496275F190900C6C9A8 /* ExpositionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInformation.swift; sourceTree = "<group>"; };
+		3AD80166276332BD005DB2B9 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		63B18B0B275F1CDA004524FB /* ExpositionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionEntry.swift; sourceTree = "<group>"; };
 		894199142762E9C200D6015E /* EntriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesTableViewController.swift; sourceTree = "<group>"; };
 		89F79703275F24190021A048 /* JsonDecodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonDecodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionInformationViewController.swift */,
 				894199142762E9C200D6015E /* EntriesTableViewController.swift */,
+				3AD80166276332BD005DB2B9 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				63B18B0C275F1CDA004524FB /* ExpositionEntry.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				3AD80167276332BD005DB2B9 /* EntryDetailViewController.swift in Sources */,
 				3A0EB497275F190900C6C9A8 /* ExpositionInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
