@@ -16,16 +16,92 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5x-Dr-lqO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="iNn-xM-HW1">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1010.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="박람회 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZE-Wj-1Qh">
+                                                <rect key="frame" x="168" y="0.0" width="78" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-zr-uYb">
+                                                <rect key="frame" x="135" y="48.5" width="144" height="200"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객 수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Gp-yX-eri">
+                                                <rect key="frame" x="175.5" y="276.5" width="63.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i83-sw-Z8d">
+                                                <rect key="frame" x="190" y="325" width="34" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcc-3X-t7s">
+                                                <rect key="frame" x="175.5" y="373.5" width="63.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명      설명    설명     설명     설명       설명 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK7-4C-fiC">
+                                                <rect key="frame" x="192.5" y="422" width="29.5" height="588.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="top" secondItem="a5x-Dr-lqO" secondAttribute="top" id="DRE-IR-o2m"/>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="width" secondItem="rPT-lx-20V" secondAttribute="width" id="Eny-Ag-PsQ"/>
+                                    <constraint firstItem="rPT-lx-20V" firstAttribute="trailing" secondItem="iNn-xM-HW1" secondAttribute="trailing" id="KCh-93-pyU"/>
+                                    <constraint firstAttribute="bottom" secondItem="iNn-xM-HW1" secondAttribute="bottom" id="dRV-GE-vEW"/>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="leading" secondItem="rPT-lx-20V" secondAttribute="leading" id="jd8-9E-y3q"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="CUv-vW-MhE"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="rPT-lx-20V"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a5x-Dr-lqO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8lk-4h-KvA"/>
+                            <constraint firstItem="a5x-Dr-lqO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FDR-9I-rxC"/>
+                            <constraint firstAttribute="trailing" secondItem="a5x-Dr-lqO" secondAttribute="trailing" id="V6k-Uc-Yk2"/>
+                            <constraint firstAttribute="bottom" secondItem="a5x-Dr-lqO" secondAttribute="bottom" id="qrd-SB-MIn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="119"/>
+            <point key="canvasLocation" x="76.811594202898561" y="118.52678571428571"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SEY-CJ-oop">
+            <objects>
+                <viewController id="V84-Hn-lDW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A7A-iF-XvN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZCa-tb-Ons"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9p-aC-wDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169.5652173913045" y="118.52678571428571"/>
         </scene>
     </scenes>
     <resources>
+        <image name="poster" width="144" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
