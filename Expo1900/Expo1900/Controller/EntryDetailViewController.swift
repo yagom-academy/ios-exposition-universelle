@@ -1,7 +1,8 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
-    var item: ExpositionEntry?
+    private var image: UIImage?
+    private var detailDescription: String?
     
     @IBOutlet private weak var descriptionTextView: UITextView!
     @IBOutlet private weak var itemImageView: UIImageView!
@@ -12,8 +13,12 @@ class EntryDetailViewController: UIViewController {
     }
     
     private func prepare() {
-        itemImageView.image = item?.image
-        descriptionTextView.text = item?.description
-        navigationItem.title = item?.name
+        itemImageView.image = image
+        descriptionTextView.text = detailDescription
+    }
+    
+    func setData(image: UIImage?, description: String?) {
+        self.image = image
+        self.detailDescription = description
     }
 }
