@@ -4,8 +4,8 @@ class EntryDetailViewController: UIViewController {
 
     //MARK: - IBOutlet Properties
     
-    @IBOutlet private weak var entryImage: UIImageView!
-    @IBOutlet private weak var entryDescription: UILabel!
+    @IBOutlet private weak var entryImageView: UIImageView!
+    @IBOutlet private weak var entryDescriptionLabel: UILabel!
     
     //MARK: - Instance Properties
     
@@ -15,6 +15,7 @@ class EntryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setViewsFromEntry()
         setNavigationTitle()
     }
@@ -25,8 +26,8 @@ class EntryDetailViewController: UIViewController {
 extension EntryDetailViewController {
     private func setViewsFromEntry() {
         guard let entry = entry else { return }
-        entryImage.image = UIImage(named: entry.imageName)
-        entryDescription.text = entry.description
+        entryImageView.image = UIImage(named: entry.imageName)
+        entryDescriptionLabel.text = entry.description
     }
     
     private func setNavigationTitle() {
