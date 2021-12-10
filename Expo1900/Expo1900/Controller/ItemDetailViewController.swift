@@ -23,6 +23,7 @@ class ItemDetailViewController: UIViewController {
     }
     
     private func setViews() {
+        self.title = itemInfo.name
         self.itemImageView.image = UIImage(named: "\(itemInfo.imageName)")
         self.itemDescriptionTextView.text = itemInfo.description
     }
