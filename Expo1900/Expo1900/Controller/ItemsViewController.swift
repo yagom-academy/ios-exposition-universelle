@@ -11,6 +11,7 @@ class ItemsViewController: UIViewController {
         super.viewDidLoad()
         setTitle()
         itemsTableView.dataSource = self
+        itemsTableView.delegate = self
         itemsTableView.estimatedRowHeight = 109
         setItems()
     }
@@ -49,5 +50,14 @@ extension ItemsViewController: UITableViewDataSource {
         itemCell.itemDescriptionLabel.text = item.shortDescription
         
         return itemCell
+    }
+}
+
+extension ItemsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailViewController: ItemDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemDetail") as? ItemDetailViewController else {
+            return
+        }
+        present(detailViewController, animated: true, completion: nil)
     }
 }
