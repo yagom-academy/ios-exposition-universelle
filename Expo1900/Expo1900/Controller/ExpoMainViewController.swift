@@ -25,7 +25,6 @@ class ExpoMainViewController: UIViewController {
         guard let expoMainInformation = decodeExpoMainInformationJsonData() else {
             return
         }
-        
         let title = expoMainInformation.title.replacingOccurrences(of: "(", with: linebreak + "(")
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 28)
@@ -33,14 +32,23 @@ class ExpoMainViewController: UIViewController {
         
         do {
             let visitors = try convertToVisitorFormat(from: expoMainInformation.visitors)
-            visitorsLabel.text = visitors.prefix(with: "방문객", separatedBy: " :")
+            let visitorsLabelText = visitors.prefix(with: "방문객", separatedBy: " : ")
+            visitorsLabel.attributedText = increaseFontSize(of: "방문객", in: visitorsLabelText)
         } catch {
             print(error.localizedDescription)
         }
-        
-        locationLabel.text = expoMainInformation.location
-        durationLabel.text = expoMainInformation.duration
+        let locationLabelText = expoMainInformation.location.prefix(with: "개최지", separatedBy: " : ")
+        locationLabel.attributedText = increaseFontSize(of: "개최지", in: locationLabelText)
+        let durationLabelText = expoMainInformation.duration.prefix(with: "개최 기간", separatedBy: " : ")
+        durationLabel.attributedText = increaseFontSize(of: "개최 기간", in: durationLabelText)
         explainationTextView.text = expoMainInformation.explanation
+    }
+    
+    private func increaseFontSize(of subtext: String, in text: String) -> NSMutableAttributedString {
+        let attributeString = NSMutableAttributedString(string: text)
+        let font = UIFont.systemFont(ofSize: 25)
+        attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: subtext))
+        return attributeString
     }
     
     private func convertToVisitorFormat(from number: Int) throws -> String {
@@ -49,7 +57,7 @@ class ExpoMainViewController: UIViewController {
         guard let convertedNumber = numberformatter.string(for: number) else {
             throw fatalError()
         }
-        return convertedNumber + "명"
+        return convertedNumber + " 명"
     }
     
     private func decodeExpoMainInformationJsonData() -> ExpoMainInformation? {
