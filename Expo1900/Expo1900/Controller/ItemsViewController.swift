@@ -15,7 +15,11 @@ class ItemsViewController: UIViewController {
         itemsTableView.estimatedRowHeight = 109
         setItems()
     }
-    
+}
+
+// MARK: - Private Method
+
+extension ItemsViewController {
     private func setTitle() {
         self.title = "한국의 출품작"
     }
@@ -35,6 +39,8 @@ class ItemsViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
+// MARK: - TableViewDataSource Method
 
 extension ItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,6 +64,8 @@ extension ItemsViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - TableViewDelegate Method
+
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailViewController =
@@ -66,7 +74,6 @@ extension ItemsViewController: UITableViewDelegate {
         }) else {
             return
         }
-        
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
