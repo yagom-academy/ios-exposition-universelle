@@ -6,7 +6,7 @@ class ItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "한국의 출품작"
+        setUpNavigationBar()
         itemListTableVIew.delegate = self
         itemListTableVIew.dataSource = self
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
@@ -31,6 +31,10 @@ class ItemListViewController: UIViewController {
             return
         }
         nextViewController.item = item
+    }
+    
+    func setUpNavigationBar() {
+        self.navigationItem.title = "한국의 출품작"
     }
 }
 
