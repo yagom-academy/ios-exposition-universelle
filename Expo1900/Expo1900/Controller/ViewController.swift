@@ -20,7 +20,12 @@ class ViewController: UIViewController {
         let decoder = JSONDecoder()
         let expositionData = try? decoder.decode(Exposition.self, from: data.data)
         
-        titleLabel.text = expositionData?.title
+
+        let titleLabelWithLine = expositionData?.title.replacingOccurrences(of: "(", with: "\n(")
+      
+        titleLabel.text = titleLabelWithLine
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        titleLabel.adjustsFontForContentSizeCategory = true
         imageView.image = UIImage(named: "poster")
         visitorCountLabel.text = expositionData?.visitors.description
         locationLabel.text = expositionData?.location
