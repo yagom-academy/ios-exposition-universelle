@@ -6,6 +6,8 @@ class EntryListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setExpoEntryData()
+        self.title = "한국의 출품작"
+        self.navigationItem.backButtonTitle = "메인"
     }
     
     private func setExpoEntryData() {
@@ -30,8 +32,14 @@ extension EntryListViewController {
         return expoEntries.count
     }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-//        return cell
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "expoEntryCell", for: indexPath) as? ExpoEntryCell else {
+            fatalError("")
+        }
+        
+        let entry = expoEntries[indexPath.row]
+        cell.setUp(data: entry)
+        
+        return cell
+    }
 }
