@@ -13,7 +13,7 @@ class ItemDetailViewController: UIViewController {
         updateUI()
     }
     
-    func updateUI() {
+    private func updateUI() {
         guard let expoItem = item else {
             return
         }
@@ -21,7 +21,7 @@ class ItemDetailViewController: UIViewController {
         itemDescription.text = expoItem.description
     }
 
-    func setUpNavigationBar() {
+    private func setUpNavigationBar() {
         self.navigationItem.title = item?.name
     }
 }

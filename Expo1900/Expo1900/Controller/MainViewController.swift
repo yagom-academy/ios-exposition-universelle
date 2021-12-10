@@ -2,12 +2,12 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    func parsing() {
+    private func parsing() {
         let parsedResult = JSONParse<Exposition>.decode(fileName: FileName.exposition)
         
         switch parsedResult {
@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func setUpView(contents: Exposition) {
+    private func setUpView(contents: Exposition) {
         let colon = ": "
         let people = " 명"
         
@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
         editFontSize(of: CategoryPrefix.duration, in: durationLabel)
     }
     
-    func editFontSize(of prefix: String ,in label: UILabel) {
+    private func editFontSize(of prefix: String ,in label: UILabel) {
         guard let text = label.text else {
             return
         }

@@ -2,7 +2,7 @@ import UIKit
 
 class ItemListViewController: UIViewController {
     private var items = [ExpositionItem]()
-    @IBOutlet weak var itemListTableVIew: UITableView!
+    @IBOutlet private weak var itemListTableVIew: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +14,7 @@ class ItemListViewController: UIViewController {
         parsing()
     }
     
-    func parsing() {
+    private func parsing() {
         let parsedResult = JSONParse<[ExpositionItem]>.decode(fileName: FileName.items)
         
         switch parsedResult {
@@ -33,7 +33,7 @@ class ItemListViewController: UIViewController {
         nextViewController.item = item
     }
     
-    func setUpNavigationBar() {
+    private func setUpNavigationBar() {
         self.navigationItem.title = "한국의 출품작"
     }
 }
@@ -53,7 +53,7 @@ extension ItemListViewController: UITableViewDataSource {
         return cell
     }
     
-    func configure(of cell: ItemTableViewCell, by item: ExpositionItem) {
+    private func configure(of cell: ItemTableViewCell, by item: ExpositionItem) {
         cell.itemImageView.image = UIImage(named: item.imageName)
         cell.itemNameLabel.text = item.name
         cell.itemShortDescriptionLabel.text = item.shortDescription
