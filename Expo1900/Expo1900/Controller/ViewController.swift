@@ -9,6 +9,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         customViewSetUp()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+
 }
 
 // MARK: - CustomView SetUp
