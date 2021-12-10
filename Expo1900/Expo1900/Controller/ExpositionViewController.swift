@@ -35,7 +35,7 @@ class ExpositionViewController: UIViewController {
     // MARK: - Methods
     private func fetchData() {
         do {
-            exposition = try JSONParser<Exposition>.decode(fileName: "exposition_universelle_1900")
+            exposition = try JSONParser<Exposition>.decode(fileName: FileName.exposition)
         } catch {
             print(error)
         }
@@ -58,8 +58,8 @@ class ExpositionViewController: UIViewController {
         durationLabel.text = ": \(exposition.duration)"
         descriptionLabel.text = exposition.description
         
-        posterImage.image = UIImage(named: "poster")
-        flagImages.forEach { $0.image = UIImage(named: "flag") }
+        posterImage.image = UIImage(named: FileName.poster)
+        flagImages.forEach { $0.image = UIImage(named: FileName.flag) }
     }
 }
 

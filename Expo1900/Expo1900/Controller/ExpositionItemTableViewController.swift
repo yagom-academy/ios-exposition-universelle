@@ -26,7 +26,7 @@ class ExpositionItemTableViewController: UITableViewController {
     // MARK: - Methods
     func fetchData() {
         do {
-            expositionItems = try JSONParser<[ExpositionItem]>.decode(fileName: "items")
+            expositionItems = try JSONParser<[ExpositionItem]>.decode(fileName: FileName.items)
         } catch {
             print(error)
         }
