@@ -13,6 +13,9 @@ class ItemDetailViewController: UIViewController {
         updateUI()
     }
     
+}
+
+extension ItemDetailViewController {
     private func updateUI() {
         guard let expoItem = item else {
             return

@@ -13,6 +13,20 @@ class ItemListViewController: UIViewController {
         itemListTableVIew.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
         parsing()
     }
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let item = sender as? ExpositionItem,
+              let nextViewController = segue.destination as? ItemDetailViewController else {
+            return
+        }
+        nextViewController.item = item
+    }
+}
+
+extension ItemListViewController {
+    private func setUpNavigationBar() {
+        self.navigationItem.title = "한국의 출품작"
+    }
     
     private func parsing() {
         let parsedResult = JSONParse<[ExpositionItem]>.decode(fileName: FileName.items)
@@ -23,18 +37,6 @@ class ItemListViewController: UIViewController {
         case .success(let contents):
             items = contents
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let item = sender as? ExpositionItem,
-              let nextViewController = segue.destination as? ItemDetailViewController else {
-            return
-        }
-        nextViewController.item = item
-    }
-    
-    private func setUpNavigationBar() {
-        self.navigationItem.title = "한국의 출품작"
     }
 }
 

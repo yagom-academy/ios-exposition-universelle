@@ -24,6 +24,9 @@ class MainViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+}
+
+extension MainViewController {
     private func parsing() {
         let parsedResult = JSONParse<Exposition>.decode(fileName: FileName.exposition)
         
