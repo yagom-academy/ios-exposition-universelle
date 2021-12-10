@@ -41,9 +41,14 @@ extension ItemsViewController: UITableViewDataSource {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let itemCell: ItemTableViewCell = tableView.dequeueReusableCell(
-            withIdentifier: "itemCell") as! ItemTableViewCell
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let itemCell = tableView.dequeueReusableCell(
+                withIdentifier: "itemCell") as? ItemTableViewCell else {
+            return ItemTableViewCell()
+        }
         let item: ItemInfo = self.items[indexPath.row]
         itemCell.itemImageView.image = UIImage(named: "\(item.imageName)")
         itemCell.itemTitleLabel.text = item.name
@@ -55,8 +60,7 @@ extension ItemsViewController: UITableViewDataSource {
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let detailViewController: ItemDetailViewController =
+        guard let detailViewController =
                 storyboard?.instantiateViewController(identifier: "itemDetail", creator: { coder in
             return ItemDetailViewController(coder: coder, data: self.items[indexPath.row])
         }) else {
