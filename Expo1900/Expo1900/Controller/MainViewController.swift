@@ -25,8 +25,7 @@ class MainViewController: UIViewController {
     }
     
     func parsing() {
-        let expoFileName = "exposition_universelle_1900"
-        let parsedResult = JSONParse<Exposition>.decode(fileName: expoFileName)
+        let parsedResult = JSONParse<Exposition>.decode(fileName: FileName.exposition)
         
         switch parsedResult {
         case .failure(let parsingError):
@@ -46,7 +45,7 @@ class MainViewController: UIViewController {
         locationLabel.text = CategoryPrefix.location + colon + contents.location
         durationLabel.text = CategoryPrefix.duration + colon + contents.duration
         descriptionLabel.text = contents.description
-        posterImageView.image = UIImage(named: "poster")
+        posterImageView.image = UIImage(named: FileName.poster)
         
         editFontSize(of: CategoryPrefix.visitor, in: visitorsLabel)
         editFontSize(of: CategoryPrefix.location, in: locationLabel)

@@ -15,7 +15,7 @@ class ItemListViewController: UIViewController {
     }
     
     func parsing() {
-        let parsedResult = JSONParse<[ExpositionItem]>.decode(fileName: "items")
+        let parsedResult = JSONParse<[ExpositionItem]>.decode(fileName: FileName.items)
         
         switch parsedResult {
         case .failure(let parsingError):
