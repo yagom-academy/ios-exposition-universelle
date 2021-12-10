@@ -8,7 +8,7 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemShortDescriptionLabel: UILabel!

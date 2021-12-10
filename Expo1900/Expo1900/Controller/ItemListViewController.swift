@@ -24,6 +24,14 @@ class ItemListViewController: UIViewController {
             items = contents
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let item = sender as? ExpositionItem,
+              let nextViewController = segue.destination as? ItemDetailViewController else {
+            return
+        }
+        nextViewController.item = item
+    }
 }
 
 extension ItemListViewController: UITableViewDataSource {
@@ -46,6 +54,6 @@ extension ItemListViewController: UITableViewDataSource {
 
 extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ItemDetailView", sender: nil)
+        performSegue(withIdentifier: "ItemDetailView", sender: items[indexPath.row])
     }
 }
