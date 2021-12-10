@@ -6,12 +6,19 @@ class EntryListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setExpoEntryData()
-        self.title = "한국의 출품작"
-        self.navigationItem.backButtonTitle = "메인"
+        setTitle()
     }
     
     private func setExpoEntryData() {
         expoEntries = Parser<[ExpoEntry]>.decode(from: .items) ?? []
+    }
+}
+
+// MARK: - Method
+
+extension EntryListViewController {
+    func setTitle() {
+        self.title = "한국의 출품작"
     }
 }
 

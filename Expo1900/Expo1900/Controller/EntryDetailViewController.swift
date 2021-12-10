@@ -11,9 +11,12 @@ class EntryDetailViewController: UIViewController {
     }
     
     func setUpDetailView() {
-        if let data = expoEntry {
-            detailStackView.setUp(data: data)
+        guard let data = expoEntry else {
+            return
         }
+        
+        detailStackView.setUp(data: data)
+        self.title = data.name
     }
     
 }

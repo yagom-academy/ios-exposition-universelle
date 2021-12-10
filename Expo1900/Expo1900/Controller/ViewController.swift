@@ -7,7 +7,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         informationStackViewSetUp()
-        self.title = "메인"
+        setTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -18,6 +18,14 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+}
+
+// MARK: - Method
+
+extension ViewController {
+    func setTitle() {
+        self.title = "메인"
     }
 }
 
