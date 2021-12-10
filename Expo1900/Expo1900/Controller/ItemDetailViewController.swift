@@ -21,17 +21,24 @@ class ItemDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+// MARK: - Private Method
+
+extension ItemDetailViewController {
     private func setViews() {
         self.title = itemInfo.name
         self.itemImageView.image = UIImage(named: "\(itemInfo.imageName)")
-        
+        setTextView()
+    }
+    
+    private func setTextView() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakStrategy = .hangulWordPriority
         let attribute: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 17),
             .paragraphStyle: paragraphStyle]
-        itemDescriptionTextView.attributedText = NSAttributedString(
+        self.itemDescriptionTextView.attributedText = NSAttributedString(
             string: itemInfo.description,
             attributes: attribute)
     }
