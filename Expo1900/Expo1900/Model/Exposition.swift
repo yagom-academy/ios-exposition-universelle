@@ -18,10 +18,10 @@ struct Exposition: Decodable {
     }
     
     init() throws {
-        guard let data = NSDataAsset(name: JSONAssetNameList.exposition.rawValue) else {
+        guard let expositionJSON = NSDataAsset(name: JSONAssetNameList.exposition.rawValue) else {
             throw Expo1900Error.dataNotFoundInAsset(JSONAssetNameList.exposition.rawValue)
         }
         
-        self = try JSONDecoder.shared.decode(Exposition.self, from: data.data)
+        self = try JSONDecoder.shared.decode(Exposition.self, from: expositionJSON.data)
     }
 }

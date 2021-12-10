@@ -37,10 +37,10 @@ class EntryTableViewController: UITableViewController {
 extension EntryTableViewController {
     private func parseEntriesFromAsset() {
         do {
-            guard let data = NSDataAsset(name: JSONAssetNameList.entry.rawValue) else {
+            guard let entryJSON = NSDataAsset(name: JSONAssetNameList.entry.rawValue) else {
                 throw Expo1900Error.dataNotFoundInAsset(JSONAssetNameList.entry.rawValue)
             }
-            entries = try JSONDecoder.shared.decode([Entry].self, from: data.data)
+            entries = try JSONDecoder.shared.decode([Entry].self, from: entryJSON.data)
         } catch Expo1900Error.dataNotFoundInAsset(let fileName) {
             print(Expo1900Error.dataNotFoundInAsset(fileName))
         } catch {
