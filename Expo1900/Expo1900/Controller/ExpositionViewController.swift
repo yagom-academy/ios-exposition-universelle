@@ -8,7 +8,7 @@ import UIKit
 
 class ExpositionViewController: UIViewController {
     // MARK: - Properties
-    private var exposition: Exposition = Exposition()
+    private var exposition: Exposition?
     private let jsonParser = JSONParser<Exposition>()
     
     @IBOutlet private weak var titleLabel: UILabel!
@@ -52,6 +52,10 @@ class ExpositionViewController: UIViewController {
     
     private func updateUI() {
         self.title = "메인"
+        
+        guard let exposition = exposition else {
+            return
+        }
         
         titleLabel.text = exposition.title
         visitorsLabel.text = ": \(exposition.visitors.formattedString) 명"
