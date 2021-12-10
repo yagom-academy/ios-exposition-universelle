@@ -103,9 +103,7 @@ JSON 포맷의 데이터와 매칭할 모델 타입을 구현합니다.
 - `시도` 스토리보드에서 감추기
     - 네비게이션 컨트롤러를 클릭 후
     - 우측 Inspector에서 Shows Navigation Bar 체크를 해제해준다.
-    - 
-        
-        [https://camo.githubusercontent.com/8ee13833a1e08e99b2f1c058d511eb599201481275636a037336211633154760/68747470733a2f2f692e696d6775722e636f6d2f386a70416d31772e706e67](https://camo.githubusercontent.com/8ee13833a1e08e99b2f1c058d511eb599201481275636a037336211633154760/68747470733a2f2f692e696d6775722e636f6d2f386a70416d31772e706e67)
+    - ![https://camo.githubusercontent.com/8ee13833a1e08e99b2f1c058d511eb599201481275636a037336211633154760/68747470733a2f2f692e696d6775722e636f6d2f386a70416d31772e706e67](https://camo.githubusercontent.com/8ee13833a1e08e99b2f1c058d511eb599201481275636a037336211633154760/68747470733a2f2f692e696d6775722e636f6d2f386a70416d31772e706e67)
         
 - 코드로 감추기
     - 네비게이션 컨트롤러로 Embed In 되어있는 ViewController 내부에 다음과 같은 코드를 추가해준다.
@@ -132,9 +130,7 @@ override func viewWillDisappear(_ animated: Bool) {
 
 **[셀이 Select되었을 때 남는 회색배경 없애기]**
 
-- 
-    
-    [https://camo.githubusercontent.com/6b0a15f162920b994ec4e1fb9859fb7f06e7348fdef04018f6e48f8009a1a4a0/68747470733a2f2f692e696d6775722e636f6d2f386154724743622e676966](https://camo.githubusercontent.com/6b0a15f162920b994ec4e1fb9859fb7f06e7348fdef04018f6e48f8009a1a4a0/68747470733a2f2f692e696d6775722e636f6d2f386154724743622e676966)
+-  ![https://camo.githubusercontent.com/6b0a15f162920b994ec4e1fb9859fb7f06e7348fdef04018f6e48f8009a1a4a0/68747470733a2f2f692e696d6775722e636f6d2f386154724743622e676966](https://camo.githubusercontent.com/6b0a15f162920b994ec4e1fb9859fb7f06e7348fdef04018f6e48f8009a1a4a0/68747470733a2f2f692e696d6775722e636f6d2f386154724743622e676966)
     
 - `상황` 셀을 클릭해서 화면전환후 다시 돌아와도 셀의 배경색이 안없어지는 현상이 일어났다.
 - `이유` 테이블뷰의 셀이 선택되면 회색으로 변하게 되는데, 문제는 이렇게 변한 색이 그대로 유지된다.
@@ -147,11 +143,8 @@ override func viewWillDisappear(_ animated: Bool) {
         }
     }
     ```
-    
 - 적용후
-- 
-    
-    [https://camo.githubusercontent.com/a7c7277a10d19e11e5babce23aaffacc17f8a6b4f6311ea859ad75da5c2689a2/68747470733a2f2f692e696d6775722e636f6d2f424e6b6f4c31682e676966](https://camo.githubusercontent.com/a7c7277a10d19e11e5babce23aaffacc17f8a6b4f6311ea859ad75da5c2689a2/68747470733a2f2f692e696d6775722e636f6d2f424e6b6f4c31682e676966)
+- ![https://camo.githubusercontent.com/a7c7277a10d19e11e5babce23aaffacc17f8a6b4f6311ea859ad75da5c2689a2/68747470733a2f2f692e696d6775722e636f6d2f424e6b6f4c31682e676966](https://camo.githubusercontent.com/a7c7277a10d19e11e5babce23aaffacc17f8a6b4f6311ea859ad75da5c2689a2/68747470733a2f2f692e696d6775722e636f6d2f424e6b6f4c31682e676966)
     
 
 ---
