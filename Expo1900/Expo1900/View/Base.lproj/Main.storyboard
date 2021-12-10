@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a5x-Dr-lqO">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5x-Dr-lqO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="iNn-xM-HW1">
@@ -60,11 +60,11 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="top" secondItem="a5x-Dr-lqO" secondAttribute="top" id="DRE-IR-o2m"/>
-                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="width" secondItem="rPT-lx-20V" secondAttribute="width" id="Eny-Ag-PsQ"/>
-                                    <constraint firstItem="rPT-lx-20V" firstAttribute="trailing" secondItem="iNn-xM-HW1" secondAttribute="trailing" id="KCh-93-pyU"/>
-                                    <constraint firstAttribute="bottom" secondItem="iNn-xM-HW1" secondAttribute="bottom" id="dRV-GE-vEW"/>
-                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="leading" secondItem="rPT-lx-20V" secondAttribute="leading" id="jd8-9E-y3q"/>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="trailing" secondItem="CUv-vW-MhE" secondAttribute="trailing" constant="414" id="4Or-3a-xdk"/>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="leading" secondItem="CUv-vW-MhE" secondAttribute="leading" id="GgK-HQ-q5Y"/>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="width" secondItem="rPT-lx-20V" secondAttribute="width" id="hH2-kr-GYV"/>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="bottom" secondItem="CUv-vW-MhE" secondAttribute="bottom" id="jqu-a1-bl5"/>
+                                    <constraint firstItem="iNn-xM-HW1" firstAttribute="top" secondItem="CUv-vW-MhE" secondAttribute="top" id="uAb-n3-742"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="CUv-vW-MhE"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="rPT-lx-20V"/>
@@ -83,21 +83,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="76.811594202898561" y="118.52678571428571"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="SEY-CJ-oop">
-            <objects>
-                <viewController id="V84-Hn-lDW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A7A-iF-XvN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZCa-tb-Ons"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h9p-aC-wDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1169.5652173913045" y="118.52678571428571"/>
         </scene>
     </scenes>
     <resources>
