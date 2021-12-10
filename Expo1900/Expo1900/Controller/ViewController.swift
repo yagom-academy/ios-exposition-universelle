@@ -10,8 +10,8 @@ class ViewController: UIViewController {
         guard let data = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else { return }
         customButtonStackView.setUp()
         informationStackView.setUp(data: data)
+        informationStackView.setUpStyle()
     }
-
 
 }
 
