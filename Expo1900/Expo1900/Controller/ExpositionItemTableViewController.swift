@@ -26,7 +26,7 @@ class ExpositionItemTableViewController: UITableViewController {
     // MARK: - Methods
     func fetchData() {
         do {
-            expositionItems = try JSONParser<[ExpositionItem]>.decode(fileName: FileName.items)
+            expositionItems = try JSONParser<[ExpositionItem]>.decode(fileName: AssetFileName.items)
         } catch {
             print(error)
         }
@@ -68,7 +68,7 @@ extension ExpositionItemTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = self.expositionItems[indexPath.row]
         
-        let expositionItemStoryboard = UIStoryboard(name: "ExpositionItem", bundle: nil)
+        let expositionItemStoryboard = UIStoryboard(name: StoryboardFileName.expositionItem, bundle: nil)
 
         let expositionItemViewController = expositionItemStoryboard.instantiateViewController(identifier: StoryboardIdentifierName.expositionItem) { coder in
             return ExpositionItemViewController(coder: coder, expositionItem: selectedItem)

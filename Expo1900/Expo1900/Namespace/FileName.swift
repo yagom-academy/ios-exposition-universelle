@@ -7,9 +7,14 @@
 
 import Foundation
 
-enum FileName {
+enum AssetFileName {
     static let exposition = "exposition_universelle_1900"
     static let items = "items"
     static let poster = "poster"
     static let flag = "flag"
+}
+
+enum StoryboardFileName {
+    static let expositionItemTable = "ExpositionItemTable"
+    static let expositionItem = "ExpositionItem"
 }

@@ -35,7 +35,7 @@ class ExpositionViewController: UIViewController {
     // MARK: - Methods
     private func fetchData() {
         do {
-            exposition = try JSONParser<Exposition>.decode(fileName: FileName.exposition)
+            exposition = try JSONParser<Exposition>.decode(fileName: AssetFileName.exposition)
         } catch {
             print(error)
         }
@@ -58,15 +58,15 @@ class ExpositionViewController: UIViewController {
         durationLabel.text = ": \(exposition.duration)"
         descriptionLabel.text = exposition.description
         
-        posterImage.image = UIImage(named: FileName.poster)
-        flagImages.forEach { $0.image = UIImage(named: FileName.flag) }
+        posterImage.image = UIImage(named: AssetFileName.poster)
+        flagImages.forEach { $0.image = UIImage(named: AssetFileName.flag) }
     }
 }
 
 // MARK: - IBAction
 extension ExpositionViewController {
     @IBAction private func touchUpPushExpositionItemTableButton(_ sender: UIButton) {
-        let expositionItemTableStoryboard = UIStoryboard(name: "ExpositionItemTable", bundle: nil)
+        let expositionItemTableStoryboard = UIStoryboard(name: StoryboardFileName.expositionItemTable, bundle: nil)
         
         let expositionItemTableViewController = expositionItemTableStoryboard.instantiateViewController(withIdentifier: StoryboardIdentifierName.expositionItemTable)
         
