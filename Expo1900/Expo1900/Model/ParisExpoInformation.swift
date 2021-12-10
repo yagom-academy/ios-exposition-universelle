@@ -15,7 +15,7 @@ struct ParisExpoInformation: Decodable {
     let description: String
     
     var setVisitors: String {
-        return "방문객 \(visitors.decimalString) 명"
+        return "방문객 : \(visitors.decimalString) 명"
     }
     
     var setLocation: String {

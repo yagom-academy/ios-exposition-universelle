@@ -50,12 +50,12 @@ class JSONParserTests: XCTestCase {
     
     func test_파리만국박람회정보_JSON데이터가_정상적으로_파싱되는지() {
         let expectedTitle = "파리 만국박람회 1900(L'Exposition de Paris 1900)"
-        let expectedVisitors = 48130300
+        let expectedVisitors = "방문객 : 48,130,300 명"
         
         let result = JSONParser<ParisExpoInformation>.decode(from: JSONFileName.parisExpoInformation)
         
         XCTAssertEqual(expectedTitle, result?.title)
-        XCTAssertEqual(expectedVisitors, result?.visitors)
+        XCTAssertEqual(expectedVisitors, result?.setVisitors)
     }
     
     func test_한국출품작_첫번째_JSON데이터가_정상적으로_파싱되는지() {
