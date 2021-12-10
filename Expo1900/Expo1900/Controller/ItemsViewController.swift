@@ -55,12 +55,14 @@ extension ItemsViewController: UITableViewDataSource {
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let storyboard = self.storyboard else {
+        
+        guard let detailViewController: ItemDetailViewController =
+                storyboard?.instantiateViewController(identifier: "itemDetail", creator: { coder in
+            return ItemDetailViewController(coder: coder, data: self.items[indexPath.row])
+        }) else {
             return
         }
-        let detailViewController: ItemDetailViewController = storyboard.instantiateViewController(identifier: "itemDetail") { coder in
-            return ItemDetailViewController(coder: coder, data: self.items[indexPath.row])
-        }
+        
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
