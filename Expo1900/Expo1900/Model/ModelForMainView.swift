@@ -19,9 +19,9 @@ struct ModelForMainView {
     
     mutating func setUpData(with data: Exposition) {
         title = data.title.replacingOccurrences(of: "(", with: "\n(")
-        visitors = "방문객: " + data.visitors.description + "명"
-        location = "개최지: " + data.location
-        duration = data.duration
+        visitors = "방문객 : " + data.visitor + "명"
+        location = "개최지 : " + data.location
+        duration = "개최 기간 : " + data.duration
         description = data.description
         image = UIImage(named: "poster")!
     }
