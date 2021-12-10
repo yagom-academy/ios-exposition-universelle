@@ -16,6 +16,7 @@ class ItemListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let item = sender as? ExpositionItem,
               let nextViewController = segue.destination as? ItemDetailViewController else {
+            showAlert(message: "데이터 전달에 실패했습니다.")
             return
         }
         nextViewController.item = item
