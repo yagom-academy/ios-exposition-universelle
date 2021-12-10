@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qw5-UT-2bA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qw5-UT-2bA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -219,7 +219,7 @@
                                     <outlet property="entryDescription" destination="xFY-oI-i1Y" id="SQi-7n-tHg"/>
                                     <outlet property="entryImage" destination="ocx-3f-ii9" id="PjU-UZ-NE6"/>
                                     <outlet property="entryTitle" destination="vIR-Ju-2SR" id="1Ce-pE-8Ab"/>
-                                    <segue destination="5Yr-Uh-2w2" kind="show" id="uaW-xs-3zh"/>
+                                    <segue destination="5Yr-Uh-2w2" kind="show" identifier="showDetailSegueIdentifier" id="uaW-xs-3zh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -234,10 +234,10 @@
             </objects>
             <point key="canvasLocation" x="837.68115942028987" y="-6.0267857142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--Entry Detail View Controller-->
         <scene sceneID="1F0-fj-pZP">
             <objects>
-                <viewController id="5Yr-Uh-2w2" sceneMemberID="viewController">
+                <viewController id="5Yr-Uh-2w2" customClass="EntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ROR-mv-0c8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,9 +267,12 @@
                                                 <constraints>
                                                     <constraint firstItem="7UT-Ap-6HX" firstAttribute="width" secondItem="Veo-xA-eiJ" secondAttribute="width" id="7xg-Sl-Xqv"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="entryDescriptionLabel" destination="kdv-sC-iRV" id="sBc-bB-758"/>
+                                                    <outlet property="entryImageView" destination="7UT-Ap-6HX" id="hic-62-00q"/>
+                                                </connections>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <constraints>
                                             <constraint firstItem="Veo-xA-eiJ" firstAttribute="top" secondItem="OI2-O8-Tsh" secondAttribute="top" constant="10" id="LEx-qa-4HS"/>
                                             <constraint firstAttribute="trailing" secondItem="Veo-xA-eiJ" secondAttribute="trailing" constant="10" id="jch-Ua-KhX"/>
@@ -299,6 +302,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7CK-XH-AFi"/>
+                    <connections>
+                        <outlet property="detailStackView" destination="Veo-xA-eiJ" id="Caj-j3-GBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpT-bk-6Xt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,9 +313,6 @@
     </scenes>
     <resources>
         <image name="flag" width="851" height="567"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

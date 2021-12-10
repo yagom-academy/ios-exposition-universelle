@@ -13,16 +13,6 @@ class EntryListViewController: UITableViewController {
     private func setExpoEntryData() {
         expoEntries = Parser<[ExpoEntry]>.decode(from: .items) ?? []
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 // MARK: - Table view data source
@@ -41,5 +31,21 @@ extension EntryListViewController {
         cell.setUp(data: entry)
         
         return cell
+    }
+}
+
+// MARK: - Navigation
+
+extension EntryListViewController {
+    static let showDetailSegueIdentifier = "showDetailSegueIdentifier"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == Self.showDetailSegueIdentifier,
+              let destination = segue.destination as? EntryDetailViewController,
+              let indexPath = tableView.indexPathForSelectedRow else {
+                  return
+              }
+        
+        destination.expoEntry = expoEntries[indexPath.row]
     }
 }

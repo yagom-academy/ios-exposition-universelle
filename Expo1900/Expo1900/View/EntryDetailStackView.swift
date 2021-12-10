@@ -1,13 +1,19 @@
 import UIKit
 
 class EntryDetailStackView: UIStackView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var entryImageView: UIImageView!
+    @IBOutlet weak var entryDescriptionLabel: UILabel!
+    
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
     }
-    */
-
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func setUp(data: ExpoEntry) {
+        entryImageView.image = UIImage(named: data.imageName)
+        entryDescriptionLabel.text = data.description
+    }
 }
