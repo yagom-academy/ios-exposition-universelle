@@ -14,6 +14,7 @@ class ExpoMainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var explainationTextView: UITextView!
     let expoMainInformationJSONFile = "exposition_universelle_1900"
+    let linebreak = "\n"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,12 @@ class ExpoMainViewController: UIViewController {
         guard let expoMainInformation = decodeExpoMainInformationJsonData() else {
             return
         }
-        titleLabel.text = expoMainInformation.title
+        
+        let title = expoMainInformation.title.replacingOccurrences(of: "(", with: linebreak + "(")
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: 28)
+        titleLabel.textAlignment = .center
+        
         visitersLabel.text = expoMainInformation.visitors.description
         locationLabel.text = expoMainInformation.location
         durationLabel.text = expoMainInformation.duration
