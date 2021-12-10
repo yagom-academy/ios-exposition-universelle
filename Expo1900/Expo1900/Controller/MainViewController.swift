@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigationBar()
         parsing()
     }
     
@@ -27,6 +28,10 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController {
+    private func setUpNavigationBar() {
+        self.navigationItem.title = "메인"
+    }
+    
     private func parsing() {
         let parsedResult = JSONParse<Exposition>.decode(fileName: FileName.exposition)
         
