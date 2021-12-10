@@ -24,7 +24,11 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
+}
+
+// MARK: - Private Method
+
+extension ViewController {
     private func setViewsToDefault() {
         do {
             let data = try Parser.parsedExpoInfo()
