@@ -10,9 +10,7 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitle()
-        itemsTableView.dataSource = self
-        itemsTableView.delegate = self
-        itemsTableView.estimatedRowHeight = 109
+        configureTableView()
         setItems()
     }
 }
@@ -22,6 +20,12 @@ class ItemsViewController: UIViewController {
 extension ItemsViewController {
     private func setTitle() {
         self.title = "한국의 출품작"
+    }
+    
+    private func configureTableView() {
+        self.itemsTableView.dataSource = self
+        self.itemsTableView.delegate = self
+        self.itemsTableView.estimatedRowHeight = 109
     }
     
     private func setItems() {
