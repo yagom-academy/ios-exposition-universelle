@@ -8,18 +8,14 @@
 import Foundation
 
 struct ParisExpoInformation: Decodable {
-    private let title: String
+    let title: String
     private let visitors: Int
     private let location: String
     private let duration: String
-    private let description: String
-    
-    var setTitle: String {
-        return title
-    }
+    let description: String
     
     var setVisitors: String {
-        return visitors.decimalString
+        return "방문객 \(visitors.decimalString) 명"
     }
     
     var setLocation: String {
@@ -28,10 +24,6 @@ struct ParisExpoInformation: Decodable {
     
     var setDuration: String {
         return "개최 기간 : \(duration)"
-    }
-    
-    var setDescription: String {
-        return description
     }
 }
 
