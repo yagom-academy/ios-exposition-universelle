@@ -20,6 +20,7 @@ class ExpositionInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setExpositionInformation()
+        self.navigationItem.backButtonTitle = "메인"
     }
     
     private func setExpositionInformation() {
