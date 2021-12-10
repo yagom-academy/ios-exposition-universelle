@@ -48,11 +48,15 @@ extension ItemListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let item = items[indexPath.row]
+        configure(of: cell, by: item)
+        
+        return cell
+    }
+    
+    func configure(of cell: ItemTableViewCell, by item: ExpositionItem) {
         cell.itemImageView.image = UIImage(named: item.imageName)
         cell.itemNameLabel.text = item.name
         cell.itemShortDescriptionLabel.text = item.shortDescription
-        
-        return cell
     }
 }
 
