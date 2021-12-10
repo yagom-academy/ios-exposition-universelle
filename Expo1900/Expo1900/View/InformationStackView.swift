@@ -12,6 +12,11 @@ class InformationStackView: UIStackView {
         super.init(coder: coder)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setUpStyle()
+    }
+    
     func setUp(data: ExpoInformation) {
         titleLabel.text = data.title
         posterImageView.image = UIImage(named: "poster")
@@ -21,7 +26,7 @@ class InformationStackView: UIStackView {
         descriptionLabel.text = data.description
     }
     
-    func setUpStyle() {
+    private func setUpStyle() {
         self.spacing = 10
         
         titleLabel.textAlignment = .center

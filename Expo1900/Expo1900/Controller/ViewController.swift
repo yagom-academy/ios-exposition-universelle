@@ -2,12 +2,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var customButtonStackView: CustomButtonStackView!
     @IBOutlet weak var informationStackView: InformationStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customViewSetUp()
+        informationStackViewSetUp()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,13 +24,10 @@ class ViewController: UIViewController {
 // MARK: - CustomView SetUp
 
 extension ViewController {
-    func customViewSetUp() {
+    func informationStackViewSetUp() {
         guard let data = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else {
             return
         }
         informationStackView.setUp(data: data)
-        informationStackView.setUpStyle()
-        
-        customButtonStackView.setUp()
     }
 }
