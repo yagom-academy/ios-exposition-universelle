@@ -19,13 +19,7 @@ struct ParisExpoInformation: Decodable {
     }
     
     var setVisitors: String {
-        let numberFormat = NumberFormatter()
-        numberFormat.numberStyle = .decimal
-        guard let visitor = numberFormat.string(for: visitors) else {
-            return ""
-        }
-        
-        return "방문객 : \(visitor) 명"
+        return visitors.decimalString
     }
     
     var setLocation: String {
