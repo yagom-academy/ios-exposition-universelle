@@ -9,8 +9,7 @@ class ItemListViewController: UIViewController {
         setUpNavigationBar()
         itemListTableVIew.delegate = self
         itemListTableVIew.dataSource = self
-        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
-        itemListTableVIew.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
+        registerNib()
         parsing()
     }
  
@@ -37,6 +36,11 @@ extension ItemListViewController {
         case .success(let contents):
             items = contents
         }
+    }
+    
+    private func registerNib() {
+        let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
+        itemListTableVIew.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
     }
 }
 
