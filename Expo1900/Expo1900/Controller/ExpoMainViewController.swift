@@ -17,12 +17,21 @@ class ExpoMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupExpoMainView()
+    }
+    
+    private func setupExpoMainView() {
         guard let expoMainInformation = decodeExpoMainInformationJsonData() else {
             return
         }
+        titleLabel.text = expoMainInformation.title
+        visitersLabel.text = expoMainInformation.visitors.description
+        locationLabel.text = expoMainInformation.location
+        durationLabel.text = expoMainInformation.duration
+        explainationTextView.text = expoMainInformation.explanation
     }
 
-    func decodeExpoMainInformationJsonData() -> ExpoMainInformation? {
+    private func decodeExpoMainInformationJsonData() -> ExpoMainInformation? {
         var expoMainInformation: ExpoMainInformation?
         let jsonDecoder = JSONDecoder()
         
@@ -37,7 +46,7 @@ class ExpoMainViewController: UIViewController {
         return expoMainInformation
     }
     
-    func convertToNSDataAsset(from fileName: String) throws -> NSDataAsset  {
+    private func convertToNSDataAsset(from fileName: String) throws -> NSDataAsset  {
         guard let jsonData = NSDataAsset(name: fileName) else {
             throw JSONDataError.fileConversionFailed(fileName)
         }
