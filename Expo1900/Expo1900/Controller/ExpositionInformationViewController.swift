@@ -37,7 +37,7 @@ class ExpositionInformationViewController: UIViewController {
         let nationalFlag = UIImage(named: "flag")
         nationalFlagLeftImage.image = nationalFlag
         nationalFlagRightImage.image = nationalFlag
-        transitionToEntriesListButton.titleLabel?.text = "한국의 출품작 보러가기"
+        transitionToEntriesListButton.setTitle("한국의 출품작 보러가기", for: .normal)
     }
 }
 
