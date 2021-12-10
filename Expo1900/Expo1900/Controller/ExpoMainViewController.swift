@@ -12,7 +12,7 @@ class ExpoMainViewController: UIViewController {
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var explainationTextView: UITextView!
+    @IBOutlet weak var explanationTextView: UITextView!
     let expoMainInformationJSONFile = "exposition_universelle_1900"
     let linebreak = "\n"
     
@@ -25,11 +25,21 @@ class ExpoMainViewController: UIViewController {
         guard let expoMainInformation = decodeExpoMainInformationJsonData() else {
             return
         }
+        setupTitleLabel(with: expoMainInformation)
+        setupVisitorsLabel(with: expoMainInformation)
+        setupLocationLabel(with: expoMainInformation)
+        setupDurationLabel(with: expoMainInformation)
+        setupExplanationTextView(with: expoMainInformation)
+    }
+    
+    private func setupTitleLabel(with expoMainInformation: ExpoMainInformation) {
         let title = expoMainInformation.title.replacingOccurrences(of: "(", with: linebreak + "(")
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 28)
         titleLabel.textAlignment = .center
-        
+    }
+    
+    private func setupVisitorsLabel(with expoMainInformation: ExpoMainInformation) {
         do {
             let visitors = try convertToVisitorFormat(from: expoMainInformation.visitors)
             let visitorsLabelText = visitors.prefix(with: "방문객", separatedBy: " : ")
@@ -37,12 +47,22 @@ class ExpoMainViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private func setupLocationLabel(with expoMainInformation: ExpoMainInformation) {
         let locationLabelText = expoMainInformation.location.prefix(with: "개최지", separatedBy: " : ")
         locationLabel.attributedText = increaseFontSize(of: "개최지", in: locationLabelText)
+    }
+    
+    private func setupDurationLabel(with expoMainInformation: ExpoMainInformation) {
         let durationLabelText = expoMainInformation.duration.prefix(with: "개최 기간", separatedBy: " : ")
         durationLabel.attributedText = increaseFontSize(of: "개최 기간", in: durationLabelText)
-        explainationTextView.text = expoMainInformation.explanation
     }
+    
+    private func setupExplanationTextView(with expoMainInformation: ExpoMainInformation) {
+        explanationTextView.text = expoMainInformation.explanation
+    }
+    
     
     private func increaseFontSize(of subtext: String, in text: String) -> NSMutableAttributedString {
         let attributeString = NSMutableAttributedString(string: text)
