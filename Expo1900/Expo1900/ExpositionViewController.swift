@@ -7,13 +7,17 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
-
+    
+    //MARK: - IBOutlet Properties
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 
+    //MARK: - Life Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +25,14 @@ class ExpositionViewController: UIViewController {
         setLabels(from: exposition)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+}
+
+//MARK: - Private Methods
+
+extension ExpositionViewController {
     private func parseExpositionFromAsset() -> Exposition? {
         do {
             return try Exposition()
@@ -40,9 +52,4 @@ class ExpositionViewController: UIViewController {
         durationLabel.text = exposition.durationDescription
         descriptionLabel.text = exposition.description
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
 }
-

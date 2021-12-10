@@ -2,13 +2,32 @@ import UIKit
 
 class EntryTableViewController: UITableViewController {
 
+    //MARK: - Instance Properties
+    
     private var entries: [Entry] = []
+    
+    //MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         parseEntriesFromAsset()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let entryDetailViewController = segue.destination as? EntryDetailViewController,
+              let entry = sender as? Entry else { return }
+        
+        entryDetailViewController.entry = entry
+    }
+}
+
+//MARK: - Private Methods
+
+extension EntryTableViewController {
     private func parseEntriesFromAsset() {
         do {
             guard let data = NSDataAsset(name: JSONAssetNameList.entry.rawValue) else {
@@ -21,11 +40,11 @@ class EntryTableViewController: UITableViewController {
             print(error)
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+}
 
+//MARK: - TableView Methods
+
+extension EntryTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
@@ -47,12 +66,4 @@ class EntryTableViewController: UITableViewController {
         performSegue(withIdentifier: "toEntryDetail", sender: entries[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let entryDetailViewController = segue.destination as? EntryDetailViewController,
-              let entry = sender as? Entry else { return }
-        
-        entryDetailViewController.entry = entry
-    }
 }
-
