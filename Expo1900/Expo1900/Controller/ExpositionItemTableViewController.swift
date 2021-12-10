@@ -48,7 +48,7 @@ extension ExpositionItemTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExpositionItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierName.expositionItemCell, for: indexPath)
         let expositionItem = expositionItems[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
@@ -70,7 +70,7 @@ extension ExpositionItemTableViewController {
         
         let expositionItemStoryboard = UIStoryboard(name: "ExpositionItem", bundle: nil)
 
-        let expositionItemViewController = expositionItemStoryboard.instantiateViewController(identifier: "expositionItem") { coder in
+        let expositionItemViewController = expositionItemStoryboard.instantiateViewController(identifier: StoryboardIdentifierName.expositionItem) { coder in
             return ExpositionItemViewController(coder: coder, expositionItem: selectedItem)
         }
 

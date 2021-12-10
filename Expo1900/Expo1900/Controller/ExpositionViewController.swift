@@ -68,7 +68,7 @@ extension ExpositionViewController {
     @IBAction private func touchUpPushExpositionItemTableButton(_ sender: UIButton) {
         let expositionItemTableStoryboard = UIStoryboard(name: "ExpositionItemTable", bundle: nil)
         
-        let expositionItemTableViewController = expositionItemTableStoryboard.instantiateViewController(withIdentifier: "ExpositionItemTable")
+        let expositionItemTableViewController = expositionItemTableStoryboard.instantiateViewController(withIdentifier: StoryboardIdentifierName.expositionItemTable)
         
         self.navigationController?.pushViewController(expositionItemTableViewController, animated: true)
     }
