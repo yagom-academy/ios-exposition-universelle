@@ -41,5 +41,7 @@ extension ItemDetailViewController {
         self.itemDescriptionTextView.attributedText = NSAttributedString(
             string: itemInfo.description,
             attributes: attribute)
+        self.itemDescriptionTextView.allowsEditingTextAttributes = false
+        self.itemDescriptionTextView.isScrollEnabled = false
     }
 }
