@@ -5,7 +5,7 @@ class ItemsViewController: UIViewController {
 
     @IBOutlet private weak var itemsTableView: UITableView!
     
-    var items: [ItemInfo] = []
+    private var items: [ItemInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
