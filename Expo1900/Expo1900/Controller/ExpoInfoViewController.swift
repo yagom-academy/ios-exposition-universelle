@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpoInfoViewController: UIViewController {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorValueLabel: UILabel!
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
 // MARK: - Private Method
 
-extension ViewController {
+extension ExpoInfoViewController {
     private func setViewsToDefault() {
         self.navigationController?.navigationBar.topItem?.title = "메인"
         do {
