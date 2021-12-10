@@ -1,10 +1,3 @@
-//
-//  ExpoEntryCell.swift
-//  Expo1900
-//
-//  Created by 황제하 on 2021/12/10.
-//
-
 import UIKit
 
 class ExpoEntryCell: UITableViewCell {
