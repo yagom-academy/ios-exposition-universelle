@@ -70,5 +70,6 @@ extension ItemListViewController: UITableViewDataSource {
 extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ItemDetailView", sender: items[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
