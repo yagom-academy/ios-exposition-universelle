@@ -9,7 +9,7 @@ import UIKit
 class ExpoMainViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitersLabel: UILabel!
+    @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var explainationTextView: UITextView!
@@ -31,12 +31,27 @@ class ExpoMainViewController: UIViewController {
         titleLabel.font = UIFont.systemFont(ofSize: 28)
         titleLabel.textAlignment = .center
         
-        visitersLabel.text = expoMainInformation.visitors.description
+        do {
+            let visitors = try convertToVisitorFormat(from: expoMainInformation.visitors)
+            visitorsLabel.text = visitors.prefix(with: "방문객", separatedBy: " :")
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         locationLabel.text = expoMainInformation.location
         durationLabel.text = expoMainInformation.duration
         explainationTextView.text = expoMainInformation.explanation
     }
-
+    
+    private func convertToVisitorFormat(from number: Int) throws -> String {
+        let numberformatter = NumberFormatter()
+        numberformatter.numberStyle = .decimal
+        guard let convertedNumber = numberformatter.string(for: number) else {
+            throw fatalError()
+        }
+        return convertedNumber + "명"
+    }
+    
     private func decodeExpoMainInformationJsonData() -> ExpoMainInformation? {
         var expoMainInformation: ExpoMainInformation?
         let jsonDecoder = JSONDecoder()
@@ -60,3 +75,8 @@ class ExpoMainViewController: UIViewController {
     }
 }
 
+extension String {
+    func prefix(with text: String, separatedBy: String) -> String {
+        return text + separatedBy + self
+    }
+}
