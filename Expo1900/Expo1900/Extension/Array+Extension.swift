@@ -1,4 +1,3 @@
-import Foundation
 
 extension Array {
     subscript(index index: Int) -> Element? {

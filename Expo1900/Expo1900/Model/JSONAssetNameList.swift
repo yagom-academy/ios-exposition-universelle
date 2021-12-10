@@ -1,4 +1,3 @@
-import Foundation
 
 enum JSONAssetNameList: String {
     case exposition = "exposition_universelle_1900"

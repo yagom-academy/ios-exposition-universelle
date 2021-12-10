@@ -1,6 +1,4 @@
 
-import Foundation
-
 enum Expo1900Error: Error, CustomStringConvertible {
     case dataNotFoundInAsset(String)
     

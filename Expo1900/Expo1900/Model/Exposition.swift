@@ -1,4 +1,4 @@
-import UIKit
+import UIKit.NSDataAsset
 
 struct Exposition: Decodable {
     let title: String
