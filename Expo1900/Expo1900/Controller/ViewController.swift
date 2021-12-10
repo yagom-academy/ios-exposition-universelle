@@ -54,9 +54,7 @@ class ViewController: UIViewController {
     private func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        
         alert.addAction(okAction)
-        
         present(alert, animated: true, completion: nil)
     }
 }
