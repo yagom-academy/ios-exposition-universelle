@@ -48,7 +48,6 @@ class ViewController: UIViewController {
         descriptionTextView.attributedText = NSAttributedString(
             string: data.description,
             attributes: attribute)
-        descriptionTextView.textAlignment = .left
     }
     
     private func showAlert(message: String) {
