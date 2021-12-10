@@ -1,4 +1,3 @@
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -11,36 +10,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var modelForMainView = ModelForMainView()
+    let expositionIdentifier = "exposition_universelle_1900"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let data = NSDataAsset(name: "exposition_universelle_1900") else {
-            fatalError()
-        }
-        
-        let decoder = JSONDecoder()
-        guard let expositionData = try? decoder.decode(Exposition.self, from: data.data) else { return }
-        
+        let expositionData = JsonParser.decodeData(of: expositionIdentifier)
         modelForMainView.setUpData(with: expositionData)
         updateUI(with: modelForMainView)
     }
     
-    //가공된 데이터를 뷰에 보여줌
     func updateUI(with data: ModelForMainView) {
-
         titleLabel.text = data.title
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
-        titleLabel.adjustsFontForContentSizeCategory = true
-        
         imageView.image = data.image
-        
         visitorCountLabel.text = data.visitors
         locationLabel.text = data.location
         durationLabel.text = data.duration
         descriptionLabel.text = data.description
     }
-
-
 }
 

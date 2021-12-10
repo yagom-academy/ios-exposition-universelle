@@ -1,10 +1,3 @@
-//
-//  ModelForMainView.swift
-//  Expo1900
-//
-//  Created by Siwon Kim on 2021/12/10.
-//
-
 import UIKit
 
 struct ModelForMainView {
@@ -24,7 +17,6 @@ struct ModelForMainView {
         self.description = description
     }
     
-    //데이터를 가공해서 리턴
     mutating func setUpData(with data: Exposition) {
         title = data.title.replacingOccurrences(of: "(", with: "\n(")
         visitors = "방문객: " + data.visitors.description + "명"
