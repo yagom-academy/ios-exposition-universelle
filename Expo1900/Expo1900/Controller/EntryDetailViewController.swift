@@ -15,6 +15,7 @@ class EntryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = entry?.name
         setEntryDescriptionLabel()
         setEntryImage()
     }
