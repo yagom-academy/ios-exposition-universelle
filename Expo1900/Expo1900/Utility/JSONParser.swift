@@ -7,8 +7,8 @@
 
 import UIKit
 
-enum JSONParser<Item: Decodable> {
-    static func decode(fileName: String) throws -> Item {
+struct JSONParser<Item: Decodable> {
+    func decode(fileName: String) throws -> Item {
         guard let jsonData = NSDataAsset(name: fileName) else {
             throw ParsingError.fileNotFound
         }

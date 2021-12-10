@@ -120,6 +120,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				DE6C31A027635BCE00C10B22 /* Utility */,
 				DE6C319D2763511200C10B22 /* Namespace */,
 				3672FFD12760D59100B8B245 /* Extension */,
 				DE930FE0275F82D400373866 /* Error */,
@@ -164,10 +165,17 @@
 			path = Namespace;
 			sourceTree = "<group>";
 		};
-		DE930FDB275E0CB600373866 /* Model */ = {
+		DE6C31A027635BCE00C10B22 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				DE930FDE275F7D4A00373866 /* JSONParser.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		DE930FDB275E0CB600373866 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				DE930FDC275E0DD800373866 /* Exposition.swift */,
 				3696A862275E119900A6012A /* ExpositionItem.swift */,
 			);

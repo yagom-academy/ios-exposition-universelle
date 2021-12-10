@@ -9,7 +9,8 @@ import UIKit
 
 class ExpositionItemTableViewController: UITableViewController {
     // MARK: - Properties
-    var expositionItems: [ExpositionItem] = []
+    private var expositionItems: [ExpositionItem] = []
+    private let jsonParser = JSONParser<[ExpositionItem]>()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -24,15 +25,15 @@ class ExpositionItemTableViewController: UITableViewController {
     }
     
     // MARK: - Methods
-    func fetchData() {
+    private func fetchData() {
         do {
-            expositionItems = try JSONParser<[ExpositionItem]>.decode(fileName: AssetFileName.items)
+            expositionItems = try jsonParser.decode(fileName: AssetFileName.items)
         } catch {
             print(error)
         }
     }
     
-    func updateUI() {
+    private func updateUI() {
         self.title = "한국의 출품작"
     }
 }

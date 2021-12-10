@@ -9,6 +9,7 @@ import UIKit
 class ExpositionViewController: UIViewController {
     // MARK: - Properties
     private var exposition: Exposition = Exposition()
+    private let jsonParser = JSONParser<Exposition>()
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -35,7 +36,7 @@ class ExpositionViewController: UIViewController {
     // MARK: - Methods
     private func fetchData() {
         do {
-            exposition = try JSONParser<Exposition>.decode(fileName: AssetFileName.exposition)
+            exposition = try jsonParser.decode(fileName: AssetFileName.exposition)
         } catch {
             print(error)
         }
