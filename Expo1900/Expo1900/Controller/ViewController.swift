@@ -12,12 +12,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewsToDefault()
+        self.navigationController?.navigationBar.topItem?.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationController?.navigationBar.topItem?.title = "메인"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
