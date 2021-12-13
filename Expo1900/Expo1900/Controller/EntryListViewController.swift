@@ -1,16 +1,9 @@
 import UIKit
 
 class EntryListViewController: UITableViewController {
-    private var expoEntries: [ExpoEntry] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setExpoEntryData()
         setTitle()
-    }
-    
-    private func setExpoEntryData() {
-        expoEntries = Parser<[ExpoEntry]>.decode(from: .items) ?? []
     }
 }
 
@@ -26,7 +19,7 @@ extension EntryListViewController {
 
 extension EntryListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expoEntries.count
+        return ExpoEntries.list.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,7 +27,7 @@ extension EntryListViewController {
             fatalError("")
         }
         
-        let entry = expoEntries[indexPath.row]
+        let entry = ExpoEntries.list[indexPath.row]
         cell.setUpView(from: entry)
         
         return cell
@@ -53,6 +46,6 @@ extension EntryListViewController {
                   return
               }
         
-        destination.expoEntry = expoEntries[indexPath.row]
+        destination.expoEntry = ExpoEntries.list[indexPath.row]
     }
 }
