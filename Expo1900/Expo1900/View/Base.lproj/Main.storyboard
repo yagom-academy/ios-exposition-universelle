@@ -215,6 +215,7 @@
                                             <outlet property="expoItemExplanationLabel" destination="U92-FV-ztf" id="zsd-Pw-zSp"/>
                                             <outlet property="expoItemImageView" destination="fNw-Vq-knx" id="tgG-mM-aQ3"/>
                                             <outlet property="expoItemNameLabel" destination="z2n-Sb-Zls" id="z8l-z8-k8y"/>
+                                            <segue destination="uwN-XY-Qxs" kind="show" id="2Zf-gB-g4k"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -237,6 +238,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKo-9W-hIF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1960.8695652173915" y="116.51785714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NYt-qv-5eb">
+            <objects>
+                <viewController id="uwN-XY-Qxs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mCb-kw-sYA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vP3-tF-xaq">
+                                <rect key="frame" x="15" y="88" width="384" height="803"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kh-cS-ELf">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="803"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-oo-Whv">
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="803"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="RZd-oo-Whv" firstAttribute="width" secondItem="5kh-cS-ELf" secondAttribute="width" id="KFx-P8-4xG"/>
+                                            <constraint firstItem="RZd-oo-Whv" firstAttribute="top" secondItem="5kh-cS-ELf" secondAttribute="top" id="MhY-CF-gEd"/>
+                                            <constraint firstAttribute="bottom" secondItem="RZd-oo-Whv" secondAttribute="bottom" id="XGw-Ja-7vE"/>
+                                            <constraint firstItem="RZd-oo-Whv" firstAttribute="leading" secondItem="5kh-cS-ELf" secondAttribute="leading" id="dyu-CB-cVH"/>
+                                            <constraint firstAttribute="trailing" secondItem="RZd-oo-Whv" secondAttribute="trailing" id="v7b-cZ-a3j"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5kh-cS-ELf" firstAttribute="top" secondItem="vP3-tF-xaq" secondAttribute="top" id="8Bt-gb-rF4"/>
+                                    <constraint firstItem="5kh-cS-ELf" firstAttribute="width" secondItem="vP3-tF-xaq" secondAttribute="width" id="Rc2-hF-ynw"/>
+                                    <constraint firstItem="5kh-cS-ELf" firstAttribute="bottom" secondItem="B3k-cI-X2U" secondAttribute="bottom" id="XGx-Ja-OkC"/>
+                                    <constraint firstAttribute="bottom" secondItem="5kh-cS-ELf" secondAttribute="bottom" id="bSI-Zb-I06"/>
+                                    <constraint firstAttribute="trailing" secondItem="5kh-cS-ELf" secondAttribute="trailing" id="fm4-5c-zEH"/>
+                                    <constraint firstItem="5kh-cS-ELf" firstAttribute="leading" secondItem="vP3-tF-xaq" secondAttribute="leading" id="zY5-uD-8k5"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="JJu-OL-umf"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="B3k-cI-X2U"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mOC-ti-Nmz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vP3-tF-xaq" secondAttribute="trailing" constant="15" id="IbB-ah-xfc"/>
+                            <constraint firstItem="vP3-tF-xaq" firstAttribute="leading" secondItem="mCb-kw-sYA" secondAttribute="leading" constant="15" id="YPm-zb-M7g"/>
+                            <constraint firstItem="vP3-tF-xaq" firstAttribute="top" secondItem="mOC-ti-Nmz" secondAttribute="top" id="jeE-JO-4Ii"/>
+                            <constraint firstAttribute="bottom" secondItem="vP3-tF-xaq" secondAttribute="bottom" constant="5" id="lhP-U2-2Mf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oSZ-EL-1fL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="igJ-1H-Kbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2921.739130434783" y="116.51785714285714"/>
         </scene>
     </scenes>
     <resources>
