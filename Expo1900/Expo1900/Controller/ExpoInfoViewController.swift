@@ -36,7 +36,7 @@ extension ExpoInfoViewController {
             self.visitorValueLabel.text = data.formattedVisitors
             self.locationValueLabel.text = data.location
             self.durationValueLabel.text = data.duration
-            self.titleLabel.numberOfLines = 0
+            self.titleLabel.numberOfLines = .zero
             self.titleLabel.font = UIFont.expoInfoTitleFont
             self.descriptionTextView.configure(with: data.description)
         } catch let error {
