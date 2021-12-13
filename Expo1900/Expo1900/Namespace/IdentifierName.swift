@@ -8,7 +8,6 @@
 import Foundation
 
 enum StoryboardIdentifierName {
-    static let expositionItemTable = "ExpositionItemTable"
     static let expositionItem = "ExpositionItem"
 }
 

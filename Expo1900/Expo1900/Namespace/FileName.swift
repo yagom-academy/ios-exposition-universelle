@@ -15,6 +15,5 @@ enum AssetFileName {
 }
 
 enum StoryboardFileName {
-    static let expositionItemTable = "ExpositionItemTable"
     static let expositionItem = "ExpositionItem"
 }
