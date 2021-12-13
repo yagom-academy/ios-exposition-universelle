@@ -11,17 +11,15 @@ class KoreanArtWorkTableViewController: UITableViewController {
         let decodedData = JsonParser.decodeData(of: "items", how: [ExpositionItem].self)
         expositionItem = decodedData
         
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let cell = sender as? KoreanArtWorkTableViewCell else { return }
-        
+       
         if let destinationVC = segue.destination as? aaaViewController {
-            let name = cell.titleLabel.text
-            
-            destinationVC.name = name
+            let id = tableView.indexPath(for: cell)?.row
+            destinationVC.id = id
         }
         
     }

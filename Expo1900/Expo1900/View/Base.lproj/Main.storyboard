@@ -229,6 +229,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="title" id="byl-s0-rIF"/>
+                    <connections>
+                        <outlet property="descriptionss" destination="JoT-hA-mqq" id="eu0-Q8-b4g"/>
+                        <outlet property="image" destination="Oy4-Rb-CEU" id="0bi-HA-lkV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftX-6k-STu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
