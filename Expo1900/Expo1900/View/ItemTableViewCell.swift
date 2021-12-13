@@ -2,6 +2,7 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
+    static let identifier = "itemCell"
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemTitleLabel: UILabel!
