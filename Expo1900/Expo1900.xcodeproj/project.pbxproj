@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08A269332760DBDB001DF39C /* ExpoInformationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */; };
+		08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269342760DEE8001DF39C /* CustomButtonStackView.swift */; };
+		08B1F6952762E14D0092D10A /* DecimalNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F6942762E14D0092D10A /* DecimalNumberFormatter.swift */; };
+		08B1F6972762FCF00092D10A /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F6962762FCF00092D10A /* EntryListViewController.swift */; };
+		08B1F699276323710092D10A /* ExpoEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F698276323710092D10A /* ExpoEntryCell.swift */; };
 		08CB4FED275DE63800784B89 /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB4FEC275DE63800784B89 /* ExpoInformation.swift */; };
 		08CB4FF5275DFDD800784B89 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB4FF4275DFDD800784B89 /* ParserTests.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* ExpoInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoInformationViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		F3166076275DEDA6005468CB /* ExpoEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3166075275DEDA6005468CB /* ExpoEntry.swift */; };
 		F31660BA275EF2DD005468CB /* NSDataAssetName+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31660B9275EF2DD005468CB /* NSDataAssetName+extension.swift */; };
+		F363702727633BAA0083D596 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F363702627633BAA0083D596 /* EntryDetailViewController.swift */; };
+		F363702927633E160083D596 /* EntryDetailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F363702827633E160083D596 /* EntryDetailStackView.swift */; };
+		F3637031276729500083D596 /* ExpoEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3637030276729500083D596 /* ExpoEntries.swift */; };
 		FBCC3F26275DF1520049EBCB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC3F25275DF1520049EBCB /* Parser.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,19 +39,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformationStackView.swift; sourceTree = "<group>"; };
+		08A269342760DEE8001DF39C /* CustomButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStackView.swift; sourceTree = "<group>"; };
+		08B1F6942762E14D0092D10A /* DecimalNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalNumberFormatter.swift; sourceTree = "<group>"; };
+		08B1F6962762FCF00092D10A /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
+		08B1F698276323710092D10A /* ExpoEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntryCell.swift; sourceTree = "<group>"; };
 		08CB4FEC275DE63800784B89 /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		08CB4FF2275DFDD800784B89 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08CB4FF4275DFDD800784B89 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* ExpoInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformationViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3166075275DEDA6005468CB /* ExpoEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntry.swift; sourceTree = "<group>"; };
 		F31660B9275EF2DD005468CB /* NSDataAssetName+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDataAssetName+extension.swift"; sourceTree = "<group>"; };
+		F363702627633BAA0083D596 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		F363702827633E160083D596 /* EntryDetailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailStackView.swift; sourceTree = "<group>"; };
+		F3637030276729500083D596 /* ExpoEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntries.swift; sourceTree = "<group>"; };
 		FBCC3F25275DF1520049EBCB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +87,8 @@
 				08CB4FEC275DE63800784B89 /* ExpoInformation.swift */,
 				F3166075275DEDA6005468CB /* ExpoEntry.swift */,
 				FBCC3F25275DF1520049EBCB /* Parser.swift */,
+				08B1F6942762E14D0092D10A /* DecimalNumberFormatter.swift */,
+				F3637030276729500083D596 /* ExpoEntries.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +96,10 @@
 		08CB4FEA275DE49400784B89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */,
+				08A269342760DEE8001DF39C /* CustomButtonStackView.swift */,
+				08B1F698276323710092D10A /* ExpoEntryCell.swift */,
+				F363702827633E160083D596 /* EntryDetailStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -85,7 +107,9 @@
 		08CB4FEB275DE49D00784B89 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				C79FF4B82589F401005FB0FD /* ExpoInformationViewController.swift */,
+				08B1F6962762FCF00092D10A /* EntryListViewController.swift */,
+				F363702627633BAA0083D596 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -249,11 +273,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08B1F699276323710092D10A /* ExpoEntryCell.swift in Sources */,
 				FBCC3F26275DF1520049EBCB /* Parser.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				08A269332760DBDB001DF39C /* ExpoInformationStackView.swift in Sources */,
+				F3637031276729500083D596 /* ExpoEntries.swift in Sources */,
+				F363702927633E160083D596 /* EntryDetailStackView.swift in Sources */,
+				08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */,
+				08B1F6952762E14D0092D10A /* DecimalNumberFormatter.swift in Sources */,
+				F363702727633BAA0083D596 /* EntryDetailViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* ExpoInformationViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				08CB4FED275DE63800784B89 /* ExpoInformation.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				08B1F6972762FCF00092D10A /* EntryListViewController.swift in Sources */,
 				F31660BA275EF2DD005468CB /* NSDataAssetName+extension.swift in Sources */,
 				F3166076275DEDA6005468CB /* ExpoEntry.swift in Sources */,
 			);
