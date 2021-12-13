@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artWorkItem" textLabel="qf6-UE-vHX" detailTextLabel="P2A-uh-ehs" imageView="SP5-IQ-r9q" style="IBUITableViewCellStyleSubtitle" id="g3F-pW-XbG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artWorkItem" textLabel="qf6-UE-vHX" detailTextLabel="P2A-uh-ehs" imageView="SP5-IQ-r9q" style="IBUITableViewCellStyleSubtitle" id="g3F-pW-XbG" customClass="KoreanArtWorkTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g3F-pW-XbG" id="u7i-M3-Svz">
@@ -168,6 +168,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="detailLabel" destination="P2A-uh-ehs" id="yjn-5v-GAY"/>
+                                    <outlet property="imageViewLabel" destination="SP5-IQ-r9q" id="TIO-La-BXK"/>
+                                    <outlet property="titleLabel" destination="qf6-UE-vHX" id="Rz4-pF-bAE"/>
                                     <segue destination="FNP-c8-ha3" kind="show" id="x0i-NH-qJH"/>
                                 </connections>
                             </tableViewCell>
@@ -187,7 +190,7 @@
         <!--title-->
         <scene sceneID="nnS-TJ-CBi">
             <objects>
-                <viewController id="FNP-c8-ha3" sceneMemberID="viewController">
+                <viewController id="FNP-c8-ha3" customClass="aaaViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W88-ha-ZBB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

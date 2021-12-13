@@ -8,18 +8,22 @@ class KoreanArtWorkTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        guard let data = NSDataAsset(name: "items") else {
-            fatalError()
-        }
-    
-        let decoder = JSONDecoder()
+        let decodedData = JsonParser.decodeData(of: "items", how: [ExpositionItem].self)
+        expositionItem = decodedData
         
-        do {
-            expositionItem = try decoder.decode([ExpositionItem].self, from: data.data)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let cell = sender as? KoreanArtWorkTableViewCell else { return }
+        
+        if let destinationVC = segue.destination as? aaaViewController {
+            let name = cell.titleLabel.text
             
-        } catch {
-            print(error.localizedDescription)
+            destinationVC.name = name
         }
+        
     }
 
 }
@@ -37,11 +41,13 @@ extension KoreanArtWorkTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIndentifier = "artWorkItem"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIndentifier, for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.text = expositionItem?[indexPath.row].name ?? ""
-        content.secondaryText = expositionItem?[indexPath.row].shortDescription ?? ""
-        content.image = UIImage(named: expositionItem?[indexPath.row].imageName ?? "")
-        cell.contentConfiguration = content
+        
+        if let cell = cell as? KoreanArtWorkTableViewCell {
+            cell.titleLabel.text = expositionItem?[indexPath.row].name ?? ""
+            cell.detailLabel.text = expositionItem?[indexPath.row].shortDescription ?? ""
+            cell.imageViewLabel.image = UIImage(named: expositionItem?[indexPath.row].imageName ?? "")
+        }
+        
         return cell
     }
     
