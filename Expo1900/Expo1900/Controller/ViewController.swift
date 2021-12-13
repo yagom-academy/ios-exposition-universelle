@@ -16,7 +16,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        loadExpositionInformation()
+    }
+    
+    func loadExpositionInformation() {
+        guard let expositionData = parseExpositionJSON() else {
+            return
+        }
+        
+        titleLabel.text = expositionData.title
+        visitorsCountLabel.text = "방문객 : \(expositionData.visitorsCount)"
+        locationLabel.text = "개최지 : \(expositionData.location)"
+        durationLabel.text = "개최기간 : \(expositionData.duration)"
+        descriptionLabel.text = expositionData.description
     }
 }
 
