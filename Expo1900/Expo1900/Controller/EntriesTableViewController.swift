@@ -27,11 +27,13 @@ class EntriesTableViewController: UITableViewController {
         guard let entryDetailViewController = storyboard?.instantiateViewController(withIdentifier: "entryDetailView") as? EntryDetailViewController else {
             return
         }
+        
         let title = expositionEntries?[indexPath.row].name
         let image = expositionEntries?[indexPath.row].image
         let description = expositionEntries?[indexPath.row].description
         entryDetailViewController.setData(image: image, description: description)
         entryDetailViewController.navigationItem.title = title
+        
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
     
