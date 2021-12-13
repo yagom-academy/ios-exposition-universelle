@@ -11,8 +11,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var visitorsCountLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var viewKoreaEnrtyListButton: UIButton!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         visitorsCountLabel.text = "방문객 : \(expositionData.visitorsCount)"
         locationLabel.text = "개최지 : \(expositionData.location)"
         durationLabel.text = "개최기간 : \(expositionData.duration)"
-        descriptionLabel.text = expositionData.description
+        descriptionTextView.text = expositionData.description
     }
 }
 
