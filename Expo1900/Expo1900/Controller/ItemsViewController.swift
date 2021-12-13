@@ -2,7 +2,6 @@
 import UIKit
 
 class ItemsViewController: UIViewController {
-
     @IBOutlet private weak var itemsTableView: UITableView!
     
     private var items: [ItemInfo] = []

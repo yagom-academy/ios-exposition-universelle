@@ -2,7 +2,6 @@
 import UIKit
 
 class ExpoInfoViewController: UIViewController {
-    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorValueLabel: UILabel!
     @IBOutlet private weak var locationValueLabel: UILabel!
