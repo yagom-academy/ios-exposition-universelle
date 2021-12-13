@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08A269332760DBDB001DF39C /* InformationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269322760DBDB001DF39C /* InformationStackView.swift */; };
+		08A269332760DBDB001DF39C /* ExpoInformationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */; };
 		08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269342760DEE8001DF39C /* CustomButtonStackView.swift */; };
 		08B1F6952762E14D0092D10A /* DecimalNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F6942762E14D0092D10A /* DecimalNumberFormatter.swift */; };
 		08B1F6972762FCF00092D10A /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F6962762FCF00092D10A /* EntryListViewController.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08A269322760DBDB001DF39C /* InformationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationStackView.swift; sourceTree = "<group>"; };
+		08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformationStackView.swift; sourceTree = "<group>"; };
 		08A269342760DEE8001DF39C /* CustomButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStackView.swift; sourceTree = "<group>"; };
 		08B1F6942762E14D0092D10A /* DecimalNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalNumberFormatter.swift; sourceTree = "<group>"; };
 		08B1F6962762FCF00092D10A /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		08CB4FEA275DE49400784B89 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				08A269322760DBDB001DF39C /* InformationStackView.swift */,
+				08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */,
 				08A269342760DEE8001DF39C /* CustomButtonStackView.swift */,
 				08B1F698276323710092D10A /* ExpoEntryCell.swift */,
 				F363702827633E160083D596 /* EntryDetailStackView.swift */,
@@ -275,7 +275,7 @@
 			files = (
 				08B1F699276323710092D10A /* ExpoEntryCell.swift in Sources */,
 				FBCC3F26275DF1520049EBCB /* Parser.swift in Sources */,
-				08A269332760DBDB001DF39C /* InformationStackView.swift in Sources */,
+				08A269332760DBDB001DF39C /* ExpoInformationStackView.swift in Sources */,
 				F3637031276729500083D596 /* ExpoEntries.swift in Sources */,
 				F363702927633E160083D596 /* EntryDetailStackView.swift in Sources */,
 				08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */,

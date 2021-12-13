@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8h-bQ-QY5">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="372.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-vU-Sig" customClass="InformationStackView" customModule="Expo1900" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QMh-vU-Sig" customClass="ExpoInformationStackView" customModule="Expo1900" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="10" width="394" height="352.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgD-pD-OlY">
@@ -62,7 +62,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bi4-Iz-xzf" customClass="CustomButtonStackView" customModule="Expo1900" customModuleProvider="target">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bi4-Iz-xzf" customClass="EntryListButtonStackView" customModule="Expo1900" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="302.5" width="394" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="i6o-AI-A6Q">
@@ -92,7 +92,7 @@
                                                             </imageView>
                                                         </subviews>
                                                         <connections>
-                                                            <outlet property="button" destination="bDe-Lb-xjf" id="LjQ-8O-hIv"/>
+                                                            <outlet property="entryListButton" destination="bDe-Lb-xjf" id="Zni-UY-LGd"/>
                                                             <outlet property="leftImageView" destination="i6o-AI-A6Q" id="cUA-if-iUG"/>
                                                             <outlet property="rightImageView" destination="ohh-U6-lZC" id="plo-aZ-4bj"/>
                                                         </connections>
