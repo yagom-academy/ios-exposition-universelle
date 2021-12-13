@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ExpoInformationViewController: UIViewController {
     
     @IBOutlet weak var informationStackView: InformationStackView!
     
@@ -19,19 +19,15 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-}
-
-// MARK: - Method
-
-extension ViewController {
-    func setTitle() {
+    
+    // MARK: - Private Method
+    
+    private func setTitle() {
         title = "메인"
     }
-}
-
-// MARK: - CustomView SetUp
-
-extension ViewController {
+    
+    // MARK: - CustomView SetUp
+    
     func informationStackViewSetUp() {
         guard let data = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else {
             return
