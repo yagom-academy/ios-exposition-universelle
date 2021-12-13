@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 
 extension ViewController {
     func setTitle() {
-        self.title = "메인"
+        title = "메인"
     }
 }
 

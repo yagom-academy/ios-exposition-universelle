@@ -27,7 +27,7 @@ class InformationStackView: UIStackView {
     }
     
     private func setUpStyle() {
-        self.spacing = 10
+        spacing = 10
         
         titleLabel.textAlignment = .center
         visitorsLabel.textAlignment = .center

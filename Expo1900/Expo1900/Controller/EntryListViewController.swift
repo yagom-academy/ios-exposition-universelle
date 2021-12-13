@@ -18,7 +18,7 @@ class EntryListViewController: UITableViewController {
 
 extension EntryListViewController {
     private func setTitle() {
-        self.title = "한국의 출품작"
+        title = "한국의 출품작"
     }
 }
 

@@ -1,8 +1,8 @@
 import UIKit
 
-class CustomButtonStackView: UIStackView {
+class EntryListButtonStackView: UIStackView {
     @IBOutlet private weak var leftImageView: UIImageView!
-    @IBOutlet private weak var button: UIButton!
+    @IBOutlet private weak var entryListButton: UIButton!
     @IBOutlet private weak var rightImageView: UIImageView!
     
     required init(coder: NSCoder) {
@@ -17,6 +17,6 @@ class CustomButtonStackView: UIStackView {
     private func setUpView() {
         leftImageView.image = UIImage(named: "flag")
         rightImageView.image = UIImage(named: "flag")
-        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        entryListButton.setTitle("한국의 출품작 보러가기", for: .normal)
     }
 }

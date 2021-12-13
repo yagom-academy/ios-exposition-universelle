@@ -16,7 +16,7 @@ class EntryDetailViewController: UIViewController {
         }
         
         entryDetailStackView.setUpView(from: data)
-        self.title = data.name
+        title = data.name
     }
     
 }

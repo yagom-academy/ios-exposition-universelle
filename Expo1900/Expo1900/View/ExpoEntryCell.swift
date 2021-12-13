@@ -23,6 +23,6 @@ class ExpoEntryCell: UITableViewCell {
     private func setUpStyle() {
         entryTitle.font = .preferredFont(forTextStyle: .title1)
         entryDescription.numberOfLines = 0
-        self.accessoryType = .disclosureIndicator
+        accessoryType = .disclosureIndicator
     }
 }
