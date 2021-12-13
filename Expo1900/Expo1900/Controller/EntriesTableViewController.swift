@@ -19,7 +19,7 @@ class EntriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         let defaultContentConfiguration = cell.defaultContentConfiguration()
-        cell.contentConfiguration = getCellConfiguration(defaultContentConfiguration, cellForRowAt: indexPath)
+        cell.contentConfiguration = cellConfiguration(from: defaultContentConfiguration, cellForRowAt: indexPath)
         return cell
     }
     
@@ -35,7 +35,7 @@ class EntriesTableViewController: UITableViewController {
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
     
-    private func getCellConfiguration(_ defaultConfiguration: UIListContentConfiguration, cellForRowAt indexPath: IndexPath) -> UIListContentConfiguration {
+    private func cellConfiguration(from defaultConfiguration: UIListContentConfiguration, cellForRowAt indexPath: IndexPath) -> UIListContentConfiguration {
         var configuration = defaultConfiguration
         configuration.textProperties.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         configuration.text = expositionEntries?[indexPath.row].name
