@@ -45,6 +45,15 @@ class ExpoItemsTableViewController: UIViewController {
         }
         return jsonData
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ExpoItemDetailViewController,
+           let indexPath = expoItemTableView.indexPathForSelectedRow {
+            let expoItem = expoItems[indexPath.row]
+            destination.expoItem = expoItem
+            expoItemTableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
 
 extension ExpoItemsTableViewController: UITableViewDataSource {
@@ -59,5 +68,3 @@ extension ExpoItemsTableViewController: UITableViewDataSource {
         return cell
     }
 }
-
-
