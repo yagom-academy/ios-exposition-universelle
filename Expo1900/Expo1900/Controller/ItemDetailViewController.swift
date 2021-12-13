@@ -29,19 +29,6 @@ extension ItemDetailViewController {
     private func setViews() {
         self.title = itemInfo.name
         self.itemImageView.image = UIImage(named: "\(itemInfo.imageName)")
-        setTextView()
-    }
-    
-    private func setTextView() {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakStrategy = .hangulWordPriority
-        let attribute: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 17),
-            .paragraphStyle: paragraphStyle]
-        self.itemDescriptionTextView.attributedText = NSAttributedString(
-            string: itemInfo.description,
-            attributes: attribute)
-        self.itemDescriptionTextView.allowsEditingTextAttributes = false
-        self.itemDescriptionTextView.isScrollEnabled = false
+        self.itemDescriptionTextView.configure(with: itemInfo.description)
     }
 }

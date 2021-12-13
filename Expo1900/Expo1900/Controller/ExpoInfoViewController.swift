@@ -38,23 +38,10 @@ extension ExpoInfoViewController {
             self.durationValueLabel.text = data.duration
             self.titleLabel.numberOfLines = 0
             self.titleLabel.font = UIFont.systemFont(ofSize: 28)
-            setTextViewToDefault(with: data.description)
+            self.descriptionTextView.configure(with: data.description)
         } catch let error {
             showAlert(message: error.localizedDescription)
         }
-    }
-    
-    private func setTextViewToDefault(with data: String) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakStrategy = .hangulWordPriority
-        let attribute: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 17),
-            .paragraphStyle: paragraphStyle]
-        self.descriptionTextView.attributedText = NSAttributedString(
-            string: data.description,
-            attributes: attribute)
-        self.descriptionTextView.allowsEditingTextAttributes = false
-        self.descriptionTextView.isScrollEnabled = false
     }
     
     private func showAlert(message: String) {
