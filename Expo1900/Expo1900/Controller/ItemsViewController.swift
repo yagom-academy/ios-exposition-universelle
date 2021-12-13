@@ -56,7 +56,7 @@ extension ItemsViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         guard let itemCell = tableView.dequeueReusableCell(
-                withIdentifier: "itemCell") as? ItemTableViewCell else {
+            withIdentifier: ItemTableViewCell.identifier) as? ItemTableViewCell else {
             return ItemTableViewCell()
         }
         let item: ItemInfo = self.items[indexPath.row]
@@ -73,7 +73,7 @@ extension ItemsViewController: UITableViewDataSource {
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailViewController =
-                storyboard?.instantiateViewController(identifier: "itemDetail", creator: { coder in
+                storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier, creator: { coder in
             return ItemDetailViewController(coder: coder, data: self.items[indexPath.row])
         }) else {
             return

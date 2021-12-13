@@ -3,6 +3,8 @@ import UIKit
 
 class ItemDetailViewController: UIViewController {
     
+    static let identifier = "itemDetail"
+    
     private var itemInfo: ItemInfo
     
     @IBOutlet private weak var itemImageView: UIImageView!
