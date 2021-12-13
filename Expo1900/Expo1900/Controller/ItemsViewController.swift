@@ -74,12 +74,13 @@ extension ItemsViewController: UITableViewDataSource {
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailViewController =
-                storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier, creator: { coder in
-            return ItemDetailViewController(coder: coder, data: self.items[indexPath.row])
-        }) else {
-            return
-        }
+        guard let detailViewController = storyboard?.instantiateViewController(
+            identifier: ItemDetailViewController.identifier,
+            creator: { coder in
+                return ItemDetailViewController(coder: coder, data: self.items[indexPath.row])
+            }) else {
+                return
+            }
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
