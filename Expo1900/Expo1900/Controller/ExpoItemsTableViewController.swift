@@ -11,7 +11,6 @@ class ExpoItemsTableViewController: UIViewController {
     
     @IBOutlet weak var expoItemTableView: UITableView!
     
-    let expoItemsJSONFile = "items"
     var expoItems: ExpoItems = []
     
     override func viewDidLoad() {
@@ -21,15 +20,15 @@ class ExpoItemsTableViewController: UIViewController {
     }
     
     private func setupExpoItemsTableView() {
-        expoItems = decodeExpoMainInformationJsonData()
+        expoItems = decodeExpoItemsJsonData()
     }
     
-    private func decodeExpoMainInformationJsonData() -> ExpoItems {
+    private func decodeExpoItemsJsonData() -> ExpoItems {
         var expoItemArray: ExpoItems = []
         let jsonDecoder = JSONDecoder()
         
         do {
-            let jsonData = try convertToNSDataAsset(from: expoItemsJSONFile)
+            let jsonData = try convertToNSDataAsset(from: JSONFile.expoItems)
             expoItemArray = try jsonDecoder.decode(ExpoItems.self, from: jsonData.data)
         } catch JSONDataError.fileConversionFailed(let fileName) {
             print(JSONDataError.fileConversionFailed(fileName).description)
@@ -47,12 +46,13 @@ class ExpoItemsTableViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ExpoItemDetailViewController,
-           let indexPath = expoItemTableView.indexPathForSelectedRow {
-            let expoItem = expoItems[indexPath.row]
-            destination.expoItem = expoItem
-            expoItemTableView.deselectRow(at: indexPath, animated: true)
-        }
+        guard let destination = segue.destination as? ExpoItemDetailViewController,
+              let indexPath = expoItemTableView.indexPathForSelectedRow else {
+                  return
+              }
+        let expoItem = expoItems[indexPath.row]
+        destination.expoItem = expoItem
+        expoItemTableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

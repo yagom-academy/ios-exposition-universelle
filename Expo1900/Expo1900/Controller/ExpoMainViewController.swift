@@ -13,8 +13,6 @@ class ExpoMainViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var explanationTextView: UITextView!
-    let expoMainInformationJSONFile = "exposition_universelle_1900"
-    let linebreak = "\n"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,7 @@ class ExpoMainViewController: UIViewController {
     }
     
     private func setupTitleLabel(with expoMainInformation: ExpoMainInformation) {
-        let title = expoMainInformation.title.replacingOccurrences(of: "(", with: linebreak + "(")
+        let title = expoMainInformation.title.replacingOccurrences(of: Symbol.openingParenthesis, with: Symbol.linebreak + Symbol.openingParenthesis)
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 28)
         titleLabel.textAlignment = .center
@@ -42,21 +40,23 @@ class ExpoMainViewController: UIViewController {
     private func setupVisitorsLabel(with expoMainInformation: ExpoMainInformation) {
         do {
             let visitors = try convertToVisitorFormat(from: expoMainInformation.visitors)
-            let visitorsLabelText = visitors.prefix(with: "방문객", separatedBy: " : ")
-            visitorsLabel.attributedText = increaseFontSize(of: "방문객", in: visitorsLabelText)
+            let visitorsLabelText = visitors.prefix(with: LabelTitle.visitor, separatedBy: Symbol.colonWithSpaces)
+            visitorsLabel.attributedText = increaseFontSize(of: LabelTitle.visitor, in: visitorsLabelText)
+        } catch FormatingError.convertNumberFailed {
+            print(FormatingError.convertNumberFailed.description)
         } catch {
             print(error.localizedDescription)
         }
     }
     
     private func setupLocationLabel(with expoMainInformation: ExpoMainInformation) {
-        let locationLabelText = expoMainInformation.location.prefix(with: "개최지", separatedBy: " : ")
-        locationLabel.attributedText = increaseFontSize(of: "개최지", in: locationLabelText)
+        let locationLabelText = expoMainInformation.location.prefix(with: LabelTitle.location, separatedBy: Symbol.colonWithSpaces)
+        locationLabel.attributedText = increaseFontSize(of: LabelTitle.location, in: locationLabelText)
     }
     
     private func setupDurationLabel(with expoMainInformation: ExpoMainInformation) {
-        let durationLabelText = expoMainInformation.duration.prefix(with: "개최 기간", separatedBy: " : ")
-        durationLabel.attributedText = increaseFontSize(of: "개최 기간", in: durationLabelText)
+        let durationLabelText = expoMainInformation.duration.prefix(with: LabelTitle.duration, separatedBy: Symbol.colonWithSpaces)
+        durationLabel.attributedText = increaseFontSize(of: LabelTitle.duration, in: durationLabelText)
     }
     
     private func setupExplanationTextView(with expoMainInformation: ExpoMainInformation) {
@@ -75,9 +75,9 @@ class ExpoMainViewController: UIViewController {
         let numberformatter = NumberFormatter()
         numberformatter.numberStyle = .decimal
         guard let convertedNumber = numberformatter.string(for: number) else {
-            throw fatalError()
+            throw FormatingError.convertNumberFailed
         }
-        return convertedNumber + " 명"
+        return convertedNumber + Symbol.koreanPeopleUnit
     }
     
     private func decodeExpoMainInformationJsonData() -> ExpoMainInformation? {
@@ -85,7 +85,7 @@ class ExpoMainViewController: UIViewController {
         let jsonDecoder = JSONDecoder()
         
         do {
-            let jsonData = try convertToNSDataAsset(from: expoMainInformationJSONFile)
+            let jsonData = try convertToNSDataAsset(from: JSONFile.expoMainInformation)
             expoMainInformation = try jsonDecoder.decode(ExpoMainInformation.self, from: jsonData.data)
         } catch JSONDataError.fileConversionFailed(let fileName) {
             print(JSONDataError.fileConversionFailed(fileName).description)
