@@ -9,10 +9,10 @@ class EntryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepare()
+        prepareView()
     }
     
-    private func prepare() {
+    private func prepareView() {
         itemImageView.image = image
         descriptionTextView.text = detailDescription
     }
