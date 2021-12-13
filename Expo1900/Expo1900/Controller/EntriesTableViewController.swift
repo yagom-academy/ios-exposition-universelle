@@ -20,7 +20,10 @@ class EntriesTableViewController: UITableViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: Identifier.entryCell,
+            for: indexPath
+        )
         let defaultContentConfiguration = cell.defaultContentConfiguration()
         cell.contentConfiguration = cellConfiguration(
             from: defaultContentConfiguration,
@@ -31,7 +34,7 @@ class EntriesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let entryDetailViewController = storyboard?.instantiateViewController(
-            withIdentifier: "entryDetailView"
+            withIdentifier: Identifier.entryDetailView
         ) as? EntryDetailViewController else {
             return
         }
