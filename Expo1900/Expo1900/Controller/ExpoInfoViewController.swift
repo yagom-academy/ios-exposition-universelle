@@ -28,7 +28,8 @@ class ExpoInfoViewController: UIViewController {
 
 extension ExpoInfoViewController {
     private func setViewsToDefault() {
-        self.navigationController?.navigationBar.topItem?.title = "메인"
+        self.navigationController?.navigationBar.topItem?.title =
+            ExpoStringLiteral.expoInfoTitle.text
         do {
             let data = try Parser.parsedExpoInfo()
             self.titleLabel.text = data.formattedTitle
@@ -45,7 +46,9 @@ extension ExpoInfoViewController {
     
     private func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: ExpoStringLiteral.alertActionOK.text,
+                                     style: .default,
+                                     handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }

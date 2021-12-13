@@ -24,6 +24,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		E9178E2B275E2AF5008F4D23 /* ExpoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9178E2A275E2AF5008F4D23 /* ExpoInfo.swift */; };
+		E93F662227678167001158D8 /* ExpoStringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F662127678167001158D8 /* ExpoStringLiteral.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9178E2A275E2AF5008F4D23 /* ExpoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInfo.swift; sourceTree = "<group>"; };
+		E93F662127678167001158D8 /* ExpoStringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoStringLiteral.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				E9178E2A275E2AF5008F4D23 /* ExpoInfo.swift */,
 				33E5DE53275F4655004799A6 /* ItemInfo.swift */,
 				33AFF2D327608F5B0060CA88 /* NumberFormatter+Extension.swift */,
+				E93F662127678167001158D8 /* ExpoStringLiteral.swift */,
 				337EF5CF2761D6A60092AB98 /* Parser.swift */,
 			);
 			path = Model;
@@ -301,6 +304,7 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* ExpoInfoViewController.swift in Sources */,
 				E9178E2B275E2AF5008F4D23 /* ExpoInfo.swift in Sources */,
+				E93F662227678167001158D8 /* ExpoStringLiteral.swift in Sources */,
 				337EF5DB276242440092AB98 /* ItemTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				337EF5D52761E6790092AB98 /* ParserError.swift in Sources */,
