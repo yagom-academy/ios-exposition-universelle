@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITableViewController {
+extension UIViewController {
     
     func showAlert(alertMessage: AlertMessage, buttonMessage: AlertMessage) {
         let alert = UIAlertController(title: nil, message: alertMessage.rawValue, preferredStyle: .alert)

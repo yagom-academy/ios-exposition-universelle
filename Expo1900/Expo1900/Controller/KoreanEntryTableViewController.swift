@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreanEntryTableViewController: UITableViewController {
+class KoreanEntryTableViewController: UITableViewController, AlertDelegate {
     static let goToEntryDetail = "goToEntryDetail"
     private var dataSource: EntryDataSource?
     
@@ -15,6 +15,7 @@ class KoreanEntryTableViewController: UITableViewController {
         super.viewDidLoad()
         dataSource = EntryDataSource()
         tableView.dataSource = dataSource
+        dataSource?.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
