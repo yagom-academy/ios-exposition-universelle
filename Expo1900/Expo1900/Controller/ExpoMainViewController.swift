@@ -63,7 +63,6 @@ class ExpoMainViewController: UIViewController {
         explanationTextView.text = expoMainInformation.explanation
     }
     
-    
     private func increaseFontSize(of subtext: String, in text: String) -> NSMutableAttributedString {
         let attributeString = NSMutableAttributedString(string: text)
         let font = UIFont.systemFont(ofSize: 25)
