@@ -20,7 +20,7 @@ class ExpositionInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setExpositionInformation()
-        self.navigationItem.backButtonTitle = "메인"
+        setNavigationItem()
     }
     
     private func setExpositionInformation() {
@@ -38,6 +38,10 @@ class ExpositionInformationViewController: UIViewController {
         nationalFlagLeftImage.image = nationalFlag
         nationalFlagRightImage.image = nationalFlag
         transitionToEntriesListButton.setTitle("한국의 출품작 보러가기", for: .normal)
+    }
+    
+    private func setNavigationItem() {
+        navigationItem.backButtonTitle = "메인"
     }
 }
 
