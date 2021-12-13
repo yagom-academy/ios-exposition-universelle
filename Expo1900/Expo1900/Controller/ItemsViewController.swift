@@ -5,6 +5,7 @@ class ItemsViewController: UIViewController {
     @IBOutlet private weak var itemsTableView: UITableView!
     
     private var items: [ItemInfo] = []
+    private let estimatedRowHeightForItemTableView: CGFloat = 109
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ extension ItemsViewController {
     private func configureTableView() {
         self.itemsTableView.dataSource = self
         self.itemsTableView.delegate = self
-        self.itemsTableView.estimatedRowHeight = 109
+        self.itemsTableView.estimatedRowHeight = estimatedRowHeightForItemTableView
     }
     
     private func setItems() {
