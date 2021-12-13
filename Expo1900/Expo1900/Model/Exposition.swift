@@ -7,7 +7,3 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
 }
-
-struct ExpositionPoster {
-    let imageResourceLocator: String
-}
