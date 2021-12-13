@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -106,6 +106,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r16-BT-Zwx" secondAttribute="trailing" id="tsr-rt-HG9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="AUQ-EO-4u0" id="8Ic-Ku-qLO"/>
+                        <outlet property="durationLabel" destination="zsJ-gj-BKz" id="ujH-Xf-9oE"/>
+                        <outlet property="locationLabel" destination="rFG-ZG-U2a" id="RkL-C7-c7O"/>
+                        <outlet property="title" destination="4hz-e5-pqd" id="SGb-kH-Emz"/>
+                        <outlet property="titleLabel" destination="4hz-e5-pqd" id="Zfn-oy-O0C"/>
+                        <outlet property="viewKoreaEnrtyListButton" destination="6OD-rx-X5r" id="Pyx-PS-eaw"/>
+                        <outlet property="visitorsCount" destination="cYr-sf-9F8" id="9Iv-ST-19L"/>
+                        <outlet property="visitorsCountLabel" destination="cYr-sf-9F8" id="oS0-tW-TIM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
