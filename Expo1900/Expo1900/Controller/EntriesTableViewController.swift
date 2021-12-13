@@ -16,15 +16,23 @@ class EntriesTableViewController: UITableViewController {
         return expositionEntries?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         let defaultContentConfiguration = cell.defaultContentConfiguration()
-        cell.contentConfiguration = cellConfiguration(from: defaultContentConfiguration, cellForRowAt: indexPath)
+        cell.contentConfiguration = cellConfiguration(
+            from: defaultContentConfiguration,
+            cellForRowAt: indexPath
+        )
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let entryDetailViewController = storyboard?.instantiateViewController(withIdentifier: "entryDetailView") as? EntryDetailViewController else {
+        guard let entryDetailViewController = storyboard?.instantiateViewController(
+            withIdentifier: "entryDetailView"
+        ) as? EntryDetailViewController else {
             return
         }
         
@@ -37,7 +45,10 @@ class EntriesTableViewController: UITableViewController {
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
     
-    private func cellConfiguration(from defaultConfiguration: UIListContentConfiguration, cellForRowAt indexPath: IndexPath) -> UIListContentConfiguration {
+    private func cellConfiguration(
+        from defaultConfiguration: UIListContentConfiguration,
+        cellForRowAt indexPath: IndexPath
+    ) -> UIListContentConfiguration {
         var configuration = defaultConfiguration
         configuration.textProperties.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         configuration.text = expositionEntries?[indexPath.row].name
