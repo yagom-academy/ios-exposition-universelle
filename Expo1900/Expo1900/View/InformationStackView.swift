@@ -20,7 +20,9 @@ class InformationStackView: UIStackView {
     func setUpView(from data: ExpoInformation) {
         titleLabel.text = data.title
         posterImageView.image = UIImage(named: "poster")
-        visitorsLabel.text = "방문객 : " + DecimalNumberFormatter.string(for: data.visitors) + " 명"
+        if let visitors = DecimalNumberFormatter.string(for: data.visitors) {
+            visitorsLabel.text = "방문객 : " + visitors + " 명"
+        }
         locationLabel.text = "개최지 : " + data.location
         durationLabel.text = "개최 기간 : " + data.duration
         descriptionLabel.text = data.description
