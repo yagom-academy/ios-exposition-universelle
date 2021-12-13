@@ -5,8 +5,7 @@ class EntriesTableViewController: UITableViewController {
         guard let entriesData = NSDataAsset(name: "items") else {
             return nil
         }
-        let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: entriesData.data)
-        return entries
+        return try? JSONDecoder().decode([ExpositionEntry].self, from: entriesData.data)
     }()
     
     override func viewDidLoad() {
