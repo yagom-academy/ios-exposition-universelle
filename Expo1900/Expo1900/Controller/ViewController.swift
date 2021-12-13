@@ -24,11 +24,24 @@ class ViewController: UIViewController {
             return
         }
         
+        let visitorsCount = insertComma(at: expositionData.visitorsCount)
+        
         titleLabel.text = expositionData.title
-        visitorsCountLabel.text = "방문객 : \(expositionData.visitorsCount)"
+        visitorsCountLabel.text = "방문객 : \(visitorsCount)"
         locationLabel.text = "개최지 : \(expositionData.location)"
         durationLabel.text = "개최기간 : \(expositionData.duration)"
         descriptionTextView.text = expositionData.description
+    }
+    
+    func insertComma(at value: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let insertedCommaValue = numberFormatter.string(from: NSNumber(value: value)) else {
+            fatalError()
+        }
+        
+        return insertedCommaValue
     }
 }
 
