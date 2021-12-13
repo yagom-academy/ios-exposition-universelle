@@ -12,7 +12,7 @@ extension UITextView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakStrategy = .hangulWordPriority
         let attribute: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 17),
+            .font: UIFont.textViewFont,
             .paragraphStyle: paragraphStyle]
         self.attributedText = NSAttributedString(
             string: text,

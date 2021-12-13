@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3370A272276778C4000931CC /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3370A271276778C4000931CC /* UIFont+Extension.swift */; };
 		337EF5D02761D6A60092AB98 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EF5CF2761D6A60092AB98 /* Parser.swift */; };
 		337EF5D52761E6790092AB98 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EF5D42761E6790092AB98 /* ParserError.swift */; };
 		337EF5D727621E140092AB98 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EF5D627621E140092AB98 /* ItemsViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3370A271276778C4000931CC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		337EF5CF2761D6A60092AB98 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		337EF5D42761E6790092AB98 /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
 		337EF5D627621E140092AB98 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				6B4B75352767769B00C40695 /* UITextView+Extension.swift */,
+				3370A271276778C4000931CC /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				33E5DE54275F4655004799A6 /* ItemInfo.swift in Sources */,
 				33A00A0E2762FD9D0023001D /* ItemDetailViewController.swift in Sources */,
 				33AFF2D427608F5B0060CA88 /* NumberFormatter+Extension.swift in Sources */,
+				3370A272276778C4000931CC /* UIFont+Extension.swift in Sources */,
 				337EF5D02761D6A60092AB98 /* Parser.swift in Sources */,
 				6B4B75362767769B00C40695 /* UITextView+Extension.swift in Sources */,
 			);
