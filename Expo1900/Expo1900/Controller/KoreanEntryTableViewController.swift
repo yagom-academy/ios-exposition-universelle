@@ -8,6 +8,7 @@
 import UIKit
 
 class KoreanEntryTableViewController: UITableViewController {
+    static let goToEntryDetail = "goToEntryDetail"
     private var dataSource: EntryDataSource?
     
     override func viewDidLoad() {
@@ -17,15 +18,16 @@ class KoreanEntryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToEntryDetail", sender: indexPath)
+        performSegue(withIdentifier: Self.goToEntryDetail, sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToEntryDetail",
+        if segue.identifier == Self.goToEntryDetail,
            let destination = segue.destination as? EntryDetailViewController,
            let sender = sender as? IndexPath {
             guard let entries = JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry) else {
-                fatalError()
+                showAlert(alertMessage: .jsonDecodingFailed, buttonMessage: .confirm)
+                return
             }
             let entry = entries[sender.row]
             destination.entry = entry

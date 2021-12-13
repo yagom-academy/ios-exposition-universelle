@@ -18,6 +18,8 @@
 		C19750F127624F5600A3E838 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19750F027624F5600A3E838 /* EntryDetailViewController.swift */; };
 		C1ECA3442760D91C002712D4 /* ParisExpoInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ECA3432760D91C002712D4 /* ParisExpoInformationViewController.swift */; };
 		C1ECA3462761EB30002712D4 /* JSONFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ECA3452761EB30002712D4 /* JSONFileName.swift */; };
+		C1F108E12767168C008F6ADA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F108E02767168C008F6ADA /* Alert.swift */; };
+		C1F108E32767216F008F6ADA /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F108E22767216F008F6ADA /* AlertMessage.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		C19750F027624F5600A3E838 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		C1ECA3432760D91C002712D4 /* ParisExpoInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoInformationViewController.swift; sourceTree = "<group>"; };
 		C1ECA3452761EB30002712D4 /* JSONFileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileName.swift; sourceTree = "<group>"; };
+		C1F108E02767168C008F6ADA /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		C1F108E22767216F008F6ADA /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,8 +85,9 @@
 				2534DD2B275DF4B700D01D3D /* KoreanEntry.swift */,
 				2534DD2D275E061C00D01D3D /* ParisExpoInformation.swift */,
 				2534DD42275EFAB000D01D3D /* JSONParser.swift */,
-				C1ECA3452761EB30002712D4 /* JSONFileName.swift */,
 				2534DD932762046100D01D3D /* EntryDataSource.swift */,
+				C1ECA3452761EB30002712D4 /* JSONFileName.swift */,
+				C1F108E22767216F008F6ADA /* AlertMessage.swift */,
 				C10E9AF02762F996000DABF7 /* Int+extension.swift */,
 			);
 			path = Model;
@@ -112,6 +117,7 @@
 				2534DD8F2761E2CD00D01D3D /* KoreanEntryTableViewController.swift */,
 				2534DD912761F58600D01D3D /* EntryTableViewCell.swift */,
 				C19750F027624F5600A3E838 /* EntryDetailViewController.swift */,
+				C1F108E02767168C008F6ADA /* Alert.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 			);
@@ -261,6 +267,8 @@
 				C1ECA3442760D91C002712D4 /* ParisExpoInformationViewController.swift in Sources */,
 				2534DD43275EFAB000D01D3D /* JSONParser.swift in Sources */,
 				2534DD2C275DF4B700D01D3D /* KoreanEntry.swift in Sources */,
+				C1F108E12767168C008F6ADA /* Alert.swift in Sources */,
+				C1F108E32767216F008F6ADA /* AlertMessage.swift in Sources */,
 				C10E9AF12762F996000DABF7 /* Int+extension.swift in Sources */,
 				2534DD2E275E061C00D01D3D /* ParisExpoInformation.swift in Sources */,
 				C19750F127624F5600A3E838 /* EntryDetailViewController.swift in Sources */,
