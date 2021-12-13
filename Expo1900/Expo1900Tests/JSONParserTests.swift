@@ -9,12 +9,17 @@ import XCTest
 
 class JSONParserTests: XCTestCase {
     func test_assetCatalog에_파일이_없는_경우_오류를_반환하는지() {
-        XCTAssertThrowsError(try JSONParser<ExpositionItem>.decode(fileName: "nonExist")) { error in
+        let jsonParser = JSONParser<[ExpositionItem]>()
+        
+        XCTAssertThrowsError(try jsonParser.decode(fileName: "nonExist")) { error in
             XCTAssertEqual(error as? ParsingError, ParsingError.fileNotFound)
         }
     }
 
-    func test_assetCatalog에_파일이_있는_경우_오류를_반환하지_않는지() {
-        XCTAssertNoThrow(try JSONParser<[ExpositionItem]>.decode(fileName: "items"))
+    func test_assetCatalog에_파일이_있는_경우_오류를_반환하지_않고_디코딩이_잘_되는지() {
+        let jsonParser = JSONParser<[ExpositionItem]>()
+        
+        XCTAssertNoThrow(try jsonParser.decode(fileName: "items"))
+        XCTAssertEqual(try jsonParser.decode(fileName: "items").first?.name, "직지심체요절")
     }
 }
