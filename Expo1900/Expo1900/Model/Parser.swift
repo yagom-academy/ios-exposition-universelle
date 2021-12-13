@@ -5,7 +5,7 @@ enum Parser {
     static private let decoder = JSONDecoder()
     
     static func parsedExpoInfo() throws -> ExpoInfo {
-        return try parsedInfo(name: "items", error: ParserError.failToParseItemsInfo) as ExpoInfo
+        return try parsedInfo(name: "exposition_universelle_1900", error: ParserError.failToParseExpoInfo) as ExpoInfo
     }
     
     static func parsedItemsInfo() throws -> [ItemInfo] {
