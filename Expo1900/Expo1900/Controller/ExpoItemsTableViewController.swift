@@ -9,7 +9,7 @@ import UIKit
 
 class ExpoItemsTableViewController: UIViewController {
     
-    @IBOutlet weak var expoItemTableVIew: UITableView!
+    @IBOutlet weak var expoItemTableView: UITableView!
     
     let expoItemsJSONFile = "items"
     var expoItems: ExpoItems = []
@@ -17,7 +17,7 @@ class ExpoItemsTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupExpoItemsTableView()
-        expoItemTableVIew.dataSource = self
+        expoItemTableView.dataSource = self
     }
     
     private func setupExpoItemsTableView() {
