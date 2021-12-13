@@ -18,14 +18,8 @@ class EntriesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
-        var contents = cell.defaultContentConfiguration()
-        contents.textProperties.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        contents.text = expositionEntries?[indexPath.row].name
-        contents.secondaryText = expositionEntries?[indexPath.row].shortDescription
-        contents.image = expositionEntries?[indexPath.row].image
-        contents.imageProperties.maximumSize.height = 50
-        contents.imageProperties.maximumSize.width = 50
-        cell.contentConfiguration = contents
+        let defaultContentConfiguration = cell.defaultContentConfiguration()
+        cell.contentConfiguration = getCellConfiguration(defaultContentConfiguration, cellForRowAt: indexPath)
         return cell
     }
     
@@ -39,5 +33,16 @@ class EntriesTableViewController: UITableViewController {
         entryDetailViewController.setData(image: image, description: description)
         entryDetailViewController.navigationItem.title = title
         navigationController?.pushViewController(entryDetailViewController, animated: true)
+    }
+    
+    private func getCellConfiguration(_ defaultConfiguration: UIListContentConfiguration, cellForRowAt indexPath: IndexPath) -> UIListContentConfiguration {
+        var configuration = defaultConfiguration
+        configuration.textProperties.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        configuration.text = expositionEntries?[indexPath.row].name
+        configuration.secondaryText = expositionEntries?[indexPath.row].shortDescription
+        configuration.image = expositionEntries?[indexPath.row].image
+        configuration.imageProperties.maximumSize.height = 50
+        configuration.imageProperties.maximumSize.width = 50
+        return configuration
     }
 }
