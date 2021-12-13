@@ -11,7 +11,7 @@ let decoder = JSONDecoder()
 
 func parseExpositionJSON() -> Exposition? {
     guard let expositionJSON: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-        fatalError()
+        fatalError("^^")
     }
     
     let decodedExpositionData = try? decoder.decode(Exposition.self, from: expositionJSON.data)
