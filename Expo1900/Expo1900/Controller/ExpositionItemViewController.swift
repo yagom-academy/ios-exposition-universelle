@@ -11,8 +11,8 @@ class ExpositionItemViewController: UIViewController {
     // MARK: - Properties
     private var expositionItem: ExpositionItem?
     
-    @IBOutlet private weak var itemImage: UIImageView!
-    @IBOutlet private weak var itemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemImage: UIImageView?
+    @IBOutlet private weak var itemDescriptionLabel: UILabel?
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -33,9 +33,9 @@ class ExpositionItemViewController: UIViewController {
     
     // MARK: - Methods
     private func setupUI() {
-        itemDescriptionLabel.numberOfLines = 0
-        itemDescriptionLabel.lineBreakStrategy = .hangulWordPriority
-        itemImage.contentMode = .scaleAspectFit
+        itemDescriptionLabel?.numberOfLines = 0
+        itemDescriptionLabel?.lineBreakStrategy = .hangulWordPriority
+        itemImage?.contentMode = .scaleAspectFit
     }
     
     private func updateUI() {
@@ -44,7 +44,7 @@ class ExpositionItemViewController: UIViewController {
         }
         
         self.title = expositionItem.name
-        itemImage.image = UIImage(named: expositionItem.imageName)
-        itemDescriptionLabel.text = expositionItem.description
+        itemImage?.image = UIImage(named: expositionItem.imageName)
+        itemDescriptionLabel?.text = expositionItem.description
     }
 }

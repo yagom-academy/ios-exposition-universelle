@@ -11,14 +11,14 @@ class ExpositionViewController: UIViewController {
     private var exposition: Exposition?
     private let jsonParser = JSONParser<Exposition>()
     
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var visitorsLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel?
+    @IBOutlet private weak var visitorsLabel: UILabel?
+    @IBOutlet private weak var locationLabel: UILabel?
+    @IBOutlet private weak var durationLabel: UILabel?
+    @IBOutlet private weak var descriptionLabel: UILabel?
     
-    @IBOutlet private weak var posterImage: UIImageView!
-    @IBOutlet private var flagImages: [UIImageView]!
+    @IBOutlet private weak var posterImage: UIImageView?
+    @IBOutlet private var flagImages: [UIImageView]?
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -43,12 +43,12 @@ class ExpositionViewController: UIViewController {
     }
     
     private func setupUI() {
-        titleLabel.font = .preferredFont(forTextStyle: .title2)
-        titleLabel.numberOfLines = 0
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.lineBreakStrategy = .hangulWordPriority
+        titleLabel?.font = .preferredFont(forTextStyle: .title2)
+        titleLabel?.numberOfLines = 0
+        descriptionLabel?.numberOfLines = 0
+        descriptionLabel?.lineBreakStrategy = .hangulWordPriority
         
-        flagImages.forEach { $0.contentMode = .scaleAspectFit }
+        flagImages?.forEach { $0.contentMode = .scaleAspectFit }
     }
     
     private func updateUI() {
@@ -58,14 +58,14 @@ class ExpositionViewController: UIViewController {
             return
         }
         
-        titleLabel.text = exposition.titleWithLineBreak
-        visitorsLabel.text = ": \(exposition.visitors.formattedString) 명"
-        locationLabel.text = ": \(exposition.location)"
-        durationLabel.text = ": \(exposition.duration)"
-        descriptionLabel.text = exposition.description
+        titleLabel?.text = exposition.titleWithLineBreak
+        visitorsLabel?.text = ": \(exposition.visitors.formattedString) 명"
+        locationLabel?.text = ": \(exposition.location)"
+        durationLabel?.text = ": \(exposition.duration)"
+        descriptionLabel?.text = exposition.description
         
-        posterImage.image = UIImage(named: AssetFileName.poster)
-        flagImages.forEach { $0.image = UIImage(named: AssetFileName.flag) }
+        posterImage?.image = UIImage(named: AssetFileName.poster)
+        flagImages?.forEach { $0.image = UIImage(named: AssetFileName.flag) }
     }
 }
 
