@@ -35,7 +35,7 @@ extension EntryListViewController {
         }
         
         let entry = expoEntries[indexPath.row]
-        cell.setUp(data: entry)
+        cell.setUpView(from: entry)
         
         return cell
     }

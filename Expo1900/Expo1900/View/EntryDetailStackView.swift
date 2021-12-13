@@ -13,7 +13,7 @@ class EntryDetailStackView: UIStackView {
         setUpStyle()
     }
     
-    func setUp(data: ExpoEntry) {
+    func setUpView(from data: ExpoEntry) {
         entryImageView.image = UIImage(named: data.imageName)
         entryDescriptionLabel.text = data.description
     }

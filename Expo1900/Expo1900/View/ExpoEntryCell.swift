@@ -14,7 +14,7 @@ class ExpoEntryCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setUp(data: ExpoEntry) {
+    func setUpView(from data: ExpoEntry) {
         entryTitle.text = data.name
         entryImage.image = UIImage(named: data.imageName)
         entryDescription.text = data.shortDescription

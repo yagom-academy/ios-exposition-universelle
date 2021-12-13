@@ -16,8 +16,8 @@ class InformationStackView: UIStackView {
         super.awakeFromNib()
         setUpStyle()
     }
-    
-    func setUp(data: ExpoInformation) {
+
+    func setUpView(from data: ExpoInformation) {
         titleLabel.text = data.title
         posterImageView.image = UIImage(named: "poster")
         visitorsLabel.text = "방문객 : " + DecimalNumberFormatter.string(for: data.visitors) + " 명"

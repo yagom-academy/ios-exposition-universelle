@@ -36,6 +36,6 @@ extension ViewController {
         guard let data = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else {
             return
         }
-        informationStackView.setUp(data: data)
+        informationStackView.setUpView(from: data)
     }
 }

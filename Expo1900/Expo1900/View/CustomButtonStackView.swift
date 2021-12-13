@@ -11,10 +11,10 @@ class CustomButtonStackView: UIStackView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUp()
+        setUpView()
     }
     
-    private func setUp() {
+    private func setUpView() {
         leftImageView.image = UIImage(named: "flag")
         rightImageView.image = UIImage(named: "flag")
         button.setTitle("한국의 출품작 보러가기", for: .normal)

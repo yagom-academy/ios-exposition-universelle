@@ -1,7 +1,7 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
-    @IBOutlet private weak var detailStackView: EntryDetailStackView!
+    @IBOutlet private weak var entryDetailStackView: EntryDetailStackView!
     
     var expoEntry: ExpoEntry?
     
@@ -15,7 +15,7 @@ class EntryDetailViewController: UIViewController {
             return
         }
         
-        detailStackView.setUp(data: data)
+        entryDetailStackView.setUpView(from: data)
         self.title = data.name
     }
     
