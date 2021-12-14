@@ -34,14 +34,8 @@ class ExpositionInformationViewController: UIViewController {
     }
     
     private func setExpositionInformation() {
-        guard let expositionInformationData = NSDataAsset(
-            name: "exposition_universelle_1900"
-        ) else {
-            return
-        }
-        let expositionInformation = try? JSONDecoder().decode(
-            ExpositionInformation.self,
-            from: expositionInformationData.data
+        let expositionInformation = JSONParser<ExpositionInformation>.decode(
+            from: "exposition_universelle_1900"
         )
         
         titleLabel.text = expositionInformation?.title

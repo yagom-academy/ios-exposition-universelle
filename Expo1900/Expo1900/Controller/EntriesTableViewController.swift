@@ -1,12 +1,7 @@
 import UIKit
 
 class EntriesTableViewController: UITableViewController {
-    private let expositionEntries: [ExpositionEntry]? = {
-        guard let entriesData = NSDataAsset(name: "items") else {
-            return nil
-        }
-        return try? JSONDecoder().decode([ExpositionEntry].self, from: entriesData.data)
-    }()
+    private let expositionEntries: [ExpositionEntry]? = JSONParser<[ExpositionEntry]>.decode(from: "items")
     
     override func viewDidLoad() {
         super.viewDidLoad()
