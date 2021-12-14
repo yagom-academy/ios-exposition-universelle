@@ -24,4 +24,9 @@ class ItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(of cell: ItemTableViewCell, by item: ExpositionItem) {
+        itemImageView.image = UIImage(named: item.imageName)
+        itemNameLabel.text = item.name
+        itemShortDescriptionLabel.text = item.shortDescription
+    }
 }
