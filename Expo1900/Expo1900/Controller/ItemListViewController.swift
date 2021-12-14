@@ -19,7 +19,7 @@ class ItemListViewController: UIViewController {
             showAlert(message: "데이터 전달에 실패했습니다.")
             return
         }
-        nextViewController.item = item
+        nextViewController.setModel(item)
     }
 }
 

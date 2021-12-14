@@ -2,10 +2,10 @@ import UIKit
 
 class ItemDetailViewController: UIViewController {
     
-    var item: ExpositionItem?
+    private var item: ExpositionItem?
     
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemDescription: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,13 @@ class ItemDetailViewController: UIViewController {
 }
 
 extension ItemDetailViewController {
+    func setModel(_ model: ExpositionItem) {
+        self.item = model
+    }
+    
     private func updateUI() {
         guard let expoItem = item else {
-            return
+            fatalError()
         }
         itemImageView.image = UIImage(named: expoItem.imageName)
         itemDescription.text = expoItem.description
