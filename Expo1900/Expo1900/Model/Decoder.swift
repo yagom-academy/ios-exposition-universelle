@@ -18,3 +18,13 @@ func parseExpositionJSON() throws -> Exposition? {
     
     return decodedExpositionData
 }
+
+func parseEntryJSON() throws -> Entry? {
+    guard let entryJSON: NSDataAsset = NSDataAsset(name: "items") else {
+        throw ExpositionError.notExistData
+    }
+    
+    let decodedEntryData = try? decoder.decode(Entry.self, from: entryJSON.data)
+    
+    return decodedEntryData
+}
