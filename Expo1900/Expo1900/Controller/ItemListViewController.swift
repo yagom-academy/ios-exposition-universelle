@@ -52,10 +52,10 @@ extension ItemListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else {
-            return UITableViewCell()
+            fatalError("Can not find Cell")
         }
         guard let item = items[index: indexPath.row] else {
-            return .init()
+            fatalError()
         }
         cell.configure(of: cell, by: item)
         

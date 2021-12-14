@@ -24,7 +24,6 @@ class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
 }
 
 extension MainViewController {

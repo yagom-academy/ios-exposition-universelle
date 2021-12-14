@@ -12,7 +12,6 @@ class ItemDetailViewController: UIViewController {
         setUpNavigationBar()
         updateUI()
     }
-    
 }
 
 extension ItemDetailViewController {
