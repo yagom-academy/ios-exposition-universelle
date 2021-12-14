@@ -20,14 +20,26 @@ class InformationStackView: UIStackView {
         setUpLabelFont()
     }
 
-    func setUpView(from data: ExpoInformation) {
+    func setUpView(from data: ExpoInformation) {        
         titleLabel.text = data.title
         posterImageView.image = UIImage(named: "poster")
         if let visitors = DecimalNumberFormatter.string(for: data.visitors) {
-            visitorsLabel.text = "방문객 : " + visitors + " 명"
+            let visitorsAttributedText = NSMutableAttributedString()
+                                            .setTextSize(string: "방문객", fontSize: .title3)
+                                            .setTextSize(string: " : \(visitors) 명" , fontSize: .body)
+            visitorsLabel.attributedText = visitorsAttributedText
         }
-        locationLabel.text = "개최지 : " + data.location
-        durationLabel.text = "개최 기간 : " + data.duration
+        
+        let locationAttributedText = NSMutableAttributedString()
+                                        .setTextSize(string: "개최지", fontSize: .title3)
+                                        .setTextSize(string: " : \(data.location)" , fontSize: .body)
+        locationLabel.attributedText = locationAttributedText
+        
+        let durationAttributedText = NSMutableAttributedString()
+                                        .setTextSize(string: "개최 기간", fontSize: .title3)
+                                        .setTextSize(string: " : \(data.duration)" , fontSize: .body)
+        durationLabel.attributedText = durationAttributedText
+        
         descriptionLabel.text = data.description
     }
     
