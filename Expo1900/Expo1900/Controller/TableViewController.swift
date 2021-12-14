@@ -5,23 +5,27 @@ class TableViewController: UITableViewController {
     var entryData = [Entry]()
     
     override func viewDidLoad() {
+        decodedEntryData()
         super.viewDidLoad()
     }
 }
 
 // MARK: - Table view data source
 extension TableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 // 임시 값
+        return entryData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = entryListTableView.dequeueReusableCell(withIdentifier: "entryCustomCell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        
+        if let customCell = cell as? EntryCustomTableViewCell {
+            customCell.entryNameLabel.text = entryData[indexPath.row].name
+            customCell.entryImageView.image = UIImage(named: entryData[indexPath.row].imageResourceLocator)
+            customCell.entryShortDescriptionLabel.text = entryData[indexPath.row].simpleDescription
+            
+            return customCell
+        }
         
         return cell
     }
@@ -29,7 +33,6 @@ extension TableViewController {
     func decodedEntryData() {
         do {
             entryData = try parseEntryJSON()
-            
         } catch ExpositionError.notExistData {
             print(ExpositionError.notExistData)
         } catch ExpositionError.failJSONParsing {
@@ -42,5 +45,7 @@ extension TableViewController {
 
 // MARK: - Table view delegation
 extension TableViewController {
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(180)
+    }
 }
