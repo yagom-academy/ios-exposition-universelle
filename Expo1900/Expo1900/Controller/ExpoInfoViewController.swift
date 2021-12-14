@@ -6,7 +6,7 @@ class ExpoInfoViewController: UIViewController {
     @IBOutlet private weak var visitorValueLabel: UILabel!
     @IBOutlet private weak var locationValueLabel: UILabel!
     @IBOutlet private weak var durationValueLabel: UILabel!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionTextView: DescriptionTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ extension ExpoInfoViewController {
             self.durationValueLabel.text = data.duration
             self.titleLabel.numberOfLines = .zero
             self.titleLabel.font = UIFont.expoInfoTitleFont
-            self.descriptionTextView.configure(with: data.description)
+            self.descriptionTextView.setAttribute(with: data.description)
         } catch let error {
             showAlert(message: error.localizedDescription)
         }

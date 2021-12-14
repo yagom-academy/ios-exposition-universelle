@@ -7,7 +7,7 @@ class ItemDetailViewController: UIViewController {
     private var itemInfo: ItemInfo
     
     @IBOutlet private weak var itemImageView: UIImageView!
-    @IBOutlet private weak var itemDescriptionTextView: UITextView!
+    @IBOutlet private weak var itemDescriptionTextView: DescriptionTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,6 @@ extension ItemDetailViewController {
     private func setViews() {
         self.title = itemInfo.name
         self.itemImageView.image = UIImage(named: "\(itemInfo.imageName)")
-        self.itemDescriptionTextView.configure(with: itemInfo.description)
+        self.itemDescriptionTextView.setAttribute(with: itemInfo.description)
     }
 }
