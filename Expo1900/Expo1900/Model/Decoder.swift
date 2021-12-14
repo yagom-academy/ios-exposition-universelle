@@ -9,9 +9,9 @@ import UIKit
 
 let decoder = JSONDecoder()
 
-func parseExpositionJSON() -> Exposition? {
+func parseExpositionJSON() throws -> Exposition? {
     guard let expositionJSON: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-        fatalError("^^")
+        throw ExpositionError.notExistData
     }
     
     let decodedExpositionData = try? decoder.decode(Exposition.self, from: expositionJSON.data)

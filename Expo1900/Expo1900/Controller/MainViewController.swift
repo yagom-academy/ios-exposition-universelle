@@ -26,15 +26,15 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadExpositionInformation()
+        try? loadExpositionInformation()
     }
     
-    func loadExpositionInformation() {
-        guard let expositionData = parseExpositionJSON() else {
-            return
+    func loadExpositionInformation() throws {
+        guard let expositionData = try parseExpositionJSON() else {
+            throw ExpositionError.failJSONParsing
         }
         
-        let visitorsCount = insertComma(at: expositionData.visitorsCount)
+        let visitorsCount = try insertComma(at: expositionData.visitorsCount)
         
         titleLabel.text = expositionData.title
         visitorsCountLabel.text = "방문객 : \(visitorsCount)"
@@ -43,14 +43,14 @@ class MainViewController: UIViewController {
         descriptionTextView.text = expositionData.description
     }
     
-    func insertComma(at value: Int) -> String {
+    func insertComma(at value: Int) throws -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
         guard let insertedCommaValue = numberFormatter.string(from: NSNumber(value: value)) else {
-            fatalError()
+            throw ExpositionError.failTypeCasting
         }
-        
+    
         return insertedCommaValue
     }
 }

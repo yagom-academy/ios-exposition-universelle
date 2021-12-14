@@ -11,6 +11,7 @@
 		0DED4B322760C60C0080E98B /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DED4B312760C60C0080E98B /* Exposition.swift */; };
 		48420267275DFDDC00422BFA /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48420266275DFDDC00422BFA /* Entry.swift */; };
 		53132D9F27676EEF004D61DC /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53132D9E27676EEF004D61DC /* Decoder.swift */; };
+		53132DA227683964004D61DC /* ExpositionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53132DA127683964004D61DC /* ExpositionError.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
@@ -24,6 +25,7 @@
 		0DED4B312760C60C0080E98B /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		48420266275DFDDC00422BFA /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		53132D9E27676EEF004D61DC /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		53132DA127683964004D61DC /* ExpositionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionError.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		53132DA02768390C004D61DC /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				53132DA127683964004D61DC /* ExpositionError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4C22589F404005FB0FD /* Info.plist */,
+				53132DA02768390C004D61DC /* Error */,
 				48420265275DFDCA00422BFA /* Model */,
 				48420264275DFDC400422BFA /* Controller */,
 				48420263275DFDBD00422BFA /* View */,
@@ -177,6 +188,7 @@
 				0D923B092768354E008B7B02 /* TableViewController.swift in Sources */,
 				0DED4B322760C60C0080E98B /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				53132DA227683964004D61DC /* ExpositionError.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				53132D9F27676EEF004D61DC /* Decoder.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
