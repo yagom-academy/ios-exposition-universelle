@@ -85,14 +85,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3672002F2767161100B8B245 /* Factory */ = {
-			isa = PBXGroup;
-			children = (
-				367200302767162900B8B245 /* ViewControllerFactory.swift */,
-			);
-			path = Factory;
-			sourceTree = "<group>";
-		};
 		3672FFC32760813A00B8B245 /* Expo1900Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +122,6 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				3672002F2767161100B8B245 /* Factory */,
 				DE6C31A027635BCE00C10B22 /* Utility */,
 				DE6C319D2763511200C10B22 /* Namespace */,
 				3672FFD12760D59100B8B245 /* Extension */,
@@ -152,6 +143,7 @@
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
 				DE9310072761D1EB00373866 /* ExpositionItemTableViewController.swift */,
 				C949CBBE2761E724009B4961 /* ExpositionItemViewController.swift */,
+				367200302767162900B8B245 /* ViewControllerFactory.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

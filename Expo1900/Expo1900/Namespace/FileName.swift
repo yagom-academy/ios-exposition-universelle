@@ -13,7 +13,3 @@ enum AssetFileName {
     static let poster = "poster"
     static let flag = "flag"
 }
-
-enum StoryboardFileName {
-    static let expositionItem = "ExpositionItem"
-}

@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum StoryboardIdentifierName {
-    static let expositionItem = "ExpositionItem"
-}
-
 enum CellIdentifierName {
     static let expositionItemCell = "ExpositionItemCell"
 }
