@@ -34,7 +34,13 @@ class ExpositionItemViewController: UIViewController {
     // MARK: - Methods
     private func setupUI() {
         itemDescriptionLabel?.numberOfLines = 0
-        itemDescriptionLabel?.lineBreakStrategy = .hangulWordPriority
+        
+        if #available(iOS 14.0, *) {
+            itemDescriptionLabel?.lineBreakStrategy = .hangulWordPriority
+        } else {
+            itemDescriptionLabel?.lineBreakMode = .byWordWrapping
+        }
+        
         itemImage?.contentMode = .scaleAspectFit
     }
     

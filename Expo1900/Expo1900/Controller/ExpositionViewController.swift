@@ -46,7 +46,12 @@ class ExpositionViewController: UIViewController {
         titleLabel?.font = .preferredFont(forTextStyle: .title2)
         titleLabel?.numberOfLines = 0
         descriptionLabel?.numberOfLines = 0
-        descriptionLabel?.lineBreakStrategy = .hangulWordPriority
+        
+        if #available(iOS 14.0, *) {
+            descriptionLabel?.lineBreakStrategy = .hangulWordPriority
+        } else {
+            descriptionLabel?.lineBreakMode = .byWordWrapping
+        }
         
         flagImages?.forEach { $0.contentMode = .scaleAspectFit }
     }

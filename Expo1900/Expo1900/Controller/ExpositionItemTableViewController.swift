@@ -51,14 +51,25 @@ extension ExpositionItemTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierName.expositionItemCell, for: indexPath)
         let expositionItem = expositionItems[indexPath.row]
+        let configuredCell = configureCell(of: cell, with: expositionItem)
         
-        var content = cell.defaultContentConfiguration()
-        
-        content.image = UIImage(named: expositionItem.imageName)
-        content.text = expositionItem.name
-        content.secondaryText = expositionItem.shortDescription
-        
-        cell.contentConfiguration = content
+        return configuredCell
+    }
+    
+    private func configureCell(of cell: UITableViewCell, with data: ExpositionItem) -> UITableViewCell {
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            
+            content.image = UIImage(named: data.imageName)
+            content.text = data.name
+            content.secondaryText = data.shortDescription
+            
+            cell.contentConfiguration = content
+        } else {
+            cell.imageView?.image = UIImage(named: data.imageName)
+            cell.textLabel?.text = data.name
+            cell.detailTextLabel?.text = data.shortDescription
+        }
         
         return cell
     }
