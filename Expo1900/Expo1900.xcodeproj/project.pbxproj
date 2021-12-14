@@ -18,6 +18,7 @@
 		A6421D6027682FB100977582 /* ItemList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6421D5F27682FB100977582 /* ItemList.storyboard */; };
 		A6421D6227682FBC00977582 /* ItemDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6421D6127682FBC00977582 /* ItemDetail.storyboard */; };
 		A6421D64276838A800977582 /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6421D63276838A800977582 /* Array+extension.swift */; };
+		A6421D6627683F9E00977582 /* JSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6421D6527683F9E00977582 /* JSONError.swift */; };
 		A6504EA62762094700A2B5BD /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6504EA42762094700A2B5BD /* ItemTableViewCell.swift */; };
 		A6504EA72762094700A2B5BD /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6504EA52762094700A2B5BD /* ItemTableViewCell.xib */; };
 		A6A5C93727608CB1000BB4D8 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A5C93627608CB1000BB4D8 /* JSONParser.swift */; };
@@ -52,6 +53,7 @@
 		A6421D5F27682FB100977582 /* ItemList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemList.storyboard; sourceTree = "<group>"; };
 		A6421D6127682FBC00977582 /* ItemDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemDetail.storyboard; sourceTree = "<group>"; };
 		A6421D63276838A800977582 /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
+		A6421D6527683F9E00977582 /* JSONError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONError.swift; sourceTree = "<group>"; };
 		A6504EA42762094700A2B5BD /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		A6504EA52762094700A2B5BD /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		A6A5C93627608CB1000BB4D8 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		A6421D6727683FA400977582 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				A6421D6527683F9E00977582 /* JSONError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		A6A85568275DEEAB00E1BD0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +169,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				A6421D6727683FA400977582 /* Error */,
 				9A87D56B2760B00500A5E569 /* Extension */,
 				A6A85568275DEEAB00E1BD0E /* Model */,
 				9A5AB3A8275DE83F00398FC3 /* View */,
@@ -295,6 +306,7 @@
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				A6A5C93727608CB1000BB4D8 /* JSONParser.swift in Sources */,
+				A6421D6627683F9E00977582 /* JSONError.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				A6A85567275DEEA800E1BD0E /* Exposition.swift in Sources */,
 				A6504EA62762094700A2B5BD /* ItemTableViewCell.swift in Sources */,
