@@ -14,6 +14,11 @@ class ViewController: UIViewController {
         updateUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func updateUI() {
         var modelForMainView = ModelForMainView()
         modelForMainView.setUpData()

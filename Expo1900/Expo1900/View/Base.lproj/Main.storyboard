@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                             <constraint firstAttribute="bottom" secondItem="a5x-Dr-lqO" secondAttribute="bottom" id="qrd-SB-MIn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="d7B-3A-SDG"/>
+                    <navigationItem key="navigationItem" title="메인" id="d7B-3A-SDG"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="JK7-4C-fiC" id="l02-4w-a6r"/>
                         <outlet property="durationLabel" destination="Wcc-3X-t7s" id="i2G-uH-Aj2"/>
@@ -131,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="76.811594202898561" y="118.52678571428571"/>
         </scene>
-        <!--Korean Art Work Table View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="qtd-yZ-0Oh">
             <objects>
                 <tableViewController id="drU-7R-CQM" customClass="KoreanArtWorkTableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                             <outlet property="delegate" destination="drU-7R-CQM" id="c9l-qA-pj2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="XGx-7V-fXF"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="XGx-7V-fXF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jd-3W-cSB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
