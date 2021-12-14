@@ -8,8 +8,9 @@
 import UIKit
 
 class EntryCustomTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var entryCustomCellUIImageView: UIImageView!
+    @IBOutlet weak var entryImageView: UIImageView!
+    @IBOutlet weak var entryNameLabel: UILabel!
+    @IBOutlet weak var entryShortDescriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
