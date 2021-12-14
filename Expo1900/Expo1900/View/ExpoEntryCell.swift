@@ -18,6 +18,11 @@ class ExpoEntryCell: UITableViewCell {
         entryDescription.text = data.shortDescription
     }
     
+    func setUpImageAccessibility(from data: ExpoEntry) {
+        entryImage.accessibilityLabel = data.name
+        entryImage.isAccessibilityElement = true
+    }
+    
     private func setUpAccessory() {
         accessoryType = .disclosureIndicator
     }
@@ -29,10 +34,5 @@ class ExpoEntryCell: UITableViewCell {
     private func setUpLabelFont() {
         entryTitle.setUpFont(forTextStyle: .title1)
         entryDescription.setUpFont(forTextStyle: .body)
-    }
-    
-    func setUpImageAccessibility(from data: ExpoEntry) {
-        entryImage.accessibilityLabel = data.name
-        entryImage.isAccessibilityElement = true
     }
 }
