@@ -48,4 +48,16 @@ extension TableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(180)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "descriptionVeiwSegue", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let descriptionView = segue.destination as? EntryDescriptionViewController {
+            if let index = sender as? Int {
+                descriptionView.entryData = entryData[index]
+            }
+        }
+    }
 }
