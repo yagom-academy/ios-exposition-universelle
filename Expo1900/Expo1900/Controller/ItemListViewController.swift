@@ -57,7 +57,7 @@ extension ItemListViewController: UITableViewDataSource {
         guard let item = items[index: indexPath.row] else {
             fatalError()
         }
-        cell.configure(of: cell, by: item)
+        cell.setModel(item)
         
         return cell
     }
