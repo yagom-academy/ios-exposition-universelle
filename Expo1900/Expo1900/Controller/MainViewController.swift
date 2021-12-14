@@ -26,10 +26,25 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        try? loadExpositionInformation()
+        loadExpositionInformation()
     }
-    
-    func loadExpositionInformation() throws {
+
+    func loadExpositionInformation() {
+        do {
+            try insertDataToView()
+            
+        } catch ExpositionError.failJSONParsing {
+            print(ExpositionError.failJSONParsing)
+        } catch ExpositionError.failTypeCasting {
+            print(ExpositionError.failTypeCasting)
+        } catch ExpositionError.notExistData {
+            print(ExpositionError.notExistData)
+        } catch {
+            print(error)
+        }
+    }
+
+    func insertDataToView() throws {
         guard let expositionData = try parseExpositionJSON() else {
             throw ExpositionError.failJSONParsing
         }
