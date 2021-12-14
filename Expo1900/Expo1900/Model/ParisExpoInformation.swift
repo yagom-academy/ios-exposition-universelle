@@ -14,15 +14,15 @@ struct ParisExpoInformation: Decodable {
     private let duration: String
     let description: String
     
-    var setVisitors: String {
+    var formattedVisitors: String {
         return "방문객 : \(visitors.decimalString) 명"
     }
     
-    var setLocation: String {
+    var formattedLocation: String {
         return "개최지 : \(location)"
     }
     
-    var setDuration: String {
+    var formattedDuration: String {
         return "개최 기간 : \(duration)"
     }
 }

@@ -25,9 +25,7 @@ class EntryDataSource: NSObject, UITableViewDataSource {
                   delegate?.showAlert(alertMessage: .loadingTableViewCellFailed, buttonMessage: .confirm)
                   return UITableViewCell()
         }
-        
         let entry = entries[indexPath.row]
-        
         cell.setCustomCellComponents(image: entry.imageName, title: entry.name, shortDescription: entry.shortDesc)
 
         return cell

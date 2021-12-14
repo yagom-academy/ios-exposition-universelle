@@ -55,7 +55,7 @@ class JSONParserTests: XCTestCase {
         let result = JSONParser<ParisExpoInformation>.decode(from: JSONFileName.parisExpoInformation)
         
         XCTAssertEqual(expectedTitle, result?.title)
-        XCTAssertEqual(expectedVisitors, result?.setVisitors)
+        XCTAssertEqual(expectedVisitors, result?.formattedVisitors)
     }
     
     func test_한국출품작_첫번째_JSON데이터가_정상적으로_파싱되는지() {

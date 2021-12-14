@@ -13,7 +13,6 @@ enum JSONParser<Element: Decodable> {
         guard let dataAsset = NSDataAsset(name: jsonName) else {
             return nil
         }
-        
         let decodedData = try? JSONDecoder().decode(Element.self, from: dataAsset.data)
         
         return decodedData
