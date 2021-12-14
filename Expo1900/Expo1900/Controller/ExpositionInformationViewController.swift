@@ -20,6 +20,7 @@ class ExpositionInformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setExpositionInformation()
+        setNavigationItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +31,6 @@ class ExpositionInformationViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        setNavigationItem()
     }
     
     private func setExpositionInformation() {
