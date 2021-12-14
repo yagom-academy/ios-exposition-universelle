@@ -33,6 +33,10 @@ class ExpositionViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     // MARK: - Methods
     private func fetchData() {
         do {
@@ -82,3 +86,4 @@ extension ExpositionViewController {
         self.navigationController?.pushViewController(expositionItemTableViewController, animated: true)
     }
 }
+
