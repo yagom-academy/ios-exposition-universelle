@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsCountLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
