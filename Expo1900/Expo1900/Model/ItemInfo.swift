@@ -7,7 +7,7 @@ struct ItemInfo: Decodable {
     let shortDescription: String
     let description: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name = "name"
         case imageName = "image_name"
         case shortDescription = "short_desc"
