@@ -57,17 +57,15 @@ extension EntryTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? EntryTableViewCell else {
+            return UITableViewCell()
+        }
         
         guard let entry = entries[index: indexPath.row] else {
             return cell
         }
         
-        content.text = entry.name
-        content.secondaryText = entry.shortDescription
-        content.image = UIImage(named: entry.imageName)
-        cell.contentConfiguration = content
+        cell.configureContent(from: entry)
         
         return cell
     }
