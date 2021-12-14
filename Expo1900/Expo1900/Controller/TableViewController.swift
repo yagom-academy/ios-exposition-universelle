@@ -17,8 +17,15 @@ extension TableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10 // 임시 값
     }
-
-    func decodedEntryData() throws -> Entry {
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = entryListTableView.dequeueReusableCell(withIdentifier: "entryCustomCell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+   
+        return cell
+    }
+    
+    func decodedEntryData() throws -> [Entry] {
         guard let entryData = try parseEntryJSON() else {
             throw ExpositionError.failJSONParsing
         }
