@@ -37,7 +37,7 @@ class EntriesTableViewController: UITableViewController {
         let title = expositionEntries?[indexPath.row].name
         let image = expositionEntries?[indexPath.row].image
         let description = expositionEntries?[indexPath.row].description
-        entryDetailViewController.setData(image: image, description: description)
+        entryDetailViewController.setEntryData(image: image, description: description)
         entryDetailViewController.navigationItem.title = title
         
         navigationController?.pushViewController(entryDetailViewController, animated: true)

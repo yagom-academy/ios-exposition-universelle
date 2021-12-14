@@ -17,7 +17,7 @@ class EntryDetailViewController: UIViewController {
         descriptionTextView.text = detailDescription
     }
     
-    func setData(image: UIImage?, description: String?) {
+    func setEntryData(image: UIImage?, description: String?) {
         self.image = image
         self.detailDescription = description
     }
