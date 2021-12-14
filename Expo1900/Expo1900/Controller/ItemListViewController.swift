@@ -54,7 +54,9 @@ extension ItemListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
-        let item = items[indexPath.row]
+        guard let item = items[index: indexPath.row] else {
+            return .init()
+        }
         cell.configure(of: cell, by: item)
         
         return cell
@@ -63,7 +65,8 @@ extension ItemListViewController: UITableViewDataSource {
 
 extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ItemDetailView", sender: items[indexPath.row])
+        performSegue(withIdentifier: "ItemDetailView", sender: items[index: indexPath.row])
         tableView.deselectRow(at: indexPath, animated: false)
     }
 }
+
