@@ -2,13 +2,13 @@ import UIKit
 
 class ItemListViewController: UIViewController {
     private var items = [ExpositionItem]()
-    @IBOutlet private weak var itemListTableVIew: UITableView!
+    @IBOutlet private weak var itemListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBar()
-        itemListTableVIew.delegate = self
-        itemListTableVIew.dataSource = self
+        itemListTableView.delegate = self
+        itemListTableView.dataSource = self
         registerNib()
         parsing()
     }
@@ -29,7 +29,7 @@ extension ItemListViewController {
     }
     
     private func parsing() {
-        let parsedResult = JSONParse<[ExpositionItem]>.decode(fileName: FileName.items)
+        let parsedResult = JSONParser<[ExpositionItem]>.decode(fileName: FileName.items)
         
         switch parsedResult {
         case .failure(let parsingError):
@@ -41,7 +41,7 @@ extension ItemListViewController {
     
     private func registerNib() {
         let nib = UINib(nibName: "ItemTableViewCell", bundle: nil)
-        itemListTableVIew.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
+        itemListTableView.register(nib, forCellReuseIdentifier: "ItemTableViewCell")
     }
 }
 

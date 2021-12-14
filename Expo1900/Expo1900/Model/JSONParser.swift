@@ -11,7 +11,7 @@ enum JSONError: LocalizedError {
     }
 }
 
-enum JSONParse<T: Decodable> {
+enum JSONParser<T: Decodable> {
     static func decode(fileName: String) -> Result<T, JSONError>  {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: fileName) else {
             return .failure(.notFound)
