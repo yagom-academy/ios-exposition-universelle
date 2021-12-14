@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		367200312767162900B8B245 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367200302767162900B8B245 /* ViewControllerFactory.swift */; };
+		36720038276877CE00B8B245 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36720037276877CE00B8B245 /* ExpositionItemTableViewCell.swift */; };
 		3672FFC52760813A00B8B245 /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672FFC42760813A00B8B245 /* JSONParserTests.swift */; };
 		3672FFCB276081BF00B8B245 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDE275F7D4A00373866 /* JSONParser.swift */; };
 		3672FFCC276081C300B8B245 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDC275E0DD800373866 /* Exposition.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		367200302767162900B8B245 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		36720037276877CE00B8B245 /* ExpositionItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemTableViewCell.swift; sourceTree = "<group>"; };
 		3672FFC22760813A00B8B245 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3672FFC42760813A00B8B245 /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		3672FFCF2760A28500B8B245 /* ExpositionItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExpositionItem.storyboard; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		367200322768758900B8B245 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36720037276877CE00B8B245 /* ExpositionItemTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3672FFC32760813A00B8B245 /* Expo1900Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		C9C0DD21275E09F8009931D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				367200322768758900B8B245 /* Cell */,
 				C79FF4BA2589F401005FB0FD /* Exposition.storyboard */,
 				DE930FE327609EFE00373866 /* ExpositionItemTable.storyboard */,
 				3672FFCF2760A28500B8B245 /* ExpositionItem.storyboard */,
@@ -315,6 +326,7 @@
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */,
 				DE6C319F2763515E00C10B22 /* FileName.swift in Sources */,
+				36720038276877CE00B8B245 /* ExpositionItemTableViewCell.swift in Sources */,
 				DE74A0DE27685CE500E34C80 /* NavigationController.swift in Sources */,
 				367200312767162900B8B245 /* ViewControllerFactory.swift in Sources */,
 				DE9310082761D1EB00373866 /* ExpositionItemTableViewController.swift in Sources */,
