@@ -25,7 +25,7 @@ class EntriesTableViewController: UITableViewController {
             for: indexPath
         )
         let defaultContentConfiguration = cell.defaultContentConfiguration()
-        cell.contentConfiguration = cellConfiguration(
+        cell.contentConfiguration = setCellConfiguration(
             from: defaultContentConfiguration,
             cellForRowAt: indexPath
         )
@@ -48,7 +48,7 @@ class EntriesTableViewController: UITableViewController {
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
     
-    private func cellConfiguration(
+    private func setCellConfiguration(
         from defaultConfiguration: UIListContentConfiguration,
         cellForRowAt indexPath: IndexPath
     ) -> UIListContentConfiguration {
