@@ -21,7 +21,7 @@ class InformationStackView: UIStackView {
     }
 
     func setUpView(from data: ExpoInformation) {        
-        titleLabel.text = data.title
+        titleLabel.text = data.title.replacingOccurrences(of: "(", with: "\n(")
         posterImageView.image = UIImage(named: "poster")
         if let visitors = DecimalNumberFormatter.string(for: data.visitors) {
             let visitorsAttributedText = NSMutableAttributedString()
