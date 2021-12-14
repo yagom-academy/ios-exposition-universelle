@@ -53,9 +53,9 @@ extension ExpositionViewController {
     
     private func setLabels(from exposition: Exposition) {
         titleLabel.text = exposition.title
-        visitorsLabel.text = exposition.visitorsDescription
-        locationLabel.text = exposition.locationDescription
-        durationLabel.text = exposition.durationDescription
+        visitorsLabel.attributedText = exposition.visitorsDescription
+        locationLabel.attributedText = exposition.locationDescription
+        durationLabel.attributedText = exposition.durationDescription
         descriptionLabel.text = exposition.description
     }
 }

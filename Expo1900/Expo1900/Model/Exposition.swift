@@ -7,14 +7,20 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
-    var visitorsDescription: String {
-        return "방문객 : \(visitors.decimalString) 명"
+    var visitorsDescription: NSMutableAttributedString {
+        return NSMutableAttributedString()
+            .title3(text: "방문객")
+            .body(text: " : \(visitors.decimalString) 명")
     }
-    var locationDescription: String {
-        return "개최지 : \(location)"
+    var locationDescription: NSMutableAttributedString {
+        return NSMutableAttributedString()
+            .title3(text: "개최지")
+            .body(text: " : \(location)")
     }
-    var durationDescription: String {
-        return "개최 기간 : \(duration)"
+    var durationDescription: NSMutableAttributedString {
+        return NSMutableAttributedString()
+            .title3(text: "개최 기간")
+            .body(text: " : \(duration)")
     }
     
     init() throws {
