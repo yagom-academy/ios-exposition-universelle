@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ExpositionIntroViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,15 +20,14 @@ class ViewController: UIViewController {
     }
     
     func updateUI() {
-        var modelForMainView = ModelForMainView()
+        var modelForMainView = ExpositionViewModel()
         modelForMainView.setUpData()
         
         titleLabel.text = modelForMainView.title
-        imageView.image = modelForMainView.image
+        imageView.image = UIImage(named: modelForMainView.image)
         visitorCountLabel.text = modelForMainView.visitors
         locationLabel.text = modelForMainView.location
         durationLabel.text = modelForMainView.duration
         descriptionLabel.text = modelForMainView.description
     }
 }
-
