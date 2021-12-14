@@ -20,7 +20,6 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		EA0EFB9F2763602E00573819 /* ExpositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0EFB9E2763602E00573819 /* ExpositionViewModel.swift */; };
-		EA0EFC29276734C600573819 /* ExpositionItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0EFC28276734C600573819 /* ExpositionItemData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA0EFB9E2763602E00573819 /* ExpositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionViewModel.swift; sourceTree = "<group>"; };
-		EA0EFC28276734C600573819 /* ExpositionItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +58,6 @@
 				183868A0275EEDB200C8F5BB /* ExpositionItem.swift */,
 				EA0EFB9E2763602E00573819 /* ExpositionViewModel.swift */,
 				18A004932763829600F80B1A /* JsonParser.swift */,
-				EA0EFC28276734C600573819 /* ExpositionItemData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,7 +216,6 @@
 				18A004942763829600F80B1A /* JsonParser.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				EA0EFB9F2763602E00573819 /* ExpositionViewModel.swift in Sources */,
-				EA0EFC29276734C600573819 /* ExpositionItemData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
