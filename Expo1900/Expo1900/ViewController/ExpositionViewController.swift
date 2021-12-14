@@ -30,6 +30,10 @@ class ExpositionViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 }
 
 //MARK: - Private Methods
