@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
             throw ExpositionError.failJSONParsing
         }
         
-        let visitorsCount = try insertComma(at: expositionData.visitorsCount)
+        let visitorsCount = try addComma(at: expositionData.visitorsCount)
         
         titleLabel.text = expositionData.title
         visitorsCountLabel.text = "방문객 : \(visitorsCount)"
@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         descriptionTextView.text = expositionData.description
     }
     
-    func insertComma(at value: Int) throws -> String {
+    func addComma(at value: Int) throws -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
