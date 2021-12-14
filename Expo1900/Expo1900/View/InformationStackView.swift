@@ -14,7 +14,10 @@ class InformationStackView: UIStackView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpStyle()
+        setUpStackViewSpacing()
+        setUpLabelAlignment()
+        setUpLabelTextLines()
+        setUpLabelFont()
     }
 
     func setUpView(from data: ExpoInformation) {
@@ -28,17 +31,23 @@ class InformationStackView: UIStackView {
         descriptionLabel.text = data.description
     }
     
-    private func setUpStyle() {
+    private func setUpStackViewSpacing() {
         spacing = 10
-        
+    }
+    
+    private func setUpLabelAlignment() {
         titleLabel.textAlignment = .center
         visitorsLabel.textAlignment = .center
         locationLabel.textAlignment = .center
         durationLabel.textAlignment = .center
-        
+    }
+    
+    private func setUpLabelTextLines() {
         titleLabel.numberOfLines = 2
         descriptionLabel.numberOfLines = 0
-        
+    }
+    
+    private func setUpLabelFont() {
         titleLabel.font = .preferredFont(forTextStyle: .title1)
     }
 }
