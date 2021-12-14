@@ -27,6 +27,7 @@ class EntryListViewController: UITableViewController {
         
         let entry = ExpoEntries.list[indexPath.row]
         cell.setUpView(from: entry)
+        cell.setUpImageAccessibility(from: entry)
         
         return cell
     }

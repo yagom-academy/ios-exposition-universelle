@@ -1,17 +1,15 @@
 import UIKit
 
 class ExpoEntryCell: UITableViewCell {
-    @IBOutlet weak var entryTitle: UILabel!
-    @IBOutlet weak var entryDescription: UILabel!
+    @IBOutlet weak var entryTitle: DynamicTypeLabel!
+    @IBOutlet weak var entryDescription: DynamicTypeLabel!
     @IBOutlet weak var entryImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpStyle()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        setUpAccessory()
+        setUpLabelTextLines()
+        setUpLabelFont()
     }
 
     func setUpView(from data: ExpoEntry) {
@@ -20,9 +18,21 @@ class ExpoEntryCell: UITableViewCell {
         entryDescription.text = data.shortDescription
     }
     
-    private func setUpStyle() {
-        entryTitle.font = .preferredFont(forTextStyle: .title1)
-        entryDescription.numberOfLines = 0
+    private func setUpAccessory() {
         accessoryType = .disclosureIndicator
+    }
+    
+    private func setUpLabelTextLines() {
+        entryDescription.numberOfLines = 0
+    }
+    
+    private func setUpLabelFont() {
+        entryTitle.setUpFont(forTextStyle: .title1)
+        entryDescription.setUpFont(forTextStyle: .body)
+    }
+    
+    func setUpImageAccessibility(from data: ExpoEntry) {
+        entryImage.accessibilityLabel = data.name
+        entryImage.isAccessibilityElement = true
     }
 }
