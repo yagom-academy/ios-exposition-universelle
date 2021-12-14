@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gpm-WY-8XJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gpm-WY-8XJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,10 +33,10 @@
                                                 <rect key="frame" x="87" y="103" width="240" height="128"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-BY-gWn">
-                                                <rect key="frame" x="146.5" y="272" width="121" height="102"/>
+                                                <rect key="frame" x="15" y="272" width="384" height="102"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DVz-lS-HaU">
-                                                        <rect key="frame" x="11.5" y="0.0" width="98.5" height="24"/>
+                                                        <rect key="frame" x="143" y="0.0" width="98.5" height="24"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방문객" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgS-Fa-cbs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="52" height="24"/>
@@ -53,7 +53,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="N2Y-Ad-WdE">
-                                                        <rect key="frame" x="11.5" y="39" width="98.5" height="24"/>
+                                                        <rect key="frame" x="143" y="39" width="98.5" height="24"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvm-RJ-s9G">
                                                                 <rect key="frame" x="0.0" y="0.0" width="52" height="24"/>
@@ -70,7 +70,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b9f-wJ-9FC">
-                                                        <rect key="frame" x="0.0" y="78" width="121" height="24"/>
+                                                        <rect key="frame" x="131.5" y="78" width="121" height="24"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개최 기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hy-1h-ORt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="74.5" height="24"/>
@@ -125,17 +125,18 @@
                                             <constraint firstItem="8yU-xY-8gX" firstAttribute="leading" secondItem="4F0-d4-HwR" secondAttribute="leading" constant="30" id="83J-Mh-JeK"/>
                                             <constraint firstItem="0n5-FG-yqm" firstAttribute="leading" secondItem="4F0-d4-HwR" secondAttribute="leading" constant="20" id="DNK-TE-W7F"/>
                                             <constraint firstItem="hMd-Zo-bkh" firstAttribute="centerX" secondItem="0n5-FG-yqm" secondAttribute="centerX" id="FQt-HN-ePy"/>
-                                            <constraint firstItem="GkB-BY-gWn" firstAttribute="centerX" secondItem="hMd-Zo-bkh" secondAttribute="centerX" id="MSg-HA-FUr"/>
                                             <constraint firstItem="hMd-Zo-bkh" firstAttribute="top" secondItem="0n5-FG-yqm" secondAttribute="bottom" constant="10" id="On7-yl-Ykh"/>
                                             <constraint firstAttribute="bottom" secondItem="8yU-xY-8gX" secondAttribute="bottom" constant="5" id="Onq-UI-5TP"/>
                                             <constraint firstItem="0n5-FG-yqm" firstAttribute="top" secondItem="4F0-d4-HwR" secondAttribute="top" constant="47" id="Tvb-If-OdZ"/>
                                             <constraint firstItem="D7o-0C-WJx" firstAttribute="top" secondItem="GkB-BY-gWn" secondAttribute="bottom" constant="10" id="Xab-o1-Eg8"/>
+                                            <constraint firstAttribute="trailing" secondItem="GkB-BY-gWn" secondAttribute="trailing" constant="15" id="YNt-QG-5Sb"/>
                                             <constraint firstItem="D7o-0C-WJx" firstAttribute="leading" secondItem="4F0-d4-HwR" secondAttribute="leading" constant="20" id="d4v-2t-pSv"/>
                                             <constraint firstAttribute="trailing" secondItem="8yU-xY-8gX" secondAttribute="trailing" constant="30" id="gSP-FM-3Yl"/>
                                             <constraint firstAttribute="trailing" secondItem="0n5-FG-yqm" secondAttribute="trailing" constant="20" id="gT5-oW-eMh"/>
                                             <constraint firstItem="GkB-BY-gWn" firstAttribute="top" secondItem="hMd-Zo-bkh" secondAttribute="bottom" constant="10" id="h6h-zI-IPO"/>
                                             <constraint firstAttribute="trailing" secondItem="D7o-0C-WJx" secondAttribute="trailing" constant="20" id="h7Y-0D-R9F"/>
                                             <constraint firstItem="8yU-xY-8gX" firstAttribute="top" secondItem="D7o-0C-WJx" secondAttribute="bottom" constant="5" id="u19-x0-4Q7"/>
+                                            <constraint firstItem="GkB-BY-gWn" firstAttribute="leading" secondItem="4F0-d4-HwR" secondAttribute="leading" constant="15" id="zFJ-9f-63v"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -163,10 +164,13 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="D7o-0C-WJx" id="dRk-XQ-TsU"/>
                         <outlet property="durationLabel" destination="W7x-kW-vwl" id="fXq-Ye-QVA"/>
+                        <outlet property="durationTitleLabel" destination="7hy-1h-ORt" id="7D5-0r-NVD"/>
                         <outlet property="locationLabel" destination="KBn-RI-R6M" id="iPS-up-rCe"/>
+                        <outlet property="locationTitleLabel" destination="Wvm-RJ-s9G" id="QYb-98-osL"/>
                         <outlet property="posterImage" destination="hMd-Zo-bkh" id="ZZM-UK-rsP"/>
                         <outlet property="titleLabel" destination="0n5-FG-yqm" id="O78-rp-PLr"/>
                         <outlet property="visitorsLabel" destination="GuA-Xb-WtR" id="eTq-j6-ZgZ"/>
+                        <outlet property="visitorsTitleLabel" destination="tgS-Fa-cbs" id="n5C-4h-t7j"/>
                         <outletCollection property="flagImages" destination="J02-og-hjJ" collectionClass="NSMutableArray" id="VqC-el-4mO"/>
                         <outletCollection property="flagImages" destination="Qdw-I4-N9H" collectionClass="NSMutableArray" id="y3b-2b-VGw"/>
                     </connections>

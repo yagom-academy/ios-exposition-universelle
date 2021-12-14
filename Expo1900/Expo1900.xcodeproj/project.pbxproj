@@ -27,6 +27,7 @@
 		C949CBBF2761E724009B4961 /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949CBBE2761E724009B4961 /* ExpositionItemViewController.swift */; };
 		DE6C319F2763515E00C10B22 /* FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6C319E2763515E00C10B22 /* FileName.swift */; };
 		DE74A0DE27685CE500E34C80 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE74A0DD27685CE500E34C80 /* NavigationController.swift */; };
+		DE74A0E02768BB9E00E34C80 /* UILabel+DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE74A0DF2768BB9E00E34C80 /* UILabel+DynamicType.swift */; };
 		DE930FDD275E0DD800373866 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDC275E0DD800373866 /* Exposition.swift */; };
 		DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDE275F7D4A00373866 /* JSONParser.swift */; };
 		DE930FE2275F82F000373866 /* ParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FE1275F82F000373866 /* ParsingError.swift */; };
@@ -64,6 +65,7 @@
 		C949CBBE2761E724009B4961 /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
 		DE6C319E2763515E00C10B22 /* FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileName.swift; sourceTree = "<group>"; };
 		DE74A0DD27685CE500E34C80 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		DE74A0DF2768BB9E00E34C80 /* UILabel+DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+DynamicType.swift"; sourceTree = "<group>"; };
 		DE930FDC275E0DD800373866 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		DE930FDE275F7D4A00373866 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		DE930FE1275F82F000373866 /* ParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingError.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				3672FFD22760D62600B8B245 /* Int+Formatter.swift */,
+				DE74A0DF2768BB9E00E34C80 /* UILabel+DynamicType.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				3696A863275E119900A6012A /* ExpositionItem.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */,
+				DE74A0E02768BB9E00E34C80 /* UILabel+DynamicType.swift in Sources */,
 				DE6C319F2763515E00C10B22 /* FileName.swift in Sources */,
 				36720038276877CE00B8B245 /* ExpositionItemTableViewCell.swift in Sources */,
 				DE74A0DE27685CE500E34C80 /* NavigationController.swift in Sources */,

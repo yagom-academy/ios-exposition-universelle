@@ -12,8 +12,11 @@ class ExpositionViewController: UIViewController {
     private let jsonParser = JSONParser<Exposition>()
     
     @IBOutlet private weak var titleLabel: UILabel?
+    @IBOutlet private weak var visitorsTitleLabel: UILabel?
     @IBOutlet private weak var visitorsLabel: UILabel?
+    @IBOutlet private weak var locationTitleLabel: UILabel?
     @IBOutlet private weak var locationLabel: UILabel?
+    @IBOutlet private weak var durationTitleLabel: UILabel?
     @IBOutlet private weak var durationLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
     
@@ -47,8 +50,19 @@ class ExpositionViewController: UIViewController {
     }
     
     private func setupUI() {
-        titleLabel?.font = .preferredFont(forTextStyle: .title2)
+        titleLabel?.setDynamicType(textStyle: .title2)
         titleLabel?.numberOfLines = 0
+        
+        [visitorsTitleLabel, durationTitleLabel, locationTitleLabel].forEach { label in
+            label?.setDynamicType(textStyle: .headline)
+        }
+        
+        [visitorsLabel, durationLabel, locationLabel].forEach { label in
+            label?.setDynamicType(textStyle: .subheadline)
+            label?.numberOfLines = 0
+        }
+        
+        descriptionLabel?.setDynamicType(textStyle: .body)
         descriptionLabel?.numberOfLines = 0
         
         if #available(iOS 14.0, *) {
