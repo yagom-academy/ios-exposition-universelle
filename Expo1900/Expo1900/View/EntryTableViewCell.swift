@@ -11,4 +11,8 @@ class EntryTableViewCell: UITableViewCell {
         entryNameLabel.text = entry.name
         entryShortDescriptionLabel.text = entry.shortDescription
     }
+    
+    func configureAccessibility(from entry: Entry) {
+        self.accessibilityHint = "누르면 \(entry.name) 상세정보 화면으로 이동합니다"
+    }
 }

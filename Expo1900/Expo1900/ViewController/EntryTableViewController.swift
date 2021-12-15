@@ -66,6 +66,7 @@ extension EntryTableViewController {
         }
         
         cell.configureContent(from: entry)
+        cell.configureAccessibility(from: entry)
         
         return cell
     }

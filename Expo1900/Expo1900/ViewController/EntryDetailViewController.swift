@@ -18,6 +18,7 @@ class EntryDetailViewController: UIViewController {
         
         setViewsFromEntry()
         setNavigationTitle()
+        setAccessiblity()
     }
 }
 
@@ -25,12 +26,21 @@ class EntryDetailViewController: UIViewController {
 
 extension EntryDetailViewController {
     private func setViewsFromEntry() {
-        guard let entry = entry else { return }
+        guard let entry = entry else {
+            return
+        }
         entryImageView.image = UIImage(named: entry.imageName)
         entryDescriptionLabel.text = entry.description
     }
     
     private func setNavigationTitle() {
         navigationItem.title = entry?.name
+    }
+    
+    private func setAccessiblity() {
+        guard let entry = entry else {
+            return
+        }
+        entryImageView.image?.accessibilityLabel = entry.name
     }
 }
