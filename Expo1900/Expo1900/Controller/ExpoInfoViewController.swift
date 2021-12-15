@@ -7,6 +7,7 @@ class ExpoInfoViewController: UIViewController {
     @IBOutlet private weak var locationValueLabel: UILabel!
     @IBOutlet private weak var durationValueLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: DescriptionTextView!
+    @IBOutlet weak var transitionButton: UIButton!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.portrait]
@@ -42,7 +43,17 @@ extension ExpoInfoViewController {
             self.durationValueLabel.text = data.duration
             self.titleLabel.numberOfLines = .zero
             self.titleLabel.font = UIFont.expoInfoTitleFont
+            self.titleLabel.adjustsFontForContentSizeCategory = true
+            self.visitorValueLabel.font = UIFont.expoInfoBodyFont
+            self.visitorValueLabel.adjustsFontForContentSizeCategory = true
+            self.locationValueLabel.font = UIFont.expoInfoBodyFont
+            self.locationValueLabel.adjustsFontForContentSizeCategory = true
+            self.durationValueLabel.font = UIFont.expoInfoBodyFont
+            self.durationValueLabel.adjustsFontForContentSizeCategory = true
             self.descriptionTextView.setAttribute(with: data.description)
+            self.transitionButton.titleLabel?.font = .expoInfoBodyFont
+            self.transitionButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        
         } catch let error {
             showAlert(message: error.localizedDescription)
         }

@@ -18,6 +18,7 @@ class DescriptionTextView: UITextView {
         self.isEditable = false
         self.isSelectable = false
         self.isScrollEnabled = false
+        self.adjustsFontForContentSizeCategory = true
     }
     
     func setAttribute(with text: String) {
