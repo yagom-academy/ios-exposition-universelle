@@ -28,5 +28,6 @@ class ItemTableViewCell: UITableViewCell {
         itemImageView.image = UIImage(named: item.imageName)
         itemNameLabel.text = item.name
         itemShortDescriptionLabel.text = item.shortDescription
+        itemImageView.accessibilityLabel = item.name
     }
 }
