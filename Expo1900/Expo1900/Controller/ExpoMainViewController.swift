@@ -7,7 +7,7 @@
 import UIKit
 
 final class ExpoMainViewController: UIViewController {
-
+    
     private enum LabelTitle {
         static let visitor = "방문객"
         static let location = "개최지"
@@ -30,6 +30,16 @@ final class ExpoMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupExpoMainView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func setupExpoMainView() {
