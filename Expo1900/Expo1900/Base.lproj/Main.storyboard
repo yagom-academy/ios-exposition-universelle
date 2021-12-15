@@ -59,17 +59,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuu-gh-C93">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wuu-gh-C93">
                                                 <rect key="frame" x="68.5" y="368.5" width="253" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="BVb-yf-Hd5">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" secondItem="BVb-yf-Hd5" secondAttribute="height" multiplier="1:1" id="b6l-bZ-MDc"/>
                                                             <constraint firstAttribute="width" constant="50" id="hks-rQ-Yuv"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N33-sf-bRi">
-                                                        <rect key="frame" x="50" y="0.0" width="153" height="50"/>
+                                                        <rect key="frame" x="50" y="9.5" width="153" height="31"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
                                                         <connections>
@@ -80,12 +81,10 @@
                                                         <rect key="frame" x="203" y="0.0" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="e0j-Un-3Im"/>
+                                                            <constraint firstAttribute="width" secondItem="vSe-xm-3ax" secondAttribute="height" multiplier="1:1" id="mWz-jS-43q"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Gc6-uT-M32"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
