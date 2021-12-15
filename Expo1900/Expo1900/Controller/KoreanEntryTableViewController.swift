@@ -9,13 +9,12 @@ import UIKit
 
 class KoreanEntryTableViewController: UITableViewController, AlertDelegate {
     static let segueToEntryDetail = "goToEntryDetail"
-    private var dataSource: EntryDataSource?
+    private let dataSource = EntryDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = EntryDataSource()
         tableView.dataSource = dataSource
-        dataSource?.delegate = self
+        dataSource.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
