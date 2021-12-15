@@ -20,5 +20,6 @@ class EntryListButtonStackView: UIStackView {
         
         entryListButton.setTitle("한국의 출품작 보러가기", for: .normal)
         entryListButton.titleLabel?.setUpDynamicFont(forTextStyle: .body)
+        entryListButton.titleLabel?.numberOfLines = 1
     }
 }
