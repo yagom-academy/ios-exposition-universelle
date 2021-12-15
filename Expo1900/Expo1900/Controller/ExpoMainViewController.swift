@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpoMainViewController: UIViewController {
+final class ExpoMainViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!

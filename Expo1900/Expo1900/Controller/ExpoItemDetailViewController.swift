@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpoItemDetailViewController: UIViewController {
+final class ExpoItemDetailViewController: UIViewController {
     
     @IBOutlet weak var itemDetailImageView: UIImageView!
     @IBOutlet weak var itemDetailExplanationTextView: UITextView!

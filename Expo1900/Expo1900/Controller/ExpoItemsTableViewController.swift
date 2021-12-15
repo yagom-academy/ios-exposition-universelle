@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpoItemsTableViewController: UIViewController {
+final class ExpoItemsTableViewController: UIViewController {
     
     @IBOutlet weak var expoItemTableView: UITableView!
     

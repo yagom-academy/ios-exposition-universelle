@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpoItemTableViewCell: UITableViewCell {
+final class ExpoItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var expoItemImageView: UIImageView!
     @IBOutlet weak var expoItemNameLabel: UILabel!
