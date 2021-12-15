@@ -11,8 +11,13 @@ protocol AlertDelegate: UIViewController {
     func showAlert(alertMessage: AlertMessage, buttonMessage: AlertMessage)
 }
 
+extension NSObject {
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+}
+
 class EntryDataSource: NSObject, UITableViewDataSource {
-    static let entryCell = "entryCell"
     weak var delegate: AlertDelegate?
     let entries: [KoreanEntry]
     
@@ -29,7 +34,7 @@ class EntryDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.entryCell, for: indexPath) as? EntryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EntryTableViewCell.reuseIdentifier, for: indexPath) as? EntryTableViewCell else {
             return UITableViewCell()
         }
         let entry = entries[indexPath.row]
