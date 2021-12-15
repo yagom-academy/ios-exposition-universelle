@@ -53,7 +53,15 @@ extension ExpoInfoViewController {
             self.descriptionTextView.setAttribute(with: data.description)
             self.transitionButton.titleLabel?.font = .expoInfoBodyFont
             self.transitionButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        
+            self.transitionButton.titleLabel?.numberOfLines = 0
+            self.transitionButton.titleLabel?.textAlignment = .center
+            
+            guard let transitionButtonTitleLabelHeightAnchor = self.transitionButton.titleLabel?.heightAnchor else {
+                return
+            }
+            self.transitionButton.translatesAutoresizingMaskIntoConstraints = false
+            self.transitionButton.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+            self.transitionButton.heightAnchor.constraint(equalTo: transitionButtonTitleLabelHeightAnchor).isActive = true
         } catch let error {
             showAlert(message: error.localizedDescription)
         }
