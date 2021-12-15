@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.delegate = self
         setUpNavigationBar()
         parsing()
     }
@@ -68,5 +69,15 @@ extension MainViewController {
         let range = (text as NSString).range(of: prefix)
         attributedString.addAttribute(.font, value: fontSize, range: range)
         label.attributedText = attributedString
+    }
+}
+
+extension MainViewController: UINavigationControllerDelegate {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return navigationController.topViewController?.supportedInterfaceOrientations ?? .all
     }
 }
