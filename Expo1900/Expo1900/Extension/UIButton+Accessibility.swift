@@ -8,9 +8,14 @@
 import UIKit
 
 extension UIButton {
-    func applyAccessbility(textStyle: UIFont.TextStyle) {
+    func applyAccessibilityWithText(textStyle: UIFont.TextStyle) {
         self.titleLabel?.adjustsFontForContentSizeCategory = true
         self.titleLabel?.font = .preferredFont(forTextStyle: textStyle)
         self.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
+    func applyAccessibilityWithImage(label: String) {
+        self.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        self.accessibilityLabel = label
     }
 }

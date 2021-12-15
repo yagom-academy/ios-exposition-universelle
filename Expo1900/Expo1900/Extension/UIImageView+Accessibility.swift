@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIImageView {
-    func applyAccessbility(with label: String) {
+    func applyAccessibility(with label: String) {
         self.adjustsImageSizeForAccessibilityContentSizeCategory = true
         self.isAccessibilityElement = true
         self.accessibilityLabel = label

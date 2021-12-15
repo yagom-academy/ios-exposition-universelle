@@ -59,6 +59,8 @@ extension ExpositionItemTableViewController {
         cell.expositionItemNameLabel?.text = expositionItem.name
         cell.expositionItemDescriptionLabel?.text = expositionItem.shortDescription
         
+        cell.setAccessibility()
+        
         return cell
     }
 }

@@ -73,13 +73,13 @@ class ExpositionViewController: UIViewController {
             descriptionLabel?.lineBreakMode = .byWordWrapping
         }
         
-        expositionItemTableButton?.applyAccessbility(textStyle: .body)
+        expositionItemTableButton?.applyAccessibilityWithText(textStyle: .body)
         
-        posterImage?.applyAccessbility(with: "만국박람회 포스터")
+        posterImage?.applyAccessibility(with: "만국박람회 포스터")
         
         flagImages?.forEach {
             $0.contentMode = .scaleAspectFit
-            $0.applyAccessbility(with: "한국 국기")
+            $0.applyAccessibility(with: "한국 국기")
         }
     }
     
