@@ -13,7 +13,7 @@ protocol AlertDelegate: UIViewController {
 
 class EntryDataSource: NSObject, UITableViewDataSource {
     static let entryCell = "entryCell"
-    var delegate: AlertDelegate?
+    weak var delegate: AlertDelegate?
     let entries = JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry)
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
