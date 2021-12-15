@@ -8,6 +8,10 @@ class ExpoInfoViewController: UIViewController {
     @IBOutlet private weak var durationValueLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: DescriptionTextView!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewsToDefault()
