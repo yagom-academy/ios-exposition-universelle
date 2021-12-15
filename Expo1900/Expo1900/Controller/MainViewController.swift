@@ -8,6 +8,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var itemListButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,16 +59,27 @@ extension MainViewController {
         editFontSize(of: CategoryPrefix.visitor, in: visitorsLabel)
         editFontSize(of: CategoryPrefix.location, in: locationLabel)
         editFontSize(of: CategoryPrefix.duration, in: durationLabel)
+        
+        itemListButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        itemListButton.titleLabel?.numberOfLines = 0
     }
     
     private func editFontSize(of prefix: String ,in label: UILabel) {
         guard let text = label.text else {
             return
         }
-        let fontSize = UIFont.systemFont(ofSize: label.font.pointSize + 3)
+        let remainingText = text.replacingOccurrences(of: prefix, with: "")
+
         let attributedString = NSMutableAttributedString(string: text)
-        let range = (text as NSString).range(of: prefix)
-        attributedString.addAttribute(.font, value: fontSize, range: range)
+        
+        let firstFontSize = UIFont.preferredFont(forTextStyle: .title2)
+        let firstRange = (text as NSString).range(of: prefix)
+        attributedString.addAttribute(.font, value: firstFontSize, range: firstRange)
+        
+        let secondFontSize = UIFont.preferredFont(forTextStyle: .title3)
+        let secondRange = (text as NSString).range(of: remainingText)
+        attributedString.addAttribute(.font, value: secondFontSize, range: secondRange)
+        
         label.attributedText = attributedString
     }
 }
