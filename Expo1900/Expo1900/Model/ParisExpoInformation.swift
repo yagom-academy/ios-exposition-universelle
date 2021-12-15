@@ -8,11 +8,15 @@
 import Foundation
 
 struct ParisExpoInformation: Decodable {
-    let title: String
+    private var title: String
     private let visitors: Int
     private let location: String
     private let duration: String
     let description: String
+    
+    var formattedTitle: String {
+        return title.replacingOccurrences(of: "(", with: "\n(")
+    }
     
     var formattedVisitors: String {
         return "방문객 : \(visitors.decimalString) 명"

@@ -45,7 +45,7 @@ class ParisExpoInformationViewController: UIViewController {
     private func setLabels() {
         let result = JSONParser<ParisExpoInformation>.decode(from: JSONFileName.parisExpoInformation)
 
-        titleLabel.text = result?.title
+        titleLabel.text = result?.formattedTitle
         visitorLabel.text = result?.formattedVisitors
         locationLabel.text = result?.formattedLocation
         durationLabel.text = result?.formattedDuration
