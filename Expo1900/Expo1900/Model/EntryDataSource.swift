@@ -14,6 +14,7 @@ protocol AlertDelegate: UIViewController {
 class EntryDataSource: NSObject, UITableViewDataSource {
     static let entryCell = "entryCell"
     var delegate: AlertDelegate?
+    let entries = JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry)
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return KoreanEntry.count
@@ -21,7 +22,7 @@ class EntryDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Self.entryCell, for: indexPath) as? EntryTableViewCell,
-              let entries = JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry) else {
+              let entries = entries else {
                   delegate?.showAlert(alertMessage: .loadingTableViewCellFailed, buttonMessage: .confirm)
                   return UITableViewCell()
         }

@@ -25,7 +25,7 @@ class KoreanEntryTableViewController: UITableViewController, AlertDelegate {
         if segue.identifier == Self.segueToEntryDetail,
            let destination = segue.destination as? EntryDetailViewController,
            let sender = sender as? IndexPath {
-            guard let entries = JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry) else {
+            guard let entries = dataSource.entries else {
                 showAlert(alertMessage: .jsonDecodingFailed, buttonMessage: .confirm)
                 return
             }
