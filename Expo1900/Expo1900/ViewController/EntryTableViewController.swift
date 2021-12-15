@@ -26,7 +26,9 @@ class EntryTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         guard let entryDetailViewController = segue.destination as? EntryDetailViewController,
-              let entry = sender as? Entry else { return }
+              let entry = sender as? Entry else {
+                  return
+              }
         
         entryDetailViewController.entry = entry
     }
@@ -35,6 +37,7 @@ class EntryTableViewController: UITableViewController {
 //MARK: - Private Methods
 
 extension EntryTableViewController {
+    
     private func parseEntriesFromAsset() {
         do {
             guard let entryJSON = NSDataAsset(name: JSONAssetNameList.entry.rawValue) else {
@@ -52,6 +55,7 @@ extension EntryTableViewController {
 //MARK: - TableView Methods
 
 extension EntryTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }

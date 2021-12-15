@@ -16,16 +16,17 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setViewsFromEntry()
+        configureContent()
         setNavigationTitle()
-        setAccessiblity()
+        configureEntryImageAccessiblity()
     }
 }
 
 //MARK: - Private Methods
 
 extension EntryDetailViewController {
-    private func setViewsFromEntry() {
+    
+    private func configureContent() {
         guard let entry = entry else {
             return
         }
@@ -37,7 +38,7 @@ extension EntryDetailViewController {
         navigationItem.title = entry?.name
     }
     
-    private func setAccessiblity() {
+    private func configureEntryImageAccessiblity() {
         guard let entry = entry else {
             return
         }

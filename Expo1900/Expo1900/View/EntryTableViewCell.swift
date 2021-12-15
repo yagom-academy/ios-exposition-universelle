@@ -13,6 +13,6 @@ class EntryTableViewCell: UITableViewCell {
     }
     
     func configureAccessibility(from entry: Entry) {
-        self.accessibilityHint = "누르면 \(entry.name) 상세정보 화면으로 이동합니다"
+        accessibilityHint = "누르면 \(entry.name) 상세정보 화면으로 이동합니다"
     }
 }
