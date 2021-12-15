@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ow8-TM-m3B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ow8-TM-m3B">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -59,7 +59,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3QV-qD-gUm" userLabel="Next View Stack View">
-                                                <rect key="frame" x="119" y="508.5" width="176" height="68.5"/>
+                                                <rect key="frame" x="73" y="508.5" width="268" height="68.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="VKv-X6-o7F">
                                                         <rect key="frame" x="0.0" y="0.0" width="45" height="68.5"/>
@@ -69,14 +69,14 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6OD-rx-X5r">
-                                                        <rect key="frame" x="65" y="0.0" width="46" height="68.5"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <rect key="frame" x="65" y="0.0" width="138" height="68.5"/>
+                                                        <state key="normal" title="한국의 출품작 보러가기"/>
                                                         <connections>
                                                             <segue destination="80Q-2V-TUU" kind="push" id="CIc-5i-tJo"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="vO1-he-brr">
-                                                        <rect key="frame" x="131" y="0.0" width="45" height="68.5"/>
+                                                        <rect key="frame" x="223" y="0.0" width="45" height="68.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="2bl-re-5k6"/>
                                                             <constraint firstAttribute="width" secondItem="vO1-he-brr" secondAttribute="height" multiplier="124:189" id="h9J-pV-kRN"/>
@@ -175,7 +175,7 @@
                     <navigationItem key="navigationItem" title="한국의 출품작" id="tXC-Rv-m3Z"/>
                     <connections>
                         <outlet property="entryListTableView" destination="Q1a-B4-OBK" id="fFd-ML-1v3"/>
-                        <segue destination="rbt-wT-fvP" kind="show" identifier="descriptionVeiwSegue" id="O9V-5D-IIK"/>
+                        <segue destination="rbt-wT-fvP" kind="show" identifier="descriptionViewSegue" id="O9V-5D-IIK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxY-ZN-UvA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

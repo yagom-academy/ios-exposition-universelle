@@ -19,12 +19,10 @@ class EntryDescriptionViewController: UIViewController {
     }
     
     func loadEntryDescription() {
-        guard let entryImageLocation = entryData?.imageResourceLocator else {
-            return
+        if let entryImageLocation = entryData?.imageResourceLocator {
+            descriptionImage.image = UIImage(named: entryImageLocation)
+            descriptionText.text = entryData?.detailDescription
+            navigationItem.title = entryData?.name
         }
-        
-        descriptionImage.image = UIImage(named: entryImageLocation)
-        descriptionText.text = entryData?.detailDescription
-        navigationItem.title = entryData?.name
     }
 }

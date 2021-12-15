@@ -45,10 +45,7 @@ class MainViewController: UIViewController {
     }
 
     func insertDataToView() throws {
-        guard let expositionData = try parseExpositionJSON() else {
-            throw ExpositionError.failJSONParsing
-        }
-        
+        let expositionData = try parseExpositionJSON()
         let visitorsCount = try addComma(at: expositionData.visitorsCount)
         
         titleLabel.text = expositionData.title

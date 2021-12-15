@@ -33,6 +33,7 @@ extension TableViewController {
     func decodedEntryData() {
         do {
             entryData = try parseEntryJSON()
+            
         } catch ExpositionError.notExistData {
             print(ExpositionError.notExistData)
         } catch ExpositionError.failJSONParsing {
@@ -50,7 +51,7 @@ extension TableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "descriptionVeiwSegue", sender: indexPath.row)
+        performSegue(withIdentifier: "descriptionViewSegue", sender: indexPath.row)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
