@@ -15,11 +15,15 @@ final class ExpoItemsTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupExpoItemsTableView()
+        setExpoItems()
+        setUpExpoItemTableView()
+    }
+    
+    private func setUpExpoItemTableView() {
         expoItemTableView.dataSource = self
     }
     
-    private func setupExpoItemsTableView() {
+    private func setExpoItems() {
         expoItems = decodeExpoItemsJsonData()
     }
     
