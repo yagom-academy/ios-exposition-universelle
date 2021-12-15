@@ -61,7 +61,7 @@ extension MainViewController {
         editFontSize(of: CategoryPrefix.duration, in: durationLabel)
         
         itemListButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        itemListButton.titleLabel?.numberOfLines = 0
+        itemListButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     private func editFontSize(of prefix: String ,in label: UILabel) {
