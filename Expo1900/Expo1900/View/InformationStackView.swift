@@ -1,12 +1,12 @@
 import UIKit
 
 class InformationStackView: UIStackView {
-    @IBOutlet private weak var titleLabel: DynamicTypeLabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var visitorsLabel: DynamicTypeLabel!
-    @IBOutlet private weak var locationLabel: DynamicTypeLabel!
-    @IBOutlet private weak var durationLabel: DynamicTypeLabel!
-    @IBOutlet private weak var descriptionLabel: DynamicTypeLabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -63,10 +63,10 @@ class InformationStackView: UIStackView {
     }
     
     private func setUpLabelFont() {
-        titleLabel.setUpFont(forTextStyle: .title1)
-        visitorsLabel.setUpFont(forTextStyle: .body)
-        locationLabel.setUpFont(forTextStyle: .body)
-        durationLabel.setUpFont(forTextStyle: .body)
-        descriptionLabel.setUpFont(forTextStyle: .body)
+        titleLabel.setUpDynamicFont(forTextStyle: .title1)
+        visitorsLabel.setUpDynamicFont(forTextStyle: .body)
+        locationLabel.setUpDynamicFont(forTextStyle: .body)
+        durationLabel.setUpDynamicFont(forTextStyle: .body)
+        descriptionLabel.setUpDynamicFont(forTextStyle: .body)
     }
 }

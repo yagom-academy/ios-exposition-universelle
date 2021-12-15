@@ -2,7 +2,7 @@ import UIKit
 
 class EntryDetailStackView: UIStackView {
     @IBOutlet weak var entryImageView: UIImageView!
-    @IBOutlet weak var entryDescriptionLabel: DynamicTypeLabel!
+    @IBOutlet weak var entryDescriptionLabel: UILabel!
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -34,6 +34,6 @@ class EntryDetailStackView: UIStackView {
     }
     
     private func setUpLabelFont() {
-        entryDescriptionLabel.setUpFont(forTextStyle: .body)
+        entryDescriptionLabel.setUpDynamicFont(forTextStyle: .body)
     }
 }

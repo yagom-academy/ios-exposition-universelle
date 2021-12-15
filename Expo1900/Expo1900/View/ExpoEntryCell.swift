@@ -1,8 +1,8 @@
 import UIKit
 
 class ExpoEntryCell: UITableViewCell {
-    @IBOutlet weak var entryTitle: DynamicTypeLabel!
-    @IBOutlet weak var entryDescription: DynamicTypeLabel!
+    @IBOutlet weak var entryTitle: UILabel!
+    @IBOutlet weak var entryDescription: UILabel!
     @IBOutlet weak var entryImage: UIImageView!
     
     override func awakeFromNib() {
@@ -32,7 +32,7 @@ class ExpoEntryCell: UITableViewCell {
     }
     
     private func setUpLabelFont() {
-        entryTitle.setUpFont(forTextStyle: .title1)
-        entryDescription.setUpFont(forTextStyle: .body)
+        entryTitle.setUpDynamicFont(forTextStyle: .title1)
+        entryDescription.setUpDynamicFont(forTextStyle: .body)
     }
 }
