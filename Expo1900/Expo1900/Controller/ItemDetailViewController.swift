@@ -24,6 +24,7 @@ extension ItemDetailViewController {
             fatalError()
         }
         itemImageView.image = UIImage(named: expoItem.imageName)
+        itemImageView.accessibilityLabel = expoItem.name
         itemDescription.text = expoItem.description
     }
 
