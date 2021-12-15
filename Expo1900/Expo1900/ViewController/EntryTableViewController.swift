@@ -14,6 +14,7 @@ class EntryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         parseEntriesFromAsset()
+        UINavigationController.attemptRotationToDeviceOrientation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
