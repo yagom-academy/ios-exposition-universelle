@@ -8,6 +8,19 @@ import UIKit
 
 final class ExpoMainViewController: UIViewController {
 
+    private enum LabelTitle {
+        static let visitor = "방문객"
+        static let location = "개최지"
+        static let duration = "개최 기간"
+    }
+    
+    private enum Symbol {
+        static let linebreak = "\n"
+        static let openingParenthesis = "("
+        static let colonWithSpaces = " : "
+        static let koreanPeopleUnit = " 명"
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!

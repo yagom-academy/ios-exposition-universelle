@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4757873D27673B5100F19C8D /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4757873C27673B5100F19C8D /* JSONFile.swift */; };
-		4757873F27673E8100F19C8D /* LabelTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4757873E27673E8100F19C8D /* LabelTitle.swift */; };
-		4757874127673F6400F19C8D /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4757874027673F6400F19C8D /* Symbol.swift */; };
 		475787432767419200F19C8D /* FormatingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475787422767419200F19C8D /* FormatingError.swift */; };
 		478CD461275EF6A500C2BD07 /* ExpoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CD460275EF6A500C2BD07 /* ExpoItems.swift */; };
 		478CD463275EF71B00C2BD07 /* ExpoMainInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CD462275EF71B00C2BD07 /* ExpoMainInformation.swift */; };
@@ -27,8 +25,6 @@
 
 /* Begin PBXFileReference section */
 		4757873C27673B5100F19C8D /* JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
-		4757873E27673E8100F19C8D /* LabelTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTitle.swift; sourceTree = "<group>"; };
-		4757874027673F6400F19C8D /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		475787422767419200F19C8D /* FormatingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatingError.swift; sourceTree = "<group>"; };
 		478CD460275EF6A500C2BD07 /* ExpoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItems.swift; sourceTree = "<group>"; };
 		478CD462275EF71B00C2BD07 /* ExpoMainInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMainInformation.swift; sourceTree = "<group>"; };
@@ -61,8 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				4757873C27673B5100F19C8D /* JSONFile.swift */,
-				4757873E27673E8100F19C8D /* LabelTitle.swift */,
-				4757874027673F6400F19C8D /* Symbol.swift */,
 			);
 			path = Namespaces;
 			sourceTree = "<group>";
@@ -212,13 +206,11 @@
 				ED913A762761ED8900277846 /* JSONDataError.swift in Sources */,
 				478CD461275EF6A500C2BD07 /* ExpoItems.swift in Sources */,
 				478CD463275EF71B00C2BD07 /* ExpoMainInformation.swift in Sources */,
-				4757873F27673E8100F19C8D /* LabelTitle.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */,
 				EDFBB29827634C7C00EBF91C /* ExpoItemTableViewCell.swift in Sources */,
 				EDFBB2962763420C00EBF91C /* ExpoItemsTableViewController.swift in Sources */,
 				4757873D27673B5100F19C8D /* JSONFile.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
-				4757874127673F6400F19C8D /* Symbol.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
