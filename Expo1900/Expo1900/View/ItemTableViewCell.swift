@@ -24,7 +24,10 @@ class ItemTableViewCell: UITableViewCell {
 extension ItemTableViewCell {
     private func setCellToDefault() {
         self.itemDescriptionLabel.numberOfLines = .zero
+        self.itemDescriptionLabel.font = .itemDescriptionFont
+        self.itemDescriptionLabel.adjustsFontForContentSizeCategory = true
         self.accessoryType = .disclosureIndicator
-        self.itemTitleLabel.font = UIFont.itemTitleFont
+        self.itemTitleLabel.font = .itemTitleFont
+        self.itemTitleLabel.adjustsFontForContentSizeCategory = true
     }
 }
