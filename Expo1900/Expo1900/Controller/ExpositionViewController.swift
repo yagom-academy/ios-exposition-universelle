@@ -20,6 +20,8 @@ class ExpositionViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
     
+    @IBOutlet weak var expositionItemTableButton: UIButton?
+    
     @IBOutlet private weak var posterImage: UIImageView?
     @IBOutlet private var flagImages: [UIImageView]?
     
@@ -71,7 +73,14 @@ class ExpositionViewController: UIViewController {
             descriptionLabel?.lineBreakMode = .byWordWrapping
         }
         
-        flagImages?.forEach { $0.contentMode = .scaleAspectFit }
+        expositionItemTableButton?.applyAccessbility(textStyle: .body)
+        
+        posterImage?.applyAccessbility(with: "만국박람회 포스터")
+        
+        flagImages?.forEach {
+            $0.contentMode = .scaleAspectFit
+            $0.applyAccessbility(with: "한국 국기")
+        }
     }
     
     private func updateUI() {
@@ -94,7 +103,7 @@ class ExpositionViewController: UIViewController {
 
 // MARK: - IBAction
 extension ExpositionViewController {
-    @IBAction private func touchUpPushExpositionItemTableButton(_ sender: UIButton) {
+    @IBAction private func touchUpExpositionItemTableButton(_ sender: UIButton) {
         let expositionItemTableViewController = ViewControllerFactory.createViewController(of: .expositionItemTable)
         
         self.navigationController?.pushViewController(expositionItemTableViewController, animated: true)
