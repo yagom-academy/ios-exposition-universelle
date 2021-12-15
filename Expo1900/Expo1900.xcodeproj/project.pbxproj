@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4728AEB42769CC0200016D81 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728AEB32769CC0200016D81 /* String+Extension.swift */; };
 		4757873D27673B5100F19C8D /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4757873C27673B5100F19C8D /* JSONFile.swift */; };
 		475787432767419200F19C8D /* FormatingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475787422767419200F19C8D /* FormatingError.swift */; };
 		478CD461275EF6A500C2BD07 /* ExpoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CD460275EF6A500C2BD07 /* ExpoItems.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4728AEB32769CC0200016D81 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4757873C27673B5100F19C8D /* JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
 		475787422767419200F19C8D /* FormatingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatingError.swift; sourceTree = "<group>"; };
 		478CD460275EF6A500C2BD07 /* ExpoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItems.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4728AEB22769CBDA00016D81 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4728AEB32769CC0200016D81 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4757873B27673A7B00F19C8D /* Namespaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				4728AEB22769CBDA00016D81 /* Extensions */,
 				4757873B27673A7B00F19C8D /* Namespaces */,
 				ED913A742761EC8400277846 /* Errors */,
 				478CD466275F0A3E00C2BD07 /* Controller */,
@@ -205,6 +216,7 @@
 				ED96338327671A8700E99B67 /* ExpoItemDetailViewController.swift in Sources */,
 				ED913A762761ED8900277846 /* JSONDataError.swift in Sources */,
 				478CD461275EF6A500C2BD07 /* ExpoItems.swift in Sources */,
+				4728AEB42769CC0200016D81 /* String+Extension.swift in Sources */,
 				478CD463275EF71B00C2BD07 /* ExpoMainInformation.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */,
 				EDFBB29827634C7C00EBF91C /* ExpoItemTableViewCell.swift in Sources */,

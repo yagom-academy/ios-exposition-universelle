@@ -114,9 +114,3 @@ final class ExpoMainViewController: UIViewController {
         return jsonData
     }
 }
-
-extension String {
-    func prefix(with text: String, separatedBy: String) -> String {
-        return text + separatedBy + self
-    }
-}
