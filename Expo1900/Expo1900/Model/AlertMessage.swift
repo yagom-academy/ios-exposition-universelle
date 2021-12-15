@@ -8,7 +8,6 @@
 import Foundation
 
 enum AlertMessage: String {
-    case jsonDecodingFailed = "세부 정보 로딩에 실패했습니다."
-    case loadingTableViewCellFailed = "출품작 목록 로딩에 실패했습니다."
+    case jsonDecodingFailed = "정보를 불러오는데 실패했습니다."
     case confirm = "확인"
 }

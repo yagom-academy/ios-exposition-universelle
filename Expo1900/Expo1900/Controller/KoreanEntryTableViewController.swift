@@ -9,7 +9,7 @@ import UIKit
 
 class KoreanEntryTableViewController: UITableViewController, AlertDelegate {
     static let segueToEntryDetail = "goToEntryDetail"
-    private let dataSource = EntryDataSource()
+    private let dataSource = EntryDataSource(entries: JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry) ?? [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,7 @@ class KoreanEntryTableViewController: UITableViewController, AlertDelegate {
         if segue.identifier == Self.segueToEntryDetail,
            let destination = segue.destination as? EntryDetailViewController,
            let sender = sender as? IndexPath {
-            guard let entries = dataSource.entries else {
-                showAlert(alertMessage: .jsonDecodingFailed, buttonMessage: .confirm)
-                return
-            }
-            destination.entry = entries[sender.row]
+            destination.entry = dataSource.entries[sender.row]
         }
     }
 }
