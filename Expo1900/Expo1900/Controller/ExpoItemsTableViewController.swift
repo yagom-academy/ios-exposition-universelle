@@ -17,10 +17,15 @@ final class ExpoItemsTableViewController: UIViewController {
         super.viewDidLoad()
         setExpoItems()
         setUpExpoItemTableView()
+        setUpNavigationBarItem()
     }
     
     private func setUpExpoItemTableView() {
         expoItemTableView.dataSource = self
+    }
+    
+    private func setUpNavigationBarItem() {
+        navigationItem.title = "한국의 출품작"
     }
     
     private func setExpoItems() {

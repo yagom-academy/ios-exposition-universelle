@@ -30,6 +30,7 @@ final class ExpoMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupExpoMainView()
+        setUpNavigationBarItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +41,10 @@ final class ExpoMainViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    private func setUpNavigationBarItem() {
+        navigationItem.title = "메인"
     }
     
     private func setupExpoMainView() {
