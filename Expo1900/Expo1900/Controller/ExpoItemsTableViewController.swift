@@ -34,8 +34,8 @@ final class ExpoItemsTableViewController: UIViewController {
         do {
             let jsonData = try convertToNSDataAsset(from: JSONFile.expoItems)
             expoItemArray = try jsonDecoder.decode(ExpoItems.self, from: jsonData.data)
-        } catch JSONDataError.fileConversionFailed(let fileName) {
-            print(JSONDataError.fileConversionFailed(fileName).description)
+        } catch JSONDataError.fileNotFound(let fileName) {
+            print(JSONDataError.fileNotFound(fileName).description)
         } catch {
             print(error.localizedDescription)
         }
@@ -44,7 +44,7 @@ final class ExpoItemsTableViewController: UIViewController {
     
     private func convertToNSDataAsset(from fileName: String) throws -> NSDataAsset  {
         guard let jsonData = NSDataAsset(name: fileName) else {
-            throw JSONDataError.fileConversionFailed(fileName)
+            throw JSONDataError.fileNotFound(fileName)
         }
         return jsonData
     }

@@ -8,13 +8,13 @@
 import Foundation
 
 enum JSONDataError: LocalizedError {
-    case fileConversionFailed(_ fileName: String)
+    case fileNotFound(_ fileName: String)
 }
 
 extension JSONDataError {
     var description: String {
         switch self {
-        case .fileConversionFailed(let fileName):
+        case .fileNotFound(let fileName):
             return "\(fileName)이 없습니다"
         }
     }
