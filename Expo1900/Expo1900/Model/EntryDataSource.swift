@@ -7,16 +7,6 @@
 
 import UIKit
 
-protocol AlertDelegate: UIViewController {
-    func showAlert(alertMessage: String, buttonMessage: String)
-}
-
-extension NSObject {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-}
-
 class EntryDataSource: NSObject, UITableViewDataSource {
     weak var delegate: AlertDelegate?
     let entries: [KoreanEntry]
@@ -32,7 +22,7 @@ class EntryDataSource: NSObject, UITableViewDataSource {
             delegate?.showAlert(alertMessage: jsonDecodingFailed, buttonMessage: confirm)
         }
         
-        return KoreanEntry.count
+        return entries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

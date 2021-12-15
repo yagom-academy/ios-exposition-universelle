@@ -19,12 +19,4 @@ struct KoreanEntry: Decodable {
         case shortDesc = "short_desc"
         case description = "desc"
     }
-    
-    static var count: Int {
-        guard let result = JSONParser<[KoreanEntry]>.decode(from: JSONFileName.koreanEntry) else {
-            return .zero
-        }
-        
-        return result.count
-    }
 }
