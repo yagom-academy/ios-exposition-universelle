@@ -34,7 +34,7 @@ extension MainViewController {
     }
     
     private func parsing() {
-        let parsedResult = JSONParser<Exposition>.decode(fileName: FileName.exposition)
+        let parsedResult = JSONParser<Exposition>().decode(fileName: FileName.exposition)
         
         switch parsedResult {
         case .failure(let parsingError):
