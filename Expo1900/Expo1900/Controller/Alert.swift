@@ -9,9 +9,9 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(alertMessage: AlertMessage, buttonMessage: AlertMessage) {
-        let alert = UIAlertController(title: nil, message: alertMessage.rawValue, preferredStyle: .alert)
-        let action = UIAlertAction(title: buttonMessage.rawValue, style: .default)
+    func showAlert(alertMessage: String, buttonMessage: String) {
+        let alert = UIAlertController(title: nil, message: alertMessage, preferredStyle: .alert)
+        let action = UIAlertAction(title: buttonMessage, style: .default)
         alert.addAction(action)
         present(alert, animated: true)
     }

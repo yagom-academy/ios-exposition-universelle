@@ -9,8 +9,3 @@ enum JSONFileName {
     static let parisExpoInformation = "exposition_universelle_1900"
     static let koreanEntry = "items"
 }
-
-enum AssetName {
-    static let koreanFlag = "flag"
-    static let parisExpoPoster = "poster"
-}

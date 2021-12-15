@@ -8,6 +8,9 @@
 import UIKit
 
 class ParisExpoInformationViewController: UIViewController {
+    private let parisExpoPoster = "poster"
+    private let koreanFlag = "flag"
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var parisExpoPosterImage: UIImageView!
     @IBOutlet private weak var visitorLabel: UILabel!
@@ -33,9 +36,9 @@ class ParisExpoInformationViewController: UIViewController {
     }
     
     private func setImages() {
-        parisExpoPosterImage.image = UIImage(named: AssetName.parisExpoPoster)
+        parisExpoPosterImage.image = UIImage(named: parisExpoPoster)
         koreanFlagImage.forEach({ image in
-            image.image = UIImage(named: AssetName.koreanFlag)
+            image.image = UIImage(named: koreanFlag)
         })
     }
     

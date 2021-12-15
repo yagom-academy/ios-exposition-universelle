@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AlertDelegate: UIViewController {
-    func showAlert(alertMessage: AlertMessage, buttonMessage: AlertMessage)
+    func showAlert(alertMessage: String, buttonMessage: String)
 }
 
 extension NSObject {
@@ -20,6 +20,8 @@ extension NSObject {
 class EntryDataSource: NSObject, UITableViewDataSource {
     weak var delegate: AlertDelegate?
     let entries: [KoreanEntry]
+    private let jsonDecodingFailed = "정보를 불러오는데 실패했습니다."
+    private let confirm = "확인"
     
     init(entries: [KoreanEntry]) {
         self.entries = entries
@@ -27,7 +29,7 @@ class EntryDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if entries.count == .zero {
-            delegate?.showAlert(alertMessage: .jsonDecodingFailed, buttonMessage: .confirm)
+            delegate?.showAlert(alertMessage: jsonDecodingFailed, buttonMessage: confirm)
         }
         
         return KoreanEntry.count
