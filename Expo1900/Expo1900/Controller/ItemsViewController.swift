@@ -65,6 +65,7 @@ extension ItemsViewController: UITableViewDataSource {
         itemCell.itemImageView.image = UIImage(named: "\(item.imageName)")
         itemCell.itemTitleLabel.text = item.name
         itemCell.itemDescriptionLabel.text = item.shortDescription
+        itemCell.accessibilityHint = "\(item.name)의 상세정보로 이동합니다."
         
         return itemCell
     }
