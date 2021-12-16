@@ -10,11 +10,7 @@ class ExpositionViewController: UIViewController {
     // MARK: - Properties
     private var exposition: Exposition?
     private let jsonParser = JSONParser<Exposition>()
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-    
+        
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var visitorsTitleLabel: UILabel?
     @IBOutlet private weak var visitorsLabel: UILabel?

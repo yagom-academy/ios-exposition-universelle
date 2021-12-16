@@ -13,6 +13,11 @@ class NavigationController: UINavigationController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return self.topViewController?.supportedInterfaceOrientations ?? .all
+        switch self.topViewController {
+        case is ExpositionViewController:
+            return .portrait
+        default:
+            return .all
+        }
     }
 }
