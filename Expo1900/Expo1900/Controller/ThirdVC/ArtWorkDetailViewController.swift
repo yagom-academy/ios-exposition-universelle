@@ -10,7 +10,7 @@ final class ArtWorkDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expositionItem = JSONParser.decodeData(of: "items", how: [ExpositionItem].self)
+        expositionItem = try? JSONParser.decodeData(of: "items", type: [ExpositionItem].self).get()
         
         guard let index = identifier else { return }
         guard let item = expositionItem else { return }

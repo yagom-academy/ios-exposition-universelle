@@ -7,7 +7,7 @@ final class KoreanArtWorkTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let expositionItems = JSONParser.decodeData(of: "items", how: [ExpositionItem].self) else {
+        guard let expositionItems = try? JSONParser.decodeData(of: "items", type: [ExpositionItem].self).get() else {
             self.expositionItems = []
             return
         }
