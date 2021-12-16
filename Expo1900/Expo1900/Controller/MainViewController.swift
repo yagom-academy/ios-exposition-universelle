@@ -49,32 +49,19 @@ extension MainViewController {
         let people = " 명"
         
         titleLabel.text =  contents.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = CategoryPrefix.visitor + colon + contents.visitorsDescription + people
-        locationLabel.text = CategoryPrefix.location + colon + contents.location
-        durationLabel.text = CategoryPrefix.duration + colon + contents.duration
         descriptionLabel.text = contents.description
         posterImageView.image = UIImage(named: FileName.poster)
         
-        editFontSize(of: CategoryPrefix.visitor, in: visitorsLabel)
-        editFontSize(of: CategoryPrefix.location, in: locationLabel)
-        editFontSize(of: CategoryPrefix.duration, in: durationLabel)
+        editFontSize(of: CategoryPrefix.visitor, with: colon + contents.visitorsDescription + people, in: visitorsLabel)
+        editFontSize(of: CategoryPrefix.location, with: colon + contents.location, in: locationLabel)
+        editFontSize(of: CategoryPrefix.duration, with: colon + contents.duration, in: durationLabel)
     }
     
-    private func editFontSize(of prefix: String ,in label: UILabel) {
-        guard let text = label.text else {
-            return
-        }
-        let remainingText = text.replacingOccurrences(of: prefix, with: "")
-
-        let attributedString = NSMutableAttributedString(string: text)
+    private func editFontSize(of prefix: String, with text: String ,in label: UILabel) {
+        let attributedString = NSMutableAttributedString()
         
-        let firstFontSize = UIFont.preferredFont(forTextStyle: .title2)
-        let firstRange = (text as NSString).range(of: prefix)
-        attributedString.addAttribute(.font, value: firstFontSize, range: firstRange)
-        
-        let secondFontSize = UIFont.preferredFont(forTextStyle: .title3)
-        let secondRange = (text as NSString).range(of: remainingText)
-        attributedString.addAttribute(.font, value: secondFontSize, range: secondRange)
+        attributedString.append(NSAttributedString(string: prefix, attributes: [.font: UIFont.preferredFont(forTextStyle: .title2)]))
+        attributedString.append(NSAttributedString(string: text, attributes: [.font: UIFont.preferredFont(forTextStyle: .title3)]))
         
         label.attributedText = attributedString
     }
