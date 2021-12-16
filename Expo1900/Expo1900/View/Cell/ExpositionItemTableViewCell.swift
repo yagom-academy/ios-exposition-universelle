@@ -8,10 +8,12 @@
 import UIKit
 
 class ExpositionItemTableViewCell: UITableViewCell {
+    // MARK: - Properties
     @IBOutlet weak var expositionItemImage: UIImageView?
     @IBOutlet weak var expositionItemNameLabel: UILabel?
     @IBOutlet weak var expositionItemDescriptionLabel: UILabel?
     
+    // MARK: - Initialize
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -23,6 +25,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
         expositionItemDescriptionLabel?.text = nil
     }
     
+    // MARK: - Methods
     private func setupUI() {
         expositionItemNameLabel?.setDynamicType(textStyle: .title1)
         expositionItemNameLabel?.numberOfLines = 0
