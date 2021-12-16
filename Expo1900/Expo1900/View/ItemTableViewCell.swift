@@ -29,5 +29,6 @@ extension ItemTableViewCell {
         self.accessoryType = .disclosureIndicator
         self.itemTitleLabel.font = .itemTitleFont
         self.itemTitleLabel.adjustsFontForContentSizeCategory = true
+        self.itemTitleLabel.numberOfLines = .zero
     }
 }
