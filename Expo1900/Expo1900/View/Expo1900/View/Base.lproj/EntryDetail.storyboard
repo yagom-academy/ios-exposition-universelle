@@ -29,6 +29,9 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vef-h2-ChW">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="256"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <bool key="isElement" value="YES"/>
+                                                        </accessibility>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="vef-h2-ChW" secondAttribute="height" multiplier="197:128" id="sB1-yk-ekV"/>
                                                         </constraints>
