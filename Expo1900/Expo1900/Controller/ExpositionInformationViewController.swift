@@ -40,9 +40,9 @@ class ExpositionInformationViewController: UIViewController {
         
         titleLabel.text = expositionInformation?.title
         posterImageView.image = expositionInformation?.poster
-        numberOfVisitorsLabel.text = expositionInformation?.visitors
-        durationLabel.text = expositionInformation?.duration
-        locationLabel.text = expositionInformation?.location
+        numberOfVisitorsLabel.attributedText = expositionInformation?.visitors
+        durationLabel.attributedText = expositionInformation?.duration
+        locationLabel.attributedText = expositionInformation?.location
         desciptionTextView.text = expositionInformation?.description
         let nationalFlag = UIImage(named: "flag")
         nationalFlagLeftImage.image = nationalFlag
