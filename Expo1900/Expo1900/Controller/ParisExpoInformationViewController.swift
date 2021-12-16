@@ -47,8 +47,8 @@ class ParisExpoInformationViewController: UIViewController {
 
         titleLabel.text = result?.formattedTitle
         visitorLabel.text = result?.formattedVisitors
-        locationLabel.text = result?.formattedLocation
-        durationLabel.text = result?.formattedDuration
+        locationLabel.text = result?.location
+        durationLabel.text = result?.duration
         descriptionLabel.text = result?.description
     }
 }
