@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08A269332760DBDB001DF39C /* ExpoInformationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */; };
-		08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269342760DEE8001DF39C /* CustomButtonStackView.swift */; };
+		08A269332760DBDB001DF39C /* InformationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269322760DBDB001DF39C /* InformationStackView.swift */; };
+		08A269352760DEE8001DF39C /* EntryListButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A269342760DEE8001DF39C /* EntryListButtonStackView.swift */; };
+		08A86FFE27688BCC0096E576 /* NSMutableAttributedString+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A86FFD27688BCC0096E576 /* NSMutableAttributedString+extension.swift */; };
 		08B1F6952762E14D0092D10A /* DecimalNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F6942762E14D0092D10A /* DecimalNumberFormatter.swift */; };
 		08B1F6972762FCF00092D10A /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F6962762FCF00092D10A /* EntryListViewController.swift */; };
 		08B1F699276323710092D10A /* ExpoEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1F698276323710092D10A /* ExpoEntryCell.swift */; };
@@ -22,10 +23,12 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		F3166076275DEDA6005468CB /* ExpoEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3166075275DEDA6005468CB /* ExpoEntry.swift */; };
 		F31660BA275EF2DD005468CB /* NSDataAssetName+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31660B9275EF2DD005468CB /* NSDataAssetName+extension.swift */; };
+		F35BD2912769BBFC00F80DCF /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD2902769BBFC00F80DCF /* UILabel+extension.swift */; };
 		F363702727633BAA0083D596 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F363702627633BAA0083D596 /* EntryDetailViewController.swift */; };
 		F363702927633E160083D596 /* EntryDetailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F363702827633E160083D596 /* EntryDetailStackView.swift */; };
 		F3637031276729500083D596 /* ExpoEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3637030276729500083D596 /* ExpoEntries.swift */; };
 		FBCC3F26275DF1520049EBCB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC3F25275DF1520049EBCB /* Parser.swift */; };
+		FBF61B6F276883EA008CD98A /* ExpoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF61B6E276883EA008CD98A /* ExpoNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformationStackView.swift; sourceTree = "<group>"; };
-		08A269342760DEE8001DF39C /* CustomButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStackView.swift; sourceTree = "<group>"; };
+		08A269322760DBDB001DF39C /* InformationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationStackView.swift; sourceTree = "<group>"; };
+		08A269342760DEE8001DF39C /* EntryListButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListButtonStackView.swift; sourceTree = "<group>"; };
+		08A86FFD27688BCC0096E576 /* NSMutableAttributedString+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+extension.swift"; sourceTree = "<group>"; };
 		08B1F6942762E14D0092D10A /* DecimalNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalNumberFormatter.swift; sourceTree = "<group>"; };
 		08B1F6962762FCF00092D10A /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
 		08B1F698276323710092D10A /* ExpoEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntryCell.swift; sourceTree = "<group>"; };
@@ -57,10 +61,12 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3166075275DEDA6005468CB /* ExpoEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntry.swift; sourceTree = "<group>"; };
 		F31660B9275EF2DD005468CB /* NSDataAssetName+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDataAssetName+extension.swift"; sourceTree = "<group>"; };
+		F35BD2902769BBFC00F80DCF /* UILabel+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		F363702627633BAA0083D596 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		F363702827633E160083D596 /* EntryDetailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailStackView.swift; sourceTree = "<group>"; };
 		F3637030276729500083D596 /* ExpoEntries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntries.swift; sourceTree = "<group>"; };
 		FBCC3F25275DF1520049EBCB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		FBF61B6E276883EA008CD98A /* ExpoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +102,8 @@
 		08CB4FEA275DE49400784B89 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				08A269322760DBDB001DF39C /* ExpoInformationStackView.swift */,
-				08A269342760DEE8001DF39C /* CustomButtonStackView.swift */,
+				08A269322760DBDB001DF39C /* InformationStackView.swift */,
+				08A269342760DEE8001DF39C /* EntryListButtonStackView.swift */,
 				08B1F698276323710092D10A /* ExpoEntryCell.swift */,
 				F363702827633E160083D596 /* EntryDetailStackView.swift */,
 			);
@@ -110,6 +116,7 @@
 				C79FF4B82589F401005FB0FD /* ExpoInformationViewController.swift */,
 				08B1F6962762FCF00092D10A /* EntryListViewController.swift */,
 				F363702627633BAA0083D596 /* EntryDetailViewController.swift */,
+				FBF61B6E276883EA008CD98A /* ExpoNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				F31660B9275EF2DD005468CB /* NSDataAssetName+extension.swift */,
+				08A86FFD27688BCC0096E576 /* NSMutableAttributedString+extension.swift */,
+				F35BD2902769BBFC00F80DCF /* UILabel+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -278,9 +287,12 @@
 				08A269332760DBDB001DF39C /* ExpoInformationStackView.swift in Sources */,
 				F3637031276729500083D596 /* ExpoEntries.swift in Sources */,
 				F363702927633E160083D596 /* EntryDetailStackView.swift in Sources */,
-				08A269352760DEE8001DF39C /* CustomButtonStackView.swift in Sources */,
+				08A269352760DEE8001DF39C /* EntryListButtonStackView.swift in Sources */,
+				F35BD2912769BBFC00F80DCF /* UILabel+extension.swift in Sources */,
 				08B1F6952762E14D0092D10A /* DecimalNumberFormatter.swift in Sources */,
 				F363702727633BAA0083D596 /* EntryDetailViewController.swift in Sources */,
+				FBF61B6F276883EA008CD98A /* ExpoNavigationController.swift in Sources */,
+				08A86FFE27688BCC0096E576 /* NSMutableAttributedString+extension.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoInformationViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				08CB4FED275DE63800784B89 /* ExpoInformation.swift in Sources */,

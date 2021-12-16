@@ -16,6 +16,7 @@ class EntryDetailViewController: UIViewController {
         }
         
         entryDetailStackView.setUpView(from: data)
+        entryDetailStackView.setUpImageAccessibility(from: data)
         title = data.name
     }
 }

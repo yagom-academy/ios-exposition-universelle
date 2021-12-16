@@ -17,6 +17,9 @@ class EntryListButtonStackView: UIStackView {
     private func setUpView() {
         leftImageView.image = UIImage(named: "flag")
         rightImageView.image = UIImage(named: "flag")
+        
         entryListButton.setTitle("한국의 출품작 보러가기", for: .normal)
+        entryListButton.titleLabel?.setUpDynamicFont(forTextStyle: .body)
+        entryListButton.titleLabel?.numberOfLines = 1
     }
 }
