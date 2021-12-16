@@ -27,6 +27,8 @@ final class ExpoMainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var explanationTextView: UITextView!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupExpoMainView()
@@ -36,11 +38,13 @@ final class ExpoMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        appDelegate.supportOnlyPortrait = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        appDelegate.supportOnlyPortrait = false
     }
     
     private func setUpNavigationBarItem() {
