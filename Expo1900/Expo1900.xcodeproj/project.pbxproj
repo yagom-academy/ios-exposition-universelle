@@ -18,6 +18,8 @@
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		ED631C9F276B1BD90083DF23 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631C9E276B1BD90083DF23 /* UILabel+Extension.swift */; };
+		ED631CA1276B1BEC0083DF23 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED631CA0276B1BEC0083DF23 /* UITextView+Extension.swift */; };
 		ED913A762761ED8900277846 /* JSONDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED913A752761ED8900277846 /* JSONDataError.swift */; };
 		ED96338327671A8700E99B67 /* ExpoItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96338227671A8700E99B67 /* ExpoItemDetailViewController.swift */; };
 		EDFBB2962763420C00EBF91C /* ExpoItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB2952763420C00EBF91C /* ExpoItemsTableViewController.swift */; };
@@ -38,6 +40,8 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED631C9E276B1BD90083DF23 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		ED631CA0276B1BEC0083DF23 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		ED913A752761ED8900277846 /* JSONDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataError.swift; sourceTree = "<group>"; };
 		ED96338227671A8700E99B67 /* ExpoItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemDetailViewController.swift; sourceTree = "<group>"; };
 		EDFBB2952763420C00EBF91C /* ExpoItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemsTableViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				4728AEB32769CC0200016D81 /* String+Extension.swift */,
+				ED631C9E276B1BD90083DF23 /* UILabel+Extension.swift */,
+				ED631CA0276B1BEC0083DF23 /* UITextView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,10 +225,12 @@
 				4728AEB42769CC0200016D81 /* String+Extension.swift in Sources */,
 				478CD463275EF71B00C2BD07 /* ExpoMainInformation.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */,
+				ED631CA1276B1BEC0083DF23 /* UITextView+Extension.swift in Sources */,
 				EDFBB29827634C7C00EBF91C /* ExpoItemTableViewCell.swift in Sources */,
 				EDFBB2962763420C00EBF91C /* ExpoItemsTableViewController.swift in Sources */,
 				4757873D27673B5100F19C8D /* JSONFile.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				ED631C9F276B1BD90083DF23 /* UILabel+Extension.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

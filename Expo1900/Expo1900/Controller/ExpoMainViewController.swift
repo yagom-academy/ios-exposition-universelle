@@ -63,13 +63,14 @@ final class ExpoMainViewController: UIViewController {
     }
     
     private func setupTitleLabel(with expoMainInformation: ExpoMainInformation) {
+        titleLabel.applyDynamicType(fontStyle: .title1)
+        titleLabel.textAlignment = .center
         let title = expoMainInformation.title.replacingOccurrences(of: Symbol.openingParenthesis, with: Symbol.linebreak + Symbol.openingParenthesis)
         titleLabel.text = title
-        titleLabel.font = UIFont.systemFont(ofSize: 28)
-        titleLabel.textAlignment = .center
     }
     
     private func setupVisitorsLabel(with expoMainInformation: ExpoMainInformation) {
+        visitorsLabel.applyDynamicType(fontStyle: .title3)
         do {
             let visitors = try convertToVisitorFormat(from: expoMainInformation.visitors)
             let visitorsLabelText = visitors.prefix(with: LabelTitle.visitor, separatedBy: Symbol.colonWithSpaces)
@@ -82,22 +83,25 @@ final class ExpoMainViewController: UIViewController {
     }
     
     private func setupLocationLabel(with expoMainInformation: ExpoMainInformation) {
+        locationLabel.applyDynamicType(fontStyle: .title3)
         let locationLabelText = expoMainInformation.location.prefix(with: LabelTitle.location, separatedBy: Symbol.colonWithSpaces)
         locationLabel.attributedText = increaseFontSize(of: LabelTitle.location, in: locationLabelText)
     }
     
     private func setupDurationLabel(with expoMainInformation: ExpoMainInformation) {
+        durationLabel.applyDynamicType(fontStyle: .title3)
         let durationLabelText = expoMainInformation.duration.prefix(with: LabelTitle.duration, separatedBy: Symbol.colonWithSpaces)
         durationLabel.attributedText = increaseFontSize(of: LabelTitle.duration, in: durationLabelText)
     }
     
     private func setupExplanationTextView(with expoMainInformation: ExpoMainInformation) {
+        explanationTextView.applyDynamicType(fontStyle: .title3)
         explanationTextView.text = expoMainInformation.explanation
     }
     
     private func increaseFontSize(of subtext: String, in text: String) -> NSMutableAttributedString {
         let attributeString = NSMutableAttributedString(string: text)
-        let font = UIFont.systemFont(ofSize: 25)
+        let font = UIFont.preferredFont(forTextStyle: .title2)
         attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: subtext))
         return attributeString
     }
