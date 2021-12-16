@@ -13,9 +13,4 @@ extension UIButton {
         self.titleLabel?.font = .preferredFont(forTextStyle: textStyle)
         self.titleLabel?.adjustsFontSizeToFitWidth = true
     }
-    
-    func applyAccessibilityWithImage(label: String) {
-        self.adjustsImageSizeForAccessibilityContentSizeCategory = true
-        self.accessibilityLabel = label
-    }
 }

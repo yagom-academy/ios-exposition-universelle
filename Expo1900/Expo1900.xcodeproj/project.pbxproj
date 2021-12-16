@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		367200312767162900B8B245 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367200302767162900B8B245 /* ViewControllerFactory.swift */; };
 		36720038276877CE00B8B245 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36720037276877CE00B8B245 /* ExpositionItemTableViewCell.swift */; };
-		3672005C2769B43C00B8B245 /* UIImageView+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672005B2769B43C00B8B245 /* UIImageView+Accessibility.swift */; };
 		3672007E2769E4F100B8B245 /* UIButton+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672007D2769E4F100B8B245 /* UIButton+Accessibility.swift */; };
 		3672FFC52760813A00B8B245 /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3672FFC42760813A00B8B245 /* JSONParserTests.swift */; };
 		3672FFCB276081BF00B8B245 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE930FDE275F7D4A00373866 /* JSONParser.swift */; };
@@ -50,7 +49,6 @@
 /* Begin PBXFileReference section */
 		367200302767162900B8B245 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		36720037276877CE00B8B245 /* ExpositionItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemTableViewCell.swift; sourceTree = "<group>"; };
-		3672005B2769B43C00B8B245 /* UIImageView+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Accessibility.swift"; sourceTree = "<group>"; };
 		3672007D2769E4F100B8B245 /* UIButton+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Accessibility.swift"; sourceTree = "<group>"; };
 		3672FFC22760813A00B8B245 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3672FFC42760813A00B8B245 /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			children = (
 				3672FFD22760D62600B8B245 /* Int+Formatter.swift */,
 				DE74A0DF2768BB9E00E34C80 /* UILabel+DynamicType.swift */,
-				3672005B2769B43C00B8B245 /* UIImageView+Accessibility.swift */,
 				3672007D2769E4F100B8B245 /* UIButton+Accessibility.swift */,
 			);
 			path = Extension;
@@ -332,7 +329,6 @@
 			files = (
 				3672FFD32760D62600B8B245 /* Int+Formatter.swift in Sources */,
 				3696A863275E119900A6012A /* ExpositionItem.swift in Sources */,
-				3672005C2769B43C00B8B245 /* UIImageView+Accessibility.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				DE930FDF275F7D4A00373866 /* JSONParser.swift in Sources */,
 				DE74A0E02768BB9E00E34C80 /* UILabel+DynamicType.swift in Sources */,

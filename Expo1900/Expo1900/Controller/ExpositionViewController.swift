@@ -75,11 +75,8 @@ class ExpositionViewController: UIViewController {
         
         expositionItemTableButton?.applyAccessibilityWithText(textStyle: .body)
         
-        posterImage?.applyAccessibility(with: "만국박람회 포스터")
-        
         flagImages?.forEach {
             $0.contentMode = .scaleAspectFit
-            $0.applyAccessibility(with: "한국 국기")
         }
     }
     

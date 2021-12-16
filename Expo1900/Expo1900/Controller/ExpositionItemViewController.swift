@@ -34,6 +34,7 @@ class ExpositionItemViewController: UIViewController {
     // MARK: - Methods
     private func setupUI() {
         itemDescriptionLabel?.numberOfLines = 0
+        itemDescriptionLabel?.setDynamicType(textStyle: .body)
         
         if #available(iOS 14.0, *) {
             itemDescriptionLabel?.lineBreakStrategy = .hangulWordPriority

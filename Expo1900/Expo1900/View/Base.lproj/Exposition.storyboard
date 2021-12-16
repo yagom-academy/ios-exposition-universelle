@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gpm-WY-8XJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gpm-WY-8XJ">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +36,7 @@
                                                 <rect key="frame" x="15" y="272" width="398" height="102"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DVz-lS-HaU">
-                                                        <rect key="frame" x="144.66666666666666" y="0.0" width="109" height="24"/>
+                                                        <rect key="frame" x="150" y="0.0" width="98.333333333333314" height="24"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="방문객" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgS-Fa-cbs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="52" height="24"/>
@@ -44,7 +45,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuA-Xb-WtR">
-                                                                <rect key="frame" x="57" y="0.0" width="52" height="24"/>
+                                                                <rect key="frame" x="57" y="0.0" width="41.333333333333343" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -168,7 +169,7 @@
                         <outlet property="descriptionLabel" destination="D7o-0C-WJx" id="dRk-XQ-TsU"/>
                         <outlet property="durationLabel" destination="W7x-kW-vwl" id="fXq-Ye-QVA"/>
                         <outlet property="durationTitleLabel" destination="7hy-1h-ORt" id="7D5-0r-NVD"/>
-                        <outlet property="expositionItemTableButton" destination="zFr-oc-Fzd" id="nah-qm-fZH"/>
+                        <outlet property="expositionItemTableButton" destination="zFr-oc-Fzd" id="hOg-Kr-b3u"/>
                         <outlet property="locationLabel" destination="KBn-RI-R6M" id="iPS-up-rCe"/>
                         <outlet property="locationTitleLabel" destination="Wvm-RJ-s9G" id="QYb-98-osL"/>
                         <outlet property="posterImage" destination="hMd-Zo-bkh" id="ZZM-UK-rsP"/>
