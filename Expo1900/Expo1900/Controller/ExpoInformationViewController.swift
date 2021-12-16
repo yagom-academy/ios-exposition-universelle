@@ -2,7 +2,7 @@ import UIKit
 
 class ExpoInformationViewController: UIViewController {
     
-    @IBOutlet weak var informationStackView: ExpoInformationStackView!
+    @IBOutlet weak var informationStackView: InformationStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

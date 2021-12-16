@@ -1,6 +1,6 @@
 import UIKit
 
-class ExpoInformationStackView: UIStackView {
+class InformationStackView: UIStackView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
