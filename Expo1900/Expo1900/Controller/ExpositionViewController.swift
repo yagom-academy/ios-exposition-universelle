@@ -20,7 +20,11 @@ class ExpositionViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
     
-    @IBOutlet weak var expositionItemTableButton: UIButton?
+    @IBOutlet private weak var visitorsStackView: UIStackView?
+    @IBOutlet private weak var locationStackView: UIStackView?
+    @IBOutlet private weak var durationStackView: UIStackView?
+    
+    @IBOutlet private weak var expositionItemTableButton: UIButton?
     
     @IBOutlet private weak var posterImage: UIImageView?
     @IBOutlet private var flagImages: [UIImageView]?
@@ -28,9 +32,26 @@ class ExpositionViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLayoutByDynamicType()
         fetchData()
         setupUI()
         updateUI()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setLayoutByDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
+    }
+    
+    @objc private func setLayoutByDynamicType() {
+        let stackViews = [visitorsStackView, locationStackView, durationStackView]
+        
+        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
+            stackViews.forEach {
+                $0?.axis = .vertical
+            }
+        } else {
+            stackViews.forEach {
+                $0?.axis = .horizontal
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
