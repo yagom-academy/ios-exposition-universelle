@@ -9,9 +9,15 @@ final class ExpositionIntroViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
+    var modelForMainView = ExpositionViewModel() {
+        didSet {
+            updateUI()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        modelForMainView.setUpData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,9 +31,6 @@ final class ExpositionIntroViewController: UIViewController {
     }
     
     private func updateUI() {
-        var modelForMainView = ExpositionViewModel()
-        modelForMainView.setUpData()
-        
         expositionIntroTitleLabel.text = modelForMainView.title
         expositionIntroImageView.image = UIImage(named: modelForMainView.image)
         visitorCountLabel.text = modelForMainView.visitors
