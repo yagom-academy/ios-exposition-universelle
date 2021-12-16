@@ -11,5 +11,7 @@ extension UILabel {
     func applyDynamicType(fontStyle: UIFont.TextStyle) {
         self.font = UIFont.preferredFont(forTextStyle: fontStyle)
         self.adjustsFontForContentSizeCategory = true
+        self.lineBreakMode = NSLineBreakMode.byWordWrapping
+        self.numberOfLines = 0
     }
 }
