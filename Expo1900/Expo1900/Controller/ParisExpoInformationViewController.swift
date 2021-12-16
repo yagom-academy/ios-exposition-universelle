@@ -7,6 +7,16 @@
 
 import UIKit
 
+class NavigationController: UINavigationController {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        guard (self.topViewController as? ParisExpoInformationViewController) != nil else {
+            return .allButUpsideDown
+        }
+        
+        return .portrait
+    }
+}
+
 class ParisExpoInformationViewController: UIViewController {
     private let parisExpoPoster = "poster"
     private let koreanFlag = "flag"
