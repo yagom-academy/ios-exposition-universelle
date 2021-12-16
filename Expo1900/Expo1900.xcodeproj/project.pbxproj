@@ -18,6 +18,7 @@
 		2534DE662769C4F100D01D3D /* EntryDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2534DE642769C4F100D01D3D /* EntryDetail.storyboard */; };
 		2534DE692769CCB400D01D3D /* UITableViewCell+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DE682769CCB400D01D3D /* UITableViewCell+extension.swift */; };
 		2534DE6C2769CEA600D01D3D /* AlertDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2534DE6B2769CEA600D01D3D /* AlertDelegate.swift */; };
+		C101BF3B276B339B00623765 /* AccessibilityString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101BF3A276B339B00623765 /* AccessibilityString.swift */; };
 		C10E9AF12762F996000DABF7 /* Int+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E9AF02762F996000DABF7 /* Int+extension.swift */; };
 		C185230D275F25A9003C5792 /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C185230C275F25A9003C5792 /* JSONParserTests.swift */; };
 		C19750F127624F5600A3E838 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19750F027624F5600A3E838 /* EntryDetailViewController.swift */; };
@@ -53,6 +54,7 @@
 		2534DE652769C4F100D01D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Expo1900/View/Base.lproj/EntryDetail.storyboard; sourceTree = "<group>"; };
 		2534DE682769CCB400D01D3D /* UITableViewCell+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+extension.swift"; sourceTree = "<group>"; };
 		2534DE6B2769CEA600D01D3D /* AlertDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDelegate.swift; sourceTree = "<group>"; };
+		C101BF3A276B339B00623765 /* AccessibilityString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityString.swift; sourceTree = "<group>"; };
 		C10E9AF02762F996000DABF7 /* Int+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extension.swift"; sourceTree = "<group>"; };
 		C185230A275F25A9003C5792 /* JSONParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C185230C275F25A9003C5792 /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C1ECA3452761EB30002712D4 /* JSONFileName.swift */,
+				C101BF3A276B339B00623765 /* AccessibilityString.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				C1ECA3462761EB30002712D4 /* JSONFileName.swift in Sources */,
 				2534DD942762046100D01D3D /* EntryDataSource.swift in Sources */,
 				C1ECA3442760D91C002712D4 /* ParisExpoInformationViewController.swift in Sources */,
+				C101BF3B276B339B00623765 /* AccessibilityString.swift in Sources */,
 				2534DD43275EFAB000D01D3D /* JSONParser.swift in Sources */,
 				2534DD2C275DF4B700D01D3D /* KoreanEntry.swift in Sources */,
 				C1F108E12767168C008F6ADA /* UIViewController+extension.swift in Sources */,
