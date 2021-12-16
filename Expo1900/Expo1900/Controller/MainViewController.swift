@@ -8,7 +8,6 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var itemListButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +58,6 @@ extension MainViewController {
         editFontSize(of: CategoryPrefix.visitor, in: visitorsLabel)
         editFontSize(of: CategoryPrefix.location, in: locationLabel)
         editFontSize(of: CategoryPrefix.duration, in: durationLabel)
-        
-        itemListButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        itemListButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     
     private func editFontSize(of prefix: String ,in label: UILabel) {
