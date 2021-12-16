@@ -34,12 +34,18 @@
     + [고민했던 것](#1-1-고민했던-것)
     + [의문점](#1-2-의문점)
     + [배운 개념](#1-3-배운-개념)
+    + [PR 후 개선사항](#1-4-PR-후-개선사항)
 - [STEP 2 : 화면 구현](#STEP-2--화면-구현)
     + [고민했던 것](#2-1-고민했던-것)
     + [의문점](#2-2-의문점)
     + [Trouble Shooting](#2-3-Trouble-Shooting)
     + [배운 개념](#2-4-배운-개념)
     + [PR 후 개선사항](#2-5-PR-후-개선사항)
+- [STEP 3 : 오토레이아웃 적용](#STEP-3--오토레이아웃-적용)
+    + [고민했던 것](#3-1-고민했던-것)
+    + [의문점](#3-2-의문점)
+    + [Trouble Shooting](#3-3-Trouble-Shooting)
+    + [배운 개념](#3-4-배운-개념)
 
 ---
 
@@ -48,7 +54,21 @@
 - `JSON` `Codable` `Decodable` `Encodable`
 - `MVC`
 - `TableView`
+    - `Cell Reuse`
+    - `TableView Delegate, DataSource`
+    - `TableView register`
+    - `xib`
+- `NSMutableAttributedString`
+- `Result`
 - `Auto Layout`
+- `ImageVIew`
+- `Navigation Controller`
+    - `Orientations`
+- `Accessibility`
+    - `Dynamic Type`
+    - `Voice over`
+- `static`
+- `UIButton` `Configuration`
 
 # STEP 1 : 모델 타입 구현
 
@@ -70,8 +90,6 @@ JSON 포맷의 데이터와 매칭할 모델 타입을 구현합니다.
 - Codable을 이용하여 JSON을 인코딩, 디코딩 하는 방법
 
 [![top](https://img.shields.io/badge/top-%23000000.svg?&amp;style=for-the-badge&amp;logo=Acclaim&amp;logoColor=white&amp;)](#만국박람회-프로젝트)
-
----
 
 # STEP 2 : 화면 구현
 
@@ -218,5 +236,92 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 - xib를 활용해서 UI를 구성하는 방법
 
 ## 2-5 PR 후 개선사항
+
+- 스토리보드 분할
+- 테스트코드 에러 수정
+- 화면간 데이터 전달 시 메소드 활용
+- 오타 수정
+- 배열의 인덱스를 안전하게 조회하도록 개선
+
+[![top](https://img.shields.io/badge/top-%23000000.svg?&amp;style=for-the-badge&amp;logo=Acclaim&amp;logoColor=white&amp;)](#만국박람회-프로젝트)
+
+# STEP 3 : 오토레이아웃 적용
+
+모든 아이폰 기기에 여러가지 상황에서도 정상적으로 표시될 수 있도록 구현합니다.
+
+## 3-1 고민했던 것
+
+- Dynamic Type 외에도 Voice Over도 고려해보았다.
+    - Cell의 경우 이미지에 accessibilityLabel가 없는 경우 읽지 않기 때문에 추가하여 이미지의 이름도 읽을 수 있도록 설정해주었다.
+- 이전에 static 메서드로 활용하였던 JSONParser 타입 enum을 struct로 바꾸어주었다.
+    - static의 경우 사용하지 않아도 메모리에 계속 남아있는 경우를 고려하여 리팩토링 해주었다.
+- 최소한의 제약조건으로 Auto Layout을 구성할 수 있도록 고민해보았다.
+- 첫번째 뷰의 Orientation을 세로로 고정해주려했는데, 해당 뷰만 세로로 고정을 시키게 되면 고정이 되지 않는 문제가 있었다.
+    - 이는 첫번째뷰의 SuperView인 navigation view의 orientation이 설정되어 있지않아 생기는 문제였다. 그래서 navigation의 대리자를 첫번째뷰로 설정하고 navigation 의 orientation을 설정해주어 해결하였다.
+
+## 3-2 의문점
+
+- attributedText를 활용할 때 적용한 글자를 제외한 나머지 글자는 Dynamic Type 적용이 왜 안될까?
+- Navigation Controller를 활용하여 ViewController의 Oreientations을 설정해줄 때 Navigation Controller에서 설정해주어야 하는지, 아니면 UINavigationControllerDelegate을 채택하여 설정해주어야 할지?
+- button의 style 중에 default와 plain의 정확한 차이점을 알고싶다.
+
+## 3-3 Truoble Shooting
+
+### 1. attributedText를 적용해준 Label의 Dynamic Type 적용하기
+
+- `상황` 부분적으로 텍스트 스타일을 편집해준 Label이 편집해준 부분을 제외한 나머지 글자들이 실시간으로 Dynamic Type이 적용이 안되는 현상이 발생했다.
+- ![](https://i.imgur.com/jjdJzLT.gif) 
+- ![](https://i.imgur.com/jjdJzLT.gif)
+- `이유` 알고보니 편집해준 부분(prefix)을 제외한 나머지 글자의 폰트도 같이 적용해줘야 됬다.
+    - 맨 처음 글자의 TextStyle이 title3로 설정되어있는데 addAttribute를 하는 순간 TextStyle이 풀리는 것 같다.
+- `해결` 따라서 나머지 텍스트에 대해서도 TextStyle을 지정해준 후 addAttribute 해주니 해결되었다.
+- ![](https://i.imgur.com/piOy2Vw.gif)
+
+---
+
+### 2. 메인의 하단 버튼이 위 Label과 겹쳐보이는 현상
+
+- `상황` Dynamic Type을 최대한 늘렸을 때 하단의 버튼 titleLabel이 커졌지만 이에 따라 StackView의 높이가 늘어나지 않는 현상이 나타났다.
+- ![](https://i.imgur.com/jOtT83w.png) 
+- ![](https://i.imgur.com/nXBRI6w.png)
+- `시도1` 레이아웃이 안잡혀 있어서 그런건가 싶어서 버튼의 높이를 스택뷰와 같게 설정을 주었으나 현상은 동일했다.
+- `시도2` 또한 StackView의 Alignment를 center로 주었을 때에도 약간 겹쳐짐이 줄긴 했지만 동일한 문제로 해결은 되지 않았다.
+- ![](https://i.imgur.com/Tg4DWik.png)
+- ![](https://i.imgur.com/KX49KE0.png)
+- `해결` 버튼의 Style이 이전엔 버전 호환 문제로 default로 맞춰져 있었는데, iOS 15부터 적용 가능한 Plain으로 변경해주자 레이아웃 문제가 해결되었다. 그러나 어떤 차이로 해당 문제가 해결되었는지 정확한 파악은 어려웠다. 기존에 Dynamic Type이 적용되지 않았던 버튼이 이번에 업데이트가 되면서 기본적으로 적용되게끔 바뀌었는데 그 부분 때문이 아닌가 싶다.
+- ![](https://i.imgur.com/pnMgUmV.png)
+- ![](https://i.imgur.com/ESeX7K6.png)
+- ![](https://i.imgur.com/bYe8mNk.png)
+
+---
+
+### 3. 특정 화면만 Orientation 고정
+
+- `상황` 첫번째 뷰인 MainView만 Orientation을 고정 해주고싶었는데, 코드로 적용을 해주려해도 변화가 없는 현상이 나타났다.
+    ```swift
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return .portrait
+        }
+    ```
+- `이유` 위 프로퍼티를 override하여 화면 고정을 해주고싶었지만 적용이 되지않았고, 이유를 찾아보니 이번 프로젝트의 뷰들의 Hierarchy 상단엔 NavigationController가 존재하기 때문에 상단 뷰의 Orientation이 고정되어있지 않아 하위 뷰들의 Orientation 또한 적용되지 않는 것이었다.
+- ![](https://i.imgur.com/aAWt5JQ.png)
+- `해결` Navigation의 클래스를 새로 생성하여 Orientation을 적용시켜줄까 했지만, Main뷰만 고정시켜주고 싶었기때문에 굳이 생성치않고, UINavigationControllerDelegate를 MainViewController에 채택하여  내부 메소드인  `navigationControllerSupportedInterfaceOrientations` 를 구현하여 Orientation을 첫 화면에서만 고정할 수 있도록 구성해주었다.
+    ```swift
+    extension MainViewController: UINavigationControllerDelegate {
+        func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+            return navigationController.topViewController?.supportedInterfaceOrientations ?? .all
+        }
+    }
+    ```
+
+## 3-4 배운 개념
+
+- Button의 Configuration
+- Navigation Controller를 활용하여 Orientation 설정하기
+- Accessibility
+    - Dynamic Type
+    - Voice over
+- static 메소드, static 변수에 대한 정확한 개념
+    - 메모리 관리
 
 [![top](https://img.shields.io/badge/top-%23000000.svg?&amp;style=for-the-badge&amp;logo=Acclaim&amp;logoColor=white&amp;)](#만국박람회-프로젝트)
