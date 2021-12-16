@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1838689E275EED7F00C8F5BB /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838689D275EED7F00C8F5BB /* Exposition.swift */; };
 		183868A1275EEDB200C8F5BB /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183868A0275EEDB200C8F5BB /* ExpositionItem.swift */; };
-		18A004942763829600F80B1A /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A004932763829600F80B1A /* JsonParser.swift */; };
+		18A004942763829600F80B1A /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A004932763829600F80B1A /* JSONParser.swift */; };
 		C14ECC9D276878B300D43F8E /* ArtWorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14ECC9C276878B300D43F8E /* ArtWorkDetailViewController.swift */; };
 		C19A844B27670E84006AA880 /* KoreanArtWorkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19A844A27670E84006AA880 /* KoreanArtWorkTableViewController.swift */; };
 		C19A844F2767736D006AA880 /* KoreanArtWorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19A844E2767736D006AA880 /* KoreanArtWorkTableViewCell.swift */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		1838689D275EED7F00C8F5BB /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		183868A0275EEDB200C8F5BB /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
-		18A004932763829600F80B1A /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JsonParser.swift; path = Expo1900/Model/JsonParser.swift; sourceTree = SOURCE_ROOT; };
+		18A004932763829600F80B1A /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = Expo1900/Model/JSONParser.swift; sourceTree = SOURCE_ROOT; };
 		C14ECC9C276878B300D43F8E /* ArtWorkDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkDetailViewController.swift; sourceTree = "<group>"; };
 		C19A844A27670E84006AA880 /* KoreanArtWorkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanArtWorkTableViewController.swift; sourceTree = "<group>"; };
 		C19A844E2767736D006AA880 /* KoreanArtWorkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanArtWorkTableViewCell.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 				1838689D275EED7F00C8F5BB /* Exposition.swift */,
 				183868A0275EEDB200C8F5BB /* ExpositionItem.swift */,
 				EA0EFB9E2763602E00573819 /* ExpositionViewModel.swift */,
-				18A004932763829600F80B1A /* JsonParser.swift */,
+				18A004932763829600F80B1A /* JSONParser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,8 +92,8 @@
 		C1F6A8AD276877F100205AFE /* SecondVC */ = {
 			isa = PBXGroup;
 			children = (
+				C19A844A27670E84006AA880 /* KoreanArtWorkTableViewController.swift */,
 				C19A844E2767736D006AA880 /* KoreanArtWorkTableViewCell.swift */,
-				C14ECC9C276878B300D43F8E /* ArtWorkDetailViewController.swift */,
 			);
 			path = SecondVC;
 			sourceTree = "<group>";
@@ -101,7 +101,7 @@
 		C1F6A8AE2768780200205AFE /* ThirdVC */ = {
 			isa = PBXGroup;
 			children = (
-				C19A844A27670E84006AA880 /* KoreanArtWorkTableViewController.swift */,
+				C14ECC9C276878B300D43F8E /* ArtWorkDetailViewController.swift */,
 			);
 			path = ThirdVC;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 				1838689E275EED7F00C8F5BB /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C14ECC9D276878B300D43F8E /* ArtWorkDetailViewController.swift in Sources */,
-				18A004942763829600F80B1A /* JsonParser.swift in Sources */,
+				18A004942763829600F80B1A /* JSONParser.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				EA0EFB9F2763602E00573819 /* ExpositionViewModel.swift in Sources */,
 			);

@@ -1,9 +1,9 @@
 import UIKit
 
-class ExpositionIntroViewController: UIViewController {
+final class ExpositionIntroViewController: UIViewController {
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var expositionIntroTitleLabel: UILabel!
+    @IBOutlet private weak var expositionIntroImageView: UIImageView!
     @IBOutlet private weak var visitorCountLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
@@ -19,12 +19,17 @@ class ExpositionIntroViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     private func updateUI() {
         var modelForMainView = ExpositionViewModel()
         modelForMainView.setUpData()
         
-        titleLabel.text = modelForMainView.title
-        imageView.image = UIImage(named: modelForMainView.image)
+        expositionIntroTitleLabel.text = modelForMainView.title
+        expositionIntroImageView.image = UIImage(named: modelForMainView.image)
         visitorCountLabel.text = modelForMainView.visitors
         locationLabel.text = modelForMainView.location
         durationLabel.text = modelForMainView.duration

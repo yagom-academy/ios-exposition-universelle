@@ -1,23 +1,18 @@
 import UIKit
 
-class KoreanArtWorkTableViewController: UITableViewController {
+final class KoreanArtWorkTableViewController: UITableViewController {
     private var expositionItems: [ExpositionItem] = []
     private let defaultSectionCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let expositionItems = JsonParser.decodeData(of: "items", how: [ExpositionItem].self) else {
+        guard let expositionItems = JSONParser.decodeData(of: "items", how: [ExpositionItem].self) else {
             self.expositionItems = []
             return
         }
         
         self.expositionItems = expositionItems
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,9 +39,9 @@ extension KoreanArtWorkTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIndentifier, for: indexPath)
         
         if let cell = cell as? KoreanArtWorkTableViewCell {
-            cell.titleLabel.text = expositionItems[indexPath.row].name
-            cell.detailLabel.text = expositionItems[indexPath.row].shortDescription
-            cell.imageViewLabel.image = UIImage(named: expositionItems[indexPath.row].imageName)
+            cell.cellTitleLabel.text = expositionItems[indexPath.row].name
+            cell.cellDetailLabel.text = expositionItems[indexPath.row].shortDescription
+            cell.cellImageViewLabel.image = UIImage(named: expositionItems[indexPath.row].imageName)
         }
         
         return cell

@@ -1,6 +1,6 @@
 import UIKit
 
-enum JsonParser {
+enum JSONParser {
     static func decodeData<T: Decodable>(of dataName: String, how: T.Type) -> T? {
         guard let data = NSDataAsset(name: dataName) else { return nil }
         

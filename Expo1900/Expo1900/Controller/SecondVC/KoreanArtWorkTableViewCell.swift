@@ -1,10 +1,10 @@
 
 import UIKit
 
-class KoreanArtWorkTableViewCell: UITableViewCell {
+final class KoreanArtWorkTableViewCell: UITableViewCell {
     
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var detailLabel: UILabel!
-    @IBOutlet var imageViewLabel: UIImageView!
+    @IBOutlet var cellTitleLabel: UILabel!
+    @IBOutlet var cellDetailLabel: UILabel!
+    @IBOutlet var cellImageViewLabel: UIImageView!
     
 }

@@ -8,7 +8,7 @@ struct ExpositionViewModel {
     
     mutating func setUpData() {
         let expositionIdentifier = "exposition_universelle_1900"
-        guard let data = JsonParser.decodeData(of: expositionIdentifier, how: Exposition.self) else { return }
+        guard let data = JSONParser.decodeData(of: expositionIdentifier, how: Exposition.self) else { return }
         
         title = data.title.replacingOccurrences(of: "(", with: "\n(")
         image = "poster"
