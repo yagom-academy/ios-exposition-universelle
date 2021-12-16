@@ -14,6 +14,7 @@ class InformationStackView: UIStackView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpAccessibilty()
         setUpStackViewSpacing()
         setUpLabelAlignment()
         setUpLabelTextLines()
@@ -41,6 +42,11 @@ class InformationStackView: UIStackView {
         durationLabel.attributedText = durationAttributedText
         
         descriptionLabel.text = data.description
+    }
+    
+    private func setUpAccessibilty() {
+        posterImageView.isAccessibilityElement = true
+        posterImageView.accessibilityLabel = "파리 만국박람회 포스터"
     }
     
     private func setUpStackViewSpacing() {
