@@ -7,27 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4728AEB42769CC0200016D81 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728AEB32769CC0200016D81 /* String+Extension.swift */; };
+		4757873D27673B5100F19C8D /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4757873C27673B5100F19C8D /* JSONFile.swift */; };
+		475787432767419200F19C8D /* FormatingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475787422767419200F19C8D /* FormatingError.swift */; };
 		478CD461275EF6A500C2BD07 /* ExpoItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CD460275EF6A500C2BD07 /* ExpoItems.swift */; };
 		478CD463275EF71B00C2BD07 /* ExpoMainInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CD462275EF71B00C2BD07 /* ExpoMainInformation.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		ED913A762761ED8900277846 /* JSONDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED913A752761ED8900277846 /* JSONDataError.swift */; };
+		ED96338327671A8700E99B67 /* ExpoItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96338227671A8700E99B67 /* ExpoItemDetailViewController.swift */; };
+		EDFBB2962763420C00EBF91C /* ExpoItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB2952763420C00EBF91C /* ExpoItemsTableViewController.swift */; };
+		EDFBB29827634C7C00EBF91C /* ExpoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB29727634C7C00EBF91C /* ExpoItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4728AEB32769CC0200016D81 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		4757873C27673B5100F19C8D /* JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
+		475787422767419200F19C8D /* FormatingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatingError.swift; sourceTree = "<group>"; };
 		478CD460275EF6A500C2BD07 /* ExpoItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItems.swift; sourceTree = "<group>"; };
 		478CD462275EF71B00C2BD07 /* ExpoMainInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMainInformation.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMainViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED913A752761ED8900277846 /* JSONDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataError.swift; sourceTree = "<group>"; };
+		ED96338227671A8700E99B67 /* ExpoItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemDetailViewController.swift; sourceTree = "<group>"; };
+		EDFBB2952763420C00EBF91C /* ExpoItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemsTableViewController.swift; sourceTree = "<group>"; };
+		EDFBB29727634C7C00EBF91C /* ExpoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4728AEB22769CBDA00016D81 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4728AEB32769CC0200016D81 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4757873B27673A7B00F19C8D /* Namespaces */ = {
+			isa = PBXGroup;
+			children = (
+				4757873C27673B5100F19C8D /* JSONFile.swift */,
+			);
+			path = Namespaces;
+			sourceTree = "<group>";
+		};
 		478CD464275F0A2C00C2BD07 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,9 +93,12 @@
 		478CD466275F0A3E00C2BD07 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */,
+				EDFBB2952763420C00EBF91C /* ExpoItemsTableViewController.swift */,
+				EDFBB29727634C7C00EBF91C /* ExpoItemTableViewCell.swift */,
+				ED96338227671A8700E99B67 /* ExpoItemDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -89,12 +122,24 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				4728AEB22769CBDA00016D81 /* Extensions */,
+				4757873B27673A7B00F19C8D /* Namespaces */,
+				ED913A742761EC8400277846 /* Errors */,
 				478CD466275F0A3E00C2BD07 /* Controller */,
 				478CD465275F0A3200C2BD07 /* Model */,
 				478CD464275F0A2C00C2BD07 /* View */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		ED913A742761EC8400277846 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				ED913A752761ED8900277846 /* JSONDataError.swift */,
+				475787422767419200F19C8D /* FormatingError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,9 +212,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475787432767419200F19C8D /* FormatingError.swift in Sources */,
+				ED96338327671A8700E99B67 /* ExpoItemDetailViewController.swift in Sources */,
+				ED913A762761ED8900277846 /* JSONDataError.swift in Sources */,
 				478CD461275EF6A500C2BD07 /* ExpoItems.swift in Sources */,
+				4728AEB42769CC0200016D81 /* String+Extension.swift in Sources */,
 				478CD463275EF71B00C2BD07 /* ExpoMainInformation.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */,
+				EDFBB29827634C7C00EBF91C /* ExpoItemTableViewCell.swift in Sources */,
+				EDFBB2962763420C00EBF91C /* ExpoItemsTableViewController.swift in Sources */,
+				4757873D27673B5100F19C8D /* JSONFile.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
