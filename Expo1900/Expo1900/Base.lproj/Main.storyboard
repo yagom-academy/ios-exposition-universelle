@@ -17,54 +17,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXG-o2-dfY">
-                                <rect key="frame" x="0.0" y="58" width="414" height="781"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXG-o2-dfY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-6O-7JJ">
-                                        <rect key="frame" x="0.0" y="-30" width="414" height="781"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-6O-7JJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="694.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UR3-YH-q7t">
-                                                <rect key="frame" x="186.5" y="0.0" width="41.5" height="147.5"/>
+                                                <rect key="frame" x="186.5" y="0.0" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jb4-nT-GE7">
-                                                <rect key="frame" x="87" y="166.5" width="240" height="128"/>
+                                                <rect key="frame" x="87" y="81.5" width="240" height="50"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8m-PR-AyC">
-                                                <rect key="frame" x="186.5" y="313.5" width="41.5" height="20.5"/>
+                                                <rect key="frame" x="186.5" y="192.5" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smh-uU-2We">
-                                                <rect key="frame" x="186.5" y="353" width="41.5" height="20.5"/>
+                                                <rect key="frame" x="186.5" y="274" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8y-JF-8sK">
-                                                <rect key="frame" x="186.5" y="392.5" width="41.5" height="20.5"/>
+                                                <rect key="frame" x="186.5" y="355.5" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-L8-DmO">
-                                                <rect key="frame" x="52.5" y="432" width="309" height="300"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-L8-DmO">
+                                                <rect key="frame" x="2" y="437" width="410.5" height="166.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="309" id="GAS-8c-XvZ"/>
-                                                    <constraint firstAttribute="height" constant="300" id="cXr-da-d0x"/>
-                                                </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="nS9-LG-u8q">
-                                                <rect key="frame" x="92.5" y="751" width="229" height="30"/>
+                                                <rect key="frame" x="92.5" y="664.5" width="229" height="30"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VdE-NF-wj9">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -90,13 +85,17 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="250" constant="694.5" id="BOa-h1-r5r"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="bottom" secondItem="FVa-Mm-CYx" secondAttribute="bottom" id="JjI-AK-6EF"/>
-                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="leading" secondItem="FVa-Mm-CYx" secondAttribute="leading" id="K2b-jl-dqv"/>
-                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="trailing" secondItem="FVa-Mm-CYx" secondAttribute="trailing" id="ada-7R-Ple"/>
-                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="top" secondItem="FVa-Mm-CYx" secondAttribute="top" id="gmM-af-g1x"/>
+                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="leading" secondItem="PfU-uJ-V93" secondAttribute="leading" id="IQq-MG-Vmq"/>
+                                    <constraint firstItem="PfU-uJ-V93" firstAttribute="top" secondItem="J4m-6O-7JJ" secondAttribute="top" id="b9L-SQ-K6h"/>
+                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="trailing" secondItem="PfU-uJ-V93" secondAttribute="trailing" id="ewN-fE-AHb"/>
+                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="bottom" secondItem="PfU-uJ-V93" secondAttribute="bottom" id="lFn-bo-7tb"/>
+                                    <constraint firstItem="J4m-6O-7JJ" firstAttribute="width" secondItem="FVa-Mm-CYx" secondAttribute="width" id="pms-gh-3tU"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="PfU-uJ-V93"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="FVa-Mm-CYx"/>
@@ -104,6 +103,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oXG-o2-dfY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="12c-l9-S2E"/>
+                            <constraint firstItem="oXG-o2-dfY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="npK-re-SUe"/>
+                            <constraint firstItem="oXG-o2-dfY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="s50-Ka-rcf"/>
+                            <constraint firstItem="oXG-o2-dfY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xa6-e0-he2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="8pj-bl-5uA"/>
                     <connections>
