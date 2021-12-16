@@ -26,5 +26,6 @@ final class ExpoItemDetailViewController: UIViewController {
         navigationItem.title = expoItem.name
         itemDetailImageView.image = UIImage(named: expoItem.imageName)
         itemDetailExplanationTextView.text = expoItem.explanation
+        itemDetailExplanationTextView.applyDynamicType(fontStyle: .title3)
     }
 }

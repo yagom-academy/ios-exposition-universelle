@@ -19,7 +19,8 @@ final class ExpoItemTableViewCell: UITableViewCell {
     }
     
     private func setUpCell() {
-        expoItemNameLabel.font = UIFont.systemFont(ofSize: 25)
+        expoItemNameLabel.applyDynamicType(fontStyle: .title1)
+        expoItemExplanationLabel.applyDynamicType(fontStyle: .title2)
     }
     
     func configure(with expoItem: ExpoItem) {
