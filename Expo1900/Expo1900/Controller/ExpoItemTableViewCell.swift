@@ -20,7 +20,7 @@ final class ExpoItemTableViewCell: UITableViewCell {
     
     private func setUpCell() {
         expoItemNameLabel.applyDynamicType(fontStyle: .title1)
-        expoItemExplanationLabel.applyDynamicType(fontStyle: .title2)
+        expoItemExplanationLabel.applyDynamicType(fontStyle: .title3)
     }
     
     func configure(with expoItem: ExpoItem) {
