@@ -30,6 +30,8 @@ extension ItemDetailViewController {
     private func setViews() {
         self.title = itemInfo.name
         self.itemImageView.image = UIImage(named: "\(itemInfo.imageName)")
+        self.itemImageView.isAccessibilityElement = true
+        self.itemImageView.accessibilityLabel = itemInfo.name
         self.itemDescriptionTextView.setAttribute(with: itemInfo.description)
     }
 }

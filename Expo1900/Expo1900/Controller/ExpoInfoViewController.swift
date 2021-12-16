@@ -50,7 +50,8 @@ extension ExpoInfoViewController {
             self.locationValueLabel.adjustsFontForContentSizeCategory = true
             self.durationValueLabel.font = UIFont.expoInfoBodyFont
             self.durationValueLabel.adjustsFontForContentSizeCategory = true
-            self.descriptionTextView.setAttribute(with: data.description)
+            self.durationValueLabel.accessibilityLabel = durationValueLabel.text?.replacingOccurrences(of: "-", with: "부터")
+            self.descriptionTextView.setAttribute(with: " " + data.description)
             self.transitionButton.titleLabel?.font = .expoInfoBodyFont
             self.transitionButton.titleLabel?.adjustsFontForContentSizeCategory = true
             self.transitionButton.titleLabel?.numberOfLines = 0
