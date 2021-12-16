@@ -8,13 +8,11 @@ struct Exposition: Decodable {
     let description: String
     
     var visitor: String {
-        get {
-            let numberFormatter = NumberFormatter()
-            numberFormatter.numberStyle = .decimal
-            
-            let result = numberFormatter.string(from: NSNumber(integerLiteral: visitors)) ?? String(visitors)
-            return result
-        }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        let result = numberFormatter.string(from: NSNumber(integerLiteral: visitors)) ?? String(visitors)
+        return result
     }
     
 }
