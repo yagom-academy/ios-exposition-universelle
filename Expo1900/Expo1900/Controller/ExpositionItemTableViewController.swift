@@ -55,9 +55,7 @@ extension ExpositionItemTableViewController {
         
         let expositionItem = expositionItems[indexPath.row]
       
-        cell.expositionItemImage?.image = UIImage(named: expositionItem.imageName)
-        cell.expositionItemNameLabel?.text = expositionItem.name
-        cell.expositionItemDescriptionLabel?.text = expositionItem.shortDescription
+        cell.configureCell(with: expositionItem)
         
         return cell
     }

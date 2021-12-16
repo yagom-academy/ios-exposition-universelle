@@ -16,12 +16,14 @@ class ExpositionItemTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    override func prepareForReuse() {
+        expositionItemImage?.image = nil
+        expositionItemNameLabel?.text = nil
+        expositionItemDescriptionLabel?.text = nil
     }
     
-    func setupUI() {
+    private func setupUI() {
         expositionItemNameLabel?.setDynamicType(textStyle: .title1)
         expositionItemNameLabel?.numberOfLines = 0
         expositionItemNameLabel?.lineBreakStrategy = .hangulWordPriority
@@ -31,9 +33,9 @@ class ExpositionItemTableViewCell: UITableViewCell {
         expositionItemDescriptionLabel?.lineBreakStrategy = .hangulWordPriority
     }
     
-    override func prepareForReuse() {
-        expositionItemImage?.image = nil
-        expositionItemNameLabel?.text = nil
-        expositionItemDescriptionLabel?.text = nil
+    func configureCell(with data: ExpositionItem) {
+        expositionItemImage?.image = UIImage(named: data.imageName)
+        expositionItemNameLabel?.text = data.name
+        expositionItemDescriptionLabel?.text = data.shortDescription
     }
 }

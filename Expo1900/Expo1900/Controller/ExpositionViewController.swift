@@ -11,6 +11,10 @@ class ExpositionViewController: UIViewController {
     private var exposition: Exposition?
     private let jsonParser = JSONParser<Exposition>()
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var visitorsTitleLabel: UILabel?
     @IBOutlet private weak var visitorsLabel: UILabel?
@@ -40,6 +44,12 @@ class ExpositionViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setLayoutByDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    // MARK: - Methods
     @objc private func setLayoutByDynamicType() {
         let stackViews = [visitorsStackView, locationStackView, durationStackView]
         
@@ -54,16 +64,6 @@ class ExpositionViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-    
-    // MARK: - Methods
     private func fetchData() {
         do {
             exposition = try jsonParser.decode(fileName: AssetFileName.exposition)
@@ -115,7 +115,9 @@ class ExpositionViewController: UIViewController {
         descriptionLabel?.text = exposition.description
         
         posterImage?.image = UIImage(named: AssetFileName.poster)
-        flagImages?.forEach { $0.image = UIImage(named: AssetFileName.flag) }
+        flagImages?.forEach {
+            $0.image = UIImage(named: AssetFileName.flag)
+        }
     }
 }
 

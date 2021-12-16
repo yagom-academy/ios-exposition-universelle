@@ -29,7 +29,7 @@ extension TypeOfViewController {
     }
 }
 
-class ViewControllerFactory {
+struct ViewControllerFactory {
     static func createViewController(of typeOfViewController: TypeOfViewController) -> UIViewController {
         let storyboardInformation = typeOfViewController.fetchStoryboardInformation()
         
