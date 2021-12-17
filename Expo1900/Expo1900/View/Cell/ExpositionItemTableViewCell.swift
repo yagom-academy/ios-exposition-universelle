@@ -17,6 +17,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        setAccessibility()
     }
     
     override func prepareForReuse() {
@@ -27,11 +28,9 @@ class ExpositionItemTableViewCell: UITableViewCell {
     
     // MARK: - Methods
     private func setupUI() {
-        expositionItemNameLabel?.setDynamicType(textStyle: .title1)
         expositionItemNameLabel?.numberOfLines = 0
         expositionItemNameLabel?.lineBreakStrategy = .hangulWordPriority
-        
-        expositionItemDescriptionLabel?.setDynamicType(textStyle: .body)
+                
         expositionItemDescriptionLabel?.numberOfLines = 0
         expositionItemDescriptionLabel?.lineBreakStrategy = .hangulWordPriority
     }
@@ -40,5 +39,11 @@ class ExpositionItemTableViewCell: UITableViewCell {
         expositionItemImage?.image = UIImage(named: data.imageName)
         expositionItemNameLabel?.text = data.name
         expositionItemDescriptionLabel?.text = data.shortDescription
+    }
+    
+    // MARK: - Accessibility
+    private func setAccessibility() {
+        expositionItemNameLabel?.setDynamicType(textStyle: .title1)
+        expositionItemDescriptionLabel?.setDynamicType(textStyle: .body)
     }
 }

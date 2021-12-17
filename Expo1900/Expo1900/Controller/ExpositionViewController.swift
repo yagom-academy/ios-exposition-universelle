@@ -35,6 +35,7 @@ class ExpositionViewController: UIViewController {
         setLayoutByDynamicType()
         fetchData()
         setupUI()
+        setAccessibility()
         updateUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(setLayoutByDynamicType), name: UIContentSizeCategory.didChangeNotification, object: nil)
@@ -46,20 +47,6 @@ class ExpositionViewController: UIViewController {
     }
     
     // MARK: - Methods
-    @objc private func setLayoutByDynamicType() {
-        let stackViews = [visitorsStackView, locationStackView, durationStackView]
-        
-        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
-            stackViews.forEach {
-                $0?.axis = .vertical
-            }
-        } else {
-            stackViews.forEach {
-                $0?.axis = .horizontal
-            }
-        }
-    }
-    
     private func fetchData() {
         do {
             exposition = try jsonParser.decode(fileName: AssetFileName.exposition)
@@ -69,19 +56,12 @@ class ExpositionViewController: UIViewController {
     }
     
     private func setupUI() {
-        titleLabel?.setDynamicType(textStyle: .title2)
         titleLabel?.numberOfLines = 0
         
-        [visitorsTitleLabel, durationTitleLabel, locationTitleLabel].forEach { label in
-            label?.setDynamicType(textStyle: .headline)
-        }
-        
         [visitorsLabel, durationLabel, locationLabel].forEach { label in
-            label?.setDynamicType(textStyle: .subheadline)
             label?.numberOfLines = 0
         }
         
-        descriptionLabel?.setDynamicType(textStyle: .body)
         descriptionLabel?.numberOfLines = 0
         
         if #available(iOS 14.0, *) {
@@ -89,8 +69,6 @@ class ExpositionViewController: UIViewController {
         } else {
             descriptionLabel?.lineBreakMode = .byWordWrapping
         }
-        
-        expositionItemTableButton?.applyAccessibilityWithText(textStyle: .body)
         
         flagImages?.forEach {
             $0.contentMode = .scaleAspectFit
@@ -114,6 +92,37 @@ class ExpositionViewController: UIViewController {
         flagImages?.forEach {
             $0.image = UIImage(named: AssetFileName.flag)
         }
+    }
+    
+    // MARK: - Accessibility
+    @objc private func setLayoutByDynamicType() {
+        let stackViews = [visitorsStackView, locationStackView, durationStackView]
+        
+        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
+            stackViews.forEach {
+                $0?.axis = .vertical
+            }
+        } else {
+            stackViews.forEach {
+                $0?.axis = .horizontal
+            }
+        }
+    }
+    
+    private func setAccessibility() {
+        titleLabel?.setDynamicType(textStyle: .title2)
+        
+        [visitorsTitleLabel, durationTitleLabel, locationTitleLabel].forEach { label in
+            label?.setDynamicType(textStyle: .headline)
+        }
+        
+        [visitorsLabel, durationLabel, locationLabel].forEach { label in
+            label?.setDynamicType(textStyle: .subheadline)
+        }
+        
+        descriptionLabel?.setDynamicType(textStyle: .body)
+        
+        expositionItemTableButton?.applyAccessibilityWithText(textStyle: .body)
     }
 }
 

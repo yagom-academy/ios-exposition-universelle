@@ -18,6 +18,7 @@ class ExpositionItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setAccessibility()
         updateUI()
     }
     
@@ -34,7 +35,6 @@ class ExpositionItemViewController: UIViewController {
     // MARK: - Methods
     private func setupUI() {
         itemDescriptionLabel?.numberOfLines = 0
-        itemDescriptionLabel?.setDynamicType(textStyle: .body)
         
         if #available(iOS 14.0, *) {
             itemDescriptionLabel?.lineBreakStrategy = .hangulWordPriority
@@ -53,5 +53,10 @@ class ExpositionItemViewController: UIViewController {
         self.title = expositionItem.name
         itemImage?.image = UIImage(named: expositionItem.imageName)
         itemDescriptionLabel?.text = expositionItem.description
+    }
+    
+    // MARK: - Accessibility
+    private func setAccessibility() {
+        itemDescriptionLabel?.setDynamicType(textStyle: .body)
     }
 }
