@@ -8,16 +8,7 @@
 import UIKit
 
 class NavigationController: UINavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        switch self.topViewController {
-        case is ExpositionViewController:
-            return .portrait
-        default:
-            return .all
-        }
+        return self.topViewController?.supportedInterfaceOrientations ?? .all
     }
 }
