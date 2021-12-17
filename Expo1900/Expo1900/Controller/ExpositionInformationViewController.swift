@@ -17,6 +17,10 @@ class ExpositionInformationViewController: UIViewController {
     @IBOutlet private weak var transitionToEntriesListButton: UIButton!
     @IBOutlet private weak var nationalFlagRightImage: UIImageView!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setExpositionInformation()
@@ -40,9 +44,9 @@ class ExpositionInformationViewController: UIViewController {
         
         titleLabel.text = expositionInformation?.title
         posterImageView.image = expositionInformation?.poster
-        numberOfVisitorsLabel.text = expositionInformation?.visitors
-        durationLabel.text = expositionInformation?.duration
-        locationLabel.text = expositionInformation?.location
+        numberOfVisitorsLabel.attributedText = expositionInformation?.visitors
+        durationLabel.attributedText = expositionInformation?.duration
+        locationLabel.attributedText = expositionInformation?.location
         desciptionTextView.text = expositionInformation?.description
         let nationalFlag = UIImage(named: "flag")
         nationalFlagLeftImage.image = nationalFlag
@@ -51,7 +55,7 @@ class ExpositionInformationViewController: UIViewController {
     }
     
     private func setNavigationItem() {
-        navigationItem.backButtonTitle = "메인"
+        navigationItem.title = "메인"
     }
 }
 

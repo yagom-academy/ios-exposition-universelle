@@ -1,7 +1,8 @@
 import UIKit
 
 class EntriesTableViewController: UITableViewController {
-    private let expositionEntries: [ExpositionEntry]? = JSONParser<[ExpositionEntry]>.decode(from: "items")
+    private let expositionEntries: [ExpositionEntry]? = JSONParser<[ExpositionEntry]>.decode(
+        from: "items")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +49,16 @@ class EntriesTableViewController: UITableViewController {
         cellForRowAt indexPath: IndexPath
     ) -> UIListContentConfiguration {
         var configuration = defaultConfiguration
-        configuration.textProperties.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        configuration.textProperties.font = UIFont.preferredFont(forTextStyle: .title1)
+        configuration.textProperties.adjustsFontForContentSizeCategory = true
         configuration.text = expositionEntries?[indexPath.row].name
         configuration.secondaryText = expositionEntries?[indexPath.row].shortDescription
+        configuration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .body)
+        configuration.secondaryTextProperties.adjustsFontForContentSizeCategory = true
         configuration.image = expositionEntries?[indexPath.row].image
         configuration.imageProperties.maximumSize.height = 50
         configuration.imageProperties.maximumSize.width = 50
+        configuration.imageProperties.reservedLayoutSize.width = 50
         return configuration
     }
 }
