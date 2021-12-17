@@ -55,7 +55,7 @@ class ExpositionInformationViewController: UIViewController {
     }
     
     private func setNavigationItem() {
-        navigationItem.backButtonTitle = "메인"
+        navigationItem.title = "메인"
     }
 }
 
