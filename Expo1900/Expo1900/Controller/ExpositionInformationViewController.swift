@@ -18,8 +18,8 @@ class ExpositionInformationViewController: UIViewController {
     @IBOutlet private weak var nationalFlagRightImage: UIImageView!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-           return [.portrait]
-       }
+        return [.portrait]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
