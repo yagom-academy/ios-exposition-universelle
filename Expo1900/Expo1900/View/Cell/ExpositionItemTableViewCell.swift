@@ -9,9 +9,9 @@ import UIKit
 
 class ExpositionItemTableViewCell: UITableViewCell {
     // MARK: - Properties
-    @IBOutlet weak var expositionItemImage: UIImageView?
-    @IBOutlet weak var expositionItemNameLabel: UILabel?
-    @IBOutlet weak var expositionItemDescriptionLabel: UILabel?
+    @IBOutlet private weak var expositionItemImage: UIImageView?
+    @IBOutlet private weak var expositionItemNameLabel: UILabel?
+    @IBOutlet private weak var expositionItemDescriptionLabel: UILabel?
     
     // MARK: - Initialize
     override func awakeFromNib() {
