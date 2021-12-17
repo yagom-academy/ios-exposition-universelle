@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -213,37 +214,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artWorkItem" textLabel="qf6-UE-vHX" detailTextLabel="P2A-uh-ehs" imageView="SP5-IQ-r9q" style="IBUITableViewCellStyleSubtitle" id="g3F-pW-XbG" customClass="KoreanArtWorkTableViewCell" customModule="Expo1900" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artWorkItem" rowHeight="108" id="g3F-pW-XbG" customClass="KoreanArtWorkTableViewCell" customModule="Expo1900" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g3F-pW-XbG" id="u7i-M3-Svz">
-                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qf6-UE-vHX">
-                                            <rect key="frame" x="55.5" y="6" width="25" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P2A-uh-ehs">
-                                            <rect key="frame" x="55.5" y="22.5" width="30.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="pencil.circle" catalog="system" id="SP5-IQ-r9q">
-                                            <rect key="frame" x="20.25" y="12" width="20" height="19"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rw2-hs-mOB">
+                                            <rect key="frame" x="20" y="16" width="77" height="76"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="rw2-hs-mOB" secondAttribute="height" multiplier="1:1" id="Gdf-MD-KIj"/>
+                                            </constraints>
+                                            <imageReference key="image" image="pencil.circle" catalog="system" symbolScale="default"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzs-PH-bgJ">
+                                            <rect key="frame" x="107" y="16" width="265.5" height="37"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubTitle" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3j-NM-een">
+                                            <rect key="frame" x="107" y="56" width="265.5" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bzs-PH-bgJ" firstAttribute="top" secondItem="u7i-M3-Svz" secondAttribute="topMargin" constant="5" id="HAC-z5-J24"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="K3j-NM-een" secondAttribute="trailing" constant="5" id="HEl-88-Uay"/>
+                                        <constraint firstItem="bzs-PH-bgJ" firstAttribute="leading" secondItem="rw2-hs-mOB" secondAttribute="trailing" constant="10" id="I7l-gs-E4D"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bzs-PH-bgJ" secondAttribute="trailing" constant="5" id="Jj8-cD-JN5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="K3j-NM-een" secondAttribute="bottom" constant="5" id="T05-ij-eL4"/>
+                                        <constraint firstItem="rw2-hs-mOB" firstAttribute="centerY" secondItem="u7i-M3-Svz" secondAttribute="centerY" id="W75-Qe-Rjw"/>
+                                        <constraint firstItem="rw2-hs-mOB" firstAttribute="leading" secondItem="u7i-M3-Svz" secondAttribute="leadingMargin" id="WXI-oj-upj"/>
+                                        <constraint firstItem="K3j-NM-een" firstAttribute="top" secondItem="bzs-PH-bgJ" secondAttribute="bottom" constant="3" id="Ze8-R7-qLo"/>
+                                        <constraint firstItem="K3j-NM-een" firstAttribute="leading" secondItem="bzs-PH-bgJ" secondAttribute="leading" id="s39-uD-2uq"/>
+                                        <constraint firstItem="rw2-hs-mOB" firstAttribute="width" secondItem="u7i-M3-Svz" secondAttribute="width" multiplier="20%" id="tGZ-Ci-d6c"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cellDetailLabel" destination="P2A-uh-ehs" id="yjn-5v-GAY"/>
-                                    <outlet property="cellImageViewLabel" destination="SP5-IQ-r9q" id="TIO-La-BXK"/>
-                                    <outlet property="cellTitleLabel" destination="qf6-UE-vHX" id="Rz4-pF-bAE"/>
+                                    <outlet property="cellDetailLabel" destination="K3j-NM-een" id="n5Q-Zg-RcK"/>
+                                    <outlet property="cellImageViewLabel" destination="rw2-hs-mOB" id="B3C-ey-0Oq"/>
+                                    <outlet property="cellTitleLabel" destination="bzs-PH-bgJ" id="BVP-Ex-agE"/>
                                     <segue destination="FNP-c8-ha3" kind="show" id="x0i-NH-qJH"/>
                                 </connections>
                             </tableViewCell>
@@ -258,7 +272,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jd-3W-cSB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1891" y="119"/>
+            <point key="canvasLocation" x="1889.8550724637682" y="118.52678571428571"/>
         </scene>
         <!--title-->
         <scene sceneID="nnS-TJ-CBi">
