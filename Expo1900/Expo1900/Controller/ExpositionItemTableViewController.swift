@@ -49,16 +49,11 @@ extension ExpositionItemTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierName.expositionItemCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withClass: ExpositionItemTableViewCell.self, for: indexPath)
+        
         let expositionItem = expositionItems[indexPath.row]
-        
-        var content = cell.defaultContentConfiguration()
-        
-        content.image = UIImage(named: expositionItem.imageName)
-        content.text = expositionItem.name
-        content.secondaryText = expositionItem.shortDescription
-        
-        cell.contentConfiguration = content
+      
+        cell.configureCell(with: expositionItem)
         
         return cell
     }
@@ -69,11 +64,7 @@ extension ExpositionItemTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = self.expositionItems[indexPath.row]
         
-        let expositionItemStoryboard = UIStoryboard(name: StoryboardFileName.expositionItem, bundle: nil)
-
-        let expositionItemViewController = expositionItemStoryboard.instantiateViewController(identifier: StoryboardIdentifierName.expositionItem) { coder in
-            return ExpositionItemViewController(coder: coder, expositionItem: selectedItem)
-        }
+        let expositionItemViewController = ViewControllerFactory.createViewController(of: .expositionItem(data: selectedItem))
 
         self.navigationController?.pushViewController(expositionItemViewController, animated: true)
     }
