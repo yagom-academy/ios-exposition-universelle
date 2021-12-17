@@ -12,19 +12,19 @@ class EntryDetailViewController: UIViewController {
     }
     
     private func setUpDetailView() {
-        guard let entryData = expoEntry else {
+        guard let model = expoEntry else {
             return
         }
         
-        entryDetailStackView.setUpView(from: entryData)
-        entryDetailStackView.setUpImageAccessibility(from: entryData)
+        entryDetailStackView.setUpView(from: model)
+        entryDetailStackView.setUpImageAccessibility(from: model)
     }
     
     private func setUpTitle() {
-        guard let entryData = expoEntry else {
+        guard let model = expoEntry else {
             return
         }
         
-        title = entryData.name
+        title = model.name
     }
 }

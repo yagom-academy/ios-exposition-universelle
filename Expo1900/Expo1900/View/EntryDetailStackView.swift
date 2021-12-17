@@ -15,13 +15,13 @@ class EntryDetailStackView: UIStackView {
         setUpLabelTextLines()
     }
     
-    func setUpView(from entryData: ExpoEntry) {
-        entryImageView.image = UIImage(named: entryData.imageName)
-        entryDescriptionLabel.text = entryData.description
+    func setUpView(from model: ExpoEntry) {
+        entryImageView.image = UIImage(named: model.imageName)
+        entryDescriptionLabel.text = model.description
     }
     
-    func setUpImageAccessibility(from entryData: ExpoEntry) {
-        entryImageView.accessibilityLabel = entryData.name
+    func setUpImageAccessibility(from model: ExpoEntry) {
+        entryImageView.accessibilityLabel = model.name
         entryImageView.isAccessibilityElement = true
     }
     

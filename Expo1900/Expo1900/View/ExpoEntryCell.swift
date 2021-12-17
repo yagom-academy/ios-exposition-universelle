@@ -12,14 +12,14 @@ class ExpoEntryCell: UITableViewCell {
         setUpLabelFont()
     }
 
-    func setUpView(from entryData: ExpoEntry) {
-        entryTitle.text = entryData.name
-        entryImage.image = UIImage(named: entryData.imageName)
-        entryDescription.text = entryData.shortDescription
+    func setUpView(from model: ExpoEntry) {
+        entryTitle.text = model.name
+        entryImage.image = UIImage(named: model.imageName)
+        entryDescription.text = model.shortDescription
     }
     
-    func setUpImageAccessibility(from entryData: ExpoEntry) {
-        entryImage.accessibilityLabel = entryData.name
+    func setUpImageAccessibility(from model: ExpoEntry) {
+        entryImage.accessibilityLabel = model.name
         entryImage.isAccessibilityElement = true
     }
     

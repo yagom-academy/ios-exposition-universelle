@@ -23,7 +23,7 @@ class InformationStackView: UIStackView {
         setUpLabelFont()
     }
 
-    func setUpView(from informationData: ExpoInformation) {
+    func setUpView(from model: ExpoInformation) {
         enum InformationDataSet: String, CustomStringConvertible {
             case colon = ":"
             case visitor = "방문객"
@@ -36,9 +36,9 @@ class InformationStackView: UIStackView {
             }
         }
     
-        titleLabel.text = informationData.title.replacingOccurrences(of: "(", with: "\n(")
+        titleLabel.text = model.title.replacingOccurrences(of: "(", with: "\n(")
         posterImageView.image = UIImage(named: "poster")
-        if let visitors = DecimalNumberFormatter.string(for: informationData.visitors) {
+        if let visitors = DecimalNumberFormatter.string(for: model.visitors) {
             let visitorsAttributedText = NSMutableAttributedString()
                 .setTextSize(string: "\(InformationDataSet.visitor)", fontSize: .title3)
                 .setTextSize(string: " \(InformationDataSet.colon) \(visitors) \(InformationDataSet.peopleCountSymbol)" , fontSize: .body)
@@ -47,15 +47,15 @@ class InformationStackView: UIStackView {
         
         let locationAttributedText = NSMutableAttributedString()
             .setTextSize(string: "\(InformationDataSet.location)", fontSize: .title3)
-            .setTextSize(string: " \(InformationDataSet.colon) \(informationData.location)" , fontSize: .body)
+            .setTextSize(string: " \(InformationDataSet.colon) \(model.location)" , fontSize: .body)
         locationLabel.attributedText = locationAttributedText
         
         let durationAttributedText = NSMutableAttributedString()
             .setTextSize(string: "\(InformationDataSet.duration)", fontSize: .title3)
-                                        .setTextSize(string: " \(InformationDataSet.colon) \(informationData.duration)" , fontSize: .body)
+                                        .setTextSize(string: " \(InformationDataSet.colon) \(model.duration)" , fontSize: .body)
         durationLabel.attributedText = durationAttributedText
         
-        descriptionLabel.text = informationData.description
+        descriptionLabel.text = model.description
     }
     
     private func setUpAccessibilty() {
