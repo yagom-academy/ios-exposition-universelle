@@ -49,9 +49,7 @@ extension ExpositionItemTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifierName.expositionItemCell, for: indexPath) as? ExpositionItemTableViewCell else {
-            return ExpositionItemTableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withClass: ExpositionItemTableViewCell.self, for: indexPath)
         
         let expositionItem = expositionItems[indexPath.row]
       
