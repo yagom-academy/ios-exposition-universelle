@@ -8,6 +8,8 @@ class InformationStackView: UIStackView {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
+    private let stackViewSpacing: CGFloat = 10
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -22,23 +24,29 @@ class InformationStackView: UIStackView {
     }
 
     func setUpView(from informationData: ExpoInformation) {
+        let colon = ":"
+        let visitor = "방문객"
+        let location = "개최지"
+        let duration = "개최 기간"
+        let peopleCountSymbol = "명"
+        
         titleLabel.text = informationData.title.replacingOccurrences(of: "(", with: "\n(")
         posterImageView.image = UIImage(named: "poster")
         if let visitors = DecimalNumberFormatter.string(for: informationData.visitors) {
             let visitorsAttributedText = NSMutableAttributedString()
-                                            .setTextSize(string: "방문객", fontSize: .title3)
-                                            .setTextSize(string: " : \(visitors) 명" , fontSize: .body)
+                .setTextSize(string: visitor, fontSize: .title3)
+                .setTextSize(string: " \(colon) \(visitors) \(peopleCountSymbol)" , fontSize: .body)
             visitorsLabel.attributedText = visitorsAttributedText
         }
         
         let locationAttributedText = NSMutableAttributedString()
-                                        .setTextSize(string: "개최지", fontSize: .title3)
-                                        .setTextSize(string: " : \(informationData.location)" , fontSize: .body)
+                                        .setTextSize(string: location, fontSize: .title3)
+                                        .setTextSize(string: " \(colon) \(informationData.location)" , fontSize: .body)
         locationLabel.attributedText = locationAttributedText
         
         let durationAttributedText = NSMutableAttributedString()
-                                        .setTextSize(string: "개최 기간", fontSize: .title3)
-                                        .setTextSize(string: " : \(informationData.duration)" , fontSize: .body)
+                                        .setTextSize(string: duration, fontSize: .title3)
+                                        .setTextSize(string: " \(colon) \(informationData.duration)" , fontSize: .body)
         durationLabel.attributedText = durationAttributedText
         
         descriptionLabel.text = informationData.description
@@ -50,7 +58,7 @@ class InformationStackView: UIStackView {
     }
     
     private func setUpStackViewSpacing() {
-        spacing = 10
+        spacing = stackViewSpacing
     }
     
     private func setUpLabelAlignment() {
