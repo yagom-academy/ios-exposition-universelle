@@ -8,6 +8,7 @@ import UIKit
 
 final class ExpoMainViewController: UIViewController {
     
+    // MARK: - Namespaces
     private enum LabelTitle {
         static let visitor = "방문객"
         static let location = "개최지"
@@ -21,6 +22,7 @@ final class ExpoMainViewController: UIViewController {
         static let koreanPeopleUnit = " 명"
     }
     
+    // MARK: - Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -29,6 +31,7 @@ final class ExpoMainViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // MARK: - View Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupExpoMainView()
@@ -47,6 +50,7 @@ final class ExpoMainViewController: UIViewController {
         appDelegate.supportOnlyPortrait = false
     }
     
+    // MARK: - UIElement SetUp Methods
     private func setUpNavigationBarItem() {
         navigationItem.title = NavigationTitle.mainView
     }
@@ -112,6 +116,7 @@ final class ExpoMainViewController: UIViewController {
         return convertedNumber + Symbol.koreanPeopleUnit
     }
     
+    // MARK: - JSONData Methods
     private func decodeExpoMainInformationJsonData() -> ExpoMainInformation? {
         var expoMainInformation: ExpoMainInformation?
         let jsonDecoder = JSONDecoder()

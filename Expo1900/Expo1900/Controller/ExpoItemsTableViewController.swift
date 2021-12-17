@@ -9,10 +9,12 @@ import UIKit
 
 final class ExpoItemsTableViewController: UIViewController {
     
+    // MARK: - Properties
     @IBOutlet weak var expoItemTableView: UITableView!
     
     var expoItems: ExpoItems = []
     
+    // MARK: - View Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setExpoItems()
@@ -20,6 +22,7 @@ final class ExpoItemsTableViewController: UIViewController {
         setUpNavigationBarItem()
     }
     
+    // MARK: - UIElement SetUp Methods
     private func setUpExpoItemTableView() {
         expoItemTableView.dataSource = self
     }
@@ -36,6 +39,18 @@ final class ExpoItemsTableViewController: UIViewController {
         expoItems = decodeExpoItemsJsonData()
     }
     
+    // MARK: - Segue Method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? ExpoItemDetailViewController,
+              let indexPath = expoItemTableView.indexPathForSelectedRow else {
+                  return
+              }
+        let expoItem = expoItems[indexPath.row]
+        destination.expoItem = expoItem
+        expoItemTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - JSONData Methods
     private func decodeExpoItemsJsonData() -> ExpoItems {
         var expoItemArray: ExpoItems = []
         let jsonDecoder = JSONDecoder()
@@ -57,18 +72,10 @@ final class ExpoItemsTableViewController: UIViewController {
         }
         return jsonData
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? ExpoItemDetailViewController,
-              let indexPath = expoItemTableView.indexPathForSelectedRow else {
-                  return
-              }
-        let expoItem = expoItems[indexPath.row]
-        destination.expoItem = expoItem
-        expoItemTableView.deselectRow(at: indexPath, animated: true)
-    }
+
 }
 
+// MARK: - UITableViewDataSource
 extension ExpoItemsTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expoItems.count
