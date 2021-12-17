@@ -9,7 +9,7 @@ class DescriptionTextView: UITextView {
     }()
     
     private lazy var attribute: [NSAttributedString.Key: Any] = [
-        .font: UIFont.textViewFont,
+        .font: ExpoFont.textViewFont,
         .paragraphStyle: paragraphStyle
     ]
     
@@ -22,5 +22,6 @@ class DescriptionTextView: UITextView {
     
     func setAttribute(with text: String) {
         self.attributedText = NSAttributedString(string: text, attributes: attribute)
+        self.adjustsFontForContentSizeCategory = true
     }
 }
