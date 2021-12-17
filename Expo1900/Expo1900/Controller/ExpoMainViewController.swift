@@ -48,7 +48,7 @@ final class ExpoMainViewController: UIViewController {
     }
     
     private func setUpNavigationBarItem() {
-        navigationItem.title = "메인"
+        navigationItem.title = NavigationTitle.mainView
     }
     
     private func setupExpoMainView() {

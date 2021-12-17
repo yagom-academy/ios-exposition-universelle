@@ -25,7 +25,11 @@ final class ExpoItemsTableViewController: UIViewController {
     }
     
     private func setUpNavigationBarItem() {
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = NavigationTitle.itemsListView
+        let backBarButtonItem = UIBarButtonItem(title: NavigationTitle.itemsListView, style: .plain, target: self, action: nil)
+        let attribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)]
+        backBarButtonItem.setTitleTextAttributes(attribute, for: .normal)
+        navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     private func setExpoItems() {
