@@ -2,26 +2,25 @@ struct ExpositionViewModel {
     
     var exposition: Exposition
     let posterName = "poster"
-    let visitorDescription = "방문객 : "
   
     var title: String {
         exposition.title.replacingOccurrences(of: "(", with: "\n(")
     }
     
     var image: String {
-        "poster"
+        posterName
     }
     
     var visitors: String {
-        "방문객 : " + exposition.visitor + "명"
+        exposition.visitor
     }
     
     var location: String {
-        "개최지 : " + exposition.location
+        exposition.location
     }
     
     var duration: String {
-        "개최 기간 : " + exposition.duration
+        exposition.duration
     }
     
     var description: String {
