@@ -29,9 +29,9 @@ class ExpoInformationViewController: UIViewController {
     // MARK: - CustomView SetUp
     
     func informationStackViewSetUp() {
-        guard let data = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else {
+        guard let informationData = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else {
             return
         }
-        informationStackView.setUpView(from: data)
+        informationStackView.setUpView(from: informationData)
     }
 }

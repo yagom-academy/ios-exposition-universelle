@@ -8,15 +8,23 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDetailView()
+        setUpTitle()
     }
     
     private func setUpDetailView() {
-        guard let data = expoEntry else {
+        guard let entryData = expoEntry else {
             return
         }
         
-        entryDetailStackView.setUpView(from: data)
-        entryDetailStackView.setUpImageAccessibility(from: data)
-        title = data.name
+        entryDetailStackView.setUpView(from: entryData)
+        entryDetailStackView.setUpImageAccessibility(from: entryData)
+    }
+    
+    private func setUpTitle() {
+        guard let entryData = expoEntry else {
+            return
+        }
+        
+        title = entryData.name
     }
 }

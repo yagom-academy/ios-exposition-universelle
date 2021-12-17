@@ -21,10 +21,10 @@ class InformationStackView: UIStackView {
         setUpLabelFont()
     }
 
-    func setUpView(from data: ExpoInformation) {        
-        titleLabel.text = data.title.replacingOccurrences(of: "(", with: "\n(")
+    func setUpView(from informationData: ExpoInformation) {
+        titleLabel.text = informationData.title.replacingOccurrences(of: "(", with: "\n(")
         posterImageView.image = UIImage(named: "poster")
-        if let visitors = DecimalNumberFormatter.string(for: data.visitors) {
+        if let visitors = DecimalNumberFormatter.string(for: informationData.visitors) {
             let visitorsAttributedText = NSMutableAttributedString()
                                             .setTextSize(string: "방문객", fontSize: .title3)
                                             .setTextSize(string: " : \(visitors) 명" , fontSize: .body)
@@ -33,15 +33,15 @@ class InformationStackView: UIStackView {
         
         let locationAttributedText = NSMutableAttributedString()
                                         .setTextSize(string: "개최지", fontSize: .title3)
-                                        .setTextSize(string: " : \(data.location)" , fontSize: .body)
+                                        .setTextSize(string: " : \(informationData.location)" , fontSize: .body)
         locationLabel.attributedText = locationAttributedText
         
         let durationAttributedText = NSMutableAttributedString()
                                         .setTextSize(string: "개최 기간", fontSize: .title3)
-                                        .setTextSize(string: " : \(data.duration)" , fontSize: .body)
+                                        .setTextSize(string: " : \(informationData.duration)" , fontSize: .body)
         durationLabel.attributedText = durationAttributedText
         
-        descriptionLabel.text = data.description
+        descriptionLabel.text = informationData.description
     }
     
     private func setUpAccessibilty() {
