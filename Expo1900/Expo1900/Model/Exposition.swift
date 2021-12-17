@@ -15,4 +15,11 @@ struct Exposition: Decodable {
         return result
     }
     
+    init(title: String = "", visitors: Int = 0, location: String = "", duration: String = "", description: String = "") {
+        self.title = title
+        self.visitors = visitors
+        self.location = location
+        self.duration = duration
+        self.description = description
+    }
 }

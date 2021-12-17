@@ -1,20 +1,40 @@
 struct ExpositionViewModel {
-    var title: String = ""
-    var image: String = ""
-    var visitors: String = ""
-    var location: String = ""
-    var duration: String = ""
-    var description: String = ""
     
-    mutating func setUpData() {
+    var exposition: Exposition
+    
+    var title: String {
+        exposition.title.replacingOccurrences(of: "(", with: "\n(")
+    }
+    
+    var image: String {
+        "poster"
+    }
+    
+    var visitors: String {
+        "방문객 : " + exposition.visitor + "명"
+    }
+    
+    var location: String {
+        "개최지 : " + exposition.location
+    }
+    
+    var duration: String {
+        "개최 기간 : " + exposition.duration
+    }
+    
+    var description: String {
+        exposition.description
+    }
+    
+    init() {
         let expositionIdentifier = "exposition_universelle_1900"
-        guard let data = try? JSONParser.decodeData(of: expositionIdentifier, type: Exposition.self).get() else { return }
+        let result = JSONParser.decodeData(of: expositionIdentifier, type: Exposition.self)
         
-        title = data.title.replacingOccurrences(of: "(", with: "\n(")
-        image = "poster"
-        visitors = "방문객 : " + data.visitor + "명"
-        location = "개최지 : " + data.location
-        duration = "개최 기간 : " + data.duration
-        description = data.description
+        switch result {
+        case .success(let data):
+            self.exposition = data
+        default:
+            self.exposition = Exposition()
+        }
     }
 }
