@@ -96,16 +96,9 @@ class ExpositionViewController: UIViewController {
     
     // MARK: - Accessibility
     @objc private func setLayoutByDynamicType() {
-        let stackViews = [visitorsStackView, locationStackView, durationStackView]
-        
-        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
-            stackViews.forEach {
-                $0?.axis = .vertical
-            }
-        } else {
-            stackViews.forEach {
-                $0?.axis = .horizontal
-            }
+        [visitorsStackView, locationStackView, durationStackView].forEach {
+            let isLargerText = traitCollection.preferredContentSizeCategory.isAccessibilityCategory
+            $0?.axis = isLargerText ? .vertical : .horizontal
         }
     }
     
