@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3370A272276778C4000931CC /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3370A271276778C4000931CC /* UIFont+Extension.swift */; };
+		3370A272276778C4000931CC /* ExpoFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3370A271276778C4000931CC /* ExpoFont.swift */; };
 		337EF5D02761D6A60092AB98 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EF5CF2761D6A60092AB98 /* Parser.swift */; };
 		337EF5D52761E6790092AB98 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EF5D42761E6790092AB98 /* ParserError.swift */; };
 		337EF5D727621E140092AB98 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EF5D627621E140092AB98 /* ItemsViewController.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3370A271276778C4000931CC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		3370A271276778C4000931CC /* ExpoFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoFont.swift; sourceTree = "<group>"; };
 		337EF5CF2761D6A60092AB98 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		337EF5D42761E6790092AB98 /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
 		337EF5D627621E140092AB98 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -106,14 +106,6 @@
 			path = ParsingTests;
 			sourceTree = "<group>";
 		};
-		6B4B75342767768E00C40695 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				3370A271276778C4000931CC /* UIFont+Extension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		6B4EF004275E269E005B0D53 /* AppLifecycle */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +165,6 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				6B4B75342767768E00C40695 /* Extension */,
 				336B6461275E2E1C006A7B90 /* View */,
 				E9178E28275E2939008F4D23 /* Model */,
 				6B4EF004275E269E005B0D53 /* AppLifecycle */,
@@ -193,6 +184,7 @@
 				33AFF2D327608F5B0060CA88 /* NumberFormatter+Extension.swift */,
 				E93F662127678167001158D8 /* ExpoStringLiteral.swift */,
 				337EF5CF2761D6A60092AB98 /* Parser.swift */,
+				3370A271276778C4000931CC /* ExpoFont.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,7 +310,7 @@
 				33E5DE54275F4655004799A6 /* ItemInfo.swift in Sources */,
 				33A00A0E2762FD9D0023001D /* ItemDetailViewController.swift in Sources */,
 				33AFF2D427608F5B0060CA88 /* NumberFormatter+Extension.swift in Sources */,
-				3370A272276778C4000931CC /* UIFont+Extension.swift in Sources */,
+				3370A272276778C4000931CC /* ExpoFont.swift in Sources */,
 				337EF5D02761D6A60092AB98 /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

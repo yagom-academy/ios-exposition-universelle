@@ -42,17 +42,17 @@ extension ExpoInfoViewController {
             self.locationValueLabel.text = data.location
             self.durationValueLabel.text = data.duration
             self.titleLabel.numberOfLines = .zero
-            self.titleLabel.font = UIFont.expoInfoTitleFont
+            self.titleLabel.font = ExpoFont.expoInfoTitleFont
             self.titleLabel.adjustsFontForContentSizeCategory = true
-            self.visitorValueLabel.font = UIFont.expoInfoBodyFont
+            self.visitorValueLabel.font = ExpoFont.expoInfoBodyFont
             self.visitorValueLabel.adjustsFontForContentSizeCategory = true
-            self.locationValueLabel.font = UIFont.expoInfoBodyFont
+            self.locationValueLabel.font = ExpoFont.expoInfoBodyFont
             self.locationValueLabel.adjustsFontForContentSizeCategory = true
-            self.durationValueLabel.font = UIFont.expoInfoBodyFont
+            self.durationValueLabel.font = ExpoFont.expoInfoBodyFont
             self.durationValueLabel.adjustsFontForContentSizeCategory = true
             self.durationValueLabel.accessibilityLabel = durationValueLabel.text?.replacingOccurrences(of: "-", with: "부터")
             self.descriptionTextView.setAttribute(with: " " + data.description)
-            self.transitionButton.titleLabel?.font = .expoInfoBodyFont
+            self.transitionButton.titleLabel?.font = ExpoFont.expoInfoBodyFont
             self.transitionButton.titleLabel?.adjustsFontForContentSizeCategory = true
             self.transitionButton.titleLabel?.numberOfLines = 0
             self.transitionButton.titleLabel?.textAlignment = .center

@@ -9,7 +9,7 @@ class DescriptionTextView: UITextView {
     }()
     
     private lazy var attribute: [NSAttributedString.Key: Any] = [
-        .font: UIFont.textViewFont,
+        .font: ExpoFont.textViewFont,
         .paragraphStyle: paragraphStyle
     ]
     

@@ -1,7 +1,7 @@
 
 import UIKit
 
-extension UIFont {
+enum ExpoFont  {
     static let expoInfoTitleFont: UIFont = .preferredFont(forTextStyle: .title1)
     static let expoInfoBodyFont: UIFont = .preferredFont(forTextStyle: .body)
     static let textViewFont: UIFont = .preferredFont(forTextStyle: .body)
