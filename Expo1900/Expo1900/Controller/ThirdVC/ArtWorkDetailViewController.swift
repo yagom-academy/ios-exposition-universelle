@@ -1,7 +1,7 @@
 import UIKit
 
 final class ArtWorkDetailViewController: UIViewController {
-    var identifier: Int?
+    var rowIndex: Int?
     private var expositionItem: [ExpositionItem]?
     
     @IBOutlet private weak var detailImageView: UIImageView!
@@ -12,7 +12,7 @@ final class ArtWorkDetailViewController: UIViewController {
         
         expositionItem = try? JSONParser.decodeData(of: "items", type: [ExpositionItem].self).get()
         
-        guard let index = identifier else { return }
+        guard let index = rowIndex else { return }
         guard let item = expositionItem else { return }
         
         updateUI(item, index)

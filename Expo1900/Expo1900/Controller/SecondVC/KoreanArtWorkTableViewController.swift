@@ -19,8 +19,8 @@ final class KoreanArtWorkTableViewController: UITableViewController {
         guard let cell = sender as? KoreanArtWorkTableViewCell else { return }
         
         if let destinationVC = segue.destination as? ArtWorkDetailViewController {
-            let id = tableView.indexPath(for: cell)?.row
-            destinationVC.identifier = id
+            let rowIndex = tableView.indexPath(for: cell)?.row
+            destinationVC.rowIndex = rowIndex
         }
     }
 }

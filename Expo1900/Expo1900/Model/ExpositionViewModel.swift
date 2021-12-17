@@ -1,7 +1,9 @@
 struct ExpositionViewModel {
     
     var exposition: Exposition
-    
+    let posterName = "poster"
+    let visitorDescription = "방문객 : "
+  
     var title: String {
         exposition.title.replacingOccurrences(of: "(", with: "\n(")
     }
