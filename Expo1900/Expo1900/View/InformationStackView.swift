@@ -24,29 +24,35 @@ class InformationStackView: UIStackView {
     }
 
     func setUpView(from informationData: ExpoInformation) {
-        let colon = ":"
-        let visitor = "방문객"
-        let location = "개최지"
-        let duration = "개최 기간"
-        let peopleCountSymbol = "명"
-        
+        enum InformationDataSet: String, CustomStringConvertible {
+            case colon = ":"
+            case visitor = "방문객"
+            case location = "개최지"
+            case duration = "개최 기간"
+            case peopleCountSymbol = "명"
+            
+            var description: String {
+                return self.rawValue
+            }
+        }
+    
         titleLabel.text = informationData.title.replacingOccurrences(of: "(", with: "\n(")
         posterImageView.image = UIImage(named: "poster")
         if let visitors = DecimalNumberFormatter.string(for: informationData.visitors) {
             let visitorsAttributedText = NSMutableAttributedString()
-                .setTextSize(string: visitor, fontSize: .title3)
-                .setTextSize(string: " \(colon) \(visitors) \(peopleCountSymbol)" , fontSize: .body)
+                .setTextSize(string: "\(InformationDataSet.visitor)", fontSize: .title3)
+                .setTextSize(string: " \(InformationDataSet.colon) \(visitors) \(InformationDataSet.peopleCountSymbol)" , fontSize: .body)
             visitorsLabel.attributedText = visitorsAttributedText
         }
         
         let locationAttributedText = NSMutableAttributedString()
-                                        .setTextSize(string: location, fontSize: .title3)
-                                        .setTextSize(string: " \(colon) \(informationData.location)" , fontSize: .body)
+            .setTextSize(string: "\(InformationDataSet.location)", fontSize: .title3)
+            .setTextSize(string: " \(InformationDataSet.colon) \(informationData.location)" , fontSize: .body)
         locationLabel.attributedText = locationAttributedText
         
         let durationAttributedText = NSMutableAttributedString()
-                                        .setTextSize(string: duration, fontSize: .title3)
-                                        .setTextSize(string: " \(colon) \(informationData.duration)" , fontSize: .body)
+            .setTextSize(string: "\(InformationDataSet.duration)", fontSize: .title3)
+                                        .setTextSize(string: " \(InformationDataSet.colon) \(informationData.duration)" , fontSize: .body)
         durationLabel.attributedText = durationAttributedText
         
         descriptionLabel.text = informationData.description
