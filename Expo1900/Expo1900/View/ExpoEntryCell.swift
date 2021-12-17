@@ -7,22 +7,32 @@ class ExpoEntryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpStyle()
+        setUpAccessory()
+        setUpLabelTextLines()
+        setUpLabelFont()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-    func setUpView(from data: ExpoEntry) {
-        entryTitle.text = data.name
-        entryImage.image = UIImage(named: data.imageName)
-        entryDescription.text = data.shortDescription
+    func setUpView(from model: ExpoEntry) {
+        entryTitle.text = model.name
+        entryImage.image = UIImage(named: model.imageName)
+        entryDescription.text = model.shortDescription
     }
     
-    private func setUpStyle() {
-        entryTitle.font = .preferredFont(forTextStyle: .title1)
-        entryDescription.numberOfLines = 0
+    func setUpImageAccessibility(from model: ExpoEntry) {
+        entryImage.accessibilityLabel = model.name
+        entryImage.isAccessibilityElement = true
+    }
+    
+    private func setUpAccessory() {
         accessoryType = .disclosureIndicator
+    }
+    
+    private func setUpLabelTextLines() {
+        entryDescription.numberOfLines = 0
+    }
+    
+    private func setUpLabelFont() {
+        entryTitle.setUpDynamicFont(forTextStyle: .title1)
+        entryDescription.setUpDynamicFont(forTextStyle: .body)
     }
 }

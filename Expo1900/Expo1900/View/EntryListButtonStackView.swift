@@ -12,11 +12,17 @@ class EntryListButtonStackView: UIStackView {
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpView()
+        setUpButtonStyle()
     }
     
     private func setUpView() {
         leftImageView.image = UIImage(named: "flag")
         rightImageView.image = UIImage(named: "flag")
         entryListButton.setTitle("한국의 출품작 보러가기", for: .normal)
+    }
+    
+    private func setUpButtonStyle() {
+        entryListButton.titleLabel?.setUpDynamicFont(forTextStyle: .body)
+        entryListButton.titleLabel?.numberOfLines = 1
     }
 }

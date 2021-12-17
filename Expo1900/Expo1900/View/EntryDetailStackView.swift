@@ -10,17 +10,30 @@ class EntryDetailStackView: UIStackView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setUpStyle()
+        setUpStackViewSpacing()
+        setUpLabelFont()
+        setUpLabelTextLines()
     }
     
-    func setUpView(from data: ExpoEntry) {
-        entryImageView.image = UIImage(named: data.imageName)
-        entryDescriptionLabel.text = data.description
+    func setUpView(from model: ExpoEntry) {
+        entryImageView.image = UIImage(named: model.imageName)
+        entryDescriptionLabel.text = model.description
     }
     
-    private func setUpStyle() {
+    func setUpImageAccessibility(from model: ExpoEntry) {
+        entryImageView.accessibilityLabel = model.name
+        entryImageView.isAccessibilityElement = true
+    }
+    
+    private func setUpStackViewSpacing() {
         spacing = 10
-        
+    }
+    
+    private func setUpLabelTextLines() {
         entryDescriptionLabel.numberOfLines = 0
+    }
+    
+    private func setUpLabelFont() {
+        entryDescriptionLabel.setUpDynamicFont(forTextStyle: .body)
     }
 }

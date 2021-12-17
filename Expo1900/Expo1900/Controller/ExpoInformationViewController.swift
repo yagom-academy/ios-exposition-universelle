@@ -2,7 +2,7 @@ import UIKit
 
 class ExpoInformationViewController: UIViewController {
     
-    @IBOutlet weak var informationStackView: ExpoInformationStackView!
+    @IBOutlet weak var informationStackView: InformationStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +29,9 @@ class ExpoInformationViewController: UIViewController {
     // MARK: - CustomView SetUp
     
     func informationStackViewSetUp() {
-        guard let data = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else {
+        guard let model = Parser<ExpoInformation>.decode(from: .expositionUniverselle1900) else {
             return
         }
-        informationStackView.setUpView(from: data)
+        informationStackView.setUpView(from: model)
     }
 }
