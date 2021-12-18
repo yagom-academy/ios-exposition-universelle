@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.delegate = self
         setUpNavigationBar()
         parsing()
     }
@@ -32,11 +33,11 @@ extension MainViewController {
     }
     
     private func parsing() {
-        let parsedResult = JSONParser<Exposition>.decode(fileName: FileName.exposition)
+        let parsedResult = JSONParser<Exposition>().decode(fileName: FileName.exposition)
         
         switch parsedResult {
         case .failure(let parsingError):
-            showAlert(message: parsingError.errorDescription ?? parsingError.localizedDescription)
+            showAlert(message: parsingError.errorDescription ?? "알 수 없는 에러가 발생했습니다.")
             return
         case .success(let contents):
             setUpView(contents: contents)
@@ -48,25 +49,30 @@ extension MainViewController {
         let people = " 명"
         
         titleLabel.text =  contents.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = CategoryPrefix.visitor + colon + contents.visitorsDescription + people
-        locationLabel.text = CategoryPrefix.location + colon + contents.location
-        durationLabel.text = CategoryPrefix.duration + colon + contents.duration
         descriptionLabel.text = contents.description
         posterImageView.image = UIImage(named: FileName.poster)
         
-        editFontSize(of: CategoryPrefix.visitor, in: visitorsLabel)
-        editFontSize(of: CategoryPrefix.location, in: locationLabel)
-        editFontSize(of: CategoryPrefix.duration, in: durationLabel)
+        editFontSize(of: CategoryPrefix.visitor, with: colon + contents.visitorsDescription + people, in: visitorsLabel)
+        editFontSize(of: CategoryPrefix.location, with: colon + contents.location, in: locationLabel)
+        editFontSize(of: CategoryPrefix.duration, with: colon + contents.duration, in: durationLabel)
     }
     
-    private func editFontSize(of prefix: String ,in label: UILabel) {
-        guard let text = label.text else {
-            return
-        }
-        let fontSize = UIFont.systemFont(ofSize: label.font.pointSize + 3)
-        let attributedString = NSMutableAttributedString(string: text)
-        let range = (text as NSString).range(of: prefix)
-        attributedString.addAttribute(.font, value: fontSize, range: range)
+    private func editFontSize(of prefix: String, with text: String ,in label: UILabel) {
+        let attributedString = NSMutableAttributedString()
+        
+        attributedString.append(NSAttributedString(string: prefix, attributes: [.font: UIFont.preferredFont(forTextStyle: .title2)]))
+        attributedString.append(NSAttributedString(string: text, attributes: [.font: UIFont.preferredFont(forTextStyle: .title3)]))
+        
         label.attributedText = attributedString
+    }
+}
+
+extension MainViewController: UINavigationControllerDelegate {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return navigationController.topViewController?.supportedInterfaceOrientations ?? .all
     }
 }

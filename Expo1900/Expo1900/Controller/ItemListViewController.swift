@@ -29,11 +29,11 @@ extension ItemListViewController {
     }
     
     private func parsing() {
-        let parsedResult = JSONParser<[ExpositionItem]>.decode(fileName: FileName.items)
+        let parsedResult = JSONParser<[ExpositionItem]>().decode(fileName: FileName.items)
         
         switch parsedResult {
         case .failure(let parsingError):
-            showAlert(message: parsingError.errorDescription ?? parsingError.localizedDescription)
+            showAlert(message: parsingError.errorDescription ?? "알 수 없는 에러가 발생했습니다.")
         case .success(let contents):
             items = contents
         }

@@ -2,7 +2,7 @@ import XCTest
 
 class JSONParserTests: XCTestCase {
     func test_Decode_파리만국박람회() {
-        let parsing = JSONParser<Exposition>.decode(fileName: FileName.exposition)
+        let parsing = JSONParser<Exposition>().decode(fileName: FileName.exposition)
         let result: Exposition? = try? parsing.get()
         
         XCTAssertEqual(result?.visitors, 48130300)
@@ -12,7 +12,7 @@ class JSONParserTests: XCTestCase {
     }
     
     func test_Decode_아이템() {
-        let parsing = JSONParser<[ExpositionItem]>.decode(fileName: FileName.items)
+        let parsing = JSONParser<[ExpositionItem]>().decode(fileName: FileName.items)
         let result: [ExpositionItem]? = try? parsing.get()
 
         XCTAssertEqual(result?.count, 13)
