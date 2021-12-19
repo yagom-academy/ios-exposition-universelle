@@ -18,6 +18,7 @@ class EntryDetailViewController: UIViewController {
         setNavigationBarTitle()
         setEntryDescriptionLabel()
         setEntryImage()
+        setImageAccessibilityHint()
     }
     
     private func setNavigationBarTitle() {
@@ -33,5 +34,9 @@ class EntryDetailViewController: UIViewController {
             return
         }
         entryImage.image = UIImage(named: imageName)
+    }
+    
+    private func setImageAccessibilityHint() {
+        entryImage.accessibilityHint = Accessibility.entryImageHint[entry?.imageName ?? "이미지가 없어요."]
     }
 }

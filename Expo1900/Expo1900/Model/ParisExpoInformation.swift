@@ -10,8 +10,8 @@ import Foundation
 struct ParisExpoInformation: Decodable {
     private var title: String
     private let visitors: Int
-    private let location: String
-    private let duration: String
+    let location: String
+    let duration: String
     let description: String
     
     var formattedTitle: String {
@@ -19,15 +19,7 @@ struct ParisExpoInformation: Decodable {
     }
     
     var formattedVisitors: String {
-        return "방문객 : \(visitors.decimalString) 명"
-    }
-    
-    var formattedLocation: String {
-        return "개최지 : \(location)"
-    }
-    
-    var formattedDuration: String {
-        return "개최 기간 : \(duration)"
+        return "\(visitors.decimalString) 명"
     }
 }
 
