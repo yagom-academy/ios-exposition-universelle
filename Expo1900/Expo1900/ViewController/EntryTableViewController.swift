@@ -14,6 +14,7 @@ class EntryTableViewController: UITableViewController {
         super.viewDidLoad()
         
         parseEntriesFromAsset()
+        UINavigationController.attemptRotationToDeviceOrientation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +27,9 @@ class EntryTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         guard let entryDetailViewController = segue.destination as? EntryDetailViewController,
-              let entry = sender as? Entry else { return }
+              let entry = sender as? Entry else {
+                  return
+              }
         
         entryDetailViewController.entry = entry
     }
@@ -35,6 +38,7 @@ class EntryTableViewController: UITableViewController {
 //MARK: - Private Methods
 
 extension EntryTableViewController {
+    
     private func parseEntriesFromAsset() {
         do {
             guard let entryJSON = NSDataAsset(name: JSONAssetNameList.entry.rawValue) else {
@@ -52,22 +56,22 @@ extension EntryTableViewController {
 //MARK: - TableView Methods
 
 extension EntryTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? EntryTableViewCell else {
+            return UITableViewCell()
+        }
         
         guard let entry = entries[index: indexPath.row] else {
             return cell
         }
         
-        content.text = entry.name
-        content.secondaryText = entry.shortDescription
-        content.image = UIImage(named: entry.imageName)
-        cell.contentConfiguration = content
+        cell.configureContent(from: entry)
+        cell.configureAccessibility(from: entry)
         
         return cell
     }

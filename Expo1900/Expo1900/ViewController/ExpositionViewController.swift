@@ -21,8 +21,10 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let exposition = parseExpositionFromAsset() else { return }
-        setLabels(from: exposition)
+        guard let exposition = parseExpositionFromAsset() else {
+            return
+        }
+        configureContent(from: exposition)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,11 +32,16 @@ class ExpositionViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 }
 
 //MARK: - Private Methods
 
 extension ExpositionViewController {
+    
     private func parseExpositionFromAsset() -> Exposition? {
         do {
             return try Exposition()
@@ -47,11 +54,11 @@ extension ExpositionViewController {
         }
     }
     
-    private func setLabels(from exposition: Exposition) {
+    private func configureContent(from exposition: Exposition) {
         titleLabel.text = exposition.title
-        visitorsLabel.text = exposition.visitorsDescription
-        locationLabel.text = exposition.locationDescription
-        durationLabel.text = exposition.durationDescription
+        visitorsLabel.attributedText = exposition.visitorsDescription
+        locationLabel.attributedText = exposition.locationDescription
+        durationLabel.attributedText = exposition.durationDescription
         descriptionLabel.text = exposition.description
     }
 }
