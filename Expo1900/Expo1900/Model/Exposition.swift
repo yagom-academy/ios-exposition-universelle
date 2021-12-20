@@ -6,8 +6,12 @@ struct Exposition: Decodable {
     let location: String
     let duration: String
     let description: String
-}
-
-struct ExpositionPoster {
-    let imageResourceLocator: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case title
+        case visitorsCount = "visitors"
+        case location
+        case duration
+        case description
+    }
 }
