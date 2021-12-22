@@ -29,7 +29,7 @@ final class ExpoMainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var explanationTextView: UITextView!
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     // MARK: - View Life Cycle Methods
     override func viewDidLoad() {
