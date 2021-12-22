@@ -36,18 +36,17 @@ final class ExpoMainViewController: UIViewController {
         super.viewDidLoad()
         setupExpoMainView()
         setUpNavigationBarItem()
+        navigationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        appDelegate.supportOnlyPortrait = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        appDelegate.supportOnlyPortrait = false
     }
     
     // MARK: - UIElement SetUp Methods
@@ -137,5 +136,15 @@ final class ExpoMainViewController: UIViewController {
             throw JSONDataError.fileNotFound(fileName)
         }
         return jsonData
+    }
+}
+
+extension ExpoMainViewController: UINavigationControllerDelegate {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return navigationController.topViewController?.supportedInterfaceOrientations ?? .all
     }
 }

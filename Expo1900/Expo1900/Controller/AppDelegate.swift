@@ -9,15 +9,6 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var supportOnlyPortrait = true
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if supportOnlyPortrait == false {
-            return UIInterfaceOrientationMask.all
-        }
-        return UIInterfaceOrientationMask.portrait
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 15.0, *) {
             let navigationBarAppearance = UINavigationBarAppearance()
