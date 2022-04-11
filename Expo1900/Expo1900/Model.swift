@@ -28,18 +28,12 @@ struct Exposition: Codable {
     let location: String
     let duration: String
     let description: String
-}
-
-struct Decoding {
-    let decoder = JSONDecoder()
-    func decoding() -> Exposition? {
+    
+    static func decode() -> Exposition? {
+        let decoder = JSONDecoder()
         guard let expositionAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return nil }
-        do {
-            let expositionJSON = try decoder.decode(Exposition.self, from: expositionAsset.data)
-            return expositionJSON
-        } catch {
-            print("error: \(error)")
-        }
-        return nil
+        let expositionJSON = try? decoder.decode(Exposition.self, from: expositionAsset.data)
+        return expositionJSON
     }
 }
+
