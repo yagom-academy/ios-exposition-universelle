@@ -18,7 +18,3 @@ struct Heritage: Codable {
     case description = "desc"
   }
 }
-
-
-
-
