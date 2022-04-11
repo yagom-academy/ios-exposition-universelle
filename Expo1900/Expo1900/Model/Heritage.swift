@@ -2,7 +2,7 @@
 //  Heritage.swift
 //  Expo1900
 //
-//  Created by Taeangel, dudu  on 2022/04/11.
+//  Created by Taeangel, dudu on 2022/04/11.
 //
 
 import UIKit
