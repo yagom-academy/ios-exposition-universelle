@@ -8,10 +8,10 @@
 import Foundation
 
 struct KoreanHistoricalItem: Codable {
-    var name: String
-    var imageName: String
-    var shortDesciption: String
-    var description: String
+    let name: String
+    let imageName: String
+    let shortDesciption: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
         case name
