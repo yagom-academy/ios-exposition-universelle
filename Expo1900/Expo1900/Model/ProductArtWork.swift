@@ -13,7 +13,7 @@ struct KoreanHistoricalItem: Codable {
     var shortDesciption: String
     var description: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
         case shortDesciption = "short_desc"
