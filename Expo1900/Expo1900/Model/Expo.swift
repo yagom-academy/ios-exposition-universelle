@@ -5,8 +5,6 @@
 //  Created by Taeangel, dudu on 2022/04/11.
 //
 
-import UIKit
-
 struct Expo: Decodable {
   let title: String
   let visitors: Int

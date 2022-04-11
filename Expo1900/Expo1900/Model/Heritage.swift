@@ -5,8 +5,6 @@
 //  Created by Taeangel, dudu on 2022/04/11.
 //
 
-import UIKit
-
 struct Heritage: Codable {
   let name: String
   let imageName: String

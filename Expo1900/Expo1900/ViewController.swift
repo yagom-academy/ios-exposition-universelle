@@ -7,11 +7,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      attribute()
-    }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    attribute()
+  }
   
   private func attribute() {
     view.backgroundColor = .systemBackground
