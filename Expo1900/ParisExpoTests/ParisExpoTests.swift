@@ -8,8 +8,8 @@
 import XCTest
 @testable import Expo1900
 
-class ParisExpoTests: XCTestCase {
-    func test_decode_값확인() throws {
+final class ParisExpoTests: XCTestCase {
+    func test_jsondata를_decode했을때_값추출이_정상적으로되는지() throws {
         let json = """
         {
             "title":"파리 만국박람회 1900(L'Exposition de Paris 1900)",

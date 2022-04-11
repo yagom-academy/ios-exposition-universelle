@@ -8,18 +8,8 @@
 import XCTest
 @testable import Expo1900
 
-class KoreanHistoricalItemTests: XCTestCase {
-    var sut: KoreanHistoricalItem!
-    
-    override func setUpWithError() throws {
-        sut = KoreanHistoricalItem(name: "name", imageName: "image_name", shortDesciption: "short_desc", description: "desc")
-    }
-    
-    override func tearDownWithError() throws {
-        sut = nil
-    }
-    
-    func test_jsondata를_decoder했을때_값추출이_정상적으로되는지() throws {
+final class KoreanHistoricalItemTests: XCTestCase {
+    func test_jsondata를_decode했을때_값추출이_정상적으로되는지() throws {
         let json = """
         [
             {
