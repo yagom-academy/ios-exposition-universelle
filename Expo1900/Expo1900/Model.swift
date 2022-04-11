@@ -20,6 +20,13 @@ struct Item: Codable {
         case shortDescription = "short_desc"
         case description = "desc"
     }
+    
+    static func decode() -> [Item]? {
+        let decoder = JSONDecoder()
+        guard let itemAsset = NSDataAsset.init(name: "items") else { return nil }
+        let itemJSON = try? decoder.decode([Item].self, from: itemAsset.data)
+        return itemJSON
+    }
 }
 
 struct Exposition: Codable {
