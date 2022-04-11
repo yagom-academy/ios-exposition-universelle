@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpositionInfo {
+struct ExpositionInfo: Codable {
     var title: String
     var visitors: Int
     var location: String
