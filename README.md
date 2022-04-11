@@ -3,6 +3,9 @@
 ## 타임라인
 - 프로젝트 기간: 20220411 ~ 20220422(2주)
 
+## UML
+![](https://i.imgur.com/Ar8FyKP.png)
+
 ## 팀원 및 리뷰어
 팀원: [Tiana](https://github.com/Kim-TaeHyun-A), [쿼카](https://github.com/Quokkaaa), 리뷰어: [Tony](https://github.com/Monsteel)
 
