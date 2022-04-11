@@ -19,14 +19,8 @@ struct Heritage: Codable {
     case shortDescription = "short_desc"
     case description = "desc"
   }
-  
-  static func parse() -> [Heritage]? {
-    guard let dataAssert = NSDataAsset(name: "items") else {
-      return nil
-    }
-    let jsonData = dataAssert.data
-    let heritages = try? JSONDecoder().decode([Heritage].self, from: jsonData)
-    
-    return heritages
-  }
 }
+
+
+
+

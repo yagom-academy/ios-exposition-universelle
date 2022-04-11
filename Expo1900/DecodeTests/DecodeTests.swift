@@ -11,10 +11,10 @@ import XCTest
 class DecodeTests: XCTestCase {
   
   func test_Expo의_NSDataAsset이_decode_되는지() {
-    XCTAssertNotNil(Expo.parse())
+    XCTAssertNotNil(ParseManager<Expo>.parse(name: "exposition_universelle_1900"))
   }
   
   func test_Heritage의_NSDataAsset이_decode_되는지() {
-    XCTAssertNotNil(Heritage.parse())
+    XCTAssertNotNil(ParseManager<[Heritage]>.parse(name: "items"))
   }
 }
