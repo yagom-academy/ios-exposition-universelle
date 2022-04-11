@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductArtWork: Codable {
+struct KoreanHistoricalItem: Codable {
     var name: String
     var imageName: String
     var shortDesciption: String
