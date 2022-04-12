@@ -24,17 +24,41 @@ final class JSONDecodeTests: XCTestCase {
   
   func testDecode_WhenExpoDataProvided_ShouldNotThrowError() {
     // given when then
-    if let path = Bundle.main.path(forResource: "exposition_universelle_1900", ofType: "json"),
-       let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
-      XCTAssertNoThrow(try decoder?.decode(Expo.self, from: data))
+    guard let asset = NSDataAsset(name: "exposition_universelle_1900", bundle: .main) else {
+      XCTFail("Expo Decode Failure")
+      return
     }
+    XCTAssertNoThrow(try decoder?.decode(Expo.self, from: asset.data))
+  }
+  
+  func testDecode_WhenExpoDataProvided_ShouldReturnExpoTitle() {
+    // given when then
+    guard let asset = NSDataAsset(name: "exposition_universelle_1900", bundle: .main),
+          let expo = try? decoder?.decode(Expo.self, from: asset.data)
+    else {
+      XCTFail("Expo Decode Failure")
+      return
+    }
+    XCTAssertEqual(expo.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
   }
   
   func testDecode_WhenExpoItemDataProvided_ShouldNotThrowError() {
     // given when then
-    if let path = Bundle.main.path(forResource: "items", ofType: "json"),
-       let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
-      XCTAssertNoThrow(try decoder?.decode(ExpoItem.self, from: data))
+    guard let asset = NSDataAsset(name: "items", bundle: .main) else {
+      XCTFail("ExpoItems Decode Failure")
+      return
     }
+    XCTAssertNoThrow(try decoder?.decode([ExpoItem].self, from: asset.data))
+  }
+  
+  func testDecode_WhenExpoDataProvided_ShouldReturnExpoItemsName() {
+    // given when then
+    guard let asset = NSDataAsset(name: "items", bundle: .main),
+          let expoItems = try? decoder?.decode([ExpoItem].self, from: asset.data)
+    else {
+      XCTFail("ExpoItems Decode Failure")
+      return
+    }
+    XCTAssertEqual(expoItems[0].name, "직지심체요절")
   }
 }
