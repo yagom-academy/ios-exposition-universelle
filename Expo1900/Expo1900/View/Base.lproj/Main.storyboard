@@ -73,6 +73,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="한국출품"/>
+                                        <connections>
+                                            <segue destination="a95-Yh-q4z" kind="show" id="n5L-Ud-8D4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Lmb-dJ-kKw"/>
@@ -131,6 +134,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="5ki-tZ-Do3"/>
+                    <connections>
+                        <segue destination="e9x-hF-ZsG" kind="show" id="yfs-B5-gEy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="us7-qi-b65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
