@@ -9,7 +9,7 @@ import XCTest
 @testable import Expo1900
 
 class Expo1900Tests: XCTestCase {
-    private var sut: ExpositionUniverselle?
+    private var sut: ExpositionUniverselle!
     
     override func setUpWithError() throws {
         guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {

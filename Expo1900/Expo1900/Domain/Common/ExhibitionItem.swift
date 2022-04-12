@@ -1,5 +1,5 @@
 //
-//  Items.swift
+//  ExhibitionItem.swift
 //  Expo1900
 //
 //  Created by mmim, Minseong.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Items: Codable {
+struct ExhibitionItem: Codable {
     let name: String
     let imageName: String
     let shortDescription: String
