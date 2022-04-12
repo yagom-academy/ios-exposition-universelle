@@ -40,6 +40,7 @@
 ## 실행화면
 
 ## UML
+![](https://i.imgur.com/WY8K5pY.png)
 
 ## STEP 1 기능 구현
 
