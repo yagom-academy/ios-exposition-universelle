@@ -1,7 +1,8 @@
 //
-//  Expo1900 - SceneDelegate.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
+//  SceneDelegate.swift
+//  Expo1900
+//
+//  Created by mmim, Minseong.
 // 
 
 import UIKit

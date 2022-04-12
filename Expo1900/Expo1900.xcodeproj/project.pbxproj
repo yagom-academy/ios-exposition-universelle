@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03AE392028050C7E00C0B0C9 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE391F28050C7E00C0B0C9 /* ExpositionUniverselle.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03AE391F28050C7E00C0B0C9 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03AE392128050DD100C0B0C9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		03AE392228050DE700C0B0C9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				03AE392528050ED300C0B0C9 /* Common */,
+				03AE392628050EE000C0B0C9 /* Presentation */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		03AE392328050DFD00C0B0C9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4C22589F404005FB0FD /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		03AE392428050E2500C0B0C9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		03AE392528050ED300C0B0C9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				03AE391F28050C7E00C0B0C9 /* ExpositionUniverselle.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		03AE392628050EE000C0B0C9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +110,10 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
-				C79FF4C22589F404005FB0FD /* Info.plist */,
+				03AE392428050E2500C0B0C9 /* Util */,
+				03AE392128050DD100C0B0C9 /* Application */,
+				03AE392228050DE700C0B0C9 /* Domain */,
+				03AE392328050DFD00C0B0C9 /* Resource */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -140,6 +191,7 @@
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				03AE392028050C7E00C0B0C9 /* ExpositionUniverselle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
