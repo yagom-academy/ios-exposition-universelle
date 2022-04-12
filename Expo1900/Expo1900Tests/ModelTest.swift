@@ -4,7 +4,7 @@ import XCTest
 class ModelTest: XCTestCase {
     
     func test_Exposition_decode호출시_올바른값을가져오는지() {
-        guard let result = Exposition.decode(with: "exposition_universelle_1900") as? Exposition else {
+        guard let result = Exposition.decode(with: "exposition_universelle_1900") else {
             XCTFail("decode 실패함")
             return }
 
@@ -12,7 +12,7 @@ class ModelTest: XCTestCase {
     }
     
     func test_Item_decode호출시_올바른값을가져오는지() {
-        guard let result = Item.decode(with: "items") as? [Item] else {
+        guard let result = [Item].decode(with: "items") else {
             XCTFail("decode 실패함")
             return }
             
