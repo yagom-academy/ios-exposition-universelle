@@ -61,28 +61,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4EA869262805103E002EEBB8 /* JsonParsingTests */ = {
+		4EA869262805103E002EEBB8 /* Expo1900Tests */ = {
 			isa = PBXGroup;
 			children = (
 				4EA869272805103E002EEBB8 /* JsonParsingTests.swift */,
 			);
-			path = JsonParsingTests;
+			path = Expo1900Tests;
 			sourceTree = "<group>";
 		};
-		4EC69AF328044E8500237E61 /* Models */ = {
+		4EA86930280523B3002EEBB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EA86931280523C2002EEBB8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4EC69AF328044E8500237E61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4EC69AF128044A0B00237E61 /* Entry.swift */,
 				9C2A96CD28044CD90053E54B /* Exposition.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
-				4EA869262805103E002EEBB8 /* JsonParsingTests */,
+				4EA869262805103E002EEBB8 /* Expo1900Tests */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,13 +116,12 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				4EC69AF328044E8500237E61 /* Models */,
+				4EC69AF328044E8500237E61 /* Model */,
+				4EA86930280523B3002EEBB8 /* View */,
+				4EA86931280523C2002EEBB8 /* Controller */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
