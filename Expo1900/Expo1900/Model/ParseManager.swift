@@ -7,14 +7,14 @@
 
 import UIKit
 
-struct ParseManager<T: Decodable> {
-  static func parse(name: String) -> T? {
+struct ParseManager<Element: Decodable> {
+  static func parse(name: String) -> Element? {
     guard let dataAssert = NSDataAsset(name: name) else {
       return nil
     }
     let jsonData = dataAssert.data
-    let heritages = try? JSONDecoder().decode(T.self, from: jsonData)
+    let decodedData = try? JSONDecoder().decode(Element.self, from: jsonData)
     
-    return heritages
+    return decodedData
   }
 }
