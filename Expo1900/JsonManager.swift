@@ -10,6 +10,7 @@ import UIKit
 
 protocol JsonManagerable {
     func getDecodedItems() -> [Item]?
+    func getDecodedExpositionInfo() -> ExpositionInfo?
 }
 
 struct JsonManager: JsonManagerable {
@@ -26,5 +27,15 @@ struct JsonManager: JsonManagerable {
 //        }
         items = try? jsonDecoder.decode([Item].self, from: itemData.data)
         return items
+    }
+    
+    func getDecodedExpositionInfo() -> ExpositionInfo? {
+        var expositionInfo: ExpositionInfo?
+        let jsonDecoder = JSONDecoder()
+        
+        guard let expositionInfoData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return nil }
+  
+        expositionInfo = try? jsonDecoder.decode(ExpositionInfo.self, from: expositionInfoData.data)
+        return expositionInfo
     }
 }
