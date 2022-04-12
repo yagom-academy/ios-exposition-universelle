@@ -22,7 +22,7 @@ struct ExpositionItems: Codable {
     }
     
     static func parse() -> [ExpositionItems]? {
-        guard let asset = NSDataAsset(name: "ExpositionItems") else {
+        guard let asset = NSDataAsset(name: "items") else {
             return nil
         }
         let expositionItems = try? JSONDecoder().decode([ExpositionItems].self, from: asset.data)

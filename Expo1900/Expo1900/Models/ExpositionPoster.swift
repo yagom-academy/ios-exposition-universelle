@@ -16,7 +16,7 @@ struct ExpositionPoster: Codable {
     let description: String
     
     static func parse() -> ExpositionPoster? {
-        guard let asset = NSDataAsset(name: "ExpositionPoster") else {
+        guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
             return nil
         }
         let posterData = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data)
