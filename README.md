@@ -1,10 +1,10 @@
 # 만국 박람회
-> 프로젝트 기간 2022.04.11 ~ 2022.04.
+> 프로젝트 기간 2022.04.11 ~ 2022.04.  
 팀원 : [malrang](https://github.com/kinggoguma) [cathy](https://github.com/cathy171/ios-exposition-universelle) / 리뷰어 : [LinSaeng](https://github.com/jungseungyeo)
 
-- [Ground Rules](#Ground-Rules)
+- [Ground Rules](#ground-rules)
 - [실행화면](#실행화면)
-- [UML](#UML)
+- [UML](#uml)
 - [STEP 1 기능 구현](#step-1-기능-구현)
     + [고민했던 것들](#고민했던-것들)
     + [배운 개념](#배운-개념)
