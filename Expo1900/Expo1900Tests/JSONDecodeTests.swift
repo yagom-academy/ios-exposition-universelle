@@ -2,7 +2,7 @@
 //  JSONDecodeTests.swift
 //  JSONDecodeTests
 //
-//  Created by Lingo on 2022/04/11.
+//  Created by Lingo, Mino on 2022/04/11.
 //
 
 import XCTest
@@ -24,7 +24,7 @@ final class JSONDecodeTests: XCTestCase {
   
   func testDecode_WhenExpoDataProvided_ShouldNotThrowError() {
     // given when then
-    guard let asset = NSDataAsset(name: "exposition_universelle_1900", bundle: .main) else {
+    guard let asset = NSDataAsset(name: AssetName.expo, bundle: .main) else {
       XCTFail("Expo Decode Failure")
       return
     }
@@ -33,7 +33,7 @@ final class JSONDecodeTests: XCTestCase {
   
   func testDecode_WhenExpoDataProvided_ShouldReturnExpoTitle() {
     // given when then
-    guard let asset = NSDataAsset(name: "exposition_universelle_1900", bundle: .main),
+    guard let asset = NSDataAsset(name: AssetName.expo, bundle: .main),
           let expo = try? decoder?.decode(Expo.self, from: asset.data)
     else {
       XCTFail("Expo Decode Failure")
@@ -44,16 +44,16 @@ final class JSONDecodeTests: XCTestCase {
   
   func testDecode_WhenExpoItemDataProvided_ShouldNotThrowError() {
     // given when then
-    guard let asset = NSDataAsset(name: "items", bundle: .main) else {
+    guard let asset = NSDataAsset(name: AssetName.expoItem, bundle: .main) else {
       XCTFail("ExpoItems Decode Failure")
       return
     }
     XCTAssertNoThrow(try decoder?.decode([ExpoItem].self, from: asset.data))
   }
   
-  func testDecode_WhenExpoDataProvided_ShouldReturnExpoItemsName() {
+  func testDecode_WhenExpoItemDataProvided_ShouldReturnExpoItemsName() {
     // given when then
-    guard let asset = NSDataAsset(name: "items", bundle: .main),
+    guard let asset = NSDataAsset(name: AssetName.expoItem, bundle: .main),
           let expoItems = try? decoder?.decode([ExpoItem].self, from: asset.data)
     else {
       XCTFail("ExpoItems Decode Failure")
