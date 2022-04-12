@@ -25,4 +25,14 @@ final class JsonParsingTests: XCTestCase {
         XCTAssertEqual(decodedData?.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
     }
     
+    func test_Entry타입_모델에서_CodingKey로_변환한_변수명으로_파싱이_되는지() {
+        // given
+        guard let asset = NSDataAsset.init(name: "items") else { return }
+        
+        // when
+        let decodedData = try? decoder?.decode([Entry].self, from: asset.data)
+        
+        // then
+        XCTAssertEqual(decodedData?[0].imageName, "jikji")
+    }
 }
