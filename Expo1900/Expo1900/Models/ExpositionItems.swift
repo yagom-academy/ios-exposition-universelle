@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 struct ExpositionItems: Codable {
-    let name: String
-    let imageName: String
-    let shortDescription: String
-    let description: String
+    let name: String?
+    let imageName: String?
+    let shortDescription: String?
+    let description: String?
     
     enum CodingKeys: String, CodingKey {
         case name
