@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpositionItems: Codable, JsonDecoder {
+struct ExpositionItems: Codable {
     let name: String?
     let imageName: String?
     let shortDescription: String?

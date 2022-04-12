@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpositionPoster: Codable, JsonDecoder {
+struct ExpositionPoster: Codable {
     let title: String?
     let visitors: Int?
     let location: String?
