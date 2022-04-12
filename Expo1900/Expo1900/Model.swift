@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct Item: Codable {
     let name: String
@@ -28,18 +27,4 @@ struct Exposition: Codable {
     let location: String
     let duration: String
     let description: String
-}
-
-extension Decodable {
-    static func decode(assetName: String) -> Decodable? {
-        let decoder = JSONDecoder()
-        guard let asset = NSDataAsset.init(name: assetName) else { return nil }
-        if assetName == "items" {
-            let json = try? decoder.decode([Self].self, from: asset.data)
-            return json
-        } else {
-            let json = try? decoder.decode(Self.self, from: asset.data)
-            return json
-        }
-    }
 }
