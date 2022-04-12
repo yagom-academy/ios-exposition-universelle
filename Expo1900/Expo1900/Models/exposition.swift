@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
-struct Exposition: Codable {
+struct ExpositionPoster: Codable {
     let title: String
     let visitors: Int
     let location: String
     let duration: String
     let description: String
+    
+    static func parse() -> ExpositionPoster? {
+        guard let asset = NSDataAsset(name: "ExpositionPoster") else {
+            return nil
+        }
+        let posterData = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data)
+        
+        return posterData
+    }
 }
