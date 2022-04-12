@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		675E7672280517AA0039896B /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E7671280517AA0039896B /* Heritage.swift */; };
-		675E767A28051C8F0039896B /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E767928051C8F0039896B /* ModelTests.swift */; };
+		675E767A28051C8F0039896B /* ExpoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E767928051C8F0039896B /* ExpoModelTest.swift */; };
 		9B53AF9A2805145F00C4DB93 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53AF992805145F00C4DB93 /* Expo.swift */; };
+		9B53AF9D280525F400C4DB93 /* HeritageModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53AF9C280525F400C4DB93 /* HeritageModelTest.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -31,8 +32,9 @@
 /* Begin PBXFileReference section */
 		675E7671280517AA0039896B /* Heritage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heritage.swift; sourceTree = "<group>"; };
 		675E767728051C8F0039896B /* ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		675E767928051C8F0039896B /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		675E767928051C8F0039896B /* ExpoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoModelTest.swift; sourceTree = "<group>"; };
 		9B53AF992805145F00C4DB93 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
+		9B53AF9C280525F400C4DB93 /* HeritageModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageModelTest.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +66,8 @@
 		675E767828051C8F0039896B /* ModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				675E767928051C8F0039896B /* ModelTests.swift */,
+				675E767928051C8F0039896B /* ExpoModelTest.swift */,
+				9B53AF9C280525F400C4DB93 /* HeritageModelTest.swift */,
 			);
 			path = ModelTests;
 			sourceTree = "<group>";
@@ -211,7 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				675E767A28051C8F0039896B /* ModelTests.swift in Sources */,
+				9B53AF9D280525F400C4DB93 /* HeritageModelTest.swift in Sources */,
+				675E767A28051C8F0039896B /* ExpoModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
