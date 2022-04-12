@@ -20,11 +20,6 @@ struct JsonManager: JsonManagerable {
         
         guard let itemData: NSDataAsset = NSDataAsset(name: "items") else { return nil }
         
-//        do {
-//            items = try jsonDecoder.decode([Item].self, from: itemData.data)
-//        } catch {
-//            return nil
-//        }
         items = try? jsonDecoder.decode([Item].self, from: itemData.data)
         return items
     }
