@@ -16,7 +16,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		E5B2A0F828051D1F00E8D514 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */; };
-		E5B2A100280540F900E8D514 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0FF280540F900E8D514 /* Expo1900Tests.swift */; };
+		E5B2A100280540F900E8D514 /* ExpositionUniverselleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
 		E5B2A0FD280540F900E8D514 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5B2A0FF280540F900E8D514 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
+		E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +148,7 @@
 		E5B2A0FE280540F900E8D514 /* Expo1900Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E5B2A0FF280540F900E8D514 /* Expo1900Tests.swift */,
+				E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */,
 				03AE392728054ED400C0B0C9 /* ExhibitionItemTests.swift */,
 			);
 			path = Expo1900Tests;
@@ -266,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B2A100280540F900E8D514 /* Expo1900Tests.swift in Sources */,
+				E5B2A100280540F900E8D514 /* ExpositionUniverselleTests.swift in Sources */,
 				03AE392828054ED400C0B0C9 /* ExhibitionItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

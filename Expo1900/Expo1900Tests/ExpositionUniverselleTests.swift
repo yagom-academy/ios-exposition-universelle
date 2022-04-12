@@ -8,7 +8,7 @@
 import XCTest
 @testable import Expo1900
 
-class Expo1900Tests: XCTestCase {
+class ExpositionUniverselleTests: XCTestCase {
     private var sut: ExpositionUniverselle!
     
     override func setUpWithError() throws {
