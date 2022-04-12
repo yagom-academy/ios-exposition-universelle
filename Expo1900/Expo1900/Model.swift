@@ -20,13 +20,6 @@ struct Item: Codable {
         case shortDescription = "short_desc"
         case description = "desc"
     }
-    
-    static func decode() -> [Item]? {
-        let decoder = JSONDecoder()
-        guard let itemAsset = NSDataAsset.init(name: "items") else { return nil }
-        let itemJSON = try? decoder.decode([Item].self, from: itemAsset.data)
-        return itemJSON
-    }
 }
 
 struct Exposition: Codable {
@@ -35,12 +28,18 @@ struct Exposition: Codable {
     let location: String
     let duration: String
     let description: String
-    
-    static func decode() -> Exposition? {
-        let decoder = JSONDecoder()
-        guard let expositionAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return nil }
-        let expositionJSON = try? decoder.decode(Exposition.self, from: expositionAsset.data)
-        return expositionJSON
-    }
 }
 
+extension Decodable {
+    static func decode(assetName: String) -> Decodable? {
+        let decoder = JSONDecoder()
+        guard let asset = NSDataAsset.init(name: assetName) else { return nil }
+        if assetName == "items" {
+            let json = try? decoder.decode([Self].self, from: asset.data)
+            return json
+        } else {
+            let json = try? decoder.decode(Self.self, from: asset.data)
+            return json
+        }
+    }
+}

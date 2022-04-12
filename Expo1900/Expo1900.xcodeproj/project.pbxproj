@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACF67E8028046FA3004790CD /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF67E7F28046FA3004790CD /* ModelTest.swift */; };
+		AC5A82C52804FCED006C20AA /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A82C42804FCED006C20AA /* ModelTest.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ACF67E8128046FA3004790CD /* PBXContainerItemProxy */ = {
+		AC5A82C62804FCED006C20AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C79FF4A92589F401005FB0FD /* Project object */;
 			proxyType = 1;
@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ACF67E7D28046FA3004790CD /* ModelTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACF67E7F28046FA3004790CD /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
+		AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC5A82C42804FCED006C20AA /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ACF67E7A28046FA3004790CD /* Frameworks */ = {
+		AC5A82BF2804FCED006C20AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,19 +59,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ACF67E7E28046FA3004790CD /* ModelTest */ = {
+		AC5A82C32804FCED006C20AA /* Expo1900Tests */ = {
 			isa = PBXGroup;
 			children = (
-				ACF67E7F28046FA3004790CD /* ModelTest.swift */,
+				AC5A82C42804FCED006C20AA /* ModelTest.swift */,
 			);
-			path = ModelTest;
+			path = Expo1900Tests;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
-				ACF67E7E28046FA3004790CD /* ModelTest */,
+				AC5A82C32804FCED006C20AA /* Expo1900Tests */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B12589F401005FB0FD /* Expo1900.app */,
-				ACF67E7D28046FA3004790CD /* ModelTest.xctest */,
+				AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,22 +103,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ACF67E7C28046FA3004790CD /* ModelTest */ = {
+		AC5A82C12804FCED006C20AA /* Expo1900Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACF67E8328046FA3004790CD /* Build configuration list for PBXNativeTarget "ModelTest" */;
+			buildConfigurationList = AC5A82C82804FCED006C20AA /* Build configuration list for PBXNativeTarget "Expo1900Tests" */;
 			buildPhases = (
-				ACF67E7928046FA3004790CD /* Sources */,
-				ACF67E7A28046FA3004790CD /* Frameworks */,
-				ACF67E7B28046FA3004790CD /* Resources */,
+				AC5A82BE2804FCED006C20AA /* Sources */,
+				AC5A82BF2804FCED006C20AA /* Frameworks */,
+				AC5A82C02804FCED006C20AA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ACF67E8228046FA3004790CD /* PBXTargetDependency */,
+				AC5A82C72804FCED006C20AA /* PBXTargetDependency */,
 			);
-			name = ModelTest;
-			productName = ModelTest;
-			productReference = ACF67E7D28046FA3004790CD /* ModelTest.xctest */;
+			name = Expo1900Tests;
+			productName = Expo1900Tests;
+			productReference = AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C79FF4B02589F401005FB0FD /* Expo1900 */ = {
@@ -147,7 +147,7 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
-					ACF67E7C28046FA3004790CD = {
+					AC5A82C12804FCED006C20AA = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = C79FF4B02589F401005FB0FD;
 					};
@@ -170,13 +170,13 @@
 			projectRoot = "";
 			targets = (
 				C79FF4B02589F401005FB0FD /* Expo1900 */,
-				ACF67E7C28046FA3004790CD /* ModelTest */,
+				AC5A82C12804FCED006C20AA /* Expo1900Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		ACF67E7B28046FA3004790CD /* Resources */ = {
+		AC5A82C02804FCED006C20AA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,11 +196,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		ACF67E7928046FA3004790CD /* Sources */ = {
+		AC5A82BE2804FCED006C20AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF67E8028046FA3004790CD /* ModelTest.swift in Sources */,
+				AC5A82C52804FCED006C20AA /* ModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,10 +218,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		ACF67E8228046FA3004790CD /* PBXTargetDependency */ = {
+		AC5A82C72804FCED006C20AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C79FF4B02589F401005FB0FD /* Expo1900 */;
-			targetProxy = ACF67E8128046FA3004790CD /* PBXContainerItemProxy */;
+			targetProxy = AC5A82C62804FCED006C20AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -245,7 +245,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		ACF67E8428046FA3004790CD /* Debug */ = {
+		AC5A82C92804FCED006C20AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -256,7 +256,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Doogie.ModelTest;
+				PRODUCT_BUNDLE_IDENTIFIER = Doogie.Expo1900Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -265,7 +265,7 @@
 			};
 			name = Debug;
 		};
-		ACF67E8528046FA3004790CD /* Release */ = {
+		AC5A82CA2804FCED006C20AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -276,7 +276,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Doogie.ModelTest;
+				PRODUCT_BUNDLE_IDENTIFIER = Doogie.Expo1900Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -440,11 +440,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ACF67E8328046FA3004790CD /* Build configuration list for PBXNativeTarget "ModelTest" */ = {
+		AC5A82C82804FCED006C20AA /* Build configuration list for PBXNativeTarget "Expo1900Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ACF67E8428046FA3004790CD /* Debug */,
-				ACF67E8528046FA3004790CD /* Release */,
+				AC5A82C92804FCED006C20AA /* Debug */,
+				AC5A82CA2804FCED006C20AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
