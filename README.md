@@ -1,6 +1,6 @@
 # 만국 박람회
 > 프로젝트 기간 2022.04.11 ~ 2022.04.22  
-팀원 : [malrang](https://github.com/kinggoguma) [cathy](https://github.com/cathy171/ios-exposition-universelle) / 리뷰어 : [LinSaeng](https://github.com/jungseungyeo)
+팀원 : [malrang](https://github.com/kinggoguma), [cathy](https://github.com/cathy171/ios-exposition-universelle) / 리뷰어 : [LinSaeng](https://github.com/jungseungyeo)
 
 - [Ground Rules](#ground-rules)
 - [실행화면](#실행화면)
@@ -43,9 +43,84 @@
 ![](https://i.imgur.com/WY8K5pY.png)
 
 ## STEP 1 기능 구현
+**JSON 데이터와 매칭할 타입 구현**
+1. `ExpositionItems: Codable`
+>- `parse()`: `[ExpositionItems]?` 타입으로 디코딩하여 반환하는 메서드
+2. `enum CodingKeys: String, CodingKey`
+>- snake case인 JSON key 값을 스위프트 네이밍에 맞게 변환해주는 열거형
+3. `ExpositionPoster: Codable`
+>- `parse()`: `ExpositionPoster?` 타입으로 디코딩하여 반환하는 메서드
 
 ## 고민했던 것들
+1. JSON Data 를 디코딩 하는 parse()메서드를 어디서 해주어야 할지 고민함.  
+**각각의 구조체에서 parse() 메서드를 구현하여 사용하는방법**
+```swift
+struct ExpositionItems: Codable {
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case imageName = "image_name"
+        case shortDescription = "short_desc"
+        case description = "desc"
+    }
+    
+    static func parse() -> [ExpositionItems]? {
+        guard let asset = NSDataAsset(name: "items") else {
+            return nil
+        }
+        let expositionItems = try? JSONDecoder().decode([ExpositionItems].self, from: asset.data)
+        return expositionItems
+    }
+}
+
+struct ExpositionPoster: Codable {
+    let title: String
+    let visitors: Int
+    let location: String
+    let duration: String
+    let description: String
+    
+    static func parse() -> ExpositionPoster? {
+        guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return nil
+        }
+        let posterData = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data)
+        
+        return posterData
+    }
+}
+```
+**새로운 구조체를 만들어 두개의 JSON Data 를 관리해주는 방법**
+```swift
+struct JsonManager<Element: Codable> {
+    static func itemParse() -> [Element]? {
+        guard let asset = NSDataAsset(name: "items") else {
+            return nil
+        }
+        
+        let expositionItems = try? JSONDecoder().decode([Element].self, from: asset.data)
+        return expositionItems
+    }
+    
+    static func PosterParse() -> Element? {
+        guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return nil
+        }
+        
+        let posterData = try? JSONDecoder().decode(Element.self, from: asset.data)
+        return posterData
+    }
+}
+```
 
 ## 배운 개념
+1. Encodable
+2. Decodable
+3. Codable
+4. NSDataAsset
 
 ## PR 후 개선사항
