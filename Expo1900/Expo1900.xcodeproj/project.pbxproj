@@ -64,9 +64,9 @@
 		86CC10F22804295F0020BFB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				86CC1108280585CD0020BFB2 /* Manager */,
 				86CC10F3280429AF0020BFB2 /* Expo.swift */,
 				9443B8EC28042D3D00C80148 /* Heritage.swift */,
-				9443B8EE28044F4F00C80148 /* ParseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -77,6 +77,14 @@
 				86CC10FB2804306F0020BFB2 /* DecodeTests.swift */,
 			);
 			path = DecodeTests;
+			sourceTree = "<group>";
+		};
+		86CC1108280585CD0020BFB2 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9443B8EE28044F4F00C80148 /* ParseManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
