@@ -14,7 +14,7 @@ final class JsonParsingTests: XCTestCase {
         self.decoder = nil
     }
     
-    func test_Exposition타입으로JSON파싱이되었는지() {
+    func test_Exposition타입_모델으로_파싱이_되었는지() {
         // given
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else { return }
         
