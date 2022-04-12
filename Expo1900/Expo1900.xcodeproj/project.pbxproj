@@ -72,15 +72,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B065BE6D280442FD00B92346 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		B065BE702804432E00B92346 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,12 +135,13 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				B065BE6D280442FD00B92346 /* Application */,
-				B065BE712804433000B92346 /* Controller */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				A11391CF280447BE00679361 /* Model */,
-				B065BE722804434200B92346 /* Resource */,
-				B0749BF7280546CF00836C3F /* Util */,
 				B065BE702804432E00B92346 /* View */,
+				B065BE712804433000B92346 /* Controller */,
+				B0749BF7280546CF00836C3F /* Util */,
+				B065BE722804434200B92346 /* Resource */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
