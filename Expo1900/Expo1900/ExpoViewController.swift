@@ -16,5 +16,16 @@ final class ExpoViewController: UIViewController {
   private func attribute() {
     view.backgroundColor = .systemBackground
   }
+  
+  private func prepareData() -> (Expo, UIImage)? {
+    guard let expo = ParseManager<Expo>.parse(name: "exposition_universelle_1900") else {
+      return nil
+    }
+    guard let poster = UIImage(named: "poster") else {
+      return nil
+    }
+    
+    return (expo, poster)
+  }
 }
 
