@@ -8,9 +8,9 @@
 import Foundation
 
 struct ExpositionInfo: Codable {
-    private let title: String
-    private let visitors: Int
-    private let location: String
-    private let duration: String
-    private let description: String
+    let title: String
+    let visitors: Int
+    let location: String
+    let duration: String
+    let description: String
 }
