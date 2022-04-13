@@ -1,11 +1,11 @@
 //
-//  Model.swift
+//  Item.swift
 //  Expo1900
 //
-//  Created by Doogie, Red on 2022/04/11.
+//  Created by Doogie, Red on 2022/04/13.
 //
 
-struct Item: Codable {
+struct Item: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
@@ -17,12 +17,4 @@ struct Item: Codable {
         case shortDescription = "short_desc"
         case description = "desc"
     }
-}
-
-struct Exposition: Codable {
-    let title: String
-    let visitors: Int
-    let location: String
-    let duration: String
-    let description: String
 }
