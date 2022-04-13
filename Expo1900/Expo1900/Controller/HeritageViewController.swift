@@ -23,6 +23,7 @@ class HeritageViewController: UIViewController {
     
     tableView.register(HeritageCell.self, forCellReuseIdentifier: HeritageCell.identifier)
     tableView.dataSource = self
+    tableView.delegate = self
     
     prepareData()
   }
@@ -45,6 +46,7 @@ class HeritageViewController: UIViewController {
 }
 
 extension HeritageViewController: UITableViewDataSource {
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return heritageList.count
   }
@@ -56,8 +58,18 @@ extension HeritageViewController: UITableViewDataSource {
     ) as? HeritageCell else {
       return UITableViewCell()
     }
-
-    cell.update(with: heritageList[indexPath.row])
+    
+    let heritage = heritageList[indexPath.row]
+    cell.update(with: heritage)
     return cell
+  }
+}
+
+extension HeritageViewController: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let heritage = heritageList[indexPath.row]
+    let heritageDetailViewController = HeritageDetailViewController(heritage: heritage)
+    navigationController?.pushViewController(heritageDetailViewController, animated: true)
   }
 }

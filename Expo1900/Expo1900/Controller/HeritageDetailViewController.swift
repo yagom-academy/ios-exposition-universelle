@@ -13,7 +13,7 @@ final class HeritageDetailViewController: UIViewController {
   
   init(heritage: Heritage) {
     self.heritage = heritage
-    super.init()
+    super.init(nibName: nil, bundle: nil)
   }
   
   required init?(coder: NSCoder) {
@@ -28,5 +28,4 @@ final class HeritageDetailViewController: UIViewController {
   private func attribute() {
     view.backgroundColor = .systemBackground
   }
-  
 }
