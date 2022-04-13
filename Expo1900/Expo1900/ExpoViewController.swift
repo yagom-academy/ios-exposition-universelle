@@ -7,6 +7,45 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
+  private let titleLabel: UILabel = {
+    let label = UILabel()
+    label.numberOfLines = 2
+    label.font = .preferredFont(forTextStyle: .title1)
+    return label
+  }()
+  
+  private let imageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleAspectFit
+    return imageView
+  }()
+  
+  private let visitorLabel: UILabel = {
+    let label = UILabel()
+    return label
+  }()
+  
+  private let locationLabel: UILabel = {
+    let label = UILabel()
+    return label
+  }()
+  
+  private let durationLabel: UILabel = {
+    let label = UILabel()
+    return label
+  }()
+  
+  private let descriptionLabel: UILabel = {
+    let label = UILabel()
+    label.numberOfLines = 0
+    return label
+  }()
+  
+  private let button: UIButton = {
+    let button = UIButton()
+    button.setTitle("한국의 출품작 보러가기", for: .normal)
+    return button
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -17,7 +56,22 @@ final class ExpoViewController: UIViewController {
   private func attribute() {
     view.backgroundColor = .systemBackground
   }
-  
+
+  private func prepareData() -> (Expo, UIImage)? {
+    guard let expo = ParseManager<Expo>.parse(name: "exposition_universelle_1900") else {
+      return nil
+    }
+    guard let poster = UIImage(named: "poster") else {
+      return nil
+    }
+    
+    return (expo, poster)
+  }
+}
+
+//MARK: - Layout
+
+extension ExpoViewController {
   private func layout() {
     let scrollView = UIScrollView()
     scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,25 +111,9 @@ final class ExpoViewController: UIViewController {
     stackView.widthAnchor.constraint(
       equalTo: scrollView.widthAnchor
     ).isActive = true
-    
-    let titleLabel = UILabel()
-    titleLabel.numberOfLines = 2
-    titleLabel.font = .preferredFont(forTextStyle: .title1)
-    
-    let imageView = UIImageView()
-    imageView.contentMode = .scaleAspectFit
-    
-    let visitorLabel = UILabel()
-    let locationLabel = UILabel()
-    let durationLabel = UILabel()
-    let descriptionLabel = UILabel()
-    descriptionLabel.numberOfLines = 0
-    
+
     let buttonStackView = UIStackView()
     buttonStackView.distribution = .equalCentering
-    
-    let button = UIButton()
-    button.setTitle("한국의 출품작 보러가기", for: .normal)
     
     let flagimageVoew = UIImageView(image: UIImage(named: "flag"))
     
@@ -91,16 +129,4 @@ final class ExpoViewController: UIViewController {
     stackView.addArrangedSubview(descriptionLabel)
     stackView.addArrangedSubview(buttonStackView)
   }
-  
-  private func prepareData() -> (Expo, UIImage)? {
-    guard let expo = ParseManager<Expo>.parse(name: "exposition_universelle_1900") else {
-      return nil
-    }
-    guard let poster = UIImage(named: "poster") else {
-      return nil
-    }
-    
-    return (expo, poster)
-  }
 }
-
