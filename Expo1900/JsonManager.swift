@@ -17,7 +17,9 @@ struct JsonManager: JsonManagerable {
         var items: [Item]? = []
         let jsonDecoder = JSONDecoder()
         
-        guard let itemData: NSDataAsset = NSDataAsset(name: DataFileName.items) else { return nil }
+        guard let itemData = NSDataAsset(name: DataFileName.items) else {
+            return nil
+        }
         
         items = try? jsonDecoder.decode([Item].self, from: itemData.data)
         return items
@@ -27,7 +29,9 @@ struct JsonManager: JsonManagerable {
         var expositionInfo: ExpositionInfo?
         let jsonDecoder = JSONDecoder()
         
-        guard let expositionInfoData: NSDataAsset = NSDataAsset(name: DataFileName.expositionInfo) else { return nil }
+        guard let expositionInfoData = NSDataAsset(name: DataFileName.expositionInfo) else {
+            return nil
+        }
   
         expositionInfo = try? jsonDecoder.decode(ExpositionInfo.self, from: expositionInfoData.data)
         return expositionInfo
