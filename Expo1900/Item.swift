@@ -5,9 +5,7 @@
 //  Created by 우롱차, marisol on 2022/04/11.
 //
 
-import Foundation
-
-struct Item: Codable {
+struct Item: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
