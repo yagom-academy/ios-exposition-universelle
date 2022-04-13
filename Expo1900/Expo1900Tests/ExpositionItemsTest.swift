@@ -10,44 +10,56 @@ import XCTest
 
 class ExpositionItemsTests: XCTestCase {
     var sut: [ExpositionItems]?
-
-    override func setUpWithError() throws {
-        sut = ExpositionItems.parse()
+    
+    override func setUp() {
+        sut = [ExpositionItems]()
     }
-
-    override func tearDownWithError() throws {
+    
+    override func tearDown() {
         sut = nil
     }
     
-    func test_itemName_이올바르게_Decoding되었는지() {
+    func test_data가_직지심체요절일때_sut의첫번째name이_data와같게된다() {
         //given
-        let itemName = "직지심체요절"
+        let data = "직지심체요절"
+        
+        //when
+        sut = [ExpositionItems].parse(JsonFile.items)
         
         //then
-        XCTAssertEqual(sut?.first?.name, itemName)
+        XCTAssertEqual(sut?.first?.name, data)
     }
     
-    func test_itemImageName_이올바르게_Decoding되었는지() {
+    func test_data가_jikji일때_sut의첫번째imageName이_data와같게된다() {
         //given
-        let itemImageName = "jikji"
+        let data = "jikji"
+        
+        //when
+        sut = [ExpositionItems].parse(JsonFile.items)
         
         //then
-        XCTAssertEqual(sut?.first?.imageName, itemImageName)
+        XCTAssertEqual(sut?.first?.imageName, data)
     }
     
-    func test_shortDescription_이올바르게_Decoding되었는지() {
+    func test_data가_백운화상일때_sut의첫번째shortDescription의접두사가_data와같게된다() {
         //given
-        let shortDescription = "백운화상 경한(景閑)이 1372년에 초록한 불교 서적"
+        let data = "백운화상"
+        
+        //when
+        sut = [ExpositionItems].parse(JsonFile.items)
         
         //then
-        XCTAssertEqual(sut?.first?.shortDescription, shortDescription)
+        XCTAssertTrue(sut!.first!.shortDescription!.hasPrefix(data))
     }
     
-    func test_itemDescription_이올바르게_Decoding되었는지() {
+    func test_data와_sut의첫번째description의접두사가_같게된다() {
         //given
-        let itemDescription = "《'백운화상초록불조직지심체요절》(白雲和尙抄錄佛祖直指心體要節)은"
+        let data = "《'백운화상"
         
+        //when
+        sut = [ExpositionItems].parse(JsonFile.items)
+
         //then
-        XCTAssertTrue(sut!.first!.description.hasPrefix(itemDescription))
+        XCTAssertTrue(sut!.first!.description!.hasPrefix(data))
     }
 }

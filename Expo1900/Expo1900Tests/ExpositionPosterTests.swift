@@ -11,53 +11,66 @@ import XCTest
 class ExpositionPosterTests: XCTestCase {
     var sut: ExpositionPoster?
     
-    override func setUpWithError() throws {
-        sut = ExpositionPoster.parse()
+    override func setUp() {
+        sut = ExpositionPoster.parse(JsonFile.poster)
     }
-
-    override func tearDownWithError() throws {
+    
+    override func tearDown() {
         sut = nil
     }
 
-    func test_title_이올바르게_Decoding되었는지() {
+    func test_data가_파리일때_sut의title의접두사가_data가같게된다() {
         //given
-        let title = "파리 만국박람회 1900(L'Exposition de Paris 1900)"
+        let data = "파리"
+        
+        //when
+        sut = ExpositionPoster.parse(JsonFile.poster)
         
         //then
-        XCTAssertEqual(sut?.title, title)
+        XCTAssertTrue(sut!.title!.hasPrefix(data))
     }
     
-    func test_visitors_이올바르게_Decoding되었는지() {
+    func test_data가_48130300일때_sut의visitors가_data와같게된다() {
         //given
-        let visitors = 48130300
+        let data = 48130300
+        
+        //when
+        sut = ExpositionPoster.parse(JsonFile.poster)
         
         //then
-        XCTAssertEqual(sut?.visitors, visitors)
+        XCTAssertEqual(sut?.visitors, data)
     }
     
-    func test_location_이올바르게_Decoding되었는지() {
+    func test_data가_프랑스파리일때_sut의poster가_data와같게된다() {
         //given
-        let location = "프랑스 파리"
+        let data = "프랑스 파리"
+        
+        //when
+        sut = ExpositionPoster.parse(JsonFile.poster)
 
         //then
-        XCTAssertEqual(sut?.location, location)
+        XCTAssertEqual(sut?.location, data)
     }
     
-    func test_duration_이올바르게_Decoding되었는지() {
+    func test_data가_1900일때_sut의duration의접두사가_data와같게된다() {
         //given
-        let duration = "1900. 04. 14 - 1900. 11. 12"
+        let data = "1900"
+        
+        //when
+        sut = ExpositionPoster.parse(JsonFile.poster)
 
         //then
-        XCTAssertEqual(sut?.duration, duration)
+        XCTAssertTrue(sut!.duration!.hasPrefix(data))
     }
     
-    func test_description_이올바르게_Decoding되었는지() {
+    func test_data가_1900년일때_sut의description의접두사가_data와같게된다() {
         //given
-        let descriptionFirst = "1900년"
-        let descriptionLast = "갔습니다."
+        let data = "1900년"
+        
+        //when
+        sut = ExpositionPoster.parse(JsonFile.poster)
         
         //then
-        XCTAssertTrue(sut!.description.hasPrefix(descriptionFirst))
-        XCTAssertTrue(sut!.description.hasSuffix(descriptionLast))
+        XCTAssertTrue(sut!.description!.hasPrefix(data))
     }
 }
