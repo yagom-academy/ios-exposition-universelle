@@ -6,6 +6,35 @@
 
 import UIKit
 
+private extension Int {
+  
+  func addComma() -> String? {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
+    guard let formattedNumber = numberFormatter.string(for: self) else {
+      return "0 명"
+    }
+    
+    return formattedNumber + " 명"
+  }
+}
+
+private extension String {
+  
+  func changeFontSize(insert title: String) -> NSAttributedString? {
+    let colonText = ": " + self
+    let targetText = title + " " + colonText
+    let attributedString = NSMutableAttributedString(string: targetText)
+    attributedString.addAttribute(
+      .font,
+      value: UIFont.preferredFont(forTextStyle: .title2),
+      range: (targetText as NSString).range(of: title)
+    )
+    
+    return attributedString
+  }
+}
+
 final class ExpoViewController: UIViewController {
   
   private let titleLabel: UILabel = {
@@ -71,37 +100,20 @@ final class ExpoViewController: UIViewController {
     
     titleLabel.text = expoTitle
     posterImageView.image = poster
-    visitorLabel.text = "\(expo.visitors ?? 0)"
+    visitorLabel.text = expo.visitors?.addComma()
     locationLabel.text = expo.location
     durationLabel.text = expo.duration
     descriptionLabel.text = expo.description
-
-    visitorLabel.attributedText = changeTextColor(title: "방문객", text: visitorLabel.text)
-    locationLabel.attributedText = changeTextColor(title: "개최지", text: locationLabel.text)
-    durationLabel.attributedText = changeTextColor(title: "개최 기간", text: durationLabel.text)
+    
+    visitorLabel.attributedText = visitorLabel.text?.changeFontSize(insert: "방문객")
+    locationLabel.attributedText = locationLabel.text?.changeFontSize(insert: "개최지")
+    durationLabel.attributedText = durationLabel.text?.changeFontSize(insert: "개최 기간")
     
     koreaHeritageButton.addTarget(
       self,
       action: #selector(didTapKoreaHeritageButton(_:)),
       for: .touchUpInside
     )
-  }
-  
-  private func changeTextColor(title: String, text: String?) -> NSAttributedString? {
-    guard let text = text else {
-      return nil
-    }
-    
-    let colonText = ": " + text
-    let targetText = title + " " + colonText
-    let attributedString = NSMutableAttributedString(string: targetText)
-    attributedString.addAttribute(
-      .font,
-      value: UIFont.preferredFont(forTextStyle: .title2),
-      range: (targetText as NSString).range(of: title)
-    )
-    
-    return attributedString
   }
   
   @objc private func didTapKoreaHeritageButton(_ sender: UIButton) {}
