@@ -55,6 +55,21 @@ final class ExpoViewController: UIViewController {
   
   private func attribute() {
     view.backgroundColor = .systemBackground
+    guard let (expo, poster) = prepareData() else {
+      return
+    }
+    
+    titleLabel.text = expo.title
+    imageView.image = poster
+    visitorLabel.text = "\(expo.visitors ?? 0)"
+    locationLabel.text = expo.location
+    durationLabel.text = expo.duration
+    descriptionLabel.text = expo.description
+    button.addTarget(self, action: #selector(didTapKoreaHeritageButton(_:)), for: .touchUpInside)
+  }
+  
+  @objc private func didTapKoreaHeritageButton(_ sender: UIButton) {
+    
   }
 
   private func prepareData() -> (Expo, UIImage)? {
