@@ -7,7 +7,15 @@
 
 import UIKit
 
+extension UITableViewCell {
+
+  static var identifier: String {
+    return String(describing: self)
+  }
+}
+
 class HeritageCell: UITableViewCell {
+ 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     layout()
@@ -35,6 +43,15 @@ class HeritageCell: UITableViewCell {
     imgView.contentMode = .scaleAspectFit
     return imgView
   }()
+  
+  func updata(with item: Heritage) {
+    titleLabel.text = item.name
+    descriptionLabel.text = item.shortDescription
+    heritageImageView.image = UIImage(named: item.imageName ?? "swift")
+  }
+}
+
+extension HeritageCell {
   
   private func layout() {
     let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
