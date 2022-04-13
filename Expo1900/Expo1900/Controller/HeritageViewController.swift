@@ -20,6 +20,10 @@ class HeritageViewController: UIViewController {
   private func attribute() {
     view.backgroundColor = .systemBackground
     title = "한국의 출품작"
+    
+    tableView.register(HeritageCell.self, forCellReuseIdentifier: HeritageCell.identifier)
+    tableView.dataSource = self
+    
     prepareData()
   }
   
@@ -37,5 +41,23 @@ class HeritageViewController: UIViewController {
     tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+  }
+}
+
+extension HeritageViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return heritageList.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: HeritageCell.identifier,
+      for: indexPath
+    ) as? HeritageCell else {
+      return UITableViewCell()
+    }
+
+    cell.update(with: heritageList[indexPath.row])
+    return cell
   }
 }

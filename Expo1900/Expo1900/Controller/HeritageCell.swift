@@ -44,7 +44,7 @@ class HeritageCell: UITableViewCell {
     return imgView
   }()
   
-  func updata(with item: Heritage) {
+  func update(with item: Heritage) {
     titleLabel.text = item.name
     descriptionLabel.text = item.shortDescription
     heritageImageView.image = UIImage(named: item.imageName ?? "swift")
