@@ -4,18 +4,41 @@ import XCTest
 class ModelTest: XCTestCase {
     
     func test_Exposition_decode호출시_올바른값을가져오는지() {
-        guard let result = Exposition.decode(with: "exposition_universelle_1900") else {
-            XCTFail("decode 실패함")
-            return }
-
-        XCTAssertEqual(result.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
+        let result = Exposition.decode(with: "exposition_universelle_1900")
+        var title: String?
+            switch result {
+            case .success(let data):
+                title = data.title
+            default: break
+            }
+        
+        XCTAssertEqual(title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
     }
     
-    func test_Item_decode호출시_올바른값을가져오는지() {
-        guard let result = [Item].decode(with: "items") else {
-            XCTFail("decode 실패함")
-            return }
-            
-        XCTAssertEqual(result[0].name, "직지심체요절")
+    func test_Exposition_decode호출시_파일명이잘못되었을때_적절한에러를던지는지() {
+        let result = Exposition.decode(with: "exposition_unifgh")
+        var errorText: DataLoadError?
+            switch result {
+            case .failure(let error):
+                errorText = error
+            default: break
+            }
+        
+        XCTAssertEqual(errorText, DataLoadError.assetLoadError)
+    }
+    
+    func test_잘못된타입의_decode호출시_적절한에러를던지는지() {
+        struct TestStruct: Decodable {
+            var some: String
+        }
+        let result = TestStruct.decode(with: "exposition_universelle_1900")
+        var errorText: DataLoadError?
+            switch result {
+            case .failure(let error):
+                errorText = error
+            default: break
+            }
+        
+        XCTAssertEqual(errorText, DataLoadError.decodeError)
     }
 }
