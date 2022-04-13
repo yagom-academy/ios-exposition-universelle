@@ -5,8 +5,6 @@
 //  Created by Doogie, Red on 2022/04/11.
 //
 
-import Foundation
-
 struct Item: Codable {
     let name: String
     let imageName: String
