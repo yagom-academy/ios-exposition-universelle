@@ -19,6 +19,11 @@ final class MainViewController: UIViewController {
     self.configure()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    self.navigationController?.isNavigationBarHidden = false
+  }
+  
   @IBAction private func didTapShowExpoItemsButton(_ sender: UIButton) {
   }
 }
