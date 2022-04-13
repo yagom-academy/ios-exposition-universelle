@@ -16,8 +16,34 @@ final class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.configure()
   }
   
   @IBAction private func didTapShowExpoItemsButton(_ sender: UIButton) {
+  }
+}
+
+private extension MainViewController {
+  
+  func configure() {
+    self.navigationController?.isNavigationBarHidden = true
+    self.parse()
+  }
+  
+  func parse() {
+    let parsedResult = Expo.decode(with: AssetName.expo)
+    guard let expo = try? parsedResult.get() else {
+      return
+    }
+    self.setUpView(from: expo)
+  }
+  
+  func setUpView(from expo: Expo) {
+    self.titleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
+    self.posterImageView.image = UIImage(named: AssetName.poster)
+    self.visitorsLabel.text = "방문객 : \(expo.visitors.toDecimal()) 명"
+    self.locationLabel.text = "개최지 : \(expo.location)"
+    self.durationLabel.text = "개최 기간 : \(expo.duration)"
+    self.descriptionLabel.text = expo.description
   }
 }
