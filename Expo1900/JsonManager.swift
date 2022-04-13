@@ -8,32 +8,36 @@
 import UIKit
 
 protocol JsonManagerable {
-    func getDecodedItems() -> [Item]?
-    func getDecodedExpositionInfo() -> ExpositionInfo?
+    func getDecodedItems() throws -> [Item]
+    func getDecodedExpositionInfo() throws -> ExpositionInfo
 }
 
 struct JsonManager: JsonManagerable {
-    func getDecodedItems() -> [Item]? {
-        var items: [Item]? = []
+    func getDecodedItems() throws -> [Item] {
         let jsonDecoder = JSONDecoder()
-        
+         
         guard let itemData = NSDataAsset(name: DataFileName.items) else {
-            return nil
+            throw ExpoError.noFileError
         }
         
-        items = try? jsonDecoder.decode([Item].self, from: itemData.data)
+        guard let items = try? jsonDecoder.decode([Item].self, from: itemData.data) else {
+            throw ExpoError.decodingError
+        }
+        
         return items
     }
     
-    func getDecodedExpositionInfo() -> ExpositionInfo? {
-        var expositionInfo: ExpositionInfo?
+    func getDecodedExpositionInfo() throws -> ExpositionInfo {
         let jsonDecoder = JSONDecoder()
         
         guard let expositionInfoData = NSDataAsset(name: DataFileName.expositionInfo) else {
-            return nil
+            throw ExpoError.noFileError
         }
   
-        expositionInfo = try? jsonDecoder.decode(ExpositionInfo.self, from: expositionInfoData.data)
+        guard let expositionInfo = try? jsonDecoder.decode(ExpositionInfo.self, from: expositionInfoData.data) else {
+            throw ExpoError.decodingError
+        }
+        
         return expositionInfo
     }
 }

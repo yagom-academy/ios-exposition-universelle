@@ -18,6 +18,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		E197D5AA280446C0007F6BD0 /* ExpositionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197D5A9280446C0007F6BD0 /* ExpositionInfo.swift */; };
+		E1B728E82806997000398283 /* ExpoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B728E72806997000398283 /* ExpoError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E197D5A9280446C0007F6BD0 /* ExpositionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInfo.swift; sourceTree = "<group>"; };
+		E1B728E72806997000398283 /* ExpoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				B3BCF6C2280444E1007E1A9E /* Item.swift */,
+				E1B728E72806997000398283 /* ExpoError.swift */,
 				E197D5A9280446C0007F6BD0 /* ExpositionInfo.swift */,
 				B35AFCD3280533180003D72A /* JsonManager.swift */,
 				B3BCF700280697F8007E1A9E /* DataFileName.swift */,
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B728E82806997000398283 /* ExpoError.swift in Sources */,
 				B3BCF6C3280444E1007E1A9E /* Item.swift in Sources */,
 				B3BCF701280697F8007E1A9E /* DataFileName.swift in Sources */,
 				B35AFCD4280533180003D72A /* JsonManager.swift in Sources */,
