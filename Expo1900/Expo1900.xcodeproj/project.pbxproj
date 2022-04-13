@@ -67,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0375131B28070EB10005CF6C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E5201DEC280702A30080F00C /* Decodable+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		03AE392228050DE700C0B0C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,8 +145,8 @@
 		E5201DEB280702840080F00C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0375131B28070EB10005CF6C /* Extension */,
 				E5201DEE280703ED0080F00C /* Error */,
-				E5201DEC280702A30080F00C /* Decodable+Extension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
