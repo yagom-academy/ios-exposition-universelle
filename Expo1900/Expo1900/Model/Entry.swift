@@ -1,10 +1,10 @@
 import Foundation
 
 struct Entry: Decodable {
-    var name: String
-    var imageName: String
-    var introduction: String
-    var description: String
+    let name: String
+    let imageName: String
+    let introduction: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
         case name
