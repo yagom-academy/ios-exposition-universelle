@@ -24,7 +24,7 @@
 
 ---
 ## UML
-![](https://i.imgur.com/8E70lBc.png)
+![](https://i.imgur.com/uqOhKP2.png)
 
 ---
 
@@ -96,7 +96,6 @@ enum CodingKeys를 구현하고, 해당 enum에 CodingKey 프로토콜을 채택
 - 모르는 내용을 서로 묻기
 - (공식 문서를 다 숙지할 때까지는) 마이크 음소거 후 공부
 - 숙지 완료가 되면 프로젝트 진행
-- 
 ---
 
 ### 코딩 컨벤션
@@ -124,3 +123,5 @@ add: assert 추가
 - subject line의 마지막에 마침표(.) 사용하지 않기
 - body는 72자마다 줄 바꾸기
 - body는 어떻게 보다 무엇을, 왜 에 맞춰 작성하기
+
+
