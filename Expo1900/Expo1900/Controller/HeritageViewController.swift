@@ -9,6 +9,7 @@ import UIKit
 
 class HeritageViewController: UIViewController {
   private let tableView = UITableView()
+  private var heritageList = [Heritage]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,6 +20,14 @@ class HeritageViewController: UIViewController {
   private func attribute() {
     view.backgroundColor = .systemBackground
     title = "한국의 출품작"
+    prepareData()
+  }
+  
+  private func prepareData() {
+    guard let heritages = ParseManager<[Heritage]>.parse(name: "items") else {
+      return
+    }
+    heritageList = heritages
   }
   
   private func layout() {
