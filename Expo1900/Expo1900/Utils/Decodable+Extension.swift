@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension Decodable {
-    static func parse(name: String) -> Self? {
+    static func parse(_ name: String) -> Self? {
         guard let asset = NSDataAsset(name: name) else {
             return nil
         }

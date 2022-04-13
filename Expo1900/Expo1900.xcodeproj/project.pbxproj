@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301E42D228068A7A001A7F0D /* JsonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E42D128068A79001A7F0D /* JsonFile.swift */; };
 		302C8039280543210036155C /* ExpositionPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C8038280543210036155C /* ExpositionPoster.swift */; };
 		302C804128056FD30036155C /* ExpositionPosterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C804028056FD30036155C /* ExpositionPosterTests.swift */; };
 		302C80492805AE540036155C /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C80482805AE540036155C /* Decodable+Extension.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		301E42D128068A79001A7F0D /* JsonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFile.swift; sourceTree = "<group>"; };
 		302C8038280543210036155C /* ExpositionPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPoster.swift; sourceTree = "<group>"; };
 		302C803E28056FD30036155C /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302C804028056FD30036155C /* ExpositionPosterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPosterTests.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				302C8038280543210036155C /* ExpositionPoster.swift */,
 				AEA73267280545190020268A /* ExpositionItems.swift */,
+				301E42D128068A79001A7F0D /* JsonFile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				302C8039280543210036155C /* ExpositionPoster.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				302C80492805AE540036155C /* Decodable+Extension.swift in Sources */,
+				301E42D228068A7A001A7F0D /* JsonFile.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				AEA73268280545190020268A /* ExpositionItems.swift in Sources */,
 			);
