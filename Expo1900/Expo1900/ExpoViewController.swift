@@ -7,6 +7,7 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
+  
   private let titleLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 2
@@ -15,7 +16,7 @@ final class ExpoViewController: UIViewController {
     return label
   }()
   
-  private let imageView: UIImageView = {
+  private let posterImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
     return imageView
@@ -42,7 +43,7 @@ final class ExpoViewController: UIViewController {
     return label
   }()
   
-  private let button: UIButton = {
+  private let koreaHeritageButton: UIButton = {
     let button = UIButton()
     button.setTitleColor(.systemBlue, for: .normal)
     button.setTitle("한국의 출품작 보러가기", for: .normal)
@@ -57,22 +58,21 @@ final class ExpoViewController: UIViewController {
   
   private func attribute() {
     view.backgroundColor = .systemBackground
+    
     guard let (expo, poster) = prepareData() else {
       return
     }
-    
+        
     titleLabel.text = expo.title
-    imageView.image = poster
+    posterImageView.image = poster
     visitorLabel.text = "\(expo.visitors ?? 0)"
     locationLabel.text = expo.location
     durationLabel.text = expo.duration
     descriptionLabel.text = expo.description
-    button.addTarget(self, action: #selector(didTapKoreaHeritageButton(_:)), for: .touchUpInside)
+    koreaHeritageButton.addTarget(self, action: #selector(didTapKoreaHeritageButton(_:)), for: .touchUpInside)
   }
   
-  @objc private func didTapKoreaHeritageButton(_ sender: UIButton) {
-    
-  }
+  @objc private func didTapKoreaHeritageButton(_ sender: UIButton) {}
 
   private func prepareData() -> (Expo, UIImage)? {
     guard let expo = ParseManager<Expo>.parse(name: "exposition_universelle_1900") else {
@@ -89,6 +89,7 @@ final class ExpoViewController: UIViewController {
 //MARK: - Layout
 
 extension ExpoViewController {
+  
   private func layout() {
     let scrollView = UIScrollView()
     scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -118,21 +119,11 @@ extension ExpoViewController {
     stackView.spacing = 10
     
     scrollView.addSubview(stackView)
-    stackView.leadingAnchor.constraint(
-      equalTo: scrollView.leadingAnchor
-    ).isActive = true
-    stackView.trailingAnchor.constraint(
-      equalTo: scrollView.trailingAnchor
-    ).isActive = true
-    stackView.topAnchor.constraint(
-      equalTo: scrollView.topAnchor
-    ).isActive = true
-    stackView.bottomAnchor.constraint(
-      equalTo: scrollView.bottomAnchor
-    ).isActive = true
-    stackView.widthAnchor.constraint(
-      equalTo: scrollView.widthAnchor
-    ).isActive = true
+    stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+    stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+    stackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+    stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+    stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
 
     let buttonStackView = UIStackView()
     buttonStackView.distribution = .fill
@@ -151,11 +142,11 @@ extension ExpoViewController {
     rightFlagImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
     buttonStackView.addArrangedSubview(leftFlagImageView)
-    buttonStackView.addArrangedSubview(button)
+    buttonStackView.addArrangedSubview(koreaHeritageButton)
     buttonStackView.addArrangedSubview(rightFlagImageView)
 
     stackView.addArrangedSubview(titleLabel)
-    stackView.addArrangedSubview(imageView)
+    stackView.addArrangedSubview(posterImageView)
     stackView.addArrangedSubview(visitorLabel)
     stackView.addArrangedSubview(locationLabel)
     stackView.addArrangedSubview(durationLabel)
