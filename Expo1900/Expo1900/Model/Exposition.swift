@@ -7,3 +7,4 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
 }
+// STEP2 테스트 주석입니다.
