@@ -1,6 +1,6 @@
 import Foundation
 
-struct Entry: Codable {
+struct Entry: Decodable {
     var name: String
     var imageName: String
     var introduction: String
