@@ -61,4 +61,10 @@ final class JSONDecodeTests: XCTestCase {
     }
     XCTAssertEqual(expoItems[0].name, "직지심체요절")
   }
+  
+  func testDecode_WhenExpoItemDataProvided_ResultShouldNotThrowError() {
+    // given when then
+    let expoItemResult = [ExpoItem].decode(with: AssetName.expoItem)
+    XCTAssertNoThrow(try? expoItemResult.get())
+  }
 }
