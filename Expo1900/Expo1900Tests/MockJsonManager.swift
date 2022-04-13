@@ -1,22 +1,18 @@
 //
-//  JsonManager.swift
-//  Expo1900
+//  MockJsonManager.swift
+//  Expo1900Tests
 //
-//  Created by 우롱차, marisol on 2022/04/12.
+//  Created by 우롱차, marisol on 2022/04/13.
 //
 
 import UIKit
+@testable import Expo1900
 
-protocol JsonManagerable {
-    func decodedItems() throws -> [Item]
-    func decodedExpositionInfo() throws -> ExpositionInfo
-}
-
-struct JsonManager: JsonManagerable {
+struct MockJsonManager: JsonManagerable {
     func decodedItems() throws -> [Item] {
         let jsonDecoder = JSONDecoder()
          
-        guard let itemData = NSDataAsset(name: DataFileName.items) else {
+        guard let itemData = NSDataAsset(name: "wrongName") else {
             throw ExpoError.noFileError
         }
         
@@ -30,7 +26,7 @@ struct JsonManager: JsonManagerable {
     func decodedExpositionInfo() throws -> ExpositionInfo {
         let jsonDecoder = JSONDecoder()
         
-        guard let expositionInfoData = NSDataAsset(name: DataFileName.expositionInfo) else {
+        guard let expositionInfoData = NSDataAsset(name: DataFileName.items) else {
             throw ExpoError.noFileError
         }
   

@@ -11,6 +11,7 @@
 		B35AFCDC28053E170003D72A /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35AFCDB28053E170003D72A /* Expo1900Tests.swift */; };
 		B3BCF6C3280444E1007E1A9E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BCF6C2280444E1007E1A9E /* Item.swift */; };
 		B3BCF701280697F8007E1A9E /* DataFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BCF700280697F8007E1A9E /* DataFileName.swift */; };
+		B3BCF7052806A283007E1A9E /* MockJsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BCF7022806A1BE007E1A9E /* MockJsonManager.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		B35AFCDB28053E170003D72A /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		B3BCF6C2280444E1007E1A9E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B3BCF700280697F8007E1A9E /* DataFileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFileName.swift; sourceTree = "<group>"; };
+		B3BCF7022806A1BE007E1A9E /* MockJsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJsonManager.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				B35AFCDB28053E170003D72A /* Expo1900Tests.swift */,
+				B3BCF7022806A1BE007E1A9E /* MockJsonManager.swift */,
 			);
 			path = Expo1900Tests;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35AFCDC28053E170003D72A /* Expo1900Tests.swift in Sources */,
+				B3BCF7052806A283007E1A9E /* MockJsonManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

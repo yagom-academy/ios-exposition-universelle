@@ -22,7 +22,7 @@ class Expo1900Tests: XCTestCase {
         // given
         let jsonManager = JsonManager()
         // when
-        let expositionInfo = try? jsonManager.getDecodedExpositionInfo()
+        let expositionInfo = try? jsonManager.decodedExpositionInfo()
         // then
         XCTAssertNotNil(expositionInfo)
     }
@@ -31,36 +31,38 @@ class Expo1900Tests: XCTestCase {
         // given
         let jsonManager = JsonManager()
         // when
-        let item = try? jsonManager.getDecodedItems()
+        let item = try? jsonManager.decodedItems()
         // then
         XCTAssertNotNil(item)
     }
     
-    func test_error() throws {
+    func test_noFileError() throws {
         // given
         let jsonManager = MockJsonManager()
         var result: ExpoError?
         // when
         do {
-            let item = try jsonManager.getDecodedItems()
+            _ = try jsonManager.decodedItems()
         } catch {
             result = error as? ExpoError
         }
-        
-        print(result)
         // then
-//        XCTAssert()
-        
+        XCTAssertEqual(result, ExpoError.noFileError)
     }
-}
-
-
-struct MockJsonManager: JsonManagerable {
-    func getDecodedItems() throws -> [Item] {
-            throw ExpoError.noFileError
-        }
     
-    func getDecodedExpositionInfo() throws -> ExpositionInfo {
-     throw ExpoError.decodingError
+    func test_decodingError() throws {
+        // given
+        let jsonManager = MockJsonManager()
+        var result: ExpoError?
+        // when
+        do {
+            _ = try jsonManager.decodedExpositionInfo()
+        } catch {
+            result = error as? ExpoError
+        }
+        // then
+        XCTAssertEqual(result, ExpoError.decodingError)
     }
 }
+
+
