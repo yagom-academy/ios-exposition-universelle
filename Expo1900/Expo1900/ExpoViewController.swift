@@ -10,6 +10,7 @@ final class ExpoViewController: UIViewController {
   private let titleLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 2
+    label.textAlignment = .center
     label.font = .preferredFont(forTextStyle: .title1)
     return label
   }()
@@ -43,6 +44,7 @@ final class ExpoViewController: UIViewController {
   
   private let button: UIButton = {
     let button = UIButton()
+    button.setTitleColor(.systemBlue, for: .normal)
     button.setTitle("한국의 출품작 보러가기", for: .normal)
     return button
   }()
@@ -93,21 +95,26 @@ extension ExpoViewController {
     view.addSubview(scrollView)
 
     scrollView.leadingAnchor.constraint(
-      equalTo: view.leadingAnchor
+      equalTo: view.leadingAnchor,
+      constant: 15
     ).isActive = true
     scrollView.trailingAnchor.constraint(
-      equalTo: view.trailingAnchor
+      equalTo: view.trailingAnchor,
+      constant: -15
     ).isActive = true
     scrollView.topAnchor.constraint(
-      equalTo: view.topAnchor
+      equalTo: view.topAnchor,
+      constant: 20
     ).isActive = true
     scrollView.bottomAnchor.constraint(
-      equalTo: view.bottomAnchor
+      equalTo: view.bottomAnchor,
+      constant: -20
     ).isActive = true
     
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
+    stackView.alignment = .center
     stackView.spacing = 10
     
     scrollView.addSubview(stackView)
@@ -128,13 +135,24 @@ extension ExpoViewController {
     ).isActive = true
 
     let buttonStackView = UIStackView()
-    buttonStackView.distribution = .equalCentering
+    buttonStackView.distribution = .fill
+    buttonStackView.spacing = 30
     
-    let flagimageVoew = UIImageView(image: UIImage(named: "flag"))
+    let leftFlagImageView = UIImageView(image: UIImage(named: "flag"))
+    leftFlagImageView.translatesAutoresizingMaskIntoConstraints = false
+    leftFlagImageView.contentMode = .scaleAspectFit
+    leftFlagImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+    leftFlagImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     
-    buttonStackView.addArrangedSubview(flagimageVoew)
-    buttonStackView.addArrangedSubview(buttonStackView)
-    buttonStackView.addArrangedSubview(flagimageVoew)
+    let rightFlagImageView = UIImageView(image: UIImage(named: "flag"))
+    rightFlagImageView.translatesAutoresizingMaskIntoConstraints = false
+    rightFlagImageView.contentMode = .scaleAspectFit
+    rightFlagImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+    rightFlagImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+
+    buttonStackView.addArrangedSubview(leftFlagImageView)
+    buttonStackView.addArrangedSubview(button)
+    buttonStackView.addArrangedSubview(rightFlagImageView)
 
     stackView.addArrangedSubview(titleLabel)
     stackView.addArrangedSubview(imageView)
