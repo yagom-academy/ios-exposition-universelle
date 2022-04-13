@@ -16,7 +16,7 @@ final class JsonParsingTests: XCTestCase {
     
     func test_Exposition타입_모델으로_파싱이_되었는지() {
         // given
-        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else { return }
+        guard let asset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         
         // when
         let decodedData = try? decoder?.decode(Exposition.self, from: asset.data)
@@ -27,7 +27,7 @@ final class JsonParsingTests: XCTestCase {
     
     func test_Entry타입_모델에서_CodingKey로_변환한_변수명으로_파싱이_되는지() {
         // given
-        guard let asset = NSDataAsset.init(name: "items") else { return }
+        guard let asset = NSDataAsset(name: "items") else { return }
         
         // when
         let decodedData = try? decoder?.decode([Entry].self, from: asset.data)
