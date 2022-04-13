@@ -41,6 +41,7 @@ class HeritageCell: UITableViewCell {
     let imgView = UIImageView()
     imgView.translatesAutoresizingMaskIntoConstraints = false
     imgView.contentMode = .scaleAspectFit
+    imgView.clipsToBounds = true
     return imgView
   }()
   
@@ -55,23 +56,24 @@ extension HeritageCell {
   
   private func layout() {
     let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
+    stackView.axis = .vertical
     stackView.translatesAutoresizingMaskIntoConstraints = false
     
     contentView.addSubview(stackView)
     contentView.addSubview(heritageImageView)
     
     heritageImageView.widthAnchor.constraint(
-      equalToConstant: 100
+      equalToConstant: 60
     ).isActive = true
     heritageImageView.heightAnchor.constraint(
-      equalToConstant: 100
+      equalToConstant: 60
     ).isActive = true
     heritageImageView.leadingAnchor.constraint(
       equalTo: contentView.leadingAnchor,
       constant: 10
     ).isActive = true
     heritageImageView.trailingAnchor.constraint(
-      equalTo: stackView.trailingAnchor,
+      equalTo: stackView.leadingAnchor,
       constant: -10
     ).isActive = true
     heritageImageView.centerYAnchor.constraint(
@@ -84,11 +86,11 @@ extension HeritageCell {
     ).isActive = true
     stackView.topAnchor.constraint(
       equalTo: contentView.topAnchor,
-      constant: 10
+      constant: 15
     ).isActive = true
     stackView.bottomAnchor.constraint(
       equalTo: contentView.bottomAnchor,
-      constant: -10
+      constant: -15
     ).isActive = true
   }
 }
