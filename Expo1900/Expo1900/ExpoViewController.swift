@@ -39,6 +39,7 @@ final class ExpoViewController: UIViewController {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
+    stackView.spacing = 10
     
     scrollView.addSubview(stackView)
     stackView.leadingAnchor.constraint(
@@ -56,6 +57,39 @@ final class ExpoViewController: UIViewController {
     stackView.widthAnchor.constraint(
       equalTo: scrollView.widthAnchor
     ).isActive = true
+    
+    let titleLabel = UILabel()
+    titleLabel.numberOfLines = 2
+    titleLabel.font = .preferredFont(forTextStyle: .title1)
+    
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleAspectFit
+    
+    let visitorLabel = UILabel()
+    let locationLabel = UILabel()
+    let durationLabel = UILabel()
+    let descriptionLabel = UILabel()
+    descriptionLabel.numberOfLines = 0
+    
+    let buttonStackView = UIStackView()
+    buttonStackView.distribution = .equalCentering
+    
+    let button = UIButton()
+    button.setTitle("한국의 출품작 보러가기", for: .normal)
+    
+    let flagimageVoew = UIImageView(image: UIImage(named: "flag"))
+    
+    buttonStackView.addArrangedSubview(flagimageVoew)
+    buttonStackView.addArrangedSubview(buttonStackView)
+    buttonStackView.addArrangedSubview(flagimageVoew)
+
+    stackView.addArrangedSubview(titleLabel)
+    stackView.addArrangedSubview(imageView)
+    stackView.addArrangedSubview(visitorLabel)
+    stackView.addArrangedSubview(locationLabel)
+    stackView.addArrangedSubview(durationLabel)
+    stackView.addArrangedSubview(descriptionLabel)
+    stackView.addArrangedSubview(buttonStackView)
   }
   
   private func prepareData() -> (Expo, UIImage)? {
