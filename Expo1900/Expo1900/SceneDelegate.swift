@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   ) {
     guard let widowScene = (scene as? UIWindowScene) else { return }
     window = UIWindow(windowScene: widowScene)
-    window?.rootViewController = ExpoViewController()
+    window?.rootViewController = UINavigationController(rootViewController: ExpoViewController())
     window?.makeKeyAndVisible()
   }
   

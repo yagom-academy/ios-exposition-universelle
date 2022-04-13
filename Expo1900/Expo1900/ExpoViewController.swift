@@ -86,6 +86,8 @@ final class ExpoViewController: UIViewController {
   }
   
   private func attribute() {
+    navigationController?.navigationBar.isHidden = true
+    navigationItem.backButtonTitle = "메인"
     view.backgroundColor = .systemBackground
     
     guard let (expo, poster) = prepareData() else {
