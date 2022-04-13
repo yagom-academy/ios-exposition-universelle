@@ -85,8 +85,17 @@ final class ExpoViewController: UIViewController {
     layout()
   }
   
-  private func attribute() {
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     navigationController?.navigationBar.isHidden = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController?.navigationBar.isHidden = false
+  }
+  
+  private func attribute() {
     navigationItem.backButtonTitle = "메인"
     view.backgroundColor = .systemBackground
     
@@ -118,7 +127,10 @@ final class ExpoViewController: UIViewController {
     )
   }
   
-  @objc private func didTapKoreaHeritageButton(_ sender: UIButton) {}
+  @objc private func didTapKoreaHeritageButton(_ sender: UIButton) {
+    let heritageViewController = HeritageViewController()
+    navigationController?.pushViewController(heritageViewController, animated: true)
+  }
 
   private func prepareData() -> (Expo, UIImage)? {
     guard let expo = ParseManager<Expo>.parse(name: "exposition_universelle_1900") else {

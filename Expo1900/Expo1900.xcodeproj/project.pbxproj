@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86AEC4FB2806BFBE00820C60 /* HeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */; };
 		86CC10F4280429AF0020BFB2 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC10F3280429AF0020BFB2 /* Expo.swift */; };
 		86CC10FC2804306F0020BFB2 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC10FB2804306F0020BFB2 /* DecodeTests.swift */; };
 		9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443B8EC28042D3D00C80148 /* Heritage.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageViewController.swift; sourceTree = "<group>"; };
 		86CC10F3280429AF0020BFB2 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		86CC10F92804306F0020BFB2 /* DecodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CC10FB2804306F0020BFB2 /* DecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
@@ -61,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86AEC4F82806BED800820C60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
+				86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		86CC10F22804295F0020BFB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,9 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				86CC10F22804295F0020BFB2 /* Model */,
+				86AEC4F82806BED800820C60 /* Controller */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -231,6 +242,7 @@
 				86CC10F4280429AF0020BFB2 /* Expo.swift in Sources */,
 				9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				86AEC4FB2806BFBE00820C60 /* HeritageViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
