@@ -12,6 +12,7 @@
 		86CC10FC2804306F0020BFB2 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC10FB2804306F0020BFB2 /* DecodeTests.swift */; };
 		9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443B8EC28042D3D00C80148 /* Heritage.swift */; };
 		9443B8EF28044F4F00C80148 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443B8EE28044F4F00C80148 /* ParseManager.swift */; };
+		94AC9AFD2806C64E00ADC9E1 /* HeritageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AFC2806C64E00ADC9E1 /* HeritageCell.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoViewController.swift */; };
@@ -36,6 +37,7 @@
 		86CC10FB2804306F0020BFB2 /* DecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
 		9443B8EC28042D3D00C80148 /* Heritage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heritage.swift; sourceTree = "<group>"; };
 		9443B8EE28044F4F00C80148 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		94AC9AFC2806C64E00ADC9E1 /* HeritageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageCell.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
 				86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */,
+				94AC9AFC2806C64E00ADC9E1 /* HeritageCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				86AEC4FB2806BFBE00820C60 /* HeritageViewController.swift in Sources */,
+				94AC9AFD2806C64E00ADC9E1 /* HeritageCell.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
