@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="1932" y="-48"/>
         </scene>
-        <!--View Controller-->
+        <!--Korean ItemVC-->
         <scene sceneID="AZd-TD-H2F">
             <objects>
-                <viewController id="18W-Iu-Tei" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KoreanItemVC" id="18W-Iu-Tei" customClass="KoreanItemVC" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yut-iD-F1e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,6 +240,9 @@
                             <constraint firstItem="Qir-E8-BwC" firstAttribute="trailing" secondItem="9zR-si-U3W" secondAttribute="trailing" id="lRG-gp-B2r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="koreanItemsTableView" destination="9zR-si-U3W" id="ZFQ-ZN-Gww"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at1-l8-Stj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
