@@ -40,9 +40,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let subView = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailVC") as? itemDetailViewController else { return }
         
-        subView.itemTitle = itemsList![indexPath.row].title
-        subView.itemImageName = itemsList![indexPath.row].imageName
-        subView.itemDescription = itemsList![indexPath.row].description
+        subView.item = itemsList![indexPath.row]
         
         self.navigationController?.pushViewController(subView, animated: true)
     }

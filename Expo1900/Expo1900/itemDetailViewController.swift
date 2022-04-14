@@ -8,14 +8,16 @@
 import UIKit
 
 class itemDetailViewController: UIViewController {
-    var itemTitle: String?
-    var itemImageName: String?
-    var itemDescription: String?
-
+    var item: Heritage?
+    
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var ItemDescriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        title = item!.title
+        itemImageView.image = UIImage(named: item!.imageName)
+        ItemDescriptionLabel.text = item!.description
     }
     
   
