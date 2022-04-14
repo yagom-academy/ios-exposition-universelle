@@ -49,6 +49,8 @@ final class HeritageDetailViewController: UIViewController {
   }
 }
 
+//MARK: - Layout
+
 extension HeritageDetailViewController {
   private func layout() {
     let scrollView = UIScrollView()

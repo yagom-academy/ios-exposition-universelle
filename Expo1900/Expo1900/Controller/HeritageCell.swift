@@ -19,6 +19,7 @@ class HeritageCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     layout()
+    attribute()
   }
   
   required init?(coder: NSCoder) {
@@ -50,7 +51,13 @@ class HeritageCell: UITableViewCell {
     descriptionLabel.text = item.shortDescription
     heritageImageView.image = UIImage(named: item.imageName ?? "swift")
   }
+  
+  private func attribute() {
+    accessoryType = .disclosureIndicator
+  }
 }
+
+//MARK: - Layout
 
 extension HeritageCell {
   

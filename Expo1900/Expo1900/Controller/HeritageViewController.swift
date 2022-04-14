@@ -61,6 +61,7 @@ extension HeritageViewController: UITableViewDataSource {
     
     let heritage = heritageList[indexPath.row]
     cell.update(with: heritage)
+    
     return cell
   }
 }
