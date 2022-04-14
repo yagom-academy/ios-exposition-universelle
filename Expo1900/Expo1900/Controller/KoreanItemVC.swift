@@ -7,10 +7,10 @@
 
 import UIKit
 
-class KoreanItemVC: UIViewController {
-    @IBOutlet weak var koreanItemsTableView: UITableView!
-    
+final class KoreanItemVC: UIViewController {
     var koreanItems: [KoreanHistoricalItem]?
+    
+    @IBOutlet weak var koreanItemsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class KoreanItemVC: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
-    func initializeKoreanItemsData() {
+    private func initializeKoreanItemsData() {
         guard let items = try? [KoreanHistoricalItem].decode(from: "items") else {
             return
         }

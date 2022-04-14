@@ -7,8 +7,9 @@
 
 import UIKit
 
-class KoreanItemDetailVC: UIViewController {
+final class KoreanItemDetailVC: UIViewController {
     var koreanItem: KoreanHistoricalItem?
+    
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
     
@@ -19,14 +20,14 @@ class KoreanItemDetailVC: UIViewController {
         navigationItem.title = koreanItem?.name
     }
     
-    func uploadImage() {
+    private func uploadImage() {
         guard let imageName = koreanItem?.imageName else {
             return
         }
         mainImageView.image =  UIImage(named: imageName)
     }
     
-    func uploadLabel() {
+    private func uploadLabel() {
         descriptionLabel.text = koreanItem?.description
         descriptionLabel.numberOfLines = 0
     }

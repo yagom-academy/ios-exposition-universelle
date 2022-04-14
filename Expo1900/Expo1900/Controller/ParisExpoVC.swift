@@ -23,7 +23,7 @@ fileprivate enum FileName {
 }
 
 final class ParisExpoVC: UIViewController {
-    var parisExpoData: ParisExpo?
+    private var parisExpoData: ParisExpo?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
