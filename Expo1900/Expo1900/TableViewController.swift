@@ -9,24 +9,32 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    @IBOutlet weak var itemsTableView: UITableView!
+    let itemsList: [Heritage]? = [Heritage].parsingJson(name: "items")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.isNavigationBarHidden = false
-
- 
+        
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let elementCount = itemsList?.count else { return 0 }
+        
+        return elementCount
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
+        var content = itemCell.defaultContentConfiguration()
+        
+        content.text = itemsList![indexPath.row].title
+        content.secondaryText = itemsList![indexPath.row].shortDescription
+        content.image = UIImage(named: itemsList![indexPath.row].imageName)
+        itemCell.contentConfiguration = content
+        
+        return itemCell
     }
 
 

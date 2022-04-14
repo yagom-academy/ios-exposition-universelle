@@ -101,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="566.66666666666674" y="139.95535714285714"/>
         </scene>
-        <!--Table View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="wR7-KR-fxd">
             <objects>
                 <tableViewController id="h7u-TM-1Hf" customClass="TableViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,11 +110,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="e7o-rk-cG4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="itemCell" id="e7o-rk-cG4">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e7o-rk-cG4" id="qQj-ZV-s2l">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -124,7 +124,10 @@
                             <outlet property="delegate" destination="h7u-TM-1Hf" id="T3E-FH-cSc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="XTW-uE-eko"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="XTW-uE-eko"/>
+                    <connections>
+                        <outlet property="itemsTableView" destination="tbu-Wi-rVe" id="Gwp-Bj-m7d"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHb-3x-gMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
