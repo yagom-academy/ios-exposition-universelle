@@ -16,6 +16,14 @@ final class KoreaEntriesViewController: UITableViewController {
         decodeKoreaEntry()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let koreaEntryDetailViewController = segue.destination as? KoreaEntryDetailViewController else { return }
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let koreaEntryData: KoreaEntryDetail = self.koreaEntryDataArray[indexPath.row]
+            koreaEntryDetailViewController.descLabel?.text = koreaEntryData.fullDescription
+        }
+    }
+    
     func decodeKoreaEntry() {
         guard let unwrappedKoreaEntryData = Parser<[KoreaEntryDetail]>.parse(name: "items") else {
             return

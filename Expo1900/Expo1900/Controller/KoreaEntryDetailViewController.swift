@@ -11,8 +11,11 @@ class KoreaEntryDetailViewController: UIViewController {
     @IBOutlet weak var koreaEntryImageView: UIImageView!
     @IBOutlet weak var koreaEntryFullDescriptionLabel: UILabel!
     
+    var descLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        koreaEntryFullDescriptionLabel.text = descLabel?.text
     }
 }
 
