@@ -8,4 +8,8 @@
 import UIKit
 
 class KoreaEntryDetailViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
+
