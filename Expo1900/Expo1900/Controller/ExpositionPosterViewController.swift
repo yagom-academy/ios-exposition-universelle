@@ -36,7 +36,7 @@ class ExpositionPosterViewController: UIViewController {
         
         visitors.text = Poster.visitors
         location.text = Poster.location
-        duration.text = Poster.durationn
+        duration.text = Poster.duration
         
         posterTitle.text = poster?.title
         visitorsValue.text = numberFormatter(by: poster?.visitors)
@@ -53,6 +53,6 @@ class ExpositionPosterViewController: UIViewController {
             return nil
         }
         
-        return result + " 명"
+        return result + Poster.numberOfPeople
     }
 }
