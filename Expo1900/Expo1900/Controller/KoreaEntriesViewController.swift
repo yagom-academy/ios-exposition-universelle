@@ -11,6 +11,11 @@ final class KoreaEntriesViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationItem.title = "한국의 출품작"
         tableView.dataSource = self
+    func decodeKoreaEntry() {
+        guard let unwrappedKoreaEntryData = Parser<[KoreaEntryDetail]>.parse(name: "items") else {
+            return
+        }
+        koreaEntryDataArray = unwrappedKoreaEntryData
     }
 }
 
