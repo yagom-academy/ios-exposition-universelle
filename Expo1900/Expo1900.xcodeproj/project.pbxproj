@@ -7,15 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B35AFCD4280533180003D72A /* JsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35AFCD3280533180003D72A /* JsonManager.swift */; };
+		B35AFCDC28053E170003D72A /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35AFCDB28053E170003D72A /* Expo1900Tests.swift */; };
+		B3BCF6C3280444E1007E1A9E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BCF6C2280444E1007E1A9E /* Item.swift */; };
+		B3BCF701280697F8007E1A9E /* DataFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BCF700280697F8007E1A9E /* DataFileName.swift */; };
+		B3BCF7052806A283007E1A9E /* MockJsonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BCF7022806A1BE007E1A9E /* MockJsonManager.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		E197D5AA280446C0007F6BD0 /* ExpositionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197D5A9280446C0007F6BD0 /* ExpositionInfo.swift */; };
+		E1B728E82806997000398283 /* ExpoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B728E72806997000398283 /* ExpoError.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B35AFCDD28053E170003D72A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C79FF4A92589F401005FB0FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79FF4B02589F401005FB0FD;
+			remoteInfo = Expo1900;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B35AFCD3280533180003D72A /* JsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonManager.swift; sourceTree = "<group>"; };
+		B35AFCD928053E170003D72A /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B35AFCDB28053E170003D72A /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
+		B3BCF6C2280444E1007E1A9E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B3BCF700280697F8007E1A9E /* DataFileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFileName.swift; sourceTree = "<group>"; };
+		B3BCF7022806A1BE007E1A9E /* MockJsonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockJsonManager.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,9 +47,18 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E197D5A9280446C0007F6BD0 /* ExpositionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInfo.swift; sourceTree = "<group>"; };
+		E1B728E72806997000398283 /* ExpoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B35AFCD628053E170003D72A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79FF4AE2589F401005FB0FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +69,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B35AFCDA28053E170003D72A /* Expo1900Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B35AFCDB28053E170003D72A /* Expo1900Tests.swift */,
+				B3BCF7022806A1BE007E1A9E /* MockJsonManager.swift */,
+			);
+			path = Expo1900Tests;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
+				E197D5A228043C86007F6BD0 /* Model */,
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
+				B35AFCDA28053E170003D72A /* Expo1900Tests */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B12589F401005FB0FD /* Expo1900.app */,
+				B35AFCD928053E170003D72A /* Expo1900Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +111,39 @@
 			path = Expo1900;
 			sourceTree = "<group>";
 		};
+		E197D5A228043C86007F6BD0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3BCF6C2280444E1007E1A9E /* Item.swift */,
+				E1B728E72806997000398283 /* ExpoError.swift */,
+				E197D5A9280446C0007F6BD0 /* ExpositionInfo.swift */,
+				B35AFCD3280533180003D72A /* JsonManager.swift */,
+				B3BCF700280697F8007E1A9E /* DataFileName.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B35AFCD828053E170003D72A /* Expo1900Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B35AFCDF28053E170003D72A /* Build configuration list for PBXNativeTarget "Expo1900Tests" */;
+			buildPhases = (
+				B35AFCD528053E170003D72A /* Sources */,
+				B35AFCD628053E170003D72A /* Frameworks */,
+				B35AFCD728053E170003D72A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B35AFCDE28053E170003D72A /* PBXTargetDependency */,
+			);
+			name = Expo1900Tests;
+			productName = Expo1900Tests;
+			productReference = B35AFCD928053E170003D72A /* Expo1900Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C79FF4B02589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C79FF4C52589F404005FB0FD /* Build configuration list for PBXNativeTarget "Expo1900" */;
@@ -93,9 +167,13 @@
 		C79FF4A92589F401005FB0FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					B35AFCD828053E170003D72A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = C79FF4B02589F401005FB0FD;
+					};
 					C79FF4B02589F401005FB0FD = {
 						CreatedOnToolsVersion = 12.1;
 					};
@@ -115,11 +193,19 @@
 			projectRoot = "";
 			targets = (
 				C79FF4B02589F401005FB0FD /* Expo1900 */,
+				B35AFCD828053E170003D72A /* Expo1900Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B35AFCD728053E170003D72A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79FF4AF2589F401005FB0FD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,17 +219,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B35AFCD528053E170003D72A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B35AFCDC28053E170003D72A /* Expo1900Tests.swift in Sources */,
+				B3BCF7052806A283007E1A9E /* MockJsonManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79FF4AD2589F401005FB0FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B728E82806997000398283 /* ExpoError.swift in Sources */,
+				B3BCF6C3280444E1007E1A9E /* Item.swift in Sources */,
+				B3BCF701280697F8007E1A9E /* DataFileName.swift in Sources */,
+				B35AFCD4280533180003D72A /* JsonManager.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				E197D5AA280446C0007F6BD0 /* ExpositionInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B35AFCDE28053E170003D72A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C79FF4B02589F401005FB0FD /* Expo1900 */;
+			targetProxy = B35AFCDD28053E170003D72A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C79FF4BA2589F401005FB0FD /* Main.storyboard */ = {
@@ -165,6 +273,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B35AFCE028053E170003D72A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marisol.Expo1900Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/Expo1900";
+			};
+			name = Debug;
+		};
+		B35AFCE128053E170003D72A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marisol.Expo1900Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/Expo1900";
+			};
+			name = Release;
+		};
 		C79FF4C32589F404005FB0FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -320,6 +466,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B35AFCDF28053E170003D72A /* Build configuration list for PBXNativeTarget "Expo1900Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B35AFCE028053E170003D72A /* Debug */,
+				B35AFCE128053E170003D72A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C79FF4AC2589F401005FB0FD /* Build configuration list for PBXProject "Expo1900" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
