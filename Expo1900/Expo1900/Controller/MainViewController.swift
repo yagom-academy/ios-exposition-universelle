@@ -5,6 +5,15 @@
 
 import UIKit
 
+fileprivate extension Const {
+  static let visitor = "방문객 : "
+  static let personUnit = " 명"
+  static let location = "개최지 : "
+  static let duration = "개최 기간 : "
+  static let bracket = "("
+  static let spacingBracket = "\n("
+}
+
 final class MainViewController: UIViewController {
   
   @IBOutlet private weak var titleLabel: UILabel!
@@ -41,17 +50,20 @@ private extension MainViewController {
     case let .failure(error):
       alertBuilder
         .setTitle(error.decription)
-        .setConfirmTitle("확인")
+        .setConfirmTitle(Const.confirm)
         .showAlert()
     }
   }
   
   func setUpView(from expo: Expo) {
-    self.titleLabel.text = expo.title.replacingOccurrences(of: "(", with: "\n(")
+    self.titleLabel.text = expo.title.replacingOccurrences(
+      of: Const.bracket,
+      with: Const.spacingBracket
+    )
     self.posterImageView.image = UIImage(named: AssetName.poster)
-    self.visitorsLabel.text = "방문객 : \(expo.visitors.toDecimal()) 명"
-    self.locationLabel.text = "개최지 : \(expo.location)"
-    self.durationLabel.text = "개최 기간 : \(expo.duration)"
+    self.visitorsLabel.text = Const.visitor + expo.visitors.toDecimal() + Const.personUnit
+    self.locationLabel.text = Const.location + expo.location
+    self.durationLabel.text = Const.duration + expo.duration
     self.descriptionLabel.text = expo.description
   }
 }

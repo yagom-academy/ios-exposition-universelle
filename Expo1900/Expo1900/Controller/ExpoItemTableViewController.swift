@@ -29,7 +29,7 @@ private extension ExpoItemTableViewController {
     case let .failure(error):
       alertBuilder
         .setTitle(error.decription)
-        .setConfirmTitle("확인")
+        .setConfirmTitle(Const.confirm)
         .showAlert()
     }
   }
