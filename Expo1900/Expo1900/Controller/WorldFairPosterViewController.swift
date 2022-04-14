@@ -23,5 +23,12 @@ final class WorldFairPosterViewController: UIViewController {
     
     func decodeWorldFairPoster() {
         let worldFairPosterData = Parser<WorldFairPoster>.parse(name: "exposition_universelle_1900")
+        
+        titleLabel.text = worldFairPosterData?.title
+        visitorLabel.text = String(worldFairPosterData?.visitors ?? 0)
+        locationLabel.text = worldFairPosterData?.location
+        durationLabel.text = worldFairPosterData?.duration
+        descriptionLabel.text = worldFairPosterData?.description
+    }
     }
 }
