@@ -23,6 +23,11 @@ class MainViewController: UIViewController {
         setContentsOfScrollView(expositionInfo)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func loadInformation() -> ExpositionInfo? {
         let jsonManager: JsonManagerable = JsonManager()
         
@@ -35,7 +40,6 @@ class MainViewController: UIViewController {
         }
     }
 
-    // 네이밍 추후 변경
     func setContentsOfScrollView(_ expositionInfo: ExpositionInfo) {
         titleLabel.text = editTitle(from: expositionInfo.title)
         visitorLabel.text = "방문객 : \(expositionInfo.visitors) 명"
@@ -45,9 +49,14 @@ class MainViewController: UIViewController {
     }
     
     func editTitle(from title: String) -> String {
-        // (를 찾아서 앞에 "\n"를 추가한다
         return title.replacingOccurrences(of: "(", with: "\n(")
     }
 
+    @IBAction func showListButtonIsTapped(_ sender: UIButton) {
+        guard let heritageListVC = storyboard?.instantiateViewController(withIdentifier: IdentifierName.heritageListViewController) as? HeritageListViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(heritageListVC, animated: true)
+    }
 }
 

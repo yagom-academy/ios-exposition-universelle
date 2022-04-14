@@ -70,6 +70,9 @@
                                                         <rect key="frame" x="30" y="0.0" width="334" height="30"/>
                                                         <state key="normal" title="Button" backgroundImage="flag"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <connections>
+                                                            <action selector="showListButtonIsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZB-P8-neQ"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-8h-abQ">
                                                         <rect key="frame" x="364" y="0.0" width="30" height="30"/>
@@ -141,7 +144,6 @@
                         <outlet property="posterImage" destination="8Tj-we-nDF" id="3lH-gA-DFY"/>
                         <outlet property="titleLabel" destination="ktN-8w-RtL" id="je5-MT-jzo"/>
                         <outlet property="visitorLabel" destination="b27-L0-HqB" id="LSF-p9-vgJ"/>
-                        <segue destination="hSF-IZ-cdm" kind="push" id="R9P-uo-9jc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,24 +168,24 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Heritage List View Controller-->
         <scene sceneID="pdf-BY-Ch5">
             <objects>
-                <viewController id="hSF-IZ-cdm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeritageListViewController" id="hSF-IZ-cdm" customClass="HeritageListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="4T3-h1-Req">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="64" id="hOr-9A-CyM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeritageCell" rowHeight="64" id="hOr-9A-CyM" customClass="HeritageListCell" customModule="Expo1900" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hOr-9A-CyM" id="r7k-yG-zWm">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="04u-1Q-nDY">
-                                            <rect key="frame" x="10" y="0.0" width="100" height="52"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="04u-1Q-nDY">
+                                            <rect key="frame" x="10" y="0.0" width="100" height="64"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="ETK-9M-IBD"/>
                                                 <constraint firstAttribute="width" constant="100" id="v34-A9-lh5"/>
@@ -213,10 +215,21 @@
                                         <constraint firstItem="9Fy-Hz-cpU" firstAttribute="top" secondItem="r7k-yG-zWm" secondAttribute="top" id="xre-vK-7Eb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="04u-1Q-nDY" firstAttribute="centerY" secondItem="hOr-9A-CyM" secondAttribute="centerY" id="CmE-FL-9gY"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="heritageImage" destination="04u-1Q-nDY" id="3hN-ZC-Def"/>
+                                    <outlet property="heritageShortDescriptionLabel" destination="NXu-BJ-MQW" id="rk0-4Q-1vJ"/>
+                                    <outlet property="heritageTitleLabel" destination="9Fy-Hz-cpU" id="SXc-jh-9mr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="4bb-jP-Q3b"/>
+                    <connections>
+                        <outlet property="heritageListTableView" destination="4T3-h1-Req" id="RsE-gp-lMu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8B-JR-OdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
