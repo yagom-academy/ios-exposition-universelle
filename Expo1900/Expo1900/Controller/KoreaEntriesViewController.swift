@@ -25,6 +25,7 @@ extension KoreaEntriesViewController {
         cell.koreaEntryImageView.image = UIImage(named: "god")
         cell.titleLabel.text = "hello"
         cell.shortDescriptionLabel.text = "good"
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         
         return cell
     }
