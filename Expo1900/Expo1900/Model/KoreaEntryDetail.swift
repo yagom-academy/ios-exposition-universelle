@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KoreaEntryDetail: Codable {
+struct KoreaEntryDetail: Decodable {
     var name: String
     var imageFileName: String
     var shortDescription: String
