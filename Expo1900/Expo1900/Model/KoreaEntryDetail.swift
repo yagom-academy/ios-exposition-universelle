@@ -13,7 +13,7 @@ struct KoreaEntryDetail: Decodable {
     let shortDescription: String
     let fullDescription: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case imageFileName = "image_name"
         case shortDescription = "short_desc"
