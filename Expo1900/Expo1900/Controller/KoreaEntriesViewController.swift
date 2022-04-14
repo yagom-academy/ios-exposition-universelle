@@ -26,7 +26,7 @@ final class KoreaEntriesViewController: UITableViewController {
 
 extension KoreaEntriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.koreaEntryDataArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
