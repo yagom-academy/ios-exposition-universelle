@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WorldFairPoster: Codable {
+struct WorldFairPoster: Decodable {
     var title: String
     var visitors: Int
     var location: String
