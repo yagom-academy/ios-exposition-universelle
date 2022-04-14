@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC33C9EC28081AD40099A525 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C9EA28081AD40099A525 /* TableViewCell.swift */; };
+		AC33C9ED28081AD40099A525 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC33C9EB28081AD40099A525 /* TableViewCell.xib */; };
 		AC5A82C52804FCED006C20AA /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A82C42804FCED006C20AA /* ModelTest.swift */; };
 		ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B7632807116300013B55 /* DataLoadError.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC33C9EA28081AD40099A525 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		AC33C9EB28081AD40099A525 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5A82C42804FCED006C20AA /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 		ACD9B7632807116300013B55 /* DataLoadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadError.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				AC33C9EA28081AD40099A525 /* TableViewCell.swift */,
+				AC33C9EB28081AD40099A525 /* TableViewCell.xib */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -221,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				AC33C9ED28081AD40099A525 /* TableViewCell.xib in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
@@ -242,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				AC33C9EC28081AD40099A525 /* TableViewCell.swift in Sources */,
 				DAD5489E280510AB00F93F7A /* extension+Decodable.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
