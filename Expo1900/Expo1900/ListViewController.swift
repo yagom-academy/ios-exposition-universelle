@@ -15,6 +15,13 @@ class ListViewController: UIViewController {
         listTableView.dataSource = self
         listTableView.delegate = self
     }
+    func showAlert() {
+        let alert = UIAlertController(title: "오류", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension ListViewController: UITableViewDataSource {
