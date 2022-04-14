@@ -29,6 +29,11 @@ final class ParisExpoVC: UIViewController {
     @IBOutlet weak var koreanItemsButton: UIButton!
     @IBOutlet weak var rightImageView: UIImageView!
     
+    @IBAction func touchUpKoreanItemsButton(_ sender: UIButton) {
+        
+    }
+    
+    
     var parisExpoData: ParisExpo?
     
     override func viewDidLoad() {
