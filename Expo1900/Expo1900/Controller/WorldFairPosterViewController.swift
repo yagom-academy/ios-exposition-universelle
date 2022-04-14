@@ -25,6 +25,7 @@ final class WorldFairPosterViewController: UIViewController {
     }
     @IBOutlet weak var worldFairPosterImageView: UIImageView!
     @IBOutlet weak var leftKoreaFlagImageView: UIImageView!
+    @IBOutlet weak var rightKoreaFlagImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,5 +47,6 @@ final class WorldFairPosterViewController: UIViewController {
     func updateImageViews() {
         worldFairPosterImageView.image = UIImage(named: "poster")
         leftKoreaFlagImageView.image = UIImage(named: "flag")
+        rightKoreaFlagImageView.image = UIImage(named: "flag")
     }
 }
