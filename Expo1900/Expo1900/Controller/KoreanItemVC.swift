@@ -51,7 +51,7 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let koreanItemDetailVC = storyboard?.instantiateViewController(withIdentifier: "KoreanItemDetailVC") as? KoreanItemDetailVC else {
+        guard let koreanItemDetailVC = storyboard?.instantiateViewController(withIdentifier: KoreanItemDetailVC.identifier) as? KoreanItemDetailVC else {
             return
         }
         koreanItemDetailVC.koreanItem = koreanItems?[indexPath.row]

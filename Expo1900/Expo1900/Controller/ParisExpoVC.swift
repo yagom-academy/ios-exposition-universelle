@@ -9,10 +9,17 @@ fileprivate enum UITitle {
     static let locationText = "개최지 :"
     static let durationText = "개최 기간 :"
     static let goToKoreanItemsText = "한국의 출품작 보러가기"
+    static let mainText = "메인"
 }
 
 fileprivate enum Unit {
     static let people = " 명"
+}
+
+fileprivate enum FileName {
+    static let poster = "poster"
+    static let flag = "flag"
+    static let parisExpo = "exposition_universelle_1900"
 }
 
 final class ParisExpoVC: UIViewController {
@@ -30,50 +37,62 @@ final class ParisExpoVC: UIViewController {
     @IBOutlet weak var rightImageView: UIImageView!
     
     @IBAction func touchUpKoreanItemsButton(_ sender: UIButton) {
-        guard let koreanItemVC = storyboard?.instantiateViewController(withIdentifier: "KoreanItemVC") else {
+        guard let koreanItemVC = storyboard?.instantiateViewController(withIdentifier: KoreanItemVC.identifier) else {
             return
         }
         navigationController?.pushViewController(koreanItemVC, animated: true)
     }
+    
+    var parisExpoData: ParisExpo?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
     
-    var parisExpoData: ParisExpo?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeParisExpoData()
         uploadImages()
         uploadLabels()
-        navigationItem.title = "메인"
+        navigationItem.title = UITitle.mainText
     }
     
-    func uploadImages() {
-        mainImageView.image = UIImage(named: "poster")
-        leftImageView.image = UIImage(named: "flag")
-        rightImageView.image = UIImage(named: "flag")
-    }
-    
-    func initializeParisExpoData() {
-        guard let data = try? ParisExpo.decode(from: "exposition_universelle_1900") else {
+    private func initializeParisExpoData() {
+        guard let data = try? ParisExpo.decode(from: FileName.parisExpo) else {
             return
         }
         parisExpoData = data
     }
     
-    func uploadLabels() {
+    private func uploadImages() {
+        mainImageView.image = UIImage(named: FileName.poster)
+        leftImageView.image = UIImage(named: FileName.flag)
+        rightImageView.image = UIImage(named: FileName.flag)
+    }
+    
+    private func uploadLabels() {
+        configureTitleLabel()
+        configureVisitorLabel()
+        configureLocationLabel()
+        configureDurationLabel()
+        configureDesciptionLabel()
+        ConfigureKoreanItemsButtonLabel()
+    }
+    
+    private func configureTitleLabel() {
+        titleLabel.numberOfLines = 2
+        titleLabel.textAlignment = .center
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
+        titleLabel.text = parisExpoData?.title.replacingOccurrences(of: "(", with: "\n(")
+    }
+    
+    private func configureVisitorLabel() {
         let numberFormatter: NumberFormatter = {
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             return numberFormatter
         }()
-        titleLabel.numberOfLines = 2
-        titleLabel.textAlignment = .center
-        titleLabel.font = .preferredFont(forTextStyle: .title1)
-        titleLabel.text = parisExpoData?.title.replacingOccurrences(of: "(", with: "\n(")
         
         visitorsLabel.font = .systemFont(ofSize: CGFloat(20))
         visitorsLabel.text = UITitle.visitorText
@@ -81,23 +100,26 @@ final class ParisExpoVC: UIViewController {
            let visitorsText = numberFormatter.string(from: visitorsNumber) {
             visitorsNumberLabel.text = visitorsText + Unit.people
         }
-        
+    }
+    
+    private func configureLocationLabel() {
         locationLabel.font = .systemFont(ofSize: CGFloat(20))
         locationLabel.text = UITitle.locationText
         locationDescriptionLabel.text = parisExpoData?.location
-        
+    }
+    
+    private func configureDurationLabel() {
         durationLabel.font = .systemFont(ofSize: CGFloat(20))
         durationLabel.text = UITitle.durationText
         durationDescriptionLabel.text = parisExpoData?.duration
-        
+    }
+    
+    private func configureDesciptionLabel() {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = parisExpoData?.description
-        
+    }
+    
+    private func ConfigureKoreanItemsButtonLabel() {
         koreanItemsButton.titleLabel?.text = UITitle.goToKoreanItemsText
     }
-}
-
-// MARK: method
-extension ParisExpo {
-    
 }
