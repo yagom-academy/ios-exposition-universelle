@@ -33,8 +33,8 @@ extension KoreaEntriesViewController {
         guard let cell: KoreaEntryDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "KoreaEntryDetailTableViewCell") as? KoreaEntryDetailTableViewCell else {
             return KoreaEntryDetailTableViewCell()
         }
-        cell.koreaEntryImageView.image = UIImage(named: "god")
-        cell.titleLabel.text = "hello"
+        let koreaEntryData: KoreaEntryDetail = self.koreaEntryDataArray[indexPath.row]
+        
         cell.koreaEntryImageView.image = UIImage(named: koreaEntryData.imageFileName)
         cell.titleLabel.text = koreaEntryData.name
         cell.shortDescriptionLabel.text = koreaEntryData.shortDescription
