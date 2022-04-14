@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03AE392028050C7E00C0B0C9 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE391F28050C7E00C0B0C9 /* ExpositionUniverselle.swift */; };
+		03AE392028050C7E00C0B0C9 /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */; };
 		03AE392828054ED400C0B0C9 /* ExhibitionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE392728054ED400C0B0C9 /* ExhibitionItemTests.swift */; };
 		03FF8BA32807FB63002FE49E /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FF8BA22807FB63002FE49E /* Int+Extension.swift */; };
 		03FF8BA528086954002FE49E /* ExhibitionItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FF8BA428086954002FE49E /* ExhibitionItemsTableViewCell.swift */; };
@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03AE391F28050C7E00C0B0C9 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
+		03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		03AE392728054ED400C0B0C9 /* ExhibitionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItemTests.swift; sourceTree = "<group>"; };
 		03FF8BA22807FB63002FE49E /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		03FF8BA428086954002FE49E /* ExhibitionItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItemsTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		03AE392228050DE700C0B0C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				03AE391F28050C7E00C0B0C9 /* ExpositionUniverselle.swift */,
+				03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */,
 				E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */,
 			);
 			path = Model;
@@ -293,7 +293,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				E5201DF02807044F0080F00C /* DecodingError.swift in Sources */,
-				03AE392028050C7E00C0B0C9 /* ExpositionUniverselle.swift in Sources */,
+				03AE392028050C7E00C0B0C9 /* ExpoInformation.swift in Sources */,
 				03FF8BA528086954002FE49E /* ExhibitionItemsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

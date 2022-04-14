@@ -11,16 +11,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var itemImageVIew: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var itemDetailData: ExhibitionItem?
+    var exhibitionItem: ExhibitionItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpData()
+        setUpView()
     }
     
-    private func setUpData() {
-        itemImageVIew.image = UIImage(named: itemDetailData!.imageName)
-        descriptionLabel.text = itemDetailData?.description
-        self.title = itemDetailData?.name
+    private func setUpView() {
+        guard let exhibitionItem = exhibitionItem else {
+            return
+        }
+        
+        itemImageVIew.image = UIImage(named: exhibitionItem.imageName)
+        descriptionLabel.text = exhibitionItem.description
+        self.title = exhibitionItem.name
     }
 }

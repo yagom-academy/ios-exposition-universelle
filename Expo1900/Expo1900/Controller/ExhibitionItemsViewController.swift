@@ -8,32 +8,36 @@
 import UIKit
 
 class ExhibitionItemsViewController: UIViewController {
+    var exhibitionItems: [ExhibitionItem] = []
+    
     @IBOutlet weak var tableView: UITableView!
-    var decodedData: [ExhibitionItem] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
-        guard let decodedData = decodeData() else {
-            return
-        }
-        
-        self.decodedData = decodedData
+        setUpData()
     }
     
-    private func decodeData() -> [ExhibitionItem]? {
+    private func decode() -> [ExhibitionItem]? {
         let fileName = "items"
         let decodedData = try? [ExhibitionItem].decode(from: fileName)
 
         return decodedData
     }
+    
+    private func setUpData() {
+        guard let decodedData = decode() else {
+            return
+        }
+        
+        self.exhibitionItems = decodedData
+    }
 }
 
 extension ExhibitionItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return decodedData.count
+        return exhibitionItems.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -46,9 +50,9 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.posterImageView.image = UIImage(named: decodedData[indexPath.row].imageName)
-        cell.titleLabel.text = decodedData[indexPath.row].name
-        cell.subtitleLabel.text = decodedData[indexPath.row].shortDescription
+        cell.itemImageView.image = UIImage(named: exhibitionItems[indexPath.row].imageName)
+        cell.titleLabel.text = exhibitionItems[indexPath.row].name
+        cell.subtitleLabel.text = exhibitionItems[indexPath.row].shortDescription
 
         return cell
     }
@@ -56,9 +60,12 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
 
 extension ExhibitionItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let detailVC = storyboard?.instantiateViewController(identifier: DetailViewController.identifier) as? DetailViewController {
-            detailVC.itemDetailData = decodedData[indexPath.row]
-            navigationController?.pushViewController(detailVC, animated: true)
+        if let detailViewController = storyboard?
+            .instantiateViewController(identifier: DetailViewController.identifier)
+            as? DetailViewController
+        {
+            detailViewController.exhibitionItem = exhibitionItems[indexPath.row]
+            navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
 }
