@@ -16,18 +16,20 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let expoInfomation = Expo.parsingJson(name: "exposition_universelle_1900") else {
-            return
-        }
+        guard let expoInfomation = Expo.parsingJson(name: "exposition_universelle_1900") else { return }
+        
         titleLabel.text = expoInfomation.title
         posterImageView.image = UIImage(named: "poster")
         visitorsLabel.text = "방문객 : \(expoInfomation.visitors)"
         locationLabel.text = "개최지 : \(expoInfomation.location)"
         durationLabel.text = "개최기간 : \(expoInfomation.duration)"
         decriptionLabel.text = expoInfomation.description
-        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
 
 }
 
