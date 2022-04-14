@@ -33,7 +33,9 @@ final class ParisExpoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeParisExpoData()
         uploadImages()
+        uploadLabels()
     }
     
     func uploadImages() {
@@ -43,10 +45,42 @@ final class ParisExpoVC: UIViewController {
     }
     
     func initializeParisExpoData() {
-        guard let data = try? parisExpoData?.decode(from: "exposition_universelle_1900") else {
+        guard let data = try? ParisExpo.decode(from: "exposition_universelle_1900") else {
             return
         }
         parisExpoData = data
+    }
+    
+    func uploadLabels() {
+        let numberFormatter: NumberFormatter = {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            return numberFormatter
+        }()
+        titleLabel.numberOfLines = 2
+        titleLabel.textAlignment = .center
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
+        titleLabel.text = parisExpoData?.title.replacingOccurrences(of: "(", with: "\n(")
+        
+        visitorsLabel.font = .systemFont(ofSize: CGFloat(20))
+        visitorsLabel.text = UITitle.visitorText
+        if let visitorsNumber = parisExpoData?.visitors as? NSNumber,
+           let visitorsText = numberFormatter.string(from: visitorsNumber) {
+            visitorsNumberLabel.text = visitorsText + Unit.people
+        }
+        
+        locationLabel.font = .systemFont(ofSize: CGFloat(20))
+        locationLabel.text = UITitle.locationText
+        locationDescriptionLabel.text = parisExpoData?.location
+        
+        durationLabel.font = .systemFont(ofSize: CGFloat(20))
+        durationLabel.text = UITitle.durationText
+        durationDescriptionLabel.text = parisExpoData?.duration
+        
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = parisExpoData?.description
+        
+        koreanItemsButton.titleLabel?.text = UITitle.goToKoreanItemsText
     }
 }
 
