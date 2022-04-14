@@ -24,7 +24,7 @@ final class WorldFairPosterViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     @IBOutlet weak var worldFairPosterImageView: UIImageView!
-    @IBOutlet weak var koreaFlagImageView: UIImageView!
+    @IBOutlet weak var leftKoreaFlagImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,6 @@ final class WorldFairPosterViewController: UIViewController {
     
     func updateImageViews() {
         worldFairPosterImageView.image = UIImage(named: "poster")
-        koreaFlagImageView.image = UIImage(named: "flag")
+        leftKoreaFlagImageView.image = UIImage(named: "flag")
     }
 }
