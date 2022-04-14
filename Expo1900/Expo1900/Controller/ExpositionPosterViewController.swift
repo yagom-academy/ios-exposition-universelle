@@ -20,5 +20,20 @@ class ExpositionPosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPoster()
+    }
+    
+    func setupPoster() {
+        let poster = ExpositionPoster.parse(JsonFile.poster)
+        
+        visitors.text = Poster.visitors
+        location.text = Poster.location
+        duration.text = Poster.durationn
+        
+        posterTitle.text = poster?.title
+        visitorsValue.text = poster?.visitors?.description
+        locationValue.text = poster?.location
+        durationValue.text = poster?.duration
+        descriptions.text = poster?.description
     }
 }
