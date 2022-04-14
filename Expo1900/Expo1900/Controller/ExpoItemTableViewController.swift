@@ -23,10 +23,15 @@ private extension ExpoItemTableViewController {
   
   func parse() {
     let parsedResult = [ExpoItem].decode(with: AssetName.expoItem)
-    guard let expoItems = try? parsedResult.get() else {
-      return
+    switch parsedResult {
+    case let .success(expoItems):
+      self.expoItems = expoItems
+    case let .failure(error):
+      alertBuilder
+        .setTitle(error.decription)
+        .setConfirmTitle("확인")
+        .showAlert()
     }
-    self.expoItems = expoItems
   }
 }
 

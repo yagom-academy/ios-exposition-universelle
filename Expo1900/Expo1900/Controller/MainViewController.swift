@@ -35,10 +35,15 @@ private extension MainViewController {
   
   func parse() {
     let parsedResult = Expo.decode(with: AssetName.expo)
-    guard let expo = try? parsedResult.get() else {
-      return
+    switch parsedResult {
+    case let .success(expo):
+      self.setUpView(from: expo)
+    case let .failure(error):
+      alertBuilder
+        .setTitle(error.decription)
+        .setConfirmTitle("확인")
+        .showAlert()
     }
-    self.setUpView(from: expo)
   }
   
   func setUpView(from expo: Expo) {

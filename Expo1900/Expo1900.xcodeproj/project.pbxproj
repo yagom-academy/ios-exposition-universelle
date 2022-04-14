@@ -15,6 +15,7 @@
 		A17EB1542806AC13006C3119 /* ExpoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EB1532806AC13006C3119 /* ExpoItemTableViewCell.swift */; };
 		A1CFA1192807B84F0084988D /* ExpoItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFA1182807B84F0084988D /* ExpoItemDetailViewController.swift */; };
 		A1CFA11B2807BDF40084988D /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CFA11A2807BDF40084988D /* UIViewController+Extension.swift */; };
+		A1DFB23B2807ED5E00375A6E /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFB23A2807ED5E00375A6E /* AlertBuilder.swift */; };
 		B05DD91B2806A3130000F636 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05DD91A2806A3130000F636 /* Int+Extension.swift */; };
 		B065BF1228044A9800B92346 /* JSONDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B065BF1128044A9800B92346 /* JSONDecodeTests.swift */; };
 		B0749BF9280546E100836C3F /* AssetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0749BF8280546E100836C3F /* AssetName.swift */; };
@@ -45,6 +46,7 @@
 		A17EB1532806AC13006C3119 /* ExpoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemTableViewCell.swift; sourceTree = "<group>"; };
 		A1CFA1182807B84F0084988D /* ExpoItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemDetailViewController.swift; sourceTree = "<group>"; };
 		A1CFA11A2807BDF40084988D /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		A1DFB23A2807ED5E00375A6E /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 		B05DD91A2806A3130000F636 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		B065BF0F28044A9800B92346 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B065BF1128044A9800B92346 /* JSONDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodeTests.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		A1DFB2392807ED3C00375A6E /* AlertBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				A1DFB23A2807ED5E00375A6E /* AlertBuilder.swift */,
+			);
+			path = AlertBuilder;
+			sourceTree = "<group>";
+		};
 		B065BE702804432E00B92346 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		B0749BF7280546CF00836C3F /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A1DFB2392807ED3C00375A6E /* AlertBuilder */,
 				A17EB14E2806952B006C3119 /* Error */,
 				A17EB14B280693F2006C3119 /* Extension */,
 				B0749BF8280546E100836C3F /* AssetName.swift */,
@@ -303,6 +314,7 @@
 				A17EB1522806A74A006C3119 /* ExpoItemTableViewController.swift in Sources */,
 				A11391D32804487600679361 /* ExpoItem.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				A1DFB23B2807ED5E00375A6E /* AlertBuilder.swift in Sources */,
 				B0749BF9280546E100836C3F /* AssetName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

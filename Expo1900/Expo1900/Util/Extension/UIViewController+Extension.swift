@@ -7,8 +7,16 @@
 
 import UIKit
 
-extension UIViewController {
+protocol UIViewControllerable {
+  var alertBuilder: AlertBuilderable { get }
+}
+
+extension UIViewController: UIViewControllerable {
   static var identifier: String {
     return String(describing: self)
+  }
+  
+  var alertBuilder: AlertBuilderable {
+    AlertBuilder(viewController: self)
   }
 }
