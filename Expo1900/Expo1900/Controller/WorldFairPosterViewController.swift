@@ -19,6 +19,8 @@ final class WorldFairPosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        decodeWorldFairPoster()
+        updateImageViews()
     }
     
     func decodeWorldFairPoster() {
