@@ -15,6 +15,11 @@ class ExpositionMainViewController: UIViewController {
         
         guard let decodedData = parseJSON() else { return }
         expoTitleLabel.text = insertNewLine(value: decodedData.title)
+        expoImageView.image = UIImage(named: "poster")
+        expoVisitorsLabel.text = "방문객 : \(decodedData.visitors) 명"
+        expoLocationLabel.text = "개최지 : \(decodedData.location)"
+        expoDurationLabel.text = "개최 기간 : \(decodedData.duration)"
+        expoDescriptionLabel.text = decodedData.description
     }
     
     private func parseJSON() -> Exposition? {
