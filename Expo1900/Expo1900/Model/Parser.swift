@@ -7,3 +7,15 @@
 
 import UIKit
 
+struct Parser<T: Decodable> {
+    func parse(name: String) -> T? {
+        let decoder = JSONDecoder()
+        guard let asset = NSDataAsset(name: name, bundle: .main),
+            let expoData = try? decoder.decode(T.self, from: asset.data)
+        else {
+            return nil
+        }
+        return expoData
+    }
+}
+
