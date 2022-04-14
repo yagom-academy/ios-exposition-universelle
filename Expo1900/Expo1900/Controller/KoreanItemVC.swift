@@ -34,14 +34,16 @@ class KoreanItemVC: UIViewController {
 
 extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let koreanItemsCount = koreanItems?.count else { return 0 }
-        return koreanItemsCount
+        if let koreanItemsCount = koreanItems?.count {
+            return koreanItemsCount
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreanItem", for: indexPath) as? KoreanItemTableViewCell,
            let koreanItems = koreanItems else {
-            return KoreanItemTableViewCell()
+            return KoreanItemTableViewCell(style: .default, reuseIdentifier: "KoreanItem")
         }
         cell.titleLabel.text = koreanItems[indexPath.row].name
         cell.descriptionLabel.text = koreanItems[indexPath.row].shortDesciption

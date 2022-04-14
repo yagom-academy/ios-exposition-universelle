@@ -23,6 +23,8 @@ fileprivate enum FileName {
 }
 
 final class ParisExpoVC: UIViewController {
+    var parisExpoData: ParisExpo?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -42,8 +44,6 @@ final class ParisExpoVC: UIViewController {
         }
         navigationController?.pushViewController(koreanItemVC, animated: true)
     }
-    
-    var parisExpoData: ParisExpo?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

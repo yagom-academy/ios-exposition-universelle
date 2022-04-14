@@ -10,8 +10,8 @@ import UIKit
 class KoreanItemDetailVC: UIViewController {
     var koreanItem: KoreanHistoricalItem?
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var mainImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         uploadImage()

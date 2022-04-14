@@ -12,6 +12,17 @@ class KoreanItemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        mainImageView.image = UIImage(named: "poster")
+        titleLabel.text = "empty title"
+        descriptionLabel.text = "empty description"
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func prepareForReuse() {
         descriptionLabel.numberOfLines = 0
     }
