@@ -18,6 +18,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */; };
+		DA982A8528086AA0000EDB09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8428086AA0000EDB09 /* Parser.swift */; };
 		DABD3EB628044E4700C942F6 /* KoreaEntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetailViewController.swift; sourceTree = "<group>"; };
+		DA982A8428086AA0000EDB09 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				642DEC292804496C00749D52 /* WorldFairPoster.swift */,
 				DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */,
 				642DEC472807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift */,
+				DA982A8428086AA0000EDB09 /* Parser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */,
 				642DEC2A2804496C00749D52 /* WorldFairPoster.swift in Sources */,
+				DA982A8528086AA0000EDB09 /* Parser.swift in Sources */,
 				DABD3EB628044E4700C942F6 /* KoreaEntryDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
