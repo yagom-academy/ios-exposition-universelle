@@ -6,14 +6,14 @@
 
 import UIKit
 
-final class ViewController: UITableViewController {
+final class KoreaEntriesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
     }
 }
 
-extension ViewController {
+extension KoreaEntriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
