@@ -21,6 +21,7 @@ class KoreanEntryViewController: UIViewController, UITableViewDelegate, UITableV
         let data = try? decoder.decode([Entry].self, from: asset.data)
         return data
     }
+
 }
 
 extension KoreanEntryViewController {
@@ -41,6 +42,17 @@ extension KoreanEntryViewController {
         cell.detailTextLabel?.numberOfLines = 0
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToDetail" {
+            guard let cell = sender as? UITableViewCell else { return }
+            guard let indexPath = self.koreanEntryTableView.indexPath(for: cell) else { return }
+            let viewController = segue.destination as? EntryDetailViewController
+            
+            viewController?.detailDescription = entries[indexPath.row].description
+            viewController?.imageName = entries[indexPath.row].imageName
+        }
     }
 }
 
