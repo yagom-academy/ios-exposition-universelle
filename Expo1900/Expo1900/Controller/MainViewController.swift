@@ -16,24 +16,22 @@ final class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.configure()
+    self.parse()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    self.navigationController?.isNavigationBarHidden = true
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     self.navigationController?.isNavigationBarHidden = false
   }
-  
-  @IBAction private func didTapShowExpoItemsButton(_ sender: UIButton) {
-  }
 }
 
+// MARK: - Private Extension
+
 private extension MainViewController {
-  
-  func configure() {
-    self.navigationController?.isNavigationBarHidden = true
-    self.parse()
-  }
   
   func parse() {
     let parsedResult = Expo.decode(with: AssetName.expo)

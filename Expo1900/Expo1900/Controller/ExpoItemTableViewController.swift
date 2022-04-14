@@ -28,24 +28,30 @@ private extension ExpoItemTableViewController {
   }
 }
 
+// MARK: - DataSource
+
 extension ExpoItemTableViewController {
-  
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+  override func tableView(
+    _ tableView: UITableView,
+    numberOfRowsInSection section: Int
+  ) -> Int {
     return self.expoItems.count
   }
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  override func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
     guard let cell = self.tableView.dequeueReusableCell(
       withIdentifier: ExpoItemTableViewCell.identifier,
       for: indexPath) as? ExpoItemTableViewCell
     else {
       return UITableViewCell()
     }
-    
     cell.expoItemTitleLabel.text = self.expoItems[indexPath.row].name
     cell.expoItemDescriptionLabel.text = self.expoItems[indexPath.row].shortDescription
     cell.expoItemImageView.image = UIImage(named: self.expoItems[indexPath.row].imageName)
-    
     return cell
   }
 }
