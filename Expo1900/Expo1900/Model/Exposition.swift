@@ -7,7 +7,7 @@
 
 struct Exposition: Decodable {
     let title: String
-    let visitors: Int
+    let visitors: String
     let location: String
     let duration: String
     let description: String

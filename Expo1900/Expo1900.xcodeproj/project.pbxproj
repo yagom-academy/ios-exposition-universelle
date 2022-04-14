@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC5A82C52804FCED006C20AA /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A82C42804FCED006C20AA /* ModelTest.swift */; };
-		ACD9B7642807116300013B55 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B7632807116300013B55 /* Error.swift */; };
+		ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B7632807116300013B55 /* DataLoadError.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5A82C42804FCED006C20AA /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
-		ACD9B7632807116300013B55 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		ACD9B7632807116300013B55 /* DataLoadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadError.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				ACD9B7632807116300013B55 /* Error.swift */,
+				DABBE2B42807BB5400B3DE96 /* Error */,
 				DAD5489F2807098100F93F7A /* Model */,
 				DAD5489C2805108500F93F7A /* Extension */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
@@ -106,6 +106,14 @@
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		DABBE2B42807BB5400B3DE96 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9B7632807116300013B55 /* DataLoadError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		DAD5489C2805108500F93F7A /* Extension */ = {
@@ -238,7 +246,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				DACB21D928070B58002AEAA7 /* Item.swift in Sources */,
-				ACD9B7642807116300013B55 /* Error.swift in Sources */,
+				ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */,
 				DAD5489B28045FB500F93F7A /* Exposition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
