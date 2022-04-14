@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpData()
+        self.setUpData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,21 +28,15 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    func setUpData() {
+    private func setUpData() {
         let fileName = "exposition_universelle_1900"
         let decodedData = try? ExpositionUniverselle.decode(from: fileName).get()
-        let numberFormatter = NumberFormatter()
-        
-        numberFormatter.numberStyle = .decimal
-        guard let numberOfVisitors = numberFormatter.string(for: decodedData?.visitors) else {
-            return
-        }
-        
-        titleLabel.text = decodedData?.title
-        visitorsLabel.text = numberOfVisitors + " 명"
-        locationLabel.text = decodedData?.location
-        durationLabel.text = decodedData?.duration
-        descriptionLabel.text = decodedData?.description
+    
+        self.titleLabel.text = decodedData?.title
+        self.visitorsLabel.text = decodedData?.visitors.formatString()
+        self.locationLabel.text = decodedData?.location
+        self.durationLabel.text = decodedData?.duration
+        self.descriptionLabel.text = decodedData?.description
     }
 }
 
