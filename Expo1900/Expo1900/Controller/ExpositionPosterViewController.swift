@@ -31,7 +31,16 @@ class ExpositionPosterViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    @IBAction func didTapKoreaEntriesList(_ sender: UIButton) {
+        if let entryListViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryListViewController") {
+            entryListViewController.navigationItem.title = "한국의 출품작"
+            self.navigationController?.pushViewController(entryListViewController, animated: true)
+        }
+    }
+    
     func setupPoster() {
+        navigationItem.backButtonTitle = "메인"
+        
         let poster = ExpositionPoster.parse(JsonFile.poster)
         
         visitors.text = Poster.visitors
