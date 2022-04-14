@@ -8,7 +8,7 @@
 import Foundation
 
 extension Decodable {
-    func parsingJson(name: String) -> Self? {
+   static func parsingJson(name: String) -> Self? {
         guard let path = Bundle.main.path(forResource: name, ofType: "json") else { return nil }
         guard let jsonString = try? String(contentsOfFile: path) else { return nil }
         guard let data = jsonString.data(using: .utf8) else { return nil }
