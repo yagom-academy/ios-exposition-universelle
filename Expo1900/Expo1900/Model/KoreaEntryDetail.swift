@@ -8,10 +8,10 @@
 import Foundation
 
 struct KoreaEntryDetail: Decodable {
-    var name: String
-    var imageFileName: String
-    var shortDescription: String
-    var fullDescription: String
+    let name: String
+    let imageFileName: String
+    let shortDescription: String
+    let fullDescription: String
     
     enum KoreaEntryDetailCodingKeys: String, CodingKey {
         case name
