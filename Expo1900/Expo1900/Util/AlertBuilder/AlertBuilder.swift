@@ -66,21 +66,30 @@ final class AlertBuilder: AlertBuilderable {
   }
   
   func showAlert() {
-    let alert = UIAlertController(title: product.title, message: product.message, preferredStyle: .alert)
+    let alert = UIAlertController(
+      title: product.title,
+      message: product.message,
+      preferredStyle: .alert
+    )
     
     if let cancelTitle = product.cancelTitle {
-      let cancelButton = UIAlertAction(title: cancelTitle, style: .destructive, handler: { _ in
+      let cancelButton = UIAlertAction(
+        title: cancelTitle,
+        style: .destructive
+      ) { _ in
         self.product.cancelHandler?()
-      })
+      }
       alert.addAction(cancelButton)
     }
     
-    let confirmButton = UIAlertAction(title: product.confirmTitle, style: .default, handler: { [weak self] _ in
+    let confirmButton = UIAlertAction(
+      title: product.confirmTitle,
+      style: .default
+    ) { [weak self] _ in
       self?.product.confirmHandler?()
-    })
+    }
     
     alert.addAction(confirmButton)
-    
     viewController?.present(alert, animated: true, completion: nil)
   }
 }
