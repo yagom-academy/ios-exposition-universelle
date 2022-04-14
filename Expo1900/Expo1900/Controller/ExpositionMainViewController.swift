@@ -16,7 +16,7 @@ class ExpositionMainViewController: UIViewController {
         guard let decodedData = parseJSON() else { return }
         expoTitleLabel.text = insertNewLine(value: decodedData.title)
         expoImageView.image = UIImage(named: "poster")
-        expoVisitorsLabel.text = "방문객 : \(decodedData.visitors) 명"
+        expoVisitorsLabel.text = "방문객 : \(insertComma(value: decodedData.visitors)) 명"
         expoLocationLabel.text = "개최지 : \(decodedData.location)"
         expoDurationLabel.text = "개최 기간 : \(decodedData.duration)"
         expoDescriptionLabel.text = decodedData.description
@@ -33,6 +33,13 @@ class ExpositionMainViewController: UIViewController {
         var str = value
         str.insert("\n", at: str.firstIndex(of: "(") ?? str.endIndex)
         return str
+    }
+    
+    private func insertComma(value: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        guard let result = numberFormatter.string(for: value) else { return "" }
+        return result
     }
 }
 
