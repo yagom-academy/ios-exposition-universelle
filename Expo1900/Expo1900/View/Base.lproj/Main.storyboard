@@ -188,11 +188,11 @@
                                                                 <constraint firstAttribute="width" secondItem="IG5-vS-155" secondAttribute="height" multiplier="1:1" id="uuE-ub-o5f"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Anu-7G-8Nx">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Anu-7G-8Nx">
                                                             <rect key="frame" x="60" y="0.0" width="166.5" height="50"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucp-TA-YJV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="166.5" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" priority="1" constant="30" id="ubW-XG-lwY"/>
                                                                     </constraints>
@@ -201,7 +201,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7R2-lc-nep">
-                                                                    <rect key="frame" x="0.0" y="40.5" width="166.5" height="9.5"/>
+                                                                    <rect key="frame" x="0.0" y="40.5" width="41.5" height="9.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -210,7 +210,6 @@
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="Anu-7G-8Nx" firstAttribute="height" secondItem="IG5-vS-155" secondAttribute="height" id="bjF-AF-D8V"/>
                                                         <constraint firstItem="IG5-vS-155" firstAttribute="width" secondItem="Anu-7G-8Nx" secondAttribute="width" multiplier="0.3" id="zK5-bt-REr"/>
                                                     </constraints>
                                                 </stackView>
@@ -218,6 +217,7 @@
                                             <constraints>
                                                 <constraint firstItem="20l-C8-HRq" firstAttribute="leading" secondItem="hlu-fU-8Vi" secondAttribute="leading" constant="30" id="1hw-8v-z5h"/>
                                                 <constraint firstItem="20l-C8-HRq" firstAttribute="top" secondItem="hlu-fU-8Vi" secondAttribute="top" constant="21" id="KWe-jO-zff"/>
+                                                <constraint firstItem="IG5-vS-155" firstAttribute="height" secondItem="hlu-fU-8Vi" secondAttribute="height" multiplier="0.280899" id="WPF-P6-0JJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="20l-C8-HRq" secondAttribute="trailing" constant="129" id="pX9-bI-Zpb"/>
                                                 <constraint firstAttribute="bottom" secondItem="20l-C8-HRq" secondAttribute="bottom" constant="219" id="wXf-Pp-dTG"/>
                                             </constraints>
@@ -256,7 +256,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-7t-bZO">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-7t-bZO">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GAH-A4-FWD">
@@ -276,6 +276,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="GAH-A4-FWD" firstAttribute="bottom" secondItem="7bh-Fa-Kfh" secondAttribute="bottom" constant="368.5" id="6t5-zL-Gpp"/>
+                                    <constraint firstAttribute="width" constant="414" id="Ca8-P3-wJc"/>
+                                    <constraint firstAttribute="height" constant="818" id="KAh-Iz-Tup"/>
                                     <constraint firstItem="GAH-A4-FWD" firstAttribute="width" secondItem="Qto-qn-SpL" secondAttribute="width" multiplier="0.824879" id="eDC-5N-NYf"/>
                                     <constraint firstItem="GAH-A4-FWD" firstAttribute="top" secondItem="7bh-Fa-Kfh" secondAttribute="top" constant="87" id="t9M-dp-cGO"/>
                                     <constraint firstItem="GAH-A4-FWD" firstAttribute="leading" secondItem="7bh-Fa-Kfh" secondAttribute="leading" constant="8" id="wAx-T7-vGf"/>
@@ -294,6 +296,10 @@
                             <constraint firstItem="KZE-7t-bZO" firstAttribute="top" secondItem="UwS-Bg-UIC" secondAttribute="top" id="zv0-3O-unp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="NFu-iN-ane" id="hsg-By-sWd"/>
+                        <outlet property="mainImageView" destination="5Hd-as-Afy" id="VcF-cM-0J6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFv-0s-k85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

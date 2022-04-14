@@ -48,6 +48,7 @@ final class ParisExpoVC: UIViewController {
         initializeParisExpoData()
         uploadImages()
         uploadLabels()
+        navigationItem.title = "메인"
     }
     
     func uploadImages() {

@@ -17,6 +17,7 @@ class KoreanItemVC: UIViewController {
         koreanItemsTableView.delegate = self
         koreanItemsTableView.dataSource = self
         initializeKoreanItemsData()
+        navigationItem.title = "한국의 출품작"
     }
     
     override func viewWillAppear(_ animated: Bool) {
