@@ -16,9 +16,9 @@ class ExpositionMainViewController: UIViewController {
         guard let decodedData = parseJSON() else { return }
         expoTitleLabel.text = insertNewLine(value: decodedData.title)
         expoImageView.image = UIImage(named: "poster")
-        expoVisitorsLabel.text = "방문객 : \(insertComma(value: decodedData.visitors)) 명"
-        expoLocationLabel.text = "개최지 : \(decodedData.location)"
-        expoDurationLabel.text = "개최 기간 : \(decodedData.duration)"
+        expoVisitorsLabel.attributedText = attributedText("방문객 : \(insertComma(value: decodedData.visitors)) 명", "방문객")
+        expoLocationLabel.attributedText = attributedText("개최지 : \(decodedData.location)", "개최지")
+        expoDurationLabel.attributedText = attributedText("개최 기간 : \(decodedData.duration)", "개최 기간")
         expoDescriptionLabel.text = decodedData.description
     }
     
@@ -40,6 +40,13 @@ class ExpositionMainViewController: UIViewController {
         numberFormatter.numberStyle = .decimal
         guard let result = numberFormatter.string(for: value) else { return "" }
         return result
+    }
+    
+    private func attributedText(_ value: String, _ range: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: value)
+        let font = UIFont.systemFont(ofSize: 20)
+        attributedString.addAttribute(.font, value: font, range: (value as NSString).range(of: range))
+        return attributedString
     }
 }
 
