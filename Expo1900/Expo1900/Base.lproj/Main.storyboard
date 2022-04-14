@@ -12,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,14 +23,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-Tb-bqs" userLabel="Contents View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="781"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-8w-RtL" userLabel="Title">
-                                                <rect key="frame" x="10" y="10" width="394" height="37"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-8w-RtL" userLabel="Title">
+                                                <rect key="frame" x="10" y="10" width="394" height="30"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="8Tj-we-nDF">
-                                                <rect key="frame" x="135" y="57" width="144" height="552"/>
+                                                <rect key="frame" x="135" y="50" width="144" height="559"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b27-L0-HqB">
                                                 <rect key="frame" x="10" y="619" width="394" height="20.5"/>
@@ -134,6 +134,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YIe-SU-ExL"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="7Le-wY-w8Z" id="Fua-EA-7De"/>
+                        <outlet property="durationLabel" destination="1R4-Z4-ZTG" id="HUY-Ef-I4X"/>
+                        <outlet property="locationLabel" destination="PPf-Yg-MKq" id="jDy-Bj-l09"/>
+                        <outlet property="posterImage" destination="8Tj-we-nDF" id="3lH-gA-DFY"/>
+                        <outlet property="titleLabel" destination="ktN-8w-RtL" id="je5-MT-jzo"/>
+                        <outlet property="visitorLabel" destination="b27-L0-HqB" id="LSF-p9-vgJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
