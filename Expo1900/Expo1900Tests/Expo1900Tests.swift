@@ -20,14 +20,14 @@ class Expo1900Tests: XCTestCase {
         super.tearDown()
     }
     
-    func test_load_Json_successful() {
+    func test_decode_Json_data_compare_to_decode_WorldFairPoster_file() {
         let decoder = JSONDecoder()
-        guard let url = Bundle.main.url(forResource: "exposition_universelle_1900", withExtension: "json"),
-              let data = try? Data(contentsOf: url)
+        guard let asset = NSDataAsset(name: "exposition_universelle_1900", bundle: .main),
+              let expos = try? decoder.decode([WorldFairPoster].self, from: asset.data)
         else {
             return
         }
-        XCTAssertNoThrow(try? decoder.decode(WorldFairPoster.self, from: data))
+        let result = WorldFairPoster(title: "파리 만국박람회 1900(L'Exposition de Paris 1900)",
     }
     
     func test_decode_Json_data_compare_to_decode_WorldFairPoster_file() {
