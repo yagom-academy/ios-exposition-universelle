@@ -9,5 +9,4 @@ import Foundation
 
 enum DataLoadError: Error {
     case assetLoadError
-    case decodeError 
 }
