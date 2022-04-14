@@ -8,5 +8,6 @@
 import Foundation
 
 enum DecodeError: Error {
+  case notFoundAsset
   case decodeFail
 }

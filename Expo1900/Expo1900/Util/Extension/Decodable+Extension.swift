@@ -11,9 +11,10 @@ extension Decodable {
   
   static func decode(with assetName: String) -> Result<Self, DecodeError> {
     let decoder = JSONDecoder()
-    guard let asset = NSDataAsset(name: assetName, bundle: .main),
-          let data = try? decoder.decode(Self.self, from: asset.data)
-    else {
+    guard let asset = NSDataAsset(name: assetName) else {
+      return .failure(.notFoundAsset)
+    }
+    guard let data = try? decoder.decode(Self.self, from: asset.data) else {
       return .failure(.decodeFail)
     }
     return .success(data)

@@ -38,7 +38,9 @@ extension ExpoItemTableViewController {
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath
   ) {
-    guard let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: ExpoItemDetailViewController.identifier) as? ExpoItemDetailViewController else {
+    guard let detailViewController = self.storyboard?.instantiateViewController(
+      withIdentifier: ExpoItemDetailViewController.identifier) as? ExpoItemDetailViewController
+    else {
       return
     }
     detailViewController.expoItem = self.expoItems[indexPath.row]
