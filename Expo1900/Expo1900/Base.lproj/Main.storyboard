@@ -236,10 +236,10 @@
             </objects>
             <point key="canvasLocation" x="1944.9275362318842" y="116.51785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="npc-gj-g8y">
             <objects>
-                <viewController id="bvc-IK-rv0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="bvc-IK-rv0" customClass="DetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JLp-1b-j4a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,6 +295,10 @@
                             <constraint firstItem="Xqd-5w-G9m" firstAttribute="leading" secondItem="MrC-ZP-vyb" secondAttribute="leading" id="kaO-nd-t4n"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="heritageDescription" destination="nR5-Vt-0H1" id="nCz-7g-jgo"/>
+                        <outlet property="heritageImage" destination="geH-JK-MYD" id="iiX-0Q-AUp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggi-zM-rw0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

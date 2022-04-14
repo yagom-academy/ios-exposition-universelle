@@ -8,4 +8,5 @@
 enum IdentifierName {
     static let heritageCell = "HeritageCell"
     static let heritageListViewController = "HeritageListViewController"
+    static let detailViewController = "DetailViewController"
 }

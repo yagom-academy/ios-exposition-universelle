@@ -16,6 +16,7 @@ class HeritageListViewController: UIViewController {
         super.viewDidLoad()
         items = loadItems() ?? []
         heritageListTableView.dataSource = self
+        heritageListTableView.delegate = self
         self.navigationController?.navigationBar.topItem?.title = "메인"
         self.title = "한국의 출품작"
     }
@@ -38,7 +39,7 @@ class HeritageListViewController: UIViewController {
     }
 }
 
-extension HeritageListViewController: UITableViewDataSource {
+extension HeritageListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -58,5 +59,18 @@ extension HeritageListViewController: UITableViewDataSource {
         cell.heritageShortDescriptionLabel.text = item.shortDescription
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = UIStoryboard(name: IdentifierName.detailViewController, bundle: .main).instantiateInitialViewController { coder -> DetailViewController? in
+            DetailViewController(coder: coder, item: self.items[indexPath.row])
+        }
+        
+        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: IdentifierName.detailViewController) as? DetailViewController else {
+            return
+        }
+        
+        detailViewController.item = items[indexPath.row]
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
