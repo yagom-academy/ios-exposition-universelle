@@ -12,6 +12,7 @@
 		0EA38799280458CF005A48A6 /* KoreanHistoricalItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA38798280458CF005A48A6 /* KoreanHistoricalItemTests.swift */; };
 		AB245AD02804569A0061D087 /* ParisExpo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245ACF2804569A0061D087 /* ParisExpo.swift */; };
 		AB245AD828045FFB0061D087 /* ParisExpoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245AD728045FFB0061D087 /* ParisExpoTests.swift */; };
+		AB717BC32807C6E4001B7F6B /* ExpoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		AB245ACF2804569A0061D087 /* ParisExpo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpo.swift; sourceTree = "<group>"; };
 		AB245AD528045FFB0061D087 /* ParisExpoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParisExpoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB245AD728045FFB0061D087 /* ParisExpoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoTests.swift; sourceTree = "<group>"; };
+		AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExpoAssets.xcassets; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				0EA3879028044C07005A48A6 /* KoreanHistoricalItem.swift */,
 				AB245ACF2804569A0061D087 /* ParisExpo.swift */,
 				0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */,
+				AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
+				AB717BC32807C6E4001B7F6B /* ExpoAssets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
