@@ -145,11 +145,9 @@
             </objects>
             <point key="canvasLocation" x="1033" y="-536"/>
         </scene>
-        <!--View Controller-->
         <!--Korea Entry Detail View Controller-->
         <scene sceneID="ldT-hP-va3">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="e9x-hF-ZsG" sceneMemberID="viewController">
                 <viewController storyboardIdentifier="KoreaEntryDetailViewController" modalPresentationStyle="fullScreen" id="e9x-hF-ZsG" customClass="KoreaEntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o9o-wG-Nnh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -159,10 +157,6 @@
                                 <rect key="frame" x="0.0" y="25" width="414" height="847"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Gk-7JC">
-                                        <rect key="frame" x="87" y="8" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="디테일설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEZ-wW-QFK">
                                         <rect key="frame" x="8" y="182" width="398" height="602"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -170,6 +164,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="god" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Gk-7JC">
+                                        <rect key="frame" x="87" y="109" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="qlm-7b-8yM"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ZyJ-j5-gUJ"/>
