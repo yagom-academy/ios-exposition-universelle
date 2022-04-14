@@ -4,6 +4,17 @@
 
 import UIKit
 
+fileprivate enum UITitle {
+    static let visitorText = "방문객 :"
+    static let locationText = "개최지 :"
+    static let durationText = "개최 기간 :"
+    static let goToKoreanItemsText = "한국의 출품작 보러가기"
+}
+
+fileprivate enum Unit {
+    static let people = " 명"
+}
+
 final class ParisExpoVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
