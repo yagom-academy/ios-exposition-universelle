@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="47" translatesAutoresizingMaskIntoConstraints="NO" id="clC-gd-j8i">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="655.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="634.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chQ-n8-6Jz">
                                                 <rect key="frame" x="186.5" y="0.0" width="41.5" height="20.5"/>
@@ -89,19 +89,27 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="gZX-uJ-irE">
-                                                <rect key="frame" x="72.5" y="584.5" width="269" height="71"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="gZX-uJ-irE">
+                                                <rect key="frame" x="89.5" y="584.5" width="235" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZaG-bK-6GN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="71"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="6Ka-AD-582"/>
+                                                            <constraint firstAttribute="height" constant="50" id="KzY-8L-G96"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDL-Qd-vBi">
-                                                        <rect key="frame" x="101" y="40" width="67" height="31"/>
+                                                        <rect key="frame" x="84" y="9.5" width="67" height="31"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jLf-WQ-wyj">
-                                                        <rect key="frame" x="202" y="0.0" width="67" height="71"/>
+                                                        <rect key="frame" x="185" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="sxy-Gw-LjI"/>
+                                                            <constraint firstAttribute="height" constant="50" id="szV-ie-tab"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -128,6 +136,20 @@
                             <constraint firstItem="deo-Mu-dzb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pr2-Gw-kQi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="7dg-3s-icx" id="mVy-PY-LFX"/>
+                        <outlet property="durationDescriptionLabel" destination="SwN-QD-oEs" id="wQL-XA-uKE"/>
+                        <outlet property="durationLabel" destination="KTa-NU-WdQ" id="jaI-J2-Kvb"/>
+                        <outlet property="koreanItemsButton" destination="IDL-Qd-vBi" id="l42-Pn-bZY"/>
+                        <outlet property="leftImageView" destination="ZaG-bK-6GN" id="ZsJ-SS-ET5"/>
+                        <outlet property="locationDescriptionLabel" destination="9Bd-MI-uhz" id="fCG-8C-Eeh"/>
+                        <outlet property="locationLabel" destination="bSg-WL-2Je" id="gTC-dc-jZD"/>
+                        <outlet property="mainImageView" destination="Wvk-Nr-QCu" id="4xz-AM-9OY"/>
+                        <outlet property="rightImageView" destination="jLf-WQ-wyj" id="PU5-gs-I1w"/>
+                        <outlet property="titleLabel" destination="chQ-n8-6Jz" id="31C-A6-Rml"/>
+                        <outlet property="visitorsLabel" destination="soz-LU-IgH" id="mnM-xF-wFd"/>
+                        <outlet property="visitorsNumberLabel" destination="lDQ-oY-j3B" id="3d1-5Q-Zbt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
