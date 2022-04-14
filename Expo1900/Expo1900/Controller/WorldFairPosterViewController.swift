@@ -14,7 +14,6 @@ final class WorldFairPosterViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-        self.navigationItem.title = "메인"
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -29,6 +28,7 @@ final class WorldFairPosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "메인"
         decodeWorldFairPoster()
         updateImageViews()
     }
