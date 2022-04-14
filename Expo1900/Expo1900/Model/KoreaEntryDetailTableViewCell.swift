@@ -9,6 +9,7 @@ import UIKit
 
 class KoreaEntryDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var koreaEntryImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
