@@ -13,6 +13,7 @@
 		302C80492805AE540036155C /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C80482805AE540036155C /* Decodable+Extension.swift */; };
 		AEA73268280545190020268A /* ExpositionItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA73267280545190020268A /* ExpositionItems.swift */; };
 		AEA73284280581D40020268A /* ExpositionItemsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7327D280581CD0020268A /* ExpositionItemsTest.swift */; };
+		AEBF3B6D280812B4007E6AD3 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF3B6C280812B4007E6AD3 /* Poster.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionPosterViewController.swift */; };
@@ -47,6 +48,7 @@
 		AEA73267280545190020268A /* ExpositionItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItems.swift; sourceTree = "<group>"; };
 		AEA7327B280581CD0020268A /* ExpositionItemsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpositionItemsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA7327D280581CD0020268A /* ExpositionItemsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemsTest.swift; sourceTree = "<group>"; };
+		AEBF3B6C280812B4007E6AD3 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionPosterViewController.swift */,
+				AEBF3B6C280812B4007E6AD3 /* Poster.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				302C8039280543210036155C /* ExpositionPoster.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				302C80492805AE540036155C /* Decodable+Extension.swift in Sources */,
+				AEBF3B6D280812B4007E6AD3 /* Poster.swift in Sources */,
 				301E42D228068A7A001A7F0D /* JsonFile.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				AEA73268280545190020268A /* ExpositionItems.swift in Sources */,
