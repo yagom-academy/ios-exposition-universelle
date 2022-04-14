@@ -11,7 +11,6 @@ class ExpositionMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
         
         guard let decodedData = parseJSON() else { return }
         expoTitleLabel.text = insertNewLine(value: decodedData.title)
@@ -20,6 +19,16 @@ class ExpositionMainViewController: UIViewController {
         expoLocationLabel.attributedText = attributedText("개최지 : \(decodedData.location)", "개최지")
         expoDurationLabel.attributedText = attributedText("개최 기간 : \(decodedData.duration)", "개최 기간")
         expoDescriptionLabel.text = decodedData.description
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func parseJSON() -> Exposition? {
