@@ -18,6 +18,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		E5201DED280702A30080F00C /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5201DEC280702A30080F00C /* Decodable+Extension.swift */; };
 		E5201DF02807044F0080F00C /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5201DEF2807044F0080F00C /* DecodingError.swift */; };
+		E5201E12280800B00080F00C /* ExhibitionItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5201E11280800B00080F00C /* ExhibitionItemsViewController.swift */; };
 		E5B2A0F828051D1F00E8D514 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */; };
 		E5B2A100280540F900E8D514 /* ExpositionUniverselleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5201DEC280702A30080F00C /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
 		E5201DEF2807044F0080F00C /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
+		E5201E11280800B00080F00C /* ExhibitionItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItemsViewController.swift; sourceTree = "<group>"; };
 		E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
 		E5B2A0FD280540F900E8D514 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselleTests.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				E5201E11280800B00080F00C /* ExhibitionItemsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				03FF8BA32807FB63002FE49E /* Int+Extension.swift in Sources */,
 				E5201DED280702A30080F00C /* Decodable+Extension.swift in Sources */,
 				E5B2A0F828051D1F00E8D514 /* ExhibitionItem.swift in Sources */,
+				E5201E12280800B00080F00C /* ExhibitionItemsViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				E5201DF02807044F0080F00C /* DecodingError.swift in Sources */,
