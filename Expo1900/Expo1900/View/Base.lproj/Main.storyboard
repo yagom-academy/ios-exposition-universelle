@@ -200,6 +200,62 @@
             </objects>
             <point key="canvasLocation" x="1908" y="-8"/>
         </scene>
+        <!--Expo Item Detail View Controller-->
+        <scene sceneID="A7O-mr-wlM">
+            <objects>
+                <viewController storyboardIdentifier="ExpoItemDetailViewController" id="R7f-Do-S29" customClass="ExpoItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VPo-TE-clf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2So-Kp-XhC">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bJq-S8-fw2">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="148.33333333333334"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="flR-uk-Km7">
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKB-ZY-84b">
+                                                <rect key="frame" x="0.0" y="127.99999999999999" width="390" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bJq-S8-fw2" firstAttribute="top" secondItem="2So-Kp-XhC" secondAttribute="top" id="0BX-dd-w7u"/>
+                                    <constraint firstItem="bJq-S8-fw2" firstAttribute="width" secondItem="2So-Kp-XhC" secondAttribute="width" id="0e6-yV-xJ2"/>
+                                    <constraint firstItem="bJq-S8-fw2" firstAttribute="leading" secondItem="2So-Kp-XhC" secondAttribute="leading" id="CfW-uz-1En"/>
+                                    <constraint firstAttribute="trailing" secondItem="bJq-S8-fw2" secondAttribute="trailing" id="GvN-Ww-leW"/>
+                                    <constraint firstItem="bJq-S8-fw2" firstAttribute="height" secondItem="Fbx-rG-Dqz" secondAttribute="height" priority="250" id="dbk-A8-kg2"/>
+                                    <constraint firstAttribute="bottom" secondItem="bJq-S8-fw2" secondAttribute="bottom" id="m7F-iC-D48"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="mSc-as-0IY"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Fbx-rG-Dqz"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GRC-o9-ndj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GRC-o9-ndj" firstAttribute="leading" secondItem="2So-Kp-XhC" secondAttribute="leading" id="GpZ-u0-Ses"/>
+                            <constraint firstItem="GRC-o9-ndj" firstAttribute="top" secondItem="2So-Kp-XhC" secondAttribute="top" id="JEW-NE-BFC"/>
+                            <constraint firstItem="2So-Kp-XhC" firstAttribute="bottom" secondItem="GRC-o9-ndj" secondAttribute="bottom" id="RWw-1e-Stc"/>
+                            <constraint firstItem="GRC-o9-ndj" firstAttribute="trailing" secondItem="2So-Kp-XhC" secondAttribute="trailing" id="sEd-fz-9bm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="expoItemDescriptionLabel" destination="dKB-ZY-84b" id="gw4-C8-tu1"/>
+                        <outlet property="expoItemImageView" destination="flR-uk-Km7" id="BBf-pI-8XO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YhF-7X-XYY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2717" y="-6"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="j8R-KK-paY">
             <objects>

@@ -17,6 +17,8 @@ final class ExpoItemTableViewController: UITableViewController {
   }
 }
 
+// MARK: - Private Extension
+
 private extension ExpoItemTableViewController {
   
   func parse() {
@@ -25,6 +27,22 @@ private extension ExpoItemTableViewController {
       return
     }
     self.expoItems = expoItems
+  }
+}
+
+// MARK: - Delegate
+
+extension ExpoItemTableViewController {
+  
+  override func tableView(
+    _ tableView: UITableView,
+    didSelectRowAt indexPath: IndexPath
+  ) {
+    guard let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: ExpoItemDetailViewController.identifier) as? ExpoItemDetailViewController else {
+      return
+    }
+    detailViewController.expoItem = self.expoItems[indexPath.row]
+    self.navigationController?.pushViewController(detailViewController, animated: true)
   }
 }
 
