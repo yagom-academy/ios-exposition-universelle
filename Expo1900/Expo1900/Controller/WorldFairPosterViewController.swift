@@ -9,6 +9,10 @@ import UIKit
 
 final class WorldFairPosterViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     func decodeWorldFairPoster() {
         let worldFairPosterData = Parser<WorldFairPoster>.parse(name: "exposition_universelle_1900")
     }
