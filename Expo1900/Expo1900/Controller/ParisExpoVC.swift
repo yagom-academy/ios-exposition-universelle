@@ -30,9 +30,16 @@ final class ParisExpoVC: UIViewController {
     @IBOutlet weak var rightImageView: UIImageView!
     
     @IBAction func touchUpKoreanItemsButton(_ sender: UIButton) {
-        
+        guard let koreanItemVC = storyboard?.instantiateViewController(withIdentifier: "KoreanItemVC") else {
+            return
+        }
+        navigationController?.pushViewController(koreanItemVC, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     var parisExpoData: ParisExpo?
     
