@@ -9,8 +9,6 @@ import UIKit
 
 final class ExpoItemTableViewCell: UITableViewCell {
   
-  static let identifier = String(describing: ExpoItemTableViewCell.self)
-  
   @IBOutlet weak var expoItemImageView: UIImageView!
   @IBOutlet weak var expoItemTitleLabel: UILabel!
   @IBOutlet weak var expoItemDescriptionLabel: UILabel!

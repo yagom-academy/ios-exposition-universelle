@@ -20,6 +20,7 @@
 		B065BF1228044A9800B92346 /* JSONDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B065BF1128044A9800B92346 /* JSONDecodeTests.swift */; };
 		B0749BF9280546E100836C3F /* AssetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0749BF8280546E100836C3F /* AssetName.swift */; };
 		B07D87C62807F25300BE825B /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D87C52807F25300BE825B /* Const.swift */; };
+		B0A8E92A2807FFDB00A0EA98 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8E9292807FFDB00A0EA98 /* UITableViewCell+Extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
@@ -53,6 +54,7 @@
 		B065BF1128044A9800B92346 /* JSONDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodeTests.swift; sourceTree = "<group>"; };
 		B0749BF8280546E100836C3F /* AssetName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetName.swift; sourceTree = "<group>"; };
 		B07D87C52807F25300BE825B /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		B0A8E9292807FFDB00A0EA98 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				A17EB14C2806940C006C3119 /* Decodable+Extension.swift */,
 				B05DD91A2806A3130000F636 /* Int+Extension.swift */,
 				A1CFA11A2807BDF40084988D /* UIViewController+Extension.swift */,
+				B0A8E9292807FFDB00A0EA98 /* UITableViewCell+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				B0A8E92A2807FFDB00A0EA98 /* UITableViewCell+Extension.swift in Sources */,
 				A1CFA11B2807BDF40084988D /* UIViewController+Extension.swift in Sources */,
 				A17EB14D2806940C006C3119 /* Decodable+Extension.swift in Sources */,
 				A17EB1542806AC13006C3119 /* ExpoItemTableViewCell.swift in Sources */,
