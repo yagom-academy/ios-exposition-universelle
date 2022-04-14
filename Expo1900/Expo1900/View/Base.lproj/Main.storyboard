@@ -54,29 +54,39 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoe-4L-nWR">
-                                        <rect key="frame" x="8" y="382" width="398" height="408"/>
+                                        <rect key="frame" x="8" y="382" width="398" height="149"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jn4-ly-lAL">
-                                        <rect key="frame" x="27" y="800" width="56" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="Vb1-UA-F2n">
-                                        <rect key="frame" x="329" y="800" width="56" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khR-n9-S8f">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="한국출품"/>
-                                        <connections>
-                                            <segue destination="a95-Yh-q4z" kind="show" id="gpH-nh-KNA"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-1y-VmD">
+                                        <rect key="frame" x="21" y="649" width="380.5" height="70"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vb1-UA-F2n">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="ux2-i5-huA"/>
+                                                    <constraint firstAttribute="width" constant="110" id="vLh-ha-kyk"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khR-n9-S8f">
+                                                <rect key="frame" x="154" y="0.0" width="72.5" height="70"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="한국출품"/>
+                                                <connections>
+                                                    <segue destination="a95-Yh-q4z" kind="show" id="gpH-nh-KNA"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jn4-ly-lAL">
+                                                <rect key="frame" x="270.5" y="0.0" width="110" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="WcS-61-tII"/>
+                                                    <constraint firstAttribute="height" constant="70" id="Wdo-nA-Tnh"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Lmb-dJ-kKw"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="wVY-mM-MF6"/>
@@ -99,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232" y="-536"/>
+            <point key="canvasLocation" x="231.8840579710145" y="-536.38392857142856"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="bmY-7f-w0g">
@@ -212,7 +222,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="flag" width="851" height="567"/>
         <image name="god" width="293" height="194"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
