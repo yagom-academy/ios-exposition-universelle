@@ -31,5 +31,8 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         present(UIViewController, animated: <#T##Bool#>)
+        guard let koreaDetailViewController = storyboard?.instantiateViewController(withIdentifier: "KoreaEntryDetailViewController") as? KoreaEntryDetailViewController else {
+            return
+        }
     }
 }
