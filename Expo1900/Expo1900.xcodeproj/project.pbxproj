@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6724BE4B2807BFA700363C89 /* DecodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6724BE4A2807BFA700363C89 /* DecodableExtension.swift */; };
 		675E7672280517AA0039896B /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E7671280517AA0039896B /* Heritage.swift */; };
 		675E767A28051C8F0039896B /* ExpoModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E767928051C8F0039896B /* ExpoModelTest.swift */; };
 		9B53AF9A2805145F00C4DB93 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53AF992805145F00C4DB93 /* Expo.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6724BE4A2807BFA700363C89 /* DecodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableExtension.swift; sourceTree = "<group>"; };
 		675E7671280517AA0039896B /* Heritage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heritage.swift; sourceTree = "<group>"; };
 		675E767728051C8F0039896B /* ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		675E767928051C8F0039896B /* ExpoModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoModelTest.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				9B53AF992805145F00C4DB93 /* Expo.swift */,
 				675E7671280517AA0039896B /* Heritage.swift */,
+				6724BE4A2807BFA700363C89 /* DecodableExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				6724BE4B2807BFA700363C89 /* DecodableExtension.swift in Sources */,
 				9B53AF9A2805145F00C4DB93 /* Expo.swift in Sources */,
 				675E7672280517AA0039896B /* Heritage.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
