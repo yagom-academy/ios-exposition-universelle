@@ -69,23 +69,29 @@ extension HeritageCell {
     contentView.addSubview(stackView)
     contentView.addSubview(heritageImageView)
     
+    let heritageImageWidth: CGFloat = 60
+    let heritageHeightWidth: CGFloat = 60
+    let heritageHorizontalMargin: CGFloat = 10
+    
     heritageImageView.widthAnchor.constraint(
-      equalToConstant: 60
+      equalToConstant: heritageImageWidth
     ).isActive = true
     heritageImageView.heightAnchor.constraint(
-      equalToConstant: 60
+      equalToConstant: heritageHeightWidth
     ).isActive = true
     heritageImageView.leadingAnchor.constraint(
       equalTo: contentView.leadingAnchor,
-      constant: 10
+      constant: heritageHorizontalMargin
     ).isActive = true
     heritageImageView.trailingAnchor.constraint(
       equalTo: stackView.leadingAnchor,
-      constant: -10
+      constant: -heritageHorizontalMargin
     ).isActive = true
     heritageImageView.centerYAnchor.constraint(
       equalTo: contentView.centerYAnchor
     ).isActive = true
+    
+    let stackViewVerticalMargin: CGFloat = 15
     
     stackView.trailingAnchor.constraint(
       equalTo: contentView.trailingAnchor,
@@ -93,11 +99,11 @@ extension HeritageCell {
     ).isActive = true
     stackView.topAnchor.constraint(
       equalTo: contentView.topAnchor,
-      constant: 15
+      constant: stackViewVerticalMargin
     ).isActive = true
     stackView.bottomAnchor.constraint(
       equalTo: contentView.bottomAnchor,
-      constant: -15
+      constant: -stackViewVerticalMargin
     ).isActive = true
   }
 }

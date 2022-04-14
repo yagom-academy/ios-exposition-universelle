@@ -57,6 +57,8 @@ extension HeritageDetailViewController {
     scrollView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(scrollView)
     
+    let scrollViewHorizontalMargin: CGFloat = 15
+    
     scrollView.topAnchor.constraint(
       equalTo: view.safeAreaLayoutGuide.topAnchor
     ).isActive = true
@@ -65,11 +67,11 @@ extension HeritageDetailViewController {
     ).isActive = true
     scrollView.trailingAnchor.constraint(
       equalTo: view.trailingAnchor,
-      constant: -15
+      constant: -scrollViewHorizontalMargin
     ).isActive = true
     scrollView.leadingAnchor.constraint(
       equalTo: view.leadingAnchor,
-      constant: 15
+      constant: scrollViewHorizontalMargin
     ).isActive = true
     
     let stackView = UIStackView(arrangedSubviews: [heritageImageView, descriptionLabel])

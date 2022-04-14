@@ -152,22 +152,25 @@ extension ExpoViewController {
     let scrollView = UIScrollView()
     scrollView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(scrollView)
+    
+    let scrollViewHorizontalMargin: CGFloat = 15
+    let scrollViewVerticalMargin: CGFloat = 20
 
     scrollView.leadingAnchor.constraint(
       equalTo: view.leadingAnchor,
-      constant: 15
+      constant: scrollViewHorizontalMargin
     ).isActive = true
     scrollView.trailingAnchor.constraint(
       equalTo: view.trailingAnchor,
-      constant: -15
+      constant: -scrollViewHorizontalMargin
     ).isActive = true
     scrollView.topAnchor.constraint(
       equalTo: view.topAnchor,
-      constant: 20
+      constant: scrollViewVerticalMargin
     ).isActive = true
     scrollView.bottomAnchor.constraint(
       equalTo: view.bottomAnchor,
-      constant: -20
+      constant: -scrollViewVerticalMargin
     ).isActive = true
     
     let stackView = UIStackView()
@@ -187,17 +190,20 @@ extension ExpoViewController {
     buttonStackView.distribution = .fill
     buttonStackView.spacing = 30
     
+    let flagImageWidth: CGFloat = 40
+    let flagImageHeight: CGFloat = 40
+    
     let leftFlagImageView = UIImageView(image: UIImage(named: "flag"))
     leftFlagImageView.translatesAutoresizingMaskIntoConstraints = false
     leftFlagImageView.contentMode = .scaleAspectFit
-    leftFlagImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-    leftFlagImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    leftFlagImageView.widthAnchor.constraint(equalToConstant: flagImageWidth).isActive = true
+    leftFlagImageView.heightAnchor.constraint(equalToConstant: flagImageHeight).isActive = true
     
     let rightFlagImageView = UIImageView(image: UIImage(named: "flag"))
     rightFlagImageView.translatesAutoresizingMaskIntoConstraints = false
     rightFlagImageView.contentMode = .scaleAspectFit
-    rightFlagImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-    rightFlagImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    rightFlagImageView.widthAnchor.constraint(equalToConstant: flagImageWidth).isActive = true
+    rightFlagImageView.heightAnchor.constraint(equalToConstant: flagImageHeight).isActive = true
 
     buttonStackView.addArrangedSubview(leftFlagImageView)
     buttonStackView.addArrangedSubview(koreaHeritageButton)
