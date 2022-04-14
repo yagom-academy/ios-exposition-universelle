@@ -18,6 +18,8 @@ final class ParisExpoVC: UIViewController {
     @IBOutlet weak var koreanItemsButton: UIButton!
     @IBOutlet weak var rightImageView: UIImageView!
     
+    var parisExpoData: ParisExpo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         uploadImages()
@@ -27,6 +29,13 @@ final class ParisExpoVC: UIViewController {
         mainImageView.image = UIImage(named: "poster")
         leftImageView.image = UIImage(named: "flag")
         rightImageView.image = UIImage(named: "flag")
+    }
+    
+    func initializeParisExpoData() {
+        guard let data = try? parisExpoData?.decode(from: "exposition_universelle_1900") else {
+            return
+        }
+        parisExpoData = data
     }
 }
 
