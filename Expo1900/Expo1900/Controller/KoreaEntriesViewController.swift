@@ -6,14 +6,15 @@
 
 import UIKit
 
-final class ViewController: UITableViewController {
+final class KoreaEntriesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "한국의 출품작"
         tableView.dataSource = self
     }
 }
 
-extension ViewController {
+extension KoreaEntriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -25,6 +26,7 @@ extension ViewController {
         cell.koreaEntryImageView.image = UIImage(named: "god")
         cell.titleLabel.text = "hello"
         cell.shortDescriptionLabel.text = "good"
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         
         return cell
     }
