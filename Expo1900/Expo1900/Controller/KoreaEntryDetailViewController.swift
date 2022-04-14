@@ -9,6 +9,8 @@ import UIKit
 
 class KoreaEntryDetailViewController: UIViewController {
     @IBOutlet weak var koreaEntryImageView: UIImageView!
+    @IBOutlet weak var koreaEntryFullDescriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
