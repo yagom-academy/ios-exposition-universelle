@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct KoreaEntryDetail: Codable {
-    var name: String
-    var imageFileName: String
-    var shortDescription: String
-    var fullDescription: String
+struct KoreaEntryDetail: Decodable {
+    let name: String
+    let imageFileName: String
+    let shortDescription: String
+    let fullDescription: String
     
-    enum KoreaEntryDetailCodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case imageFileName = "image_name"
         case shortDescription = "short_desc"
