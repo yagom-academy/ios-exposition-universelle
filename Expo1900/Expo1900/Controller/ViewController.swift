@@ -28,4 +28,11 @@ extension ViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let koreaDetailViewController = storyboard?.instantiateViewController(withIdentifier: "KoreaEntryDetailViewController") as? KoreaEntryDetailViewController else {
+            return
+        }
+        present(koreaDetailViewController, animated: true)
+    }
 }
