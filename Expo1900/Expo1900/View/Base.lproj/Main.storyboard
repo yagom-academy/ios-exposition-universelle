@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ocG-pC-SjE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ocG-pC-SjE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,9 +23,9 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tIQ-BN-YpF">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="412"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INX-a2-QUl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INX-a2-QUl">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -72,7 +72,6 @@
                                                             <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="showEntryAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TBj-FO-dbO"/>
                                                             <segue destination="yIa-l0-zBS" kind="push" id="uc6-VJ-5Zh"/>
                                                         </connections>
                                                     </button>
@@ -118,11 +117,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="SWc-dm-yMy"/>
                     <connections>
-                        <outlet property="expoScrollView" destination="ppx-TM-zHq" id="o1h-PL-QLN"/>
-                        <outlet property="expoStackView1" destination="tIQ-BN-YpF" id="hTW-2M-Qwt"/>
-                        <outlet property="expoStackView2" destination="xOz-gX-oIG" id="9Jl-Kt-ZsS"/>
-                        <outlet property="posterImageView" destination="58Q-eq-2kS" id="Klh-E3-9mz"/>
-                        <outlet property="showEntryButton" destination="Log-CJ-yjD" id="Yg8-hS-k6t"/>
+                        <outlet property="expoDescriptionLabel" destination="4jx-Zm-Id9" id="lfh-1x-GnO"/>
+                        <outlet property="expoDurationLabel" destination="Xxa-Pn-Od7" id="7OF-Wy-W9D"/>
+                        <outlet property="expoImageView" destination="58Q-eq-2kS" id="cRg-fY-vRf"/>
+                        <outlet property="expoLocationLabel" destination="W0W-Dn-E1J" id="1qq-iZ-KWv"/>
+                        <outlet property="expoTitleLabel" destination="INX-a2-QUl" id="Zl3-Rg-csI"/>
+                        <outlet property="expoVisitorsLabel" destination="HAc-nC-nra" id="Vuk-Pm-fiE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkj-31-JpW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4700" y="99.776785714285708"/>
+            <point key="canvasLocation" x="3738" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9gR-VY-N7M">
