@@ -14,15 +14,15 @@ enum DecoderError: Error {
 }
 
 extension Decodable {
-    func decode(from fileName: String) -> Result<Self, DecoderError> {
+    func decode(from fileName: String) throws -> Self {
         guard let assetFile = NSDataAsset(name: fileName) else {
-            return .failure(.dataAssetFail)
+            throw DecoderError.dataAssetFail
         }
         
         guard let data = try? JSONDecoder().decode(Self.self, from: assetFile.data) else {
-            return .failure(.decodeFail)
+            throw DecoderError.decodeFail
         }
         
-        return .success(data)
+        return data
     }
 }

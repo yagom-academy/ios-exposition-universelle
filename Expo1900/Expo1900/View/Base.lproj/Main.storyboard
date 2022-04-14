@@ -95,8 +95,8 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZaG-bK-6GN">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="6Ka-AD-582"/>
-                                                            <constraint firstAttribute="height" constant="50" id="KzY-8L-G96"/>
+                                                            <constraint firstAttribute="width" constant="50" id="8k2-xC-5YY"/>
+                                                            <constraint firstAttribute="height" constant="50" id="nEL-yI-KR9"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDL-Qd-vBi">
@@ -107,8 +107,8 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jLf-WQ-wyj">
                                                         <rect key="frame" x="185" y="0.0" width="50" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="sxy-Gw-LjI"/>
-                                                            <constraint firstAttribute="height" constant="50" id="szV-ie-tab"/>
+                                                            <constraint firstAttribute="height" constant="50" id="7PT-yS-3Zp"/>
+                                                            <constraint firstAttribute="width" constant="50" id="tTW-8K-rfQ"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -136,24 +136,10 @@
                             <constraint firstItem="deo-Mu-dzb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pr2-Gw-kQi"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="descriptionLabel" destination="7dg-3s-icx" id="mVy-PY-LFX"/>
-                        <outlet property="durationDescriptionLabel" destination="SwN-QD-oEs" id="wQL-XA-uKE"/>
-                        <outlet property="durationLabel" destination="KTa-NU-WdQ" id="jaI-J2-Kvb"/>
-                        <outlet property="koreanItemsButton" destination="IDL-Qd-vBi" id="l42-Pn-bZY"/>
-                        <outlet property="leftImageView" destination="ZaG-bK-6GN" id="ZsJ-SS-ET5"/>
-                        <outlet property="locationDescriptionLabel" destination="9Bd-MI-uhz" id="fCG-8C-Eeh"/>
-                        <outlet property="locationLabel" destination="bSg-WL-2Je" id="gTC-dc-jZD"/>
-                        <outlet property="mainImageView" destination="Wvk-Nr-QCu" id="4xz-AM-9OY"/>
-                        <outlet property="rightImageView" destination="jLf-WQ-wyj" id="PU5-gs-I1w"/>
-                        <outlet property="titleLabel" destination="chQ-n8-6Jz" id="31C-A6-Rml"/>
-                        <outlet property="visitorsLabel" destination="soz-LU-IgH" id="mnM-xF-wFd"/>
-                        <outlet property="visitorsNumberLabel" destination="lDQ-oY-j3B" id="3d1-5Q-Zbt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
+            <point key="canvasLocation" x="451" y="58"/>
         </scene>
     </scenes>
     <resources>
