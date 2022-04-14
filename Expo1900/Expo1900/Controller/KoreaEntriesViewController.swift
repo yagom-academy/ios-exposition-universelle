@@ -7,10 +7,12 @@
 import UIKit
 
 final class KoreaEntriesViewController: UITableViewController {
+    var koreaEntryDataArray: [KoreaEntryDetail] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "한국의 출품작"
         tableView.dataSource = self
+    }
     func decodeKoreaEntry() {
         guard let unwrappedKoreaEntryData = Parser<[KoreaEntryDetail]>.parse(name: "items") else {
             return
