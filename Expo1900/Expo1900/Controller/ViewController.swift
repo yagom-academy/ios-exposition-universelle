@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+final class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self

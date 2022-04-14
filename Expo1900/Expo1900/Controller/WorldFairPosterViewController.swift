@@ -8,6 +8,6 @@
 
 import UIKit
 
-class WorldFairPosterViewController: UIViewController {
+final class WorldFairPosterViewController: UIViewController {
     
 }
