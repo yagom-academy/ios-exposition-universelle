@@ -15,6 +15,7 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         listTableView.dataSource = self
         listTableView.delegate = self
+        self.navigationItem.title = "한국의 출품작"
         self.items = getItems()
     }
     
@@ -56,5 +57,10 @@ extension ListViewController: UITableViewDataSource {
 }
 
 extension ListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let itemVC = self.storyboard?.instantiateViewController(withIdentifier: "ItemViewController") as? ItemViewController else { return }
+        itemVC.item = items[indexPath.row]
+        self.navigationController?.pushViewController(itemVC, animated: true)
+    }
 }
