@@ -248,6 +248,57 @@
             </objects>
             <point key="canvasLocation" x="3634.7826086956525" y="-48.214285714285715"/>
         </scene>
+        <!--Korean Item DetailVC-->
+        <scene sceneID="wOg-hL-bMK">
+            <objects>
+                <viewController storyboardIdentifier="KoreanItemDetailVC" id="sNb-hf-Nzh" customClass="KoreanItemDetailVC" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uQa-33-3pV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-7t-bZO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GAH-A4-FWD">
+                                        <rect key="frame" x="8" y="87" width="341.5" height="281.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bangjja" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-as-Afy">
+                                                <rect key="frame" x="0.0" y="0.0" width="341.5" height="256"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFu-iN-ane">
+                                                <rect key="frame" x="150" y="261" width="41.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="bottom" secondItem="7bh-Fa-Kfh" secondAttribute="bottom" constant="368.5" id="6t5-zL-Gpp"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="width" secondItem="Qto-qn-SpL" secondAttribute="width" multiplier="0.824879" id="eDC-5N-NYf"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="top" secondItem="7bh-Fa-Kfh" secondAttribute="top" constant="87" id="t9M-dp-cGO"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="leading" secondItem="7bh-Fa-Kfh" secondAttribute="leading" constant="8" id="wAx-T7-vGf"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="trailing" secondItem="7bh-Fa-Kfh" secondAttribute="trailing" constant="349.5" id="z7X-Rv-WSo"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="7bh-Fa-Kfh"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Qto-qn-SpL"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UwS-Bg-UIC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KZE-7t-bZO" firstAttribute="leading" secondItem="UwS-Bg-UIC" secondAttribute="leading" id="8mf-TE-Aeq"/>
+                            <constraint firstItem="UwS-Bg-UIC" firstAttribute="bottom" secondItem="KZE-7t-bZO" secondAttribute="bottom" id="Ic7-x0-WJf"/>
+                            <constraint firstItem="UwS-Bg-UIC" firstAttribute="trailing" secondItem="KZE-7t-bZO" secondAttribute="trailing" id="O7W-wh-yfp"/>
+                            <constraint firstItem="KZE-7t-bZO" firstAttribute="top" secondItem="UwS-Bg-UIC" secondAttribute="top" id="zv0-3O-unp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFv-0s-k85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4513.04347826087" y="-48.214285714285715"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="UX6-gf-tjj">
             <objects>
@@ -268,6 +319,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bangjja" width="341.5" height="256"/>
         <image name="poster" width="144" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

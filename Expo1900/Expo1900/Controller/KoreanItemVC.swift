@@ -19,6 +19,10 @@ class KoreanItemVC: UIViewController {
         initializeKoreanItemsData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     func initializeKoreanItemsData() {
         guard let items = try? [KoreanHistoricalItem].decode(from: "items") else {
             return
@@ -43,5 +47,13 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
         cell.mainImageView.image = UIImage(named: koreanItems[indexPath.row].imageName)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let koreanItemDetailVC = storyboard?.instantiateViewController(withIdentifier: "KoreanItemDetailVC") as? KoreanItemDetailVC else {
+            return
+        }
+        koreanItemDetailVC.koreanItem = koreanItems?[indexPath.row]
+        navigationController?.pushViewController(koreanItemDetailVC, animated: true)
     }
 }
