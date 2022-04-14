@@ -30,5 +30,9 @@ final class WorldFairPosterViewController: UIViewController {
         durationLabel.text = worldFairPosterData?.duration
         descriptionLabel.text = worldFairPosterData?.description
     }
+    
+    func updateImageViews() {
+        worldFairPosterImageView.image = UIImage(named: "poster")
+        koreaFlagImageView.image = UIImage(named: "flag")
     }
 }
