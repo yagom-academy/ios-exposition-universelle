@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum DecodingError: Error {
+enum DecodingError: Error, LocalizedError {
     case fileNameNotFound
     case decodeError
+    case unformattedType
 }

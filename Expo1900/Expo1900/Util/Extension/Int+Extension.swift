@@ -8,12 +8,12 @@
 import Foundation
 
 extension Int {
-    func formatString() -> String? {
+    func formatString() throws -> String? {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
         guard let numberOfVisitors = numberFormatter.string(for: self) else {
-            return nil
+            throw DecodingError.unformattedType
         }
         
         return "\(numberOfVisitors) 명"

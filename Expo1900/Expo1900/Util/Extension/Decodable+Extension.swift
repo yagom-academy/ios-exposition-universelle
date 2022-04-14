@@ -8,15 +8,15 @@
 import UIKit
 
 extension Decodable {
-    static func decode(from fileName: String) -> Result<Self, DecodingError> {
+    static func decode(from fileName: String) throws -> Self {
         guard let asset = NSDataAsset(name: fileName) else {
-            return .failure(.fileNameNotFound)
+            throw DecodingError.fileNameNotFound
         }
         
         guard let decodedData = try? JSONDecoder().decode(Self.self, from: asset.data) else {
-            return .failure(.decodeError)
+            throw DecodingError.decodeError
         }
         
-        return .success(decodedData)
+        return decodedData
     }
 }

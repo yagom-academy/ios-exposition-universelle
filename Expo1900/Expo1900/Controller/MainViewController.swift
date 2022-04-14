@@ -29,13 +29,19 @@ final class MainViewController: UIViewController {
     }
     
     private func setUpData() {
-        let fileName = "exposition_universelle_1900"
-        let decodedData = try? ExpositionUniverselle.decode(from: fileName).get()
-    
+        let decodedData = decodeData()
+        
         self.titleLabel.text = decodedData?.title
-        self.visitorsLabel.text = decodedData?.visitors.formatString()
+        self.visitorsLabel.text = try? decodedData?.visitors.formatString()
         self.locationLabel.text = decodedData?.location
         self.durationLabel.text = decodedData?.duration
         self.descriptionLabel.text = decodedData?.description
+    }
+    
+    private func decodeData() -> ExpositionUniverselle? {
+        let fileName = "exposition_universelle_1900"
+        let decodedData = try? ExpositionUniverselle.decode(from: fileName)
+        
+        return decodedData
     }
 }

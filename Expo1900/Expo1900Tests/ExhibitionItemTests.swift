@@ -13,7 +13,7 @@ class ExhibitionItemTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        self.sut = try? [ExhibitionItem].decode(from: "items").get()
+        self.sut = try? [ExhibitionItem].decode(from: "items")
     }
 
     override func tearDownWithError() throws {
@@ -27,7 +27,7 @@ class ExhibitionItemTests: XCTestCase {
         let fakeFileName = "a"
         // when
         // then
-        XCTAssertThrowsError(try [ExhibitionItem].decode(from: fakeFileName).get()) { error in
+        XCTAssertThrowsError(try [ExhibitionItem].decode(from: fakeFileName)) { error in
             XCTAssertEqual(error as? DecodingError, expected)
         }
     }
