@@ -10,5 +10,7 @@ import Foundation
 struct Expo: Codable {
     let title: String
     let visitors: Int
-    let location, duration, description: String
+    let location: String
+    let duration: String
+    let description: String
 }

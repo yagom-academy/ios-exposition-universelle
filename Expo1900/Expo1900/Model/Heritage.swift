@@ -8,11 +8,14 @@
 import Foundation
 
 struct Heritage: Codable {
-    let title, imageSource, shortDescription, description: String
+    let title: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
 
     enum CodingKeys: String, CodingKey {
         case title = "name"
-        case imageSource = "image_name"
+        case imageName = "image_name"
         case shortDescription = "short_desc"
         case description = "desc"
     }
