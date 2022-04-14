@@ -13,9 +13,12 @@ class ExpoModelTest: XCTestCase {
     var sut: Expo!
 
     override func setUpWithError() throws {
+        guard let path = Bundle.main.path(forResource: "exposition_universelle_1900", ofType: "json") else { return }
+        guard let jsonString = try? String(contentsOfFile: path) else { return }
+        guard let data = jsonString.data(using: .utf8) else { return }
+        
         jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset.init(name: "exposition_universelle_1900") else { return }
-        sut = try? jsonDecoder.decode(Expo.self, from: dataAsset.data)
+        sut = try? jsonDecoder.decode(Expo.self, from: data)
     }
 
     override func tearDownWithError() throws {

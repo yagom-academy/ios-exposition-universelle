@@ -13,9 +13,12 @@ class HeritageModelTest: XCTestCase {
     var sut: [Heritage]!
 
     override func setUpWithError() throws {
+        guard let path = Bundle.main.path(forResource: "items", ofType: "json") else { return }
+        guard let jsonString = try? String(contentsOfFile: path) else { return }
+        guard let data = jsonString.data(using: .utf8) else { return }
+        
         jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset.init(name: "items") else { return }
-        sut = try? jsonDecoder.decode([Heritage].self, from: dataAsset.data)
+        sut = try? jsonDecoder.decode([Heritage].self, from: data)
     }
 
     override func tearDownWithError() throws {
