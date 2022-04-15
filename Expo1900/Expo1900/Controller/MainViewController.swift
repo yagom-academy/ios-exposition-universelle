@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     
     func displayExpoInfo() {
         guard let expoInfo = getExpoInfo() else { return }
-        titleLabel.text = expoInfo.title
+        titleLabel.text = divide(title: expoInfo.title)
         posterImageView.image = UIImage(named: "poster.png")
         visitorsLabel.text = " : \(changeNumberFormat(expoInfo.visitors)) 명"
         locationLabel.text = " : \(expoInfo.location)"
@@ -59,6 +59,11 @@ class MainViewController: UIViewController {
         let action = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func divide(title: String) -> String {
+        let dividedTitle = title.components(separatedBy: "(")
+        return "\(dividedTitle[0])\n(\(dividedTitle[1])"
     }
     
     func changeNumberFormat(_ number: Int ) -> String {
