@@ -2,7 +2,7 @@
 //  HeritageListViewController.swift
 //  Expo1900
 //
-//  Created by marisol on 2022/04/15.
+//  Created by 우롱차, marisol on 2022/04/15.
 //
 
 import UIKit
@@ -15,10 +15,10 @@ class HeritageListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         items = loadItems() ?? []
-        heritageListTableView.dataSource = self
-        heritageListTableView.delegate = self
         self.navigationController?.navigationBar.topItem?.title = "메인"
         self.title = "한국의 출품작"
+        heritageListTableView.dataSource = self
+        heritageListTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,16 +51,9 @@ extension HeritageListViewController: UITableViewDataSource {
     }
 }
 
-//MARK: - UITableViewDelegate method
+// MARK: - UITableViewDelegate method
 extension HeritageListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//      웨더가 알려준 방식 - detailViewController 를 이니셜라이져로 item을 할당하는 방식, 이 방법은 detailViewController의 item을
-//      private로 선언할수 있어서 외부에서 변경을 방지할 수 있다.
-//        let viewController = UIStoryboard(name: IdentifierName.detailViewController, bundle: .main).instantiateInitialViewController { coder -> DetailViewController? in
-//            DetailViewController(coder: coder, item: self.items[indexPath.row])
-//        }
-        
         guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: IdentifierName.detailViewController) as? DetailViewController else {
             return
         }
@@ -70,7 +63,7 @@ extension HeritageListViewController: UITableViewDelegate {
     }
 }
 
-//MARK: - logic method
+// MARK: - logic method
 extension HeritageListViewController {
     private func loadItems() -> [Item]? {
         let jsonManager: JsonManagerable = JsonManager()

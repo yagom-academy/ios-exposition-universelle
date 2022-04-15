@@ -7,7 +7,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var visitorLabel: UILabel!
@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
         guard let expositionInfo = loadInformation() else {
             return
         }
-        setContentsOfScrollView(expositionInfo)
+        setTextOfMainView(expositionInfo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,16 +53,15 @@ extension MainViewController {
         }
     }
 
-    private func setContentsOfScrollView(_ expositionInfo: ExpositionInfo) {
-        titleLabel.text = editTitle(from: expositionInfo.title)
+    private func setTextOfMainView(_ expositionInfo: ExpositionInfo) {
+        titleLabel.text = splitTitleToTwoLines(from: expositionInfo.title)
         visitorLabel.text = "방문객 : \(expositionInfo.visitors) 명"
         locationLabel.text = "개최지 : \(expositionInfo.location)"
         durationLabel.text = "개최 기간 : \(expositionInfo.duration)"
         descriptionLabel.text = expositionInfo.description
     }
     
-    private func editTitle(from title: String) -> String {
+    private func splitTitleToTwoLines(from title: String) -> String {
         return title.replacingOccurrences(of: "(", with: "\n(")
     }
 }
-

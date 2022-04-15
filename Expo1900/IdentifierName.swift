@@ -2,7 +2,7 @@
 //  IdentifierName.swift
 //  Expo1900
 //
-//  Created by marisol on 2022/04/15.
+//  Created by 우롱차, marisol on 2022/04/15.
 //
 
 enum IdentifierName {
