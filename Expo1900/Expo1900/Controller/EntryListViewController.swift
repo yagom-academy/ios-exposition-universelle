@@ -15,6 +15,10 @@ class EntryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    func setup() {
         tableView.dataSource = self
         tableView.delegate = self
         navigationItem.backButtonTitle = Exposition.koreaEntryList
