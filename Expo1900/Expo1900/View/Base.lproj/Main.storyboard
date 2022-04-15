@@ -249,9 +249,59 @@
                     <view key="view" contentMode="scaleToFill" id="fD3-ht-bO6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gov-bL-qsH">
+                                <rect key="frame" x="20" y="44" width="365" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLi-yz-0u2">
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="1200"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lNN-vX-bXs">
+                                                <rect key="frame" x="0.0" y="1" width="365" height="230.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-dM-fSK">
+                                                        <rect key="frame" x="110.5" y="0.0" width="144" height="200"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82w-6u-oFD">
+                                                        <rect key="frame" x="162" y="210" width="41.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1200" id="3Vg-JM-R5U"/>
+                                            <constraint firstAttribute="trailing" secondItem="lNN-vX-bXs" secondAttribute="trailing" id="3k1-e8-hCk"/>
+                                            <constraint firstItem="lNN-vX-bXs" firstAttribute="leading" secondItem="nLi-yz-0u2" secondAttribute="leading" id="TPW-K1-Hdq"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nLi-yz-0u2" firstAttribute="centerX" secondItem="Gov-bL-qsH" secondAttribute="centerX" id="V4O-4W-45t"/>
+                                    <constraint firstItem="nLi-yz-0u2" firstAttribute="leading" secondItem="Gov-bL-qsH" secondAttribute="leading" id="YZU-5A-oEp"/>
+                                    <constraint firstAttribute="bottom" secondItem="nLi-yz-0u2" secondAttribute="bottom" id="ii2-Vc-dq2"/>
+                                    <constraint firstAttribute="trailing" secondItem="nLi-yz-0u2" secondAttribute="trailing" id="rO9-bR-eYO"/>
+                                    <constraint firstItem="nLi-yz-0u2" firstAttribute="top" secondItem="Gov-bL-qsH" secondAttribute="top" id="vkf-n0-LQS"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="A4S-NW-9TM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="A4S-NW-9TM" firstAttribute="trailing" secondItem="Gov-bL-qsH" secondAttribute="trailing" constant="29" id="OyY-sy-InZ"/>
+                            <constraint firstItem="Gov-bL-qsH" firstAttribute="top" secondItem="A4S-NW-9TM" secondAttribute="top" id="XYD-5V-AHt"/>
+                            <constraint firstItem="Gov-bL-qsH" firstAttribute="leading" secondItem="A4S-NW-9TM" secondAttribute="leading" constant="20" id="XZc-L8-ow8"/>
+                            <constraint firstItem="lNN-vX-bXs" firstAttribute="width" secondItem="A4S-NW-9TM" secondAttribute="width" multiplier="0.881643" id="y9q-40-gtB"/>
+                            <constraint firstItem="A4S-NW-9TM" firstAttribute="bottom" secondItem="Gov-bL-qsH" secondAttribute="bottom" constant="44" id="ybi-Xh-56V"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemDiscription" destination="82w-6u-oFD" id="dbw-9p-Rdd"/>
+                        <outlet property="itemImage" destination="Wui-dM-fSK" id="Kdg-aS-qZ7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l31-Ep-jGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
