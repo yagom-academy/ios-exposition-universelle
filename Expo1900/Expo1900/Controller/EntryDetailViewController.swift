@@ -1,13 +1,6 @@
-//
-//  EntryDetailViewController.swift
-//  Expo1900
-//
-//  Created by SeoDongyeon on 2022/04/14.
-//
-
 import UIKit
 
-class EntryDetailViewController: UIViewController {
+final class EntryDetailViewController: UIViewController {
     
     @IBOutlet private weak var detailImageView: UIImageView!
     @IBOutlet private weak var detailDescriptionLabel: UILabel!

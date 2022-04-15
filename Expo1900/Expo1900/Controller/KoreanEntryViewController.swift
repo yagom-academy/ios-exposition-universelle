@@ -1,27 +1,27 @@
 import UIKit
 
-class KoreanEntryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var koreanEntryTableView: UITableView!
     private var entries = [Entry]()
     private let cellIdentifier = "EntryCell"
+    private let segueIdentifier = "SegueToDetail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         koreanEntryTableView.delegate = self
         koreanEntryTableView.dataSource = self
         
-        guard let decodedData = parseJSON() else { return }
+        guard let decodedData = decodeEntryItems() else { return }
         entries = decodedData
     }
 
-    private func parseJSON() -> [Entry]? {
+    private func decodeEntryItems() -> [Entry]? {
         let decoder = JSONDecoder()
-        guard let asset = NSDataAsset(name: "items") else { return nil }
-        let data = try? decoder.decode([Entry].self, from: asset.data)
+        guard let items = NSDataAsset(name: "items") else { return nil }
+        let data = try? decoder.decode([Entry].self, from: items.data)
         return data
     }
-
 }
 
 extension KoreanEntryViewController {
@@ -34,7 +34,7 @@ extension KoreanEntryViewController {
         
         cell.textLabel?.text = entries[indexPath.row].name
         cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
-        
+
         cell.imageView?.image = UIImage(named: entries[indexPath.row].imageName)
         cell.imageView?.contentMode = .scaleAspectFit
         
@@ -45,14 +45,15 @@ extension KoreanEntryViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToDetail" {
+        if segue.identifier == segueIdentifier {
             guard let cell = sender as? UITableViewCell else { return }
             guard let indexPath = self.koreanEntryTableView.indexPath(for: cell) else { return }
-            let viewController = segue.destination as? EntryDetailViewController
             
-            viewController?.detailDescription = entries[indexPath.row].description
-            viewController?.imageName = entries[indexPath.row].imageName
-            viewController?.koreanEntryTitle = entries[indexPath.row].name
+            let entryDetailViewController = segue.destination as? EntryDetailViewController
+            
+            entryDetailViewController?.detailDescription = entries[indexPath.row].description
+            entryDetailViewController?.imageName = entries[indexPath.row].imageName
+            entryDetailViewController?.koreanEntryTitle = entries[indexPath.row].name
         }
     }
 }
