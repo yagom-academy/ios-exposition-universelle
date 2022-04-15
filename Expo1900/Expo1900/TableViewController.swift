@@ -2,7 +2,7 @@
 //  TableViewController.swift
 //  Expo1900
 //
-//  Created by 이시원 on 2022/04/14.
+//  Created by 사파리, 파프리 on 2022/04/14.
 //
 
 import UIKit
@@ -29,9 +29,9 @@ class TableViewController: UITableViewController {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         var content = itemCell.defaultContentConfiguration()
         
-        content.text = itemsList![indexPath.row].title
-        content.secondaryText = itemsList![indexPath.row].shortDescription
-        content.image = UIImage(named: itemsList![indexPath.row].imageName)
+        content.text = itemsList?[indexPath.row].title
+        content.secondaryText = itemsList?[indexPath.row].shortDescription
+        content.image = UIImage(named: itemsList?[indexPath.row].imageName ?? "swift")
         itemCell.contentConfiguration = content
         
         return itemCell
@@ -40,7 +40,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let subView = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailVC") as? itemDetailViewController else { return }
         
-        subView.item = itemsList![indexPath.row]
+        subView.item = itemsList?[indexPath.row]
         
         self.navigationController?.pushViewController(subView, animated: true)
     }

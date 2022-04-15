@@ -1,6 +1,6 @@
 //
 //  Expo1900 - ViewController.swift
-//  Created by yagom. 
+//  Created by 사파리 파프리. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
