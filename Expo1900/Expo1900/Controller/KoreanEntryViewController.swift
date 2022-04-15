@@ -52,6 +52,7 @@ extension KoreanEntryViewController {
             
             viewController?.detailDescription = entries[indexPath.row].description
             viewController?.imageName = entries[indexPath.row].imageName
+            viewController?.koreanEntryTitle = entries[indexPath.row].name
         }
     }
 }

@@ -9,20 +9,33 @@ import UIKit
 
 class EntryDetailViewController: UIViewController {
     
-    @IBOutlet weak var detailImageView: UIImageView!
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet private weak var detailImageView: UIImageView!
+    @IBOutlet private weak var detailDescriptionLabel: UILabel!
     
     var detailDescription: String?
     var imageName: String?
+    var koreanEntryTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUILabel()
+        updateNavigationBarTitle()
+        updateDescriptionLabel()
+        updateDetailImage()
     }
     
-    func updateUILabel() {
-        if let text = detailDescription {
-            detailDescriptionLabel.text = text
+    private func updateNavigationBarTitle() {
+        navigationItem.title = koreanEntryTitle
+    }
+    
+    private func updateDescriptionLabel() {
+        if let description = detailDescription {
+            detailDescriptionLabel.text = description
+        }
+    }
+    
+    private func updateDetailImage() {
+        if let image = imageName {
+            detailImageView.image = UIImage(named: image)
         }
     }
 }
