@@ -10,7 +10,6 @@ import UIKit
 class ItemViewController: UIViewController {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     var item: Item?
     
     override func viewDidLoad() {

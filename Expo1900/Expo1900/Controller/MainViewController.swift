@@ -28,22 +28,13 @@ class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
-    
+    //MARK: -IBAction
     @IBAction func moveToListViewButton(_ sender: UIButton) {
         guard let listVC = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController else { return }
+        
         self.navigationController?.pushViewController(listVC, animated: true)
     }
-    
-    func displayExpoInfo() {
-        guard let expoInfo = getExpoInfo() else { return }
-        titleLabel.text = divide(title: expoInfo.title)
-        posterImageView.image = UIImage(named: "poster.png")
-        visitorsLabel.text = " : \(changeNumberFormat(expoInfo.visitors)) 명"
-        locationLabel.text = " : \(expoInfo.location)"
-        durationLabel.text = " : \(expoInfo.duration)"
-        descriptionLabel.text = expoInfo.description
-    }
-    
+    //MARK: -functions
     func getExpoInfo() -> Exposition? {
         do {
             let expoInfo = try Exposition.decode(with: "exposition_universelle_1900")
@@ -52,6 +43,17 @@ class MainViewController: UIViewController {
             showAlert()
         }
         return nil
+    }
+    
+    func displayExpoInfo() {
+        guard let expoInfo = getExpoInfo() else { return }
+        
+        titleLabel.text = divide(title: expoInfo.title)
+        posterImageView.image = UIImage(named: "poster.png")
+        visitorsLabel.text = " : \(changeNumberFormat(expoInfo.visitors)) 명"
+        locationLabel.text = " : \(expoInfo.location)"
+        durationLabel.text = " : \(expoInfo.duration)"
+        descriptionLabel.text = expoInfo.description
     }
     
     func showAlert() {
@@ -69,9 +71,8 @@ class MainViewController: UIViewController {
     func changeNumberFormat(_ number: Int ) -> String {
         let numberFormmater = NumberFormatter()
         numberFormmater.numberStyle = .decimal
-        guard let changedNumber = numberFormmater.string(from: number as NSNumber) else {
-            return ""
-        }
+        guard let changedNumber = numberFormmater.string(from: number as NSNumber) else { return "" }
+        
         return changedNumber
     }
 }
