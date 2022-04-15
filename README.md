@@ -70,6 +70,51 @@ func test_프로퍼티의타입이잘못된객체에서_decode호출시_typeMism
 - Meta Type
 - Asset
 
+***
+
+## STEP2
+### 기능구현
+- `View` 구성, `ViewController` 구성
+- `Table` 뷰 구성 
+- `JSON` 데이터를 뷰에 띄위기 
+
+
+### trouble shooting
+#### 1. auto layout Y 포지션 or height 설정
+스크롤 뷰의 높이를 따로 설정해 주지 않으면 `Y positin or height`가 필요하다는 오류가 발생 했다
+
+✅ 이 오류의 해결 방안으로 두 가지 방법을 확인했다.
+
+1. 높이 설정 후 priority 낮추기
+![](https://i.imgur.com/xMawy3A.png)
+
+2. Intrinsic Size 옵션 Placeholder로 바꿔주기
+![](https://i.imgur.com/0Sa5q8g.png)
+
+두 방법 중 Y 축만 지정해도 되기 때문에 첫번 째 방법을 사용해서 문제를 해결 했습니다.
+
+### 2. alert의 재사용성
+```swift
+    func showAlert() {
+        let alert = UIAlertController(title: "오류", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+```
+현재 프로젝트에서 위와 같이 얼럿을 나타내는 메소드를 두 개의 뷰컨트롤러에 각각 하나씩 구현되어 있는데 지금 프로젝트에서는 한번씩 밖에 사용을 하지 않아서 각 뷰컨트롤러에 생성을 했지만 이런 재사용성이 있는데 여러 곳에서 사용하는 메서드를 하나의 파일로 만들어서 관리를 해줘도 괜찮은지 고민했습니다
+
+✅
+
+## 배운 개념
+- `defaultContentConfiguration`
+- `TableView` 
+- `TableViewDataSource`
+- `TableVeiwDelegate`
+- `ScrollView`
+
+
+
 ## commit rule
 
 커밋 제목은 최대 50자 입력
