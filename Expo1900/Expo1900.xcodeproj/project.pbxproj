@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		86AEC4FB2806BFBE00820C60 /* HeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */; };
+		86AEC53E2808EFDC00820C60 /* ExpoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC53D2808EFDC00820C60 /* ExpoView.swift */; };
 		86CC10F4280429AF0020BFB2 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC10F3280429AF0020BFB2 /* Expo.swift */; };
 		86CC10FC2804306F0020BFB2 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC10FB2804306F0020BFB2 /* DecodeTests.swift */; };
 		9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443B8EC28042D3D00C80148 /* Heritage.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageViewController.swift; sourceTree = "<group>"; };
+		86AEC53D2808EFDC00820C60 /* ExpoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoView.swift; sourceTree = "<group>"; };
 		86CC10F3280429AF0020BFB2 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		86CC10F92804306F0020BFB2 /* DecodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CC10FB2804306F0020BFB2 /* DecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
+				86AEC53D2808EFDC00820C60 /* ExpoView.swift */,
 				86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */,
 				94AC9AFE2806EC6400ADC9E1 /* HeritageDetailViewController.swift */,
 				94AC9AFC2806C64E00ADC9E1 /* HeritageCell.swift */,
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86AEC53E2808EFDC00820C60 /* ExpoView.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
 				9443B8EF28044F4F00C80148 /* ParseManager.swift in Sources */,
 				86CC10F4280429AF0020BFB2 /* Expo.swift in Sources */,
