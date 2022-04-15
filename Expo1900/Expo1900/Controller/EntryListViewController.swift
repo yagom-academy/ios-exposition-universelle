@@ -27,6 +27,7 @@ final class EntryListViewController: UIViewController {
 
 extension EntryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if let entryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: Exposition.entryItemViewController) as? EntryItemViewController {
             let item = expositionItems?[indexPath.row]
             entryItemViewController.navigationItem.title = item?.name
