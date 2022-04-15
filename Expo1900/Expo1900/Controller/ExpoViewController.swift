@@ -38,11 +38,19 @@ private extension String {
 final class ExpoViewController: UIViewController {
   
   private lazy var baseView = ExpoView(frame: view.bounds)
+  private var expo: Expo? {
+    didSet {
+      DispatchQueue.main.async {
+        self.bind()
+        self.baseView.layoutIfNeeded()
+      }
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     attribute()
-    bind()
+    requestData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -56,28 +64,28 @@ final class ExpoViewController: UIViewController {
   }
   
   private func attribute() {
+    view = baseView
     navigationItem.backButtonTitle = "메인"
-    view.backgroundColor = .systemBackground
+  }
+  
+  private func requestData() {
+    let data = ParseManager<Expo>.parse(name: "exposition_universelle_1900")
+    expo = data
   }
   
   private func bind() {
-    view = baseView
-    guard let (expo, poster) = prepareData() else {
-      return
-    }
-    
-    guard var expoTitle = expo.title, let targetIndex = expoTitle.firstIndex(of: "(") else {
+    guard var expoTitle = expo?.title, let targetIndex = expoTitle.firstIndex(of: "(") else {
       return
     }
     
     expoTitle.insert("\n", at: targetIndex)
     
     baseView.titleLabel.text = expoTitle
-    baseView.posterImageView.image = poster
-    baseView.visitorLabel.text = expo.visitors?.addComma()
-    baseView.locationLabel.text = expo.location
-    baseView.durationLabel.text = expo.duration
-    baseView.descriptionLabel.text = expo.description
+    baseView.posterImageView.image = UIImage(named: "poster")
+    baseView.visitorLabel.text = expo?.visitors?.addComma()
+    baseView.locationLabel.text = expo?.location
+    baseView.durationLabel.text = expo?.duration
+    baseView.descriptionLabel.text = expo?.description
     
     baseView.visitorLabel.attributedText = baseView.visitorLabel.text?.changeFontSize(insert: "방문객")
     baseView.locationLabel.attributedText = baseView.locationLabel.text?.changeFontSize(insert: "개최지")
@@ -93,16 +101,5 @@ final class ExpoViewController: UIViewController {
   @objc private func didTapKoreaHeritageButton(_ sender: UIButton) {
     let heritageViewController = HeritageViewController()
     navigationController?.pushViewController(heritageViewController, animated: true)
-  }
-
-  private func prepareData() -> (Expo, UIImage)? {
-    guard let expo = ParseManager<Expo>.parse(name: "exposition_universelle_1900") else {
-      return nil
-    }
-    guard let poster = UIImage(named: "poster") else {
-      return nil
-    }
-    
-    return (expo, poster)
   }
 }
