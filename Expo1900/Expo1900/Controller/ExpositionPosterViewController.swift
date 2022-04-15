@@ -32,20 +32,20 @@ class ExpositionPosterViewController: UIViewController {
     }
     
     @IBAction func didTapKoreaEntriesList(_ sender: UIButton) {
-        if let entryListViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryListViewController") {
-            entryListViewController.navigationItem.title = "한국의 출품작"
+        if let entryListViewController = self.storyboard?.instantiateViewController(withIdentifier: Exposition.entryListViewController) {
+            entryListViewController.navigationItem.title = Exposition.koreaEntryList
             self.navigationController?.pushViewController(entryListViewController, animated: true)
         }
     }
     
     func setupPoster() {
-        navigationItem.backButtonTitle = "메인"
+        navigationItem.backButtonTitle = Exposition.main
         
         let poster = ExpositionPoster.parse(JsonFile.poster)
         
-        visitors.text = Poster.visitors
-        location.text = Poster.location
-        duration.text = Poster.duration
+        visitors.text = Exposition.visitors
+        location.text = Exposition.location
+        duration.text = Exposition.duration
         
         posterTitle.text = poster?.title
         visitorsValue.text = numberFormatter(by: poster?.visitors)
@@ -62,6 +62,6 @@ class ExpositionPosterViewController: UIViewController {
             return nil
         }
         
-        return result + Poster.numberOfPeople
+        return result + Exposition.numberOfPeople
     }
 }

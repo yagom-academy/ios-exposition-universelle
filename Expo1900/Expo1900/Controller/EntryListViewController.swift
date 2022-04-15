@@ -17,13 +17,13 @@ class EntryListViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        navigationItem.backButtonTitle = "한국의 출품작"
+        navigationItem.backButtonTitle = Exposition.koreaEntryList
     }
 }
 
 extension EntryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let entryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryItemViewController") as? EntryItemViewController {
+        if let entryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: Exposition.entryItemViewController) as? EntryItemViewController {
             let item = expositionItems?[indexPath.row]
             entryItemViewController.navigationItem.title = item?.name
             entryItemViewController.item = item
@@ -38,9 +38,9 @@ extension EntryListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CustomCell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? CustomCell ?? CustomCell()
+        let cell: CustomCell = tableView.dequeueReusableCell(withIdentifier: Exposition.customCell, for: indexPath) as? CustomCell ?? CustomCell()
         let item = expositionItems?[indexPath.row]
-        cell.imageView?.image = UIImage(named: item?.imageName ?? "")
+        cell.imageView?.image = UIImage(named: item?.imageName ?? Exposition.emptyImage)
         cell.itemTitle.text = item?.name
         cell.itemShortDiscription.text = item?.shortDescription
         return cell
