@@ -1,7 +1,6 @@
 import UIKit
 
 final class EntryDetailViewController: UIViewController {
-    
     @IBOutlet private weak var detailImageView: UIImageView!
     @IBOutlet private weak var detailDescriptionLabel: UILabel!
     
@@ -13,7 +12,7 @@ final class EntryDetailViewController: UIViewController {
         super.viewDidLoad()
         updateNavigationBarTitle()
         updateDescriptionLabel()
-        updateDetailImage()
+        updateImageView()
     }
     
     private func updateNavigationBarTitle() {
@@ -21,12 +20,12 @@ final class EntryDetailViewController: UIViewController {
     }
     
     private func updateDescriptionLabel() {
-        if let description = detailDescription {
-            detailDescriptionLabel.text = description
+        if let text = detailDescription {
+            detailDescriptionLabel.text = text
         }
     }
     
-    private func updateDetailImage() {
+    private func updateImageView() {
         if let image = imageName {
             detailImageView.image = UIImage(named: image)
         }

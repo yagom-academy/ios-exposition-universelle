@@ -1,7 +1,6 @@
 import UIKit
 
 final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var koreanEntryTableView: UITableView!
     private var entries = [Entry]()
     private let cellIdentifier = "EntryCell"
@@ -40,7 +39,6 @@ extension KoreanEntryViewController {
         
         cell.detailTextLabel?.text = entries[indexPath.row].introduction
         cell.detailTextLabel?.numberOfLines = 0
-        
         return cell
     }
     
@@ -50,7 +48,6 @@ extension KoreanEntryViewController {
             guard let indexPath = self.koreanEntryTableView.indexPath(for: cell) else { return }
             
             let entryDetailViewController = segue.destination as? EntryDetailViewController
-            
             entryDetailViewController?.detailDescription = entries[indexPath.row].description
             entryDetailViewController?.imageName = entries[indexPath.row].imageName
             entryDetailViewController?.koreanEntryTitle = entries[indexPath.row].name

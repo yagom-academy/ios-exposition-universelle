@@ -1,7 +1,6 @@
 import UIKit
 
 final class ExpositionMainViewController: UIViewController {
-    
     @IBOutlet private weak var expoTitleLabel: UILabel!
     @IBOutlet private weak var expoImageView: UIImageView!
     @IBOutlet private weak var expoVisitorsLabel: UILabel!
