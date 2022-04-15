@@ -8,8 +8,11 @@
 - [프로젝트 소개](#프로젝트-소개)
 - [UML](#UML)
 - [STEP 1](#step-1)
-    + [고민 및 해결한 점](#고민_및_해결한_점)
-    + [궁금한 점](#궁금한_점)
+    + [고민 및 해결한 점](#고민-및-해결한-점)
+    + [궁금한 점](#궁금한-점)
+- [STEP 2](#step-2)
+    + [고민 및 해결한 점](#고민-및-해결한-점)
+    + [궁금한 점](#궁금한-점)
 - [그라운드 룰](#그라운드-룰)
     + [스크럼](#스크럼)
     + [코딩 컨벤션](#코딩-컨벤션) 
@@ -20,7 +23,6 @@
 ![](https://i.imgur.com/44EtzjA.jpg)
 
 ---
-
 ## [STEP 1]
 ### 고민 및 해결한 점
 #### 1️⃣ var vs let 
@@ -85,6 +87,84 @@ struct ExhibitionItem: Codable {
 #### 3️⃣ Naming 컨벤션
 저희가 작성한 코드의 naming이 적절한지에 대해 여쭤보고 싶습니다 😭
 
+---
+## [STEP 2]
+### 고민 및 해결한 점
+
+1️⃣ 메인화면의 navigationBar만 없애야 되는 이슈
+- 메인화면은 navigationBar가 없는 것을 요구사항 이미지에서 확인하였습니다
+> isNavigationBarHidden를 이용해 navigationBar를 없앨 수 있다
+
+- isNavigationBarHidden사용하면 다른 뷰에도 영향을 주는 이슈가 발생했습니다
+- isNavigationBarHidden사용하면 navigationController의 navigation bar를 없애게 되어 모든 화면의 bar가 사라지는 것을 알게 됐습니다
+- 따라서 화면이 전환되는 시점에 다시 해제시켜줘야 합니다
+> viewWillAppear -> isNavigationBarHidden = true
+> viewWillDisappear -> isNavigationBarHidden = false
+> 를 통해 해결하였습니다 
+
+2️⃣ 첫번째 화면 TextLabel을 원하는 곳에서 줄바꿈 하는법
+- 요구사항 이미지에서 "파리 만국 박람회 1900"뒤로 부연설명 부분이 줄바꿈 되어있는것을 확인하였습니다
+- label의 줄바꿈 속성 lineBreakMode에 Word Wrap을 이용하여 해결하려고 시도해 보았습니다
+    - "1900()"이런식으로 부연설명이 붙어 있어서 단어 구별을 실패했습니다ㅠㅠ
+- "("를 기준으로 문자열을 나누고 첫번째 문자열은 title에, 두번째 문자열은 subtitle에 넣는 방식을 시도해보았다.
+    - 이번 프로젝트 예시에 한정된 방법이라고 생각하여 철회했습니다 ㅠㅠ
+
+3️⃣ asset이미지는 어떻게 삽입해줄 것인가
+- 1.스토리보드에서 asset이미지 파일을 써서 바로 넣어주는 것 
+- 2.코드로 이미지를 넣어주는 것
+> 이미지를 한번 넣으면 고정될 이미지라고 생각했습니다, 스토리보드에서 제공하는 기능을 이용하여 바로 이미지를 넣어 주는것이 효과적이라고 생각했습니다
+
+4️⃣ 화면 전환 시, 셀의 데이터 전달
+- 세번째 뷰로 셀의 데이터를 어떻게 전달해야 하는가?? 고민하였습니다
+> Instance Property를 이용하여 전달하는 방식으로 해결해 주었습니다
+
+5️⃣ cell 만들기 - tableView(_ tableView:,cellForRowAt: )
+1. tableView(_ tableView:,cellForRowAt: ) 메서드 내부에 `textLabel`을 이용하여 스토리보드 구현없이 cell을 만들고자 했습니다.
+    - `Deprecated`될 것이라는 경고가 뜨는 것을 확인했고, 가능한한 사용하지 않기로 결정했습니다.
+    - `defaultContentConfiguration`가 대신하여 새롭게 생긴 메서드인 것을 확인!
+    
+2. `textLabel`이 `Deprecated`되고 새롭게 통합된 `defaultContentConfiguration`를 사용하여 cell을 만들기!
+```swift=
+var content = view?.defaultContentConfiguration()  
+    content?.text = "some data" 
+    cell?.contentConfiguration = content 
+    return cell
+```
+- 이러한 방법으로 구성해봤으나 Image의 크기를 설정할 수가 없었습니다. 
+    - 크기를 설정하는 메서드를 찾아봤으나 찾지 못했습니다.(size, frame 등은 전부 get only였음)
+
+3. custom cell을 이용하여 cell을 만들기!
+- 이미지와 label들의 크기/위치를 자유롭게 설정할 수 있어야 한다고 생각했고, custom cell을 이용하는 것이 가장 용이하다 판단했습니다.
+```swift=
+ guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: "cell",
+                                     for: indexPath) as? ExhibitionItemsTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        
+        cell.itemImageView.image = UIImage(named: exhibitionItems[indexPath.row].imageName)
+        cell.titleLabel.text = exhibitionItems[indexPath.row].name
+        cell.subtitleLabel.text = exhibitionItems[indexPath.row].shortDescription
+```
+> - 스토리보드에 이미지와 label들을 구현하고 UITableViewCell에 IBOutlet을 연결했습니다.
+> - 위 코드와 같이 tableView(_ tableView:,cellForRowAt: ) 메서드 내부에서 image와 label에 값을 할당해주었습니다.
+
+
+### 궁금한 점 및 질문사항 
+1️⃣ Error Handling
+프로젝트를 진행하다 보니 error를 처리해줘야하는 몇 가지 경우가 생겼습니다. 대부분 JSON file과 매칭이 되지 않을 때(찾을 수 없게 될 때) 생기는 에러입니다. 만약 에러가 발생했을 경우, 어떠한 동작을 해야할 지 결정하지 못했습니다.(요구사항에 없는 내용이라 😭)
+저희가 생각해본 방법은 이러합니다.
+- 알럿을 띄운 후, 확인을 누르면 빈 화면 제공
+- 빈 화면 (무반응)
+- label.text들에 에러 메시지 할당 
+> 혹시 이런 방법들로 요구사항과 다르게 구현해봐도 될까요? 그리고 더 추천해주실 에러핸들링 방법이 있다면 조언을 받고 싶습니다.🙏
+
+2️⃣ (고민한 점 2️⃣ 번 내용)첫번째 화면 TextLabel을 원하는 곳에서 줄바꿈 하는법
+- 이 부분에 대해서 조언??힌트를 얻을 수 있을까요??😂❤️
+
+3️⃣ (고민한 점 3️⃣ 번 내용)asset이미지는 어떻게 삽입해줄 것인가??
+- 저희의 생각이 더 효율적인 것이 맞을까요??
 ---
 
 ## 그라운드 룰
