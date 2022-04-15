@@ -8,18 +8,22 @@ import UIKit
 
 private extension Int {
   
-  func addComma() -> String? {
+  func decimalStyleFormat() -> String? {
     let numberFormatter = NumberFormatter()
     numberFormatter.numberStyle = .decimal
     guard let formattedNumber = numberFormatter.string(for: self) else {
-      return "0 명"
+      return "0"
     }
     
-    return formattedNumber + " 명"
+    return formattedNumber
   }
 }
 
 private extension String {
+  
+  func personFormat() -> String? {
+    return self + " 명"
+  }
   
   func changeFontSize(insert title: String) -> NSAttributedString? {
     let colonText = ": " + self
@@ -82,7 +86,7 @@ final class ExpoViewController: UIViewController {
     
     baseView.titleLabel.text = expoTitle
     baseView.posterImageView.image = UIImage(named: "poster")
-    baseView.visitorLabel.text = expo?.visitors?.addComma()
+    baseView.visitorLabel.text = expo?.visitors?.decimalStyleFormat()?.personFormat()
     baseView.locationLabel.text = expo?.location
     baseView.durationLabel.text = expo?.duration
     baseView.descriptionLabel.text = expo?.description
