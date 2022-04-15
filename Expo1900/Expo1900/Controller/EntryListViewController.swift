@@ -16,6 +16,19 @@ class EntryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
+        navigationItem.backButtonTitle = "한국의 출품작"
+    }
+}
+
+extension EntryListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let entryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryItemViewController") as? EntryItemViewController {
+            let item = expositionItems?[indexPath.row]
+            entryItemViewController.navigationItem.title = item?.name
+            entryItemViewController.item = item
+            self.navigationController?.pushViewController(entryItemViewController, animated: false)
+        }
     }
 }
 
