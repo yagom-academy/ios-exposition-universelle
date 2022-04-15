@@ -16,22 +16,17 @@ class ExhibitionItemsViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        setUpData()
+        self.exhibitionItems = decode()
     }
     
-    private func decode() -> [ExhibitionItem]? {
-        let fileName = "items"
-        let decodedData = try? [ExhibitionItem].decode(from: fileName)
-
-        return decodedData
-    }
-    
-    private func setUpData() {
-        guard let decodedData = decode() else {
-            return
+    private func decode() -> [ExhibitionItem] {
+        do {
+            let fileName = "items"
+            let decodedData = try [ExhibitionItem].decode(from: fileName)
+            return decodedData
+        } catch {
+            return [ExhibitionItem]()
         }
-        
-        self.exhibitionItems = decodedData
     }
 }
 

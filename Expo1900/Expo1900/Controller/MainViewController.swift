@@ -27,22 +27,28 @@ final class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    private func decode() -> ExpoInformation? {
-        let fileName = "exposition_universelle_1900"
-        let decodedData = try? ExpoInformation.decode(from: fileName)
-        
-        return decodedData
+    private func decode() -> ExpoInformation {
+        do {
+            let fileName = "exposition_universelle_1900"
+            let decodedData = try ExpoInformation.decode(from: fileName)
+            return decodedData
+        } catch {
+            return ExpoInformation(title: "", visitors: 0, location: "", duration: "", description: "")
+        }
     }
     
     private func setUpView() {
-        guard let decodedData = decode() else {
-            return
-        }
+        let decodedData = decode()
         
         self.expoTitleLabel.text = decodedData.title
-        self.visitorsLabel.text = try? decodedData.visitors.formatString()
         self.locationLabel.text = decodedData.location
         self.durationLabel.text = decodedData.duration
         self.descriptionLabel.text = decodedData.description
+        
+        do {
+            self.visitorsLabel.text = try decodedData.visitors.formatString()
+        } catch {
+            self.visitorsLabel.text = "\(error)"
+        }
     }
 }
