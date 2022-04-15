@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayExpoInfo()
@@ -36,17 +35,23 @@ class MainViewController: UIViewController {
     }
     
     func displayExpoInfo() {
+        guard let expoInfo = getExpoInfo() else { return }
+        titleLabel.text = expoInfo.title
+        posterImageView.image = UIImage(named: "poster.png")
+        visitorsLabel.text = " : \(changeNumberFormat(expoInfo.visitors)) 명"
+        locationLabel.text = " : \(expoInfo.location)"
+        durationLabel.text = " : \(expoInfo.duration)"
+        descriptionLabel.text = expoInfo.description
+    }
+    
+    func getExpoInfo() -> Exposition? {
         do {
             let expoInfo = try Exposition.decode(with: "exposition_universelle_1900")
-            titleLabel.text = expoInfo.title
-            posterImageView.image = UIImage(named: "poster.png")
-            visitorsLabel.text = " : \(expoInfo.visitors) 명"
-            locationLabel.text = " : \(expoInfo.location)"
-            durationLabel.text = " : \(expoInfo.duration)"
-            descriptionLabel.text = expoInfo.description
+            return expoInfo
         } catch {
             showAlert()
         }
+        return nil
     }
     
     func showAlert() {
@@ -64,7 +69,5 @@ class MainViewController: UIViewController {
         }
         return changedNumber
     }
-    
-
 }
 
