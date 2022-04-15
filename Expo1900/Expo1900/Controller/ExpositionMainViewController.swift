@@ -18,7 +18,7 @@ final class ExpositionMainViewController: UIViewController {
         return data
     }
     
-    private func setUpExpositionContents() {
+    private func updateExpositionContents() {
         guard let decodedData = decodeExpositionContent() else { return }
         expoTitleLabel.text = insertNewLine(at: decodedData.title)
         expoImageView.image = UIImage(named: "poster")
@@ -52,7 +52,7 @@ final class ExpositionMainViewController: UIViewController {
 extension ExpositionMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpExpositionContents()
+        updateExpositionContents()
     }
     
     override func viewWillAppear(_ animated: Bool) {

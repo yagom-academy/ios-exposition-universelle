@@ -10,7 +10,10 @@ final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
         koreanEntryTableView.delegate = self
         koreanEntryTableView.dataSource = self
-        
+        updateEntries()
+    }
+    
+    private func updateEntries() {
         guard let decodedData = decodeEntryItems() else { return }
         entries = decodedData
     }
