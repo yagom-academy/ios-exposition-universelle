@@ -124,3 +124,78 @@ struct JsonManager<Element: Codable> {
 4. NSDataAsset
 
 ## PR 후 개선사항
+**1. 각각의 모델 타입에서 사용되는 pars() 메서드 중복제거**
+>두 모델 에서 각각 구현되었던 parse() 메서드
+```swift
+static func parse() -> ExpositionPoster? {
+    guard let asset = NSDataAsset(name: "exposition_universelle_1900") else {
+        return nil
+    }
+    let posterData = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data)
+        
+        return posterData
+    }
+
+static func parse() -> [ExpositionItems]? {
+    guard let asset = NSDataAsset(name: "items") else {
+        return nil
+    }
+    let expositionItems = try? JSONDecoder().decode([ExpositionItems].self, from: asset.data)
+    return expositionItems
+    }
+```
+>두 모델이 공통으로 채택 하고있는 프로토콜 Codable 을 활용하기위해 Codable 이 채택하는 프로토콜 Decodable 을 extension 하여 parse() 메서드를 프로토콜 기본구현으로 정의해주었다.
+```swift
+extension Decodable {
+    static func parse(_ name: String) -> Self? {
+        guard let asset = NSDataAsset(name: name) else {
+            return nil
+        }
+        let jsonData = try? JSONDecoder().decode(Self.self, from: asset.data)
+
+        return jsonData
+    }
+}
+```
+
+**2. test code given, when, then 의 순서에 맞게 메서드 네이밍변경 및 내부 수정**
+
+>테스트 코드를 실행하는 when 부분을 추가하고, test 메서드 이름만으로 어떤 test를 수행하는지 파악할 수 있도록 given, when, then이 모두 포함되게끔 네이밍을 수정해주었다.
+
+**3. ExpositionItems 프로퍼티 옵셔널 추가**
+>어떠한 이유로 Json 데이터가 파싱이 실패할경우 프로그램 안정성을위해 파싱될 모델의 프로퍼티 값을 옵셔널로 변경해줌.
+**변경전**
+```swift
+struct ExpositionPoster: Codable {
+    let title: String
+    let visitors: Int
+    let location: String
+    let duration: String
+    let description: String
+}
+
+struct ExpositionItems: Codable {
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
+}
+```
+
+**변경후**
+```swift
+struct ExpositionPoster: Codable {
+    let title: String?
+    let visitors: Int?
+    let location: String?
+    let duration: String?
+    let description: String?
+}
+
+struct ExpositionItems: Codable {
+    let name: String?
+    let imageName: String?
+    let shortDescription: String?
+    let description: String?
+}
+```
