@@ -15,7 +15,7 @@ class ModelTest: XCTestCase {
     
     func test_프로퍼티의타입이잘못된객체에서_decode호출시_typeMismatch에러가발생하는지() throws {
         do {
-            try DummyForWrongType.decode(with: "exposition_universelle_1900")
+            _ = try DummyForWrongType.decode(with: "exposition_universelle_1900")
             XCTFail()
         } catch DecodingError.typeMismatch(let key, let value) {
             print(print("\n key: \(key) \n value: \(value) \n"))
@@ -26,7 +26,7 @@ class ModelTest: XCTestCase {
     
     func test_프로퍼티의이름이잘못된객체에서_decode호출시_keyNotFound에러가발생하는지() throws {
         do {
-            try DummyWrongPropertyName.decode(with: "exposition_universelle_1900")
+            _ = try DummyWrongPropertyName.decode(with: "exposition_universelle_1900")
         } catch DecodingError.keyNotFound(let key, let value) {
             print("\n key: \(key) \n value: \(value) \n")
         } catch {

@@ -56,7 +56,6 @@ extension ListViewController: UITableViewDataSource {
         cell.contentConfiguration = contents
         return cell
     }
-    
 }
 
 extension ListViewController: UITableViewDelegate {
