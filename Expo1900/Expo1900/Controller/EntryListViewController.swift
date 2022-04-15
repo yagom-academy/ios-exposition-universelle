@@ -26,15 +26,16 @@ extension EntryListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CustomCell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? CustomCell ?? CustomCell()
+        let item = expositionItems?[indexPath.row]
+        cell.imageView?.image = UIImage(named: item?.imageName ?? "")
+        cell.itemTitle.text = item?.name
+        cell.itemShortDiscription.text = item?.shortDescription
         return cell
     }
 }
 
 class CustomCell: UITableViewCell {
-    @IBOutlet weak var itemImage: UIView!
+    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemShortDiscription: UILabel!
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
 }
