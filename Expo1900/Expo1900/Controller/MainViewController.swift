@@ -33,7 +33,11 @@ final class MainViewController: UIViewController {
             let decodedData = try ExpoInformation.decode(from: fileName)
             return decodedData
         } catch {
-            return ExpoInformation(title: "", visitors: 0, location: "", duration: "", description: "")
+            return ExpoInformation(title: "",
+                                   visitors: 0,
+                                   location: "",
+                                   duration: "",
+                                   description: "")
         }
     }
     
