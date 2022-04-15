@@ -56,6 +56,15 @@ class MainViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func changeNumberFormat(_ number: Int ) -> String {
+        let numberFormmater = NumberFormatter()
+        numberFormmater.numberStyle = .decimal
+        guard let changedNumber = numberFormmater.string(from: number as NSNumber) else {
+            return ""
+        }
+        return changedNumber
+    }
+    
 
 }
 
