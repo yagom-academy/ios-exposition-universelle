@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryListViewController: UIViewController {
+final class EntryListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,7 +18,7 @@ class EntryListViewController: UIViewController {
         setup()
     }
     
-    func setup() {
+    private func setup() {
         tableView.dataSource = self
         tableView.delegate = self
         navigationItem.backButtonTitle = Exposition.koreaEntryList
@@ -51,7 +51,7 @@ extension EntryListViewController: UITableViewDataSource {
     }
 }
 
-class CustomCell: UITableViewCell {
+final class CustomCell: UITableViewCell {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemShortDiscription: UILabel!

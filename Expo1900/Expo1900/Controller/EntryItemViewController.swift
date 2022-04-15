@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryItemViewController: UIViewController {
+final class EntryItemViewController: UIViewController {
     var item: ExpositionItems?
 
     override func viewDidLoad() {

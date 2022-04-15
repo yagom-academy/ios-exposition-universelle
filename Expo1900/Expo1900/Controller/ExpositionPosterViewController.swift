@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpositionPosterViewController: UIViewController {
+final class ExpositionPosterViewController: UIViewController {
     
     @IBOutlet weak var visitors: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -38,7 +38,7 @@ class ExpositionPosterViewController: UIViewController {
         }
     }
     
-    func setupPoster() {
+    private func setupPoster() {
         navigationItem.backButtonTitle = Exposition.main
         
         let poster = ExpositionPoster.parse(JsonFile.poster)
