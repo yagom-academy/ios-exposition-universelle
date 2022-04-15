@@ -9,6 +9,10 @@
     + [고민했던 것들](#고민했던-것들)
     + [배운 개념](#배운-개념)
     + [PR 후 개선사항](#pr-후-개선사항)
+- [STEP 2 기능 구현](#step-2-기능-구현)
+    + [고민했던 것들](#고민했던-것들)
+    + [배운 개념](#배운-개념)
+    + [PR 후 개선사항](#pr-후-개선사항)
 
 ## Ground Rules
 ### 활동시간
@@ -199,3 +203,64 @@ struct ExpositionItems: Codable {
     let description: String?
 }
 ```
+## STEP2 기능 구현
+1. ExpositionPosterViewController: UIViewController
+>- `viewWillAppear()`: 화면이 보여지기 직전에 네비게이션 바 를 보이지 않게 옵션을 설정함.
+>- `viewWillDisappear()`: 화면이 사라지기 직전에 네비게이션 바 를 보이도록 옵션을 설정함.
+>- `setupPoster()`: 만국박람회 처음에 보여질 화면을 설정해주는 메서드.
+>- `numberFormatter()`: 방문객의 수를 형식에 맞게 변환할수 있도록 하는 메서드.
+>- `didTapKoreaEntriesList()`: 한국의 출품작 보러가기 버튼을 누를경우 `EntryListViewController` 의 뷰로 네비게이션 방식으로 전환되도록 하는 메서드
+2. EntryListViewController: UIViewController
+>- `setup()` : 출품작 리스트 초기 화면을 설정하는 메서드, datasource와 delegate를 연결하고 뒤로가기 버튼 title을 설정해줌
+>- `extension EntryListViewController: UITableViewDataSource`
+>    - `tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int`: 섹션의 수를 리턴하는 메서드
+>    - `tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell`: Cell 과 Cell 내부의 정보를 설정후 반환 해주는 메서드
+>- `extension EntryListViewController: UITableViewDelegate`
+>    - `tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)`: `didSelectRowAt` 메서드는 indexPath를 파라미터로 받아 클릭된 셀 정보를 인덱스로 넘겨준다.
+>- `CustomCell class`: table view 내부에 생성해준 cell
+3. EntryItemViewController: UIViewController
+>- `setup()`: 만국박람회 3번째 화면인 출품 아이템의 정보를 화면에 보여지도록 하는 메서드.
+
+## 고민했던 것들
+**1. 네비게이션바 를 해당 화면에서만 보이지 않게 수정하는 방법**
+>**viewDidLoad 와 viewWillDisappear**
+네비게이션바 히든 옵션을 viewDidLoad 에서 true 로 설정한후
+viewWillDisappear 에서 false 로 설정해 주었더니 처음엔 문제없이 작동되는줄 알았지만
+화면전환으로 다시 네비게이션바를 히든으로 설정해준 화면으로 돌아온경우 네비게이션바가 적용되는 문제가 생김.
+```swift
+navigationController?.setNavigationBarHidden(true, animated: false)
+```
+>**해결한 방법**
+>`view-Life-Cycle` 에 의해 `root view` 의 `viewDidLoad` 는 처음 화면을 구성할때한번만 실행되어 다시 `root view` 로 전환되더라도 `viewDidLoad` 가 호출되지 않아 문제가 되었다.
+>네비게이션바 히든 옵션을 `viewDidLoad` 에서 하지 않고
+>`viewWillAppear` 히든 옵션을 설정해주었다.
+
+**2. Custom Cell을 EntryListViewController 와 다른 파일에서 구현할 경우 인식하지 못하는 문제**
+>파일 분리를 하기위해 다른 파일에서 구현했더니 스토리보드에서 인식하지못하는 상황이 발생했다.
+>`EntryListViewController: UIViewController` 내부에서 사용될 `Cell` 이기때문에 EntryListViewController 와 같은 파일 내에서 구현해주어야 하는지 의문이다 
+아니면 Xcode 에러인걸까...
+```swift
+final class CustomCell: UITableViewCell {
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var itemShortDiscription: UILabel!
+}
+```
+
+**3. Cell 의 row 를 클릭하게되면 게속 눌려진 채로 인식하는 문제**
+>`Cell` 의 `row` 를 클릭하여 다음 화면으로 전환후 다시 이전 화면으로 전환 했을경우 `Cell`의 `row` 가 게속 눌려져 있는 형태로 남아있었다.
+![](https://i.imgur.com/nz40hkF.png)
+**해결 방법**
+>이를 해결하기위해 deselectRow 를 사용하여 row 를 클릭하게되면 회색으로 표시되었다가 원래의 색으로 변경되도록 하였다.
+```swift
+tableView.deselectRow(at: indexPath, animated: true)
+```
+## 배운 개념
+1. 테이블뷰의 Delegate와 Data Source의 역할의 이해
+2. 테이블뷰의 셀의 재사용 이해
+3. 테이블뷰의 전반적인 동작 방식의 이해
+4. 주어진 JSON 데이터를 파싱하여 테이블뷰에 표시
+5. 내비게이션 컨트롤러를 활용한 화면 전환
+6. 뷰 컨트롤러 사이의 데이터 전달
+
+## PR 후 개선사항
