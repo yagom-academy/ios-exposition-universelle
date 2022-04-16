@@ -18,9 +18,11 @@ final class KoreaEntriesViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let koreaEntryDetailViewController = segue.destination as? KoreaEntryDetailViewController else { return }
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let koreaEntryData: KoreaEntryDetail = self.koreaEntryDataArray[indexPath.row]
-            koreaEntryDetailViewController.descLabel?.text = koreaEntryData.fullDescription
+        if segue.identifier == "KoreaEntryDetailViewController" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let koreaEntryData: KoreaEntryDetail = self.koreaEntryDataArray[indexPath.row]
+                 koreaEntryDetailViewController.koreaEntryData = koreaEntryData
+            }
         }
     }
     
