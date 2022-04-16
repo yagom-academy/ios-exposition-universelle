@@ -9,8 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var heritageImage: UIImageView!
-    @IBOutlet weak var heritageDescription: UILabel!
+    @IBOutlet private weak var heritageImage: UIImageView!
+    @IBOutlet private weak var heritageDescription: UILabel!
     var item: Item?
     
     override func viewDidLoad() {

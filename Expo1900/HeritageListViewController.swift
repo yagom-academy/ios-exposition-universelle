@@ -9,7 +9,7 @@ import UIKit
 
 class HeritageListViewController: UIViewController {
 
-    @IBOutlet var heritageListTableView: UITableView!
+    @IBOutlet private var heritageListTableView: UITableView!
     private var items: [Item] = []
     
     override func viewDidLoad() {
@@ -43,10 +43,8 @@ extension HeritageListViewController: UITableViewDataSource {
         }
         
         let item = items[indexPath.row]
-        cell.heritageImage.image = UIImage(named: item.imageName)
-        cell.heritageTitleLabel.text = item.name
-        cell.heritageShortDescriptionLabel.text = item.shortDescription
-        
+        cell.setContentOfCell(item)
+
         return cell
     }
 }
