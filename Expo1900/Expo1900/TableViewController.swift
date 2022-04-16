@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+final class TableViewController: UITableViewController {
 
     @IBOutlet weak var itemsTableView: UITableView!
     let itemsList: [Heritage]? = [Heritage].parsingJson(name: "items")
@@ -15,7 +15,6 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
-        
     }
 
     // MARK: - Table view data source
@@ -44,6 +43,4 @@ class TableViewController: UITableViewController {
         
         self.navigationController?.pushViewController(subView, animated: true)
     }
-
-
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class itemDetailViewController: UIViewController {
+final class itemDetailViewController: UIViewController {
     var item: Heritage?
     
     @IBOutlet weak var itemImageView: UIImageView!
@@ -15,10 +15,12 @@ class itemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+    }
+    
+    func setUpView() {
         title = item?.title
         itemImageView.image = UIImage(named: item?.imageName ?? "swift")
         ItemDescriptionLabel.text = item?.description
     }
-    
-  
 }

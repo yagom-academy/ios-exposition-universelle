@@ -20,7 +20,6 @@ class Expo1900ModelTests: XCTestCase {
         
         //then
         XCTAssertEqual(itemName, firstHeritageItemName)
-        
     }
     
     func test_Expo_Type_parsingJson_작동하는가() {
@@ -33,7 +32,4 @@ class Expo1900ModelTests: XCTestCase {
         //then
         XCTAssertEqual(title, Expotitle)
     }
-    
-    
-
 }
