@@ -9,8 +9,9 @@ import XCTest
 @testable import Expo1900
 
 class ExpoModelTest: XCTestCase {
+  
+    func test_Expo_Type_parsingJson_작동하는가() {
 
-    func test_parsingJson_작동하는가() {
         //given
         let Expotitle = "파리 만국박람회 1900(L'Exposition de Paris 1900)"
         
@@ -20,6 +21,6 @@ class ExpoModelTest: XCTestCase {
         //then
         XCTAssertEqual(title, Expotitle)
     }
-
+    
 }
 
