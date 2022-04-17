@@ -21,8 +21,12 @@ private extension Int {
 
 private extension String {
   
-  func personFormat() -> String? {
-    return self + " 명"
+  func add(text: String) -> String? {
+    return self + text
+  }
+
+  func divideLine(with target: Character) -> String? {
+    return self.split(separator: target).joined(separator: "\n\(target)")
   }
 }
 
@@ -65,15 +69,9 @@ final class ExpoViewController: UIViewController {
   }
   
   private func bind() {
-    guard var expoTitle = expo?.title, let targetIndex = expoTitle.firstIndex(of: "(") else {
-      return
-    }
-    
-    expoTitle.insert("\n", at: targetIndex)
-    
-    baseView.titleLabel.text = expoTitle
+    baseView.titleLabel.text = expo?.title?.divideLine(with: "(")
     baseView.posterImageView.image = UIImage(named: "poster")
-    baseView.visitorValueLabel.text = expo?.visitors?.decimalStyleFormat()?.personFormat()
+    baseView.visitorValueLabel.text = expo?.visitors?.decimalStyleFormat()?.add(text: " 명")
     baseView.locationValueLabel.text = expo?.location
     baseView.durationValueLabel.text = expo?.duration
     baseView.descriptionLabel.text = expo?.description
