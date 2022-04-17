@@ -25,10 +25,11 @@ extension HeritageViewController {
 
 class HeritageViewController: UIViewController {
   private lazy var baseView = HeritageView(frame: view.bounds)
-  private var heritageList = [Heritage]()
+  private var heritageList: [Heritage]?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    requestData()
     attribute()
   }
   
@@ -40,15 +41,17 @@ class HeritageViewController: UIViewController {
     baseView.tableView.register(HeritageCell.self, forCellReuseIdentifier: HeritageCell.identifier)
     baseView.tableView.dataSource = self
     baseView.tableView.delegate = self
-    
-    prepareData()
   }
   
-  private func prepareData() {
-    guard let heritages = ParseManager<[Heritage]>.parse(name: Const.File.name) else {
-      return
+  private func requestData() {
+    [Heritage].parse(name: Const.File.name) { result in
+      switch result {
+      case .success(let data):
+        heritageList = data
+      case .failure(let error):
+        print(error)
+      }
     }
-    heritageList = heritages
   }
 }
 
@@ -57,7 +60,7 @@ class HeritageViewController: UIViewController {
 extension HeritageViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return heritageList.count
+    return heritageList?.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,7 +71,7 @@ extension HeritageViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     
-    cell.update(with: heritageList[indexPath.row])
+    cell.update(with: heritageList?[indexPath.row])
     
     return cell
   }
@@ -79,7 +82,10 @@ extension HeritageViewController: UITableViewDataSource {
 extension HeritageViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let heritage = heritageList[indexPath.row]
+    guard let heritage = heritageList?[indexPath.row] else {
+      return
+    }
+    
     let heritageDetailViewController = HeritageDetailViewController(heritage: heritage)
     navigationController?.pushViewController(heritageDetailViewController, animated: true)
   }

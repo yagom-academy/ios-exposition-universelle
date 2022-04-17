@@ -77,10 +77,10 @@ class HeritageCell: UITableViewCell {
     return imgView
   }()
   
-  func update(with item: Heritage) {
-    titleLabel.text = item.name
-    descriptionLabel.text = item.shortDescription
-    heritageImageView.image = UIImage(named: item.imageName ?? Const.Image.defaultName)
+  func update(with item: Heritage?) {
+    titleLabel.text = item?.name
+    descriptionLabel.text = item?.shortDescription
+    heritageImageView.image = UIImage(named: item?.imageName ?? Const.Image.defaultName)
   }
   
   private func attribute() {

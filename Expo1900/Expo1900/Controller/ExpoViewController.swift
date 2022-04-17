@@ -89,8 +89,14 @@ final class ExpoViewController: UIViewController {
   }
   
   private func requestData() {
-    let data = ParseManager<Expo>.parse(name: Const.File.name)
-    expo = data
+    Expo.parse(name: Const.File.name) { result in
+      switch result {
+      case .success(let data):
+        expo = data
+      case .failure(let error):
+        print(error)
+      }
+    }
   }
   
   private func bind() {
