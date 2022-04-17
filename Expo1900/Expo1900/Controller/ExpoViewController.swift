@@ -24,19 +24,6 @@ private extension String {
   func personFormat() -> String? {
     return self + " 명"
   }
-  
-  func changeFontSize(insert title: String) -> NSAttributedString? {
-    let colonText = ": " + self
-    let targetText = title + " " + colonText
-    let attributedString = NSMutableAttributedString(string: targetText)
-    attributedString.addAttribute(
-      .font,
-      value: UIFont.preferredFont(forTextStyle: .title2),
-      range: (targetText as NSString).range(of: title)
-    )
-    
-    return attributedString
-  }
 }
 
 final class ExpoViewController: UIViewController {
@@ -86,14 +73,10 @@ final class ExpoViewController: UIViewController {
     
     baseView.titleLabel.text = expoTitle
     baseView.posterImageView.image = UIImage(named: "poster")
-    baseView.visitorLabel.text = expo?.visitors?.decimalStyleFormat()?.personFormat()
-    baseView.locationLabel.text = expo?.location
-    baseView.durationLabel.text = expo?.duration
+    baseView.visitorValueLabel.text = expo?.visitors?.decimalStyleFormat()?.personFormat()
+    baseView.locationValueLabel.text = expo?.location
+    baseView.durationValueLabel.text = expo?.duration
     baseView.descriptionLabel.text = expo?.description
-    
-    baseView.visitorLabel.attributedText = baseView.visitorLabel.text?.changeFontSize(insert: "방문객")
-    baseView.locationLabel.attributedText = baseView.locationLabel.text?.changeFontSize(insert: "개최지")
-    baseView.durationLabel.attributedText = baseView.durationLabel.text?.changeFontSize(insert: "개최 기간")
     
     baseView.koreaHeritageButton.addTarget(
       self,

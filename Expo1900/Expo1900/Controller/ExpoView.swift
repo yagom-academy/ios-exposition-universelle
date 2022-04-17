@@ -68,17 +68,53 @@ class ExpoView: UIView {
     return imageView
   }()
   
-  lazy var visitorLabel: UILabel = {
+  lazy var visitorStackView: UIStackView = {
+    let stackView = UIStackView()
+    return stackView
+  }()
+  
+  lazy var visitorLabel : UILabel = {
+    let label = UILabel()
+    label.text = "방문객 : "
+    label.font = .preferredFont(forTextStyle: .title2)
+    return label
+  }()
+  
+  lazy var visitorValueLabel: UILabel = {
     let label = UILabel()
     return label
   }()
   
-  lazy var locationLabel: UILabel = {
+  lazy var locationStackView: UIStackView = {
+    let stackView = UIStackView()
+    return stackView
+  }()
+  
+  lazy var locationLabel : UILabel = {
+    let label = UILabel()
+    label.text = "개최지 : "
+    label.font = .preferredFont(forTextStyle: .title2)
+    return label
+  }()
+  
+  lazy var locationValueLabel: UILabel = {
     let label = UILabel()
     return label
   }()
   
-  lazy var durationLabel: UILabel = {
+  lazy var durationStackView: UIStackView = {
+    let stackView = UIStackView()
+    return stackView
+  }()
+  
+  lazy var durationLabel : UILabel = {
+    let label = UILabel()
+    label.text = "개최 기간 : "
+    label.font = .preferredFont(forTextStyle: .title2)
+    return label
+  }()
+  
+  lazy var durationValueLabel: UILabel = {
     let label = UILabel()
     return label
   }()
@@ -136,6 +172,15 @@ class ExpoView: UIView {
     
     addSubview(baseScrollView)
     baseScrollView.addSubview(baseStackView)
+    
+    visitorStackView.addArrangedSubview(visitorLabel)
+    visitorStackView.addArrangedSubview(visitorValueLabel)
+    
+    locationStackView.addArrangedSubview(locationLabel)
+    locationStackView.addArrangedSubview(locationValueLabel)
+    
+    durationStackView.addArrangedSubview(durationLabel)
+    durationStackView.addArrangedSubview(durationValueLabel)
   
     buttonStackView.addArrangedSubview(leftFlagImageView)
     buttonStackView.addArrangedSubview(koreaHeritageButton)
@@ -143,9 +188,9 @@ class ExpoView: UIView {
 
     baseStackView.addArrangedSubview(titleLabel)
     baseStackView.addArrangedSubview(posterImageView)
-    baseStackView.addArrangedSubview(visitorLabel)
-    baseStackView.addArrangedSubview(locationLabel)
-    baseStackView.addArrangedSubview(durationLabel)
+    baseStackView.addArrangedSubview(visitorStackView)
+    baseStackView.addArrangedSubview(locationStackView)
+    baseStackView.addArrangedSubview(durationStackView)
     baseStackView.addArrangedSubview(descriptionLabel)
     baseStackView.addArrangedSubview(buttonStackView)
   }
