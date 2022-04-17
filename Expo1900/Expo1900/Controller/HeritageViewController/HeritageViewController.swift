@@ -77,7 +77,7 @@ extension HeritageViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     
-    cell.update(with: heritageList?[indexPath.row])
+    cell.update(with: heritageList?[safe: indexPath.row])
     
     return cell
   }
@@ -88,7 +88,7 @@ extension HeritageViewController: UITableViewDataSource {
 extension HeritageViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let heritage = heritageList?[indexPath.row] else {
+    guard let heritage = heritageList?[safe: indexPath.row] else {
       return
     }
     
