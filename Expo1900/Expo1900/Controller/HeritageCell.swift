@@ -25,6 +25,7 @@ extension HeritageCell {
       static let trailing: CGFloat = -10
       static let width: CGFloat = 60
       static let height: CGFloat = 60
+      static let defaultName = "swift"
     }
     enum StackView {
       static let top: CGFloat = 15
@@ -37,9 +38,10 @@ extension HeritageCell {
 //MARK: TableViewCell
 
 class HeritageCell: UITableViewCell {
- 
+  
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
+    addSubviews()
     layout()
     attribute()
   }
@@ -47,6 +49,13 @@ class HeritageCell: UITableViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  private let baseStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
   
   private let titleLabel: UILabel = {
     let label = UILabel()
@@ -56,7 +65,7 @@ class HeritageCell: UITableViewCell {
   
   private let descriptionLabel: UILabel = {
     let label = UILabel()
-    label.numberOfLines = 0
+    label.numberOfLines = .zero
     return label
   }()
   
@@ -71,7 +80,7 @@ class HeritageCell: UITableViewCell {
   func update(with item: Heritage) {
     titleLabel.text = item.name
     descriptionLabel.text = item.shortDescription
-    heritageImageView.image = UIImage(named: item.imageName ?? "swift")
+    heritageImageView.image = UIImage(named: item.imageName ?? Const.Image.defaultName)
   }
   
   private func attribute() {
@@ -83,26 +92,29 @@ class HeritageCell: UITableViewCell {
 
 extension HeritageCell {
   
-  private func layout() {
-    let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
-    stackView.axis = .vertical
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    
-    contentView.addSubview(stackView)
-    contentView.addSubview(heritageImageView)
+  private func addSubviews() {
+    contentView.addSubviews(heritageImageView, baseStackView)
+    baseStackView.addArrangedSubviews(titleLabel, descriptionLabel)
+  }
   
+  private func layout() {
+    
+    //MARK: - heritageImageView
+    
     NSLayoutConstraint.activate([
       heritageImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.Image.leading),
-      heritageImageView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Const.Image.trailing),
+      heritageImageView.trailingAnchor.constraint(equalTo: baseStackView.leadingAnchor, constant: Const.Image.trailing),
       heritageImageView.widthAnchor.constraint(equalToConstant: Const.Image.width),
       heritageImageView.heightAnchor.constraint(equalToConstant: Const.Image.height),
       heritageImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
     ])
     
+    //MARK: - baseStackView
+    
     NSLayoutConstraint.activate([
-      stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.StackView.top),
-      stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Const.StackView.bottom),
-      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Const.StackView.trailing)
+      baseStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.StackView.top),
+      baseStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Const.StackView.bottom),
+      baseStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Const.StackView.trailing)
     ])
   }
 }
