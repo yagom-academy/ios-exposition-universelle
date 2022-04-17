@@ -20,8 +20,6 @@ extension ExpoView {
     enum Scroll {
       static let top: CGFloat = 15
       static let bottom: CGFloat = -15
-      static let leading: CGFloat = 15
-      static let trailing: CGFloat = -15
     }
     
     enum Stack {
@@ -206,10 +204,10 @@ extension ExpoView {
     //MARK: - baseScrollView
     
     NSLayoutConstraint.activate([
-      baseScrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: Const.Scroll.top),
-      baseScrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: Const.Scroll.bottom),
-      baseScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Const.Scroll.leading),
-      baseScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Const.Scroll.trailing)
+      baseScrollView.topAnchor.constraint(equalTo: topAnchor, constant: Const.Scroll.top),
+      baseScrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Const.Scroll.bottom),
+      baseScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      baseScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
     
     //MARK: - baseStackView
