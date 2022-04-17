@@ -35,7 +35,7 @@ class HeritageViewController: UIViewController {
   private func attribute() {
     view = baseView
     view.backgroundColor = .systemBackground
-    title = Const.File.name
+    title = Const.Navigation.title
     
     baseView.tableView.register(HeritageCell.self, forCellReuseIdentifier: HeritageCell.identifier)
     baseView.tableView.dataSource = self
@@ -68,8 +68,7 @@ extension HeritageViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     
-    let heritage = heritageList[indexPath.row]
-    cell.update(with: heritage)
+    cell.update(with: heritageList[indexPath.row])
     
     return cell
   }
