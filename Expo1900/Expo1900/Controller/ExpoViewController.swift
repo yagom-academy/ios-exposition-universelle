@@ -6,6 +6,30 @@
 
 import UIKit
 
+//MARK: - Const
+
+fileprivate enum Const {
+  enum Literal {
+    static let personFormat = " 명"
+    static let leftParenthesis: Character = "("
+    static let lindFeed = "\n"
+  }
+  
+  enum Image {
+    static let name = "poster"
+  }
+  
+  enum File {
+    static let name = "exposition_universelle_1900"
+  }
+  
+  enum Navigation {
+    static let backButton = "메인"
+  }
+}
+
+//MARK: - Private Extension
+
 private extension Int {
   
   func decimalStyleFormat() -> String? {
@@ -14,7 +38,6 @@ private extension Int {
     guard let formattedNumber = numberFormatter.string(for: self) else {
       return "0"
     }
-    
     return formattedNumber
   }
 }
@@ -26,9 +49,11 @@ private extension String {
   }
 
   func divideLine(with target: Character) -> String? {
-    return self.split(separator: target).joined(separator: "\n\(target)")
+    return self.split(separator: target).joined(separator: "\(Const.Literal.lindFeed)\(target)")
   }
 }
+
+//MARK: - ViewController
 
 final class ExpoViewController: UIViewController {
   
@@ -60,18 +85,18 @@ final class ExpoViewController: UIViewController {
   
   private func attribute() {
     view = baseView
-    navigationItem.backButtonTitle = "메인"
+    navigationItem.backButtonTitle = Const.Navigation.backButton
   }
   
   private func requestData() {
-    let data = ParseManager<Expo>.parse(name: "exposition_universelle_1900")
+    let data = ParseManager<Expo>.parse(name: Const.File.name)
     expo = data
   }
   
   private func bind() {
-    baseView.titleLabel.text = expo?.title?.divideLine(with: "(")
-    baseView.posterImageView.image = UIImage(named: "poster")
-    baseView.visitorValueLabel.text = expo?.visitors?.decimalStyleFormat()?.add(text: " 명")
+    baseView.titleLabel.text = expo?.title?.divideLine(with: Const.Literal.leftParenthesis)
+    baseView.posterImageView.image = UIImage(named: Const.Image.name)
+    baseView.visitorValueLabel.text = expo?.visitors?.decimalStyleFormat()?.add(text: Const.Literal.personFormat)
     baseView.locationValueLabel.text = expo?.location
     baseView.durationValueLabel.text = expo?.duration
     baseView.descriptionLabel.text = expo?.description
