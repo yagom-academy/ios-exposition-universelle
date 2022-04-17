@@ -8,22 +8,22 @@
 import UIKit
 
 class HeritageViewController: UIViewController {
-  private let tableView = UITableView()
+  private lazy var baseView = HeritageView(frame: view.bounds)
   private var heritageList = [Heritage]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     attribute()
-    layout()
   }
   
   private func attribute() {
+    view = baseView
     view.backgroundColor = .systemBackground
     title = "한국의 출품작"
     
-    tableView.register(HeritageCell.self, forCellReuseIdentifier: HeritageCell.identifier)
-    tableView.dataSource = self
-    tableView.delegate = self
+    baseView.tableView.register(HeritageCell.self, forCellReuseIdentifier: HeritageCell.identifier)
+    baseView.tableView.dataSource = self
+    baseView.tableView.delegate = self
     
     prepareData()
   }
@@ -33,15 +33,6 @@ class HeritageViewController: UIViewController {
       return
     }
     heritageList = heritages
-  }
-  
-  private func layout() {
-    view.addSubview(tableView)
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-    tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-    tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-    tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
   }
 }
 
