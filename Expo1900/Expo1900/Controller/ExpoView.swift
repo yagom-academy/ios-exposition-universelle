@@ -173,26 +173,11 @@ class ExpoView: UIView {
     addSubview(baseScrollView)
     baseScrollView.addSubview(baseStackView)
     
-    visitorStackView.addArrangedSubview(visitorLabel)
-    visitorStackView.addArrangedSubview(visitorValueLabel)
-    
-    locationStackView.addArrangedSubview(locationLabel)
-    locationStackView.addArrangedSubview(locationValueLabel)
-    
-    durationStackView.addArrangedSubview(durationLabel)
-    durationStackView.addArrangedSubview(durationValueLabel)
-  
-    buttonStackView.addArrangedSubview(leftFlagImageView)
-    buttonStackView.addArrangedSubview(koreaHeritageButton)
-    buttonStackView.addArrangedSubview(rightFlagImageView)
-
-    baseStackView.addArrangedSubview(titleLabel)
-    baseStackView.addArrangedSubview(posterImageView)
-    baseStackView.addArrangedSubview(visitorStackView)
-    baseStackView.addArrangedSubview(locationStackView)
-    baseStackView.addArrangedSubview(durationStackView)
-    baseStackView.addArrangedSubview(descriptionLabel)
-    baseStackView.addArrangedSubview(buttonStackView)
+    visitorStackView.addArrangedSubviews(visitorLabel, visitorValueLabel)
+    locationStackView.addArrangedSubviews(locationLabel, locationValueLabel)
+    durationStackView.addArrangedSubviews(durationLabel, durationValueLabel)
+    buttonStackView.addArrangedSubviews(leftFlagImageView, koreaHeritageButton, rightFlagImageView)
+    baseStackView.addArrangedSubviews(titleLabel, posterImageView, visitorStackView, locationStackView, durationStackView, descriptionLabel, buttonStackView)
   }
   
   private func layout() {
