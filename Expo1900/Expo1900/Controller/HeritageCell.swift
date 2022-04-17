@@ -7,12 +7,34 @@
 
 import UIKit
 
+//MARK: - UITableViewCell Extension
+
 extension UITableViewCell {
 
   static var identifier: String {
     return String(describing: self)
   }
 }
+
+//MARK: - Const
+
+extension HeritageCell {
+  private enum Const {
+    enum Image {
+      static let leading: CGFloat = 10
+      static let trailing: CGFloat = -10
+      static let width: CGFloat = 60
+      static let height: CGFloat = 60
+    }
+    enum StackView {
+      static let top: CGFloat = 15
+      static let bottom: CGFloat = -15
+      static let trailing: CGFloat = -10
+    }
+  }
+}
+
+//MARK: TableViewCell
 
 class HeritageCell: UITableViewCell {
  
@@ -68,42 +90,19 @@ extension HeritageCell {
     
     contentView.addSubview(stackView)
     contentView.addSubview(heritageImageView)
+  
+    NSLayoutConstraint.activate([
+      heritageImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Const.Image.leading),
+      heritageImageView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Const.Image.trailing),
+      heritageImageView.widthAnchor.constraint(equalToConstant: Const.Image.width),
+      heritageImageView.heightAnchor.constraint(equalToConstant: Const.Image.height),
+      heritageImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+    ])
     
-    let heritageImageWidth: CGFloat = 60
-    let heritageHeightWidth: CGFloat = 60
-    let heritageHorizontalMargin: CGFloat = 10
-    
-    heritageImageView.widthAnchor.constraint(
-      equalToConstant: heritageImageWidth
-    ).isActive = true
-    heritageImageView.heightAnchor.constraint(
-      equalToConstant: heritageHeightWidth
-    ).isActive = true
-    heritageImageView.leadingAnchor.constraint(
-      equalTo: contentView.leadingAnchor,
-      constant: heritageHorizontalMargin
-    ).isActive = true
-    heritageImageView.trailingAnchor.constraint(
-      equalTo: stackView.leadingAnchor,
-      constant: -heritageHorizontalMargin
-    ).isActive = true
-    heritageImageView.centerYAnchor.constraint(
-      equalTo: contentView.centerYAnchor
-    ).isActive = true
-    
-    let stackViewVerticalMargin: CGFloat = 15
-    
-    stackView.trailingAnchor.constraint(
-      equalTo: contentView.trailingAnchor,
-      constant: -10
-    ).isActive = true
-    stackView.topAnchor.constraint(
-      equalTo: contentView.topAnchor,
-      constant: stackViewVerticalMargin
-    ).isActive = true
-    stackView.bottomAnchor.constraint(
-      equalTo: contentView.bottomAnchor,
-      constant: -stackViewVerticalMargin
-    ).isActive = true
+    NSLayoutConstraint.activate([
+      stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Const.StackView.top),
+      stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Const.StackView.bottom),
+      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Const.StackView.trailing)
+    ])
   }
 }
