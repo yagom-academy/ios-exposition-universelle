@@ -7,10 +7,22 @@
 
 import UIKit
 
+//MARK: - Const
+
+extension HeritageDetailViewController {
+  private enum Const {
+    enum Image {
+      static let defaultName = "swift"
+    }
+  }
+}
+
+//MARK: - ViewController
+
 final class HeritageDetailViewController: UIViewController {
   
-  private let heritage: Heritage
   private lazy var baseView = HeritageDetailView(frame: view.bounds)
+  private let heritage: Heritage
   
   init(heritage: Heritage) {
     self.heritage = heritage
@@ -35,6 +47,6 @@ final class HeritageDetailViewController: UIViewController {
   private func bind() {
     title = heritage.name
     baseView.descriptionLabel.text = heritage.description
-    baseView.heritageImageView.image = UIImage(named: heritage.imageName ?? "swift")
+    baseView.heritageImageView.image = UIImage(named: heritage.imageName ?? Const.Image.defaultName)
   }
 }

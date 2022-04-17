@@ -7,6 +7,16 @@
 
 import UIKit
 
+//MARK: - Const
+
+extension HeritageDetailView {
+  private enum Const {
+    enum Image {
+      static let height: CGFloat = 200
+    }
+  }
+}
+
 //MARK: - View
 
 class HeritageDetailView: UIView {
@@ -27,7 +37,7 @@ class HeritageDetailView: UIView {
   lazy var heritageImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    imageView.heightAnchor.constraint(equalToConstant: Const.Image.height).isActive = true
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
@@ -35,7 +45,7 @@ class HeritageDetailView: UIView {
   lazy var descriptionLabel: UILabel = {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .body)
-    label.numberOfLines = 0
+    label.numberOfLines = .zero
     return label
   }()
   
@@ -61,18 +71,16 @@ extension HeritageDetailView {
   }
   
   private func layout() {
-    let scrollViewHorizontalMargin: CGFloat = 15
-    
-    //MAKR: - baseScrollView
+    //MARK: - baseScrollView
     
     NSLayoutConstraint.activate([
       baseScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
       baseScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-      baseScrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: scrollViewHorizontalMargin),
-      baseScrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -scrollViewHorizontalMargin)
+      baseScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      baseScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
     
-    //MAKR: - baseStackView
+    //MARK: - baseStackView
     
     NSLayoutConstraint.activate([
       baseStackView.topAnchor.constraint(equalTo: baseScrollView.topAnchor),
