@@ -33,7 +33,7 @@
 [![swift](https://img.shields.io/badge/swift-5.0-orange)]() [![xcode](https://img.shields.io/badge/Xcode-13.0-blue)]() [![xcode](https://img.shields.io/badge/iOS-14.0-yellow)]()
 
 ## 키워드
-`json`, `Codable`, `CodingKeys`, `NSDataAsset`
+`json`, `Codable`, `CodingKeys`, `NSDataAsset`, `TableView`, `safe subscript`, `MVC`, `NameSpace`
 
 ## [STEP 1]
 
@@ -66,7 +66,107 @@ enum CodingKeys를 구현하고, 해당 enum에 CodingKey 프로토콜을 채택
 
 ### 고민한점
 
+#### name에 string literal이 그대로 들어가는 문제
+"items"이나 "exposition_universelle_1900"에 string literal를 그대로 사용해도 되는지 아니면 관리를 하여 사용해서 사용하는 것중 어느것이 좋은지 궁금했습니다.
+
+#### 개최지: 프랑스파리 를 표현하는데 레이블을 2개로 할지, attributedText를 사용해볼지
+
+개최지 : 프랑스 파리 를 출력할때, 개최지만 다른 폰트를 가지고 있어서 해당 문제를 어떻게 해결할지 고민했습니다.
+
+방법1 개최지 레이블 따로, 프랑스 파리 레이블 따로
+방법2 하나의 레이블로 attributedText 이용
+
+방법2로 했다가 방법1로 리팩터링 했습니다
+
+#### tableView에서 list가 필요해서 선언할때
+
+예를들어 HeritageViewController에는 TableView에 표시할 데이터를 담아둘 배열인 heritageList가 있는데,
+해당 리스트에는 json 파일로부터 decode한 [Heritage]가 들어가야 합니다
+
+저희가 고민한게
+
+- 아예 프로퍼티 기본값을 주는 방법
+    - private let list = ParserManager<[Heritage]>.parser
+- 옵셔널로 선언한 다음, 추후 초기화 해주는 방법
+    - private var list: [Heritage]?
+- 빈 배열로 선언한 다음, 추후 초기과 해주는 방법
+    - private var list = Heritage
+ 
+ Decodable extions의 parse 메서드 내부와 타입을 맞추기 위해 옵셔널로 초기화 해주는 방식을 선택 
+
+
+#### required init fatal error
+
+코드 베이스라서 어차피 required init이 불릴일은 절대 없다고 생각해서 fatalError()를 사용했는데 이래도 되는걸까요? 아니면 더 좋은 방법이 있을까요??
+
+#### TableViewCell의 reuseIdentifier
+
+문자열을 그대로 쓰는걸 피하기 위해, 예전 쥬스메이커에서 ViewController의 Storyboard Identifer를
+아래와 같이 설정했었습니다
+
+```swift
+extension UIViewController {
+
+  static var identifier: String {
+    return String(describing: self)
+  }
+}
+```
+
+TableViewCell의 reuseIdentifier도 해당 방식과 비슷하게 해보았는데, 괜찮은 방법일까요? 혹시 더 좋은 방법이나 린생이 사용하시는 방법이 궁금합니다
+
+```swift
+extension UITableViewCell {
+
+  static var identifier: String {
+    return String(describing: self)
+  }
+}
+
+```
+
+#### 프로젝트 파일 그룹화에 관해서
+
+파일을 관리할때 App Delegate, Scene Delegate도 따로 폴더에 넣어주는게 좋을까요..? 넣는다면 어떤이름이 좋을지 궁금합니다.. View도 Model도 Controller도 아닌거 같기도하고.. 또 Controller같기도 하고요
+
+#### CellForRowAt 매서드의 return
+
+tableView에서 cell을 guard let을 이용해서 얻어오는데 실패했을때도 UITableViewCell을 반환해야 하는데, 현재는 UITableViewCell()을 그냥 반환해주고 있습니다. 해당 방식에 문제가 있거나 혹시 더 좋은 방법이 있을까요?
+
+이 부분에 있어서 다른분들께도 질문을 드리고 생각해봤는데, UITableViewCell()을 바로 반환하는 방식이 별로 좋은것 같지는 않은거같아요.
+결정적으로 UITableViewCell()을 그냥 반환해버리면, 모두 비어있는 Cell 몇개가 생성되는데, 해당 Cell은 여전히 didSelectRowAt 매서드가 있기때문에, 여전히 select 이벤트를 처리해서 다음화면으로 넘어가더라구요..!
+
+잘못된 Cell일때는 selection을 막는 식으로 구현해보려고 하는데, 이런식으로 접근하는게 맞을까요?
+
+
 ### 해결한점
+
+#### Massive ViewController
+
+View와 Controller를 분리해서 해결하였습니다
+- View: only 드로잉
+- Controller: model과 view를 바인딩
+
+#### Magic Number/Literal
+
+파일마다 enum으로 namespace를 만들어서 해결하였습니다
+
+#### CodeBase 제약의 가독성 문제
+
+MarkDown과 extension을 사용하고 View를 분리하여 해결하였습니다
+
+#### unsafe subscript
+
+Array를 extension해서 safe subscript 기능을 구현하여 해결하였습니다
+
+#### MVC 구조 미준수
+
+MVC 패턴에 따라서, Model이 업데이트 된후, Model -> Controller -> View를 통해 View가 업데이트 되도록 구조 변경하였습니다
+
+#### 비동기 느낌으로 수정
+
+ResultType과 Completion을 이용해서 데이터 parsing을 비동기 느낌으로 수정
+
 ---
 
 ## [STEP 3]
@@ -123,5 +223,3 @@ add: assert 추가
 - subject line의 마지막에 마침표(.) 사용하지 않기
 - body는 72자마다 줄 바꾸기
 - body는 어떻게 보다 무엇을, 왜 에 맞춰 작성하기
-
-
