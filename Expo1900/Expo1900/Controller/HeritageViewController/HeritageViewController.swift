@@ -23,14 +23,20 @@ extension HeritageViewController {
 
 //MARK: - ViewController
 
-class HeritageViewController: UIViewController {
+final class HeritageViewController: UIViewController {
   private lazy var baseView = HeritageView(frame: view.bounds)
-  private var heritageList: [Heritage]?
+  private var heritageList: [Heritage]? {
+    didSet {
+      DispatchQueue.main.async {
+        self.baseView.tableView.reloadData()
+      }
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    requestData()
     attribute()
+    requestData()
   }
   
   private func attribute() {
@@ -60,7 +66,7 @@ class HeritageViewController: UIViewController {
 extension HeritageViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return heritageList?.count ?? 0
+    return heritageList?.count ?? .zero
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

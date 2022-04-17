@@ -10,7 +10,7 @@ import UIKit
 //MARK: - UITableViewCell Extension
 
 extension UITableViewCell {
-
+  
   static var identifier: String {
     return String(describing: self)
   }
@@ -19,6 +19,7 @@ extension UITableViewCell {
 //MARK: - Const
 
 extension HeritageCell {
+  
   private enum Const {
     enum Image {
       static let leading: CGFloat = 10
@@ -37,7 +38,7 @@ extension HeritageCell {
 
 //MARK: TableViewCell
 
-class HeritageCell: UITableViewCell {
+final class HeritageCell: UITableViewCell {
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,26 +51,26 @@ class HeritageCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  private let baseStackView: UIStackView = {
+  private lazy var baseStackView: UIStackView = {
     let stackView = UIStackView()
     stackView.axis = .vertical
     stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
   }()
   
-  private let titleLabel: UILabel = {
+  private lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .title1)
     return label
   }()
   
-  private let descriptionLabel: UILabel = {
+  private lazy var descriptionLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = .zero
     return label
   }()
   
-  private let heritageImageView: UIImageView = {
+  private lazy var heritageImageView: UIImageView = {
     let imgView = UIImageView()
     imgView.translatesAutoresizingMaskIntoConstraints = false
     imgView.contentMode = .scaleAspectFit

@@ -19,7 +19,7 @@ extension HeritageDetailView {
 
 //MARK: - View
 
-class HeritageDetailView: UIView {
+final class HeritageDetailView: UIView {
   
   private lazy var baseScrollView: UIScrollView = {
     let scrollView = UIScrollView()

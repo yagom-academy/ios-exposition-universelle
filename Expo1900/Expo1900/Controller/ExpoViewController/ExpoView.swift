@@ -50,7 +50,7 @@ extension ExpoView {
 
 //MARK: - View
 
-class ExpoView: UIView {
+final class ExpoView: UIView {
   
   private lazy var baseScrollView: UIScrollView = {
     let scrollView = UIScrollView()
@@ -60,7 +60,6 @@ class ExpoView: UIView {
   
   private lazy var baseStackView: UIStackView = {
     let stackView = UIStackView()
-    
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
     stackView.alignment = .center
@@ -82,7 +81,7 @@ class ExpoView: UIView {
     return imageView
   }()
   
-  lazy var visitorStackView: UIStackView = {
+  private lazy var visitorStackView: UIStackView = {
     let stackView = UIStackView()
     return stackView
   }()
@@ -99,7 +98,7 @@ class ExpoView: UIView {
     return label
   }()
   
-  lazy var locationStackView: UIStackView = {
+  private lazy var locationStackView: UIStackView = {
     let stackView = UIStackView()
     return stackView
   }()
@@ -116,7 +115,7 @@ class ExpoView: UIView {
     return label
   }()
   
-  lazy var durationStackView: UIStackView = {
+  private lazy var durationStackView: UIStackView = {
     let stackView = UIStackView()
     return stackView
   }()
@@ -216,10 +215,10 @@ extension ExpoView {
     //MARK: - baseStackView
     
     NSLayoutConstraint.activate([
-      baseStackView.leadingAnchor.constraint(equalTo: baseScrollView.leadingAnchor),
-      baseStackView.trailingAnchor.constraint(equalTo: baseScrollView.trailingAnchor),
       baseStackView.topAnchor.constraint(equalTo: baseScrollView.topAnchor),
       baseStackView.bottomAnchor.constraint(equalTo: baseScrollView.bottomAnchor),
+      baseStackView.leadingAnchor.constraint(equalTo: baseScrollView.leadingAnchor),
+      baseStackView.trailingAnchor.constraint(equalTo: baseScrollView.trailingAnchor),
       baseStackView.widthAnchor.constraint(equalTo: baseScrollView.widthAnchor)
     ])
   }

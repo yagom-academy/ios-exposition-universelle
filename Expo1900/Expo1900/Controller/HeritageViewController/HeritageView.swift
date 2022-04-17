@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeritageView: UIView {
+final class HeritageView: UIView {
   
   lazy var tableView: UITableView = {
     let tableView = UITableView()
@@ -28,10 +28,10 @@ class HeritageView: UIView {
     addSubview(tableView)
     
     NSLayoutConstraint.activate([
-      tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
       tableView.topAnchor.constraint(equalTo: topAnchor),
-      tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+      tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+      tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
   }
 }
