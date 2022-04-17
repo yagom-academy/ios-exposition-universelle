@@ -7,6 +7,22 @@
 
 import UIKit
 
+//MARK: - Const
+
+extension HeritageViewController {
+  private enum Const {
+    enum File {
+      static let name = "items"
+    }
+    
+    enum Navigation {
+      static let title = "한국의 출품작"
+    }
+  }
+}
+
+//MARK: - ViewController
+
 class HeritageViewController: UIViewController {
   private let tableView = UITableView()
   private var heritageList = [Heritage]()
@@ -19,7 +35,7 @@ class HeritageViewController: UIViewController {
   
   private func attribute() {
     view.backgroundColor = .systemBackground
-    title = "한국의 출품작"
+    title = Const.File.name
     
     tableView.register(HeritageCell.self, forCellReuseIdentifier: HeritageCell.identifier)
     tableView.dataSource = self
@@ -29,7 +45,7 @@ class HeritageViewController: UIViewController {
   }
   
   private func prepareData() {
-    guard let heritages = ParseManager<[Heritage]>.parse(name: "items") else {
+    guard let heritages = ParseManager<[Heritage]>.parse(name: Const.File.name) else {
       return
     }
     heritageList = heritages
@@ -44,6 +60,8 @@ class HeritageViewController: UIViewController {
     tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
   }
 }
+
+//MARK: - TableView DataSource
 
 extension HeritageViewController: UITableViewDataSource {
   
@@ -65,6 +83,8 @@ extension HeritageViewController: UITableViewDataSource {
     return cell
   }
 }
+
+//MARK: - TableView Delegate
 
 extension HeritageViewController: UITableViewDelegate {
   
