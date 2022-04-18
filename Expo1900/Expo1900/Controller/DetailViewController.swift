@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
+        self.setUpView()
     }
     
     private func setUpView() {
@@ -23,8 +23,8 @@ class DetailViewController: UIViewController {
             return
         }
         
-        itemImageVIew.image = UIImage(named: exhibitionItem.imageName)
-        descriptionLabel.text = exhibitionItem.description
+        self.itemImageVIew.image = UIImage(named: exhibitionItem.imageName)
+        self.descriptionLabel.text = exhibitionItem.description
         self.title = exhibitionItem.name
     }
 }

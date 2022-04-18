@@ -32,7 +32,7 @@ class ExhibitionItemsViewController: UIViewController {
 
 extension ExhibitionItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exhibitionItems.count
+        return self.exhibitionItems.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -45,9 +45,9 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.itemImageView.image = UIImage(named: exhibitionItems[indexPath.row].imageName)
-        cell.titleLabel.text = exhibitionItems[indexPath.row].name
-        cell.subtitleLabel.text = exhibitionItems[indexPath.row].shortDescription
+        cell.itemImageView.image = UIImage(named: self.exhibitionItems[indexPath.row].imageName)
+        cell.titleLabel.text = self.exhibitionItems[indexPath.row].name
+        cell.subtitleLabel.text = self.exhibitionItems[indexPath.row].shortDescription
 
         return cell
     }
@@ -59,7 +59,7 @@ extension ExhibitionItemsViewController: UITableViewDelegate {
             .instantiateViewController(identifier: DetailViewController.identifier)
             as? DetailViewController
         {
-            detailViewController.exhibitionItem = exhibitionItems[indexPath.row]
+            detailViewController.exhibitionItem = self.exhibitionItems[indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
