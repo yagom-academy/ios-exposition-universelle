@@ -111,7 +111,7 @@ final class ParisExpoVC: UIViewController {
 
 extension ParisExpoVC {
     private func initializeParisExpoData() {
-        guard let data = try? ParisExpo.decode(from: FileName.parisExpo) else {
+        guard let data = try? ParisExpo.convert(from: FileName.parisExpo) else {
             return
         }
         parisExpoData = data

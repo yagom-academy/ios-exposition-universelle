@@ -31,7 +31,7 @@ final class KoreanItemVC: UIViewController {
 
 extension KoreanItemVC {
     private func initializeKoreanItemsData() {
-        guard let items = try? [KoreanHistoricalItem].decode(from: "items") else {
+        guard let items = try? [KoreanHistoricalItem].convert(from: "items") else {
             return
         }
         koreanItems = items
