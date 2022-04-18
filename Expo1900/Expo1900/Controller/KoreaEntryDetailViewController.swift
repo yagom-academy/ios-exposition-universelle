@@ -20,4 +20,3 @@ class KoreaEntryDetailViewController: UIViewController {
         koreaEntryImageView.image = UIImage(named: koreaEntryData!.imageFileName)
     }
 }
-
