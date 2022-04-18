@@ -9,15 +9,11 @@ import UIKit
 
 extension UIViewController {
     func showAlert(alertTitle: String,
-                   okTitle: String?,
-                   okAction: (() -> ())? = nil,
-        
+                   okTitle: String?) {
         let alertController = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
     
         if let okTitle = okTitle {
-            let okAction = UIAlertAction(title: okTitle, style: .default) { _ in
-                okAction?()
-            }
+            let okAction = UIAlertAction(title: okTitle, style: .default)
             alertController.addAction(okAction)
         }
         self.present(alertController, animated: true)
