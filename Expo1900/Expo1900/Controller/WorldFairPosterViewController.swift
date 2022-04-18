@@ -35,13 +35,15 @@ final class WorldFairPosterViewController: UIViewController {
     }
     
     func decodeWorldFairPoster() {
-        let worldFairPosterData = Parser<WorldFairPoster>.parse(name: "exposition_universelle_1900")
+        guard let worldFairPosterData = Parser<WorldFairPoster>.parse(name: "exposition_universelle_1900") else {
+            return
+        }
         
-        titleLabel.text = worldFairPosterData?.title
-        visitorLabel.text = String(worldFairPosterData?.visitors ?? 0)
-        locationLabel.text = worldFairPosterData?.location
-        durationLabel.text = worldFairPosterData?.duration
-        descriptionLabel.text = worldFairPosterData?.description
+        titleLabel.text = worldFairPosterData.title
+        visitorLabel.text = String(worldFairPosterData.visitors)
+        locationLabel.text = worldFairPosterData.location
+        durationLabel.text = worldFairPosterData.duration
+        descriptionLabel.text = worldFairPosterData.description
     }
     
     func updateImageViews() {
