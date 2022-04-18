@@ -12,7 +12,11 @@ extension Decodable {
         guard let asset = NSDataAsset.init(name: assetName) else { throw DataLoadError.assetLoadError }
         
         let decoder = JSONDecoder()
-        let data = try decoder.decode(Self.self, from: asset.data)
-        return data
+        do {
+            let data = try decoder.decode(Self.self, from: asset.data)
+            return data
+        } catch _ as DecodingError{
+            throw DataLoadError.dataLoadError
+        }
     }
 }

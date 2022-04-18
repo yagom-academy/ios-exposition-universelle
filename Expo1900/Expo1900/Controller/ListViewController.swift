@@ -24,8 +24,8 @@ final class ListViewController: UIViewController {
         var items: [Item] = []
         do {
             items = try [Item].decode(with: "items")
-        } catch {
-            showAlert(for: "오류", message: "데이터를 불러올 수 없습니다.")
+        } catch let error {
+            showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
         }
         return items
     }

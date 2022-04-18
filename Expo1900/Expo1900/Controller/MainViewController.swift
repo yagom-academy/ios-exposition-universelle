@@ -39,8 +39,8 @@ final class MainViewController: UIViewController {
         do {
             let expoInfo = try Exposition.decode(with: "exposition_universelle_1900")
             return expoInfo
-        } catch {
-            showAlert(for: "오류", message: "데이터를 불러올 수 없습니다.")
+        } catch let error {
+            showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
         }
         return nil
     }
