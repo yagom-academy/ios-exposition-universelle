@@ -68,7 +68,7 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension KoreanItemViewController {
     private func showFailureAlert() {
-        let alertController = UIAlertController(title: nil, message: "적절한 셀을 찾을 수 없습니다!", preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: "적절한 데이터를 불러올 수 없습니다.", preferredStyle: .alert)
         let confirmButton = UIAlertAction(title: "ok", style: .default)
         alertController.addAction(confirmButton)
         present(alertController, animated: true)
