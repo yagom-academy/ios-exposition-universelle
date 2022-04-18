@@ -83,8 +83,6 @@ final class ParisExpoVC: UIViewController {
             numberFormatter.numberStyle = .decimal
             return numberFormatter
         }()
-        
-        visitorsLabel.font = .systemFont(ofSize: CGFloat(20))
         visitorsLabel.text = UITitle.visitorText
         if let visitorsNumber = parisExpoData?.visitors as? NSNumber,
            let visitorsText = numberFormatter.string(from: visitorsNumber) {
