@@ -7,6 +7,7 @@ final class ExpositionMainViewController: UIViewController {
     @IBOutlet private weak var expoLocationLabel: UILabel!
     @IBOutlet private weak var expoDurationLabel: UILabel!
     @IBOutlet private weak var expoDescriptionLabel: UILabel!
+    @IBOutlet private weak var koreanEntryButton: UIButton!
     
     private let newLine: Character = "\n"
     private let leftParentheses: Character = "("
@@ -19,13 +20,16 @@ final class ExpositionMainViewController: UIViewController {
     }
     
     private func updateExpositionContents() {
-        guard let decodedData = decodeExpositionContent() else { return }
-        expoTitleLabel.text = insertNewLine(at: decodedData.title)
-        expoImageView.image = UIImage(named: "poster")
-        expoVisitorsLabel.attributedText = convertTextSize(of: "방문객 : \(insertComma(at: decodedData.visitors)) 명", target: "방문객")
-        expoLocationLabel.attributedText = convertTextSize(of: "개최지 : \(decodedData.location)", target: "개최지")
-        expoDurationLabel.attributedText = convertTextSize(of: "개최 기간 : \(decodedData.duration)", target: "개최 기간")
-        expoDescriptionLabel.text = decodedData.description
+        if let decodedData = decodeExpositionContent() {
+            expoTitleLabel.text = insertNewLine(at: decodedData.title)
+            expoImageView.image = UIImage(named: "poster")
+            expoVisitorsLabel.attributedText = convertTextSize(of: "방문객 : \(insertComma(at: decodedData.visitors)) 명", target: "방문객")
+            expoLocationLabel.attributedText = convertTextSize(of: "개최지 : \(decodedData.location)", target: "개최지")
+            expoDurationLabel.attributedText = convertTextSize(of: "개최 기간 : \(decodedData.duration)", target: "개최 기간")
+            expoDescriptionLabel.text = decodedData.description
+        } else {
+            showFileNotFoundAlert()
+        }
     }
     
     private func insertNewLine(at value: String) -> String {
@@ -46,6 +50,17 @@ final class ExpositionMainViewController: UIViewController {
         let attributedText = NSMutableAttributedString(string: value)
         attributedText.addAttribute(.font, value: alternativeFont, range: (value as NSString).range(of: target))
         return attributedText
+    }
+    
+    private func showFileNotFoundAlert() {
+        let alert = UIAlertController(title: "File Not Found",
+                                      message: "파일이 없습니다!",
+                                      preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "확인",
+                                        style: .default)
+        alert.addAction(alertAction)
+        koreanEntryButton.isEnabled = false
+        present(alert, animated: true)
     }
 }
 
