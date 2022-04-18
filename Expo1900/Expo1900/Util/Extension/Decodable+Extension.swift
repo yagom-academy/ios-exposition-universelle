@@ -9,7 +9,7 @@ import UIKit
 
 extension Decodable {
   
-  static func decode(with assetName: String) -> Result<Self, DecodeError> {
+  static func parseJSON(with assetName: String) -> Result<Self, DecodeError> {
     let decoder = JSONDecoder()
     guard let asset = NSDataAsset(name: assetName) else {
       return .failure(.notFoundAsset)
