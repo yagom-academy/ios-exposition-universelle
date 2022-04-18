@@ -14,15 +14,15 @@ final class ExpositionPosterViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var visitors: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var duration: UILabel!
+    @IBOutlet private weak var visitors: UILabel!
+    @IBOutlet private weak var location: UILabel!
+    @IBOutlet private weak var duration: UILabel!
     
-    @IBOutlet weak var posterTitle: UILabel!
-    @IBOutlet weak var visitorsValue: UILabel!
-    @IBOutlet weak var locationValue: UILabel!
-    @IBOutlet weak var durationValue: UILabel!
-    @IBOutlet weak var descriptions: UILabel!
+    @IBOutlet private weak var posterTitle: UILabel!
+    @IBOutlet private weak var visitorsValue: UILabel!
+    @IBOutlet private weak var locationValue: UILabel!
+    @IBOutlet private weak var durationValue: UILabel!
+    @IBOutlet private weak var descriptions: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

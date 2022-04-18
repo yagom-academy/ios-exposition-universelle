@@ -9,9 +9,9 @@ import UIKit
 
 final class EntryListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
-    let expositionItems = [ExpositionItems].parse(JsonFile.items)
+    private let expositionItems = [ExpositionItems].parse(JsonFile.items)
     
     override func viewDidLoad() {
         super.viewDidLoad()

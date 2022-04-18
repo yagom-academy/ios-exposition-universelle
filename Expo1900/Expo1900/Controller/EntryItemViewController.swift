@@ -9,8 +9,8 @@ import UIKit
 
 final class EntryItemViewController: UIViewController {
     
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemDiscription: UILabel!
+    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var itemDiscription: UILabel!
     
     private var item: ExpositionItems?
     
