@@ -96,7 +96,6 @@ final class ParisExpoVC: UIViewController {
     }
     
     private func configureDurationLabel() {
-        durationLabel.font = .systemFont(ofSize: CGFloat(20))
         durationLabel.text = UITitle.durationText
         durationDescriptionLabel.text = parisExpoData?.duration
     }
