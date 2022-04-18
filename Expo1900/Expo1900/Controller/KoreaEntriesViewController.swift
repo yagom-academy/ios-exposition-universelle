@@ -32,6 +32,7 @@ final class KoreaEntriesViewController: UITableViewController {
             throw ExpoError.indexPathError
         }
         let koreaEntryData: KoreaEntryDetail = self.koreaEntryDataArray[indexPath.row]
+        
         return koreaEntryData
     }
     
