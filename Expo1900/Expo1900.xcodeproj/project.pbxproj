@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC5A82C52804FCED006C20AA /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A82C42804FCED006C20AA /* ModelTest.swift */; };
 		ACA8718D280D5C3500FEF04A /* extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8718C280D5C3500FEF04A /* extension+Array.swift */; };
+		ACA8718F280D6D7000FEF04A /* extension+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8718E280D6D7000FEF04A /* extension+Int.swift */; };
 		ACBF2E9028087B8A00DC501F /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF2E8F28087B8A00DC501F /* ItemViewController.swift */; };
 		ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B7632807116300013B55 /* DataLoadError.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5A82C42804FCED006C20AA /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 		ACA8718C280D5C3500FEF04A /* extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Array.swift"; sourceTree = "<group>"; };
+		ACA8718E280D6D7000FEF04A /* extension+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Int.swift"; sourceTree = "<group>"; };
 		ACBF2E8F28087B8A00DC501F /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		ACD9B7632807116300013B55 /* DataLoadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadError.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 				DAD5489D280510AB00F93F7A /* extension+Decodable.swift */,
 				DA0509D2280D6472009A679B /* extension+UIViewController.swift */,
 				ACA8718C280D5C3500FEF04A /* extension+Array.swift */,
+				ACA8718E280D6D7000FEF04A /* extension+Int.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				ACA8718F280D6D7000FEF04A /* extension+Int.swift in Sources */,
 				DAD5489E280510AB00F93F7A /* extension+Decodable.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,

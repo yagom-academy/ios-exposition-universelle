@@ -50,7 +50,7 @@ final class MainViewController: UIViewController {
         
         titleLabel.text = divide(title: expoInfo.title)
         posterImageView.image = UIImage(named: "poster.png")
-        visitorsLabel.text = " : \(changeNumberFormat(expoInfo.visitors)) 명"
+        visitorsLabel.text = " : \(expoInfo.visitors.changeVisitorsFormat() ?? "정보 없음")"
         locationLabel.text = " : \(expoInfo.location)"
         durationLabel.text = " : \(expoInfo.duration)"
         descriptionLabel.text = expoInfo.description
@@ -63,13 +63,5 @@ final class MainViewController: UIViewController {
         } else {
             return title
         }
-    }
-    
-    private func changeNumberFormat(_ number: Int ) -> String {
-        let numberFormmater = NumberFormatter()
-        numberFormmater.numberStyle = .decimal
-        guard let changedNumber = numberFormmater.string(from: number as NSNumber) else { return "" }
-        
-        return changedNumber
     }
 }
