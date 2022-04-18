@@ -16,6 +16,7 @@ final class ExpositionMainViewController: UIViewController {
         let decoder = JSONDecoder()
         guard let exposition = NSDataAsset(name: "exposition_universelle_1900") else { return nil }
         let data = try? decoder.decode(Exposition.self, from: exposition.data)
+        
         return data
     }
     
@@ -23,25 +24,19 @@ final class ExpositionMainViewController: UIViewController {
         if let decodedData = decodeExpositionContent() {
             expoTitleLabel.text = insertNewLine(at: decodedData.title)
             expoImageView.image = UIImage(named: "poster")
-            expoVisitorsLabel.attributedText = convertTextSize(of: "방문객 : \(insertComma(at: decodedData.visitors)) 명", target: "방문객")
+            expoVisitorsLabel.attributedText = convertTextSize(of: "방문객 : \(decodedData.convertedVisitors) 명", target: "방문객")
             expoLocationLabel.attributedText = convertTextSize(of: "개최지 : \(decodedData.location)", target: "개최지")
             expoDurationLabel.attributedText = convertTextSize(of: "개최 기간 : \(decodedData.duration)", target: "개최 기간")
             expoDescriptionLabel.text = decodedData.description
         } else {
             showFileNotFoundAlert()
+            koreanEntryButton.isEnabled = false
         }
     }
     
     private func insertNewLine(at value: String) -> String {
         var result = value
         result.insert(newLine, at: result.firstIndex(of: leftParentheses) ?? result.endIndex)
-        return result
-    }
-    
-    private func insertComma(at value: Int) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        guard let result = numberFormatter.string(for: value) else { return String(value) }
         return result
     }
     
@@ -59,7 +54,6 @@ final class ExpositionMainViewController: UIViewController {
         let alertAction = UIAlertAction(title: "확인",
                                         style: .default)
         alert.addAction(alertAction)
-        koreanEntryButton.isEnabled = false
         present(alert, animated: true)
     }
 }
