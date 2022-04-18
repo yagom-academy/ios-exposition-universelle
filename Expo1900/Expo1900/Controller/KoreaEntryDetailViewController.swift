@@ -18,7 +18,6 @@ class KoreaEntryDetailViewController: UIViewController {
         title = koreaEntryData?.name
         koreaEntryFullDescriptionLabel.text = koreaEntryData?.fullDescription
         koreaEntryImageView.image = UIImage(named: koreaEntryData!.imageFileName)
-
     }
 }
 
