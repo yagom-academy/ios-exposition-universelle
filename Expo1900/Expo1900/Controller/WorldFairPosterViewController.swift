@@ -14,6 +14,10 @@ final class WorldFairPosterViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var worldFairPosterImageView: UIImageView!
+    @IBOutlet weak var leftKoreaFlagImageView: UIImageView!
+    @IBOutlet weak var rightKoreaFlagImageView: UIImageView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -23,9 +27,6 @@ final class WorldFairPosterViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    @IBOutlet weak var worldFairPosterImageView: UIImageView!
-    @IBOutlet weak var leftKoreaFlagImageView: UIImageView!
-    @IBOutlet weak var rightKoreaFlagImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
