@@ -11,8 +11,6 @@ extension UIViewController {
     func showAlert(alertTitle: String,
                    okTitle: String?,
                    okAction: (() -> ())? = nil,
-                   noTitle: String? = nil,
-                   noAction: (() -> ())? = nil) {
         
         let alertController = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
     
@@ -21,13 +19,6 @@ extension UIViewController {
                 okAction?()
             }
             alertController.addAction(okAction)
-        }
-        
-        if let noTitle = noTitle {
-            let noAction = UIAlertAction(title: noTitle, style: .default) { _ in
-                noAction?()
-            }
-            alertController.addAction(noAction)
         }
         self.present(alertController, animated: true)
     }
