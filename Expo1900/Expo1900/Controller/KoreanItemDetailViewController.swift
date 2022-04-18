@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class KoreanItemDetailVC: UIViewController {
+final class KoreanItemDetailViewController: UIViewController {
     var koreanItem: KoreanHistoricalItem?
     
     @IBOutlet weak var descriptionLabel: UILabel!

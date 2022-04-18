@@ -22,7 +22,7 @@ fileprivate enum FileName {
     static let parisExpo = "exposition_universelle_1900"
 }
 
-final class ParisExpoVC: UIViewController {
+final class ParisExpoViewController: UIViewController {
     private var parisExpoData: ParisExpo?
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -39,7 +39,7 @@ final class ParisExpoVC: UIViewController {
     @IBOutlet weak var rightImageView: UIImageView!
     
     @IBAction func touchUpKoreanItemsButton(_ sender: UIButton) {
-        guard let koreanItemVC = storyboard?.instantiateViewController(withIdentifier: KoreanItemVC.identifier) else {
+        guard let koreanItemVC = storyboard?.instantiateViewController(withIdentifier: KoreanItemViewController.identifier) else {
             return
         }
         navigationController?.pushViewController(koreanItemVC, animated: true)
@@ -109,7 +109,7 @@ final class ParisExpoVC: UIViewController {
     }
 }
 
-extension ParisExpoVC {
+extension ParisExpoViewController {
     private func initializeParisExpoData() {
         guard let data = try? ParisExpo.convert(from: FileName.parisExpo) else {
             return

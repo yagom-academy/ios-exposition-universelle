@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class KoreanItemVC: UIViewController {
+final class KoreanItemViewController: UIViewController {
     var koreanItems: [KoreanHistoricalItem]?
     
     @IBOutlet weak var koreanItemsTableView: UITableView!
@@ -29,7 +29,7 @@ final class KoreanItemVC: UIViewController {
     }
 }
 
-extension KoreanItemVC {
+extension KoreanItemViewController {
     private func initializeKoreanItemsData() {
         guard let items = try? [KoreanHistoricalItem].convert(from: "items") else {
             return
@@ -38,7 +38,7 @@ extension KoreanItemVC {
     }
 }
 
-extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
+extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let koreanItemsCount = koreanItems?.count {
             return koreanItemsCount
@@ -58,7 +58,7 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let koreanItemDetailVC = storyboard?.instantiateViewController(withIdentifier: KoreanItemDetailVC.identifier) as? KoreanItemDetailVC else {
+        guard let koreanItemDetailVC = storyboard?.instantiateViewController(withIdentifier: KoreanItemDetailViewController.identifier) as? KoreanItemDetailViewController else {
             return
         }
         koreanItemDetailVC.koreanItem = koreanItems?[indexPath.row]
@@ -66,7 +66,7 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension KoreanItemVC {
+extension KoreanItemViewController {
     private func showFailureAlert() {
         let alertController = UIAlertController(title: nil, message: "적절한 셀을 찾을 수 없습니다!", preferredStyle: .alert)
         let confirmButton = UIAlertAction(title: "ok", style: .default)
