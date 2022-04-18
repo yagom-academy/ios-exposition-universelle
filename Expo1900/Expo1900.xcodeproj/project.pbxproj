@@ -17,6 +17,7 @@
 		AB245AD02804569A0061D087 /* ParisExpo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245ACF2804569A0061D087 /* ParisExpo.swift */; };
 		AB245AD828045FFB0061D087 /* ParisExpoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245AD728045FFB0061D087 /* ParisExpoTests.swift */; };
 		AB717BC32807C6E4001B7F6B /* ExpoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */; };
+		ABDD6762280D0B1D0048C425 /* UITableViewCell+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDD6761280D0B1D0048C425 /* UITableViewCell+extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ParisExpoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ParisExpoVC.swift */; };
@@ -55,6 +56,7 @@
 		AB245AD528045FFB0061D087 /* ParisExpoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParisExpoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB245AD728045FFB0061D087 /* ParisExpoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoTests.swift; sourceTree = "<group>"; };
 		AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExpoAssets.xcassets; sourceTree = "<group>"; };
+		ABDD6761280D0B1D0048C425 /* UITableViewCell+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */,
 				0E9E5A74280873D80079B650 /* UIViewController+extension.swift */,
+				ABDD6761280D0B1D0048C425 /* UITableViewCell+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				AB245AD02804569A0061D087 /* ParisExpo.swift in Sources */,
 				0EA3879128044C07005A48A6 /* KoreanHistoricalItem.swift in Sources */,
+				ABDD6762280D0B1D0048C425 /* UITableViewCell+extension.swift in Sources */,
 				0E9E5A6F28081C9F0079B650 /* KoreanItemVC.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				AB03BD66280806D100F3A2B4 /* KoreanItemTableViewCell.swift in Sources */,
