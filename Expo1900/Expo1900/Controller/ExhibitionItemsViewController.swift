@@ -35,12 +35,14 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
         return self.exhibitionItems.count
     }
     
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let exhibitionItemCell = tableView
-                .dequeueReusableCell(withIdentifier: "cell",
-                                     for: indexPath) as? ExhibitionItemsTableViewCell
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let exhibitionItemCell = tableView.dequeueReusableCell(
+            withIdentifier: "cell",
+            for: indexPath
+        ) as? ExhibitionItemsTableViewCell
         else {
             return UITableViewCell()
         }
@@ -55,9 +57,8 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
 
 extension ExhibitionItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let detailViewController = storyboard?
-            .instantiateViewController(identifier: DetailViewController.identifier)
-            as? DetailViewController
+        if let detailViewController = storyboard?.instantiateViewController(
+            identifier: DetailViewController.identifier) as? DetailViewController
         {
             detailViewController.exhibitionItem = self.exhibitionItems[indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
