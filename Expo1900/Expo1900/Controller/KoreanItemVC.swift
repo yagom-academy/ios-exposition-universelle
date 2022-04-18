@@ -51,9 +51,7 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
            let koreanItems = koreanItems else {
             return KoreanItemTableViewCell(style: .default, reuseIdentifier: "KoreanItem")
         }
-        cell.titleLabel.text = koreanItems[indexPath.row].name
-        cell.descriptionLabel.text = koreanItems[indexPath.row].shortDesciption
-        cell.mainImageView.image = UIImage(named: koreanItems[indexPath.row].imageName)
+        cell.assignKoreanItemValue(with: koreanItems[indexPath.row])
         
         return cell
     }

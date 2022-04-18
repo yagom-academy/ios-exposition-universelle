@@ -22,4 +22,10 @@ class KoreanItemTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    func assignKoreanItemValue(with item: KoreanHistoricalItem) {
+        titleLabel.text = item.name
+        descriptionLabel.text = item.shortDesciption
+        mainImageView.image = UIImage(named: item.imageName)
+    }
 }
