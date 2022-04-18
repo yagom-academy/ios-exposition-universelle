@@ -30,7 +30,7 @@ final class MainViewController: UIViewController {
     }
     //MARK: -IBAction
     @IBAction private func moveToListViewButton(_ sender: UIButton) {
-        guard let listVC = storyboard?.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController else { return }
+        guard let listVC = storyboard?.instantiateViewController(withIdentifier: ListViewController.identifier) as? ListViewController else { return }
         
         navigationController?.pushViewController(listVC, animated: true)
     }
@@ -76,4 +76,3 @@ final class MainViewController: UIViewController {
         return changedNumber
     }
 }
-
