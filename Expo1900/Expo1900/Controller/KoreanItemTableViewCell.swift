@@ -12,7 +12,7 @@ class KoreanItemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    func assignKoreanItemValue(with item: KoreanHistoricalItem) {
+    func assignValue(from item: KoreanHistoricalItem) {
         titleLabel.text = item.name
         descriptionLabel.text = item.shortDesciption
         mainImageView.image = UIImage(named: item.imageName)

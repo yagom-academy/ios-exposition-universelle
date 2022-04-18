@@ -52,7 +52,7 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
             showFailureAlert()
             return UITableViewCell()
         }
-        cell.assignKoreanItemValue(with: koreanItems[indexPath.row])
+        cell.assignValue(from: koreanItems[indexPath.row])
         
         return cell
     }
