@@ -7,7 +7,7 @@
 import UIKit
 
 final class KoreaEntriesViewController: UITableViewController {
-    var koreaEntryDataArray: [KoreaEntryDetail] = []
+    private var koreaEntryDataArray: [KoreaEntryDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
