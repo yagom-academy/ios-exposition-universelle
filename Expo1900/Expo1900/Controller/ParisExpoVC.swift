@@ -53,18 +53,18 @@ final class ParisExpoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeParisExpoData()
-        uploadImages()
-        uploadLabels()
+        configureImages()
+        configureLabels()
         navigationItem.title = UITitle.mainText
     }
     
-    private func uploadImages() {
+    private func configureImages() {
         mainImageView.image = UIImage(named: FileName.poster)
         leftImageView.image = UIImage(named: FileName.flag)
         rightImageView.image = UIImage(named: FileName.flag)
     }
     
-    private func uploadLabels() {
+    private func configureLabels() {
         configureTitleLabel()
         configureVisitorLabel()
         configureLocationLabel()
