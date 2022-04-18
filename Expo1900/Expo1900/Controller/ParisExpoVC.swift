@@ -70,7 +70,7 @@ final class ParisExpoVC: UIViewController {
         configureLocationLabel()
         configureDurationLabel()
         configureDesciptionLabel()
-        ConfigureKoreanItemsButtonLabel()
+        configureKoreanItemsButtonLabel()
     }
     
     private func configureTitleLabel() {
@@ -104,7 +104,7 @@ final class ParisExpoVC: UIViewController {
         descriptionLabel.text = parisExpoData?.description
     }
     
-    private func ConfigureKoreanItemsButtonLabel() {
+    private func configureKoreanItemsButtonLabel() {
         koreanItemsButton.titleLabel?.text = UITitle.goToKoreanItemsText
     }
 }
