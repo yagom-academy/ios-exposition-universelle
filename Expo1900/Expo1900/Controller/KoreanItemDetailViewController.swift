@@ -29,6 +29,5 @@ final class KoreanItemDetailViewController: UIViewController {
     
     private func configureLabel() {
         descriptionLabel.text = koreanItem?.description
-        descriptionLabel.numberOfLines = 0
     }
 }
