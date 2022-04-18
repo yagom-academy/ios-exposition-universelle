@@ -91,7 +91,6 @@ final class ParisExpoVC: UIViewController {
     }
     
     private func configureLocationLabel() {
-        locationLabel.font = .systemFont(ofSize: CGFloat(20))
         locationLabel.text = UITitle.locationText
         locationDescriptionLabel.text = parisExpoData?.location
     }
