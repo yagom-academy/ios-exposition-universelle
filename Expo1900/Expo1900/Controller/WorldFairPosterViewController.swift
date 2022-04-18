@@ -40,7 +40,6 @@ final class WorldFairPosterViewController: UIViewController {
             showAlert(alertTitle: "오류 발생, 다시 한번 실행해주세요", okTitle: "OK")
             return
         }
-        
         titleLabel.text = worldFairPosterData.title
         visitorLabel.text = String(worldFairPosterData.visitors)
         locationLabel.text = worldFairPosterData.location
