@@ -9,6 +9,8 @@ final class ExpositionMainViewController: UIViewController {
     @IBOutlet private weak var expoDescriptionLabel: UILabel!
     @IBOutlet private weak var koreanEntryButton: UIButton!
     
+    private let alternativeFont = UIFont.systemFont(ofSize: 20)
+    
     private func decodeExpositionContent() -> Exposition? {
         let decoder = JSONDecoder()
         guard let exposition = NSDataAsset(name: "exposition_universelle_1900") else { return nil }
@@ -21,21 +23,22 @@ final class ExpositionMainViewController: UIViewController {
         if let decodedData = decodeExpositionContent() {
             expoTitleLabel.text = decodedData.linedTitle()
             expoImageView.image = UIImage(named: "poster")
-            expoVisitorsLabel.attributedText = convertTextSize(of: "방문객 : \(decodedData.decimalVisitors()) 명", target: "방문객")
-            expoLocationLabel.attributedText = convertTextSize(of: "개최지 : \(decodedData.location)", target: "개최지")
-            expoDurationLabel.attributedText = convertTextSize(of: "개최 기간 : \(decodedData.duration)", target: "개최 기간")
+            expoVisitorsLabel.attributedText = decodedData
+                .setTextAttribute(of: "방문객 : \(decodedData.decimalVisitors()) 명",
+                              target: "방문객",
+                          attributes: [.font: alternativeFont])
+            expoLocationLabel.attributedText = decodedData
+                .setTextAttribute(of: "개최지 : \(decodedData.location)",                                                                      target: "개최지",
+                          attributes: [.font: alternativeFont])
+            expoDurationLabel.attributedText = decodedData
+                .setTextAttribute(of: "개최 기간 : \(decodedData.duration)",
+                              target: "개최 기간",
+                          attributes: [.font: alternativeFont])
             expoDescriptionLabel.text = decodedData.description
         } else {
             showFileNotFoundAlert()
             koreanEntryButton.isEnabled = false
         }
-    }
-    
-    private func convertTextSize(of value: String, target: String) -> NSAttributedString {
-        let alternativeFont = UIFont.systemFont(ofSize: 20)
-        let attributedText = NSMutableAttributedString(string: value)
-        attributedText.addAttribute(.font, value: alternativeFont, range: (value as NSString).range(of: target))
-        return attributedText
     }
     
     private func showFileNotFoundAlert() {
