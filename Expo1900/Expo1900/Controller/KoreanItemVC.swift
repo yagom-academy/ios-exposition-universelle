@@ -14,14 +14,18 @@ final class KoreanItemVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        koreanItemsTableView.delegate = self
-        koreanItemsTableView.dataSource = self
+        configurateDelegateProperties()
         initializeKoreanItemsData()
         navigationItem.title = "한국의 출품작"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+    }
+    
+    private func configurateDelegateProperties() {
+        koreanItemsTableView.delegate = self
+        koreanItemsTableView.dataSource = self
     }
     
     private func initializeKoreanItemsData() {
