@@ -48,7 +48,7 @@ extension ExpoItemTableViewController {
     else {
       return
     }
-    detailViewController.expoItem = self.expoItems[indexPath.row]
+    detailViewController.setUpExpoItem(self.expoItems[indexPath.row])
     self.navigationController?.pushViewController(detailViewController, animated: true)
   }
 }

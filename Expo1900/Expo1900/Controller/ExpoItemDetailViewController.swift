@@ -12,7 +12,7 @@ final class ExpoItemDetailViewController: UIViewController {
   @IBOutlet private weak var expoItemImageView: UIImageView!
   @IBOutlet private weak var expoItemDescriptionLabel: UILabel!
   
-  var expoItem: ExpoItem?
+  private var expoItem: ExpoItem?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,11 +20,15 @@ final class ExpoItemDetailViewController: UIViewController {
   }
 }
 
-// MARK: - Private Extension
+// MARK: - Set Up
 
-private extension ExpoItemDetailViewController {
+extension ExpoItemDetailViewController {
   
-  func setUpView() {
+  func setUpExpoItem(_ expoItem: ExpoItem) {
+    self.expoItem = expoItem
+  }
+  
+  private func setUpView() {
     guard let expoItem = self.expoItem else {
       return
     }
