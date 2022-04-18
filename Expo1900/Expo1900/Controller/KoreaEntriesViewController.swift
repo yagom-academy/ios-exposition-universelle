@@ -37,6 +37,7 @@ final class KoreaEntriesViewController: UITableViewController {
     
     func decodeKoreaEntry() {
         guard let unwrappedKoreaEntryData = Parser<[KoreaEntryDetail]>.parse(name: "items") else {
+            showAlert(alertTitle: "데이터 처리에 실패했습니다. 데이터를 다시 한번 확인해주세요.", okTitle: "OK")
             return
         }
         koreaEntryDataArray = unwrappedKoreaEntryData
