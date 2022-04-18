@@ -74,9 +74,6 @@ final class ParisExpoVC: UIViewController {
     }
     
     private func configureTitleLabel() {
-        titleLabel.numberOfLines = 2
-        titleLabel.textAlignment = .center
-        titleLabel.font = .preferredFont(forTextStyle: .title1)
         titleLabel.text = parisExpoData?.title.replacingOccurrences(of: "(", with: "\n(")
     }
     
