@@ -17,17 +17,7 @@ final class ListViewController: UIViewController {
         listTableView.delegate = self
         
         navigationItem.title = "한국의 출품작"
-        items = getItems()
-    }
-    
-    private func getItems() -> [Item] {
-        var items: [Item] = []
-        do {
-            items = try [Item].decode(with: "items")
-        } catch let error {
-            showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
-        }
-        return items
+        items = Item.getItems(view: self)
     }
 }
 //MARK: - about tableview

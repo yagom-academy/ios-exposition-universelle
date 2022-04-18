@@ -35,18 +35,8 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(listVC, animated: true)
     }
     //MARK: -functions
-    private func getExpoInfo() -> Exposition? {
-        do {
-            let expoInfo = try Exposition.decode(with: "exposition_universelle_1900")
-            return expoInfo
-        } catch let error {
-            showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
-        }
-        return nil
-    }
-    
     private func displayExpoInfo() {
-        guard let expoInfo = getExpoInfo() else { return }
+        guard let expoInfo = Exposition.getInfo(view: self) else { return }
         
         titleLabel.text = divide(title: expoInfo.title)
         posterImageView.image = UIImage(named: "poster.png")
