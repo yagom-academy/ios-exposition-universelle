@@ -64,3 +64,12 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(koreanItemDetailVC, animated: true)
     }
 }
+
+extension KoreanItemVC {
+    private func showFailureAlert() {
+        let alertController = UIAlertController(title: nil, message: "적절한 셀을 찾을 수 없습니다!", preferredStyle: .alert)
+        let confirmButton = UIAlertAction(title: "ok", style: .default)
+        alertController.addAction(confirmButton)
+        present(alertController, animated: true)
+    }
+}
