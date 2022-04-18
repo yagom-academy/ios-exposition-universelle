@@ -8,4 +8,5 @@
 import Foundation
 
 enum ExpoError: Error {
+    case indexPathError
 }
