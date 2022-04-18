@@ -40,7 +40,7 @@ final class MainViewController: UIViewController {
             let expoInfo = try Exposition.decode(with: "exposition_universelle_1900")
             return expoInfo
         } catch {
-            showAlert()
+            showAlert(for: "오류", message: "데이터를 불러올 수 없습니다.")
         }
         return nil
     }
@@ -54,13 +54,6 @@ final class MainViewController: UIViewController {
         locationLabel.text = " : \(expoInfo.location)"
         durationLabel.text = " : \(expoInfo.duration)"
         descriptionLabel.text = expoInfo.description
-    }
-    
-    private func showAlert() {
-        let alert = UIAlertController(title: "오류", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
     }
     
     private func divide(title: String) -> String {

@@ -25,18 +25,10 @@ final class ListViewController: UIViewController {
         do {
             items = try [Item].decode(with: "items")
         } catch {
-            showAlert()
+            showAlert(for: "오류", message: "데이터를 불러올 수 없습니다.")
         }
         return items
     }
-    
-    private func showAlert() {
-        let alert = UIAlertController(title: "오류", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
-    
 }
 //MARK: - about tableview
 extension ListViewController: UITableViewDataSource {
