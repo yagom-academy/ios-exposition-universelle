@@ -27,7 +27,7 @@ final class KoreaEntriesViewController: UITableViewController {
         }
     }
     
-    func transferData() throws -> KoreaEntryDetail {
+    private func transferData() throws -> KoreaEntryDetail {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             throw ExpoError.indexPathError
         }
