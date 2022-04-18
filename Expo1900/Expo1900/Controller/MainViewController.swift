@@ -14,7 +14,7 @@ fileprivate extension Const {
   static let spacingBracket = "\n("
 }
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController, AlertPresentable {
   
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var posterImageView: UIImageView!
@@ -22,6 +22,9 @@ final class MainViewController: UIViewController {
   @IBOutlet private weak var locationLabel: UILabel!
   @IBOutlet private weak var durationLabel: UILabel!
   @IBOutlet private weak var descriptionLabel: UILabel!
+  
+  lazy var alertBuilder: AlertBuilderable = AlertBuilder(viewController: self)
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,7 +46,7 @@ final class MainViewController: UIViewController {
 private extension MainViewController {
   
   func parse() {
-    let parsedResult = Expo.decode(with: AssetName.expo)
+    let parsedResult = Expo.parseJSON(with: AssetName.expo)
     switch parsedResult {
     case let .success(expo):
       self.setUpView(from: expo)

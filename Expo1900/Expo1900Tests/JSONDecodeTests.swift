@@ -64,7 +64,7 @@ final class JSONDecodeTests: XCTestCase {
   
   func testDecode_WhenExpoItemDataProvided_ResultShouldNotThrowError() {
     // given when then
-    let expoItemResult = [ExpoItem].decode(with: AssetName.expoItem)
+    let expoItemResult = [ExpoItem].parseJSON(with: AssetName.expoItem)
     XCTAssertNoThrow(try? expoItemResult.get())
   }
 }

@@ -16,6 +16,10 @@ struct AlertProduct {
   var cancelHandler: (() -> Void)?
 }
 
+protocol AlertPresentable {
+  var alertBuilder: AlertBuilderable { get }
+}
+
 protocol AlertBuilderable {
   init(viewController: UIViewController)
   func setTitle(_ title: String) -> AlertBuilderable
