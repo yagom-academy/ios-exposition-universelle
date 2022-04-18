@@ -8,7 +8,14 @@
 import UIKit
 
 final class EntryCell: UITableViewCell {
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemTitle: UILabel!
-    @IBOutlet weak var itemShortDiscription: UILabel!
+    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var itemTitle: UILabel!
+    @IBOutlet private weak var itemShortDiscription: UILabel!
+    
+    func configure(item: ExpositionItems?) {
+        itemImage.image = UIImage(named: item?.imageName ?? Exposition.emptyImage)
+        itemTitle.text = item?.name
+        itemShortDiscription.text = item?.shortDescription
+    }
 }
+

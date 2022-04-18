@@ -44,9 +44,7 @@ extension EntryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: EntryCell = tableView.dequeueReusableCell(withIdentifier: Exposition.customCell, for: indexPath) as? EntryCell ?? EntryCell()
         let item = expositionItems?[indexPath.row]
-        cell.imageView?.image = UIImage(named: item?.imageName ?? Exposition.emptyImage)
-        cell.itemTitle.text = item?.name
-        cell.itemShortDiscription.text = item?.shortDescription
+        cell.configure(item: item)
         return cell
     }
 }
