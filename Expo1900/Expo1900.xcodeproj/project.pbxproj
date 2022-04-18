@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0348612807AEA000B1A9C6 /* Decodable+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */; };
+		0E9E5A6F28081C9F0079B650 /* KoreanItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E5A6E28081C9F0079B650 /* KoreanItemViewController.swift */; };
+		0E9E5A73280863C40079B650 /* KoreanItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E5A72280863C40079B650 /* KoreanItemDetailViewController.swift */; };
+		0E9E5A75280873D80079B650 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E5A74280873D80079B650 /* UIViewController+extension.swift */; };
 		0EA3879128044C07005A48A6 /* KoreanHistoricalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA3879028044C07005A48A6 /* KoreanHistoricalItem.swift */; };
 		0EA38799280458CF005A48A6 /* KoreanHistoricalItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA38798280458CF005A48A6 /* KoreanHistoricalItemTests.swift */; };
+		AB03BD66280806D100F3A2B4 /* KoreanItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB03BD65280806D100F3A2B4 /* KoreanItemTableViewCell.swift */; };
 		AB245AD02804569A0061D087 /* ParisExpo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245ACF2804569A0061D087 /* ParisExpo.swift */; };
 		AB245AD828045FFB0061D087 /* ParisExpoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245AD728045FFB0061D087 /* ParisExpoTests.swift */; };
+		AB717BC32807C6E4001B7F6B /* ExpoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */; };
+		ABDD6762280D0B1D0048C425 /* UITableViewCell+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDD6761280D0B1D0048C425 /* UITableViewCell+extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* ParisExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ParisExpoViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -37,16 +44,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+extension.swift"; sourceTree = "<group>"; };
+		0E9E5A6E28081C9F0079B650 /* KoreanItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemViewController.swift; sourceTree = "<group>"; };
+		0E9E5A72280863C40079B650 /* KoreanItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemDetailViewController.swift; sourceTree = "<group>"; };
+		0E9E5A74280873D80079B650 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		0EA3879028044C07005A48A6 /* KoreanHistoricalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHistoricalItem.swift; sourceTree = "<group>"; };
 		0EA38796280458CE005A48A6 /* KoreanHistoricalItemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoreanHistoricalItemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA38798280458CF005A48A6 /* KoreanHistoricalItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHistoricalItemTests.swift; sourceTree = "<group>"; };
+		AB03BD65280806D100F3A2B4 /* KoreanItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemTableViewCell.swift; sourceTree = "<group>"; };
 		AB245ACF2804569A0061D087 /* ParisExpo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpo.swift; sourceTree = "<group>"; };
 		AB245AD528045FFB0061D087 /* ParisExpoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParisExpoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB245AD728045FFB0061D087 /* ParisExpoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoTests.swift; sourceTree = "<group>"; };
+		AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExpoAssets.xcassets; sourceTree = "<group>"; };
+		ABDD6761280D0B1D0048C425 /* UITableViewCell+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* ParisExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +92,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E9E5A7628088B810079B650 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0E9E5A7728088B8F0079B650 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0E9E5A7728088B8F0079B650 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */,
+				0E9E5A74280873D80079B650 /* UIViewController+extension.swift */,
+				ABDD6761280D0B1D0048C425 /* UITableViewCell+extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0E9E5A7828088BAA0079B650 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		0EA38797280458CF005A48A6 /* KoreanHistoricalItemTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +130,10 @@
 		AB245ACB280445070061D087 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				C79FF4B82589F401005FB0FD /* ParisExpoViewController.swift */,
+				AB03BD65280806D100F3A2B4 /* KoreanItemTableViewCell.swift */,
+				0E9E5A6E28081C9F0079B650 /* KoreanItemViewController.swift */,
+				0E9E5A72280863C40079B650 /* KoreanItemDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -106,7 +150,6 @@
 		AB245ACD2804454F0061D087 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				0EA3879028044C07005A48A6 /* KoreanHistoricalItem.swift */,
 				AB245ACF2804569A0061D087 /* ParisExpo.swift */,
 			);
@@ -153,6 +196,8 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				0E9E5A7828088BAA0079B650 /* Resource */,
+				0E9E5A7628088B810079B650 /* Utils */,
 				AB245ACD2804454F0061D087 /* Model */,
 				AB245ACE2804455F0061D087 /* View */,
 				AB245ACB280445070061D087 /* Controller */,
@@ -281,6 +326,7 @@
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
+				AB717BC32807C6E4001B7F6B /* ExpoAssets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,11 +354,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* ParisExpoViewController.swift in Sources */,
+				0E0348612807AEA000B1A9C6 /* Decodable+extension.swift in Sources */,
+				0E9E5A75280873D80079B650 /* UIViewController+extension.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				AB245AD02804569A0061D087 /* ParisExpo.swift in Sources */,
 				0EA3879128044C07005A48A6 /* KoreanHistoricalItem.swift in Sources */,
+				ABDD6762280D0B1D0048C425 /* UITableViewCell+extension.swift in Sources */,
+				0E9E5A6F28081C9F0079B650 /* KoreanItemViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				AB03BD66280806D100F3A2B4 /* KoreanItemTableViewCell.swift in Sources */,
+				0E9E5A73280863C40079B650 /* KoreanItemDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
