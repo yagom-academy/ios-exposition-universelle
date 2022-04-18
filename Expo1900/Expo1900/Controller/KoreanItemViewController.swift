@@ -50,10 +50,10 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemTableViewCell.identifier, for: indexPath) as? KoreanItemTableViewCell,
            let koreanItems = koreanItems else {
             showFailureAlert()
-            return UITableViewCell()
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "empty cell")
+            return tableView.dequeueReusableCell(withIdentifier: "empty cell", for: indexPath)
         }
         cell.assignValue(from: koreanItems[indexPath.row])
-        
         return cell
     }
     
