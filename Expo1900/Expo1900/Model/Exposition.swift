@@ -7,12 +7,16 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
-    var convertedVisitors: String {
-        get {
-            let numberFormatter = NumberFormatter()
-            numberFormatter.numberStyle = .decimal
-            guard let result = numberFormatter.string(for: self.visitors) else { return String(self.visitors) }
-            return result
-        }
+    func decimalVisitors() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        guard let result = numberFormatter.string(for: self.visitors) else { return String(self.visitors) }
+        return result
+    }
+    
+    func linedTitle() -> String {
+        var result = self.title
+        result.insert("\n", at: result.firstIndex(of: "(") ?? result.endIndex)
+        return result
     }
 }

@@ -9,9 +9,6 @@ final class ExpositionMainViewController: UIViewController {
     @IBOutlet private weak var expoDescriptionLabel: UILabel!
     @IBOutlet private weak var koreanEntryButton: UIButton!
     
-    private let newLine: Character = "\n"
-    private let leftParentheses: Character = "("
-    
     private func decodeExpositionContent() -> Exposition? {
         let decoder = JSONDecoder()
         guard let exposition = NSDataAsset(name: "exposition_universelle_1900") else { return nil }
@@ -22,9 +19,9 @@ final class ExpositionMainViewController: UIViewController {
     
     private func updateExpositionContents() {
         if let decodedData = decodeExpositionContent() {
-            expoTitleLabel.text = insertNewLine(at: decodedData.title)
+            expoTitleLabel.text = decodedData.linedTitle()
             expoImageView.image = UIImage(named: "poster")
-            expoVisitorsLabel.attributedText = convertTextSize(of: "방문객 : \(decodedData.convertedVisitors) 명", target: "방문객")
+            expoVisitorsLabel.attributedText = convertTextSize(of: "방문객 : \(decodedData.decimalVisitors()) 명", target: "방문객")
             expoLocationLabel.attributedText = convertTextSize(of: "개최지 : \(decodedData.location)", target: "개최지")
             expoDurationLabel.attributedText = convertTextSize(of: "개최 기간 : \(decodedData.duration)", target: "개최 기간")
             expoDescriptionLabel.text = decodedData.description
@@ -32,12 +29,6 @@ final class ExpositionMainViewController: UIViewController {
             showFileNotFoundAlert()
             koreanEntryButton.isEnabled = false
         }
-    }
-    
-    private func insertNewLine(at value: String) -> String {
-        var result = value
-        result.insert(newLine, at: result.firstIndex(of: leftParentheses) ?? result.endIndex)
-        return result
     }
     
     private func convertTextSize(of value: String, target: String) -> NSAttributedString {
