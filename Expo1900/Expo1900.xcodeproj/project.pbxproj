@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86876809280BCEEE00FC1565 /* HeritageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86876808280BCEEE00FC1565 /* HeritageDetailView.swift */; };
+		86876813280BF8BD00FC1565 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86876812280BF8BD00FC1565 /* Array+.swift */; };
+		86AEC4FB2806BFBE00820C60 /* HeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */; };
+		86AEC53E2808EFDC00820C60 /* ExpoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC53D2808EFDC00820C60 /* ExpoView.swift */; };
+		86AEC541280BAA4200820C60 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC540280BAA4200820C60 /* UIStackView+.swift */; };
+		86AEC543280BAA5500820C60 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC542280BAA5500820C60 /* UIView+.swift */; };
 		86CC10F4280429AF0020BFB2 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC10F3280429AF0020BFB2 /* Expo.swift */; };
 		86CC10FC2804306F0020BFB2 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC10FB2804306F0020BFB2 /* DecodeTests.swift */; };
 		9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443B8EC28042D3D00C80148 /* Heritage.swift */; };
-		9443B8EF28044F4F00C80148 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443B8EE28044F4F00C80148 /* ParseManager.swift */; };
+		949EA35F280BDCAA00A31183 /* Decodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949EA35E280BDCAA00A31183 /* Decodable+.swift */; };
+		94AC9AFD2806C64E00ADC9E1 /* HeritageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AFC2806C64E00ADC9E1 /* HeritageCell.swift */; };
+		94AC9AFF2806EC6400ADC9E1 /* HeritageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AC9AFE2806EC6400ADC9E1 /* HeritageDetailViewController.swift */; };
+		94FB1EA6280BBCA90045A25E /* HeritageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FB1EA5280BBCA90045A25E /* HeritageView.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoViewController.swift */; };
@@ -29,11 +38,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86876808280BCEEE00FC1565 /* HeritageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageDetailView.swift; sourceTree = "<group>"; };
+		86876812280BF8BD00FC1565 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageViewController.swift; sourceTree = "<group>"; };
+		86AEC53D2808EFDC00820C60 /* ExpoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoView.swift; sourceTree = "<group>"; };
+		86AEC540280BAA4200820C60 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		86AEC542280BAA5500820C60 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		86CC10F3280429AF0020BFB2 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		86CC10F92804306F0020BFB2 /* DecodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CC10FB2804306F0020BFB2 /* DecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
 		9443B8EC28042D3D00C80148 /* Heritage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heritage.swift; sourceTree = "<group>"; };
-		9443B8EE28044F4F00C80148 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		949EA35E280BDCAA00A31183 /* Decodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+.swift"; sourceTree = "<group>"; };
+		94AC9AFC2806C64E00ADC9E1 /* HeritageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageCell.swift; sourceTree = "<group>"; };
+		94AC9AFE2806EC6400ADC9E1 /* HeritageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageDetailViewController.swift; sourceTree = "<group>"; };
+		94FB1EA5280BBCA90045A25E /* HeritageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageView.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,10 +79,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8687680E280BF0FB00FC1565 /* ExpoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
+				86AEC53D2808EFDC00820C60 /* ExpoView.swift */,
+			);
+			path = ExpoViewController;
+			sourceTree = "<group>";
+		};
+		8687680F280BF10D00FC1565 /* HeritageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */,
+				94FB1EA5280BBCA90045A25E /* HeritageView.swift */,
+				94AC9AFC2806C64E00ADC9E1 /* HeritageCell.swift */,
+			);
+			path = HeritageViewController;
+			sourceTree = "<group>";
+		};
+		86876810280BF11D00FC1565 /* HeritageDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				94AC9AFE2806EC6400ADC9E1 /* HeritageDetailViewController.swift */,
+				86876808280BCEEE00FC1565 /* HeritageDetailView.swift */,
+			);
+			path = HeritageDetailViewController;
+			sourceTree = "<group>";
+		};
+		86876811280BF14100FC1565 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		86AEC4F82806BED800820C60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8687680E280BF0FB00FC1565 /* ExpoViewController */,
+				8687680F280BF10D00FC1565 /* HeritageViewController */,
+				86876810280BF11D00FC1565 /* HeritageDetailViewController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		86AEC53F280BA9F500820C60 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				86AEC540280BAA4200820C60 /* UIStackView+.swift */,
+				86AEC542280BAA5500820C60 /* UIView+.swift */,
+				949EA35E280BDCAA00A31183 /* Decodable+.swift */,
+				86876812280BF8BD00FC1565 /* Array+.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
 		86CC10F22804295F0020BFB2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				86CC1108280585CD0020BFB2 /* Manager */,
 				86CC10F3280429AF0020BFB2 /* Expo.swift */,
 				9443B8EC28042D3D00C80148 /* Heritage.swift */,
 			);
@@ -77,14 +152,6 @@
 				86CC10FB2804306F0020BFB2 /* DecodeTests.swift */,
 			);
 			path = DecodeTests;
-			sourceTree = "<group>";
-		};
-		86CC1108280585CD0020BFB2 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				9443B8EE28044F4F00C80148 /* ParseManager.swift */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -108,10 +175,10 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				86876811280BF14100FC1565 /* Scene */,
+				86AEC53F280BA9F500820C60 /* Extention */,
 				86CC10F22804295F0020BFB2 /* Model */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
+				86AEC4F82806BED800820C60 /* Controller */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -226,12 +293,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86876809280BCEEE00FC1565 /* HeritageDetailView.swift in Sources */,
+				86AEC543280BAA5500820C60 /* UIView+.swift in Sources */,
+				86AEC53E2808EFDC00820C60 /* ExpoView.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
-				9443B8EF28044F4F00C80148 /* ParseManager.swift in Sources */,
+				86876813280BF8BD00FC1565 /* Array+.swift in Sources */,
 				86CC10F4280429AF0020BFB2 /* Expo.swift in Sources */,
 				9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				86AEC4FB2806BFBE00820C60 /* HeritageViewController.swift in Sources */,
+				94AC9AFD2806C64E00ADC9E1 /* HeritageCell.swift in Sources */,
+				86AEC541280BAA4200820C60 /* UIStackView+.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				94FB1EA6280BBCA90045A25E /* HeritageView.swift in Sources */,
+				94AC9AFF2806EC6400ADC9E1 /* HeritageDetailViewController.swift in Sources */,
+				949EA35F280BDCAA00A31183 /* Decodable+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
