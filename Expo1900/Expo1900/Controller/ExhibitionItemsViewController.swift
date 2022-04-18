@@ -39,6 +39,7 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        
         guard let exhibitionItemCell = tableView.dequeueReusableCell(
             withIdentifier: "cell",
             for: indexPath
@@ -47,9 +48,8 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        exhibitionItemCell.itemImageView.image = UIImage(named: self.exhibitionItems[indexPath.row].imageName)
-        exhibitionItemCell.titleLabel.text = self.exhibitionItems[indexPath.row].name
-        exhibitionItemCell.subtitleLabel.text = self.exhibitionItems[indexPath.row].shortDescription
+        let itemAtRow = self.exhibitionItems[indexPath.row]
+        exhibitionItemCell.setUpCell(by: itemAtRow)
 
         return exhibitionItemCell
     }
