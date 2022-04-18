@@ -55,6 +55,7 @@ extension KoreaEntriesViewController {
             return KoreaEntryDetailTableViewCell()
         }
         cell.makeCell(koreaEntryData: koreaEntryDataArray[indexPath.row])
+        
         return cell
     }
 }
