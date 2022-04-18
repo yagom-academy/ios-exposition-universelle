@@ -47,7 +47,7 @@ final class WorldFairPosterViewController: UIViewController {
         descriptionLabel.text = worldFairPosterData.description
     }
     
-    func updateImageViews() {
+    private func updateImageViews() {
         worldFairPosterImageView.image = UIImage(named: "poster")
         leftKoreaFlagImageView.image = UIImage(named: "flag")
         rightKoreaFlagImageView.image = UIImage(named: "flag")
