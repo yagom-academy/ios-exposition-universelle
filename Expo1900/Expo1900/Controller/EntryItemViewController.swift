@@ -7,6 +7,13 @@
 
 import UIKit
 
+enum EntryItemLetter {
+    static let main = "Main"
+    static let entryItemViewController = "EntryItemViewController"
+    static let koreaEntryList = "한국의 출품작"
+    static let emptyImage = ""
+}
+
 final class EntryItemViewController: UIViewController {
     
     @IBOutlet private weak var itemImage: UIImageView!
@@ -15,7 +22,7 @@ final class EntryItemViewController: UIViewController {
     private var item: ExpositionItems?
     
     static func instance(item: ExpositionItems?) -> EntryItemViewController? {
-        let entryItemViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EntryItemViewController") as? EntryItemViewController
+        let entryItemViewController = UIStoryboard.init(name: EntryItemLetter.main, bundle: nil).instantiateViewController(withIdentifier: EntryItemLetter.entryItemViewController) as? EntryItemViewController
         entryItemViewController?.item = item
         return entryItemViewController
     }
@@ -26,8 +33,8 @@ final class EntryItemViewController: UIViewController {
     }
     
     private func setup() {
-        navigationItem.backButtonTitle = Exposition.koreaEntryList
+        navigationItem.backButtonTitle = EntryItemLetter.koreaEntryList
         itemDiscription.text = item?.description
-        itemImage.image = UIImage(named: item?.imageName ?? Exposition.emptyImage)
+        itemImage.image = UIImage(named: item?.imageName ?? EntryItemLetter.emptyImage)
     }
 }

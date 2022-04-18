@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum EntryListLetter {
+    static let koreaEntryList = "한국의 출품작"
+    static let entryCell = "EntryCell"
+}
+
 final class EntryListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
@@ -21,7 +26,7 @@ final class EntryListViewController: UIViewController {
     private func setup() {
         tableView.dataSource = self
         tableView.delegate = self
-        navigationItem.backButtonTitle = Exposition.koreaEntryList
+        navigationItem.backButtonTitle = EntryListLetter.koreaEntryList
     }
 }
 
@@ -42,7 +47,7 @@ extension EntryListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: EntryCell = tableView.dequeueReusableCell(withIdentifier: Exposition.customCell, for: indexPath) as? EntryCell ?? EntryCell()
+        let cell: EntryCell = tableView.dequeueReusableCell(withIdentifier: EntryListLetter.entryCell, for: indexPath) as? EntryCell ?? EntryCell()
         let item = expositionItems?[indexPath.row]
         cell.configure(item: item)
         return cell
