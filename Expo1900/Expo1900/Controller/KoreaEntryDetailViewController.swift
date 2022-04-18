@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaEntryDetailViewController: UIViewController {
+final class KoreaEntryDetailViewController: UIViewController {
     @IBOutlet weak var koreaEntryImageView: UIImageView!
     @IBOutlet weak var koreaEntryFullDescriptionLabel: UILabel!
     
