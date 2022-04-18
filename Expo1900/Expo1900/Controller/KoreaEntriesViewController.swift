@@ -18,6 +18,10 @@ final class KoreaEntriesViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let koreaEntryDetailViewController = segue.destination as? KoreaEntryDetailViewController else { return }
+        guard let koreaEntryDetailViewController = segue.destination as? KoreaEntryDetailViewController else {
+            showAlert(alertTitle: "데이터 전송에 실패했습니다.", okTitle: "OK")
+            return
+        }
         if segue.identifier == "KoreaEntryDetailViewController" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let koreaEntryData: KoreaEntryDetail = self.koreaEntryDataArray[indexPath.row]
