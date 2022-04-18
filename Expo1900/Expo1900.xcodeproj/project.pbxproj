@@ -19,6 +19,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */; };
 		DA982A8528086AA0000EDB09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8428086AA0000EDB09 /* Parser.swift */; };
+		DA982A8B280CFED6000EDB09 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8A280CFED6000EDB09 /* Alert.swift */; };
 		DABD3EB628044E4700C942F6 /* KoreaEntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetailViewController.swift; sourceTree = "<group>"; };
 		DA982A8428086AA0000EDB09 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		DA982A8A280CFED6000EDB09 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,13 @@
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		DA982A89280CFEA3000EDB09 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				DA982A8A280CFED6000EDB09 /* Alert.swift */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +269,7 @@
 				642DEC4A2807F61200749D52 /* WorldFairPosterViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				DA982A8B280CFED6000EDB09 /* Alert.swift in Sources */,
 				DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */,
 				642DEC2A2804496C00749D52 /* WorldFairPoster.swift in Sources */,
 				DA982A8528086AA0000EDB09 /* Parser.swift in Sources */,
