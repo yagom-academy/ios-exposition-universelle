@@ -27,7 +27,9 @@ final class KoreanItemVC: UIViewController {
         koreanItemsTableView.delegate = self
         koreanItemsTableView.dataSource = self
     }
-    
+}
+
+extension KoreanItemVC {
     private func initializeKoreanItemsData() {
         guard let items = try? [KoreanHistoricalItem].decode(from: "items") else {
             return
