@@ -13,7 +13,6 @@ class KoreaEntryDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var koreaEntryImageView: UIImageView!
     
     func makeCell(koreaEntryData: KoreaEntryDetail) {
-        
         koreaEntryImageView.image = UIImage(named: koreaEntryData.imageFileName)
         titleLabel.text = koreaEntryData.name
         shortDescriptionLabel.text = koreaEntryData.shortDescription
