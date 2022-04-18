@@ -45,7 +45,7 @@ final class MainViewController: UIViewController {
     private func setUpView() {
         let decodedData = decodeJson()
         
-        self.expoTitleLabel.text = decodedData.title
+        self.expoTitleLabel.text = decodedData.title.replacingOccurrences(of: "(", with: "\n(")
         self.locationLabel.text = decodedData.location
         self.durationLabel.text = decodedData.duration
         self.descriptionLabel.text = decodedData.description
