@@ -7,8 +7,7 @@ import UIKit
 
 fileprivate extension Constants {
   static let confirm = "확인"
-  static let visitor = "방문객 : "
-  static let personUnit = " 명"
+  static let visitor = "방문객 : %@ 명"
   static let location = "개최지 : "
   static let duration = "개최 기간 : "
   static let bracket = "("
@@ -65,7 +64,7 @@ private extension MainViewController {
       with: Constants.spacingBracket
     )
     self.posterImageView.image = UIImage(named: AssetName.poster)
-    self.visitorsLabel.text = Constants.visitor + expo.visitors.toDecimal() + Constants.personUnit
+    self.visitorsLabel.text = String(format: Constants.visitor, expo.visitors.toDecimal())
     self.locationLabel.text = Constants.location + expo.location
     self.durationLabel.text = Constants.duration + expo.duration
     self.descriptionLabel.text = expo.description
