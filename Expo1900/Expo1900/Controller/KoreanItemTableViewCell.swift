@@ -22,8 +22,4 @@ class KoreanItemTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    override func prepareForReuse() {
-        descriptionLabel.numberOfLines = 0
-    }
 }
