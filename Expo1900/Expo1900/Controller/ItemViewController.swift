@@ -20,7 +20,7 @@ final class ItemViewController: UIViewController {
     private func displayItemInfo() {
         guard let item = item else { return }
         
-        self.navigationItem.title = item.name
+        navigationItem.title = item.name
         itemImageView.image = UIImage(named: "\(item.imageName).png")
         descriptionLabel.text = item.description
     }

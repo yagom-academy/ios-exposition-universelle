@@ -21,18 +21,18 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
     }
     //MARK: -IBAction
     @IBAction private func moveToListViewButton(_ sender: UIButton) {
-        guard let listVC = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController else { return }
+        guard let listVC = storyboard?.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController else { return }
         
-        self.navigationController?.pushViewController(listVC, animated: true)
+        navigationController?.pushViewController(listVC, animated: true)
     }
     //MARK: -functions
     private func getExpoInfo() -> Exposition? {
@@ -60,7 +60,7 @@ final class MainViewController: UIViewController {
         let alert = UIAlertController(title: "오류", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
         let action = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     private func divide(title: String) -> String {

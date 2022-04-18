@@ -16,8 +16,8 @@ final class ListViewController: UIViewController {
         listTableView.dataSource = self
         listTableView.delegate = self
         
-        self.navigationItem.title = "한국의 출품작"
-        self.items = getItems()
+        navigationItem.title = "한국의 출품작"
+        items = getItems()
     }
     
     private func getItems() -> [Item] {
@@ -34,7 +34,7 @@ final class ListViewController: UIViewController {
         let alert = UIAlertController(title: "오류", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
         let action = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
 }
@@ -61,9 +61,9 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let itemVC = self.storyboard?.instantiateViewController(withIdentifier: "ItemViewController") as? ItemViewController else { return }
+        guard let itemVC = storyboard?.instantiateViewController(withIdentifier: "ItemViewController") as? ItemViewController else { return }
         
         itemVC.item = items[indexPath.row]
-        self.navigationController?.pushViewController(itemVC, animated: true)
+        navigationController?.pushViewController(itemVC, animated: true)
     }
 }
