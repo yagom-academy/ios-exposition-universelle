@@ -80,9 +80,7 @@ extension ExpoItemTableViewController {
     else {
       return UITableViewCell()
     }
-    cell.expoItemTitleLabel.text = self.expoItems[indexPath.row].name
-    cell.expoItemDescriptionLabel.text = self.expoItems[indexPath.row].shortDescription
-    cell.expoItemImageView.image = UIImage(named: self.expoItems[indexPath.row].imageName)
+    cell.setUpContentView(self.expoItems[indexPath.row])
     return cell
   }
 }

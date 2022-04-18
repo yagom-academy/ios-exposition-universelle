@@ -20,4 +20,10 @@ final class ExpoItemTableViewCell: UITableViewCell {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
   }
+  
+  func setUpContentView(_ expoItem: ExpoItem) {
+    self.expoItemTitleLabel.text = expoItem.name
+    self.expoItemDescriptionLabel.text = expoItem.shortDescription
+    self.expoItemImageView.image = UIImage(named: expoItem.imageName)
+  }
 }
