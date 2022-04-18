@@ -57,8 +57,12 @@ final class MainViewController: UIViewController {
     }
     
     private func divide(title: String) -> String {
-        let dividedTitle = title.components(separatedBy: "(")
-        return "\(dividedTitle[0])\n(\(dividedTitle[1])"
+        if title.contains("(") {
+            let dividedTitle = title.components(separatedBy: "(")
+            return "\(dividedTitle[0])\n(\(dividedTitle[1])"
+        } else {
+            return title
+        }
     }
     
     private func changeNumberFormat(_ number: Int ) -> String {
