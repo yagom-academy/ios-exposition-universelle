@@ -15,19 +15,19 @@ final class KoreanItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        uploadImage()
-        uploadLabel()
+        configureImage()
+        configureLabel()
         navigationItem.title = koreanItem?.name
     }
     
-    private func uploadImage() {
+    private func configureImage() {
         guard let imageName = koreanItem?.imageName else {
             return
         }
         mainImageView.image =  UIImage(named: imageName)
     }
     
-    private func uploadLabel() {
+    private func configureLabel() {
         descriptionLabel.text = koreanItem?.description
         descriptionLabel.numberOfLines = 0
     }
