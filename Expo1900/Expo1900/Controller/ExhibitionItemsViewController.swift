@@ -10,16 +10,16 @@ import UIKit
 class ExhibitionItemsViewController: UIViewController {
     var exhibitionItems: [ExhibitionItem] = []
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var itemsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.exhibitionItems = decode()
+        self.itemsTableView.dataSource = self
+        self.itemsTableView.delegate = self
+        self.exhibitionItems = decodeJson()
     }
     
-    private func decode() -> [ExhibitionItem] {
+    private func decodeJson() -> [ExhibitionItem] {
         do {
             let fileName = "items"
             let decodedData = try [ExhibitionItem].decode(from: fileName)
@@ -38,18 +38,18 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView
+        guard let exhibitionItemCell = tableView
                 .dequeueReusableCell(withIdentifier: "cell",
                                      for: indexPath) as? ExhibitionItemsTableViewCell
         else {
             return UITableViewCell()
         }
         
-        cell.itemImageView.image = UIImage(named: self.exhibitionItems[indexPath.row].imageName)
-        cell.titleLabel.text = self.exhibitionItems[indexPath.row].name
-        cell.subtitleLabel.text = self.exhibitionItems[indexPath.row].shortDescription
+        exhibitionItemCell.itemImageView.image = UIImage(named: self.exhibitionItems[indexPath.row].imageName)
+        exhibitionItemCell.titleLabel.text = self.exhibitionItems[indexPath.row].name
+        exhibitionItemCell.subtitleLabel.text = self.exhibitionItems[indexPath.row].shortDescription
 
-        return cell
+        return exhibitionItemCell
     }
 }
 

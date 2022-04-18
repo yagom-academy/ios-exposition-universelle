@@ -27,7 +27,7 @@ final class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    private func decode() -> ExpoInformation {
+    private func decodeJson() -> ExpoInformation {
         do {
             let fileName = "exposition_universelle_1900"
             let decodedData = try ExpoInformation.decode(from: fileName)
@@ -42,7 +42,7 @@ final class MainViewController: UIViewController {
     }
     
     private func setUpView() {
-        let decodedData = decode()
+        let decodedData = decodeJson()
         
         self.expoTitleLabel.text = decodedData.title
         self.locationLabel.text = decodedData.location
