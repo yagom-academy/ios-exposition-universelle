@@ -58,13 +58,6 @@ final class ParisExpoVC: UIViewController {
         navigationItem.title = UITitle.mainText
     }
     
-    private func initializeParisExpoData() {
-        guard let data = try? ParisExpo.decode(from: FileName.parisExpo) else {
-            return
-        }
-        parisExpoData = data
-    }
-    
     private func uploadImages() {
         mainImageView.image = UIImage(named: FileName.poster)
         leftImageView.image = UIImage(named: FileName.flag)
@@ -121,5 +114,14 @@ final class ParisExpoVC: UIViewController {
     
     private func ConfigureKoreanItemsButtonLabel() {
         koreanItemsButton.titleLabel?.text = UITitle.goToKoreanItemsText
+    }
+}
+
+extension ParisExpoVC {
+    private func initializeParisExpoData() {
+        guard let data = try? ParisExpo.decode(from: FileName.parisExpo) else {
+            return
+        }
+        parisExpoData = data
     }
 }
