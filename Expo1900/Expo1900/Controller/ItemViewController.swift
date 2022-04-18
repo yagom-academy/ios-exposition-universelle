@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ItemViewController: UIViewController {
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
+final class ItemViewController: UIViewController {
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     var item: Item?
     
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class ItemViewController: UIViewController {
         displayItemInfo()
     }
     
-    func displayItemInfo() {
+    private func displayItemInfo() {
         guard let item = item else { return }
         
         self.navigationItem.title = item.name

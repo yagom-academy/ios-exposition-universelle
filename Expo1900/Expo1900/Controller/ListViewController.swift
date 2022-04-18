@@ -7,30 +7,30 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
-    @IBOutlet weak var listTableView: UITableView!
-    var items: [Item] = []
+final class ListViewController: UIViewController {
+    @IBOutlet private weak var listTableView: UITableView!
+    private var items: [Item] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         listTableView.dataSource = self
         listTableView.delegate = self
-
+        
         self.navigationItem.title = "한국의 출품작"
         self.items = getItems()
     }
     
-    func getItems() -> [Item] {
+    private func getItems() -> [Item] {
         var items: [Item] = []
         do {
-        items = try [Item].decode(with: "items")
+            items = try [Item].decode(with: "items")
         } catch {
             showAlert()
         }
-          return items
+        return items
     }
     
-    func showAlert() {
+    private func showAlert() {
         let alert = UIAlertController(title: "오류", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
         let action = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(action)
@@ -52,7 +52,7 @@ extension ListViewController: UITableViewDataSource {
         contents.image = UIImage(named: items[indexPath.row].imageName)
         contents.imageProperties.maximumSize.width = CGFloat(100)
         contents.imageProperties.maximumSize.height = CGFloat(100)
-
+        
         cell.contentConfiguration = contents
         return cell
     }
