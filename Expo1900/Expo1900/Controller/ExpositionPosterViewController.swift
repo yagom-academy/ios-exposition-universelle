@@ -8,6 +8,12 @@ import UIKit
 
 final class ExpositionPosterViewController: UIViewController {
     
+    private var poster: ExpositionPoster? {
+        didSet {
+            posterUpdate()
+        }
+    }
+    
     @IBOutlet weak var visitors: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var duration: UILabel!
@@ -21,6 +27,7 @@ final class ExpositionPosterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPoster()
+        poster = ExpositionPoster.parse(JsonFile.poster)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,12 +48,12 @@ final class ExpositionPosterViewController: UIViewController {
     private func setupPoster() {
         navigationItem.backButtonTitle = Exposition.main
         
-        let poster = ExpositionPoster.parse(JsonFile.poster)
-        
         visitors.text = Exposition.visitors
         location.text = Exposition.location
         duration.text = Exposition.duration
-        
+    }
+    
+    private func posterUpdate() {
         posterTitle.text = poster?.title
         visitorsValue.text = numberFormatter(by: poster?.visitors)
         locationValue.text = poster?.location
