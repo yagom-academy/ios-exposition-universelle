@@ -16,17 +16,21 @@ final class EntryListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    private let expositionItems = [ExpositionItems].parse(JsonFile.items)
+    private var expositionItems: [ExpositionItems]? {
+        didSet {
+            updateItems()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        navigationItem.backButtonTitle = EntryListLetter.koreaEntryList
+        expositionItems = .parse(JsonFile.items)
     }
     
-    private func setup() {
+    private func updateItems() {
         tableView.dataSource = self
         tableView.delegate = self
-        navigationItem.backButtonTitle = EntryListLetter.koreaEntryList
     }
 }
 

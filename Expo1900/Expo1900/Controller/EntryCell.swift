@@ -7,13 +7,17 @@
 
 import UIKit
 
+enum EntryCellLetter {
+    static let emptyImage = ""
+}
+
 final class EntryCell: UITableViewCell {
     @IBOutlet private weak var itemImage: UIImageView!
     @IBOutlet private weak var itemTitle: UILabel!
     @IBOutlet private weak var itemShortDiscription: UILabel!
     
     func configure(item: ExpositionItems?) {
-        itemImage.image = UIImage(named: item?.imageName ?? Exposition.emptyImage)
+        itemImage.image = UIImage(named: item?.imageName ?? EntryCellLetter.emptyImage)
         itemTitle.text = item?.name
         itemShortDiscription.text = item?.shortDescription
     }
