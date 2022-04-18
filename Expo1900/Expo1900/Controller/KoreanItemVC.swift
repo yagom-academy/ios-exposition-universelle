@@ -49,7 +49,8 @@ extension KoreanItemVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreanItem", for: indexPath) as? KoreanItemTableViewCell,
            let koreanItems = koreanItems else {
-            return KoreanItemTableViewCell(style: .default, reuseIdentifier: "KoreanItem")
+            showFailureAlert()
+            return UITableViewCell()
         }
         cell.assignKoreanItemValue(with: koreanItems[indexPath.row])
         
