@@ -22,13 +22,13 @@ final class ExpoItemTableViewController: UITableViewController {
 private extension ExpoItemTableViewController {
   
   func parse() {
-    let parsedResult = [ExpoItem].decode(with: AssetName.expoItem)
+    let parsedResult = [ExpoItem].decode(with: "AssetName.expoItem")
     switch parsedResult {
     case let .success(expoItems):
       self.expoItems = expoItems
     case let .failure(error):
       alertBuilder
-        .setTitle(error.decription)
+        .setTitle(error.localizedDescription)
         .setConfirmTitle(Const.confirm)
         .showAlert()
     }

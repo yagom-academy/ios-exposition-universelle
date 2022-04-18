@@ -49,7 +49,7 @@ private extension MainViewController {
       self.setUpView(from: expo)
     case let .failure(error):
       alertBuilder
-        .setTitle(error.decription)
+        .setTitle(error.localizedDescription)
         .setConfirmTitle(Const.confirm)
         .showAlert()
     }

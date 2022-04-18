@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum DecodeError: Error {
+enum DecodeError: LocalizedError {
   case notFoundAsset
   case decodeFail
 }
 
 extension DecodeError {
-  var decription: String {
+  var errorDescription: String? {
     switch self {
     case .notFoundAsset:
       return "에셋을 찾을 수 없습니다."
