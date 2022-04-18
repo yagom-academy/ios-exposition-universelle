@@ -13,6 +13,7 @@
 		302C80492805AE540036155C /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C80482805AE540036155C /* Decodable+Extension.swift */; };
 		30837B902808778A00AE509C /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30837B8F2808778A00AE509C /* EntryListViewController.swift */; };
 		30837B962809453900AE509C /* EntryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30837B952809453900AE509C /* EntryItemViewController.swift */; };
+		AE9D8B89280D8FAB00B3B210 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D8B88280D8FAB00B3B210 /* EntryCell.swift */; };
 		AEA73268280545190020268A /* ExpositionItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA73267280545190020268A /* ExpositionItems.swift */; };
 		AEA73284280581D40020268A /* ExpositionItemsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA7327D280581CD0020268A /* ExpositionItemsTest.swift */; };
 		AEBF3B6D280812B4007E6AD3 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF3B6C280812B4007E6AD3 /* Exposition.swift */; };
@@ -49,6 +50,7 @@
 		302C80482805AE540036155C /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
 		30837B8F2808778A00AE509C /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
 		30837B952809453900AE509C /* EntryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemViewController.swift; sourceTree = "<group>"; };
+		AE9D8B88280D8FAB00B3B210 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		AEA73267280545190020268A /* ExpositionItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItems.swift; sourceTree = "<group>"; };
 		AEA7327B280581CD0020268A /* ExpositionItemsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpositionItemsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA7327D280581CD0020268A /* ExpositionItemsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemsTest.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				AEBF3B6C280812B4007E6AD3 /* Exposition.swift */,
 				C79FF4B82589F401005FB0FD /* ExpositionPosterViewController.swift */,
 				30837B8F2808778A00AE509C /* EntryListViewController.swift */,
+				AE9D8B88280D8FAB00B3B210 /* EntryCell.swift */,
 				30837B952809453900AE509C /* EntryItemViewController.swift */,
 			);
 			path = Controller;
@@ -323,6 +326,7 @@
 				AEBF3B6D280812B4007E6AD3 /* Exposition.swift in Sources */,
 				301E42D228068A7A001A7F0D /* JsonFile.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				AE9D8B89280D8FAB00B3B210 /* EntryCell.swift in Sources */,
 				AEA73268280545190020268A /* ExpositionItems.swift in Sources */,
 				30837B902808778A00AE509C /* EntryListViewController.swift in Sources */,
 			);

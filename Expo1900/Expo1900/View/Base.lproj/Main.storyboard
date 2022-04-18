@@ -178,10 +178,10 @@
                                 <rect key="frame" x="0.0" y="17" width="414" height="832"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="500" id="aeo-If-Ltw" customClass="CustomCell" customModule="Expo1900" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" rowHeight="500" id="aeo-If-Ltw" customClass="EntryCell" customModule="Expo1900" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aeo-If-Ltw" id="073-6W-tde" customClass="CustomCell" customModule="Expo1900" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aeo-If-Ltw" id="073-6W-tde" customClass="EntryCell" customModule="Expo1900" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -217,9 +217,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="itemImage" destination="fPq-t1-T8K" id="yEI-W9-Qcp"/>
-                                            <outlet property="itemShortDiscription" destination="kk6-oe-Tdr" id="o1r-GA-95R"/>
-                                            <outlet property="itemTitle" destination="dHg-ks-cdG" id="Hl3-sJ-jcN"/>
+                                            <outlet property="itemImage" destination="fPq-t1-T8K" id="IVo-L5-LpT"/>
+                                            <outlet property="itemShortDiscription" destination="kk6-oe-Tdr" id="Vac-bp-nGU"/>
+                                            <outlet property="itemTitle" destination="dHg-ks-cdG" id="gdL-rK-5z1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -240,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hx-xZ-M6c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686.9565217391305" y="148.66071428571428"/>
+            <point key="canvasLocation" x="1665" y="125"/>
         </scene>
         <!--Entry Item View Controller-->
         <scene sceneID="fZ6-ZX-0Ub">
@@ -305,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l31-Ep-jGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2417" y="147"/>
+            <point key="canvasLocation" x="2416" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dfy-5K-WDx">
@@ -323,7 +323,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fd-cB-KOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.086956521739133" y="124.55357142857142"/>
+            <point key="canvasLocation" x="-522" y="62"/>
         </scene>
     </scenes>
     <resources>
