@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExhibitionItemsTableViewCell: UITableViewCell {
+final class ExhibitionItemsTableViewCell: UITableViewCell {
     @IBOutlet weak private var itemImageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var subtitleLabel: UILabel!

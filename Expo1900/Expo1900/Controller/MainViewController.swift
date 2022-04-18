@@ -8,11 +8,11 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    @IBOutlet weak var expoTitleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak private var expoTitleLabel: UILabel!
+    @IBOutlet weak private var visitorsLabel: UILabel!
+    @IBOutlet weak private var locationLabel: UILabel!
+    @IBOutlet weak private var durationLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

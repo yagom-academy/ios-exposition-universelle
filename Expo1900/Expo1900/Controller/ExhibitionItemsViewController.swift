@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ExhibitionItemsViewController: UIViewController {
+final class ExhibitionItemsViewController: UIViewController {
     var exhibitionItems: [ExhibitionItem] = []
     
-    @IBOutlet weak var itemsTableView: UITableView!
+    @IBOutlet weak private var itemsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
