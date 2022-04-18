@@ -15,6 +15,7 @@ class KoreaEntryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = koreaEntryData?.name
         koreaEntryFullDescriptionLabel.text = koreaEntryData?.fullDescription
         koreaEntryImageView.image = UIImage(named: koreaEntryData!.imageFileName)
 
