@@ -28,12 +28,11 @@ final class EntryListViewController: UIViewController {
 extension EntryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let entryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: Exposition.entryItemViewController) as? EntryItemViewController {
-            let item = expositionItems?[indexPath.row]
-            entryItemViewController.navigationItem.title = item?.name
-            entryItemViewController.item = item
-            self.navigationController?.pushViewController(entryItemViewController, animated: false)
+        let item = expositionItems?[indexPath.row]
+        guard let entryItemViewController = EntryItemViewController.instance(item: item) else {
+            return
         }
+        self.navigationController?.pushViewController(entryItemViewController, animated: false)
     }
 }
 

@@ -12,7 +12,13 @@ final class EntryItemViewController: UIViewController {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemDiscription: UILabel!
     
-    var item: ExpositionItems?
+    private var item: ExpositionItems?
+    
+    static func instance(item: ExpositionItems?) -> EntryItemViewController? {
+        let entryItemViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EntryItemViewController") as? EntryItemViewController
+        entryItemViewController?.item = item
+        return entryItemViewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
