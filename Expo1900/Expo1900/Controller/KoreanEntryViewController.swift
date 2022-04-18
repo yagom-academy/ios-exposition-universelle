@@ -51,9 +51,10 @@ extension KoreanEntryViewController {
             guard let indexPath = self.koreanEntryTableView.indexPath(for: cell) else { return }
             
             let entryDetailViewController = segue.destination as? EntryDetailViewController
-            entryDetailViewController?.detailDescription = entries[indexPath.row].description
-            entryDetailViewController?.imageName = entries[indexPath.row].imageName
-            entryDetailViewController?.koreanEntryTitle = entries[indexPath.row].name
+            let detailContent = DetailContent(detailDescription: entries[indexPath.row].description,
+                                              imageName: entries[indexPath.row].imageName,
+                                              koreanEntryTitle: entries[indexPath.row].name)
+            entryDetailViewController?.updateDetailContent(data: detailContent)
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E6603A2280D8221000FDA14 /* DetailContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6603A1280D8221000FDA14 /* DetailContent.swift */; };
 		4EA869282805103E002EEBB8 /* JsonParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA869272805103E002EEBB8 /* JsonParsingTests.swift */; };
 		4EC69AF228044A0B00237E61 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC69AF128044A0B00237E61 /* Entry.swift */; };
 		4EDB6D982806ED5F00CF0166 /* KoreanEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB6D972806ED5F00CF0166 /* KoreanEntryViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E6603A1280D8221000FDA14 /* DetailContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContent.swift; sourceTree = "<group>"; };
 		4EA869252805103E002EEBB8 /* JsonParsingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonParsingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA869272805103E002EEBB8 /* JsonParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParsingTests.swift; sourceTree = "<group>"; };
 		4EC69AF128044A0B00237E61 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				4EC69AF128044A0B00237E61 /* Entry.swift */,
 				9C2A96CD28044CD90053E54B /* Exposition.swift */,
+				4E6603A1280D8221000FDA14 /* DetailContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				9C2A96CE28044CD90053E54B /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionMainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				4E6603A2280D8221000FDA14 /* DetailContent.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				9C9AD9AC2807FDA900E5E45A /* EntryDetailViewController.swift in Sources */,
 				4EDB6D982806ED5F00CF0166 /* KoreanEntryViewController.swift in Sources */,

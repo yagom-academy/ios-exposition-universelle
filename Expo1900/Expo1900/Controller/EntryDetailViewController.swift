@@ -4,9 +4,7 @@ final class EntryDetailViewController: UIViewController {
     @IBOutlet private weak var detailImageView: UIImageView!
     @IBOutlet private weak var detailDescriptionLabel: UILabel!
     
-    var detailDescription: String?
-    var imageName: String?
-    var koreanEntryTitle: String?
+    private var detailContent: DetailContent?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,18 +14,22 @@ final class EntryDetailViewController: UIViewController {
     }
     
     private func updateNavigationBarTitle() {
-        navigationItem.title = koreanEntryTitle
+        navigationItem.title = detailContent?.koreanEntryTitle
     }
     
     private func updateDescriptionLabel() {
-        if let text = detailDescription {
+        if let text = detailContent?.detailDescription {
             detailDescriptionLabel.text = text
         }
     }
     
     private func updateImageView() {
-        if let image = imageName {
+        if let image = detailContent?.imageName {
             detailImageView.image = UIImage(named: image)
         }
+    }
+    
+    func updateDetailContent(data: DetailContent) {
+        detailContent = data
     }
 }
