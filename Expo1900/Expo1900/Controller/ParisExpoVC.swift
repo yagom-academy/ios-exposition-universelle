@@ -101,7 +101,6 @@ final class ParisExpoVC: UIViewController {
     }
     
     private func configureDesciptionLabel() {
-        descriptionLabel.numberOfLines = 0
         descriptionLabel.text = parisExpoData?.description
     }
     
