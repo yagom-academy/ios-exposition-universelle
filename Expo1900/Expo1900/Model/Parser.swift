@@ -18,4 +18,3 @@ struct Parser<T: Decodable> {
         return expoData
     }
 }
-
