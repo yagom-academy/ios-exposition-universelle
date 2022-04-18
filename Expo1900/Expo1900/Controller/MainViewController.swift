@@ -5,7 +5,8 @@
 
 import UIKit
 
-fileprivate extension Const {
+fileprivate extension Constants {
+  static let confirm = "확인"
   static let visitor = "방문객 : "
   static let personUnit = " 명"
   static let location = "개최지 : "
@@ -53,20 +54,20 @@ private extension MainViewController {
     case let .failure(error):
       alertBuilder
         .setTitle(error.localizedDescription)
-        .setConfirmTitle(Const.confirm)
+        .setConfirmTitle(Constants.confirm)
         .showAlert()
     }
   }
   
   func setUpView(from expo: Expo) {
     self.titleLabel.text = expo.title.replacingOccurrences(
-      of: Const.bracket,
-      with: Const.spacingBracket
+      of: Constants.bracket,
+      with: Constants.spacingBracket
     )
     self.posterImageView.image = UIImage(named: AssetName.poster)
-    self.visitorsLabel.text = Const.visitor + expo.visitors.toDecimal() + Const.personUnit
-    self.locationLabel.text = Const.location + expo.location
-    self.durationLabel.text = Const.duration + expo.duration
+    self.visitorsLabel.text = Constants.visitor + expo.visitors.toDecimal() + Constants.personUnit
+    self.locationLabel.text = Constants.location + expo.location
+    self.durationLabel.text = Constants.duration + expo.duration
     self.descriptionLabel.text = expo.description
   }
 }

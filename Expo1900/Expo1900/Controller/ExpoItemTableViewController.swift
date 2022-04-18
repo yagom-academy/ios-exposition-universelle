@@ -7,6 +7,10 @@
 
 import UIKit
 
+fileprivate extension Constants {
+  static let confirm = "확인"
+}
+
 final class ExpoItemTableViewController: UITableViewController, AlertPresentable {
   
   private var expoItems = [ExpoItem]()
@@ -31,7 +35,7 @@ private extension ExpoItemTableViewController {
     case let .failure(error):
       alertBuilder
         .setTitle(error.localizedDescription)
-        .setConfirmTitle(Const.confirm)
+        .setConfirmTitle(Constants.confirm)
         .showAlert()
     }
   }
