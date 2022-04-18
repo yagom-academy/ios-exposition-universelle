@@ -12,17 +12,6 @@ class KoreanItemTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        mainImageView.image = UIImage(named: "poster")
-        titleLabel.text = "empty title"
-        descriptionLabel.text = "empty description"
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     func assignKoreanItemValue(with item: KoreanHistoricalItem) {
         titleLabel.text = item.name
         descriptionLabel.text = item.shortDesciption
