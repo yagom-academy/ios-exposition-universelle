@@ -47,9 +47,9 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         var contents = cell.defaultContentConfiguration()
-        contents.attributedText = NSAttributedString(string: items[indexPath.row].name, attributes: [ .font: UIFont.systemFont(ofSize: 20, weight: .bold)])
-        contents.secondaryText = items[indexPath.row].shortDescription
-        contents.image = UIImage(named: items[indexPath.row].imageName)
+        contents.attributedText = NSAttributedString(string: items[safe: indexPath.row].name, attributes: [ .font: UIFont.systemFont(ofSize: 20, weight: .bold)])
+        contents.secondaryText = items[safe: indexPath.row].shortDescription
+        contents.image = UIImage(named: items[safe: indexPath.row].imageName)
         contents.imageProperties.maximumSize.width = CGFloat(100)
         contents.imageProperties.maximumSize.height = CGFloat(100)
         
@@ -63,7 +63,7 @@ extension ListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let itemVC = storyboard?.instantiateViewController(withIdentifier: "ItemViewController") as? ItemViewController else { return }
         
-        itemVC.item = items[indexPath.row]
+        itemVC.item = items[safe: indexPath.row]
         navigationController?.pushViewController(itemVC, animated: true)
     }
 }

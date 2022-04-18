@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC5A82C52804FCED006C20AA /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A82C42804FCED006C20AA /* ModelTest.swift */; };
+		ACA8718D280D5C3500FEF04A /* extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8718C280D5C3500FEF04A /* extension+Array.swift */; };
 		ACBF2E9028087B8A00DC501F /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF2E8F28087B8A00DC501F /* ItemViewController.swift */; };
 		ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B7632807116300013B55 /* DataLoadError.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5A82C42804FCED006C20AA /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
+		ACA8718C280D5C3500FEF04A /* extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Array.swift"; sourceTree = "<group>"; };
 		ACBF2E8F28087B8A00DC501F /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		ACD9B7632807116300013B55 /* DataLoadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadError.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD5489D280510AB00F93F7A /* extension+Decodable.swift */,
+				ACA8718C280D5C3500FEF04A /* extension+Array.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				DABBE2D6280862E600B3DE96 /* ListViewController.swift in Sources */,
 				DACB21D928070B58002AEAA7 /* Item.swift in Sources */,
 				ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */,
+				ACA8718D280D5C3500FEF04A /* extension+Array.swift in Sources */,
 				DAD5489B28045FB500F93F7A /* Exposition.swift in Sources */,
 				ACBF2E9028087B8A00DC501F /* ItemViewController.swift in Sources */,
 			);
