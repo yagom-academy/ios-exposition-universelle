@@ -24,9 +24,9 @@ class ExhibitionItemsViewController: UIViewController {
             let fileName = "items"
             let decodedData = try [ExhibitionItem].decode(from: fileName)
             return decodedData
-        } catch {
-            return [ExhibitionItem]()
-        }
+        } catch {}
+        
+        return exhibitionItems
     }
 }
 

@@ -28,17 +28,18 @@ final class MainViewController: UIViewController {
     }
     
     private func decodeJson() -> ExpoInformation {
+        var decodedData = ExpoInformation(title: "",
+                                          visitors: 0,
+                                          location: "",
+                                          duration: "",
+                                          description: "")
+        
         do {
             let fileName = "exposition_universelle_1900"
-            let decodedData = try ExpoInformation.decode(from: fileName)
-            return decodedData
-        } catch {
-            return ExpoInformation(title: "",
-                                   visitors: 0,
-                                   location: "",
-                                   duration: "",
-                                   description: "")
-        }
+            decodedData = try ExpoInformation.decode(from: fileName)
+        } catch {}
+        
+        return decodedData
     }
     
     private func setUpView() {
