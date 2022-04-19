@@ -30,7 +30,7 @@ final class WorldFairPosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "메인"
+        self.navigationItem.title = ExpoStringEnum.mainTitle
         updateUI()
         updateImageViews()
     }
@@ -42,7 +42,7 @@ final class WorldFairPosterViewController: UIViewController {
         do {
             worldFairPosterData = try assetSeeker.matchWorldFairPosterAsset()
         } catch ExpoError.decodeError {
-            showAlert(alertTitle: "데이터 처리가 실패했습니다", okTitle: "OK")
+            showAlert(alertTitle: ExpoStringEnum.failedHandleData, okTitle: ExpoStringEnum.okTitle)
         }
         
         guard let worldData = worldFairPosterData else {
@@ -58,20 +58,20 @@ final class WorldFairPosterViewController: UIViewController {
         do {
             worldFairPosterData = try decodeWorldFairPoster()
         } catch ExpoError.decodeError {
-            showAlert(alertTitle: "데이터 처리가 실패했습니다", okTitle: "OK")
+            showAlert(alertTitle: ExpoStringEnum.failedHandleData, okTitle: ExpoStringEnum.okTitle)
         } catch {
-            showAlert(alertTitle: "예상치 못한 에러 발생!", okTitle: "OK")
+            showAlert(alertTitle: ExpoStringEnum.unexpectedError, okTitle: ExpoStringEnum.okTitle)
         }
         titleLabel.text = worldFairPosterData?.title
-        visitorLabel.text = String(worldFairPosterData?.visitors ?? ExpoEnum.defaultVisitor)
+        visitorLabel.text = String(worldFairPosterData?.visitors ?? ExpoMagicNumberEnum.defaultVisitor)
         locationLabel.text = worldFairPosterData?.location
         durationLabel.text = worldFairPosterData?.duration
         descriptionLabel.text = worldFairPosterData?.description
     }
     
     private func updateImageViews() {
-        worldFairPosterImageView.image = UIImage(named: "poster")
-        leftKoreaFlagImageView.image = UIImage(named: "flag")
-        rightKoreaFlagImageView.image = UIImage(named: "flag")
+        worldFairPosterImageView.image = UIImage(named: ExpoStringEnum.worldFairPosterImageFileName)
+        leftKoreaFlagImageView.image = UIImage(named: ExpoStringEnum.koreaFlagImageFileName)
+        rightKoreaFlagImageView.image = UIImage(named: ExpoStringEnum.koreaFlagImageFileName)
     }
 }
