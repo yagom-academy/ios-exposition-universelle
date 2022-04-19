@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q2W-1w-kC6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q2W-1w-kC6">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -185,36 +185,59 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="747" image="folds" translatesAutoresizingMaskIntoConstraints="NO" id="FYy-AX-FIg">
-                                                    <rect key="frame" x="15" y="10" width="80" height="60"/>
+                                                    <rect key="frame" x="15" y="15" width="80" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="6br-GX-oJw"/>
+                                                        <constraint firstAttribute="width" secondItem="FYy-AX-FIg" secondAttribute="height" multiplier="1:1" id="mDF-sr-nXY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-FA-GaR">
-                                                    <rect key="frame" x="105" y="10" width="284.33333333333331" height="60"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-FA-GaR">
+                                                    <rect key="frame" x="105" y="15" width="284.33333333333331" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7A-IQ-Z76">
-                                                            <rect key="frame" x="0.0" y="0.0" width="284.33333333333331" height="32.666666666666664"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="백운사 경안에 1372  " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzM-Wo-cCM">
-                                                            <rect key="frame" x="0.0" y="37.666666666666664" width="284.33333333333331" height="22.333333333333336"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-po-GPh">
+                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="260" verticalCompressionResistancePriority="1000" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7A-IQ-Z76">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="r7A-IQ-Z76" firstAttribute="leading" secondItem="dOz-po-GPh" secondAttribute="leading" id="Afk-4g-Mkx"/>
+                                                                <constraint firstAttribute="trailing" secondItem="r7A-IQ-Z76" secondAttribute="trailing" id="ISe-Bn-9c3"/>
+                                                                <constraint firstItem="r7A-IQ-Z76" firstAttribute="top" secondItem="dOz-po-GPh" secondAttribute="top" id="h1q-I7-8QH"/>
+                                                                <constraint firstAttribute="bottom" secondItem="r7A-IQ-Z76" secondAttribute="bottom" id="sn2-FX-FXv"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9hD-Jb-GJg">
+                                                            <rect key="frame" x="0.0" y="30" width="284.33333333333331" height="20"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="백운사 경안에 1372  " textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzM-Wo-cCM">
+                                                                    <rect key="frame" x="0.0" y="2.3333333333333348" width="284.33333333333331" height="15.666666666666664"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="9hD-Jb-GJg" secondAttribute="bottom" id="5Dp-wn-42h"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9hD-Jb-GJg" secondAttribute="trailing" id="g2t-U7-7ol"/>
+                                                        <constraint firstItem="9hD-Jb-GJg" firstAttribute="top" secondItem="dOz-po-GPh" secondAttribute="bottom" id="uFR-1F-6wd"/>
+                                                        <constraint firstItem="9hD-Jb-GJg" firstAttribute="leading" secondItem="Cfl-FA-GaR" secondAttribute="leading" id="wUP-9q-dXn"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Cfl-FA-GaR" firstAttribute="top" secondItem="cmK-sj-KGt" secondAttribute="top" constant="10" id="2rp-Cf-ObA"/>
+                                                <constraint firstItem="Cfl-FA-GaR" firstAttribute="top" secondItem="cmK-sj-KGt" secondAttribute="top" constant="15" id="2rp-Cf-ObA"/>
                                                 <constraint firstItem="Cfl-FA-GaR" firstAttribute="leading" secondItem="FYy-AX-FIg" secondAttribute="trailing" constant="10" id="6MZ-Ya-lX7"/>
-                                                <constraint firstItem="FYy-AX-FIg" firstAttribute="top" secondItem="cmK-sj-KGt" secondAttribute="top" constant="10" id="IGy-YW-5Kv"/>
-                                                <constraint firstAttribute="bottom" secondItem="Cfl-FA-GaR" secondAttribute="bottom" constant="10" id="abg-Wt-UZ7"/>
+                                                <constraint firstItem="FYy-AX-FIg" firstAttribute="height" relation="lessThanOrEqual" secondItem="Cfl-FA-GaR" secondAttribute="height" id="74K-wc-5rI"/>
+                                                <constraint firstItem="Cfl-FA-GaR" firstAttribute="centerY" secondItem="cmK-sj-KGt" secondAttribute="centerY" id="EfK-kX-v4h"/>
+                                                <constraint firstAttribute="bottom" secondItem="Cfl-FA-GaR" secondAttribute="bottom" constant="15" id="abg-Wt-UZ7"/>
                                                 <constraint firstItem="FYy-AX-FIg" firstAttribute="width" secondItem="cmK-sj-KGt" secondAttribute="width" multiplier="20%" id="dDg-7q-QU7"/>
-                                                <constraint firstAttribute="bottom" secondItem="FYy-AX-FIg" secondAttribute="bottom" constant="10" id="oHv-ts-jCg"/>
+                                                <constraint firstItem="FYy-AX-FIg" firstAttribute="centerY" secondItem="cmK-sj-KGt" secondAttribute="centerY" id="s24-St-7kr"/>
                                                 <constraint firstItem="FYy-AX-FIg" firstAttribute="leading" secondItem="cmK-sj-KGt" secondAttribute="leading" constant="15" id="vGo-7c-hHX"/>
                                                 <constraint firstAttribute="trailing" secondItem="Cfl-FA-GaR" secondAttribute="trailing" constant="10" id="yBk-XE-xla"/>
                                             </constraints>
