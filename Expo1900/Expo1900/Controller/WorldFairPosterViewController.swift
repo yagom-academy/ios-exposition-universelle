@@ -51,10 +51,17 @@ final class WorldFairPosterViewController: UIViewController {
      
         return worldData
     }
-    
-    private func updateUI() {
-        let worldFairPosterData = try? decodeWorldFairPoster()
         
+    private func updateUI() {
+        var worldFairPosterData: WorldFairPoster?
+
+        do {
+            worldFairPosterData = try decodeWorldFairPoster()
+        } catch ExpoError.decodeError {
+            showAlert(alertTitle: "데이터 처리가 실패했습니다", okTitle: "OK")
+        } catch {
+            showAlert(alertTitle: "예상치 못한 에러 발생!", okTitle: "OK")
+        }
         titleLabel.text = worldFairPosterData?.title
         visitorLabel.text = String(worldFairPosterData?.visitors ?? ExpoEnum.defaultVisitor)
         locationLabel.text = worldFairPosterData?.location
