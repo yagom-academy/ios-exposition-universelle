@@ -8,8 +8,8 @@
 import UIKit
 
 final class KoreaEntryDetailViewController: UIViewController {
-    @IBOutlet weak var koreaEntryImageView: UIImageView!
-    @IBOutlet weak var koreaEntryFullDescriptionLabel: UILabel!
+    @IBOutlet private weak var koreaEntryImageView: UIImageView!
+    @IBOutlet private weak var koreaEntryFullDescriptionLabel: UILabel!
     
     var koreaEntryData: KoreaEntryDetail?
     

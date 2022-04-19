@@ -8,15 +8,15 @@
 import UIKit
 
 final class WorldFairPosterViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
-    @IBOutlet weak var worldFairPosterImageView: UIImageView!
-    @IBOutlet weak var leftKoreaFlagImageView: UIImageView!
-    @IBOutlet weak var rightKoreaFlagImageView: UIImageView!
+    @IBOutlet private weak var worldFairPosterImageView: UIImageView!
+    @IBOutlet private weak var leftKoreaFlagImageView: UIImageView!
+    @IBOutlet private weak var rightKoreaFlagImageView: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
