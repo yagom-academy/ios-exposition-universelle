@@ -65,7 +65,7 @@ extension HeritageListViewController {
     private func loadItems() -> [Item]? {
         let jsonManager: JsonManagerable = JsonManager()
         do {
-            let heritageInfo = try jsonManager.decodedItems()
+            let heritageInfo: [Item] = try jsonManager.decodedResult()
             return heritageInfo
         } catch {
             showErrorAlert(error)

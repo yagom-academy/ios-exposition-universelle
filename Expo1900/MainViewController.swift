@@ -45,7 +45,7 @@ extension MainViewController {
         let jsonManager: JsonManagerable = JsonManager()
         
         do {
-            let expositionInfo = try jsonManager.decodedExpositionInfo()
+            let expositionInfo: ExpositionInfo = try jsonManager.decodedResult()
             return expositionInfo
         } catch {
             print(error.localizedDescription)
