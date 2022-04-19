@@ -14,11 +14,7 @@ class HeritageListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        items = loadItems() ?? []
-        navigationController?.navigationBar.topItem?.title = "메인"
-        title = "한국의 출품작"
-        heritageListTableView.dataSource = self
-        heritageListTableView.delegate = self
+        setInitialSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +38,10 @@ extension HeritageListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let item = items[indexPath.row]
+        guard let item = items[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
+        
         cell.setContentOfCell(item)
 
         return cell
@@ -74,4 +73,13 @@ extension HeritageListViewController {
             return nil
         }
     }
+    
+    private func setInitialSetting() {
+        items = loadItems() ?? []
+        navigationController?.navigationBar.topItem?.title = "메인"
+        title = "한국의 출품작"
+        heritageListTableView.dataSource = self
+        heritageListTableView.delegate = self
+    }
 }
+
