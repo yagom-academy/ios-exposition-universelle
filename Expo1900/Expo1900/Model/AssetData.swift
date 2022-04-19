@@ -7,10 +7,10 @@
 
 enum AssetData {
     static func assignParisExpo() throws -> ParisExpo {
-        return try ParsorManager<ParisExpo>.parse(fileName: FileName.parisExpo) 
+        return try ParserManager<ParisExpo>.parse(fileName: FileName.parisExpo)
     }
     
     static func assignKoreanItems() throws -> [KoreanHistoricalItem] {
-        return try ParsorManager<[KoreanHistoricalItem]>.parse(fileName: FileName.items)
+        return try ParserManager<[KoreanHistoricalItem]>.parse(fileName: FileName.items)
     }
 }

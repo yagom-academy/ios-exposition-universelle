@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum ParsorManager<T: Decodable> {
+enum ParserManager<T: Decodable> {
     static func parse(fileName: String) throws -> T {
         guard let assetFile = NSDataAsset(name: fileName) else {
             throw DecoderError.dataAssetFail
