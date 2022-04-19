@@ -264,3 +264,135 @@ tableView.deselectRow(at: indexPath, animated: true)
 6. 뷰 컨트롤러 사이의 데이터 전달
 
 ## PR 후 개선사항
+**1. 객체지향 설계에 맞게 캡슐화, 은닉화**
+
+**tableView 에서 사용될 Cell 이 만들어질때 캡슐화와 은닉화를 적용하여 Cell 내부에서 생성될 Cell 의 정보를 변경하여 생성하도록 수정함.**
+>**변경전**
+>EntryListViewController: UITableViewDataSource 에서 Cell 객체 내부의 프로퍼티 값을 변경하여 사용하였다.
+```swift
+extension EntryListViewController: UITableViewDataSource {
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: EntryCell = tableView.dequeueReusableCell(withIdentifier: Exposition.customCell, for: indexPath) as? EntryCell ?? EntryCell()
+        let item = expositionItems?[indexPath.row]
+        cell.imageView?.image = UIImage(named: item?.imageName ?? Exposition.emptyImage)
+        cell.itemTitle.text = item?.name
+        cell.itemShortDiscription.text = item?.shortDescription
+        return cell
+    }
+}
+```
+
+>**변경후**
+>Cell 내부에 configure() 메서드를 만들어 호출할경우 파라미터의 값을 활용하여 Cell 내부의 프로퍼티의 값을 변경하도록 변경함.
+>자신의 상태값을 자신이 변경하도록 수정.
+```swift
+final class EntryCell: UITableViewCell {
+    @IBOutlet private weak var itemImage: UIImageView!
+    @IBOutlet private weak var itemTitle: UILabel!
+    @IBOutlet private weak var itemShortDiscription: UILabel!
+    
+    func configure(item: ExpositionItems?) {
+        itemImage.image = UIImage(named: item?.imageName ?? EntryCellLetter.emptyImage)
+        itemTitle.text = item?.name
+        itemShortDiscription.text = item?.shortDescription
+    }
+}
+
+extension EntryListViewController: UITableViewDataSource{
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: EntryCell = tableView.dequeueReusableCell(withIdentifier: EntryListLetter.entryCell, for: indexPath) as? EntryCell ?? EntryCell()
+        let item = expositionItems?[indexPath.row]
+        cell.configure(item: item)
+        return cell
+    }
+}
+```
+**캡슐화와 은닉화를 적용하여 다른 컨트롤러 객체에게 데이터를 주입하는 방법을 수정함.**
+>**변경전**
+>기존의 방법은 다른 컨트롤러 객체 내부의 프로퍼티에 직접 접근하여 값을 주입해주었음.
+```swift
+extension EntryListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let entryItemViewController = self.storyboard?.instantiateViewController(withIdentifier: Exposition.entryItemViewController) as? EntryItemViewController {
+            let item = expositionItems?[indexPath.row]
+            entryItemViewController.navigationItem.title = item?.name
+            entryItemViewController.item = item
+            self.navigationController?.pushViewController(entryItemViewController, animated: false)
+        }
+    }
+}
+```
+>**변경후**
+>객체에 타입 메서드를 만들어 외부에서 파라미터를 활용해 메서드를 호출할경우
+>파라미터의 값이 프로퍼티의 값에 저장된 자기자신의 타입을 반환하도록 만들어 활용하였다.
+```swift
+final class EntryItemViewController: UIViewController {
+    private var item: ExpositionItems?
+    
+    static func instance(item: ExpositionItems?) -> EntryItemViewController? {
+        let entryItemViewController = UIStoryboard.init(name: EntryItemLetter.main, bundle: nil).instantiateViewController(withIdentifier: EntryItemLetter.entryItemViewController) as? EntryItemViewController
+        entryItemViewController?.item = item
+        return entryItemViewController
+    }
+}
+
+extension EntryListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = expositionItems?[indexPath.row]
+        guard let entryItemViewController = EntryItemViewController.instance(item: item) else {
+            return
+        }
+        self.navigationController?.pushViewController(entryItemViewController, animated: false)
+    }
+}
+```
+
+**2. MVC 구조에 맞게 컨트롤러와 모델 활용방법 수정**
+
+![](https://i.imgur.com/Z1t4Cr7.png)
+
+>위 MVC패턴과 같이 Model을 update 하게 되면 controller에 Notify를 주어야하는데 이전에 작성했던 코드는 controller와 model을 파일 위치만 분리했어서 MVC패턴을 지키게끔 수정하였다.
+
+>**변경전**
+```swift
+final class EntryListViewController: UIViewController {
+  private let expositionItems = [ExpositionItems].parse(JsonFile.items)
+
+  override func viewDidLoad() {
+         super.viewDidLoad()
+         setup()
+     }
+
+   private func setup() {
+         navigationItem.backButtonTitle = EntryListLetter.koreaEntryList
+         tableView.dataSource = self
+         tableView.delegate = self
+     }
+ }
+}
+```
+
+
+>**변경후**
+```swift
+final class EntryListViewController: UIViewController {
+ private var expositionItems: [ExpositionItems]? {
+        didSet {
+            updateItems()
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.backButtonTitle = EntryListLetter.koreaEntryList
+        expositionItems = .parse(JsonFile.items)
+    }
+
+  private func updateItems() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+}    
+```
