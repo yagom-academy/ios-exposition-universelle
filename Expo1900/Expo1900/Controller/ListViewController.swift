@@ -13,6 +13,7 @@ final class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         listTableView.dataSource = self
         listTableView.delegate = self
         
@@ -27,16 +28,12 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
-        var contents = cell.defaultContentConfiguration()
-        contents.attributedText = NSAttributedString(string: items[safe: indexPath.row].name, attributes: [ .font: UIFont.systemFont(ofSize: 20, weight: .bold)])
-        contents.secondaryText = items[safe: indexPath.row].shortDescription
-        contents.image = UIImage(named: items[safe: indexPath.row].imageName)
-        contents.imageProperties.maximumSize.width = CGFloat(100)
-        contents.imageProperties.maximumSize.height = CGFloat(100)
-        
-        cell.contentConfiguration = contents
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier, for: indexPath)
+        guard let itemCell = cell as? ItemTableViewCell else { return cell }
+        itemCell.itemImageView.image = UIImage(named: items[safe: indexPath.row].imageName)
+        itemCell.titleLabel.text = items[safe: indexPath.row].name
+        itemCell.shortDescriptionLabel.text = items[safe: indexPath.row].shortDescription
+        return itemCell
     }
 }
 
