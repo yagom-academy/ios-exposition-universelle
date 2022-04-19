@@ -26,16 +26,10 @@ extension KoreanEntryViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.koreanEntryTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        guard let cell = self.koreanEntryTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? KoreanEntryCell else { return UITableViewCell() }
         
-        cell.textLabel?.text = entries[indexPath.row].name
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
-
-        cell.imageView?.image = UIImage(named: entries[indexPath.row].imageName)
-        cell.imageView?.contentMode = .scaleAspectFit
+        cell.setUpCellInfo(title: entries[indexPath.row].name, image: entries[indexPath.row].imageName, intro: entries[indexPath.row].introduction)
         
-        cell.detailTextLabel?.text = entries[indexPath.row].introduction
-        cell.detailTextLabel?.numberOfLines = 0
         return cell
     }
     
@@ -52,4 +46,5 @@ extension KoreanEntryViewController {
         }
     }
 }
+
 
