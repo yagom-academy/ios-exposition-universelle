@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class itemDetailViewController: UIViewController {
+final class ItemDetailViewController: UIViewController {
     var item: Heritage?
     
     @IBOutlet weak var itemImageView: UIImageView!

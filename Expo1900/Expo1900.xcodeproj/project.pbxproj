@@ -10,14 +10,14 @@
 		6724BE4B2807BFA700363C89 /* DecodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6724BE4A2807BFA700363C89 /* DecodableExtension.swift */; };
 		67512E202809A35C0045CFE5 /* Expo1900ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67512E1F2809A35C0045CFE5 /* Expo1900ModelTests.swift */; };
 		675E7672280517AA0039896B /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E7671280517AA0039896B /* Heritage.swift */; };
-		9B0AFABB2808675900A9177C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0AFABA2808675900A9177C /* TableViewController.swift */; };
-		9B0AFABF2808768F00A9177C /* itemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0AFABE2808768F00A9177C /* itemDetailViewController.swift */; };
+		9B0AFABB2808675900A9177C /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0AFABA2808675900A9177C /* ItemTableViewController.swift */; };
+		9B0AFABF2808768F00A9177C /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0AFABE2808768F00A9177C /* ItemDetailViewController.swift */; };
 		9B53AF9A2805145F00C4DB93 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53AF992805145F00C4DB93 /* Expo.swift */; };
 		9B77746D2807BE11006F668A /* exposition_universelle_1900.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B77746C2807BE11006F668A /* exposition_universelle_1900.json */; };
 		9B77746F2807BE1E006F668A /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B77746E2807BE1E006F668A /* items.json */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -46,15 +46,15 @@
 		67512E1F2809A35C0045CFE5 /* Expo1900ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ModelTests.swift; sourceTree = "<group>"; };
 		675E7671280517AA0039896B /* Heritage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heritage.swift; sourceTree = "<group>"; };
 		675E767728051C8F0039896B /* ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B0AFABA2808675900A9177C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		9B0AFABE2808768F00A9177C /* itemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemDetailViewController.swift; sourceTree = "<group>"; };
+		9B0AFABA2808675900A9177C /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		9B0AFABE2808768F00A9177C /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		9B53AF992805145F00C4DB93 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		9B77746C2807BE11006F668A /* exposition_universelle_1900.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exposition_universelle_1900.json; sourceTree = "<group>"; };
 		9B77746E2807BE1E006F668A /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -139,9 +139,9 @@
 				9B53AF9B2805154F00C4DB93 /* Model */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				9B0AFABA2808675900A9177C /* TableViewController.swift */,
-				9B0AFABE2808768F00A9177C /* itemDetailViewController.swift */,
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				9B0AFABA2808675900A9177C /* ItemTableViewController.swift */,
+				9B0AFABE2808768F00A9177C /* ItemDetailViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -297,9 +297,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
-				9B0AFABB2808675900A9177C /* TableViewController.swift in Sources */,
-				9B0AFABF2808768F00A9177C /* itemDetailViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				9B0AFABB2808675900A9177C /* ItemTableViewController.swift in Sources */,
+				9B0AFABF2808768F00A9177C /* ItemDetailViewController.swift in Sources */,
 				6724BE4B2807BFA700363C89 /* DecodableExtension.swift in Sources */,
 				9B53AF9A2805145F00C4DB93 /* Expo.swift in Sources */,
 				675E7672280517AA0039896B /* Heritage.swift in Sources */,

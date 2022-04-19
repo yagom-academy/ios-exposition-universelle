@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewController: UITableViewController {
+final class ItemTableViewController: UITableViewController {
 
     @IBOutlet weak var itemsTableView: UITableView!
     let itemsList: [Heritage]? = [Heritage].parsingJson(name: "items")
@@ -37,7 +37,7 @@ final class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let subView = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailVC") as? itemDetailViewController else { return }
+        guard let subView = self.storyboard?.instantiateViewController(withIdentifier: "ItemDetailVC") as? ItemDetailViewController else { return }
         
         subView.item = itemsList?[indexPath.row]
         
