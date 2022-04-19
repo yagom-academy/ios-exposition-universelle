@@ -75,9 +75,9 @@ extension HeritageDetailView {
     
     NSLayoutConstraint.activate([
       baseScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-      baseScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-      baseScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      baseScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
+      baseScrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+      baseScrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+      baseScrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
     ])
     
     //MARK: - baseStackView

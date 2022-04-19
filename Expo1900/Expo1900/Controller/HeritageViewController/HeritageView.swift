@@ -30,8 +30,8 @@ final class HeritageView: UIView {
     NSLayoutConstraint.activate([
       tableView.topAnchor.constraint(equalTo: topAnchor),
       tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-      tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+      tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+      tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
     ])
   }
 }
