@@ -9,17 +9,3 @@ enum DecoderError: Error {
     case decodeFail
     case dataAssetFail
 }
-
-extension Decodable {
-    static func convert(from fileName: String) throws -> Self {
-        guard let assetFile = NSDataAsset(name: fileName) else {
-            throw DecoderError.dataAssetFail
-        }
-        
-        guard let data = try? JSONDecoder().decode(Self.self, from: assetFile.data) else {
-            throw DecoderError.decodeFail
-        }
-        
-        return data
-    }
-}
