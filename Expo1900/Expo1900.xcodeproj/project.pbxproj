@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		642DEC2A2804496C00749D52 /* WorldFairPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC292804496C00749D52 /* WorldFairPoster.swift */; };
 		642DEC36280454D500749D52 /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC35280454D500749D52 /* Expo1900Tests.swift */; };
+		642DEC482807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC472807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift */; };
+		642DEC4A2807F61200749D52 /* WorldFairPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC492807F61200749D52 /* WorldFairPosterViewController.swift */; };
+		642DEC83280E82C300749D52 /* AssetSeeker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC82280E82C300749D52 /* AssetSeeker.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* KoreaEntriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* KoreaEntriesViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		DA838CAE280E676100A4026A /* ExpoMagicNumberEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA838CAD280E676100A4026A /* ExpoMagicNumberEnum.swift */; };
+		DA838CB2280E909800A4026A /* ExpoStringEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA838CB1280E909800A4026A /* ExpoStringEnum.swift */; };
+		DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */; };
+		DA982A8528086AA0000EDB09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8428086AA0000EDB09 /* Parser.swift */; };
+		DA982A8B280CFED6000EDB09 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8A280CFED6000EDB09 /* Alert.swift */; };
+		DA982A8D280D04B1000EDB09 /* ExpoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8C280D04B1000EDB09 /* ExpoError.swift */; };
 		DABD3EB628044E4700C942F6 /* KoreaEntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,14 +41,23 @@
 		642DEC292804496C00749D52 /* WorldFairPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldFairPoster.swift; sourceTree = "<group>"; };
 		642DEC33280454D500749D52 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		642DEC35280454D500749D52 /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
+		642DEC472807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		642DEC492807F61200749D52 /* WorldFairPosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldFairPosterViewController.swift; sourceTree = "<group>"; };
+		642DEC82280E82C300749D52 /* AssetSeeker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSeeker.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* KoreaEntriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntriesViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA838CAD280E676100A4026A /* ExpoMagicNumberEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMagicNumberEnum.swift; sourceTree = "<group>"; };
+		DA838CB1280E909800A4026A /* ExpoStringEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoStringEnum.swift; sourceTree = "<group>"; };
+		DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetailViewController.swift; sourceTree = "<group>"; };
+		DA982A8428086AA0000EDB09 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		DA982A8A280CFED6000EDB09 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		DA982A8C280D04B1000EDB09 /* ExpoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoError.swift; sourceTree = "<group>"; };
 		DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +84,9 @@
 			children = (
 				642DEC292804496C00749D52 /* WorldFairPoster.swift */,
 				DABD3EB528044E4700C942F6 /* KoreaEntryDetail.swift */,
+				642DEC472807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift */,
+				DA982A8428086AA0000EDB09 /* Parser.swift */,
+				642DEC82280E82C300749D52 /* AssetSeeker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -82,9 +103,11 @@
 		642DEC2D280453C800749D52 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				C79FF4B82589F401005FB0FD /* KoreaEntriesViewController.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				642DEC492807F61200749D52 /* WorldFairPosterViewController.swift */,
+				DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -93,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				DA838CAC280E674300A4026A /* Enum */,
+				DA982A89280CFEA3000EDB09 /* Error */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -133,6 +158,24 @@
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		DA838CAC280E674300A4026A /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				DA838CAD280E676100A4026A /* ExpoMagicNumberEnum.swift */,
+				DA838CB1280E909800A4026A /* ExpoStringEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		DA982A89280CFEA3000EDB09 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				DA982A8C280D04B1000EDB09 /* ExpoError.swift */,
+				DA982A8A280CFED6000EDB09 /* Alert.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,11 +286,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				642DEC482807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* KoreaEntriesViewController.swift in Sources */,
+				DA838CAE280E676100A4026A /* ExpoMagicNumberEnum.swift in Sources */,
+				642DEC4A2807F61200749D52 /* WorldFairPosterViewController.swift in Sources */,
+				DA982A8D280D04B1000EDB09 /* ExpoError.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				DA982A8B280CFED6000EDB09 /* Alert.swift in Sources */,
+				642DEC83280E82C300749D52 /* AssetSeeker.swift in Sources */,
+				DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */,
 				642DEC2A2804496C00749D52 /* WorldFairPoster.swift in Sources */,
+				DA982A8528086AA0000EDB09 /* Parser.swift in Sources */,
 				DABD3EB628044E4700C942F6 /* KoreaEntryDetail.swift in Sources */,
+				DA838CB2280E909800A4026A /* ExpoStringEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
