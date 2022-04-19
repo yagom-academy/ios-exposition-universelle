@@ -67,9 +67,10 @@ final class ExpoView: UIView {
   
   lazy var titleLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .title1)
+    label.adjustsFontForContentSizeCategory = true
     label.numberOfLines = 2
     label.textAlignment = .center
-    label.font = .preferredFont(forTextStyle: .title1)
     return label
   }()
   
@@ -86,13 +87,16 @@ final class ExpoView: UIView {
   
   lazy var visitorLabel : UILabel = {
     let label = UILabel()
-    label.text = Const.Literal.visitor
     label.font = .preferredFont(forTextStyle: .title2)
+    label.adjustsFontForContentSizeCategory = true
+    label.text = Const.Literal.visitor
     return label
   }()
   
   lazy var visitorValueLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     return label
   }()
   
@@ -103,13 +107,16 @@ final class ExpoView: UIView {
   
   lazy var locationLabel : UILabel = {
     let label = UILabel()
-    label.text = Const.Literal.location
     label.font = .preferredFont(forTextStyle: .title2)
+    label.adjustsFontForContentSizeCategory = true
+    label.text = Const.Literal.location
     return label
   }()
   
   lazy var locationValueLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     return label
   }()
   
@@ -120,18 +127,23 @@ final class ExpoView: UIView {
   
   lazy var durationLabel : UILabel = {
     let label = UILabel()
-    label.text = Const.Literal.duration
     label.font = .preferredFont(forTextStyle: .title2)
+    label.adjustsFontForContentSizeCategory = true
+    label.text = Const.Literal.duration
     return label
   }()
   
   lazy var durationValueLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     return label
   }()
   
   lazy var descriptionLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     label.numberOfLines = .zero
     return label
   }()

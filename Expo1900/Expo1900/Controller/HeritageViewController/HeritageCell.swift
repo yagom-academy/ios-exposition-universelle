@@ -61,11 +61,14 @@ final class HeritageCell: UITableViewCell {
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .title1)
+    label.adjustsFontForContentSizeCategory = true
     return label
   }()
   
   private lazy var descriptionLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     label.numberOfLines = .zero
     return label
   }()

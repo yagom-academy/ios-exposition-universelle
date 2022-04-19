@@ -45,6 +45,7 @@ final class HeritageDetailView: UIView {
   lazy var descriptionLabel: UILabel = {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     label.numberOfLines = .zero
     return label
   }()
