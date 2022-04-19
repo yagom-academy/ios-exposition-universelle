@@ -8,7 +8,6 @@ import UIKit
 
 final class KoreaEntriesViewController: UITableViewController {
     private var koreaEntryValues: [KoreaEntryDetail]?
-    let segueIdentifer = "KoreaEntryDetailViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
