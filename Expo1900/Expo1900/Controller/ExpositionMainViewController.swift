@@ -9,6 +9,7 @@ final class ExpositionMainViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var koreanEntryButton: UIButton!
     
+    private let parsingAssistant = ParsingAssistant()
     private let alternativeFont = UIFont.systemFont(ofSize: 20)
     static let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -16,16 +17,8 @@ final class ExpositionMainViewController: UIViewController {
         return formatter
     }()
     
-    private func decodeExpositionContent() -> Exposition? {
-        let decoder = JSONDecoder()
-        guard let exposition = NSDataAsset(name: "exposition_universelle_1900") else { return nil }
-        let data = try? decoder.decode(Exposition.self, from: exposition.data)
-        
-        return data
-    }
-    
     private func updateExpositionContents() {
-        if let decodedData = decodeExpositionContent() {
+        if let decodedData: Exposition = parsingAssistant.decodeContent(fileName: "exposition_universelle_1900") {
             titleLabel.text = decodedData.linedTitle()
             imageView.image = UIImage(named: "poster")
             visitorsLabel.attributedText = decodedData

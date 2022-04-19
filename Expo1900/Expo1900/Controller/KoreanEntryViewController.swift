@@ -5,6 +5,7 @@ final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UI
     private var entries = [Entry]()
     private let cellIdentifier = "EntryCell"
     private let segueIdentifier = "SegueToDetail"
+    private let parsingAssistant = ParsingAssistant()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,15 +15,8 @@ final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UI
     }
     
     private func updateEntries() {
-        guard let decodedData = decodeEntryItems() else { return }
+        guard let decodedData: [Entry] = parsingAssistant.decodeContent(fileName: "items") else { return }
         entries = decodedData
-    }
-
-    private func decodeEntryItems() -> [Entry]? {
-        let decoder = JSONDecoder()
-        guard let items = NSDataAsset(name: "items") else { return nil }
-        let data = try? decoder.decode([Entry].self, from: items.data)
-        return data
     }
 }
 
