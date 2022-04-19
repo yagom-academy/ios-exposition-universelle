@@ -58,7 +58,11 @@ extension KoreaEntriesViewController {
         guard let cell: KoreaEntryDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "KoreaEntryDetailTableViewCell") as? KoreaEntryDetailTableViewCell else {
             return KoreaEntryDetailTableViewCell()
         }
-        cell.makeCell(koreaEntryData: koreaEntryValues[indexPath.row])
+        if let koreaEntryValue = self.koreaEntryValues?[indexPath.row] {
+            cell.makeCell(koreaEntryData: koreaEntryValue)
+        } else {
+            showAlert(alertTitle: "데이터 처리에 실패했습니다. 데이터를 다시 한번 확인해주세요.", okTitle: "OK")
+        }
         
         return cell
     }
