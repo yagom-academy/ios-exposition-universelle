@@ -10,7 +10,7 @@ import UIKit
 final class ItemTableViewController: UITableViewController {
 
     @IBOutlet weak var itemsTableView: UITableView!
-    let itemsList: [Heritage]? = [Heritage].parsingJson(name: "items")
+    private let itemsList: [Heritage]? = [Heritage].parsingJson(name: "items")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +37,8 @@ final class ItemTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let subView = self.storyboard?.instantiateViewController(withIdentifier: "ItemDetailVC") as? ItemDetailViewController else { return }
-        
-        subView.item = itemsList?[indexPath.row]
+        guard let item = itemsList?[indexPath.row] else { return }
+        guard let subView = self.storyboard?.instantiateViewController(identifier: "ItemDetailVC", creator: { coder in ItemDetailViewController(item: item, coder: coder) }) else { return }
         
         self.navigationController?.pushViewController(subView, animated: true)
     }

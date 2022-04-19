@@ -8,19 +8,29 @@
 import UIKit
 
 final class ItemDetailViewController: UIViewController {
-    var item: Heritage?
+    private let item: Heritage
     
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var ItemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var ItemDescriptionLabel: UILabel!
+    
+    init?(item: Heritage, coder: NSCoder) {
+        self.item = item
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.item = Heritage(title: "데이터 입력 실패", imageName: "swift", shortDescription: "데이터 입력 실패", description: "데이터 입력 실패")
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
     }
     
-    func setUpView() {
-        title = item?.title
-        itemImageView.image = UIImage(named: item?.imageName ?? "swift")
-        ItemDescriptionLabel.text = item?.description
+    private func setUpView() {
+        title = item.title
+        itemImageView.image = UIImage(named: item.imageName)
+        ItemDescriptionLabel.text = item.description
     }
 }
