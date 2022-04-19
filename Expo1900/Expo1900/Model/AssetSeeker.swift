@@ -10,14 +10,14 @@ import Foundation
 struct AssetSeeker {
 
     func matchKoreaEntryDetailAsset() throws -> [KoreaEntryDetail] {
-        guard let unwrappedKoreaEntryData = Parser<[KoreaEntryDetail]>.parse(name: "items") else {
+        guard let unwrappedKoreaEntryData = Parser<[KoreaEntryDetail]>.parse(name: ExpoStringEnum.koreaEntryDataName) else {
             throw ExpoError.emptyValueError
         }
         return unwrappedKoreaEntryData
     }
     
     func matchWorldFairPosterAsset() throws -> WorldFairPoster {
-        guard let unwrppaedWorldFairPosterData = Parser<WorldFairPoster>.parse(name: "exposition_universelle_1900") else {
+        guard let unwrppaedWorldFairPosterData = Parser<WorldFairPoster>.parse(name: ExpoStringEnum.worldFairPosterName) else {
             throw ExpoError.emptyValueError
         }
         return unwrppaedWorldFairPosterData
