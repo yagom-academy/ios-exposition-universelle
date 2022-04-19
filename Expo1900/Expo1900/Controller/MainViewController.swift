@@ -19,6 +19,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpView()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,16 +49,19 @@ final class MainViewController: UIViewController {
     
     private func setUpView() {
         let decodedData = decodeJson()
+        let visitorsValue = ": \(decodedData.visitors.formatString())"
+        let locationValue = ": \(decodedData.location)"
+        let durationValue = ": \(decodedData.duration)"
         
         self.expoTitleLabel.text = decodedData.title.replacingOccurrences(of: "(", with: "\n(")
-        self.locationLabel.text = decodedData.location
-        self.durationLabel.text = decodedData.duration
+        self.visitorsLabel.text = "방문객 " + visitorsValue
+        self.locationLabel.text = "개최지 " + locationValue
+        self.durationLabel.text = "개최 기간 " + durationValue
         self.descriptionLabel.text = decodedData.description
         
-        do {
-            self.visitorsLabel.text = try decodedData.visitors.formatString()
-        } catch {
-            self.visitorsLabel.text = "\(error)"
-        }
+        self.visitorsLabel.downSize(targetString: visitorsValue)
+        self.locationLabel.downSize(targetString: locationValue)
+        self.durationLabel.downSize(targetString: durationValue)
     }
 }
+

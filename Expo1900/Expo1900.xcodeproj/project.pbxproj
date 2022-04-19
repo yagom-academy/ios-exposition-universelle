@@ -24,6 +24,7 @@
 		E554E99F2808770E00230118 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554E99E2808770E00230118 /* UIViewController+Extension.swift */; };
 		E5B2A0F828051D1F00E8D514 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */; };
 		E5B2A100280540F900E8D514 /* ExpositionUniverselleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */; };
+		E5CA53FE280ECF7000BC611F /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA53FD280ECF7000BC611F /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
 		E5B2A0FD280540F900E8D514 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselleTests.swift; sourceTree = "<group>"; };
+		E5CA53FD280ECF7000BC611F /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				E5201DEC280702A30080F00C /* Decodable+Extension.swift */,
 				03FF8BA22807FB63002FE49E /* Int+Extension.swift */,
 				E554E99E2808770E00230118 /* UIViewController+Extension.swift */,
+				E5CA53FD280ECF7000BC611F /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E554E99F2808770E00230118 /* UIViewController+Extension.swift in Sources */,
+				E5CA53FE280ECF7000BC611F /* UILabel+Extension.swift in Sources */,
 				E554E99D280875EF00230118 /* DetailViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				03FF8BA32807FB63002FE49E /* Int+Extension.swift in Sources */,
