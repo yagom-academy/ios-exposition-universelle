@@ -111,7 +111,7 @@ final class ParisExpoViewController: UIViewController {
 extension ParisExpoViewController {
     private func initializeParisExpoData() {
         do {
-            parisExpoData = try ParisExpo.parse(fileName: FileName.parisExpo)
+            parisExpoData = try AssetData.assignParisExpo()
         } catch {
             showFailureAlert(message: AlertMessage.notFoundData)
         }
