@@ -7,7 +7,7 @@
 import UIKit
 
 final class KoreaEntriesViewController: UITableViewController {
-    private var koreaEntryDataArray: [KoreaEntryDetail] = []
+    private var koreaEntryValues: [KoreaEntryDetail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ final class KoreaEntriesViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             throw ExpoError.indexPathError
         }
-        let koreaEntryData: KoreaEntryDetail = self.koreaEntryDataArray[indexPath.row]
+        let koreaEntryData: KoreaEntryDetail = self.koreaEntryValues[indexPath.row]
         
         return koreaEntryData
     }
@@ -41,20 +41,20 @@ final class KoreaEntriesViewController: UITableViewController {
             showAlert(alertTitle: "데이터 처리에 실패했습니다. 데이터를 다시 한번 확인해주세요.", okTitle: "OK")
             return
         }
-        koreaEntryDataArray = unwrappedKoreaEntryData
+        koreaEntryValues = unwrappedKoreaEntryData
     }
 }
 
 extension KoreaEntriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.koreaEntryDataArray.count
+        return self.koreaEntryValues.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: KoreaEntryDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "KoreaEntryDetailTableViewCell") as? KoreaEntryDetailTableViewCell else {
             return KoreaEntryDetailTableViewCell()
         }
-        cell.makeCell(koreaEntryData: koreaEntryDataArray[indexPath.row])
+        cell.makeCell(koreaEntryData: koreaEntryValues[indexPath.row])
         
         return cell
     }
