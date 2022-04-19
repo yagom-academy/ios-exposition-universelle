@@ -35,7 +35,7 @@ extension MainViewController {
         guard let heritageListVC = storyboard?.instantiateViewController(withIdentifier: IdentifierName.heritageListViewController) as? HeritageListViewController else {
             return
         }
-        self.navigationController?.pushViewController(heritageListVC, animated: true)
+        navigationController?.pushViewController(heritageListVC, animated: true)
     }
 }
 

@@ -15,8 +15,8 @@ class HeritageListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         items = loadItems() ?? []
-        self.navigationController?.navigationBar.topItem?.title = "메인"
-        self.title = "한국의 출품작"
+        navigationController?.navigationBar.topItem?.title = "메인"
+        title = "한국의 출품작"
         heritageListTableView.dataSource = self
         heritageListTableView.delegate = self
     }
@@ -57,7 +57,7 @@ extension HeritageListViewController: UITableViewDelegate {
         }
         
         detailViewController.item = items[indexPath.row]
-        self.navigationController?.pushViewController(detailViewController, animated: true)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
