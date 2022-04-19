@@ -32,6 +32,7 @@ final class WorldFairPosterViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "메인"
         decodeWorldFairPoster()
+        updateUI()
         updateImageViews()
     }
     
