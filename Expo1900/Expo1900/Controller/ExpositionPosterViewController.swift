@@ -61,7 +61,7 @@ final class ExpositionPosterViewController: UIViewController {
     }
     
     private func updatePoster() {
-        posterTitle.text = poster?.title
+        posterTitle.text = poster?.title?.replacingOccurrences(of: "(", with: "\n(")
         visitorsValue.text = Int.numberFormatter(by: poster?.visitors)
         locationValue.text = poster?.location
         durationValue.text = poster?.duration
