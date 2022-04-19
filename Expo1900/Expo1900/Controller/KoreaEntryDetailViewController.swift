@@ -12,7 +12,6 @@ final class KoreaEntryDetailViewController: UIViewController {
     @IBOutlet weak var koreaEntryFullDescriptionLabel: UILabel!
     
     var koreaEntryData: KoreaEntryDetail?
-    private let notFoundImageFile: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
