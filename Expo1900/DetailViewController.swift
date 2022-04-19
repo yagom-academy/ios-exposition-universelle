@@ -15,14 +15,14 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTextOfDetailView()
-        self.title = item?.name
+        setContentsOfDetailView()
+        title = item?.name
     }
 }
 
 // MARK: - logic method
 extension DetailViewController {
-    private func setTextOfDetailView() {
+    private func setContentsOfDetailView() {
         guard let itemImageName = item?.imageName else {
             return
         }
