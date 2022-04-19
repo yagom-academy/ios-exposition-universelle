@@ -17,9 +17,9 @@ extension ParseError: LocalizedError {
   var errorDescription: String? {
     switch self {
     case .invalidName:
-      return "파일 이름이 잘못됬습니다"
+      return "파일명 오류"
     case .decodeFail:
-      return "디코딩이 실패했습니다"
+      return "디코딩 실패"
     }
   }
 }

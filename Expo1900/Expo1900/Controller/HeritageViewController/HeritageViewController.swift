@@ -41,7 +41,7 @@ final class HeritageViewController: UIViewController {
       case .success(let data):
         heritageList = data
       case .failure(let error):
-        print(error)
+        showAlert(errorMessage: error.localizedDescription)
       }
     }
   }
@@ -57,7 +57,7 @@ final class HeritageViewController: UIViewController {
   }
   
   private func request(name: String, completion: (Result<[Heritage], ParseError>) -> Void) {
-    guard let data = NSDataAsset(name: Const.File.name)?.data else {
+    guard let data = NSDataAsset(name: name)?.data else {
       completion(.failure(.invalidName))
       return
     }

@@ -26,6 +26,10 @@ fileprivate enum Const {
   enum Navigation {
     static let backButton = "메인"
   }
+  
+  enum Device {
+    static let orientation = "orientation"
+  }
 }
 
 //MARK: - Private Extension
@@ -75,17 +79,17 @@ final class ExpoViewController: UIViewController {
       case .success(let data):
         expo = data
       case .failure(let error):
-        print(error)
+        showAlert(errorMessage: error.localizedDescription)
       }
     }
   }
-    
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.isHidden = true
     
     let value = UIDeviceOrientation.portrait.rawValue
-    UIDevice.current.setValue(value, forKey: "orientation")
+    UIDevice.current.setValue(value, forKey: Const.Device.orientation)
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -99,7 +103,7 @@ final class ExpoViewController: UIViewController {
   }
   
   private func request(name: String, completion: (Result<Expo, ParseError>) -> Void) {
-    guard let data = NSDataAsset(name: Const.File.name)?.data else {
+    guard let data = NSDataAsset(name: name)?.data else {
       completion(.failure(.invalidName))
       return
     }
