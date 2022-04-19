@@ -31,10 +31,11 @@ final class KoreanItemViewController: UIViewController {
 
 extension KoreanItemViewController {
     private func initializeKoreanItemsData() {
-//        guard let items = try? [KoreanHistoricalItem].convert(from: "items") else {
-//            return
-//        }
-//        koreanItems = items
+        do {
+            koreanItems = try [KoreanHistoricalItem].parse(fileName: "items")
+        } catch {
+            showFailureAlert(message: "데이터 로드를 실패했습니다.")
+        }
     }
 }
 

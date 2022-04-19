@@ -112,7 +112,7 @@ final class ParisExpoViewController: UIViewController {
 extension ParisExpoViewController {
     private func initializeParisExpoData() {
         do {
-            parisExpoData = try parisExpoData?.convert(from: FileName.parisExpo)
+            parisExpoData = try ParisExpo.parse(fileName: FileName.parisExpo)
         } catch {
             showFailureAlert(message: "데이터 로드를 실패했습니다.")
         }
