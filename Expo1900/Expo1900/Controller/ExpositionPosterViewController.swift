@@ -62,20 +62,9 @@ final class ExpositionPosterViewController: UIViewController {
     
     private func updatePoster() {
         posterTitle.text = poster?.title
-        visitorsValue.text = numberFormatter(by: poster?.visitors)
+        visitorsValue.text = Int.numberFormatter(by: poster?.visitors)
         locationValue.text = poster?.location
         durationValue.text = poster?.duration
         descriptions.text = poster?.description
-    }
-    
-    private func numberFormatter(by inputText: Int?) -> String? {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        guard let result = numberFormatter.string(for: inputText) else {
-            return nil
         }
-        
-        return result + PosterLetter.numberOfPeople
     }
-}
