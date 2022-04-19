@@ -14,7 +14,7 @@ enum DecoderError: Error {
 }
 
 extension Decodable {
-    func convert(from fileName: String) throws -> Self {
+    static func convert(from fileName: String) throws -> Self {
         guard let assetFile = NSDataAsset(name: fileName) else {
             throw DecoderError.dataAssetFail
         }
