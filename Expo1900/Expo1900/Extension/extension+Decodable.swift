@@ -8,16 +8,15 @@
 import UIKit
 
 extension Decodable {
-    static func decode(with assetName: String) -> Result<Self, DataLoadError> {
-        guard let asset = NSDataAsset.init(name: assetName) else { return .failure(.assetLoadError) }
+    static func decode(with assetName: String) throws -> Self {
+        guard let asset = NSDataAsset.init(name: assetName) else { throw DataLoadError.assetLoadError }
         
         let decoder = JSONDecoder()
-        
         do {
             let data = try decoder.decode(Self.self, from: asset.data)
-            return .success(data)
-        } catch {
-            return .failure(.decodeError)
+            return data
+        } catch _ as DecodingError{
+            throw DataLoadError.dataLoadError
         }
     }
 }
