@@ -8,6 +8,7 @@ import UIKit
 
 final class KoreaEntriesViewController: UITableViewController {
     private var koreaEntryValues: [KoreaEntryDetail]?
+    let segueIdentifer = "KoreaEntryDetailViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ final class KoreaEntriesViewController: UITableViewController {
             showAlert(alertTitle: "데이터 전송에 실패했습니다.", okTitle: "OK")
             return
         }
-        if segue.identifier == "KoreaEntryDetailViewController" {
+        if segue.identifier == segueIdentifer {
             let koreaEntryData = try? transferData()
             koreaEntryDetailViewController.koreaEntryData = koreaEntryData
         }
