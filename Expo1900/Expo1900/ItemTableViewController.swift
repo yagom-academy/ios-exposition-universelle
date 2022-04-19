@@ -8,6 +8,9 @@
 import UIKit
 
 final class ItemTableViewController: UITableViewController {
+    
+    let cellIdentifier = "itemCell"
+    let subViewVCIdentifier = "ItemDetailVC"
 
     @IBOutlet weak var itemsTableView: UITableView!
     private let itemsList: [Heritage]? = [Heritage].parsingJson(name: "items")
@@ -23,7 +26,7 @@ final class ItemTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         var content = itemCell.defaultContentConfiguration()
         
         content.text = itemsList?[indexPath.row].title
@@ -36,8 +39,8 @@ final class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = itemsList?[indexPath.row] else { return }
-        guard let subView = self.storyboard?.instantiateViewController(identifier: "ItemDetailVC", creator: { coder in ItemDetailViewController(item: item, coder: coder) }) else { return }
+        guard let subViewController = self.storyboard?.instantiateViewController(identifier: subViewVCIdentifier, creator: { coder in ItemDetailViewController(item: item, coder: coder) }) else { return }
         
-        self.navigationController?.pushViewController(subView, animated: true)
+        self.navigationController?.pushViewController(subViewController, animated: true)
     }
 }
