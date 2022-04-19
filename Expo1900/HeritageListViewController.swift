@@ -64,12 +64,11 @@ extension HeritageListViewController: UITableViewDelegate {
 extension HeritageListViewController {
     private func loadItems() -> [Item]? {
         let jsonManager: JsonManagerable = JsonManager()
-        
         do {
             let heritageInfo = try jsonManager.decodedItems()
             return heritageInfo
         } catch {
-            print(error.localizedDescription)
+            showErrorAlert(error)
             return nil
         }
     }
@@ -80,6 +79,20 @@ extension HeritageListViewController {
         title = "한국의 출품작"
         heritageListTableView.dataSource = self
         heritageListTableView.delegate = self
+    }
+    
+    private func showErrorAlert(_ error: Error) {
+        var errorMessage = ""
+        if let _ = error as? ExpoError {
+            errorMessage = "디코딩 에러입니다. 앱을 재설치 해주세요."
+        } else {
+            errorMessage = "알수없는 에러입니다."
+        }
+        
+        let alert = UIAlertController(title: "오류", message: errorMessage, preferredStyle: .alert)
+        let action = UIAlertAction(title: "닫기", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
 
