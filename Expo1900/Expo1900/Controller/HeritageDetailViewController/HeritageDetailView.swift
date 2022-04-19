@@ -2,7 +2,7 @@
 //  HeritageDetailView.swift
 //  Expo1900
 //
-//  Created by song on 2022/04/17.
+//  Created by Taeangel, dudu on 2022/04/19.
 //
 
 import UIKit
@@ -12,10 +12,11 @@ import UIKit
 extension HeritageDetailView {
   private enum Const {
     enum Image {
-      static let height: CGFloat = 200
+      static let ratio: CGFloat = 0.3
     }
     enum Stack {
       static let margin: CGFloat = 10
+      static let spacing: CGFloat = 10
     }
   }
 }
@@ -34,13 +35,17 @@ final class HeritageDetailView: UIView {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
+    stackView.alignment = .center
+    stackView.spacing = Const.Stack.spacing
     return stackView
   }()
   
   lazy var heritageImageView: UIImageView = {
     let imageView = UIImageView()
+    let width = Const.Image.ratio * self.bounds.width
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.heightAnchor.constraint(equalToConstant: Const.Image.height).isActive = true
+    imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+    imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
