@@ -6,6 +6,7 @@
 import UIKit
 
 fileprivate extension Constants {
+  static let notice = "알림"
   static let confirm = "확인"
   static let visitor = "방문객 : %@ 명"
   static let location = "개최지 : "
@@ -14,7 +15,7 @@ fileprivate extension Constants {
   static let spacingBracket = "\n("
 }
 
-final class MainViewController: UIViewController, AlertPresentable {
+final class MainViewController: UIViewController {
   
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var posterImageView: UIImageView!
@@ -22,9 +23,6 @@ final class MainViewController: UIViewController, AlertPresentable {
   @IBOutlet private weak var locationLabel: UILabel!
   @IBOutlet private weak var durationLabel: UILabel!
   @IBOutlet private weak var descriptionLabel: UILabel!
-  
-  lazy var alertBuilder: AlertBuilderable = AlertBuilder(viewController: self)
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,11 +50,30 @@ private extension MainViewController {
     case let .success(expo):
       self.setUpView(from: expo)
     case let .failure(error):
-      alertBuilder
-        .setTitle(error.localizedDescription)
-        .setConfirmTitle(Constants.confirm)
-        .showAlert()
+      self.showAlertController(
+        title: Constants.notice,
+        message: error.localizedDescription,
+        preferredStyle: .alert,
+        actions: [UIAlertAction(title: Constants.confirm, style: .default)]
+      )
     }
+  }
+  
+  func showAlertController(
+    title: String?,
+    message: String?,
+    preferredStyle: UIAlertController.Style,
+    actions: [UIAlertAction]
+  ) {
+    let alertController = UIAlertController(
+      title: title,
+      message: message,
+      preferredStyle: preferredStyle
+    )
+    actions.forEach { action in
+      alertController.addAction(action)
+    }
+    self.present(alertController, animated: true)
   }
   
   func setUpView(from expo: Expo) {
