@@ -12,4 +12,11 @@ struct ParisExpo: Decodable {
     let location: String
     let duration: String
     let description: String
+    
+    static func parse(fileName: String) throws -> Self {
+        guard let data = try? Self.convert(from: fileName) else {
+            throw DecoderError.decodeFail
+        }
+        return data
+    }
 }
