@@ -10,8 +10,8 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var shouldSupportAllOrientaion = true
-
+    var shouldSupportAllOrientaion = false
+    
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         if shouldSupportAllOrientaion == true {
             return UIInterfaceOrientationMask.all
