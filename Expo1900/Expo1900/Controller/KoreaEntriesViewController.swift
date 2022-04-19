@@ -11,7 +11,7 @@ final class KoreaEntriesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = ExpoStringEnum.koreaEntryMainTitle
         tableView.dataSource = self
         decodeKoreaEntry()
     }
@@ -19,16 +19,16 @@ final class KoreaEntriesViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var koreaEntryData: KoreaEntryDetail?
         guard let koreaEntryDetailViewController = segue.destination as? KoreaEntryDetailViewController else {
-            showAlert(alertTitle: "데이터 전송에 실패했습니다.", okTitle: "OK")
+            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
             return
         }
-        if segue.identifier == segueIdentifer {
+        if segue.identifier == ExpoStringEnum.segueIdentifer {
             do {
                 koreaEntryData = try transferData()
             } catch ExpoError.decodeError {
-                showAlert(alertTitle: "데이터 처리가 실패했습니다", okTitle: "OK")
+                showAlert(alertTitle: ExpoStringEnum.failedHandleData, okTitle: ExpoStringEnum.okTitle)
             } catch {
-                showAlert(alertTitle: "예상치 못한 에러 발생!", okTitle: "OK")
+                showAlert(alertTitle: ExpoStringEnum.unexpectedError, okTitle: ExpoStringEnum.okTitle)
             }
             koreaEntryDetailViewController.koreaEntryData = koreaEntryData
         }
@@ -52,9 +52,9 @@ final class KoreaEntriesViewController: UITableViewController {
         do {
             unwrappedKoreaEntryData = try assetSeeker.matchKoreaEntryDetailAsset()
         } catch ExpoError.decodeError {
-            showAlert(alertTitle: "데이터 처리가 실패했습니다", okTitle: "OK")
+            showAlert(alertTitle: ExpoStringEnum.failedHandleData, okTitle: ExpoStringEnum.okTitle)
         } catch {
-            showAlert(alertTitle: "예상치 못한 에러 발생!", okTitle: "OK")
+            showAlert(alertTitle: ExpoStringEnum.unexpectedError, okTitle: ExpoStringEnum.okTitle)
         }
         koreaEntryValues = unwrappedKoreaEntryData
     }
@@ -62,17 +62,17 @@ final class KoreaEntriesViewController: UITableViewController {
 
 extension KoreaEntriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.koreaEntryValues?.count ?? ExpoEnum.defaultRowCount
+        return self.koreaEntryValues?.count ?? ExpoMagicNumberEnum.defaultRowCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: KoreaEntryDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "KoreaEntryDetailTableViewCell") as? KoreaEntryDetailTableViewCell else {
+        guard let cell: KoreaEntryDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: ExpoStringEnum.cellIdentifier) as? KoreaEntryDetailTableViewCell else {
             return KoreaEntryDetailTableViewCell()
         }
         if let koreaEntryValue = self.koreaEntryValues?[indexPath.row] {
             cell.makeCell(koreaEntryData: koreaEntryValue)
         } else {
-            showAlert(alertTitle: "데이터 처리에 실패했습니다. 데이터를 다시 한번 확인해주세요.", okTitle: "OK")
+            showAlert(alertTitle: ExpoStringEnum.failedHandleData, okTitle: ExpoStringEnum.okTitle)
         }
         
         return cell
