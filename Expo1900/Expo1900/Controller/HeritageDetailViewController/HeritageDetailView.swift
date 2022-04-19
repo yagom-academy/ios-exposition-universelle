@@ -14,6 +14,9 @@ extension HeritageDetailView {
     enum Image {
       static let height: CGFloat = 200
     }
+    enum Stack {
+      static let margin: CGFloat = 10
+    }
   }
 }
 
@@ -82,6 +85,9 @@ extension HeritageDetailView {
     ])
     
     //MARK: - baseStackView
+    
+    baseStackView.directionalLayoutMargins = .init(top: Const.Stack.margin, leading: Const.Stack.margin, bottom: Const.Stack.margin, trailing: Const.Stack.margin)
+    baseStackView.isLayoutMarginsRelativeArrangement = true
     
     NSLayoutConstraint.activate([
       baseStackView.topAnchor.constraint(equalTo: baseScrollView.topAnchor),

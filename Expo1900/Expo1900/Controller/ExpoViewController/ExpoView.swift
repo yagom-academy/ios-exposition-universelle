@@ -28,6 +28,7 @@ extension ExpoView {
       static let leading: CGFloat = 10
       static let trailing: CGFloat = -10
       static let spacing: CGFloat = 10
+      static let margin: CGFloat = 10
     }
     
     enum ButtonStack {
@@ -223,6 +224,9 @@ extension ExpoView {
     ])
     
     //MARK: - baseStackView
+    
+    baseStackView.directionalLayoutMargins = .init(top: Const.Stack.margin, leading: Const.Stack.margin, bottom: Const.Stack.margin, trailing: Const.Stack.margin)
+    baseStackView.isLayoutMarginsRelativeArrangement = true
     
     NSLayoutConstraint.activate([
       baseStackView.topAnchor.constraint(equalTo: baseScrollView.topAnchor),
