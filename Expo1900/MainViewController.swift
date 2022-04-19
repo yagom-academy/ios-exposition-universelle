@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, GenerateErrorAlertProtocol {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImage: UIImageView!
@@ -32,10 +32,10 @@ class MainViewController: UIViewController {
 // MARK: - IBAction method
 extension MainViewController {
     @IBAction func showListButtonIsTapped(_ sender: UIButton) {
-        guard let heritageListVC = storyboard?.instantiateViewController(withIdentifier: IdentifierName.heritageListViewController) as? HeritageListViewController else {
+        guard let heritageListViewController = storyboard?.instantiateViewController(withIdentifier: IdentifierName.heritageListViewController) as? HeritageListViewController else {
             return
         }
-        navigationController?.pushViewController(heritageListVC, animated: true)
+        navigationController?.pushViewController(heritageListViewController, animated: true)
     }
 }
 
@@ -48,7 +48,8 @@ extension MainViewController {
             let expositionInfo: ExpositionInfo = try jsonManager.decodedResult()
             return expositionInfo
         } catch {
-            print(error.localizedDescription)
+            let alertController = makeUIAlertControllerFromError(error)
+            present(alertController, animated: true, completion: nil)
             return nil
         }
     }

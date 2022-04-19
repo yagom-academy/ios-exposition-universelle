@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeritageListViewController: UIViewController {
+class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol {
 
     @IBOutlet private var heritageListTableView: UITableView!
     private var items: [Item] = []
@@ -68,7 +68,8 @@ extension HeritageListViewController {
             let heritageInfo: [Item] = try jsonManager.decodedResult()
             return heritageInfo
         } catch {
-            showErrorAlert(error)
+            let alertController = makeUIAlertControllerFromError(error)
+            present(alertController, animated: true, completion: nil)
             return nil
         }
     }
@@ -79,20 +80,6 @@ extension HeritageListViewController {
         title = "한국의 출품작"
         heritageListTableView.dataSource = self
         heritageListTableView.delegate = self
-    }
-    
-    private func showErrorAlert(_ error: Error) {
-        var errorMessage = ""
-        if let _ = error as? ExpoError {
-            errorMessage = "디코딩 에러입니다. 앱을 재설치 해주세요."
-        } else {
-            errorMessage = "알수없는 에러입니다."
-        }
-        
-        let alert = UIAlertController(title: "오류", message: errorMessage, preferredStyle: .alert)
-        let action = UIAlertAction(title: "닫기", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
     }
 }
 
