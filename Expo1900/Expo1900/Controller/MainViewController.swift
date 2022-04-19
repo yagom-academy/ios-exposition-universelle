@@ -14,6 +14,8 @@ final class MainViewController: UIViewController {
     @IBOutlet weak private var durationLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
     
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpView()
@@ -21,10 +23,12 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate?.shouldSupportAllOrientaion = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        appDelegate?.shouldSupportAllOrientaion = true
     }
     
     private func decodeJson() -> ExpoInformation {
