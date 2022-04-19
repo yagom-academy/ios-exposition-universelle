@@ -50,7 +50,7 @@ final class KoreaEntriesViewController: UITableViewController {
 
 extension KoreaEntriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.koreaEntryValues?.count ?? defaultLowCount
+        return self.koreaEntryValues?.count ?? ExpoEnum.defaultRowCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
