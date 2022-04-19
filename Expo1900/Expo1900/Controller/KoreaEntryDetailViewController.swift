@@ -17,6 +17,6 @@ final class KoreaEntryDetailViewController: UIViewController {
         super.viewDidLoad()
         title = koreaEntryData?.name
         koreaEntryFullDescriptionLabel.text = koreaEntryData?.fullDescription
-        koreaEntryImageView.image = UIImage(named: koreaEntryData?.imageFileName ?? ExpoEnum.notFoundImageFile)
+        koreaEntryImageView.image = UIImage(named: koreaEntryData?.imageFileName ?? ExpoMagicNumberEnum.notFoundImageFile)
     }
 }
