@@ -117,3 +117,18 @@ extension ParisExpoViewController {
         }
     }
 }
+
+extension UINavigationController {
+    override open var shouldAutorotate: Bool {
+        get {
+            if let _ = topViewController as? ParisExpoViewController {
+                return false
+            }
+            return true
+        }
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+}
