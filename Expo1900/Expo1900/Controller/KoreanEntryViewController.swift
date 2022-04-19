@@ -29,8 +29,7 @@ extension KoreanEntryViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.koreanEntryTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? KoreanEntryCell else { return UITableViewCell() }
-        
-        cell.setUpCellInfo(title: entries[indexPath.row].name, image: entries[indexPath.row].imageName, intro: entries[indexPath.row].introduction)
+        cell.configureCell(title: entries[indexPath.row].name, image: entries[indexPath.row].imageName, intro: entries[indexPath.row].introduction)
         
         return cell
     }

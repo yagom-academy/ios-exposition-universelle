@@ -7,17 +7,13 @@ class KoreanEntryCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
     }
     
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
     
-}
-
-extension KoreanEntryCell {
-    public func setUpCellInfo(title: String, image: String, intro: String) {
+    func configureCell(title: String, image: String, intro: String) {
         detailTitleLabel?.font = UIFont.systemFont(ofSize: 25)
         detailImageView?.contentMode = .scaleAspectFit
         detailIntroLabel?.numberOfLines = 0
