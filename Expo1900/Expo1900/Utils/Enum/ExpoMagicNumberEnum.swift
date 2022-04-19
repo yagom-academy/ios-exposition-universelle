@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ExpoEnum {
+enum ExpoMagicNumberEnum {
     static let defaultRowCount: Int = 0
     static let defaultVisitor: Int = 0
     static let notFoundImageFile: String = ""
