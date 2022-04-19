@@ -11,6 +11,8 @@ final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
         koreanEntryTableView.delegate = self
         koreanEntryTableView.dataSource = self
+//        koreanEntryTableView.rowHeight = UITableView.automaticDimension
+//        koreanEntryTableView.estimatedRowHeight = 300
         updateEntries()
     }
     

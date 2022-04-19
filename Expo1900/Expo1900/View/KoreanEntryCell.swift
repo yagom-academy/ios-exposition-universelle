@@ -7,9 +7,7 @@ class KoreanEntryCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        detailTitleLabel?.font = UIFont.systemFont(ofSize: 25)
-        detailImageView?.contentMode = .scaleAspectFit
-        detailIntroLabel?.numberOfLines = 0
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -20,6 +18,10 @@ class KoreanEntryCell: UITableViewCell {
 
 extension KoreanEntryCell {
     public func setUpCellInfo(title: String, image: String, intro: String) {
+        detailTitleLabel?.font = UIFont.systemFont(ofSize: 25)
+        detailImageView?.contentMode = .scaleAspectFit
+        detailIntroLabel?.numberOfLines = 0
+        
         detailTitleLabel?.text = title
         detailImageView?.image = UIImage(named: image)
         detailIntroLabel?.text = intro
