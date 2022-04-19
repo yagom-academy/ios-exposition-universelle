@@ -8,6 +8,8 @@ import UIKit
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
   
+  private var orientationLock = UIInterfaceOrientationMask.all
+  
   func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -26,5 +28,18 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
       name: "Default Configuration",
       sessionRole: connectingSceneSession.role
     )
+  }
+  
+  // MARK: Set Orientation
+  
+  func application(
+    _ application: UIApplication,
+    supportedInterfaceOrientationsFor window: UIWindow?
+  ) -> UIInterfaceOrientationMask {
+    return self.orientationLock
+  }
+  
+  func setOrientationLock(_ orientation: UIInterfaceOrientationMask) {
+    self.orientationLock = orientation
   }
 }

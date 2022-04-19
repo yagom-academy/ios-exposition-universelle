@@ -13,6 +13,8 @@ fileprivate extension Constants {
   static let duration = "개최 기간 : "
   static let bracket = "("
   static let spacingBracket = "\n("
+  
+  static let orientation = "orientation"
 }
 
 final class MainViewController: UIViewController {
@@ -32,11 +34,13 @@ final class MainViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController?.isNavigationBarHidden = true
+    self.lockOrientation(.portrait, andRotateTo: .portrait)
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     self.navigationController?.isNavigationBarHidden = false
+    self.lockOrientation(.all)
   }
 }
 
@@ -86,5 +90,26 @@ private extension MainViewController {
     self.locationLabel.text = Constants.location + expo.location
     self.durationLabel.text = Constants.duration + expo.duration
     self.descriptionLabel.text = expo.description
+  }
+}
+
+// MARK: - Orientation Extension
+
+private extension MainViewController {
+  
+  func lockOrientation(
+    _ orientation: UIInterfaceOrientationMask
+  ) {
+    if let delegate = UIApplication.shared.delegate as? AppDelegate {
+      delegate.setOrientationLock(orientation)
+    }
+  }
+  
+  func lockOrientation(
+    _ orientation: UIInterfaceOrientationMask,
+    andRotateTo rotateOrientation:UIInterfaceOrientation
+  ) {
+    self.lockOrientation(orientation)
+    UIDevice.current.setValue(rotateOrientation.rawValue, forKey: Constants.orientation)
   }
 }
