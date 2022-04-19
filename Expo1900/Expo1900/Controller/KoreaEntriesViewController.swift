@@ -31,7 +31,10 @@ final class KoreaEntriesViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             throw ExpoError.indexPathError
         }
-        let koreaEntryData: KoreaEntryDetail = self.koreaEntryValues[indexPath.row]
+        guard let koreaEntryValue = self.koreaEntryValues?[indexPath.row] else {
+            throw ExpoError.emptyValueError
+        }
+        let koreaEntryData: KoreaEntryDetail = koreaEntryValue
         
         return koreaEntryData
     }
