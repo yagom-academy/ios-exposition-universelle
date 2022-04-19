@@ -1,9 +1,6 @@
-//
 //  KoreanItemTableViewCell.swift
 //  Expo1900
-//
-//  Created by LIMGAUI on 2022/04/14.
-//
+//  Created by LIMGAUI on 2022/04/14
 
 import UIKit
 
