@@ -31,7 +31,7 @@ final class ExpositionPosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPoster()
+        navigationItem.backButtonTitle = PosterLetter.main
         poster = ExpositionPoster.parse(JsonFile.poster)
     }
     
@@ -48,15 +48,15 @@ final class ExpositionPosterViewController: UIViewController {
         self.navigationController?.pushViewController(entryListViewController, animated: true)
     }
     
-    private func setupPoster() {
-        navigationItem.backButtonTitle = PosterLetter.main
-    }
-    
     private func updatePoster() {
-        posterTitle.text = poster?.title?.replacingOccurrences(of: "(", with: "\n(")
-        visitorsValue.text = Int.numberFormatter(by: poster?.visitors)
-        locationValue.text = poster?.location
-        durationValue.text = poster?.duration
-        descriptions.text = poster?.description
+        guard let poster = poster else {
+            return
+        }
+
+        posterTitle.text = poster.title?.replacingOccurrences(of: "(", with: "\n(")
+        visitorsValue.text = Int.numberFormatter(by: poster.visitors)
+        locationValue.text = poster.location
+        durationValue.text = poster.duration
+        descriptions.text = poster.description
         }
     }
