@@ -29,13 +29,17 @@ final class MainViewController: UIViewController {
         
         titleLabel.text = expoInfomation.title
         posterImageView.image = UIImage(named: "poster")
-        visitorsLabel.text = "방문객 : \(expoInfomation.visitors)"
-        visitorsLabel.changePartFont(part: "방문객")
-        locationLabel.text = "개최지 : \(expoInfomation.location)"
-        locationLabel.changePartFont(part: "개최지")
-        durationLabel.text = "개최기간 : \(expoInfomation.duration)"
-        durationLabel.changePartFont(part: "개최기간")
+        visitorsLabel.text = .visitor + " : \(expoInfomation.visitors)"
+        locationLabel.text = .location + " : \(expoInfomation.location)"
+        durationLabel.text = .duration + " : \(expoInfomation.duration)"
+        changeFont()
         decriptionLabel.text = expoInfomation.description
+    }
+    
+    private func changeFont() {
+        visitorsLabel.changePartFont(part: .visitor)
+        locationLabel.changePartFont(part: .location)
+        durationLabel.changePartFont(part: .duration)
     }
 }
 
@@ -50,4 +54,10 @@ private extension UILabel {
         
         self.attributedText = mutableText
     }
+}
+
+private extension String {
+    static var visitor: String { "방문객" }
+    static var location: String { "개최지" }
+    static var duration: String { "개최기간" }
 }
