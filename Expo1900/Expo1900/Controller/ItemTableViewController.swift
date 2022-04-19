@@ -26,13 +26,11 @@ final class ItemTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let itemCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        var content = itemCell.defaultContentConfiguration()
+        guard let itemCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
         
-        content.text = itemsList?[indexPath.row].title
-        content.secondaryText = itemsList?[indexPath.row].shortDescription
-        content.image = UIImage(named: itemsList?[indexPath.row].imageName ?? "swift")
-        itemCell.contentConfiguration = content
+        itemCell.itemTitleLebel.text = itemsList?[indexPath.row].title
+        itemCell.itemImageView.image = UIImage(named: itemsList?[indexPath.row].imageName ?? "swift")
+        itemCell.itemShortDescriptionLabel.text = itemsList?[indexPath.row].shortDescription
         
         return itemCell
     }
