@@ -35,10 +35,9 @@ final class WorldFairPosterViewController: UIViewController {
         updateImageViews()
     }
     
-    private func decodeWorldFairPoster() {
+    private func decodeWorldFairPoster() throws -> WorldFairPoster {
         guard let worldFairPosterData = Parser<WorldFairPoster>.parse(name: "exposition_universelle_1900") else {
-            showAlert(alertTitle: "오류 발생, 다시 한번 실행해주세요", okTitle: "OK")
-            return
+            throw ExpoError.emptyValueError
         }
         return worldFairPosterData
     }
