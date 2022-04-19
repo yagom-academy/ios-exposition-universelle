@@ -32,7 +32,9 @@ class MainViewController: UIViewController, GenerateErrorAlertProtocol {
 // MARK: - IBAction method
 extension MainViewController {
     @IBAction func showListButtonIsTapped(_ sender: UIButton) {
-        guard let heritageListViewController = storyboard?.instantiateViewController(withIdentifier: IdentifierName.heritageListViewController) as? HeritageListViewController else {
+        let identifier = String(describing: HeritageListViewController.self)
+
+        guard let heritageListViewController = storyboard?.instantiateViewController(withIdentifier: identifier) as? HeritageListViewController else {
             return
         }
         navigationController?.pushViewController(heritageListViewController, animated: true)

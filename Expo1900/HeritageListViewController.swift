@@ -11,6 +11,7 @@ class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol {
 
     @IBOutlet private var heritageListTableView: UITableView!
     private var items: [Item] = []
+    static let heritageListViewControllerName = String(describing: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,9 @@ extension HeritageListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = heritageListTableView.dequeueReusableCell(withIdentifier: IdentifierName.heritageCell, for: indexPath) as? HeritageListCell else {
+        let identifier = String(describing: HeritageListCell.self)
+
+        guard let cell = heritageListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? HeritageListCell else {
             return UITableViewCell()
         }
         
@@ -51,7 +54,9 @@ extension HeritageListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate method
 extension HeritageListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: IdentifierName.detailViewController) as? DetailViewController else {
+        let identifier = String(describing: DetailViewController.self)
+
+        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: identifier) as? DetailViewController else {
             return
         }
         
