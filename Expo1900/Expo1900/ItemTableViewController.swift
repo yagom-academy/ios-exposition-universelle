@@ -19,9 +19,7 @@ final class ItemTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let elementCount = itemsList?.count else { return 0 }
-        
-        return elementCount
+        return itemsList?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
