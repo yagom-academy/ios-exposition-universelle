@@ -23,10 +23,6 @@ final class ExpositionPosterViewController: UIViewController {
         }
     }
     
-    @IBOutlet private weak var visitors: UILabel!
-    @IBOutlet private weak var location: UILabel!
-    @IBOutlet private weak var duration: UILabel!
-    
     @IBOutlet private weak var posterTitle: UILabel!
     @IBOutlet private weak var visitorsValue: UILabel!
     @IBOutlet private weak var locationValue: UILabel!
@@ -54,10 +50,6 @@ final class ExpositionPosterViewController: UIViewController {
     
     private func setupPoster() {
         navigationItem.backButtonTitle = PosterLetter.main
-        
-        visitors.text = PosterLetter.visitors
-        location.text = PosterLetter.location
-        duration.text = PosterLetter.duration
     }
     
     private func updatePoster() {
