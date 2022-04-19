@@ -9,8 +9,8 @@ import UIKit
 
 final class ItemTableViewController: UITableViewController {
     
-    let cellIdentifier = "itemCell"
-    let subViewVCIdentifier = "ItemDetailVC"
+    private let cellIdentifier = "itemCell"
+    private let subViewVCIdentifier = "ItemDetailVC"
 
     @IBOutlet weak var itemsTableView: UITableView!
     private let itemsList: [Heritage]? = [Heritage].parsingJson(name: "items")
