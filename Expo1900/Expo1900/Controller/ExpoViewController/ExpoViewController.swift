@@ -70,7 +70,14 @@ final class ExpoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     attribute()
-    requestData()
+    request(name: Const.File.name) { result in
+      switch result {
+      case .success(let data):
+        expo = data
+      case .failure(let error):
+        print(error)
+      }
+    }
   }
     
   override func viewWillAppear(_ animated: Bool) {
@@ -91,14 +98,16 @@ final class ExpoViewController: UIViewController {
     navigationItem.backButtonTitle = Const.Navigation.backButton
   }
   
-  private func requestData() {
-    Expo.parse(name: Const.File.name) { result in
-      switch result {
-      case .success(let data):
-        expo = data
-      case .failure(let error):
-        print(error)
-      }
+  private func request(name: String, completion: (Result<Expo, ParseError>) -> Void) {
+    guard let data = NSDataAsset(name: Const.File.name)?.data else {
+      completion(.failure(.invalidName))
+      return
+    }
+    do {
+      let decodedData = try JSONDecoder().decode(Expo.self, from: data)
+      completion(.success(decodedData))
+    } catch {
+      completion(.failure(.decodeFail))
     }
   }
   

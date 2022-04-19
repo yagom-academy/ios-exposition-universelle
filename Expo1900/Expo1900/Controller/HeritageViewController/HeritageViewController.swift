@@ -36,7 +36,14 @@ final class HeritageViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     attribute()
-    requestData()
+    request(name: Const.File.name) { result in
+      switch result {
+      case .success(let data):
+        heritageList = data
+      case .failure(let error):
+        print(error)
+      }
+    }
   }
   
   private func attribute() {
@@ -49,14 +56,16 @@ final class HeritageViewController: UIViewController {
     baseView.tableView.delegate = self
   }
   
-  private func requestData() {
-    [Heritage].parse(name: Const.File.name) { result in
-      switch result {
-      case .success(let data):
-        heritageList = data
-      case .failure(let error):
-        print(error)
-      }
+  private func request(name: String, completion: (Result<[Heritage], ParseError>) -> Void) {
+    guard let data = NSDataAsset(name: Const.File.name)?.data else {
+      completion(.failure(.invalidName))
+      return
+    }
+    do {
+      let decodedData = try JSONDecoder().decode([Heritage].self, from: data)
+      completion(.success(decodedData))
+    } catch {
+      completion(.failure(.decodeFail))
     }
   }
 }
