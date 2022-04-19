@@ -21,8 +21,11 @@ final class MainViewController: UIViewController {
         titleLabel.text = expoInfomation.title
         posterImageView.image = UIImage(named: "poster")
         visitorsLabel.text = "방문객 : \(expoInfomation.visitors)"
+        visitorsLabel.changePartFont(part: "방문객")
         locationLabel.text = "개최지 : \(expoInfomation.location)"
+        locationLabel.changePartFont(part: "개최지")
         durationLabel.text = "개최기간 : \(expoInfomation.duration)"
+        durationLabel.changePartFont(part: "개최기간")
         decriptionLabel.text = expoInfomation.description
     }
     
@@ -32,3 +35,14 @@ final class MainViewController: UIViewController {
     }
 }
 
+private extension UILabel {
+    func changePartFont(part: String) {
+        guard let text = self.text else { return }
+        let mutableText = NSMutableAttributedString(string: text)
+        let changingRange = (text as NSString).range(of: part)
+        
+        mutableText.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .title3), range: changingRange)
+        
+        self.attributedText = mutableText
+    }
+}
