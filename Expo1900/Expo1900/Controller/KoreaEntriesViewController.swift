@@ -18,12 +18,19 @@ final class KoreaEntriesViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var koreaEntryData: KoreaEntryDetail?
         guard let koreaEntryDetailViewController = segue.destination as? KoreaEntryDetailViewController else {
             showAlert(alertTitle: "데이터 전송에 실패했습니다.", okTitle: "OK")
             return
         }
         if segue.identifier == segueIdentifer {
-            let koreaEntryData = try? transferData()
+            do {
+                koreaEntryData = try transferData()
+            } catch ExpoError.decodeError {
+                showAlert(alertTitle: "데이터 처리가 실패했습니다", okTitle: "OK")
+            } catch {
+                showAlert(alertTitle: "예상치 못한 에러 발생!", okTitle: "OK")
+            }
             koreaEntryDetailViewController.koreaEntryData = koreaEntryData
         }
     }
