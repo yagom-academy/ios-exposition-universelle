@@ -89,26 +89,26 @@ private extension MainViewController {
       with: Constants.spacingBracket
     )
     self.posterImageView.image = UIImage(named: AssetName.poster)
-    self.bold(
-      self.visitorsLabel,
-      text: String(format: Constants.visitor, expo.visitors.toDecimal()),
-      targetString: Constants.visitorPrefix
+    self.setAttributed(
+      of: String(format: Constants.visitor, expo.visitors.toDecimal()),
+      with: Constants.visitorPrefix,
+      in: self.visitorsLabel
     )
-    self.bold(
-      self.locationLabel,
-      text: Constants.location + expo.location,
-      targetString: Constants.locationPrefix
+    self.setAttributed(
+      of: Constants.location + expo.location,
+      with: Constants.locationPrefix,
+      in: self.locationLabel
     )
-    self.bold(
-      self.durationLabel,
-      text: Constants.duration + expo.duration,
-      targetString: Constants.durationPrefix
+    self.setAttributed(
+      of: Constants.duration + expo.duration,
+      with: Constants.durationPrefix,
+      in: self.durationLabel
     )
     self.descriptionLabel.text = expo.description
   }
   
-  func bold(_ label: UILabel, text: String, targetString: String) {
-    let font = UIFont.preferredFont(forTextStyle: .headline)
+  func setAttributed(of text: String, with targetString: String, in label: UILabel) {
+    let font = UIFont.preferredFont(forTextStyle: .title3)
     let range = (text as NSString).range(of: targetString)
     let attributedString = NSMutableAttributedString(string: text)
     attributedString.addAttribute(.font, value: font, range: range)

@@ -20,11 +20,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NaJ-XX-Xwe">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QaZ-UD-jdK">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="388"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QaZ-UD-jdK">
+                                        <rect key="frame" x="0.0" y="20" width="390" height="388"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-HW-xwt">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="0.0"/>
+                                                <rect key="frame" x="15" y="0.0" width="360" height="0.0"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -51,13 +51,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2e-L4-glZ">
-                                                <rect key="frame" x="0.0" y="328" width="390" height="0.0"/>
+                                                <rect key="frame" x="15" y="328" width="360" height="0.0"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UST-BH-vuV">
-                                                <rect key="frame" x="0.0" y="338" width="390" height="50"/>
+                                                <rect key="frame" x="68.666666666666686" y="338" width="253" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="Lbp-19-QQI">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -67,7 +67,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97r-67-9OL">
-                                                        <rect key="frame" x="50" y="0.0" width="290" height="50"/>
+                                                        <rect key="frame" x="50" y="0.0" width="153" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
                                                         <connections>
@@ -75,7 +75,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="RlA-eQ-kDS">
-                                                        <rect key="frame" x="340" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="203" y="0.0" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="DeA-IC-L0X"/>
                                                             <constraint firstAttribute="height" constant="50" id="ZCn-b2-J2y"/>
@@ -84,11 +84,17 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uEK-HW-xwt" firstAttribute="leading" secondItem="QaZ-UD-jdK" secondAttribute="leading" constant="15" id="CRR-pw-wd9"/>
+                                            <constraint firstItem="J2e-L4-glZ" firstAttribute="leading" secondItem="QaZ-UD-jdK" secondAttribute="leading" constant="15" id="Qca-ua-cja"/>
+                                            <constraint firstAttribute="trailing" secondItem="uEK-HW-xwt" secondAttribute="trailing" constant="15" id="bYw-7c-9Mk"/>
+                                            <constraint firstAttribute="trailing" secondItem="J2e-L4-glZ" secondAttribute="trailing" constant="15" id="kL6-eA-ga8"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QaZ-UD-jdK" firstAttribute="height" secondItem="oOH-0n-wxj" secondAttribute="height" priority="250" id="Dn7-Zm-JwQ"/>
-                                    <constraint firstItem="QaZ-UD-jdK" firstAttribute="top" secondItem="NaJ-XX-Xwe" secondAttribute="top" id="h95-E4-oBw"/>
+                                    <constraint firstItem="QaZ-UD-jdK" firstAttribute="top" secondItem="NaJ-XX-Xwe" secondAttribute="top" constant="20" id="h95-E4-oBw"/>
                                     <constraint firstItem="QaZ-UD-jdK" firstAttribute="width" secondItem="NaJ-XX-Xwe" secondAttribute="width" id="lHs-Su-Ymf"/>
                                     <constraint firstItem="QaZ-UD-jdK" firstAttribute="leading" secondItem="NaJ-XX-Xwe" secondAttribute="leading" id="ppF-cW-err"/>
                                     <constraint firstAttribute="trailing" secondItem="QaZ-UD-jdK" secondAttribute="trailing" id="pr7-b6-K6l"/>
