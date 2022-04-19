@@ -41,8 +41,8 @@ final class ExpositionMainViewController: UIViewController {
     
     private func showFileNotFoundAlert() {
         let alert = UIAlertController(title: "File Not Found",
-                                      message: "파일이 없습니다!",
-                                      preferredStyle: .alert)
+                                    message: "파일이 없습니다!",
+                             preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "확인",
                                         style: .default)
         alert.addAction(alertAction)
@@ -50,7 +50,7 @@ final class ExpositionMainViewController: UIViewController {
     }
 }
 
-//MARK: Life Cycle
+//MARK: - Life Cycle
 extension ExpositionMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
