@@ -111,9 +111,10 @@ final class ParisExpoViewController: UIViewController {
 
 extension ParisExpoViewController {
     private func initializeParisExpoData() {
-        guard let data = try? ParisExpo.convert(from: FileName.parisExpo) else {
-            return
+        do {
+            parisExpoData = try parisExpoData?.convert(from: FileName.parisExpo)
+        } catch {
+            showFailureAlert(message: "데이터 로드를 실패했습니다.")
         }
-        parisExpoData = data
     }
 }
