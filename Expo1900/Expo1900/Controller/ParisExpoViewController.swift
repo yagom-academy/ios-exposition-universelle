@@ -16,10 +16,9 @@ fileprivate enum Unit {
     static let people = " 명"
 }
 
-fileprivate enum FileName {
-    static let poster = "poster"
-    static let flag = "flag"
-    static let parisExpo = "exposition_universelle_1900"
+fileprivate enum Sign {
+    static let parentheses = "("
+    static let linebreakAndParentheses = "\n("
 }
 
 final class ParisExpoViewController: UIViewController {
@@ -74,7 +73,7 @@ final class ParisExpoViewController: UIViewController {
     }
     
     private func configureTitleLabel() {
-        titleLabel.text = parisExpoData?.title.replacingOccurrences(of: "(", with: "\n(")
+        titleLabel.text = parisExpoData?.title.replacingOccurrences(of: Sign.parentheses, with: Sign.linebreakAndParentheses)
     }
     
     private func configureVisitorLabel() {
@@ -114,7 +113,7 @@ extension ParisExpoViewController {
         do {
             parisExpoData = try ParisExpo.parse(fileName: FileName.parisExpo)
         } catch {
-            showFailureAlert(message: "데이터 로드를 실패했습니다.")
+            showFailureAlert(message: AlertMessage.notFoundData)
         }
     }
 }

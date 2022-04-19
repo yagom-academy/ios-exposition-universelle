@@ -4,6 +4,14 @@
 
 import UIKit
 
+fileprivate enum UItitle {
+    static let koreaItemsText = "한국의 출품작"
+}
+
+fileprivate enum CellIdentifier {
+    static let empty = "empty cell"
+}
+
 final class KoreanItemViewController: UIViewController {
     var koreanItems: [KoreanHistoricalItem]?
     
@@ -13,7 +21,7 @@ final class KoreanItemViewController: UIViewController {
         super.viewDidLoad()
         configurateDelegateProperties()
         initializeKoreanItemsData()
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = UItitle.koreaItemsText
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,9 +37,9 @@ final class KoreanItemViewController: UIViewController {
 extension KoreanItemViewController {
     private func initializeKoreanItemsData() {
         do {
-            koreanItems = try [KoreanHistoricalItem].parse(fileName: "items")
+            koreanItems = try [KoreanHistoricalItem].parse(fileName: FileName.items)
         } catch {
-            showFailureAlert(message: "데이터 로드를 실패했습니다.")
+            showFailureAlert(message: AlertMessage.notFoundData)
         }
     }
 }
@@ -41,15 +49,15 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
         if let koreanItemsCount = koreanItems?.count {
             return koreanItemsCount
         }
-        return 0
+        return .zero
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemTableViewCell.identifier, for: indexPath) as? KoreanItemTableViewCell,
            let koreanItems = koreanItems else {
-            showFailureAlert(message: "데이터 로딩에 실패했습니다.")
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "empty cell")
-            return tableView.dequeueReusableCell(withIdentifier: "empty cell", for: indexPath)
+            showFailureAlert(message: AlertMessage.notFoundData)
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifier.empty)
+            return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.empty, for: indexPath)
         }
         cell.assignValue(from: koreanItems[indexPath.row])
         return cell
