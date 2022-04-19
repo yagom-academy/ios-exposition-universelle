@@ -8,6 +8,7 @@ import UIKit
 
 final class KoreaEntriesViewController: UITableViewController {
     private var koreaEntryValues: [KoreaEntryDetail]?
+    private let defaultLowCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
