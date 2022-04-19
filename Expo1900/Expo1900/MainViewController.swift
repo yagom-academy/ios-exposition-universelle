@@ -16,6 +16,15 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func setUpView() {
         guard let expoInfomation = Expo.parsingJson(name: "exposition_universelle_1900") else { return }
         
         titleLabel.text = expoInfomation.title
@@ -28,12 +37,8 @@ final class MainViewController: UIViewController {
         durationLabel.changePartFont(part: "개최기간")
         decriptionLabel.text = expoInfomation.description
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-    }
 }
+
 
 private extension UILabel {
     func changePartFont(part: String) {
