@@ -33,7 +33,7 @@ final class EntryItemViewController: UIViewController {
     }
     
     private func setup() {
-        navigationItem.backButtonTitle = EntryItemLetter.koreaEntryList
+        navigationItem.title = item?.name
         itemDiscription.text = item?.description
         itemImage.image = UIImage(named: item?.imageName ?? EntryItemLetter.emptyImage)
     }
