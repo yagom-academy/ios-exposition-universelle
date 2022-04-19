@@ -14,6 +14,8 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var decriptionLabel: UILabel!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
@@ -26,10 +28,11 @@ final class MainViewController: UIViewController {
     
     private func setUpView() {
         guard let expoInfomation = Expo.parsingJson(name: "exposition_universelle_1900") else { return }
-        
-        titleLabel.text = expoInfomation.title
+        guard let separationIndex = expoInfomation.title.firstIndex(of: "(") else { return }
+                
+        titleLabel.text = String(expoInfomation.title[..<separationIndex]) + "\n" + String(expoInfomation.title[separationIndex...])
         posterImageView.image = UIImage(named: "poster")
-        visitorsLabel.text = .visitor + " : \(expoInfomation.visitors)"
+        visitorsLabel.text = .visitor + " : \(expoInfomation.visitors.changedFormat())"
         locationLabel.text = .location + " : \(expoInfomation.location)"
         durationLabel.text = .duration + " : \(expoInfomation.duration)"
         changeFont()
@@ -40,6 +43,16 @@ final class MainViewController: UIViewController {
         visitorsLabel.changePartFont(part: .visitor)
         locationLabel.changePartFont(part: .location)
         durationLabel.changePartFont(part: .duration)
+    }
+}
+
+private extension Int {
+    func changedFormat() -> String {
+        let numberFormatter = NumberFormatter()
+        
+        numberFormatter.numberStyle = .decimal
+    
+        return numberFormatter.string(from: self as NSNumber) ?? "FormatError"
     }
 }
 
