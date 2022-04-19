@@ -87,14 +87,17 @@ final class ExpoViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.isHidden = true
-    
-    let value = UIDeviceOrientation.portrait.rawValue
-    UIDevice.current.setValue(value, forKey: Const.Device.orientation)
+    fixDevice(orientation: .portrait)
   }
-  
+    
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     navigationController?.navigationBar.isHidden = false
+  }
+  
+  private func fixDevice(orientation: UIDeviceOrientation) {
+    let value = orientation.rawValue
+    UIDevice.current.setValue(value, forKey: Const.Device.orientation)
   }
   
   private func attribute() {
