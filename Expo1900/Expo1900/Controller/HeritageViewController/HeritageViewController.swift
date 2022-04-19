@@ -92,6 +92,8 @@ extension HeritageViewController: UITableViewDelegate {
       return
     }
     
+    tableView.deselectRow(at: indexPath, animated: true)
+    
     let heritageDetailViewController = HeritageDetailViewController(heritage: heritage)
     navigationController?.pushViewController(heritageDetailViewController, animated: true)
   }
