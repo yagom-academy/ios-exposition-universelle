@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaEntryDetailTableViewCell: UITableViewCell {
+final class KoreaEntryDetailTableViewCell: UITableViewCell {
     @IBOutlet private weak var shortDescriptionLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var koreaEntryImageView: UIImageView!
