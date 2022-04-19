@@ -11,4 +11,11 @@ extension UIViewController {
     static var identifier: String {
         return String(describing: self)
     }
+    
+    func showFailureAlert(message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let confirmButton = UIAlertAction(title: "ok", style: .default)
+        alertController.addAction(confirmButton)
+        present(alertController, animated: true)
+    }
 }

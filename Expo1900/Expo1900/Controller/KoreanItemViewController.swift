@@ -31,10 +31,10 @@ final class KoreanItemViewController: UIViewController {
 
 extension KoreanItemViewController {
     private func initializeKoreanItemsData() {
-        guard let items = try? [KoreanHistoricalItem].convert(from: "items") else {
-            return
-        }
-        koreanItems = items
+//        guard let items = try? [KoreanHistoricalItem].convert(from: "items") else {
+//            return
+//        }
+//        koreanItems = items
     }
 }
 
@@ -49,7 +49,7 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemTableViewCell.identifier, for: indexPath) as? KoreanItemTableViewCell,
            let koreanItems = koreanItems else {
-            showFailureAlert()
+            showFailureAlert(message: "데이터 로딩에 실패했습니다.")
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "empty cell")
             return tableView.dequeueReusableCell(withIdentifier: "empty cell", for: indexPath)
         }
@@ -63,14 +63,5 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
         }
         koreanItemDetailVC.koreanItem = koreanItems?[indexPath.row]
         navigationController?.pushViewController(koreanItemDetailVC, animated: true)
-    }
-}
-
-extension KoreanItemViewController {
-    private func showFailureAlert() {
-        let alertController = UIAlertController(title: nil, message: "적절한 데이터를 불러올 수 없습니다.", preferredStyle: .alert)
-        let confirmButton = UIAlertAction(title: "ok", style: .default)
-        alertController.addAction(confirmButton)
-        present(alertController, animated: true)
     }
 }
