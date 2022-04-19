@@ -21,6 +21,7 @@ final class KoreanItemViewController: UIViewController {
         super.viewDidLoad()
         configurateDelegateProperties()
         initializeKoreanItemsData()
+        registerEmptyCell()
         navigationItem.title = UItitle.koreaItemsText
     }
     
@@ -42,6 +43,10 @@ extension KoreanItemViewController {
             showFailureAlert(message: AlertMessage.notFoundData)
         }
     }
+    
+    private func registerEmptyCell() {
+        koreanItemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifier.empty)
+    }
 }
 
 extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
@@ -56,7 +61,6 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemTableViewCell.identifier, for: indexPath) as? KoreanItemTableViewCell,
            let koreanItems = koreanItems else {
             showFailureAlert(message: AlertMessage.notFoundData)
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifier.empty)
             return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.empty, for: indexPath)
         }
         cell.assignValue(from: koreanItems[indexPath.row])
