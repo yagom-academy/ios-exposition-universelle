@@ -12,11 +12,12 @@ final class KoreaEntryDetailViewController: UIViewController {
     @IBOutlet weak var koreaEntryFullDescriptionLabel: UILabel!
     
     var koreaEntryData: KoreaEntryDetail?
+    private let notFoundImageFile: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = koreaEntryData?.name
         koreaEntryFullDescriptionLabel.text = koreaEntryData?.fullDescription
-        koreaEntryImageView.image = UIImage(named: koreaEntryData!.imageFileName)
+        koreaEntryImageView.image = UIImage(named: koreaEntryData?.imageFileName ?? notFoundImageFile)
     }
 }
