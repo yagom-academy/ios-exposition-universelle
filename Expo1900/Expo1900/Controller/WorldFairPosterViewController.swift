@@ -36,10 +36,20 @@ final class WorldFairPosterViewController: UIViewController {
     }
     
     private func decodeWorldFairPoster() throws -> WorldFairPoster {
-        guard let worldFairPosterData = Parser<WorldFairPoster>.parse(name: "exposition_universelle_1900") else {
+        let assetSeeker = AssetSeeker()
+        var worldFairPosterData: WorldFairPoster?
+        
+        do {
+            worldFairPosterData = try assetSeeker.matchWorldFairPosterAsset()
+        } catch ExpoError.decodeError {
+            showAlert(alertTitle: "데이터 처리가 실패했습니다", okTitle: "OK")
+        }
+        
+        guard let worldData = worldFairPosterData else {
             throw ExpoError.emptyValueError
         }
-        return worldFairPosterData
+     
+        return worldData
     }
     
     private func updateUI() {
