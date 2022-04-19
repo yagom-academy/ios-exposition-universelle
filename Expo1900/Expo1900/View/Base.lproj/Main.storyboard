@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q2W-1w-kC6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q2W-1w-kC6">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -88,7 +88,7 @@
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descriptionLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aF-ls-1bB">
                                                         <rect key="frame" x="134.66666666666666" y="351.66666666666669" width="126.66666666666666" height="20.333333333333314"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -190,31 +190,20 @@
                                                         <constraint firstAttribute="width" secondItem="FYy-AX-FIg" secondAttribute="height" multiplier="1:1" id="mDF-sr-nXY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-FA-GaR">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-FA-GaR">
                                                     <rect key="frame" x="105" y="15" width="284.33333333333331" height="50"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-po-GPh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NDY-Pg-Oe8">
+                                                            <rect key="frame" x="0.0" y="2.3333333333333321" width="284.33333333333331" height="45.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="260" verticalCompressionResistancePriority="1000" text="직지심체요절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7A-IQ-Z76">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284.33333333333331" height="30"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="r7A-IQ-Z76" firstAttribute="leading" secondItem="dOz-po-GPh" secondAttribute="leading" id="Afk-4g-Mkx"/>
-                                                                <constraint firstAttribute="trailing" secondItem="r7A-IQ-Z76" secondAttribute="trailing" id="ISe-Bn-9c3"/>
-                                                                <constraint firstItem="r7A-IQ-Z76" firstAttribute="top" secondItem="dOz-po-GPh" secondAttribute="top" id="h1q-I7-8QH"/>
-                                                                <constraint firstAttribute="bottom" secondItem="r7A-IQ-Z76" secondAttribute="bottom" id="sn2-FX-FXv"/>
-                                                            </constraints>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9hD-Jb-GJg">
-                                                            <rect key="frame" x="0.0" y="30" width="284.33333333333331" height="20"/>
-                                                            <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="백운사 경안에 1372  " textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzM-Wo-cCM">
-                                                                    <rect key="frame" x="0.0" y="2.3333333333333348" width="284.33333333333331" height="15.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="30.000000000000004" width="284.33333333333331" height="15.666666666666668"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -222,12 +211,6 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="9hD-Jb-GJg" secondAttribute="bottom" id="5Dp-wn-42h"/>
-                                                        <constraint firstAttribute="trailing" secondItem="9hD-Jb-GJg" secondAttribute="trailing" id="g2t-U7-7ol"/>
-                                                        <constraint firstItem="9hD-Jb-GJg" firstAttribute="top" secondItem="dOz-po-GPh" secondAttribute="bottom" id="uFR-1F-6wd"/>
-                                                        <constraint firstItem="9hD-Jb-GJg" firstAttribute="leading" secondItem="Cfl-FA-GaR" secondAttribute="leading" id="wUP-9q-dXn"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
