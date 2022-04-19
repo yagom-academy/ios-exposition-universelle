@@ -10,6 +10,11 @@ final class ExpositionMainViewController: UIViewController {
     @IBOutlet private weak var koreanEntryButton: UIButton!
     
     private let alternativeFont = UIFont.systemFont(ofSize: 20)
+    static let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
     
     private func decodeExpositionContent() -> Exposition? {
         let decoder = JSONDecoder()
@@ -52,6 +57,7 @@ final class ExpositionMainViewController: UIViewController {
     }
 }
 
+//MARK: Life Cycle
 extension ExpositionMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

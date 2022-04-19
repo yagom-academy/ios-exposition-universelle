@@ -8,9 +8,7 @@ struct Exposition: Decodable {
     let description: String
     
     func decimalVisitors() -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        guard let result = numberFormatter.string(for: self.visitors) else { return String(self.visitors) }
+        guard let result = ExpositionMainViewController.numberFormatter.string(for: self.visitors) else { return String(self.visitors) }
         return result
     }
     
