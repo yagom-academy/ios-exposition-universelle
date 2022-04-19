@@ -9,8 +9,11 @@ fileprivate extension Constants {
   static let notice = "알림"
   static let confirm = "확인"
   static let visitor = "방문객 : %@ 명"
+  static let visitorPrefix = "방문객"
   static let location = "개최지 : "
+  static let locationPrefix = "개최지"
   static let duration = "개최 기간 : "
+  static let durationPrefix = "개최 기간"
   static let bracket = "("
   static let spacingBracket = "\n("
   
@@ -86,10 +89,30 @@ private extension MainViewController {
       with: Constants.spacingBracket
     )
     self.posterImageView.image = UIImage(named: AssetName.poster)
-    self.visitorsLabel.text = String(format: Constants.visitor, expo.visitors.toDecimal())
-    self.locationLabel.text = Constants.location + expo.location
-    self.durationLabel.text = Constants.duration + expo.duration
+    self.bold(
+      self.visitorsLabel,
+      text: String(format: Constants.visitor, expo.visitors.toDecimal()),
+      targetString: Constants.visitorPrefix
+    )
+    self.bold(
+      self.locationLabel,
+      text: Constants.location + expo.location,
+      targetString: Constants.locationPrefix
+    )
+    self.bold(
+      self.durationLabel,
+      text: Constants.duration + expo.duration,
+      targetString: Constants.durationPrefix
+    )
     self.descriptionLabel.text = expo.description
+  }
+  
+  func bold(_ label: UILabel, text: String, targetString: String) {
+    let font = UIFont.preferredFont(forTextStyle: .headline)
+    let range = (text as NSString).range(of: targetString)
+    let attributedString = NSMutableAttributedString(string: text)
+    attributedString.addAttribute(.font, value: font, range: range)
+    label.attributedText = attributedString
   }
 }
 
