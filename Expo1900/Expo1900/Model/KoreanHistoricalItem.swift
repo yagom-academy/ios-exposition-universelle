@@ -19,9 +19,11 @@ struct KoreanHistoricalItem: Decodable {
         case shortDesciption = "short_desc"
         case description = "desc"
     }
-    
-    func parse(fileName: String) throws -> Self {
-        guard let data = try? convert(from: fileName) else {
+}
+
+extension Array where KoreanHistoricalItem == Array.Element {
+    static func parse(fileName: String) throws -> Self {
+        guard let data = try? Self.convert(from: fileName) else {
             throw DecoderError.decodeFail
         }
         return data
