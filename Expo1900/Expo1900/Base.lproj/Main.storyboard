@@ -59,18 +59,18 @@
                                                 <rect key="frame" x="41.5" y="162" width="331" height="27"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="rKX-A0-a4A">
-                                                        <rect key="frame" x="0.0" y="0.0" width="89" height="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="132" height="27"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGC-aC-0lG">
-                                                        <rect key="frame" x="89" y="0.0" width="153" height="27"/>
+                                                        <rect key="frame" x="132" y="0.0" width="67" height="27"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                         <connections>
                                                             <segue destination="h7u-TM-1Hf" kind="show" id="pmx-1w-cA0"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="vf2-FS-Yoa">
-                                                        <rect key="frame" x="242" y="0.0" width="89" height="27"/>
+                                                        <rect key="frame" x="199" y="0.0" width="132" height="27"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -109,6 +109,7 @@
                         <outlet property="durationLabel" destination="WLw-4i-saT" id="AcC-4L-eTZ"/>
                         <outlet property="locationLabel" destination="XYP-nZ-44a" id="bQa-Ni-Jv4"/>
                         <outlet property="posterImageView" destination="Cim-gb-wz1" id="Kyn-Eu-bg3"/>
+                        <outlet property="subViewShowButton" destination="xGC-aC-0lG" id="wnp-98-xrw"/>
                         <outlet property="titleLabel" destination="e4A-MM-akj" id="Z45-LD-kIc"/>
                         <outlet property="visitorsLabel" destination="Ir1-a4-UF8" id="vPB-KW-FyY"/>
                     </connections>

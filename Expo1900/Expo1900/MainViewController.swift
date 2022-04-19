@@ -13,6 +13,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var decriptionLabel: UILabel!
+    @IBOutlet weak var subViewShowButton: UIButton!
     
     
     
@@ -37,6 +38,7 @@ final class MainViewController: UIViewController {
         durationLabel.text = .duration + " : \(expoInfomation.duration)"
         changeFont()
         decriptionLabel.text = expoInfomation.description
+        subViewShowButton.setTitle("한국의 출품작 보러가기", for: .normal)
     }
     
     private func changeFont() {
