@@ -1,12 +1,12 @@
 import UIKit
 
 final class ExpositionMainViewController: UIViewController {
-    @IBOutlet private weak var expoTitleLabel: UILabel!
-    @IBOutlet private weak var expoImageView: UIImageView!
-    @IBOutlet private weak var expoVisitorsLabel: UILabel!
-    @IBOutlet private weak var expoLocationLabel: UILabel!
-    @IBOutlet private weak var expoDurationLabel: UILabel!
-    @IBOutlet private weak var expoDescriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var koreanEntryButton: UIButton!
     
     private let alternativeFont = UIFont.systemFont(ofSize: 20)
@@ -21,20 +21,20 @@ final class ExpositionMainViewController: UIViewController {
     
     private func updateExpositionContents() {
         if let decodedData = decodeExpositionContent() {
-            expoTitleLabel.text = decodedData.linedTitle()
-            expoImageView.image = UIImage(named: "poster")
-            expoVisitorsLabel.attributedText = decodedData
+            titleLabel.text = decodedData.linedTitle()
+            imageView.image = UIImage(named: "poster")
+            visitorsLabel.attributedText = decodedData
                 .setTextAttribute(of: "방문객 : \(decodedData.decimalVisitors()) 명",
                               target: "방문객",
                           attributes: [.font: alternativeFont])
-            expoLocationLabel.attributedText = decodedData
+            locationLabel.attributedText = decodedData
                 .setTextAttribute(of: "개최지 : \(decodedData.location)",                                                                      target: "개최지",
                           attributes: [.font: alternativeFont])
-            expoDurationLabel.attributedText = decodedData
+            durationLabel.attributedText = decodedData
                 .setTextAttribute(of: "개최 기간 : \(decodedData.duration)",
                               target: "개최 기간",
                           attributes: [.font: alternativeFont])
-            expoDescriptionLabel.text = decodedData.description
+            descriptionLabel.text = decodedData.description
         } else {
             showFileNotFoundAlert()
             koreanEntryButton.isEnabled = false
