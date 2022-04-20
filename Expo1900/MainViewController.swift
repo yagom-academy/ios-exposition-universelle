@@ -21,11 +21,6 @@ final class MainViewController: UIViewController, GenerateErrorAlertProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextOfMainView()
-        koreanItemsButton.titleLabel?.font = .preferredFont(forTextStyle: .footnote)
-        koreanItemsButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        koreanItemsButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        koreanItemsButton.titleLabel?.sizeToFit()
-        koreanItemsButton.setNeedsUpdateConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
