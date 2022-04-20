@@ -13,7 +13,7 @@ struct Heritage: Codable {
     let shortDescription: String
     let description: String
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case title = "name"
         case imageName = "image_name"
         case shortDescription = "short_desc"
