@@ -8,7 +8,7 @@
 import UIKit
 
 final class ExhibitionItemsViewController: UIViewController {
-    var exhibitionItems: [ExhibitionItem] = []
+    private var exhibitionItems: [ExhibitionItem] = []
     
     @IBOutlet weak private var itemsTableView: UITableView!
     
@@ -21,8 +21,7 @@ final class ExhibitionItemsViewController: UIViewController {
     
     private func decodeJson() -> [ExhibitionItem] {
         do {
-            let fileName = "items"
-            let decodedData = try [ExhibitionItem].decode(from: fileName)
+            let decodedData = try [ExhibitionItem].decode(from: Constant.exhibitionItemFileName)
             return decodedData
         } catch {}
         
@@ -41,7 +40,7 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
     ) -> UITableViewCell {
         
         guard let exhibitionItemCell = tableView.dequeueReusableCell(
-            withIdentifier: "cell",
+            withIdentifier: Constant.cellIdentifier,
             for: indexPath
         ) as? ExhibitionItemsTableViewCell
         else {

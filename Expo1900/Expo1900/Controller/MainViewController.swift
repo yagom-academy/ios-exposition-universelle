@@ -19,29 +19,23 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-        appDelegate?.shouldSupportAllOrientaion = false
+        self.appDelegate?.shouldSupportAllOrientaion = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        appDelegate?.shouldSupportAllOrientaion = true
+        self.appDelegate?.shouldSupportAllOrientaion = true
     }
     
     private func decodeJson() -> ExpoInformation {
-        var decodedData = ExpoInformation(title: "",
-                                          visitors: 0,
-                                          location: "",
-                                          duration: "",
-                                          description: "")
+        var decodedData = ExpoInformation()
         
         do {
-            let fileName = "exposition_universelle_1900"
-            decodedData = try ExpoInformation.decode(from: fileName)
+            decodedData = try ExpoInformation.decode(from: Constant.expoInformationFileName)
         } catch {}
         
         return decodedData
@@ -49,14 +43,16 @@ final class MainViewController: UIViewController {
     
     private func setUpView() {
         let decodedData = decodeJson()
-        let visitorsValue = ": \(decodedData.visitors?.formatString() ?? "")"
-        let locationValue = ": \(decodedData.location ?? "")"
-        let durationValue = ": \(decodedData.duration ?? "")"
+        let visitorsValue = Constant.colon + (decodedData
+                                                .visitors?
+                                                .formatString() ?? Constant.defaultValue)
+        let locationValue = Constant.colon + (decodedData.location ?? Constant.defaultValue)
+        let durationValue = Constant.colon + (decodedData.duration ?? Constant.defaultValue)
         
         self.expoTitleLabel.text = decodedData.title?.replacingOccurrences(of: "(", with: "\n(")
-        self.visitorsLabel.text = "방문객 " + visitorsValue
-        self.locationLabel.text = "개최지 " + locationValue
-        self.durationLabel.text = "개최 기간 " + durationValue
+        self.visitorsLabel.text = Constant.visitor + visitorsValue
+        self.locationLabel.text = Constant.location + locationValue
+        self.durationLabel.text = Constant.duration + durationValue
         self.descriptionLabel.text = decodedData.description
         
         self.visitorsLabel.downSize(targetString: visitorsValue)
