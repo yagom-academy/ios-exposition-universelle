@@ -15,6 +15,8 @@ final class MainViewController: UIViewController, GenerateErrorAlertProtocol {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextOfMainView()
@@ -23,6 +25,12 @@ final class MainViewController: UIViewController, GenerateErrorAlertProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        appDelegate?.shouldSupportAllOrientation = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate?.shouldSupportAllOrientation = true
     }
 }
 
