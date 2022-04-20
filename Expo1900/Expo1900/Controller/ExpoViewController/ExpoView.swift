@@ -40,9 +40,9 @@ extension ExpoView {
     }
     
     enum Literal {
-      static let visitor = "개최 기간 : "
+      static let visitor = "방문객 : "
       static let location = "개최지 : "
-      static let duration = "방문객 : "
+      static let duration = "개최 기간 : "
     }
   }
 }
@@ -160,6 +160,8 @@ final class ExpoView: UIView {
     let button = UIButton()
     button.setTitleColor(.systemBlue, for: .normal)
     button.setTitle(Const.Button.title, for: .normal)
+    button.titleLabel?.adjustsFontForContentSizeCategory = true
+    button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
     return button
   }()
   
