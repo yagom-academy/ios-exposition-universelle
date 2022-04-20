@@ -31,9 +31,8 @@ extension ListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier, for: indexPath)
         guard let itemCell = cell as? ItemTableViewCell else { return cell }
         guard let item = items[safe: indexPath.row] else { return cell }
-        itemCell.itemImageView.image = UIImage(named: item.imageName)
-        itemCell.titleLabel.text = item.name
-        itemCell.shortDescriptionLabel.text = item.shortDescription
+        itemCell.displayWith(item: item)
+
         return itemCell
     }
 }
