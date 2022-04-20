@@ -7,11 +7,11 @@
 
 import Foundation
 
-extension Array where Element == Item {
-    subscript(safe index: Int) -> Item {
-        if self.count > index {
-            return self[index]
+extension Array {
+    subscript(safe index: Int) -> Element? {
+        if self.count <= index || Int.zero > index {
+            return nil
         }
-        return Item(name: "알수없음", imageName: "알수없음", shortDescription: "알수없음", description: "알수없음")
+        return self[index]
     }
 }

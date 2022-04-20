@@ -30,9 +30,10 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier, for: indexPath)
         guard let itemCell = cell as? ItemTableViewCell else { return cell }
-        itemCell.itemImageView.image = UIImage(named: items[safe: indexPath.row].imageName)
-        itemCell.titleLabel.text = items[safe: indexPath.row].name
-        itemCell.shortDescriptionLabel.text = items[safe: indexPath.row].shortDescription
+        guard let item = items[safe: indexPath.row] else { return cell }
+        itemCell.itemImageView.image = UIImage(named: item.imageName)
+        itemCell.titleLabel.text = item.name
+        itemCell.shortDescriptionLabel.text = item.shortDescription
         return itemCell
     }
 }
