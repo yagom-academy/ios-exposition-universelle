@@ -22,18 +22,28 @@ class Expo1900Tests: XCTestCase {
         // given
         let jsonManager = JsonManager()
         // when
-        let expositionInfo = try? jsonManager.decodedExpositionInfo()
+        var expositionInfo: ExpositionInfo
         // then
-        XCTAssertNotNil(expositionInfo)
+        do {
+            try expositionInfo = jsonManager.decodedResult()
+            XCTAssertNotNil(expositionInfo)
+        } catch {
+            XCTFail()
+        }
     }
     
     func test_getDecodedItems의리턴값이_nil이아니다() throws {
         // given
         let jsonManager = JsonManager()
         // when
-        let item = try? jsonManager.decodedItems()
+        var item: [Item]
         // then
-        XCTAssertNotNil(item)
+        do {
+            try item = jsonManager.decodedResult()
+            XCTAssertNotNil(item)
+        } catch {
+            XCTFail()
+        }
     }
     
     func test_noFileError() throws {
@@ -42,7 +52,7 @@ class Expo1900Tests: XCTestCase {
         var result: ExpoError?
         // when
         do {
-            _ = try jsonManager.decodedItems()
+            let items: [Item] = try jsonManager.decodedResult()
         } catch {
             result = error as? ExpoError
         }
@@ -56,7 +66,7 @@ class Expo1900Tests: XCTestCase {
         var result: ExpoError?
         // when
         do {
-            _ = try jsonManager.decodedExpositionInfo()
+            let expositionInfo: ExpositionInfo = try jsonManager.decodedResult()
         } catch {
             result = error as? ExpoError
         }
