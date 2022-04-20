@@ -13,7 +13,7 @@ final class ExhibitionItemsTableViewCell: UITableViewCell {
     @IBOutlet weak private var subtitleLabel: UILabel!
     
     func setUpCell(by exhibitionItem: ExhibitionItem) {
-        self.itemImageView.image = UIImage(named: exhibitionItem.imageName)
+        self.itemImageView.image = UIImage(named: exhibitionItem.imageName ?? "")
         self.titleLabel.text = exhibitionItem.name
         self.subtitleLabel.text = exhibitionItem.shortDescription
     }

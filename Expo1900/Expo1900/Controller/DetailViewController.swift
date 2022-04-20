@@ -23,7 +23,7 @@ final class DetailViewController: UIViewController {
             return
         }
         
-        self.itemImageVIew.image = UIImage(named: exhibitionItem.imageName)
+        self.itemImageVIew.image = UIImage(named: exhibitionItem.imageName ?? "")
         self.descriptionLabel.text = exhibitionItem.description
         self.title = exhibitionItem.name
     }

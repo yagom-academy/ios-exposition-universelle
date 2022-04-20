@@ -49,11 +49,11 @@ final class MainViewController: UIViewController {
     
     private func setUpView() {
         let decodedData = decodeJson()
-        let visitorsValue = ": \(decodedData.visitors.formatString())"
-        let locationValue = ": \(decodedData.location)"
-        let durationValue = ": \(decodedData.duration)"
+        let visitorsValue = ": \(decodedData.visitors?.formatString() ?? "")"
+        let locationValue = ": \(decodedData.location ?? "")"
+        let durationValue = ": \(decodedData.duration ?? "")"
         
-        self.expoTitleLabel.text = decodedData.title.replacingOccurrences(of: "(", with: "\n(")
+        self.expoTitleLabel.text = decodedData.title?.replacingOccurrences(of: "(", with: "\n(")
         self.visitorsLabel.text = "방문객 " + visitorsValue
         self.locationLabel.text = "개최지 " + locationValue
         self.durationLabel.text = "개최 기간 " + durationValue
