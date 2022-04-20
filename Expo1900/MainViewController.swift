@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, GenerateErrorAlertProtocol {
+final class MainViewController: UIViewController, GenerateErrorAlertProtocol {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImage: UIImageView!
@@ -17,10 +17,7 @@ class MainViewController: UIViewController, GenerateErrorAlertProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let expositionInfo = loadInformation() else {
-            return
-        }
-        setTextOfMainView(expositionInfo)
+        setTextOfMainView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,9 +29,7 @@ class MainViewController: UIViewController, GenerateErrorAlertProtocol {
 // MARK: - IBAction method
 extension MainViewController {
     @IBAction func showListButtonIsTapped(_ sender: UIButton) {
-        let identifier = String(describing: HeritageListViewController.self)
-
-        guard let heritageListViewController = storyboard?.instantiateViewController(withIdentifier: identifier) as? HeritageListViewController else {
+        guard let heritageListViewController = storyboard?.instantiateViewController(withIdentifier: HeritageListViewController.identifier) as? HeritageListViewController else {
             return
         }
         navigationController?.pushViewController(heritageListViewController, animated: true)
@@ -56,7 +51,10 @@ extension MainViewController {
         }
     }
 
-    private func setTextOfMainView(_ expositionInfo: ExpositionInfo) {
+    private func setTextOfMainView() {
+        guard let expositionInfo = loadInformation() else {
+            return
+        }
         titleLabel.text = splitTitleToTwoLines(from: expositionInfo.title)
         visitorLabel.text = "방문객 : \(expositionInfo.visitors) 명"
         locationLabel.text = "개최지 : \(expositionInfo.location)"

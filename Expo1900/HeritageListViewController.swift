@@ -7,11 +7,11 @@
 
 import UIKit
 
-class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol {
+final class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol {
 
-    @IBOutlet private var heritageListTableView: UITableView!
+    @IBOutlet private weak var heritageListTableView: UITableView!
     private var items: [Item] = []
-    static let heritageListViewControllerName = String(describing: self)
+    static let identifier = String(describing: HeritageListViewController.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +35,13 @@ extension HeritageListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = String(describing: HeritageListCell.self)
 
-        guard let cell = heritageListTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? HeritageListCell else {
+        guard let cell = heritageListTableView.dequeueReusableCell(withIdentifier: HeritageListCell.identifier, for: indexPath) as? HeritageListCell,
+              let item = items[safe: indexPath.row] else {
             return UITableViewCell()
         }
         
-        guard let item = items[safe: indexPath.row] else {
-            return UITableViewCell()
-        }
-        
-        cell.setContentOfCell(item)
+        cell.setContentOfCell(item: item)
 
         return cell
     }
@@ -54,9 +50,7 @@ extension HeritageListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate method
 extension HeritageListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let identifier = String(describing: DetailViewController.self)
-
-        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: identifier) as? DetailViewController else {
+        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: DetailViewController.identifier) as? DetailViewController else {
             return
         }
         

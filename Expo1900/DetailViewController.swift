@@ -7,16 +7,17 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     @IBOutlet private weak var heritageImage: UIImageView!
     @IBOutlet private weak var heritageDescription: UILabel!
+    static let identifier = String(describing: DetailViewController.self)
+    
     var item: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setContentsOfDetailView()
-        title = item?.name
     }
 }
 
@@ -29,5 +30,6 @@ extension DetailViewController {
         
         heritageImage.image = UIImage(named: itemImageName)
         heritageDescription.text = item?.description
+        title = item?.name
     }
 }
