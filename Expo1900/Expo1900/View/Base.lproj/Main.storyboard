@@ -253,18 +253,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-7t-bZO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-7t-bZO">
+                                <rect key="frame" x="20" y="0.0" width="394" height="896"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GAH-A4-FWD">
-                                        <rect key="frame" x="8" y="87" width="341.5" height="278"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GAH-A4-FWD">
+                                        <rect key="frame" x="0.0" y="20" width="374" height="251"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bangjja" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-as-Afy">
-                                                <rect key="frame" x="0.0" y="0.0" width="341.5" height="256"/>
+                                                <rect key="frame" x="63" y="0.0" width="248" height="224"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFu-iN-ane">
-                                                <rect key="frame" x="153" y="261" width="35.5" height="17"/>
+                                                <rect key="frame" x="169.5" y="234" width="35.5" height="17"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -272,12 +271,27 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="trailing" secondItem="7bh-Fa-Kfh" secondAttribute="trailing" id="Cy1-1w-Cwc"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="width" secondItem="Qto-qn-SpL" secondAttribute="width" constant="-20" id="DCe-x0-1Wd"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="leading" secondItem="7bh-Fa-Kfh" secondAttribute="leading" id="RpO-t4-KrA"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="top" secondItem="7bh-Fa-Kfh" secondAttribute="top" constant="20" id="ayO-1K-BrK"/>
+                                    <constraint firstItem="GAH-A4-FWD" firstAttribute="bottom" secondItem="7bh-Fa-Kfh" secondAttribute="bottom" id="tUg-61-cOa"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="7bh-Fa-Kfh"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Qto-qn-SpL"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UwS-Bg-UIC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="KZE-7t-bZO" secondAttribute="bottom" id="NMe-2c-SHM"/>
+                            <constraint firstItem="5Hd-as-Afy" firstAttribute="width" relation="lessThanOrEqual" secondItem="uQa-33-3pV" secondAttribute="width" multiplier="0.6" id="akz-VS-E8d"/>
+                            <constraint firstItem="5Hd-as-Afy" firstAttribute="height" relation="lessThanOrEqual" secondItem="uQa-33-3pV" secondAttribute="height" multiplier="0.25" id="e26-JY-g9t"/>
+                            <constraint firstAttribute="trailing" secondItem="KZE-7t-bZO" secondAttribute="trailing" id="g1q-km-hyP"/>
+                            <constraint firstItem="KZE-7t-bZO" firstAttribute="leading" secondItem="uQa-33-3pV" secondAttribute="leading" constant="20" id="s88-2K-tCd"/>
+                            <constraint firstItem="KZE-7t-bZO" firstAttribute="top" secondItem="uQa-33-3pV" secondAttribute="top" id="vNW-1H-bIk"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="NFu-iN-ane" id="hsg-By-sWd"/>
