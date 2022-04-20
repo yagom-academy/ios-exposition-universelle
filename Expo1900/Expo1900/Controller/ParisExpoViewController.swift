@@ -20,6 +20,10 @@ fileprivate enum Sign {
     static let linebreakAndParentheses = "\n("
 }
 
+fileprivate enum UIDeviceKey {
+    static let orientation = "orientation"
+}
+
 final class ParisExpoViewController: UIViewController {
     private var parisExpoData: ParisExpo?
     
@@ -48,6 +52,12 @@ final class ParisExpoViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         
         koreanItemsButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
+        switchAppDelegateFlag(true)
+        UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: UIDeviceKey.orientation)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        switchAppDelegateFlag(false)
     }
     
     override func viewDidLoad() {
@@ -56,6 +66,12 @@ final class ParisExpoViewController: UIViewController {
         configureImages()
         configureLabels()
         navigationItem.title = UITitle.mainText
+    }
+    
+    private func switchAppDelegateFlag(_ isFirstViewControllerValue: Bool) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.isFirstViewController = isFirstViewControllerValue
+        }
     }
     
     private func configureImages() {
@@ -111,20 +127,5 @@ extension ParisExpoViewController {
         } catch {
             showFailureAlert(message: AlertMessage.notFoundData)
         }
-    }
-}
-
-extension UINavigationController {
-    override open var shouldAutorotate: Bool {
-        get {
-            if let _ = topViewController as? ParisExpoViewController {
-                return false
-            }
-            return true
-        }
-    }
-    
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
     }
 }
