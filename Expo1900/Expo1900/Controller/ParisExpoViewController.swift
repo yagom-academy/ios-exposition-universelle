@@ -49,11 +49,10 @@ final class ParisExpoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-        
-        koreanItemsButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
+        configureNavigationUI()
+        configurekoreanItemsButton()
         switchAppDelegateFlag(true)
-        UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: UIDeviceKey.orientation)
+        configureUIDeviceOrientation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,6 +64,10 @@ final class ParisExpoViewController: UIViewController {
         initializeParisExpoData()
         configureImages()
         configureLabels()
+    }
+    
+    private func configureNavigationUI() {
+        navigationController?.navigationBar.isHidden = true
         navigationItem.title = UITitle.mainText
     }
     
@@ -72,6 +75,10 @@ final class ParisExpoViewController: UIViewController {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.isFirstViewController = isFirstViewControllerValue
         }
+    }
+    
+    private func configureUIDeviceOrientation() {
+        UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: UIDeviceKey.orientation)
     }
     
     private func configureImages() {
@@ -117,6 +124,10 @@ final class ParisExpoViewController: UIViewController {
     
     private func configureDesciptionLabel() {
         descriptionLabel.text = parisExpoData?.description
+    }
+    
+    private func configurekoreanItemsButton() {
+        koreanItemsButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
     }
 }
 
