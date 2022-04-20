@@ -14,18 +14,25 @@ final class MainViewController: UIViewController, GenerateErrorAlertProtocol {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var koreanItemsButton: UIButton!
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextOfMainView()
+        koreanItemsButton.titleLabel?.font = .preferredFont(forTextStyle: .footnote)
+        koreanItemsButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        koreanItemsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        koreanItemsButton.titleLabel?.sizeToFit()
+        koreanItemsButton.setNeedsUpdateConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
         appDelegate?.shouldSupportAllOrientation = false
+        UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

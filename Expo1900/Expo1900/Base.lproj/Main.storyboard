@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-Tb-bqs" userLabel="Contents View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="408"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="458"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-8w-RtL" userLabel="Title">
                                                 <rect key="frame" x="10" y="10" width="394" height="30"/>
@@ -29,11 +29,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poster" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Tj-we-nDF">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="8Tj-we-nDF">
                                                 <rect key="frame" x="135" y="50" width="144" height="200"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                </preferredSymbolConfiguration>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b27-L0-HqB">
                                                 <rect key="frame" x="10" y="260" width="394" height="17"/>
@@ -60,39 +57,43 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djd-j3-WkS">
-                                                <rect key="frame" x="10" y="368" width="394" height="30"/>
+                                                <rect key="frame" x="10" y="368" width="394" height="80"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1C9-y5-Oh5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="9MK-mo-wAe"/>
-                                                            <constraint firstAttribute="width" constant="30" id="urM-uI-fBR"/>
+                                                            <constraint firstAttribute="height" constant="80" id="9MK-mo-wAe"/>
+                                                            <constraint firstAttribute="width" constant="80" id="urM-uI-fBR"/>
                                                         </constraints>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         </preferredSymbolConfiguration>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IR1-f9-VTF">
-                                                        <rect key="frame" x="30" y="0.0" width="334" height="30"/>
-                                                        <state key="normal" title="Button" backgroundImage="flag"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기">
-                                                            <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                        </buttonConfiguration>
+                                                        <rect key="frame" x="80" y="0.0" width="234" height="80"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="한국의 출품작 보러가기">
+                                                            <color key="titleColor" systemColor="linkColor"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="showListButtonIsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZB-P8-neQ"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-8h-abQ">
-                                                        <rect key="frame" x="364" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="314" y="0.0" width="80" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="f59-Oj-cPR"/>
-                                                            <constraint firstAttribute="height" constant="30" id="zrj-jY-TrR"/>
+                                                            <constraint firstAttribute="width" constant="80" id="f59-Oj-cPR"/>
+                                                            <constraint firstAttribute="height" constant="80" id="zrj-jY-TrR"/>
                                                         </constraints>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         </preferredSymbolConfiguration>
                                                     </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="IR1-f9-VTF" secondAttribute="height" id="fiA-pC-K2g"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -151,6 +152,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="7Le-wY-w8Z" id="Fua-EA-7De"/>
                         <outlet property="durationLabel" destination="1R4-Z4-ZTG" id="HUY-Ef-I4X"/>
+                        <outlet property="koreanItemsButton" destination="IR1-f9-VTF" id="f5U-aj-KLf"/>
                         <outlet property="locationLabel" destination="PPf-Yg-MKq" id="jDy-Bj-l09"/>
                         <outlet property="posterImage" destination="8Tj-we-nDF" id="3lH-gA-DFY"/>
                         <outlet property="titleLabel" destination="ktN-8w-RtL" id="je5-MT-jzo"/>
@@ -328,6 +330,9 @@
     <resources>
         <image name="flag" width="851" height="567"/>
         <image name="poster" width="144" height="200"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
