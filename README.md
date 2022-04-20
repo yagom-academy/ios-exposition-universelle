@@ -13,6 +13,9 @@
 - [STEP 2](#step-2)
     + [고민 및 해결한 점](#고민-및-해결한-점)
     + [궁금한 점](#궁금한-점)
+- [STEP 3](#step-3)
+    + [고민 및 해결한 점](#고민-및-해결한-점)
+    + [궁금한 점](#궁금한-점)
 - [그라운드 룰](#그라운드-룰)
     + [스크럼](#스크럼)
     + [코딩 컨벤션](#코딩-컨벤션) 
@@ -167,6 +170,67 @@ var content = view?.defaultContentConfiguration()
 - 저희의 생각이 더 효율적인 것이 맞을까요??
 ---
 
+## [STEP 3]
+### 고민 및 해결한 점
+
+1️⃣ 첫 화면 세로로 고정
+
+<img width="500" src= "https://i.imgur.com/JyHjRqA.png"/>
+- Deployment Info에서 Device Orientation을 통해 원하는 회전 방법을 선택해주었습니다.
+- 위 방법은 디바이스 화면 전체에 영향을 줌
+- 이 때, 원하는 화면에서만 세로모드만 지원하는 것처럼 특정 orientation값을 갖게 해주고 싶었습니다.
+- UIInterfaceOrientationMask를 이용하면 원하는 view에서의 orientation을 코드로 바꿔줄 수 있다고 생각했습니다.
+>아래 메서드와 화면의 위치를 알려줄 flag를 이용해 첫 번째 화면에서만 세로 값을 할당하여 문제를 해결해 주었습니다.
+
+```swift
+func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
+```
+
+2️⃣ 하나의 label에 두 개의 다른 Font
+
+<img width="500" src= "https://i.imgur.com/w1PXlug.png"/>
+
+- 처음에는 한 줄에 다른 폰트를 표현하기 위해 위의 예시처럼 두개의 label를 horizontal stackView에 넣어주었습니다. 
+- 하지만 이런 방법으로 했을 경우, Dynamic Type을 적용했을 때 각 label마다 다른 기준으로 글자가 커졌습니다. 그로 인해 필요없는 공백이 생기고, 사용자가 받아드리기에 불편한 텍스트가 출력되는 문제가 생겼습니다.
+>하나의 label에 다른 성격의 두 Font가 존재하면 문제를 해결할 수 있다고 생각했고, NSMutableAttributedString을 통해 해결할 수 있었습니다.
+>UILable Extension을 통해 필요한 Label에서 downSize()메서드를 사용하여 문제를 해결하게끔 만들어 해결해 주었습니다
+```swift
+func downSize(targetString: String) {
+        let font = UIFont.preferredFont(forTextStyle: .body)
+        let fullText = self.text ?? ""
+        let range = (fullText as NSString).range(of: targetString)
+        let attributedString = NSMutableAttributedString(string: fullText)
+        attributedString.addAttribute(.font, value: font, range: range)
+        self.attributedText = attributedString
+}
+```
+
+3️⃣ AutoLayout - image
+- image view에 AutoLayout을 적용함에 있어서 원하는 image의 크기, 비율이 출력되지 않았습니다.
+- Aspect To Fit은 비율은 유지되고 imageView밖으로 사진이 나가지 않는 선에서 최대치 값을 갖습니다. 아래 그림과 같이 iamgeView에 크기를 정하게 되면 사진은 비율을 헤치지 않는 선에서 최대치 값을 갖습니다. 그렇다면 남게 되는 영역이 생기는데 에러가 생기지 않는 것에 의문이 생겼습니다. 
+
+<img width="500" src= "https://i.imgur.com/ehoFplS.png"/>
+- image view에 공백이 있는 것을 backgroundColor를 주어서 남은 영역은 공백으로 채우게 되고 image 자체가 공백과 합쳐진다는 것을 알았습니다.
+>Scale to fill / Aspect to fit / Aspect to fill의 차이점을 찾는 것을 시작으로 적절한 방법을 사용하는 것을 통해 문제를 해결했습니다.
+
+4️⃣ AutoLayout - stackView > Distribution > fill
+- stackView > Distribution > fill을 적용했을 때 마지막 stack이 남은 비율을 꽉채우는 현상이 생겼고, 공백 부분에 컨텐츠가 채워지는 오류가 생겼습니다.
+- fill은 가능한 공간을 채우도록 크기를 조정하는 특징을 가졌고, arranged view들의 크기가 넘어가면 compression resistance priority에 따라 뷰가 축소 / 공간이 남는다면 hugging priority에 따라 뷰가 늘어난다는 사실을 확인했습니다.
+
+<img width="200" src= "https://i.imgur.com/3kmbbL7.jpg"/>
+- 이번 프로젝트의 경우 공간이 남기 때문에 hugging priority에 따라 뷰가 늘어납니다. 때문에 hugging priority가 가장 낮은 마지막 arranged view(stack)가 늘어납니다. 
+> hugging priority가 가장 낮은 마지막 arranged view(stack)에 높이를 줌으로써 늘어나는 것을 방지했고, 이를 통해 해결했습니다.
+
+### 궁금한 점 및 질문사항 
+1️⃣ ExhibitionItemsView Cell AutoLayout
+- titleLabel과 subtitleLabel "missing Constraints" 문제
+- titleLabel과 subtitleLabel를 스택뷰 안에 넣어주었습니다, 높이에 대한 문제가 자꾸 발생을 하는 것 같아 높이에 대한 Constraints를 주었는데도 다시 또 나타났습니다ㅠ 어떤 점 때문에 자꾸 높이를 못잡는건지 확인하지 못하였습니다
+
+2️⃣ AutoLayout
+- auto layout의 빨간색 오류를 전부 해결했지만, 간혹 다시 오류가 생기고, 다시 없어지기를 반복합니다. 아무런 변경사항이...없는데 말이죠 🤔
+- 이런 현상을 미흡한 제약조건으로 인한 현상으로 바라봐야할 지, 단순 XCode 오류로 봐야할지 궁금합니다 😭
+---
+
 ## 그라운드 룰
 
 ### ✏️ 스크럼
@@ -194,20 +258,20 @@ Swift 코드 스타일
 본문은 한 줄 최대 72자 입력
 
 #### 📎 Commit 제목 규칙
-[chore] : 코드 수정, 내부 파일 수정
-[feat] : 새로운 기능 구현
-[style] : 스타일 관련 기능(코드 포맷팅, 세미콜론 누락, 코드 자체의 변경이 없는 경우)
-[add] : Feat 이외의 부수적인 코드 추가, 라이브러리 추가, 새로운 파일 생성 시
-[fix] : 버그, 오류 해결
-[del] : 쓸모없는 코드 삭제
-[docs] : README나 WIKI 등의 문서 개정
-[mod] : storyboard 파일,UI 수정한 경우
-[correct] : 주로 문법의 오류나 타입의 변경, 이름 변경 등에 사용합니다.
-[move] : 프로젝트 내 파일이나 코드의 이동
-[rename] : 파일 이름 변경이 있을 때 사용합니다.
-[improve] : 향상이 있을 때 사용합니다.
-[refactor] : 전면 수정이 있을 때 사용합니다
-[merge]: 다른브렌치를 merge 할 때 사용합니다.
+- [chore] : 코드 수정, 내부 파일 수정
+- [feat] : 새로운 기능 구현
+- [style] : 스타일 관련 기능(코드 포맷팅, 세미콜론 누락, 코드 자체의 변경이 없는 경우)
+- [add] : Feat 이외의 부수적인 코드 추가, 라이브러리 추가, 새로운 파일 생성 시
+- [fix] : 버그, 오류 해결
+- [del] : 쓸모없는 코드 삭제
+- [docs] : README나 WIKI 등의 문서 개정
+- [mod] : storyboard 파일,UI 수정한 경우
+- [correct] : 주로 문법의 오류나 타입의 변경, 이름 변경 등에 사용합니다.
+- [move] : 프로젝트 내 파일이나 코드의 이동
+- [rename] : 파일 이름 변경이 있을 때 사용합니다.
+- [improve] : 향상이 있을 때 사용합니다.
+- [refactor] : 전면 수정이 있을 때 사용합니다
+- [merge]: 다른브렌치를 merge 할 때 사용합니다.
 
 #### 📎 Commit Body 규칙
 제목 끝에 마침표(.) 금지
