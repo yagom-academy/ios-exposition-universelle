@@ -40,7 +40,7 @@ final class MainViewController: UIViewController {
         
         titleLabel.text = divide(title: expoInfo.title)
         posterImageView.image = UIImage(named: "poster.png")
-        visitorsLabel.text = " : \(expoInfo.visitors.changeVisitorsFormat() ?? "정보 없음")"
+        visitorsLabel.text = " : \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")"
         locationLabel.text = " : \(expoInfo.location)"
         durationLabel.text = " : \(expoInfo.duration)"
         descriptionLabel.text = expoInfo.description
