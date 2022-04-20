@@ -71,6 +71,6 @@ class ExpositionPosterTests: XCTestCase {
         sut = ExpositionPoster.parse(JsonFile.poster)
         
         //then
-        XCTAssertTrue(sut!.description!.hasPrefix(data))
+        XCTAssertTrue(sut!.descriptions!.hasPrefix(data))
     }
 }
