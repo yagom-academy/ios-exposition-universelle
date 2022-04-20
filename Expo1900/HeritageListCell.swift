@@ -18,5 +18,6 @@ final class HeritageListCell: UITableViewCell {
         heritageImage.image = UIImage(named: item.imageName)
         heritageTitleLabel.text = item.name
         heritageShortDescriptionLabel.text = item.shortDescription
+        heritageShortDescriptionLabel.sizeToFit()
     }
 }

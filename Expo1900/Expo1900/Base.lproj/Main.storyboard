@@ -177,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HeritageListCell" rowHeight="109" id="hOr-9A-CyM" customClass="HeritageListCell" customModule="Expo1900" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationLevel="-1" indentationWidth="10" reuseIdentifier="HeritageListCell" rowHeight="109" id="hOr-9A-CyM" customClass="HeritageListCell" customModule="Expo1900" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="109"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hOr-9A-CyM" id="r7k-yG-zWm">
@@ -192,16 +192,16 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gri-nQ-E4y">
-                                            <rect key="frame" x="140" y="10" width="235.5" height="89"/>
+                                            <rect key="frame" x="140" y="29.5" width="245.5" height="50.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fy-Hz-cpU" userLabel="Title">
-                                                    <rect key="frame" x="0.0" y="0.0" width="235.5" height="68.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fy-Hz-cpU" userLabel="Title">
+                                                    <rect key="frame" x="0.0" y="0.0" width="245.5" height="30"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXu-BJ-MQW" userLabel="Short Description">
-                                                    <rect key="frame" x="0.0" y="68.5" width="235.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" text="Short Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXu-BJ-MQW" userLabel="Short Description">
+                                                    <rect key="frame" x="0.0" y="30" width="245.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -210,15 +210,22 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="gri-nQ-E4y" firstAttribute="top" secondItem="r7k-yG-zWm" secondAttribute="top" constant="10" id="1gM-za-WAP"/>
-                                        <constraint firstAttribute="bottom" secondItem="gri-nQ-E4y" secondAttribute="bottom" constant="10" id="6Ao-5z-tgK"/>
-                                        <constraint firstItem="gri-nQ-E4y" firstAttribute="leading" secondItem="04u-1Q-nDY" secondAttribute="trailing" constant="10" id="LC2-1K-8xE"/>
-                                        <constraint firstAttribute="trailing" secondItem="gri-nQ-E4y" secondAttribute="trailing" constant="10" id="cO9-Hi-dN9"/>
-                                        <constraint firstItem="04u-1Q-nDY" firstAttribute="leading" secondItem="r7k-yG-zWm" secondAttribute="leading" constant="10" id="kw8-GF-oI7"/>
-                                        <constraint firstItem="04u-1Q-nDY" firstAttribute="height" relation="lessThanOrEqual" secondItem="gri-nQ-E4y" secondAttribute="height" id="uaz-E7-3Mg"/>
-                                        <constraint firstItem="gri-nQ-E4y" firstAttribute="centerY" secondItem="04u-1Q-nDY" secondAttribute="centerY" id="wzX-kJ-bCt"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="04u-1Q-nDY" secondAttribute="bottom" constant="10" id="00U-Kw-aYK"/>
+                                        <constraint firstAttribute="trailing" secondItem="gri-nQ-E4y" secondAttribute="trailing" id="Jws-ee-7P2"/>
+                                        <constraint firstItem="04u-1Q-nDY" firstAttribute="leading" secondItem="r7k-yG-zWm" secondAttribute="leading" constant="10" id="Mfb-jw-gPT"/>
+                                        <constraint firstItem="04u-1Q-nDY" firstAttribute="top" secondItem="r7k-yG-zWm" secondAttribute="top" constant="10" id="N8n-S8-11e"/>
+                                        <constraint firstItem="gri-nQ-E4y" firstAttribute="top" secondItem="r7k-yG-zWm" secondAttribute="top" constant="10" id="Swf-wC-HFo"/>
+                                        <constraint firstItem="gri-nQ-E4y" firstAttribute="centerY" secondItem="r7k-yG-zWm" secondAttribute="centerY" id="fEO-dB-UM4"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gri-nQ-E4y" secondAttribute="bottom" constant="10" id="mQr-lk-W7R"/>
+                                        <constraint firstItem="gri-nQ-E4y" firstAttribute="leading" secondItem="04u-1Q-nDY" secondAttribute="trailing" constant="10" id="zoY-7k-ero"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="Swf-wC-HFo"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="heritageImage" destination="04u-1Q-nDY" id="3hN-ZC-Def"/>
                                     <outlet property="heritageShortDescriptionLabel" destination="NXu-BJ-MQW" id="rk0-4Q-1vJ"/>
