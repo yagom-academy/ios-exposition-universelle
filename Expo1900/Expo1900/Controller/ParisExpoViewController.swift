@@ -8,7 +8,6 @@ fileprivate enum UITitle {
     static let visitorText = "방문객 :"
     static let locationText = "개최지 :"
     static let durationText = "개최 기간 :"
-    static let goToKoreanItemsText = "한국의 출품작 보러가기"
     static let mainText = "메인"
 }
 
@@ -47,6 +46,8 @@ final class ParisExpoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        
+        koreanItemsButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
     }
     
     override func viewDidLoad() {
@@ -69,7 +70,6 @@ final class ParisExpoViewController: UIViewController {
         configureLocationLabel()
         configureDurationLabel()
         configureDesciptionLabel()
-        configureKoreanItemsButtonLabel()
     }
     
     private func configureTitleLabel() {
@@ -101,10 +101,6 @@ final class ParisExpoViewController: UIViewController {
     
     private func configureDesciptionLabel() {
         descriptionLabel.text = parisExpoData?.description
-    }
-    
-    private func configureKoreanItemsButtonLabel() {
-        koreanItemsButton.titleLabel?.text = UITitle.goToKoreanItemsText
     }
 }
 
