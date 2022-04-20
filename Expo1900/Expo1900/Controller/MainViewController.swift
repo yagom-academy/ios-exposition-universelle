@@ -105,6 +105,9 @@ private extension MainViewController {
       in: self.durationLabel
     )
     self.descriptionLabel.text = expo.description
+    self.visitorsLabel.adjustsFontSizeToFitWidth = true
+    self.locationLabel.adjustsFontSizeToFitWidth = true
+    self.durationLabel.adjustsFontSizeToFitWidth = true
   }
   
   func setAttributed(of text: String, with targetString: String, in label: UILabel) {

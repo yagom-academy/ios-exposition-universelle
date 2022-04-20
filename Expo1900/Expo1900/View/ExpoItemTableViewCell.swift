@@ -22,6 +22,7 @@ final class ExpoItemTableViewCell: UITableViewCell {
   }
   
   func setUpContentView(_ expoItem: ExpoItem) {
+    self.expoItemTitleLabel.adjustsFontSizeToFitWidth = true
     self.expoItemTitleLabel.text = expoItem.name
     self.expoItemDescriptionLabel.text = expoItem.shortDescription
     self.expoItemImageView.image = UIImage(named: expoItem.imageName)
