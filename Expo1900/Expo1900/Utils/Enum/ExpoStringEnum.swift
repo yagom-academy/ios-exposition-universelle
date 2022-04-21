@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 enum ExpoStringEnum {
     static let segueIdentifer = "KoreaEntryDetailViewController"
     static let cellIdentifier = "KoreaEntryDetailTableViewCell"
