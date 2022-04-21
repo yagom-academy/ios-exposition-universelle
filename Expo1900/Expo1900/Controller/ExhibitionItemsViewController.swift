@@ -19,6 +19,11 @@ final class ExhibitionItemsViewController: UIViewController {
         self.exhibitionItems = decodeJson()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIViewController.attemptRotationToDeviceOrientation()
+    }
+    
     private func decodeJson() -> [ExhibitionItem] {
         do {
             let decodedData = try [ExhibitionItem].decode(from: Constant.exhibitionItemFileName)

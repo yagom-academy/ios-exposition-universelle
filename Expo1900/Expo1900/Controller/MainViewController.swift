@@ -13,7 +13,11 @@ final class MainViewController: UIViewController {
     @IBOutlet weak private var locationLabel: UILabel!
     @IBOutlet weak private var durationLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
-        
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpView()
