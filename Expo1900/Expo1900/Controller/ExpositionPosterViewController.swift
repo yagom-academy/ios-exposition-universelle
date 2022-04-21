@@ -54,7 +54,7 @@ final class ExpositionPosterViewController: UIViewController {
         }
 
         posterTitle.text = poster.title?.replacingOccurrences(of: "(", with: "\n(")
-        visitorsValue.text = Int.numberFormatter(by: poster.visitors)
+        visitorsValue.text = poster.visitors?.numberFormatter()
         locationValue.text = poster.location
         durationValue.text = poster.duration
         descriptions.text = poster.description
