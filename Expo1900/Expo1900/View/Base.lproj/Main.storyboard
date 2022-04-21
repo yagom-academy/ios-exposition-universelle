@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdA-qa-mBA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdA-qa-mBA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -94,6 +94,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cdA-qa-mBA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jns-no-Mix"/>
+                            <constraint firstItem="cdA-qa-mBA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aKp-ex-Kec"/>
+                            <constraint firstAttribute="bottom" secondItem="cdA-qa-mBA" secondAttribute="bottom" id="cIs-Nu-ceK"/>
+                            <constraint firstItem="cdA-qa-mBA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="euS-KN-P4n"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ngv-dt-CEY"/>
                     <connections>
