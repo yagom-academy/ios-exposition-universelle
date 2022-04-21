@@ -11,4 +11,5 @@ enum ExpoMagicNumberEnum {
     static let defaultRowCount: Int = 0
     static let defaultVisitor: Int = 0
     static let notFoundImageFile: String = ""
+    static let defaultValue: String = "0"
 }
