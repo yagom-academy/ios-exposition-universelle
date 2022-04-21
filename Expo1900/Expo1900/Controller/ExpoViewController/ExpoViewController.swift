@@ -87,7 +87,6 @@ final class ExpoViewController: UIViewController, Alertalble {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.isHidden = true
-    fixDevice(orientation: .portrait)
   }
     
   override func viewWillDisappear(_ animated: Bool) {
@@ -95,9 +94,8 @@ final class ExpoViewController: UIViewController, Alertalble {
     navigationController?.navigationBar.isHidden = false
   }
   
-  private func fixDevice(orientation: UIDeviceOrientation) {
-    let value = orientation.rawValue
-    UIDevice.current.setValue(value, forKey: Const.Device.orientation)
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return .portrait
   }
   
   private func attribute() {

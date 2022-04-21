@@ -19,11 +19,7 @@ class ExpoNavigationController: UINavigationController {
   }
   
   override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    if self.topViewController as? ExpoViewController == nil {
-      return .all
-    } else {
-      return .portrait
-    }
+    return self.topViewController?.supportedInterfaceOrientations ?? .all
   }
   
   private func attribute() {
