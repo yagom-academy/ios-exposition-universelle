@@ -39,6 +39,19 @@ final class WorldFairPosterViewController: UIViewController {
         updateImageViews()
     }
     
+    private func replaceTitle() -> String {
+        var replacedTitleText: String = ""
+        let data = try? decodeWorldFairPoster()
+        
+        guard let separatedData = data?.title.components(separatedBy: ExpoMagicNumberEnum.separatePoint) else {
+            return ExpoMagicNumberEnum.notFoundDate
+        }
+        replacedTitleText += separatedData[0]
+        replacedTitleText += ExpoMagicNumberEnum.newLine + ExpoMagicNumberEnum.separatePoint + separatedData[1]
+        
+        return replacedTitleText
+    }
+    
     private func decodeWorldFairPoster() throws -> WorldFairPoster {
         let assetSeeker = AssetSeeker()
         var worldFairPosterData: WorldFairPoster?
@@ -58,7 +71,8 @@ final class WorldFairPosterViewController: UIViewController {
         
     private func updateUI() {
         var worldFairPosterData: WorldFairPoster?
-
+        let replacedTitleText = replaceTitle()
+        
         do {
             worldFairPosterData = try decodeWorldFairPoster()
         } catch ExpoError.decodeError {
@@ -66,7 +80,7 @@ final class WorldFairPosterViewController: UIViewController {
         } catch {
             showAlert(alertTitle: ExpoStringEnum.unexpectedError, okTitle: ExpoStringEnum.okTitle)
         }
-        titleLabel.text = worldFairPosterData?.title
+        titleLabel.text = replacedTitleText
         visitorLabel.text = "방문객 : " + String(worldFairPosterData?.visitors ?? ExpoMagicNumberEnum.defaultVisitor)
         locationLabel.text = "개최지 : " + (worldFairPosterData?.location ?? ExpoMagicNumberEnum.defaultValue)
         durationLabel.text = "개최 기간 : " + (worldFairPosterData?.duration ?? ExpoMagicNumberEnum.defaultValue)
