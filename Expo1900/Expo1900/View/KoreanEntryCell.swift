@@ -13,14 +13,16 @@ final class KoreanEntryCell: UITableViewCell {
        super.init(coder: aDecoder)
     }
     
-    func configureCell(title: String, image: String, intro: String) {
+    func updateCellData(data: CellContent) {
+        configureCell()
+        detailTitleLabel?.text = data.entryTitle
+        detailImageView?.image = UIImage(named: data.entryImage)
+        detailIntroLabel?.text = data.entryIntroduction
+    }
+    
+    private func configureCell() {
         detailTitleLabel?.font = UIFont.systemFont(ofSize: 25)
-        detailTitleLabel?.text = title
-        
         detailImageView?.contentMode = .scaleAspectFit
-        detailImageView?.image = UIImage(named: image)
-        
         detailIntroLabel?.numberOfLines = 0
-        detailIntroLabel?.text = intro
     }
 }

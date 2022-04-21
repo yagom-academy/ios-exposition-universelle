@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E6603A2280D8221000FDA14 /* DetailContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6603A1280D8221000FDA14 /* DetailContent.swift */; };
+		4E6603A2280D8221000FDA14 /* CellDetailContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6603A1280D8221000FDA14 /* CellDetailContent.swift */; };
 		4EA869282805103E002EEBB8 /* JsonParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA869272805103E002EEBB8 /* JsonParsingTests.swift */; };
 		4EC09F38280E5CB50005E5C7 /* KoreanEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC09F37280E5CB50005E5C7 /* KoreanEntryCell.swift */; };
 		4EC69AF228044A0B00237E61 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC69AF128044A0B00237E61 /* Entry.swift */; };
 		4EDB6D982806ED5F00CF0166 /* KoreanEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDB6D972806ED5F00CF0166 /* KoreanEntryViewController.swift */; };
 		9C2A96CE28044CD90053E54B /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2A96CD28044CD90053E54B /* Exposition.swift */; };
+		9C79D8102810F63900282C28 /* CellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79D80F2810F63900282C28 /* CellContent.swift */; };
 		9C9AD9AC2807FDA900E5E45A /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9AD9AB2807FDA900E5E45A /* EntryDetailViewController.swift */; };
 		9CA01A47280E537B009FAD2B /* ParsingAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA01A46280E537B009FAD2B /* ParsingAssistant.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -34,13 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E6603A1280D8221000FDA14 /* DetailContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContent.swift; sourceTree = "<group>"; };
+		4E6603A1280D8221000FDA14 /* CellDetailContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailContent.swift; sourceTree = "<group>"; };
 		4EA869252805103E002EEBB8 /* JsonParsingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JsonParsingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA869272805103E002EEBB8 /* JsonParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParsingTests.swift; sourceTree = "<group>"; };
 		4EC09F37280E5CB50005E5C7 /* KoreanEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryCell.swift; sourceTree = "<group>"; };
 		4EC69AF128044A0B00237E61 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		4EDB6D972806ED5F00CF0166 /* KoreanEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryViewController.swift; sourceTree = "<group>"; };
 		9C2A96CD28044CD90053E54B /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		9C79D80F2810F63900282C28 /* CellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContent.swift; sourceTree = "<group>"; };
 		9C9AD9AB2807FDA900E5E45A /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		9CA01A46280E537B009FAD2B /* ParsingAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingAssistant.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +107,8 @@
 			children = (
 				4EC69AF128044A0B00237E61 /* Entry.swift */,
 				9C2A96CD28044CD90053E54B /* Exposition.swift */,
-				4E6603A1280D8221000FDA14 /* DetailContent.swift */,
+				4E6603A1280D8221000FDA14 /* CellDetailContent.swift */,
+				9C79D80F2810F63900282C28 /* CellContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,9 +256,10 @@
 				4EC69AF228044A0B00237E61 /* Entry.swift in Sources */,
 				9C2A96CE28044CD90053E54B /* Exposition.swift in Sources */,
 				9CA01A47280E537B009FAD2B /* ParsingAssistant.swift in Sources */,
+				9C79D8102810F63900282C28 /* CellContent.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionMainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
-				4E6603A2280D8221000FDA14 /* DetailContent.swift in Sources */,
+				4E6603A2280D8221000FDA14 /* CellDetailContent.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				9C9AD9AC2807FDA900E5E45A /* EntryDetailViewController.swift in Sources */,
 				4EC09F38280E5CB50005E5C7 /* KoreanEntryCell.swift in Sources */,

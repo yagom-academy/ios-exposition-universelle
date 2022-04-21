@@ -32,9 +32,10 @@ extension KoreanEntryViewController {
                                             for: indexPath) as? KoreanEntryCell else {
             return UITableViewCell()
         }
-        cell.configureCell(title: entry.name,
-                           image: entry.imageName,
-                           intro: entry.introduction)
+        let cellContent = CellContent(entryTitle: entry.name,
+                                      entryImage: entry.imageName,
+                               entryIntroduction: entry.introduction)
+        cell.updateCellData(data: cellContent)
         return cell
     }
     
@@ -45,10 +46,10 @@ extension KoreanEntryViewController {
             
             let entry = entries[indexPath.row]
             let entryDetailViewController = segue.destination as? EntryDetailViewController
-            let detailContent = DetailContent(detailDescription: entry.description,
+            let cellDetailContent = CellDetailContent(detailDescription: entry.description,
                                                       imageName: entry.imageName,
                                                koreanEntryTitle: entry.name)
-            entryDetailViewController?.updateDetailContent(data: detailContent)
+            entryDetailViewController?.updateDetailContent(data: cellDetailContent)
         }
     }
 }
