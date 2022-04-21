@@ -36,6 +36,8 @@ final class WorldFairPosterViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = ExpoStringEnum.mainTitle
         updateUI()
+        worldFairPosterImageView.isAccessibilityElement = true
+        worldFairPosterImageView.accessibilityLabel = "파리 박람회 포스터"
         updateImageViews()
     }
     
