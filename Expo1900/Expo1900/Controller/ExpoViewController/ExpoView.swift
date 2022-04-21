@@ -70,6 +70,8 @@ final class ExpoView: UIView {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .title1)
     label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     label.numberOfLines = 2
     label.textAlignment = .center
     return label
@@ -90,6 +92,8 @@ final class ExpoView: UIView {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .title2)
     label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     label.text = Const.Literal.visitor
     return label
   }()
@@ -98,6 +102,8 @@ final class ExpoView: UIView {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .body)
     label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
   
@@ -110,6 +116,8 @@ final class ExpoView: UIView {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .title2)
     label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     label.text = Const.Literal.location
     return label
   }()
@@ -118,6 +126,8 @@ final class ExpoView: UIView {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .body)
     label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
   
@@ -130,6 +140,8 @@ final class ExpoView: UIView {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .title2)
     label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     label.text = Const.Literal.duration
     return label
   }()
@@ -138,6 +150,8 @@ final class ExpoView: UIView {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .body)
     label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
   
