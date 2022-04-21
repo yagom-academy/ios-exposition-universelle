@@ -60,27 +60,21 @@ extension ExpositionMainViewController {
         koreanEntryButton.titleLabel?.adjustsFontForContentSizeCategory = true
         visitorsLabel.adjustsFontForContentSizeCategory = true
         updateExpositionContents()
-        koreanEntryButton.titleLabel?.numberOfLines = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+        let formerStatus = UIDevice.current.orientation.rawValue
+        AppUtility.acceptOrientation(.portrait, andRotateTo: .portrait)
+        
+        UIDevice.current.setValue(formerStatus, forKey: "orientation")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print("First View Will Disappear: \(UIDevice.current.orientation.rawValue)")
         self.navigationController?.isNavigationBarHidden = false
-        AppUtility.lockOrientation(.all)
-    }
-}
-
-extension UIFont {
-    static func preferredFont(for style: TextStyle, weight: Weight) -> UIFont {
-        let metrics = UIFontMetrics(forTextStyle: style)
-        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
-        let font = UIFont.systemFont(ofSize: desc.pointSize, weight: weight)
-        return metrics.scaledFont(for: font)
+        AppUtility.acceptOrientation(.all)
     }
 }

@@ -14,6 +14,11 @@ final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UI
         updateEntries()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIViewController.attemptRotationToDeviceOrientation()
+    }
+    
     private func updateEntries() {
         guard let decodedData: [Entry] = parsingAssistant.decodeContent(fileName: "items") else { return }
         entries = decodedData
