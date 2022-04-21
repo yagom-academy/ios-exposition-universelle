@@ -23,7 +23,7 @@ extension HeritageViewController {
 
 //MARK: - ViewController
 
-final class HeritageViewController: UIViewController, Alertalble {
+final class HeritageViewController: UIViewController, Alertable {
   private lazy var baseView = HeritageView(frame: view.bounds)
   private var heritageList: [Heritage]? {
     didSet {

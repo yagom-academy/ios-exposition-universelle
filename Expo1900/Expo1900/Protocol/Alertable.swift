@@ -14,11 +14,11 @@ private enum Const {
   }
 }
 
-protocol Alertalble {
+protocol Alertable {
   func showAlert(errorMessage: String, viewController: UIViewController)
 }
 
-extension Alertalble {
+extension Alertable {
   func showAlert(errorMessage: String, viewController: UIViewController) {
     let alertController = UIAlertController(title: Const.Alert.title, message: errorMessage, preferredStyle: .alert)
     let alertAction = UIAlertAction(title: Const.Alert.okAction, style: .default)
