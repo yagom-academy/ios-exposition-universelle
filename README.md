@@ -46,8 +46,10 @@
 🔀[merge]: 다른브렌치를 merge 할 때 사용합니다.  
 
 ## 실행화면
+![만국박람회](https://user-images.githubusercontent.com/88717147/164485804-47ee3fc2-fcff-451c-a7cc-798260f4f74f.gif)
 
 ## UML
+
 ![](https://i.imgur.com/WY8K5pY.png)
 
 ## STEP 1 기능 구현
@@ -207,7 +209,7 @@ struct ExpositionItems: Codable {
     let description: String?
 }
 ```
-## STEP2 기능 구현
+## STEP 2 기능 구현
 1. ExpositionPosterViewController: UIViewController
 >- `viewWillAppear()`: 화면이 보여지기 직전에 네비게이션 바 를 보이지 않게 옵션을 설정함.
 >- `viewWillDisappear()`: 화면이 사라지기 직전에 네비게이션 바 를 보이도록 옵션을 설정함.
@@ -253,8 +255,10 @@ final class CustomCell: UITableViewCell {
 
 **3. Cell 의 row 를 클릭하게되면 게속 눌려진 채로 인식하는 문제**
 >`Cell` 의 `row` 를 클릭하여 다음 화면으로 전환후 다시 이전 화면으로 전환 했을경우 `Cell`의 `row` 가 게속 눌려져 있는 형태로 남아있었다.
-![](https://i.imgur.com/nz40hkF.png)
-**해결 방법**
+>
+>![](https://i.imgur.com/nz40hkF.png)
+>
+>**해결 방법**
 >이를 해결하기위해 deselectRow 를 사용하여 row 를 클릭하게되면 회색으로 표시되었다가 원래의 색으로 변경되도록 하였다.
 ```swift
 tableView.deselectRow(at: indexPath, animated: true)
@@ -355,7 +359,7 @@ extension EntryListViewController: UITableViewDelegate {
 
 **2. MVC 구조에 맞게 컨트롤러와 모델 활용방법 수정**
 
-![](https://i.imgur.com/Z1t4Cr7.png)
+<img width="400" src="https://i.imgur.com/Z1t4Cr7.png"/>
 
 >위 MVC패턴과 같이 Model을 update 하게 되면 controller에 Notify를 주어야하는데 이전에 작성했던 코드는 controller와 model을 파일 위치만 분리했어서 MVC패턴을 지키게끔 수정하였다.
 
@@ -400,7 +404,7 @@ final class EntryListViewController: UIViewController {
     }
 }    
 ```
-## STEP3 기능 구현
+## STEP 3 기능 구현
 1. UILabel Extension
 >- `changeFont()`: label text 를 부분적으로 폰트를 변경하는 메서드.
 
@@ -485,7 +489,8 @@ final class EntryListViewController: UIViewController {
 **1. `ExpositionPosterViewController` 의 `scrollView` 를 `top`, `bottom` 을 `superView` 와 동일하게 설정해두었으나 전면에서 공백 부분이 생기는 문제.**
 
 >**해결한 방법**
->![](https://i.imgur.com/hLDV3mT.png =250x)
+>
+><img width="300" src="https://i.imgur.com/hLDV3mT.png"/>
 >
 >따로 설정하지 않아도 Constrain to margins 가 기본적으로 체크 되어있는 모습을 볼수있다. 
 >
@@ -496,7 +501,8 @@ final class EntryListViewController: UIViewController {
 **2. `EntryItemViewController` 각 셀의 오른쪽에 화살표를 추가하는 방법**
 
 >**해결한 방법**
->![](https://i.imgur.com/rmaI4m2.png =250x)
+>
+><img width="300" src="https://i.imgur.com/rmaI4m2.png"/>
 >`Cell` 의 `Accessory` 속성에서 `disclosureIndicator` 적용하였다.
 
 **3. `EntryListViewController`에서 `Content hugging Priority`와 `Content Compression Resistance Priority`가 동일하게 설정되어있어 화면 크기가 변동되었을 때 어떤 것이 우선적으로 늘어나고 줄어들지 지정하지 않아서 생긴 문제**
@@ -506,7 +512,7 @@ final class EntryListViewController: UIViewController {
 
 4. `EntryItemViewComtroller` 에서 `imageView` 의 크기가 세로모드일때 와 가로모드일때 어떻게 적용시켜줘야할지 고민했다.
 >- `imageView`의 높이를 180보다 크다로 설정한후 우선도를 1000 으로 최우선하도록 설정하였다.
->- `imageView`의 높이를 `scrollView` 높이의 30% 가 되게끔 설정한후 우선도를 750 으로 설정하였다.
+>- `imageView`의 높이를 `scrollView` 높이의 15% 가 되게끔 설정한후 우선도를 750 으로 설정하였다.
 >
 >그렇다면 세로화면 에서 `imageView` 의 높이는 전체높이의 30% 크기가 되고, 가로화면에서 `imageView` 의 높이는 180이 되게 된다.
 
