@@ -21,7 +21,6 @@ final class KoreanEntryCell: UITableViewCell {
     }
     
     private func configureCell() {
-        detailTitleLabel?.font = UIFont.systemFont(ofSize: 25)
         detailImageView?.contentMode = .scaleAspectFit
         detailIntroLabel?.numberOfLines = 0
     }

@@ -10,7 +10,8 @@ final class ExpositionMainViewController: UIViewController {
     @IBOutlet private weak var koreanEntryButton: UIButton!
     
     private let parsingAssistant = ParsingAssistant()
-    private let alternativeFont = UIFont.systemFont(ofSize: 20)
+    //private let alternativeFont = UIFont.systemFont(ofSize: 20)
+    private let alternativeFont = UIFont.preferredFont(forTextStyle: .title3)
     static let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -21,9 +22,18 @@ final class ExpositionMainViewController: UIViewController {
         if let decodedData: Exposition = parsingAssistant.decodeContent(fileName: "exposition_universelle_1900") {
             titleLabel.text = decodedData.linedTitle()
             imageView.image = UIImage(named: "poster")
+            
+//            let visitorsResult = NSMutableAttributedString()
+//            let attributeFirst = NSAttributedString(string: "방문객", attributes: [.font: alternativeFont])
+//            let attributeSecond = NSAttributedString(string: " : \(decodedData.decimalVisitors()) 명", attributes: [.font: UIFont.preferredFont(forTextStyle: .body)])
+//
+//
+//            visitorsResult.append(attributeFirst)
+//            visitorsResult.append(attributeSecond)
+//            visitorsLabel.attributedText = visitorsResult
+            
             visitorsLabel.attributedText = decodedData
-                .setTextAttribute(of: "방문객 : \(decodedData.decimalVisitors()) 명",
-                              target: "방문객",
+                .setTextAttribute(of: "방문객 : \(decodedData.decimalVisitors()) 명",                                                             target: "방문객",
                           attributes: [.font: alternativeFont])
             locationLabel.attributedText = decodedData
                 .setTextAttribute(of: "개최지 : \(decodedData.location)",                                                                      target: "개최지",
@@ -32,6 +42,7 @@ final class ExpositionMainViewController: UIViewController {
                 .setTextAttribute(of: "개최 기간 : \(decodedData.duration)",
                               target: "개최 기간",
                           attributes: [.font: alternativeFont])
+            
             descriptionLabel.text = decodedData.description
         } else {
             showFileNotFoundAlert()
@@ -54,7 +65,10 @@ final class ExpositionMainViewController: UIViewController {
 extension ExpositionMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        koreanEntryButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        visitorsLabel.adjustsFontForContentSizeCategory = true
         updateExpositionContents()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,5 +81,14 @@ extension ExpositionMainViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
         AppUtility.lockOrientation(.all)
+    }
+}
+
+extension UIFont {
+    static func preferredFont(for style: TextStyle, weight: Weight) -> UIFont {
+        let metrics = UIFontMetrics(forTextStyle: style)
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
+        let font = UIFont.systemFont(ofSize: desc.pointSize, weight: weight)
+        return metrics.scaledFont(for: font)
     }
 }
