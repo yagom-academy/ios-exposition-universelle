@@ -21,6 +21,9 @@
 - [그라운드 룰](#그라운드-룰)
     + [활동 시간](#활동-시간)
     + [코딩 컨벤션](#코딩-컨벤션) 
+---
+## 프로젝트 소개
+<img src="https://user-images.githubusercontent.com/69573768/164358774-43cfd9af-7f44-4db0-b1fa-017a023d8352.gif" width="200">
 
 ---
 ## UML
