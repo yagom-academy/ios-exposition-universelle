@@ -55,6 +55,7 @@ private extension MainViewController {
         changeFont()
         decriptionLabel.text = expoInfomation.description
         subViewShowButton.setTitle("한국의 출품작 보러가기", for: .normal)
+        subViewShowButton.maximumContentSizeCategory = .accessibilityMedium
     }
     
     func changeFont() {
