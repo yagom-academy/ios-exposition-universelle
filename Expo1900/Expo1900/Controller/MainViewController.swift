@@ -29,20 +29,14 @@ final class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        guard let appDelegate = uiAppDelegate as? AppDelegate else { return }
-
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        appDelegate.changeOrientation = false
-        let value = UIDeviceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        fixViewOrientation(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        guard let appDelegate = uiAppDelegate as? AppDelegate else { return }
-        
         super.viewWillDisappear(animated)
-        appDelegate.changeOrientation = true
+        fixViewOrientation(false)
     }
 }
 
@@ -67,6 +61,17 @@ private extension MainViewController {
         visitorsLabel.changePartFont(part: .visitor)
         locationLabel.changePartFont(part: .location)
         durationLabel.changePartFont(part: .duration)
+    }
+    
+    func fixViewOrientation(_ fixed: Bool) {
+        guard let appDelegate = uiAppDelegate as? AppDelegate else { return }
+        
+        appDelegate.isPortrait = fixed
+        
+        if fixed {
+            let value = UIDeviceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+        }
     }
 }
 
