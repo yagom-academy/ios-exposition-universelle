@@ -85,7 +85,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khR-n9-S8f">
                                                         <rect key="frame" x="90" y="0.0" width="153" height="30"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기">
+                                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <segue destination="a95-Yh-q4z" kind="show" id="gpH-nh-KNA"/>
                                                         </connections>
