@@ -10,6 +10,7 @@ import UIKit
 final class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol {
 
     @IBOutlet private weak var heritageListTableView: UITableView!
+    
     private var items: [Item] = []
     static let identifier = String(describing: HeritageListViewController.self)
     
@@ -63,6 +64,7 @@ extension HeritageListViewController: UITableViewDelegate {
 extension HeritageListViewController {
     private func loadItems() -> [Item]? {
         let jsonManager: JsonManagerable = JsonManager()
+        
         do {
             let heritageInfo: [Item] = try jsonManager.decodedResult()
             return heritageInfo

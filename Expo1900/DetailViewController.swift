@@ -11,8 +11,8 @@ final class DetailViewController: UIViewController {
 
     @IBOutlet private weak var heritageImage: UIImageView!
     @IBOutlet private weak var heritageDescription: UILabel!
-    static let identifier = String(describing: DetailViewController.self)
     
+    static let identifier = String(describing: DetailViewController.self)
     var item: Item?
     
     override func viewDidLoad() {
