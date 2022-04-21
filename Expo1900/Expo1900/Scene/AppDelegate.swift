@@ -13,12 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       
-      let navigationAppearance = UINavigationBarAppearance()
-      navigationAppearance.configureWithDefaultBackground()
-      UINavigationBar.appearance().standardAppearance = navigationAppearance
-      UINavigationBar.appearance().compactAppearance = navigationAppearance
-      UINavigationBar.appearance().scrollEdgeAppearance = navigationAppearance
-      
       return true
     }
   
