@@ -13,6 +13,10 @@
     + [고민했던 것들](#고민했던-것들)
     + [배운 개념](#배운-개념)
     + [PR 후 개선사항](#pr-후-개선사항)
+- [STEP 3 기능 구현](#step-3-기능-구현)
+    + [고민했던 것들](#고민했던-것들)
+    + [배운 개념](#배운-개념)
+    + [PR 후 개선사항](#pr-후-개선사항)
 
 ## Ground Rules
 ### 활동시간
@@ -396,3 +400,120 @@ final class EntryListViewController: UIViewController {
     }
 }    
 ```
+## STEP3 기능 구현
+1. UILabel Extension
+>- `changeFont()`: label text 를 부분적으로 폰트를 변경하는 메서드.
+
+2. AppDelegate
+>- `var shouldSupporAllOrientation`: 화면모드 전부를 지원하는지 세로모드만 지원하는지 설정할수있는 프로퍼티
+>- `application()`: `shouldSupporAllOrientation` 의 값이 `true` 라면 화면모드 전부다 지원, `false` 라면 세로모드만 지원하도록 변경하는 메서드
+
+3. `ExpositionPosterViewController` 
+
+**화면 세로로만 볼 수 있도록 설정**
+>```swift
+>final class ExpositionPosterViewController: UIViewController {
+>    
+>    private let appDelegate = UIApplication.shared.delegate as? >AppDelegate
+>    
+>    override func viewWillAppear(_ animated: Bool) {
+>        appDelegate.shouldSupportAllOrientation = false
+>    }
+>    
+>    override func viewWillDisappear(_ animated: Bool) {
+>        appDelegate.shouldSupportAllOrientation = true
+>    }
+>}
+>```
+>`AppDelegate`의 `shouldSupporAllOrientation`에 접근하여 화면이 보여지기 전인 `viewWillAppear()`에서 `shouldSupporAllOrientation`을 `false`로 변경하면 가로모드로 전환되지 않는다. 하지만 앱의 다른 화면에서는 가로, 세로 모드를 모두 적용해야하기 때문에 `viewWillDisappear()`에서 `shouldSupporAllOrientation`을 `true`로 변경했다.
+
+
+**label text 의 폰트를 원하는 부분만 변경하도록 설정**
+>`extension UIlabel` 에 정의한 `changeFont()` 메서드를 사용
+>```swift
+>extension UILabel {
+>    func changeFont(to fontStyle: UIFont.TextStyle, letter: >String?) {
+>        let font = UIFont.preferredFont(forTextStyle: fontStyle)
+>        
+>        guard let text = self.text else {
+>            return
+>        }
+>        
+>        guard let letter = letter else {
+>            return
+>        }
+>        
+>        let attributedString = NSMutableAttributedString(string: text)
+>        
+>        attributedString.addAttribute(.font, value: font, range: (text as NSString).range(of: letter))
+>        self.attributedText = attributedString
+>    }
+>}
+>
+>final class ExpositionPosterViewController: UIViewController {
+>private func updatePoster() {
+>        posterTitle.text = poster?.title?.replacingOccurrences(of: >"(", with: "\n(")
+>        posterTitle.changeFont(to: .title1, letter: >posterTitle.text)
+>        
+>        visitorsValue.text = "\(PosterLetter.visitors) : \(poster?.visitors?.numberFormatter() ?? "")"
+>        visitorsValue.changeFont(to: .title3, letter: >PosterLetter.visitors)
+>        
+>        locationValue.text = "\(PosterLetter.location) : \(poster?.location ?? "")"
+>        locationValue.changeFont(to: .title3, letter: PosterLetter.location)
+>        
+>        durationValue.text = "\(PosterLetter.duration) : \(poster?.duration ?? "")"
+>        durationValue.changeFont(to: .title3, letter: PosterLetter.duration)
+>        
+>        descriptions.text = poster?.description
+>        }
+>}
+>```
+>`changeFont()`메서드에 어떤 fontStyle 로 변경할것인지 인자값을 넣고, 어떤 문자를 >적용시킬것인지 인자값을 넣어 사용했다.
+
+4. ViewController StoryBoard, AutoLayout 적용
+
+>`ExpositionPosterViewController`
+>- scrollView 사용
+>
+>`EntryListViewController`
+>- tableView 사용
+>
+>`EntryItemViewComtroller`
+>- scrollView 사용
+
+## 고민했던 것들
+**1. `ExpositionPosterViewController` 의 `scrollView` 를 `top`, `bottom` 을 `superView` 와 동일하게 설정해두었으나 전면에서 공백 부분이 생기는 문제.**
+
+>**해결한 방법**
+>![](https://i.imgur.com/hLDV3mT.png =250x)
+>
+>따로 설정하지 않아도 Constrain to margins 가 기본적으로 체크 되어있는 모습을 볼수있다. 
+>
+>체크해주어야 원하는 크기만큼 지정해줄수있다.
+>
+>기존에는 체크해둔채로 scrollView, contensView 를 superView 에 전면을 0 으로 설정해두었으나 체크해제 함으로써 문제를 해결했다.
+
+**2. `EntryItemViewController` 각 셀의 오른쪽에 화살표를 추가하는 방법**
+
+>**해결한 방법**
+>![](https://i.imgur.com/rmaI4m2.png =250x)
+>`Cell` 의 `Accessory` 속성에서 `disclosureIndicator` 적용하였다.
+
+**3. `EntryListViewController`에서 `Content hugging Priority`와 `Content Compression Resistance Priority`가 동일하게 설정되어있어 화면 크기가 변동되었을 때 어떤 것이 우선적으로 늘어나고 줄어들지 지정하지 않아서 생긴 문제**
+
+>**해결한 방법**
+> 화면이 변동되었을 때 `titleLabel`, `shortDescriptionLabel`중 `shortDescriptionLabel`이 더 우선적으로 늘어나고 줄어들도록 `Content hugging Priority` 와 `Content Compression Resistance Priority`를 더 낮게 설정하였다.
+
+4. `EntryItemViewComtroller` 에서 `imageView` 의 크기가 세로모드일때 와 가로모드일때 어떻게 적용시켜줘야할지 고민했다.
+>- `imageView`의 높이를 180보다 크다로 설정한후 우선도를 1000 으로 최우선하도록 설정하였다.
+>- `imageView`의 높이를 `scrollView` 높이의 30% 가 되게끔 설정한후 우선도를 750 으로 설정하였다.
+>
+>그렇다면 세로화면 에서 `imageView` 의 높이는 전체높이의 30% 크기가 되고, 가로화면에서 `imageView` 의 높이는 180이 되게 된다.
+
+## 배운 개념
+ 1. 오토 레이아웃을 적용하여 다양한 기기에 대응
+ 2. Word Wrapping / Line Wrapping / Line Break 방식의 이해
+ 3. 접근성(Accessibility)의 개념과 필요성 이해
+ 4. Dynamic Types를 통해 텍스트 접근성 향상
+
+## PR 후 개선사항
