@@ -14,10 +14,10 @@ final class KoreanEntryCell: UITableViewCell {
     }
     
     func updateCellData(data: CellContent) {
-        configureCell()
         detailTitleLabel?.text = data.entryTitle
         detailImageView?.image = UIImage(named: data.entryImage)
         detailIntroLabel?.text = data.entryIntroduction
+        configureCell()
     }
     
     private func configureCell() {

@@ -10,7 +10,6 @@ final class ExpositionMainViewController: UIViewController {
     @IBOutlet private weak var koreanEntryButton: UIButton!
     
     private let parsingAssistant = ParsingAssistant()
-    //private let alternativeFont = UIFont.systemFont(ofSize: 20)
     private let alternativeFont = UIFont.preferredFont(forTextStyle: .title3)
     static let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -23,21 +22,14 @@ final class ExpositionMainViewController: UIViewController {
             titleLabel.text = decodedData.linedTitle()
             imageView.image = UIImage(named: "poster")
             
-//            let visitorsResult = NSMutableAttributedString()
-//            let attributeFirst = NSAttributedString(string: "방문객", attributes: [.font: alternativeFont])
-//            let attributeSecond = NSAttributedString(string: " : \(decodedData.decimalVisitors()) 명", attributes: [.font: UIFont.preferredFont(forTextStyle: .body)])
-//
-//
-//            visitorsResult.append(attributeFirst)
-//            visitorsResult.append(attributeSecond)
-//            visitorsLabel.attributedText = visitorsResult
-            
             visitorsLabel.attributedText = decodedData
-                .setTextAttribute(of: "방문객 : \(decodedData.decimalVisitors()) 명",                                                             target: "방문객",
+                .setTextAttribute(of: "방문객 : \(decodedData.decimalVisitors()) 명",                                                     target: "방문객",
                           attributes: [.font: alternativeFont])
+            
             locationLabel.attributedText = decodedData
-                .setTextAttribute(of: "개최지 : \(decodedData.location)",                                                                      target: "개최지",
+                .setTextAttribute(of: "개최지 : \(decodedData.location)",                                                                target: "개최지",
                           attributes: [.font: alternativeFont])
+            
             durationLabel.attributedText = decodedData
                 .setTextAttribute(of: "개최 기간 : \(decodedData.duration)",
                               target: "개최 기간",
@@ -68,7 +60,7 @@ extension ExpositionMainViewController {
         koreanEntryButton.titleLabel?.adjustsFontForContentSizeCategory = true
         visitorsLabel.adjustsFontForContentSizeCategory = true
         updateExpositionContents()
-        
+        koreanEntryButton.titleLabel?.numberOfLines = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -19,8 +19,6 @@ struct Exposition: Decodable {
     }
     
     func setTextAttribute(of value: String, target: String, attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
-//        let attributedText = NSMutableAttributedString()
-        
         let attributedText = NSMutableAttributedString(string: value)
         attributedText.addAttributes(attributes, range: (value as NSString).range(of: target))
         attributedText.addAttributes([.font: UIFont.preferredFont(forTextStyle: .body)], range: NSRange(location: target.count, length: value.count - target.count))
