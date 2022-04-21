@@ -41,6 +41,7 @@ extension ListViewController: UITableViewDataSource {
         guard let itemCell = cell as? ItemTableViewCell else { return cell }
         guard let item = items[safe: indexPath.row] else { return cell }
         itemCell.displayWith(item: item)
+        itemCell.changeItemStackViewSetting()
         
         return itemCell
     }

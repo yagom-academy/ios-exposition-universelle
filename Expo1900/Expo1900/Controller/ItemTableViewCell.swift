@@ -11,7 +11,9 @@ final class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak private var itemImageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var shortDescriptionLabel: UILabel!
-
+    @IBOutlet weak var itemStackView: UIStackView!
+    @IBOutlet weak var labelStackView: UIStackView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +22,19 @@ final class ItemTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    func changeItemStackViewSetting(){
+        let category = UIApplication.shared.preferredContentSizeCategory
+        
+        switch category {
+        case UIContentSizeCategory.accessibilityExtraLarge, UIContentSizeCategory.accessibilityExtraExtraLarge, UIContentSizeCategory.accessibilityExtraExtraExtraLarge:
+            itemStackView.axis = .vertical
+            labelStackView.leadingAnchor.constraint(equalTo: itemStackView.leadingAnchor, constant: 0.0).isActive = true
+            labelStackView.trailingAnchor.constraint(equalTo: itemStackView.trailingAnchor, constant: 0.0).isActive = true
+
+        default:
+            itemStackView.axis = .horizontal
+        }
     }
     
     func displayWith(item: Item) {
