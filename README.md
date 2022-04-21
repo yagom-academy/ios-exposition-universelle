@@ -21,6 +21,9 @@
 - [그라운드 룰](#그라운드-룰)
     + [활동 시간](#활동-시간)
     + [코딩 컨벤션](#코딩-컨벤션) 
+---
+## 프로젝트 소개
+<img src="https://user-images.githubusercontent.com/69573768/164358774-43cfd9af-7f44-4db0-b1fa-017a023d8352.gif" width="200">
 
 ---
 ## UML
@@ -173,7 +176,86 @@ ResultType과 Completion을 이용해서 데이터 parsing을 비동기 느낌�
 
 ### 고민한점
 
+#### 모델을 parse하는 곳의 위치
+
+기존 Decodable Extension으로 하던 것을 아예 삭제하고, Controller의 request() 매서드에서 직접 요청하는 느낌으로 바꿨습니다 
+
+```swift
+private func request(name: String, completion: (Result<Expo, ParseError>) -> Void) {
+    guard let data = NSDataAsset(name: name)?.data else {
+      completion(.failure(.invalidName))
+      return
+    }
+    do {
+      let decodedData = try JSONDecoder().decode(Expo.self, from: data)
+      completion(.success(decodedData))
+    } catch {
+      completion(.failure(.decodeFail))
+    }
+}
+```
+
+실제 사용
+
+```swift
+request(name: Const.File.name) { result in
+  switch result {
+  case .success(let data):
+    expo = data
+  case .failure(let error):
+    showAlert(errorMessage: error.localizedDescription)
+  }
+}
+```
+
 ### 해결한점
+
+#### stackView 내부의 image의 width와 heigth의 제약을 추가할시 제약 오류가 발생하는 문제 
+```swift
+stackView.alignment = .center
+```
+이와 같이 stackView의 내부의 image의 위치를 특정 해주어야 오류가 발생하지 않습니다.
+
+#### NavigationBar를 Custom 하는법
+
+```swift
+let navigationAppearance = UINavigationBarAppearance()
+navigationAppearance.configureWithDefaultBackground()
+UINavigationBar.appearance().standardAppearance = navigationAppearance
+UINavigationBar.appearance().compactAppearance = navigationAppearance
+UINavigationBar.appearance().scrollEdgeAppearance = navigationAppearance
+```
+
+이런 코드로 가능했습니다. 이 부분은 공부를 더 해봐야 할 것 같네요
+
+#### StackView 내부 뷰들을 StackView의 margin 기준으로 배치하는 법
+
+stackView의 isLayoutMarginsRelativeArrangement 속성을 true로 설정하면 하위 뷰들은 모두 마진기준으로 배치되는걸 배웠습니다 :)
+
+#### 특정 ViewController에서만 화면 방향을 바꾸는법
+```swift 
+import UIKit
+
+class ExpoNavigationController: UINavigationController {
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    if self.topViewController as? ExpoViewController == nil {
+      return .all
+    } else {
+      return .portrait
+    }
+  }
+}
+```
+고정하고자 하는 ViewController에서 viewWillAppear때마다 강제고정이 되도록 구현
+```swift
+private func fixDevice(orientation: UIDeviceOrientation) {
+    let value = orientation.rawValue
+    UIDevice.current.setValue(value, forKey: Const.Device.orientation)
+}
+```
+
+위와 같은 코드로 ExpoViewController에서만 화면을 세로로 고정하였습니다.
+
 
 ---
 

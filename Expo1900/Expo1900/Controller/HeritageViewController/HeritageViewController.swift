@@ -23,7 +23,7 @@ extension HeritageViewController {
 
 //MARK: - ViewController
 
-final class HeritageViewController: UIViewController {
+final class HeritageViewController: UIViewController, Alertable {
   private lazy var baseView = HeritageView(frame: view.bounds)
   private var heritageList: [Heritage]? {
     didSet {
@@ -36,7 +36,14 @@ final class HeritageViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     attribute()
-    requestData()
+    request(name: Const.File.name) { result in
+      switch result {
+      case .success(let data):
+        heritageList = data
+      case .failure(let error):
+        showAlert(errorMessage: error.localizedDescription, viewController: self)
+      }
+    }
   }
   
   private func attribute() {
@@ -49,14 +56,16 @@ final class HeritageViewController: UIViewController {
     baseView.tableView.delegate = self
   }
   
-  private func requestData() {
-    [Heritage].parse(name: Const.File.name) { result in
-      switch result {
-      case .success(let data):
-        heritageList = data
-      case .failure(let error):
-        print(error)
-      }
+  private func request(name: String, completion: (Result<[Heritage], ParseError>) -> Void) {
+    guard let data = NSDataAsset(name: name)?.data else {
+      completion(.failure(.invalidName))
+      return
+    }
+    do {
+      let decodedData = try JSONDecoder().decode([Heritage].self, from: data)
+      completion(.success(decodedData))
+    } catch {
+      completion(.failure(.decodeFail))
     }
   }
 }
@@ -91,6 +100,8 @@ extension HeritageViewController: UITableViewDelegate {
     guard let heritage = heritageList?[safe: indexPath.row] else {
       return
     }
+    
+    tableView.deselectRow(at: indexPath, animated: true)
     
     let heritageDetailViewController = HeritageDetailViewController(heritage: heritage)
     navigationController?.pushViewController(heritageDetailViewController, animated: true)

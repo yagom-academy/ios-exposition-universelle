@@ -28,6 +28,7 @@ extension ExpoView {
       static let leading: CGFloat = 10
       static let trailing: CGFloat = -10
       static let spacing: CGFloat = 10
+      static let margin: CGFloat = 10
     }
     
     enum ButtonStack {
@@ -39,9 +40,9 @@ extension ExpoView {
     }
     
     enum Literal {
-      static let visitor = "개최 기간 : "
+      static let visitor = "방문객 : "
       static let location = "개최지 : "
-      static let duration = "방문객 : "
+      static let duration = "개최 기간 : "
     }
   }
 }
@@ -67,9 +68,12 @@ final class ExpoView: UIView {
   
   lazy var titleLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .title1)
+    label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     label.numberOfLines = 2
     label.textAlignment = .center
-    label.font = .preferredFont(forTextStyle: .title1)
     return label
   }()
   
@@ -86,13 +90,20 @@ final class ExpoView: UIView {
   
   lazy var visitorLabel : UILabel = {
     let label = UILabel()
-    label.text = Const.Literal.visitor
     label.font = .preferredFont(forTextStyle: .title2)
+    label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
+    label.text = Const.Literal.visitor
     return label
   }()
   
   lazy var visitorValueLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
   
@@ -103,13 +114,20 @@ final class ExpoView: UIView {
   
   lazy var locationLabel : UILabel = {
     let label = UILabel()
-    label.text = Const.Literal.location
     label.font = .preferredFont(forTextStyle: .title2)
+    label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
+    label.text = Const.Literal.location
     return label
   }()
   
   lazy var locationValueLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
   
@@ -120,18 +138,27 @@ final class ExpoView: UIView {
   
   lazy var durationLabel : UILabel = {
     let label = UILabel()
-    label.text = Const.Literal.duration
     label.font = .preferredFont(forTextStyle: .title2)
+    label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
+    label.text = Const.Literal.duration
     return label
   }()
   
   lazy var durationValueLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
   
   lazy var descriptionLabel: UILabel = {
     let label = UILabel()
+    label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     label.numberOfLines = .zero
     return label
   }()
@@ -147,6 +174,8 @@ final class ExpoView: UIView {
     let button = UIButton()
     button.setTitleColor(.systemBlue, for: .normal)
     button.setTitle(Const.Button.title, for: .normal)
+    button.titleLabel?.adjustsFontForContentSizeCategory = true
+    button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
     return button
   }()
   
@@ -211,6 +240,9 @@ extension ExpoView {
     ])
     
     //MARK: - baseStackView
+    
+    baseStackView.directionalLayoutMargins = .init(top: Const.Stack.margin, leading: Const.Stack.margin, bottom: Const.Stack.margin, trailing: Const.Stack.margin)
+    baseStackView.isLayoutMarginsRelativeArrangement = true
     
     NSLayoutConstraint.activate([
       baseStackView.topAnchor.constraint(equalTo: baseScrollView.topAnchor),

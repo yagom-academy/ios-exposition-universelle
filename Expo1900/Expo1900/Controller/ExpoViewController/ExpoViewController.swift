@@ -26,6 +26,10 @@ fileprivate enum Const {
   enum Navigation {
     static let backButton = "메인"
   }
+  
+  enum Device {
+    static let orientation = "orientation"
+  }
 }
 
 //MARK: - Private Extension
@@ -55,7 +59,7 @@ private extension String {
 
 //MARK: - ViewController
 
-final class ExpoViewController: UIViewController {
+final class ExpoViewController: UIViewController, Alertable {
   
   private lazy var baseView = ExpoView(frame: view.bounds)
   private var expo: Expo? {
@@ -70,17 +74,28 @@ final class ExpoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     attribute()
-    requestData()
+    request(name: Const.File.name) { result in
+      switch result {
+      case .success(let data):
+        expo = data
+      case .failure(let error):
+        showAlert(errorMessage: error.localizedDescription, viewController: self)
+      }
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.isHidden = true
   }
-  
+    
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     navigationController?.navigationBar.isHidden = false
+  }
+  
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return .portrait
   }
   
   private func attribute() {
@@ -88,14 +103,16 @@ final class ExpoViewController: UIViewController {
     navigationItem.backButtonTitle = Const.Navigation.backButton
   }
   
-  private func requestData() {
-    Expo.parse(name: Const.File.name) { result in
-      switch result {
-      case .success(let data):
-        expo = data
-      case .failure(let error):
-        print(error)
-      }
+  private func request(name: String, completion: (Result<Expo, ParseError>) -> Void) {
+    guard let data = NSDataAsset(name: name)?.data else {
+      completion(.failure(.invalidName))
+      return
+    }
+    do {
+      let decodedData = try JSONDecoder().decode(Expo.self, from: data)
+      completion(.success(decodedData))
+    } catch {
+      completion(.failure(.decodeFail))
     }
   }
   

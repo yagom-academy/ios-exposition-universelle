@@ -2,7 +2,7 @@
 //  HeritageDetailView.swift
 //  Expo1900
 //
-//  Created by song on 2022/04/17.
+//  Created by Taeangel, dudu on 2022/04/19.
 //
 
 import UIKit
@@ -12,7 +12,11 @@ import UIKit
 extension HeritageDetailView {
   private enum Const {
     enum Image {
-      static let height: CGFloat = 200
+      static let ratio: CGFloat = 0.3
+    }
+    enum Stack {
+      static let margin: CGFloat = 10
+      static let spacing: CGFloat = 10
     }
   }
 }
@@ -31,13 +35,17 @@ final class HeritageDetailView: UIView {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
+    stackView.alignment = .center
+    stackView.spacing = Const.Stack.spacing
     return stackView
   }()
   
   lazy var heritageImageView: UIImageView = {
     let imageView = UIImageView()
+    let width = Const.Image.ratio * self.bounds.width
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.heightAnchor.constraint(equalToConstant: Const.Image.height).isActive = true
+    imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+    imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
     imageView.contentMode = .scaleAspectFit
     return imageView
   }()
@@ -45,6 +53,7 @@ final class HeritageDetailView: UIView {
   lazy var descriptionLabel: UILabel = {
     let label = UILabel()
     label.font = .preferredFont(forTextStyle: .body)
+    label.adjustsFontForContentSizeCategory = true
     label.numberOfLines = .zero
     return label
   }()
@@ -75,12 +84,15 @@ extension HeritageDetailView {
     
     NSLayoutConstraint.activate([
       baseScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-      baseScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-      baseScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-      baseScrollView.trailingAnchor.constraint(equalTo: trailingAnchor)
+      baseScrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+      baseScrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+      baseScrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
     ])
     
     //MARK: - baseStackView
+    
+    baseStackView.directionalLayoutMargins = .init(top: Const.Stack.margin, leading: Const.Stack.margin, bottom: Const.Stack.margin, trailing: Const.Stack.margin)
+    baseStackView.isLayoutMarginsRelativeArrangement = true
     
     NSLayoutConstraint.activate([
       baseStackView.topAnchor.constraint(equalTo: baseScrollView.topAnchor),
