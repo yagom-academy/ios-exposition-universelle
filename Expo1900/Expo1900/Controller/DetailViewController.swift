@@ -8,7 +8,7 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    @IBOutlet weak private var itemImageVIew: UIImageView!
+    @IBOutlet weak private var itemImageView: UIImageView!
     @IBOutlet weak private var descriptionLabel: UILabel!
     
     var exhibitionItem: ExhibitionItem?
@@ -22,9 +22,8 @@ final class DetailViewController: UIViewController {
         guard let exhibitionItem = exhibitionItem else {
             return
         }
-        
-        self.itemImageVIew.image = UIImage(named: exhibitionItem.imageName
-                                           ?? Constant.defaultValue)
+
+        self.itemImageView.image = ImageData.load(from: exhibitionItem.imageName)
         self.descriptionLabel.text = exhibitionItem.description
         self.title = exhibitionItem.name
     }

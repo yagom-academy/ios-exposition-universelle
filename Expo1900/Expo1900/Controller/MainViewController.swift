@@ -45,9 +45,9 @@ final class MainViewController: UIViewController {
         let decodedData = decodeJson()
         let visitorsValue = Constant.colon + (decodedData
                                                 .visitors?
-                                                .formatString() ?? Constant.defaultValue)
-        let locationValue = Constant.colon + (decodedData.location ?? Constant.defaultValue)
-        let durationValue = Constant.colon + (decodedData.duration ?? Constant.defaultValue)
+                                                .formatString() ?? "")
+        let locationValue = Constant.colon + (decodedData.location ?? "")
+        let durationValue = Constant.colon + (decodedData.duration ?? "")
         
         self.expoTitleLabel.text = decodedData.title?.replacingOccurrences(of: "(", with: "\n(")
         self.visitorsLabel.text = Constant.visitor + visitorsValue
