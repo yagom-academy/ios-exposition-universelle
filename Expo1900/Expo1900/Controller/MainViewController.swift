@@ -6,6 +6,12 @@
 
 import UIKit
 
+private extension String {
+    static var visitor: String { "방문객" }
+    static var location: String { "개최지" }
+    static var duration: String { "개최기간" }
+}
+
 final class MainViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -38,14 +44,18 @@ final class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         appDelegate.changeOrientation = true
     }
+}
+
+// MARK: - Method
+private extension MainViewController {
     
-    private func setUpView() {
+    func setUpView() {
         guard let expoInfomation = Expo.parsingJson(name: "exposition_universelle_1900") else { return }
         guard let separationIndex = expoInfomation.title.firstIndex(of: "(") else { return }
-                
+        
         titleLabel.text = String(expoInfomation.title[..<separationIndex]) + "\n" + String(expoInfomation.title[separationIndex...])
         posterImageView.image = UIImage(named: "poster")
-        visitorsLabel.text = .visitor + " : \(expoInfomation.visitors.changedFormat())"
+        visitorsLabel.text = .visitor + " : \(expoInfomation.formattedVisitors)"
         locationLabel.text = .location + " : \(expoInfomation.location)"
         durationLabel.text = .duration + " : \(expoInfomation.duration)"
         changeFont()
@@ -53,24 +63,14 @@ final class MainViewController: UIViewController {
         subViewShowButton.setTitle("한국의 출품작 보러가기", for: .normal)
     }
     
-    private func changeFont() {
+    func changeFont() {
         visitorsLabel.changePartFont(part: .visitor)
         locationLabel.changePartFont(part: .location)
         durationLabel.changePartFont(part: .duration)
     }
 }
 
-private extension Int {
-    func changedFormat() -> String {
-        let numberFormatter = NumberFormatter()
-        
-        numberFormatter.numberStyle = .decimal
-    
-        return numberFormatter.string(from: self as NSNumber) ?? "FormatError"
-    }
-}
-
-
+// MARK: - UILabel AddAttribute
 private extension UILabel {
     func changePartFont(part: String) {
         guard let text = self.text else { return }
@@ -81,10 +81,4 @@ private extension UILabel {
         
         self.attributedText = mutableText
     }
-}
-
-private extension String {
-    static var visitor: String { "방문객" }
-    static var location: String { "개최지" }
-    static var duration: String { "개최기간" }
 }
