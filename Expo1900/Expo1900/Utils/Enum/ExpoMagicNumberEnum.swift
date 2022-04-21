@@ -12,4 +12,7 @@ enum ExpoMagicNumberEnum {
     static let defaultVisitor: Int = 0
     static let notFoundImageFile: String = ""
     static let defaultValue: String = "0"
+    static let notFoundDate: String = ""
+    static let separatePoint: String = "("
+    static let newLine: String = "\n"
 }
