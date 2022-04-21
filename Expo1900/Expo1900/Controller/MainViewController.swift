@@ -41,10 +41,15 @@ final class MainViewController: UIViewController {
             let expoInfo = try Exposition.getInfo()
             titleLabel.text = divide(title: expoInfo.title)
             posterImageView.image = UIImage(named: "poster.png")
-            visitorsLabel.text = " : \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")"
-            locationLabel.text = " : \(expoInfo.location)"
-            durationLabel.text = " : \(expoInfo.duration)"
+            visitorsLabel.text = "방문객 : \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")"
+            locationLabel.text = "개최지 : \(expoInfo.location)"
+            durationLabel.text = "개최 기간 : \(expoInfo.duration)"
             descriptionLabel.text = expoInfo.description
+            
+            let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+            visitorsLabel.changeFontSize(bodyFont, targetString: ": \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")")
+            locationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.location)")
+            durationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.duration)") 
         } catch let error {
             showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
         }
