@@ -1,5 +1,5 @@
 //
-//  UIViewController+.swift
+//  Alertalble.swift
 //  Expo1900
 //
 //  Created by Taeangel, dudu on 2022/04/19.
@@ -14,12 +14,15 @@ private enum Const {
   }
 }
 
-extension UIViewController {
-  
-  func showAlert(errorMessage: String) {
+protocol Alertalble {
+  func showAlert(errorMessage: String, viewController: UIViewController)
+}
+
+extension Alertalble {
+  func showAlert(errorMessage: String, viewController: UIViewController) {
     let alertController = UIAlertController(title: Const.Alert.title, message: errorMessage, preferredStyle: .alert)
     let alertAction = UIAlertAction(title: Const.Alert.okAction, style: .default)
     alertController.addAction(alertAction)
-    present(alertController, animated: true)
+    viewController.present(alertController, animated: true)
   }
 }

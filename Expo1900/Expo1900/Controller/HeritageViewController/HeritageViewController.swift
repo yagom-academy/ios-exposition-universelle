@@ -23,7 +23,7 @@ extension HeritageViewController {
 
 //MARK: - ViewController
 
-final class HeritageViewController: UIViewController {
+final class HeritageViewController: UIViewController, Alertalble {
   private lazy var baseView = HeritageView(frame: view.bounds)
   private var heritageList: [Heritage]? {
     didSet {
@@ -41,7 +41,7 @@ final class HeritageViewController: UIViewController {
       case .success(let data):
         heritageList = data
       case .failure(let error):
-        showAlert(errorMessage: error.localizedDescription)
+        showAlert(errorMessage: error.localizedDescription, viewController: self)
       }
     }
   }

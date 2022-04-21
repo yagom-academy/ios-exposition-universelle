@@ -59,7 +59,7 @@ private extension String {
 
 //MARK: - ViewController
 
-final class ExpoViewController: UIViewController {
+final class ExpoViewController: UIViewController, Alertalble {
   
   private lazy var baseView = ExpoView(frame: view.bounds)
   private var expo: Expo? {
@@ -79,7 +79,7 @@ final class ExpoViewController: UIViewController {
       case .success(let data):
         expo = data
       case .failure(let error):
-        showAlert(errorMessage: error.localizedDescription)
+        showAlert(errorMessage: error.localizedDescription, viewController: self)
       }
     }
   }

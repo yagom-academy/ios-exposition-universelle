@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8610EE8F280E7E5B0068AF72 /* ExpoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610EE8E280E7E5B0068AF72 /* ExpoNavigationController.swift */; };
-		8610EE91280E93420068AF72 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610EE90280E93420068AF72 /* UIViewController+.swift */; };
+		8610EE91280E93420068AF72 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610EE90280E93420068AF72 /* Alertable.swift */; };
 		86876809280BCEEE00FC1565 /* HeritageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86876808280BCEEE00FC1565 /* HeritageDetailView.swift */; };
 		86876813280BF8BD00FC1565 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86876812280BF8BD00FC1565 /* Array+.swift */; };
 		86AEC4FB2806BFBE00820C60 /* HeritageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */; };
@@ -41,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		8610EE8E280E7E5B0068AF72 /* ExpoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoNavigationController.swift; sourceTree = "<group>"; };
-		8610EE90280E93420068AF72 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		8610EE90280E93420068AF72 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		86876808280BCEEE00FC1565 /* HeritageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageDetailView.swift; sourceTree = "<group>"; };
 		86876812280BF8BD00FC1565 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		86AEC4FA2806BFBE00820C60 /* HeritageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeritageViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		864DE86D2810DD08007C4B61 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				8610EE90280E93420068AF72 /* Alertable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		8687680E280BF0FB00FC1565 /* ExpoViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +145,6 @@
 				86AEC540280BAA4200820C60 /* UIStackView+.swift */,
 				86AEC542280BAA5500820C60 /* UIView+.swift */,
 				86876812280BF8BD00FC1565 /* Array+.swift */,
-				8610EE90280E93420068AF72 /* UIViewController+.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				864DE86D2810DD08007C4B61 /* Protocol */,
 				86876811280BF14100FC1565 /* Scene */,
 				86AEC53F280BA9F500820C60 /* Extention */,
 				86CC10F22804295F0020BFB2 /* Model */,
@@ -305,7 +313,7 @@
 				86AEC53E2808EFDC00820C60 /* ExpoView.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
 				86876813280BF8BD00FC1565 /* Array+.swift in Sources */,
-				8610EE91280E93420068AF72 /* UIViewController+.swift in Sources */,
+				8610EE91280E93420068AF72 /* Alertable.swift in Sources */,
 				86CC10F4280429AF0020BFB2 /* Expo.swift in Sources */,
 				9443B8ED28042D3D00C80148 /* Heritage.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
