@@ -24,40 +24,23 @@ final class ExpoItemTableViewController: UITableViewController {
 
 // MARK: - Private Extension
 
-private extension ExpoItemTableViewController {
+extension ExpoItemTableViewController: AlertControllerable {
   
-  func parse() {
+  private func parse() {
     let parsedResult = [ExpoItem].parseJSON(with: AssetName.expoItem)
     switch parsedResult {
     case let .success(expoItems):
       self.expoItems = expoItems
     case let .failure(error):
-      self.showAlertController(
+      let alert = self.showAlertController(
         title: Constants.notice,
         message: error.localizedDescription,
         preferredStyle: .alert,
         actions: [UIAlertAction(title: Constants.confirm, style: .default)]
       )
+      self.present(alert, animated: true)
     }
   }
-  
-  func showAlertController(
-    title: String?,
-    message: String?,
-    preferredStyle: UIAlertController.Style,
-    actions: [UIAlertAction]
-  ) {
-    let alertController = UIAlertController(
-      title: title,
-      message: message,
-      preferredStyle: preferredStyle
-    )
-    actions.forEach { action in
-      alertController.addAction(action)
-    }
-    self.present(alertController, animated: true)
-  }
-  
 }
 
 // MARK: - Delegate

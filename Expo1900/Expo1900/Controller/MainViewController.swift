@@ -31,13 +31,17 @@ final class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.parse()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController?.isNavigationBarHidden = true
     self.lockOrientation(.portrait, andRotateTo: .portrait)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.parse()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -49,41 +53,25 @@ final class MainViewController: UIViewController {
 
 // MARK: - Private Extension
 
-private extension MainViewController {
+extension MainViewController: AlertControllerable {
   
-  func parse() {
+  private func parse() {
     let parsedResult = Expo.parseJSON(with: AssetName.expo)
     switch parsedResult {
     case let .success(expo):
       self.setUpView(from: expo)
     case let .failure(error):
-      self.showAlertController(
+      let alert = self.showAlertController(
         title: Constants.notice,
         message: error.localizedDescription,
         preferredStyle: .alert,
         actions: [UIAlertAction(title: Constants.confirm, style: .default)]
       )
+      self.present(alert, animated: true)
     }
   }
   
-  func showAlertController(
-    title: String?,
-    message: String?,
-    preferredStyle: UIAlertController.Style,
-    actions: [UIAlertAction]
-  ) {
-    let alertController = UIAlertController(
-      title: title,
-      message: message,
-      preferredStyle: preferredStyle
-    )
-    actions.forEach { action in
-      alertController.addAction(action)
-    }
-    self.present(alertController, animated: true)
-  }
-  
-  func setUpView(from expo: Expo) {
+  private func setUpView(from expo: Expo) {
     self.titleLabel.text = expo.title.replacingOccurrences(
       of: Constants.bracket,
       with: Constants.spacingBracket
@@ -110,7 +98,7 @@ private extension MainViewController {
     self.durationLabel.adjustsFontSizeToFitWidth = true
   }
   
-  func setAttributed(of text: String, with targetString: String, in label: UILabel) {
+  private func setAttributed(of text: String, with targetString: String, in label: UILabel) {
     let font = UIFont.preferredFont(forTextStyle: .title3)
     let range = (text as NSString).range(of: targetString)
     let attributedString = NSMutableAttributedString(string: text)
