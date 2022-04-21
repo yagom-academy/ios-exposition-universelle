@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaR-Si-NdQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9rx-Jy-0ho">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WO5-S2-Ue9">
-                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLS-6r-oqM" userLabel="contentsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="524.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="447"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gEm-aG-f6n">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="524.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="447"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isj-Se-x4l">
                                                         <rect key="frame" x="169.5" y="0.0" width="35.5" height="17"/>
@@ -65,16 +65,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sow-tS-vjo">
-                                                        <rect key="frame" x="0.0" y="414" width="374" height="110.5"/>
+                                                        <rect key="frame" x="77.5" y="414" width="219" height="33"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="axp-TF-ZGw">
-                                                                <rect key="frame" x="0.0" y="0.0" width="110.5" height="110.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="axp-TF-ZGw" secondAttribute="height" multiplier="1:1" id="Lug-Xi-yni"/>
+                                                                    <constraint firstAttribute="width" secondItem="axp-TF-ZGw" secondAttribute="height" multiplier="1:1" id="cPS-S5-d5r"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-k8-zZ4">
-                                                                <rect key="frame" x="110.5" y="0.0" width="153" height="110.5"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQR-k8-zZ4">
+                                                                <rect key="frame" x="33" y="0.0" width="153" height="33"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기">
                                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
@@ -84,15 +84,17 @@
                                                                 </connections>
                                                             </button>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="frq-U1-f7g">
-                                                                <rect key="frame" x="263.5" y="0.0" width="110.5" height="110.5"/>
+                                                                <rect key="frame" x="186" y="0.0" width="33" height="33"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="frq-U1-f7g" secondAttribute="height" multiplier="1:1" id="Bfn-AZ-cg7"/>
+                                                                    <constraint firstAttribute="width" secondItem="frq-U1-f7g" secondAttribute="height" multiplier="1:1" id="WLV-hj-Plr"/>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="frq-U1-f7g" firstAttribute="centerY" secondItem="kQR-k8-zZ4" secondAttribute="centerY" id="9R2-1o-WgI"/>
                                                             <constraint firstItem="axp-TF-ZGw" firstAttribute="centerY" secondItem="kQR-k8-zZ4" secondAttribute="centerY" id="Kf5-tq-Sc0"/>
+                                                            <constraint firstItem="axp-TF-ZGw" firstAttribute="width" secondItem="sow-tS-vjo" secondAttribute="width" multiplier="15%" id="e37-r1-22v"/>
+                                                            <constraint firstItem="frq-U1-f7g" firstAttribute="width" secondItem="sow-tS-vjo" secondAttribute="width" multiplier="15%" id="fGG-62-U77"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -128,6 +130,7 @@
                             <constraint firstItem="WO5-S2-Ue9" firstAttribute="top" secondItem="S9B-3l-BUv" secondAttribute="topMargin" id="tln-bB-L87"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="y4y-PM-zSy"/>
                     <connections>
                         <outlet property="descriptions" destination="sYc-gS-tS0" id="XsW-7m-J0F"/>
                         <outlet property="durationValue" destination="CZ8-h5-NhN" id="wMJ-q8-uEw"/>
@@ -138,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5i-4d-TqA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240.57971014492756" y="233.70535714285714"/>
+            <point key="canvasLocation" x="1150.7246376811595" y="233.70535714285714"/>
         </scene>
         <!--Entry List View Controller-->
         <scene sceneID="e6v-Dp-ghV">
@@ -214,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hx-xZ-M6c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="125"/>
+            <point key="canvasLocation" x="2573.913043478261" y="124.55357142857142"/>
         </scene>
         <!--Entry Item View Controller-->
         <scene sceneID="fZ6-ZX-0Ub">
@@ -279,22 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l31-Ep-jGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="117"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dfy-5K-WDx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZJo-et-ynE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dqp-Nm-NbQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2fd-cB-KOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-499" y="234"/>
+            <point key="canvasLocation" x="3326.0869565217395" y="116.51785714285714"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SCe-HV-oQ5">
@@ -336,7 +324,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xs-pW-eh5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2416" y="818"/>
+            <point key="canvasLocation" x="3326.0869565217395" y="817.63392857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U6Z-vS-Ox1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9rx-Jy-0ho" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4nX-yp-3Xj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aaR-Si-NdQ" kind="relationship" relationship="rootViewController" id="CcR-Nk-jc8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JLa-pV-cxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240.57971014492756" y="233.70535714285714"/>
         </scene>
     </scenes>
     <resources>
