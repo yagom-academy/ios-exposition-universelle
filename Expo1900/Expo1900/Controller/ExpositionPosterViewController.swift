@@ -17,6 +17,8 @@ enum PosterLetter {
 
 final class ExpositionPosterViewController: UIViewController {
     
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     private var poster: ExpositionPoster? {
         didSet {
             updatePoster()
@@ -41,10 +43,12 @@ final class ExpositionPosterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+        appDelegate?.shouldSupporAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
+        appDelegate?.shouldSupporAllOrientation = true
     }
     
     @IBAction func didTapKoreaEntriesList(_ sender: UIButton) {
