@@ -36,14 +36,17 @@ final class MainViewController: UIViewController {
     }
     //MARK: -functions
     private func displayExpoInfo() {
-        guard let expoInfo = Exposition.getInfo(view: self) else { return }
-        
-        titleLabel.text = divide(title: expoInfo.title)
-        posterImageView.image = UIImage(named: "poster.png")
-        visitorsLabel.text = " : \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")"
-        locationLabel.text = " : \(expoInfo.location)"
-        durationLabel.text = " : \(expoInfo.duration)"
-        descriptionLabel.text = expoInfo.description
+        do {
+            let expoInfo = try Exposition.getInfo()
+            titleLabel.text = divide(title: expoInfo.title)
+            posterImageView.image = UIImage(named: "poster.png")
+            visitorsLabel.text = " : \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")"
+            locationLabel.text = " : \(expoInfo.location)"
+            durationLabel.text = " : \(expoInfo.duration)"
+            descriptionLabel.text = expoInfo.description
+        } catch let error {
+            showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
+        }
     }
     
     private func divide(title: String) -> String {

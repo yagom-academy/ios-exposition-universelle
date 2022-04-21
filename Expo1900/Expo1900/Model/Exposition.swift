@@ -14,13 +14,8 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
-    static func getInfo(view: UIViewController) -> Exposition? {
-        do {
-            let expoInfo = try Exposition.decode(with: "exposition_universelle_1900")
-            return expoInfo
-        } catch let error {
-            view.showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
-        }
-        return nil
+    static func getInfo() throws -> Exposition {
+        let expoInfo = try Exposition.decode(with: "exposition_universelle_1900")
+        return expoInfo
     }
 }

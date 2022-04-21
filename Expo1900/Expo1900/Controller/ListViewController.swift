@@ -18,7 +18,16 @@ final class ListViewController: UIViewController {
         listTableView.delegate = self
         
         navigationItem.title = "한국의 출품작"
-        items = Item.getItems(view: self)
+        
+        storeItem()
+    }
+    //MARK: - functions
+    func storeItem() {
+        do {
+            items = try Item.getItems()
+        } catch let error {
+            showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
+        }
     }
 }
 //MARK: - about tableview
@@ -32,7 +41,7 @@ extension ListViewController: UITableViewDataSource {
         guard let itemCell = cell as? ItemTableViewCell else { return cell }
         guard let item = items[safe: indexPath.row] else { return cell }
         itemCell.displayWith(item: item)
-
+        
         return itemCell
     }
 }
