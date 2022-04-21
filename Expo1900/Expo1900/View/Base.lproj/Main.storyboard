@@ -104,7 +104,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="15" bottom="8" trailing="10"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="10" bottom="8" trailing="5"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -230,22 +230,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="A3Q-ip-8df">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="156.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Gk-7JC">
-                                                <rect key="frame" x="41" y="0.0" width="332" height="128"/>
+                                                <rect key="frame" x="42" y="8" width="332" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="332" id="QmB-48-ghU"/>
                                                     <constraint firstAttribute="height" constant="128" id="ucs-fR-oZs"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디테일설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEZ-wW-QFK">
-                                                <rect key="frame" x="170" y="136" width="74" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디테일설명" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEZ-wW-QFK">
+                                                <rect key="frame" x="177.5" y="144" width="61" height="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="10" bottom="8" trailing="8"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
