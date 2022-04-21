@@ -15,7 +15,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var decriptionLabel: UILabel!
     @IBOutlet weak var subViewShowButton: UIButton!
     
-    
+    let uiAppDelegate = UIApplication.shared.delegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,20 @@ final class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        guard let appDelegate = uiAppDelegate as? AppDelegate else { return }
+
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate.changeOrientation = false
+        let value = UIDeviceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let appDelegate = uiAppDelegate as? AppDelegate else { return }
+        
+        super.viewWillDisappear(animated)
+        appDelegate.changeOrientation = true
     }
     
     private func setUpView() {
