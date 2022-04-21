@@ -7,9 +7,9 @@
 import UIKit
 
 enum PosterLetter {
-    static let visitors = "방문객 :"
-    static let location = "개최지 :"
-    static let duration = "개최 기간 :"
+    static let visitors = "방문객"
+    static let location = "개최지"
+    static let duration = "개최 기간"
     static let numberOfPeople = " 명"
     static let main = "메인"
     static let entryListViewController = "EntryListViewController"
@@ -53,14 +53,18 @@ final class ExpositionPosterViewController: UIViewController {
     }
     
     private func updatePoster() {
-        guard let poster = poster else {
-            return
-        }
-
-        posterTitle.text = poster.title?.replacingOccurrences(of: "(", with: "\n(")
-        visitorsValue.text = poster.visitors?.numberFormatter()
-        locationValue.text = poster.location
-        durationValue.text = poster.duration
-        descriptions.text = poster.description
+        posterTitle.text = poster?.title?.replacingOccurrences(of: "(", with: "\n(")
+        posterTitle.changeFont(to: .title1, letter: posterTitle.text)
+        
+        visitorsValue.text = "\(PosterLetter.visitors) : \(poster?.visitors?.numberFormatter() ?? "")"
+        visitorsValue.changeFont(to: .title3, letter: PosterLetter.visitors)
+        
+        locationValue.text = "\(PosterLetter.location) : \(poster?.location ?? "")"
+        locationValue.changeFont(to: .title3, letter: PosterLetter.location)
+        
+        durationValue.text = "\(PosterLetter.duration) : \(poster?.duration ?? "")"
+        durationValue.changeFont(to: .title3, letter: PosterLetter.duration)
+        
+        descriptions.text = poster?.description
         }
     }
