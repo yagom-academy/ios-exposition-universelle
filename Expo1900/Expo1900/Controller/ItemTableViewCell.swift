@@ -31,6 +31,7 @@ final class ItemTableViewCell: UITableViewCell {
             itemStackView.axis = .vertical
             labelStackView.leadingAnchor.constraint(equalTo: itemStackView.leadingAnchor, constant: 0.0).isActive = true
             labelStackView.trailingAnchor.constraint(equalTo: itemStackView.trailingAnchor, constant: 0.0).isActive = true
+            itemImageView.widthAnchor.constraint(equalTo: itemStackView.widthAnchor, multiplier: 0.6).isActive = true
 
         default:
             itemStackView.axis = .horizontal
