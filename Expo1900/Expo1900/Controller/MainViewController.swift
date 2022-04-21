@@ -16,8 +16,6 @@ fileprivate extension Constants {
   static let durationPrefix = "개최 기간"
   static let bracket = "("
   static let spacingBracket = "\n("
-  
-  static let orientation = "orientation"
 }
 
 final class MainViewController: UIViewController {
@@ -53,7 +51,7 @@ final class MainViewController: UIViewController {
 
 // MARK: - Private Extension
 
-extension MainViewController: AlertControllerable {
+extension MainViewController: AlertControllerable, LockOrientation {
   
   private func parse() {
     let parsedResult = Expo.parseJSON(with: AssetName.expo)
@@ -104,26 +102,5 @@ extension MainViewController: AlertControllerable {
     let attributedString = NSMutableAttributedString(string: text)
     attributedString.addAttribute(.font, value: font, range: range)
     label.attributedText = attributedString
-  }
-}
-
-// MARK: - Orientation Extension
-
-private extension MainViewController {
-  
-  func lockOrientation(
-    _ orientation: UIInterfaceOrientationMask
-  ) {
-    if let delegate = UIApplication.shared.delegate as? AppDelegate {
-      delegate.setOrientationLock(orientation)
-    }
-  }
-  
-  func lockOrientation(
-    _ orientation: UIInterfaceOrientationMask,
-    andRotateTo rotateOrientation:UIInterfaceOrientation
-  ) {
-    self.lockOrientation(orientation)
-    UIDevice.current.setValue(rotateOrientation.rawValue, forKey: Constants.orientation)
   }
 }
