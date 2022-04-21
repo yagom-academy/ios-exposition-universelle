@@ -13,10 +13,12 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak var listViewButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayExpoInfo()
+        changeButtonLayoutSetting()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +38,13 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(listVC, animated: true)
     }
     //MARK: -functions
+    private func changeButtonLayoutSetting() {
+        listViewButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        listViewButton.titleLabel?.numberOfLines = 0
+        listViewButton.titleLabel?.maximumContentSizeCategory = .accessibilityExtraLarge
+        listViewButton.titleLabel?.textAlignment = .center
+    }
+    
     private func displayExpoInfo() {
         do {
             let expoInfo = try Exposition.getInfo()
