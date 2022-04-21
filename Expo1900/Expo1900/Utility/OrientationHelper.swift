@@ -1,6 +1,6 @@
 import UIKit
 
-struct AppUtility {
+struct OrientationHelper {
     static func acceptOrientation(_ orientation: UIInterfaceOrientationMask) {
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.possibleOrientation = orientation

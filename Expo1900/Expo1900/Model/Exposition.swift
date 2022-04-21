@@ -8,7 +8,7 @@ struct Exposition: Decodable {
     let description: String
     
     func decimalVisitors() -> String {
-        return NumberFormatAssistant.shared.numberFormatString(for: self.visitors)
+        return NumberFormatterAssistant.shared.numberFormatString(for: self.visitors)
     }
     
     func linedTitle() -> String {

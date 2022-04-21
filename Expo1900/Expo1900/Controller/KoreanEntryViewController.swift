@@ -5,22 +5,9 @@ final class KoreanEntryViewController: UIViewController, UITableViewDelegate, UI
     private var entries = [Entry]()
     private let cellIdentifier = "EntryCell"
     private let segueIdentifier = "SegueToDetail"
-    private let parsingAssistant = ParsingAssistant()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        koreanEntryTableView.delegate = self
-        koreanEntryTableView.dataSource = self
-        updateEntries()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIViewController.attemptRotationToDeviceOrientation()
-    }
     
     private func updateEntries() {
-        guard let decodedData: [Entry] = parsingAssistant.decodeContent(fileName: "items") else { return }
+        guard let decodedData: [Entry] = ParsingAssistant.shared.decodeContent(fileName: "items") else { return }
         entries = decodedData
     }
 }
@@ -34,12 +21,12 @@ extension KoreanEntryViewController {
         let entry = entries[indexPath.row]
         guard let cell = self.koreanEntryTableView
             .dequeueReusableCell(withIdentifier: cellIdentifier,
-                                            for: indexPath) as? KoreanEntryCell else {
+                                 for: indexPath) as? KoreanEntryCell else {
             return UITableViewCell()
         }
         let cellContent = CellContent(entryTitle: entry.name,
                                       entryImage: entry.imageName,
-                               entryIntroduction: entry.introduction)
+                                      entryIntroduction: entry.introduction)
         cell.updateCellData(data: cellContent)
         return cell
     }
@@ -53,10 +40,24 @@ extension KoreanEntryViewController {
             let entryDetailViewController = segue.destination as? EntryDetailViewController
             let cellDetailContent = CellDetailContent(detailDescription: entry.description,
                                                       imageName: entry.imageName,
-                                               koreanEntryTitle: entry.name)
+                                                      koreanEntryTitle: entry.name)
             entryDetailViewController?.updateDetailContent(data: cellDetailContent)
         }
     }
 }
 
+// MARK: - Life Cycle
+extension KoreanEntryViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        koreanEntryTableView.delegate = self
+        koreanEntryTableView.dataSource = self
+        updateEntries()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIViewController.attemptRotationToDeviceOrientation()
+    }
+}
 

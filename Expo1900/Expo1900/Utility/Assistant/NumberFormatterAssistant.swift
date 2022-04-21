@@ -1,7 +1,7 @@
 import Foundation
 
-class NumberFormatAssistant {
-    static let shared = NumberFormatAssistant()
+final class NumberFormatterAssistant {
+    static let shared = NumberFormatterAssistant()
     
     private init() { }
     
