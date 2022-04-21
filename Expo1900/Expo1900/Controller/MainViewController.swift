@@ -8,12 +8,10 @@ import UIKit
 fileprivate extension Constants {
   static let notice = "알림"
   static let confirm = "확인"
-  static let visitor = "방문객 : %@ 명"
-  static let visitorPrefix = "방문객"
-  static let location = "개최지 : "
-  static let locationPrefix = "개최지"
-  static let duration = "개최 기간 : "
-  static let durationPrefix = "개최 기간"
+  static let visitorPrefix = "방문객 : "
+  static let visitorSuffix = "%@ 명"
+  static let locationPrefix = "개최지 : "
+  static let durationPrefix = "개최 기간 : "
   static let bracket = "("
   static let spacingBracket = "\n("
 }
@@ -22,9 +20,12 @@ final class MainViewController: UIViewController {
   
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var posterImageView: UIImageView!
-  @IBOutlet private weak var visitorsLabel: UILabel!
-  @IBOutlet private weak var locationLabel: UILabel!
-  @IBOutlet private weak var durationLabel: UILabel!
+  @IBOutlet private weak var visitorsPrefixLabel: UILabel!
+  @IBOutlet private weak var visitorsSuffixLabel: UILabel!
+  @IBOutlet private weak var locationPrefixLabel: UILabel!
+  @IBOutlet private weak var locationSuffixLabel: UILabel!
+  @IBOutlet private weak var durationPrefixLabel: UILabel!
+  @IBOutlet private weak var durationSuffixLabel: UILabel!
   @IBOutlet private weak var descriptionLabel: UILabel!
   
   override func viewDidLoad() {
@@ -75,32 +76,19 @@ extension MainViewController: AlertControllerable, LockOrientation {
       with: Constants.spacingBracket
     )
     self.posterImageView.image = UIImage(named: AssetName.poster)
-    self.setAttributed(
-      of: String(format: Constants.visitor, expo.visitors.toDecimal()),
-      with: Constants.visitorPrefix,
-      in: self.visitorsLabel
+    self.visitorsPrefixLabel.text = Constants.visitorPrefix
+    self.visitorsSuffixLabel.text = String(
+      format: Constants.visitorSuffix,
+      expo.visitors.toDecimal()
     )
-    self.setAttributed(
-      of: Constants.location + expo.location,
-      with: Constants.locationPrefix,
-      in: self.locationLabel
-    )
-    self.setAttributed(
-      of: Constants.duration + expo.duration,
-      with: Constants.durationPrefix,
-      in: self.durationLabel
-    )
+    self.locationPrefixLabel.text = Constants.locationPrefix
+    self.locationSuffixLabel.text = expo.location
+    self.durationPrefixLabel.text = Constants.durationPrefix
+    self.durationSuffixLabel.text = expo.duration
     self.descriptionLabel.text = expo.description
-    self.visitorsLabel.adjustsFontSizeToFitWidth = true
-    self.locationLabel.adjustsFontSizeToFitWidth = true
-    self.durationLabel.adjustsFontSizeToFitWidth = true
-  }
-  
-  private func setAttributed(of text: String, with targetString: String, in label: UILabel) {
-    let font = UIFont.preferredFont(forTextStyle: .title3)
-    let range = (text as NSString).range(of: targetString)
-    let attributedString = NSMutableAttributedString(string: text)
-    attributedString.addAttribute(.font, value: font, range: range)
-    label.attributedText = attributedString
+    
+    self.visitorsSuffixLabel.adjustsFontSizeToFitWidth = true
+    self.locationSuffixLabel.adjustsFontSizeToFitWidth = true
+    self.durationSuffixLabel.adjustsFontSizeToFitWidth = true
   }
 }
