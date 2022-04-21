@@ -26,14 +26,15 @@ extension KoreanEntryViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let entry = entries[indexPath.row]
         guard let cell = self.koreanEntryTableView
             .dequeueReusableCell(withIdentifier: cellIdentifier,
                                             for: indexPath) as? KoreanEntryCell else {
             return UITableViewCell()
         }
-        cell.configureCell(title: entries[indexPath.row].name,
-                           image: entries[indexPath.row].imageName,
-                           intro: entries[indexPath.row].introduction)
+        cell.configureCell(title: entry.name,
+                           image: entry.imageName,
+                           intro: entry.introduction)
         return cell
     }
     
@@ -42,10 +43,11 @@ extension KoreanEntryViewController {
             guard let cell = sender as? UITableViewCell else { return }
             guard let indexPath = self.koreanEntryTableView.indexPath(for: cell) else { return }
             
+            let entry = entries[indexPath.row]
             let entryDetailViewController = segue.destination as? EntryDetailViewController
-            let detailContent = DetailContent(detailDescription: entries[indexPath.row].description,
-                                                      imageName: entries[indexPath.row].imageName,
-                                               koreanEntryTitle: entries[indexPath.row].name)
+            let detailContent = DetailContent(detailDescription: entry.description,
+                                                      imageName: entry.imageName,
+                                               koreanEntryTitle: entry.name)
             entryDetailViewController?.updateDetailContent(data: detailContent)
         }
     }
