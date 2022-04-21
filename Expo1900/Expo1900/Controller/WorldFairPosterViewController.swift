@@ -63,9 +63,9 @@ final class WorldFairPosterViewController: UIViewController {
             showAlert(alertTitle: ExpoStringEnum.unexpectedError, okTitle: ExpoStringEnum.okTitle)
         }
         titleLabel.text = worldFairPosterData?.title
-        visitorLabel.text = String(worldFairPosterData?.visitors ?? ExpoMagicNumberEnum.defaultVisitor)
-        locationLabel.text = worldFairPosterData?.location
-        durationLabel.text = worldFairPosterData?.duration
+        visitorLabel.text = "방문객 : " + String(worldFairPosterData?.visitors ?? ExpoMagicNumberEnum.defaultVisitor)
+        locationLabel.text = "개최지 : " + (worldFairPosterData?.location ?? ExpoMagicNumberEnum.defaultValue)
+        durationLabel.text = "개최 기간 : " + (worldFairPosterData?.duration ?? ExpoMagicNumberEnum.defaultValue)
         descriptionLabel.text = worldFairPosterData?.description
     }
     
