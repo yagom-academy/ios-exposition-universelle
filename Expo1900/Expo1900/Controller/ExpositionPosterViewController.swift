@@ -52,7 +52,9 @@ final class ExpositionPosterViewController: UIViewController {
     }
     
     @IBAction func didTapKoreaEntriesList(_ sender: UIButton) {
-        guard let entryListViewController = self.storyboard?.instantiateViewController(withIdentifier: PosterLetter.entryListViewController) else { return }
+        guard let entryListViewController = self.storyboard?.instantiateViewController(withIdentifier: PosterLetter.entryListViewController) else {
+            return
+        }
         self.navigationController?.pushViewController(entryListViewController, animated: true)
     }
     
