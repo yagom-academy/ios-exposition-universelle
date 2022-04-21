@@ -29,10 +29,10 @@ final class EntryItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setUpEntryItemView()
     }
     
-    private func setup() {
+    private func setUpEntryItemView() {
         navigationItem.title = item?.name
         itemDiscription.text = item?.description
         itemImage.image = UIImage(named: item?.imageName ?? EntryItemLetter.emptyImage)

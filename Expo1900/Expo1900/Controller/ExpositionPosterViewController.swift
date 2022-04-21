@@ -31,6 +31,10 @@ final class ExpositionPosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpPosterView()
+    }
+    
+    private func setUpPosterView() {
         navigationItem.backButtonTitle = PosterLetter.main
         poster = ExpositionPoster.parse(JsonFile.poster)
     }
