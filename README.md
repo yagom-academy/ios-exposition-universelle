@@ -221,6 +221,64 @@ func downSize(targetString: String) {
 - 이번 프로젝트의 경우 공간이 남기 때문에 hugging priority에 따라 뷰가 늘어납니다. 때문에 hugging priority가 가장 낮은 마지막 arranged view(stack)가 늘어납니다. 
 > hugging priority가 가장 낮은 마지막 arranged view(stack)에 높이를 줌으로써 늘어나는 것을 방지했고, 이를 통해 해결했습니다.
 
+5️⃣ 프로퍼티 주입과 의존성 주입
+- 화면 전환할때, 데이터를 주입하는 방법으로 프로퍼티 주입을 선택했습니다.
+- 전환할 화면의 viewController인 DetailViewController에 아래와 같이 프로퍼티를 선언하고 이전화면에서 프로퍼티에 직접 주입하는 방법이었다.
+```swift
+var exhibitionItem: ExhibitionItem?
+```
+- 이 방법은 DetailViewController의 프로퍼티인 exhibitionItem을 캡슐화하지 못한 방법입니다. 따라서 외부에서 내부 프로퍼티 정보에 접근할 수 있게되는 문제가 생깁니다.
+
+> 이러한 문제를 해결하기 위해 의존성 주입으로 방법을 바꿨습니다.
+> 아래와 같이 프로퍼티에 private로 접근제어를 해주고, 인스턴스 초기화를 사용해 정보를 주입해주는 방법으로 구현했습니다.
+```swift
+final class DetailViewController: UIViewController {
+    private var exhibitionItem: ExhibitionItem?
+    //coder: storyboard의 정보가 포함된 객체
+    init?(exhibitionItem: ExhibitionItem, coder: NSCoder) {
+        self.exhibitionItem = exhibitionItem
+        super.init(coder: coder)
+    }
+    //모든 뷰는 스토리보드에서 쓰일 가능성이 있기에 NSCoding을 채택하고 있고
+    //coder를 사용하는 생성자를 필수 구현으로 가지게 된다. 
+    // coder를 사용하는 생성자 상속받은 클래스에서는
+    //required init?(coder: )를 구현해줘야 한다.
+    required init?(coder: NSCoder) { 
+        super.init(coder: coder)
+    }
+}
+```
+- `required init?(coder: NSCoder)`를 선언하지 않을 경우 생기는 에러
+- ❗️ fatalError는 리젝사유가 되기 때문에 사용하지 않는 것이 좋다.❗️
+- fatalError 대신 super.init(coder: coder)을 사용하는 것을 추천
+<img width="600" src= "https://i.imgur.com/Pd5zwMw.png"/>
+
+> 화면을 전환해주는 메서드(시점)에서 instantiateViewController(identifier:, coder:) 메서드를 통해 `ViewController`를 생성합니다. 
+> coder 전달인자에 후행 클로저로 `DetailViewController`을 초기화해줍니다.
+> 초기화할 때, 재정의한 `init?`을 통해 해주게 되고 전달하고자 하는 데이터를 `exhibitionItem 전달인자`를 통해 주입합니다.
+```swift
+class ExhibitionItemsViewController: UIViewController { 
+//...
+}
+extension ExhibitionItemsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, 
+                   didSelectRowAt indexPath: IndexPath) 
+    {
+        let exhibitionItem = self.exhibitionItems[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(
+            //coder에는 인터페이스 빌더로 구성된 뷰 데이터를 디코딩한 정보가 들어옴
+            //위에서 뷰란 DetailViewController.identifier를 가진 뷰
+            identifier: DetailViewController.identifier) { coder in
+            DetailViewController(exhibitionItem: exhibitionItem, 
+                                 coder: coder)}
+                
+        navigationController?.pushViewController(detailViewController, 
+                                                 animated: true)
+    }
+}
+```
+---
 ### 궁금한 점 및 질문사항 
 1️⃣ ExhibitionItemsView Cell AutoLayout
 - titleLabel과 subtitleLabel "missing Constraints" 문제
