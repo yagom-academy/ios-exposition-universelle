@@ -60,7 +60,8 @@ final class WorldFairPosterViewController: UIViewController {
         
     private func updateUI() {
         var worldFairPosterData: WorldFairPoster?
-        let replacedTitleText = replaceTitle()
+        let replacedTitleText = ReplaceTitles()
+        let expoInformation = ExpoInformation()
         
         do {
             worldFairPosterData = try decodeWorldFairPoster()
@@ -69,6 +70,27 @@ final class WorldFairPosterViewController: UIViewController {
         } catch {
             showAlert(alertTitle: ExpoStringEnum.unexpectedError, okTitle: ExpoStringEnum.okTitle)
         }
+        do {
+            titleLabel.text = try replacedTitleText.replaceTitle()
+        } catch {
+            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
+        }
+        do {
+            visitorLabel.text = try expoInformation.updateVisitorLabel()
+        } catch {
+            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
+        }
+        do {
+            locationLabel.text = try expoInformation.updateLocationLabel()
+        } catch {
+            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
+        }
+        do {
+            durationLabel.text = try expoInformation.updateDurationLabel()
+        } catch {
+            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
+        }
+        
         descriptionLabel.text = worldFairPosterData?.description
     }
     
