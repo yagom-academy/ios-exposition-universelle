@@ -18,16 +18,18 @@ final class WorldFairPosterViewController: UIViewController {
     @IBOutlet private weak var leftKoreaFlagImageView: UIImageView!
     @IBOutlet private weak var rightKoreaFlagImageView: UIImageView!
     
-    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         navigationController?.setNavigationBarHidden(true, animated: animated)
         appDelegate?.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         navigationController?.setNavigationBarHidden(false, animated: animated)
         appDelegate?.shouldSupportAllOrientation = true
     }
