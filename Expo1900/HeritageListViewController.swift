@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol {
+final class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol, ViewControllerIdentifier {
 
     @IBOutlet private weak var heritageListTableView: UITableView!
     
     private var items: [Item] = []
-    static let identifier = String(describing: HeritageListViewController.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()

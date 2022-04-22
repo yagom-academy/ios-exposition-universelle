@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController, ViewControllerIdentifier {
 
     @IBOutlet private weak var heritageImage: UIImageView!
     @IBOutlet private weak var heritageDescription: UILabel!
     
-    static let identifier = String(describing: DetailViewController.self)
     var item: Item?
     
     override func viewDidLoad() {
