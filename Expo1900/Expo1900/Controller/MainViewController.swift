@@ -8,6 +8,13 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    private enum Prefix {
+        static let visitor = "방문객"
+        static let location = "개최지"
+        static let duration = "개최 기간"
+        static let colon = " : "
+    }
+    
     @IBOutlet weak private var expoTitleLabel: UILabel!
     @IBOutlet weak private var visitorsLabel: UILabel!
     @IBOutlet weak private var locationLabel: UILabel!
@@ -35,7 +42,8 @@ final class MainViewController: UIViewController {
         var decodedData = ExpoInformation()
         
         do {
-            decodedData = try ExpoInformation.decode(from: Constant.expoInformationFileName)
+            let fileName = ExpoData.expoInformationFileName
+            decodedData = try ExpoInformation.decode(from: fileName)
         } catch {}
         
         return decodedData
@@ -43,21 +51,26 @@ final class MainViewController: UIViewController {
     
     private func setUpView() {
         let decodedData = decodeJson()
-        let visitorsValue = Constant.colon + (decodedData
-                                                .visitors?
-                                                .formatString() ?? "")
-        let locationValue = Constant.colon + (decodedData.location ?? "")
-        let durationValue = Constant.colon + (decodedData.duration ?? "")
         
-        self.expoTitleLabel.text = decodedData.title?.replacingOccurrences(of: "(", with: "\n(")
-        self.visitorsLabel.text = Constant.visitor + visitorsValue
-        self.locationLabel.text = Constant.location + locationValue
-        self.durationLabel.text = Constant.duration + durationValue
+        if let title = decodedData.title {
+            self.expoTitleLabel.text = title.replacingOccurrences(of: "(", with: "\n(")
+        }
+        if let visitors = decodedData.visitors {
+            let visitorsString = Prefix.colon + visitors.formatString()
+            self.visitorsLabel.text = Prefix.visitor + visitorsString
+            self.visitorsLabel.downSize(targetString: visitorsString)
+        }
+        if let location = decodedData.location {
+            let locationValue = Prefix.colon + location
+            self.locationLabel.text = Prefix.location + locationValue
+            self.locationLabel.downSize(targetString: locationValue)
+        }
+        if let duration = decodedData.duration {
+            let durationValue = Prefix.colon + duration
+            self.durationLabel.text = Prefix.duration + durationValue
+            self.durationLabel.downSize(targetString: durationValue)
+        }
         self.descriptionLabel.text = decodedData.description
-        
-        self.visitorsLabel.downSize(targetString: visitorsValue)
-        self.locationLabel.downSize(targetString: locationValue)
-        self.durationLabel.downSize(targetString: durationValue)
     }
 }
 

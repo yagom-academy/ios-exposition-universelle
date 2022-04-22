@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		033EAC7628103A0700B30163 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033EAC7528103A0700B30163 /* Constant.swift */; };
+		033EAC7628103A0700B30163 /* ExpoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033EAC7528103A0700B30163 /* ExpoData.swift */; };
 		03AE392028050C7E00C0B0C9 /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */; };
 		03AE392828054ED400C0B0C9 /* ExhibitionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE392728054ED400C0B0C9 /* ExhibitionItemTests.swift */; };
 		03E4763F281155620068E420 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4763E281155620068E420 /* NavigationController.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		033EAC7528103A0700B30163 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		033EAC7528103A0700B30163 /* ExpoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoData.swift; sourceTree = "<group>"; };
 		03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		03AE392728054ED400C0B0C9 /* ExhibitionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItemTests.swift; sourceTree = "<group>"; };
 		03E4763E281155620068E420 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			children = (
 				03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */,
 				E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */,
-				033EAC7528103A0700B30163 /* Constant.swift */,
+				033EAC7528103A0700B30163 /* ExpoData.swift */,
 				E5CA53FF2811A30A00BC611F /* ImageData.swift */,
 			);
 			path = Model;
@@ -304,7 +304,7 @@
 				E5CA54002811A30A00BC611F /* ImageData.swift in Sources */,
 				E5B2A0F828051D1F00E8D514 /* ExhibitionItem.swift in Sources */,
 				03E4763F281155620068E420 /* NavigationController.swift in Sources */,
-				033EAC7628103A0700B30163 /* Constant.swift in Sources */,
+				033EAC7628103A0700B30163 /* ExpoData.swift in Sources */,
 				E5201E12280800B00080F00C /* ExhibitionItemsViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,

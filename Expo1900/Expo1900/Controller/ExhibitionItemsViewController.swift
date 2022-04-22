@@ -26,7 +26,8 @@ final class ExhibitionItemsViewController: UIViewController {
     
     private func decodeJson() -> [ExhibitionItem] {
         do {
-            let decodedData = try [ExhibitionItem].decode(from: Constant.exhibitionItemFileName)
+            let fileName = ExpoData.exhibitionItemFileName
+            let decodedData = try [ExhibitionItem].decode(from: fileName)
             return decodedData
         } catch {}
         
@@ -43,9 +44,9 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        
+        let cellIdentifier = "cell"
         guard let exhibitionItemCell = tableView.dequeueReusableCell(
-            withIdentifier: Constant.cellIdentifier,
+            withIdentifier: cellIdentifier,
             for: indexPath
         ) as? ExhibitionItemsTableViewCell
         else {
