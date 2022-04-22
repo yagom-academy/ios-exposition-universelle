@@ -4,23 +4,18 @@
 리뷰어 : [stevenkim18](https://github.com/stevenkim18)
 
 - [만국박람회](#만국박람회)
-- [STEP 1](#[STEP-1]-모델-타입-구현)
-    + [핵심 개념](#[STEP-1]-핵심-개념)
+- [STEP 1](#[STEP-1])
     + [궁금한 점](#[STEP-1]-궁금한-점)
-- [STEP 2](#[STEP-2]-화면-구현)
-    + [핵심 개념](#[STEP-2]-핵심-개념)
+- [STEP 2](#[STEP-2])
     + [고민한 점 & 해결한 방법](#[STEP-2]-고민한-점-&-해결한-방법)
     + [궁금한 점](#[STEP-2]-궁금한-점)
+- [STEP 3](#[STEP-3]-화면-구현)
+    + [고민한 점 & 해결한 방법](#[STEP-3]-고민한-점-&-해결한-방법)
+    + [궁금한 점](#[STEP-3]-궁금한-점)
 
 # 만국박람회
 
-## [STEP 1] 모델 타입 구현
-- JSON 포멧의 데이터와 매칭할 모델 타입을 구현
-
-## [STEP 1] 핵심 개념
-* `Codable`을 채택하여 `JSON` 데이터와 매칭할 모델 타입 구현
-* 스네이크 케이스 또는 축약형인 `JSON` 키 값을 스위프트의 네이밍에 맞게 변환
-
+# [STEP 1]
 ## [STEP 1] 궁금한 점
 1. 테스트코드 작성 시 타입으로 `Decode`가 제대로 되었는지 확인하기 위해 `XCTAssertEqual`함수를 사용하여 `JSON`의 내용과 비교하였는데 일일이 값 비교를 하지 않는 방법이 있는지 궁금합니다.
 
@@ -30,16 +25,7 @@
 
 ---
 
-## [STEP 2] 화면 구현
-- 첫 화면과 출품작 목록 그리고 품목 상세를 볼 수 있는 화면 구현
-
-## [STEP 2] 핵심 개념
-- 테이블뷰의 Delegate와 Data Source의 역할의 이해
-- 테이블뷰의 셀의 재사용 이해
-- 테이블뷰의 전반적인 동작 방식의 이해
-- 주어진 JSON 데이터를 파싱하여 테이블뷰에 표시
-- 내비게이션 컨트롤러를 활용한 화면 전환
-- 뷰 컨트롤러 사이의 데이터 전달
+# [STEP 2]
 
 ## [STEP 2] 고민한 점 & 해결한 방법
 **1. 메인뷰의 제목을 원하는 부분에서 개행을 하기위해 고민하였습니다.** 
@@ -125,6 +111,69 @@ private func insertNewLine(at value: String) -> String
 private func insertComma(at value: Int) -> String
 private func convertTextSize(of value: String, target: String) -> NSAttributedString
 ```
+---
+
+# [STEP 3]
+
+## [STEP 3] 고민한 점 & 해결한 방법
+
+#### **1. [STEP 2]에서 구현했었던 `setTextAttribute() - (하나의 레이블에 다른 폰트 사이즈를 적용하는 기능)`에서, `Dynamic Type`이 전체적으로 적용되지 않는 현상을 발견하였고, 어떻게 하면 다른 사이즈를 가진 `TextStyle`를 하나의 레이블에 적용할 수 있을지 고민하였습니다.**
+> => `attribute`를 변경할 문자열에 `NSRange`를 활용하여 다른 스타일로 변경하고자 하는 부분을 접근하는 코드를 작성하였고 `Dynamic Type TextStyle`을 지정하여 해결하였습니다.
+ 
+- **before**
+```swift
+func setTextAttribute(of value: String, target: String, attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
+        let attributedText = NSMutableAttributedString(string: value)
+        attributedText.addAttributes(attributes, range: (value as NSString).range(of: target))
+        return attributedText
+    }
+```
+
+- **after**
+```swift
+func setTextAttribute(of value: String, target: String, attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
+        let attributedText = NSMutableAttributedString(string: value)
+        attributedText.addAttributes(attributes, range: (value as NSString).range(of: target))
+        attributedText.addAttributes([.font: UIFont.preferredFont(forTextStyle: .body)], range: NSRange(location: target.count, length: value.count - target.count))
+        return attributedText
+    }
+```
+
+#### **2. `Json Decode` 후 방문객을 표시하기 위해 사용하는 `NumberFormatter`를 어느 곳에 위치시킬지 고민했습니다. `Exposition`에서 사용하기 때문에 해당 타입 안에 위치시키는 것을 가장 먼저 고려했지만, 다른 곳에서도 사용할 수 있도록 기능을 위치시키고 이를 빌리는 형태로 구현하고 싶었습니다.**
+> => `ParsingAssistant`와 마찬가지로 `NumberFormatterAssistant`를 생성하여 마찬가지로 싱글톤 인스턴스로 관리하였습니다.
+
+#### **3. Exposition Main View에서 Korean Entry View로 이동할 때 화면 회전된 상태에서 이동하면 디바이스 상태에 맞게 회전이 되지 않는 문제가 있었습니다. `UIDevice.current.orientation.rawValue` 값을 확인해본 결과 `OrientationHelper의 acceptOrientation()` 함수 내에서 `UIDevice.current.setValue()`를 호출하여 디바이스의 상태를 변경해주고 있다는 것을 알게 되었습니다.** 
+
+**<메인 뷰 세로로만 표시하도록 구현된 방법>**
+> - 화면 회전 -> `orientation` 값 변경됨
+> - 메인 뷰로 화면 이동
+> - `viewWillAppear`에서 함수 호출 -> `orientation` 값을 `portrait`로 변경
+> - **시뮬레이터는 물리적으로 `landscape` 상태이지만 본인의 상태값을 `portrait`로 인식하기 때문에 화면을 세로로 표시**
+>
+> 굵게 표시한 부분에서 문제가 발생해 다음과 같이 다른 뷰로 화면 전환 시 문제가 발생하였고 이를 해결하기 위해 고민했습니다.
+
+<img src="https://user-images.githubusercontent.com/63997044/164584710-b9d575c8-c0a1-4f63-abb6-83eb5e67b79e.gif"><br>
+
+> => `OrientationHelper의 acceptOrientation()`가 호출되기 전에 현재의 orientation 상태를 저장하고 다시 덮어씌워주는 방법으로 해결했습니다.
+```swift
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    let currentOrientationRawValue = UIDevice.current.orientation.rawValue
+    OrientationHelper.acceptOrientation(.portrait, andRotateTo: .portrait)
+    UIDevice.current.setValue(currentOrientationRawValue, forKey: "orientation")
+}
+```
+
+## [STEP 3] 궁금한 점
+#### **1. Singleton**
+
+> - `NumberFormatterAssistant`를 생성했듯이, `Exposition`내의 문자열 값을 변경하는 기능들을 모두 포함하는 싱글톤 인스턴스를 만들 수 있을 것 같습니다.
+> - `Exposition` 타입은 단순히 `Json`을 `decode`하는 용도로만 사용하고, 값을 처리하는 부분을 분리할 수 있을 것 같은데 어떻게 생각하시나요?🤔 
+
+
+#### **2. 화면회전**
+> - 저희가 작성한 화면회전해주는 방식(`OrientationHelper`)에 대해 어떻게 생각하시나요?🤔
+
 
 
 
