@@ -1,15 +1,11 @@
-//
 //  ParsorManager.swift
 //  Expo1900
-//
 //  Created by 김태현 on 2022/04/19.
-//
 
-import Foundation
 import UIKit
 
-enum ParserManager<T: Decodable> {
-    static func parse(fileName: String) throws -> T {
+struct ParserManager<T: Decodable> {
+    func parse(fileName: String) throws -> T {
         guard let assetFile = NSDataAsset(name: fileName) else {
             throw DecoderError.dataAssetFail
         }

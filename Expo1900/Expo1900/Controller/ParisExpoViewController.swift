@@ -123,7 +123,7 @@ final class ParisExpoViewController: UIViewController {
 extension ParisExpoViewController {
     private func initializeParisExpoData() {
         do {
-            parisExpoData = try AssetData.assignParisExpo()
+            parisExpoData = try AssetData().assignParisExpo()
         } catch {
             showFailureAlert(message: AlertMessage.notFoundData)
         }

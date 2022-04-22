@@ -38,7 +38,7 @@ final class KoreanItemViewController: UIViewController {
 extension KoreanItemViewController {
     private func initializeKoreanItemsData() {
         do {
-            koreanItems = try AssetData.assignKoreanItems()
+            koreanItems = try AssetData().assignKoreanItems()
         } catch {
             showFailureAlert(message: AlertMessage.notFoundData)
         }
