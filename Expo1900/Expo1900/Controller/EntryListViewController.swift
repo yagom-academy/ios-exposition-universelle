@@ -24,6 +24,10 @@ final class EntryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpEntryListView()
+    }
+    
+    private func setUpEntryListView() {
         navigationItem.backButtonTitle = EntryListLetter.koreaEntryList
         navigationItem.title = EntryListLetter.koreaEntryList
         expositionItems = .parse(JsonFile.items)
