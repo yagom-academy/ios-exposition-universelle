@@ -8,7 +8,7 @@
 import Foundation
 
 struct ExpoInformation {
-    func checkDecodeData() throws -> WorldFairPoster? {
+    func retrieveDecodeData() throws -> WorldFairPoster? {
         let worldFairPosterData: WorldFairPoster?
         let assetSeeker = AssetSeeker()
         
