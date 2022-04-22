@@ -46,4 +46,14 @@ struct ExpoInformation {
         
         return durationLabel
     }
+    
+    func showDescriptionLabel() throws -> String  {
+        let decodedData: WorldFairPoster?
+        
+        decodedData = try retrieveDecodeData()
+        
+        let descriptionLabel = decodedData?.description ?? ExpoMagicNumberEnum.notFoundDescriptionLabel
+        
+        return descriptionLabel
+    }
 }
