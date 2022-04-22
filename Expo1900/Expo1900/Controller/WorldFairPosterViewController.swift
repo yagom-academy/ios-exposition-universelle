@@ -43,19 +43,6 @@ final class WorldFairPosterViewController: UIViewController {
         updateImageViews()
     }
     
-    private func replaceTitle() -> String {
-        var replacedTitleText: String = ""
-        let data = try? decodeWorldFairPoster()
-        
-        guard let separatedData = data?.title.components(separatedBy: ExpoMagicNumberEnum.separatePoint) else {
-            return ExpoMagicNumberEnum.notFoundDate
-        }
-        replacedTitleText += separatedData[0]
-        replacedTitleText += ExpoMagicNumberEnum.newLine + ExpoMagicNumberEnum.separatePoint + separatedData[1]
-        
-        return replacedTitleText
-    }
-    
     private func decodeWorldFairPoster() throws -> WorldFairPoster {
         let assetSeeker = AssetSeeker()
         var worldFairPosterData: WorldFairPoster?

@@ -8,4 +8,23 @@
 import Foundation
 
 struct ReplaceTitles {
+    func replaceTitle() throws -> String {
+        var replacedTitleText: String = ""
+        let assetSeeker = AssetSeeker()
+        let data: WorldFairPoster?
+        
+        do {
+            data = try assetSeeker.matchWorldFairPosterAsset()
+        } catch {
+            throw ExpoError.decodeError
+        }
+        
+        guard let separatedData = data?.title.components(separatedBy: ExpoMagicNumberEnum.separatePoint) else {
+            return ExpoMagicNumberEnum.notFoundDate
+        }
+        replacedTitleText += separatedData[0]
+        replacedTitleText += ExpoMagicNumberEnum.newLine + ExpoMagicNumberEnum.separatePoint + separatedData[1]
+        
+        return replacedTitleText
+    }
 }
