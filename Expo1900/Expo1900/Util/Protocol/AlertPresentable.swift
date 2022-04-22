@@ -7,10 +7,17 @@
 
 import UIKit
 
-protocol AlertControllerable {}
+protocol AlertPresentable {
+  func makeAlertController(
+    title: String?,
+    message: String?,
+    preferredStyle: UIAlertController.Style,
+    actions: [UIAlertAction]
+  ) -> UIAlertController
+}
 
-extension AlertControllerable {
-  func showAlertController(
+extension AlertPresentable {
+  func makeAlertController(
     title: String?,
     message: String?,
     preferredStyle: UIAlertController.Style,

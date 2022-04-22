@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A11391D1280447CA00679361 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11391D0280447CA00679361 /* Expo.swift */; };
 		A11391D32804487600679361 /* ExpoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11391D22804487600679361 /* ExpoItem.swift */; };
-		A154B4432810F16300703791 /* AlertControllerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154B4422810F16300703791 /* AlertControllerable.swift */; };
+		A154B4432810F16300703791 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154B4422810F16300703791 /* AlertPresentable.swift */; };
 		A17EB14D2806940C006C3119 /* Decodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EB14C2806940C006C3119 /* Decodable+Extension.swift */; };
 		A17EB1502806953A006C3119 /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EB14F2806953A006C3119 /* DecodeError.swift */; };
 		A17EB1522806A74A006C3119 /* ExpoItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17EB1512806A74A006C3119 /* ExpoItemTableViewController.swift */; };
@@ -21,7 +21,7 @@
 		B0749BF9280546E100836C3F /* AssetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0749BF8280546E100836C3F /* AssetName.swift */; };
 		B07D87C62807F25300BE825B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D87C52807F25300BE825B /* Constants.swift */; };
 		B0A8E92A2807FFDB00A0EA98 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8E9292807FFDB00A0EA98 /* UITableViewCell+Extension.swift */; };
-		B0E2606D2810F5C5006A971A /* LockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2606C2810F5C5006A971A /* LockOrientation.swift */; };
+		B0E2606D2810F5C5006A971A /* Orientating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E2606C2810F5C5006A971A /* Orientating.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		A11391D0280447CA00679361 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		A11391D22804487600679361 /* ExpoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItem.swift; sourceTree = "<group>"; };
-		A154B4422810F16300703791 /* AlertControllerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerable.swift; sourceTree = "<group>"; };
+		A154B4422810F16300703791 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		A17EB14C2806940C006C3119 /* Decodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extension.swift"; sourceTree = "<group>"; };
 		A17EB14F2806953A006C3119 /* DecodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
 		A17EB1512806A74A006C3119 /* ExpoItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemTableViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		B0749BF8280546E100836C3F /* AssetName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetName.swift; sourceTree = "<group>"; };
 		B07D87C52807F25300BE825B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0A8E9292807FFDB00A0EA98 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
-		B0E2606C2810F5C5006A971A /* LockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockOrientation.swift; sourceTree = "<group>"; };
+		B0E2606C2810F5C5006A971A /* Orientating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orientating.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 		A154B4442810F4EC00703791 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				A154B4422810F16300703791 /* AlertControllerable.swift */,
-				B0E2606C2810F5C5006A971A /* LockOrientation.swift */,
+				A154B4422810F16300703791 /* AlertPresentable.swift */,
+				B0E2606C2810F5C5006A971A /* Orientating.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -325,8 +325,8 @@
 				A11391D32804487600679361 /* ExpoItem.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				B0749BF9280546E100836C3F /* AssetName.swift in Sources */,
-				B0E2606D2810F5C5006A971A /* LockOrientation.swift in Sources */,
-				A154B4432810F16300703791 /* AlertControllerable.swift in Sources */,
+				B0E2606D2810F5C5006A971A /* Orientating.swift in Sources */,
+				A154B4432810F16300703791 /* AlertPresentable.swift in Sources */,
 				B07D87C62807F25300BE825B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,13 +46,13 @@ final class MainViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     self.navigationController?.isNavigationBarHidden = false
-    self.lockOrientation(.all)
+    self.setOrientationLock(.all)
   }
 }
 
 // MARK: - Private Extension
 
-extension MainViewController: AlertControllerable, LockOrientation {
+extension MainViewController: AlertPresentable, Orientating {
   
   private func parse() {
     let parsedResult = Expo.parseJSON(with: AssetName.expo)
@@ -60,7 +60,7 @@ extension MainViewController: AlertControllerable, LockOrientation {
     case let .success(expo):
       self.setUpView(from: expo)
     case let .failure(error):
-      let alert = self.showAlertController(
+      let alert = self.makeAlertController(
         title: Constants.notice,
         message: error.localizedDescription,
         preferredStyle: .alert,

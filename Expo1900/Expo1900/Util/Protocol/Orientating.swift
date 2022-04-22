@@ -11,10 +11,19 @@ fileprivate extension Constants {
   static let orientation = "orientation"
 }
 
-protocol LockOrientation {}
-
-extension LockOrientation {
+protocol Orientating {
+  func setOrientationLock(
+    _ orientation: UIInterfaceOrientationMask
+  )
+  
   func lockOrientation(
+    _ orientation: UIInterfaceOrientationMask,
+    andRotateTo rotateOrientation: UIInterfaceOrientation
+  )
+}
+
+extension Orientating {
+  func setOrientationLock(
     _ orientation: UIInterfaceOrientationMask
   ) {
     if let delegate = UIApplication.shared.delegate as? AppDelegate {
@@ -24,9 +33,9 @@ extension LockOrientation {
   
   func lockOrientation(
     _ orientation: UIInterfaceOrientationMask,
-    andRotateTo rotateOrientation:UIInterfaceOrientation
+    andRotateTo rotateOrientation: UIInterfaceOrientation
   ) {
-    self.lockOrientation(orientation)
+    self.setOrientationLock(orientation)
     UIDevice.current.setValue(rotateOrientation.rawValue, forKey: Constants.orientation)
   }
 }

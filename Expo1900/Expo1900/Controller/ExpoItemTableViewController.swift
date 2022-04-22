@@ -24,7 +24,7 @@ final class ExpoItemTableViewController: UITableViewController {
 
 // MARK: - Private Extension
 
-extension ExpoItemTableViewController: AlertControllerable {
+extension ExpoItemTableViewController: AlertPresentable {
   
   private func parse() {
     let parsedResult = [ExpoItem].parseJSON(with: AssetName.expoItem)
@@ -32,7 +32,7 @@ extension ExpoItemTableViewController: AlertControllerable {
     case let .success(expoItems):
       self.expoItems = expoItems
     case let .failure(error):
-      let alert = self.showAlertController(
+      let alert = self.makeAlertController(
         title: Constants.notice,
         message: error.localizedDescription,
         preferredStyle: .alert,
