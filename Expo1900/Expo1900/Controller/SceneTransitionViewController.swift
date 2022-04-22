@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ContainerViewController: UINavigationController {
+final class SceneTransitionViewController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         guard let worldFairPosterViewController = self.topViewController as? WorldFairPosterViewController else {
             return .all
