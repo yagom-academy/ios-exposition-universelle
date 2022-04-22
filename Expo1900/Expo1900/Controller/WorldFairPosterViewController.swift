@@ -18,8 +18,6 @@ final class WorldFairPosterViewController: UIViewController {
     @IBOutlet private weak var leftKoreaFlagImageView: UIImageView!
     @IBOutlet private weak var rightKoreaFlagImageView: UIImageView!
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
