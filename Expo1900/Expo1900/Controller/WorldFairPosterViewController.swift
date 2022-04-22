@@ -68,26 +68,13 @@ final class WorldFairPosterViewController: UIViewController {
         }
         do {
             titleLabel.text = try replacedTitleText.replaceTitle()
+            visitorLabel.text = try expoInformation.showVisitorLabel()
+            locationLabel.text = try expoInformation.showLocationLabel()
+            durationLabel.text = try expoInformation.showDurationLabel()
+            descriptionLabel.text = try expoInformation.showDescriptionLabel()
         } catch {
             showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
         }
-        do {
-            visitorLabel.text = try expoInformation.updateVisitorLabel()
-        } catch {
-            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
-        }
-        do {
-            locationLabel.text = try expoInformation.updateLocationLabel()
-        } catch {
-            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
-        }
-        do {
-            durationLabel.text = try expoInformation.updateDurationLabel()
-        } catch {
-            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
-        }
-        
-        descriptionLabel.text = worldFairPosterData?.description
     }
     
     private func updateImageViews() {
