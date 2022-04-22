@@ -8,7 +8,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    private enum Prefix {
+    private enum LabelPrefix {
         static let visitor = "방문객"
         static let location = "개최지"
         static let duration = "개최 기간"
@@ -55,22 +55,33 @@ final class MainViewController: UIViewController {
         if let title = decodedData.title {
             self.expoTitleLabel.text = title.replacingOccurrences(of: "(", with: "\n(")
         }
-        if let visitors = decodedData.visitors {
-            let visitorsString = Prefix.colon + visitors.formatString()
-            self.visitorsLabel.text = Prefix.visitor + visitorsString
-            self.visitorsLabel.downSize(targetString: visitorsString)
+        if let visitors = decodedData.visitors, let visitorsString = formatString(visitors) {
+            let visitorsValue = LabelPrefix.colon + visitorsString
+            self.visitorsLabel.text = LabelPrefix.visitor + visitorsValue
+            self.visitorsLabel.convertToBodyFont(targetString: visitorsValue)
         }
         if let location = decodedData.location {
-            let locationValue = Prefix.colon + location
-            self.locationLabel.text = Prefix.location + locationValue
-            self.locationLabel.downSize(targetString: locationValue)
+            let locationValue = LabelPrefix.colon + location
+            self.locationLabel.text = LabelPrefix.location + locationValue
+            self.locationLabel.convertToBodyFont(targetString: locationValue)
         }
         if let duration = decodedData.duration {
-            let durationValue = Prefix.colon + duration
-            self.durationLabel.text = Prefix.duration + durationValue
-            self.durationLabel.downSize(targetString: durationValue)
+            let durationValue = LabelPrefix.colon + duration
+            self.durationLabel.text = LabelPrefix.duration + durationValue
+            self.durationLabel.convertToBodyFont(targetString: durationValue)
         }
         self.descriptionLabel.text = decodedData.description
+    }
+    
+    private func formatString(_ target: Int) -> String? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let numberOfVisitors = numberFormatter.string(for: target) else {
+            return nil
+        }
+        
+        return "\(numberOfVisitors) 명"
     }
 }
 

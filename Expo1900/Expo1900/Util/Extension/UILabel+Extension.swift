@@ -7,9 +7,12 @@
 import UIKit
 
 extension UILabel {
-    func downSize(targetString: String) {
+    func convertToBodyFont(targetString: String) {
+        guard let fullText = self.text else {
+            return
+        }
+        
         let font = UIFont.preferredFont(forTextStyle: .body)
-        let fullText = self.text ?? ""
         let range = (fullText as NSString).range(of: targetString)
         let attributedString = NSMutableAttributedString(string: fullText)
         attributedString.addAttribute(.font, value: font, range: range)
