@@ -8,8 +8,9 @@
 import UIKit
 
 final class ItemViewController: UIViewController {
-    @IBOutlet private weak var itemImageView: UIImageView!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak private var itemImageView: UIImageView!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    
     private let item: Item
     
     init(item: Item) {
@@ -30,7 +31,7 @@ final class ItemViewController: UIViewController {
         super.viewDidLoad()
         displayItemInfo()
     }
-    
+    // MARK: - functions
     private func displayItemInfo() {
         navigationItem.title = item.name
         itemImageView.image = UIImage(named: "\(item.imageName).png")

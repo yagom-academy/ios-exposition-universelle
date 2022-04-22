@@ -19,5 +19,4 @@ class ExpoNavigationController: UINavigationController {
         }
         return .portrait
     }
-    
 }

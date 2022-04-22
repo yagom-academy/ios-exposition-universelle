@@ -8,7 +8,8 @@
 import UIKit
 
 final class ListViewController: UIViewController {
-    @IBOutlet private weak var listTableView: UITableView!
+    @IBOutlet weak private var listTableView: UITableView!
+    
     private var items: [Item] = []
     
     override func viewDidLoad() {
@@ -26,9 +27,8 @@ final class ListViewController: UIViewController {
         super.viewDidAppear(animated)
         UIViewController.attemptRotationToDeviceOrientation()
     }
-    
     //MARK: - functions
-    func storeItem(item: Item.Type) {
+    private func storeItem(item: Item.Type) {
         do {
             items = try item.getItems()
         } catch let error {

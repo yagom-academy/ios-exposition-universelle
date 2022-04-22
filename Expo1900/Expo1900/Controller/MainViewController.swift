@@ -7,13 +7,13 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var visitorsLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet weak var listViewButton: UIButton!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var posterImageView: UIImageView!
+    @IBOutlet weak private var visitorsLabel: UILabel!
+    @IBOutlet weak private var locationLabel: UILabel!
+    @IBOutlet weak private var durationLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var listViewButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,13 +58,17 @@ final class MainViewController: UIViewController {
             durationLabel.text = "개최 기간 : \(expoInfo.duration)"
             descriptionLabel.text = expoInfo.description
             
-            let bodyFont = UIFont.preferredFont(forTextStyle: .body)
-            visitorsLabel.changeFontSize(bodyFont, targetString: ": \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")")
-            locationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.location)")
-            durationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.duration)") 
+            changeFontSize(for: expoInfo)
         } catch let error {
             showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
         }
+    }
+    
+    private func changeFontSize(for expoInfo: Exposition) {
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+        visitorsLabel.changeFontSize(bodyFont, targetString: ": \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")")
+        locationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.location)")
+        durationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.duration)")
     }
     
     private func divide(title: String) -> String {
