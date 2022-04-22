@@ -51,12 +51,7 @@ final class ParisExpoViewController: UIViewController {
         super.viewWillAppear(animated)
         configureNavigationUI()
         configurekoreanItemsButton()
-        switchAppDelegateFlag(true)
         configureUIDeviceOrientation()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        switchAppDelegateFlag(false)
     }
     
     override func viewDidLoad() {
@@ -69,12 +64,6 @@ final class ParisExpoViewController: UIViewController {
     private func configureNavigationUI() {
         navigationController?.navigationBar.isHidden = true
         navigationItem.title = UITitle.mainText
-    }
-    
-    private func switchAppDelegateFlag(_ isFirstViewControllerValue: Bool) {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            appDelegate.isFirstViewController = isFirstViewControllerValue
-        }
     }
     
     private func configureUIDeviceOrientation() {
