@@ -56,9 +56,14 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let itemVC = storyboard?.instantiateViewController(withIdentifier: ItemViewController.identifier) as? ItemViewController else { return }
+        guard let item = items[safe: indexPath.row] else { return }
+        let itemVC = storyboard?
+            .instantiateViewController(identifier: ItemViewController.identifier,
+                                       creator: { coder -> ItemViewController in
+                return .init(coder, item) ?? ItemViewController(item: item)
+            })
+        guard let itemVC = itemVC else { return }
         
-        itemVC.item = items[safe: indexPath.row]
         navigationController?.pushViewController(itemVC, animated: true)
     }
 }
