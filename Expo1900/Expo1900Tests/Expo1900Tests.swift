@@ -27,7 +27,6 @@ class Expo1900Tests: XCTestCase {
             // then
             XCTAssertNotNil(expositionInfo)
         } catch {
-
             XCTFail()
         }
     }
@@ -70,7 +69,6 @@ class Expo1900Tests: XCTestCase {
            let result = error as? ExpoError
            // then
            XCTAssertEqual(result, ExpoError.decodingError)
-        
         }
     }
 }
