@@ -62,11 +62,11 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
 
 extension ExhibitionItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let exhibitionItem = self.exhibitionItems[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let detailViewController = storyboard.instantiateViewController(identifier: DetailViewController.identifier, creator: { coder in
-            DetailViewController(exhibitionItem: self.exhibitionItems[indexPath.row], coder: coder)
-        })
+        let detailViewController = storyboard.instantiateViewController(
+            identifier: DetailViewController.identifier) { coder in
+            DetailViewController(exhibitionItem: exhibitionItem, coder: coder)}
                 
         navigationController?.pushViewController(detailViewController, animated: true)
     }
