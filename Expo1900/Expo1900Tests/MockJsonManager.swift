@@ -10,10 +10,30 @@ import UIKit
 
 struct MockJsonManager: JsonManagerable {
     func decodedResult() throws -> [Item] {
-        throw ExpoError.noFileError
+        let jsonDecoder = JSONDecoder()
+
+        guard let itemData = NSDataAsset(name: "wrongName") else {
+            throw ExpoError.noFileError
+        }
+
+        guard let items = try? jsonDecoder.decode([Item].self, from: itemData.data) else {
+            throw ExpoError.decodingError
+        }
+
+        return items
     }
     
     func decodedResult() throws -> ExpositionInfo {
-        throw ExpoError.decodingError
+        let jsonDecoder = JSONDecoder()
+
+                guard let expositionInfoData = NSDataAsset(name: DataFileName.items) else {
+                    throw ExpoError.noFileError
+                }
+
+                guard let expositionInfo = try? jsonDecoder.decode(ExpositionInfo.self, from: expositionInfoData.data) else {
+                    throw ExpoError.decodingError
+                }
+
+                return expositionInfo
     }
 }
