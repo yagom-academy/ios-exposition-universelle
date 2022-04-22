@@ -11,7 +11,16 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak private var itemImageView: UIImageView!
     @IBOutlet weak private var descriptionLabel: UILabel!
     
-    var exhibitionItem: ExhibitionItem?
+    private var exhibitionItem: ExhibitionItem?
+    
+    init?(exhibitionItem: ExhibitionItem, coder: NSCoder) {
+        self.exhibitionItem = exhibitionItem
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
