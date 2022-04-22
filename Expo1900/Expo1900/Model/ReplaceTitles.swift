@@ -13,11 +13,7 @@ struct ReplaceTitles {
         let assetSeeker = AssetSeeker()
         let data: WorldFairPoster?
         
-        do {
-            data = try assetSeeker.matchWorldFairPosterAsset()
-        } catch {
-            throw ExpoError.decodeError
-        }
+        data = try assetSeeker.matchWorldFairPosterAsset()
         
         guard let separatedData = data?.title.components(separatedBy: ExpoMagicNumberEnum.separatePoint) else {
             return ExpoMagicNumberEnum.notFoundDate

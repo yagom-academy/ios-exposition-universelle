@@ -12,51 +12,35 @@ struct ExpoInformation {
         let worldFairPosterData: WorldFairPoster?
         let assetSeeker = AssetSeeker()
         
-        do {
-            worldFairPosterData = try assetSeeker.matchWorldFairPosterAsset()
-        } catch {
-            throw ExpoError.decodeError
-        }
+        worldFairPosterData = try assetSeeker.matchWorldFairPosterAsset()
         
         return worldFairPosterData
     }
     
-    func updateVisitorLabel() throws -> String {
+    func showVisitorLabel() throws -> String {
         let decodedData: WorldFairPoster?
         
-        do {
-            decodedData = try checkDecodeData()
-        } catch {
-            throw ExpoError.decodeError
-        }
+        decodedData = try retrieveDecodeData()
         
         let visitorLabel = "방문객 : " + String(decodedData?.visitors ?? ExpoMagicNumberEnum.defaultVisitor)
         
         return visitorLabel
     }
     
-    func updateLocationLabel() throws -> String {
+    func showLocationLabel() throws -> String {
         let decodedData: WorldFairPoster?
         
-        do {
-            decodedData = try checkDecodeData()
-        } catch {
-            throw ExpoError.decodeError
-        }
+        decodedData = try retrieveDecodeData()
         
         let locationLabel = "개최지 : " + (decodedData?.location ?? ExpoMagicNumberEnum.notFoundLocation)
         
         return locationLabel
     }
     
-    func updateDurationLabel() throws -> String {
+    func showDurationLabel() throws -> String {
         let decodedData: WorldFairPoster?
         
-        do {
-            decodedData = try checkDecodeData()
-        } catch {
-            throw ExpoError.decodeError
-        }
+        decodedData = try retrieveDecodeData()
         
         let durationLabel = "개최 기간 : " + (decodedData?.duration ?? ExpoMagicNumberEnum.notFoundDuration)
         
