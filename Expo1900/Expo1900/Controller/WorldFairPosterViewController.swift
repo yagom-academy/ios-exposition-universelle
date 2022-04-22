@@ -20,16 +20,12 @@ final class WorldFairPosterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        appDelegate?.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        appDelegate?.shouldSupportAllOrientation = true
     }
     
     override func viewDidLoad() {
