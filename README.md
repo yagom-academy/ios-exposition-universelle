@@ -6,7 +6,7 @@
 
 ## 목차
 - [프로젝트 소개](#프로젝트-소개)
-- [UML](#UML)
+- [UML](#uml)
 - [STEP 1](#step-1)
     + [고민 및 해결한 점](#고민-및-해결한-점)
     + [궁금한 점](#궁금한-점)
@@ -21,9 +21,20 @@
     + [코딩 컨벤션](#코딩-컨벤션) 
 
 ---
+## 프로젝트 소개
+### 기본 동작 화면
+<img width="300" src= "https://user-images.githubusercontent.com/88810018/164674775-d1630962-2e54-41e3-abc0-91a8b85dfce8.gif"/> 
+
+### Dynamic Type을 적용한 동작 화면
+<img width="300" src= "https://user-images.githubusercontent.com/88810018/164674940-903cf93f-7139-4d44-87e9-6b27578b7614.gif"/>  <img width="300" src= "https://user-images.githubusercontent.com/88810018/164674951-44c47d53-1941-4e63-a01e-5683a801e475.gif"/>
+
+### 회전 동작 화면
+<img width="600" src= "https://user-images.githubusercontent.com/88810018/164675527-94b5ced6-67f2-446b-b643-0833be85d647.gif"/>
+
+---
 
 ## UML
-![](https://i.imgur.com/44EtzjA.jpg)
+![image](https://user-images.githubusercontent.com/88810018/164679124-f1d550da-3c7b-491b-950d-39efd943b151.png)
 
 ---
 ## [STEP 1]
