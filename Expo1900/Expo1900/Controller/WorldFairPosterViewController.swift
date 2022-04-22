@@ -86,8 +86,8 @@ final class WorldFairPosterViewController: UIViewController {
         }
         titleLabel.text = replacedTitleText
         visitorLabel.text = "방문객 : " + String(worldFairPosterData?.visitors ?? ExpoMagicNumberEnum.defaultVisitor)
-        locationLabel.text = "개최지 : " + (worldFairPosterData?.location ?? ExpoMagicNumberEnum.defaultValue)
-        durationLabel.text = "개최 기간 : " + (worldFairPosterData?.duration ?? ExpoMagicNumberEnum.defaultValue)
+        locationLabel.text = "개최지 : " + (worldFairPosterData?.location ?? ExpoMagicNumberEnum.notFoundLocation)
+        durationLabel.text = "개최 기간 : " + (worldFairPosterData?.duration ?? ExpoMagicNumberEnum.notFoundDuration)
         descriptionLabel.text = worldFairPosterData?.description
     }
     
