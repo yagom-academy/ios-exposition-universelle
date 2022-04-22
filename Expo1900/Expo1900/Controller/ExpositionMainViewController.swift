@@ -52,7 +52,6 @@ extension ExpositionMainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         koreanEntryButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        visitorsLabel.adjustsFontForContentSizeCategory = true
         updateExpositionContents()
     }
     
