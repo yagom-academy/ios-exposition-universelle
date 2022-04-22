@@ -45,6 +45,7 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cellIdentifier = "cell"
+        
         guard let exhibitionItemCell = tableView.dequeueReusableCell(
             withIdentifier: cellIdentifier,
             for: indexPath
