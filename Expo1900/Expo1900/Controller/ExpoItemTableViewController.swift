@@ -8,14 +8,13 @@
 import UIKit
 
 fileprivate extension Constants {
+  static let notice = "알림"
   static let confirm = "확인"
 }
 
-final class ExpoItemTableViewController: UITableViewController, AlertPresentable {
+final class ExpoItemTableViewController: UITableViewController {
   
   private var expoItems = [ExpoItem]()
-  
-  lazy var alertBuilder: AlertBuilderable = AlertBuilder(viewController: self)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,18 +24,21 @@ final class ExpoItemTableViewController: UITableViewController, AlertPresentable
 
 // MARK: - Private Extension
 
-private extension ExpoItemTableViewController {
+extension ExpoItemTableViewController: AlertPresentable {
   
-  func parse() {
+  private func parse() {
     let parsedResult = [ExpoItem].parseJSON(with: AssetName.expoItem)
     switch parsedResult {
     case let .success(expoItems):
       self.expoItems = expoItems
     case let .failure(error):
-      alertBuilder
-        .setTitle(error.localizedDescription)
-        .setConfirmTitle(Constants.confirm)
-        .showAlert()
+      let alert = self.makeAlertController(
+        title: Constants.notice,
+        message: error.localizedDescription,
+        preferredStyle: .alert,
+        actions: [UIAlertAction(title: Constants.confirm, style: .default)]
+      )
+      self.present(alert, animated: true)
     }
   }
 }
