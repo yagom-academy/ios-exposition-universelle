@@ -21,6 +21,12 @@ final class ListViewController: UIViewController {
         
         storeItem()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIViewController.attemptRotationToDeviceOrientation()
+    }
+    
     //MARK: - functions
     func storeItem() {
         do {
