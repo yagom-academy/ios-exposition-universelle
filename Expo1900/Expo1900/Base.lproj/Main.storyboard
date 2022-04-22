@@ -244,6 +244,10 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hSF-IZ-cdm" id="8w1-3E-oHK"/>
+                            <outlet property="delegate" destination="hSF-IZ-cdm" id="KJy-v5-08b"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4bb-jP-Q3b"/>
                     <connections>

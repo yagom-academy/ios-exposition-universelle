@@ -79,8 +79,6 @@ extension HeritageListViewController {
         items = loadItems() ?? []
         navigationController?.navigationBar.topItem?.title = "메인"
         title = "한국의 출품작"
-        heritageListTableView.dataSource = self
-        heritageListTableView.delegate = self
     }
 }
 
