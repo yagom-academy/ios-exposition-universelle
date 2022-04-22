@@ -19,7 +19,7 @@ final class ListViewController: UIViewController {
         
         navigationItem.title = "한국의 출품작"
         
-        storeItem()
+        storeItem(item: Heritage.self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,9 +28,9 @@ final class ListViewController: UIViewController {
     }
     
     //MARK: - functions
-    func storeItem() {
+    func storeItem(item: Item.Type) {
         do {
-            items = try Item.getItems()
+            items = try item.getItems()
         } catch let error {
             showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
         }

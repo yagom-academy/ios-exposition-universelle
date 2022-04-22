@@ -8,7 +8,7 @@
 import UIKit
 
 class ExpoNavigationController: UINavigationController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,5 +19,5 @@ class ExpoNavigationController: UINavigationController {
         }
         return .portrait
     }
-
+    
 }
