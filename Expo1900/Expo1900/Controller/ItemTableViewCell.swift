@@ -14,14 +14,6 @@ final class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak private var itemStackView: UIStackView!
     @IBOutlet weak private var labelStackView: UIStackView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    // MARK: - functions
     func changeItemStackViewSetting(){
         let category = UIApplication.shared.preferredContentSizeCategory
         
