@@ -9,12 +9,8 @@ import UIKit
 
 final class ExpoNavigationController: UINavigationController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        guard let _ = self.topViewController as? MainViewController else {
+        guard self.topViewController is MainViewController else {
             return .all
         }
         return .portrait
