@@ -10,7 +10,7 @@ import XCTest
 
 class Expo1900ModelTests: XCTestCase {
 
-    func test_Heritage_Type_parsingJson_작동하면_FirstItemTitle_Equal_직지심체요절() {
+    func test_Heritage_Type_json데이터를파싱했을때_모델의데이터와json데이터의내용은동일해야한다() {
         //given
         let firstHeritageItemName = "직지심체요절"
         
@@ -22,7 +22,7 @@ class Expo1900ModelTests: XCTestCase {
         XCTAssertEqual(itemName, firstHeritageItemName)
     }
     
-    func test_Expo_Type_parsingJson_작동하면_ExpoTitle_Equal_파리만국박람회1900() {
+    func test_Expo_Type_json데이터를파싱했을때_모델의데이터와json데이터의내용은동일해야한다() {
         //given
         let expoTitle = "파리 만국박람회 1900(L'Exposition de Paris 1900)"
         

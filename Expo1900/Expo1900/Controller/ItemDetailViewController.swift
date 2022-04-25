@@ -9,7 +9,6 @@ import UIKit
 
 final class ItemDetailViewController: UIViewController {
     private let item: Heritage
-    
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var ItemDescriptionLabel: UILabel!
     
@@ -27,7 +26,10 @@ final class ItemDetailViewController: UIViewController {
         super.viewDidLoad()
         setUpView()
     }
-    
+}
+ 
+// MARK: - Method
+private extension ItemDetailViewController {
     private func setUpView() {
         title = item.title
         itemImageView.image = UIImage(named: item.imageName)

@@ -6,6 +6,12 @@
 
 import UIKit
 
+private extension String {
+    static var visitor: String { "방문객" }
+    static var location: String { "개최지" }
+    static var duration: String { "개최기간" }
+}
+
 final class MainViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -15,7 +21,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var decriptionLabel: UILabel!
     @IBOutlet weak var subViewShowButton: UIButton!
     
-    
+    let uiAppDelegate = UIApplication.shared.delegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,40 +31,52 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        fixViewOrientation(true)
     }
     
-    private func setUpView() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        fixViewOrientation(false)
+    }
+}
+
+// MARK: - Method
+private extension MainViewController {
+    
+    func setUpView() {
         guard let expoInfomation = Expo.parsingJson(name: "exposition_universelle_1900") else { return }
         guard let separationIndex = expoInfomation.title.firstIndex(of: "(") else { return }
-                
+        
         titleLabel.text = String(expoInfomation.title[..<separationIndex]) + "\n" + String(expoInfomation.title[separationIndex...])
         posterImageView.image = UIImage(named: "poster")
-        visitorsLabel.text = .visitor + " : \(expoInfomation.visitors.changedFormat())"
+        visitorsLabel.text = .visitor + " : \(expoInfomation.formattedVisitors)"
         locationLabel.text = .location + " : \(expoInfomation.location)"
         durationLabel.text = .duration + " : \(expoInfomation.duration)"
         changeFont()
         decriptionLabel.text = expoInfomation.description
         subViewShowButton.setTitle("한국의 출품작 보러가기", for: .normal)
+        subViewShowButton.maximumContentSizeCategory = .accessibilityMedium
     }
     
-    private func changeFont() {
+    func changeFont() {
         visitorsLabel.changePartFont(part: .visitor)
         locationLabel.changePartFont(part: .location)
         durationLabel.changePartFont(part: .duration)
     }
-}
-
-private extension Int {
-    func changedFormat() -> String {
-        let numberFormatter = NumberFormatter()
-        
-        numberFormatter.numberStyle = .decimal
     
-        return numberFormatter.string(from: self as NSNumber) ?? "FormatError"
+    func fixViewOrientation(_ fixed: Bool) {
+        guard let appDelegate = uiAppDelegate as? AppDelegate else { return }
+        
+        appDelegate.isPortrait = fixed
+        
+        if fixed {
+            let value = UIDeviceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+        }
     }
 }
 
-
+// MARK: - UILabel AddAttribute
 private extension UILabel {
     func changePartFont(part: String) {
         guard let text = self.text else { return }
@@ -69,10 +87,4 @@ private extension UILabel {
         
         self.attributedText = mutableText
     }
-}
-
-private extension String {
-    static var visitor: String { "방문객" }
-    static var location: String { "개최지" }
-    static var duration: String { "개최기간" }
 }
