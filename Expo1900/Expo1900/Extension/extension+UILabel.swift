@@ -9,7 +9,6 @@ import UIKit
 
 extension UILabel {
     func changeFontSize(_ font: UIFont, targetString: String) {
-        self.adjustsFontForContentSizeCategory = true
         let fullText = self.text ?? ""
         let range = (fullText as NSString).range(of: targetString)
         let attributedString = NSMutableAttributedString(string: fullText)
