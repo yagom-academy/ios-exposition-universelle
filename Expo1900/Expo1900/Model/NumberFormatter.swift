@@ -6,12 +6,12 @@
 //
 
 import Foundation
-struct ExpoNumberFormatter {
-    static let shared = NumberFormatter()
+enum ExpoNumberFormatter {
+    private static let numberFomatter = NumberFormatter()
     
     static func changeVisitorsFormat(from visitor: Int) -> String? {
-        shared.numberStyle = .decimal
-        guard let changedNumber = shared.string(from: visitor as NSNumber) else { return nil }
+        numberFomatter.numberStyle = .decimal
+        guard let changedNumber = numberFomatter.string(from: visitor as NSNumber) else { return nil }
         
         return changedNumber + " 명"
     }
