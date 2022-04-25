@@ -8,10 +8,19 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    @IBOutlet weak private var itemImageVIew: UIImageView!
+    @IBOutlet weak private var itemImageView: UIImageView!
     @IBOutlet weak private var descriptionLabel: UILabel!
     
-    var exhibitionItem: ExhibitionItem?
+    private var exhibitionItem: ExhibitionItem?
+    
+    init?(exhibitionItem: ExhibitionItem, coder: NSCoder) {
+        self.exhibitionItem = exhibitionItem
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +31,8 @@ final class DetailViewController: UIViewController {
         guard let exhibitionItem = exhibitionItem else {
             return
         }
-        
-        self.itemImageVIew.image = UIImage(named: exhibitionItem.imageName)
+
+        self.itemImageView.image = ImageData.load(from: exhibitionItem.imageName)
         self.descriptionLabel.text = exhibitionItem.description
         self.title = exhibitionItem.name
     }

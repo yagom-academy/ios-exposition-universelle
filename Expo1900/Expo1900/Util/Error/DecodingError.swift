@@ -10,5 +10,4 @@ import Foundation
 enum DecodingError: Error {
     case fileNameNotFound
     case decodeError
-    case unformattedType
 }

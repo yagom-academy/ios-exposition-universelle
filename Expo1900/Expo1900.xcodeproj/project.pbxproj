@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033EAC7628103A0700B30163 /* ExpoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033EAC7528103A0700B30163 /* ExpoData.swift */; };
 		03AE392028050C7E00C0B0C9 /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */; };
 		03AE392828054ED400C0B0C9 /* ExhibitionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AE392728054ED400C0B0C9 /* ExhibitionItemTests.swift */; };
-		03FF8BA32807FB63002FE49E /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FF8BA22807FB63002FE49E /* Int+Extension.swift */; };
+		03E4763F281155620068E420 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E4763E281155620068E420 /* NavigationController.swift */; };
 		03FF8BA528086954002FE49E /* ExhibitionItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FF8BA428086954002FE49E /* ExhibitionItemsTableViewCell.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -24,6 +25,8 @@
 		E554E99F2808770E00230118 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E554E99E2808770E00230118 /* UIViewController+Extension.swift */; };
 		E5B2A0F828051D1F00E8D514 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */; };
 		E5B2A100280540F900E8D514 /* ExpositionUniverselleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */; };
+		E5CA53FE280ECF7000BC611F /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA53FD280ECF7000BC611F /* UILabel+Extension.swift */; };
+		E5CA54002811A30A00BC611F /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA53FF2811A30A00BC611F /* ImageData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		033EAC7528103A0700B30163 /* ExpoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoData.swift; sourceTree = "<group>"; };
 		03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		03AE392728054ED400C0B0C9 /* ExhibitionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItemTests.swift; sourceTree = "<group>"; };
-		03FF8BA22807FB63002FE49E /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		03E4763E281155620068E420 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		03FF8BA428086954002FE49E /* ExhibitionItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItemsTableViewCell.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 		E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
 		E5B2A0FD280540F900E8D514 /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B2A0FF280540F900E8D514 /* ExpositionUniverselleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselleTests.swift; sourceTree = "<group>"; };
+		E5CA53FD280ECF7000BC611F /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		E5CA53FF2811A30A00BC611F /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				E5201DEC280702A30080F00C /* Decodable+Extension.swift */,
-				03FF8BA22807FB63002FE49E /* Int+Extension.swift */,
 				E554E99E2808770E00230118 /* UIViewController+Extension.swift */,
+				E5CA53FD280ECF7000BC611F /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -92,6 +98,8 @@
 			children = (
 				03AE391F28050C7E00C0B0C9 /* ExpoInformation.swift */,
 				E5B2A0F728051D1F00E8D514 /* ExhibitionItem.swift */,
+				033EAC7528103A0700B30163 /* ExpoData.swift */,
+				E5CA53FF2811A30A00BC611F /* ImageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +116,7 @@
 		03AE392628050EE000C0B0C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				03E4763E281155620068E420 /* NavigationController.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				E5201E11280800B00080F00C /* ExhibitionItemsViewController.swift */,
 				03FF8BA428086954002FE49E /* ExhibitionItemsTableViewCell.swift */,
@@ -284,11 +293,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E554E99F2808770E00230118 /* UIViewController+Extension.swift in Sources */,
+				E5CA53FE280ECF7000BC611F /* UILabel+Extension.swift in Sources */,
 				E554E99D280875EF00230118 /* DetailViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
-				03FF8BA32807FB63002FE49E /* Int+Extension.swift in Sources */,
 				E5201DED280702A30080F00C /* Decodable+Extension.swift in Sources */,
+				E5CA54002811A30A00BC611F /* ImageData.swift in Sources */,
 				E5B2A0F828051D1F00E8D514 /* ExhibitionItem.swift in Sources */,
+				03E4763F281155620068E420 /* NavigationController.swift in Sources */,
+				033EAC7628103A0700B30163 /* ExpoData.swift in Sources */,
 				E5201E12280800B00080F00C /* ExhibitionItemsViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,

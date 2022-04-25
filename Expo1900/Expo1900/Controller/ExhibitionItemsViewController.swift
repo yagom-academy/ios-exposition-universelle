@@ -8,7 +8,7 @@
 import UIKit
 
 final class ExhibitionItemsViewController: UIViewController {
-    var exhibitionItems: [ExhibitionItem] = []
+    private var exhibitionItems: [ExhibitionItem] = []
     
     @IBOutlet weak private var itemsTableView: UITableView!
     
@@ -19,9 +19,14 @@ final class ExhibitionItemsViewController: UIViewController {
         self.exhibitionItems = decodeJson()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIViewController.attemptRotationToDeviceOrientation()
+    }
+    
     private func decodeJson() -> [ExhibitionItem] {
         do {
-            let fileName = "items"
+            let fileName = ExpoData.exhibitionItemFileName
             let decodedData = try [ExhibitionItem].decode(from: fileName)
             return decodedData
         } catch {}
@@ -39,9 +44,10 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        let cellIdentifier = "cell"
         
         guard let exhibitionItemCell = tableView.dequeueReusableCell(
-            withIdentifier: "cell",
+            withIdentifier: cellIdentifier,
             for: indexPath
         ) as? ExhibitionItemsTableViewCell
         else {
@@ -57,12 +63,12 @@ extension ExhibitionItemsViewController: UITableViewDataSource {
 
 extension ExhibitionItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let detailViewController = storyboard?.instantiateViewController(
-            identifier: DetailViewController.identifier) as? DetailViewController
-        {
-            detailViewController.exhibitionItem = self.exhibitionItems[indexPath.row]
-            navigationController?.pushViewController(detailViewController, animated: true)
-        }
+        let exhibitionItem = self.exhibitionItems[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(
+            identifier: DetailViewController.identifier) { coder in
+            DetailViewController(exhibitionItem: exhibitionItem, coder: coder)}
+                
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
-

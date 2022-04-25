@@ -8,11 +8,22 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    private enum LabelPrefix {
+        static let visitor = "방문객"
+        static let location = "개최지"
+        static let duration = "개최 기간"
+        static let colon = " : "
+    }
+    
     @IBOutlet weak private var expoTitleLabel: UILabel!
     @IBOutlet weak private var visitorsLabel: UILabel!
     @IBOutlet weak private var locationLabel: UILabel!
     @IBOutlet weak private var durationLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +39,10 @@ final class MainViewController: UIViewController {
     }
     
     private func decodeJson() -> ExpoInformation {
-        var decodedData = ExpoInformation(title: "",
-                                          visitors: 0,
-                                          location: "",
-                                          duration: "",
-                                          description: "")
+        var decodedData = ExpoInformation()
         
         do {
-            let fileName = "exposition_universelle_1900"
+            let fileName = ExpoData.expoInformationFileName
             decodedData = try ExpoInformation.decode(from: fileName)
         } catch {}
         
@@ -45,15 +52,36 @@ final class MainViewController: UIViewController {
     private func setUpView() {
         let decodedData = decodeJson()
         
-        self.expoTitleLabel.text = decodedData.title.replacingOccurrences(of: "(", with: "\n(")
-        self.locationLabel.text = decodedData.location
-        self.durationLabel.text = decodedData.duration
-        self.descriptionLabel.text = decodedData.description
-        
-        do {
-            self.visitorsLabel.text = try decodedData.visitors.formatString()
-        } catch {
-            self.visitorsLabel.text = "\(error)"
+        if let title = decodedData.title {
+            self.expoTitleLabel.text = title.replacingOccurrences(of: "(", with: "\n(")
         }
+        if let visitors = decodedData.visitors, let visitorsString = formatString(visitors) {
+            let visitorsValue = LabelPrefix.colon + visitorsString
+            self.visitorsLabel.text = LabelPrefix.visitor + visitorsValue
+            self.visitorsLabel.convertToBodyFont(targetString: visitorsValue)
+        }
+        if let location = decodedData.location {
+            let locationValue = LabelPrefix.colon + location
+            self.locationLabel.text = LabelPrefix.location + locationValue
+            self.locationLabel.convertToBodyFont(targetString: locationValue)
+        }
+        if let duration = decodedData.duration {
+            let durationValue = LabelPrefix.colon + duration
+            self.durationLabel.text = LabelPrefix.duration + durationValue
+            self.durationLabel.convertToBodyFont(targetString: durationValue)
+        }
+        self.descriptionLabel.text = decodedData.description
+    }
+    
+    private func formatString(_ target: Int) -> String? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let numberOfVisitors = numberFormatter.string(for: target) else {
+            return nil
+        }
+        
+        return "\(numberOfVisitors) 명"
     }
 }
+
