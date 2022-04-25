@@ -11,12 +11,7 @@ final class ItemViewController: UIViewController {
     @IBOutlet weak private var itemImageView: UIImageView!
     @IBOutlet weak private var descriptionLabel: UILabel!
     
-    private let item: Item
-    
-    init(item: Item) {
-        self.item = item
-        super .init(nibName: nil, bundle: nil)
-    }
+    private var item: Item?
     
     init?(_ coder: NSCoder, _ item: Item) {
         self.item = item
@@ -33,6 +28,7 @@ final class ItemViewController: UIViewController {
     }
     // MARK: - functions
     private func displayItemInfo() {
+        guard let item = item else { return }
         navigationItem.title = item.name
         itemImageView.image = UIImage(named: "\(item.imageName).png")
         descriptionLabel.text = item.description

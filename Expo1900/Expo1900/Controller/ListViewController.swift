@@ -57,12 +57,12 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let item = items[safe: indexPath.row] else { return }
-        let itemVC = storyboard?
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let itemVC = storyboard
             .instantiateViewController(identifier: ItemViewController.identifier,
-                                       creator: { coder -> ItemViewController in
-                return .init(coder, item) ?? ItemViewController(item: item)
+                                       creator: { coder -> ItemViewController? in
+                return .init(coder, item)
             })
-        guard let itemVC = itemVC else { return }
         
         navigationController?.pushViewController(itemVC, animated: true)
     }
