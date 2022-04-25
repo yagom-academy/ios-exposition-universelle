@@ -29,7 +29,7 @@ final class ItemTableViewCell: UITableViewCell {
         }
     }
     
-    func displayWith(item: Item) {
+    func display(with item: Item) {
         itemImageView.image = UIImage(named: item.imageName)
         titleLabel.text = item.name
         shortDescriptionLabel.text = item.shortDescription

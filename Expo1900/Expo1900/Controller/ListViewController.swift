@@ -20,7 +20,7 @@ final class ListViewController: UIViewController {
         
         navigationItem.title = "한국의 출품작"
         
-        storeItem(item: Heritage.self)
+        storeItem(type: Heritage.self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,9 +28,9 @@ final class ListViewController: UIViewController {
         UIViewController.attemptRotationToDeviceOrientation()
     }
     //MARK: - functions
-    private func storeItem(item: Item.Type) {
+    private func storeItem(type: Item.Type) {
         do {
-            items = try item.getItems()
+            items = try type.getItems()
         } catch let error {
             showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
         }
@@ -46,7 +46,7 @@ extension ListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier, for: indexPath)
         guard let itemCell = cell as? ItemTableViewCell else { return cell }
         guard let item = items[safe: indexPath.row] else { return cell }
-        itemCell.displayWith(item: item)
+        itemCell.display(with: item)
         itemCell.changeItemStackViewSetting()
         
         return itemCell
