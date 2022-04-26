@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC524855280FBE5E00081F12 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC524854280FBE5E00081F12 /* NumberFormatter.swift */; };
 		AC5A82C52804FCED006C20AA /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A82C42804FCED006C20AA /* ModelTest.swift */; };
+		ACA2DAAC2810ECF400EFAA54 /* extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA2DAAB2810ECF400EFAA54 /* extension+UILabel.swift */; };
 		ACA8718D280D5C3500FEF04A /* extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8718C280D5C3500FEF04A /* extension+Array.swift */; };
-		ACA8718F280D6D7000FEF04A /* extension+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8718E280D6D7000FEF04A /* extension+Int.swift */; };
 		ACBF2E9028087B8A00DC501F /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBF2E8F28087B8A00DC501F /* ItemViewController.swift */; };
 		ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B7632807116300013B55 /* DataLoadError.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -21,8 +22,9 @@
 		DA0509D3280D6472009A679B /* extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0509D2280D6472009A679B /* extension+UIViewController.swift */; };
 		DA0509D7280E43F4009A679B /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0509D6280E43F4009A679B /* ItemTableViewCell.swift */; };
 		DABBE2D6280862E600B3DE96 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABBE2D5280862E600B3DE96 /* ListViewController.swift */; };
-		DACB21D928070B58002AEAA7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB21D828070B58002AEAA7 /* Item.swift */; };
+		DACB21D928070B58002AEAA7 /* Heritage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB21D828070B58002AEAA7 /* Heritage.swift */; };
 		DACB63B2280E4F89009D6609 /* extension+UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB63B1280E4F88009D6609 /* extension+UITableViewCell.swift */; };
+		DACB63B42810E3E3009D6609 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB63B32810E3E3009D6609 /* NavigationViewController.swift */; };
 		DAD5489B28045FB500F93F7A /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5489A28045FB500F93F7A /* Exposition.swift */; };
 		DAD5489E280510AB00F93F7A /* extension+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5489D280510AB00F93F7A /* extension+Decodable.swift */; };
 /* End PBXBuildFile section */
@@ -38,10 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC524854280FBE5E00081F12 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		AC5A82C22804FCED006C20AA /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5A82C42804FCED006C20AA /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
+		ACA2DAAB2810ECF400EFAA54 /* extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+UILabel.swift"; sourceTree = "<group>"; };
 		ACA8718C280D5C3500FEF04A /* extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Array.swift"; sourceTree = "<group>"; };
-		ACA8718E280D6D7000FEF04A /* extension+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Int.swift"; sourceTree = "<group>"; };
 		ACBF2E8F28087B8A00DC501F /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		ACD9B7632807116300013B55 /* DataLoadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadError.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,8 +58,9 @@
 		DA0509D2280D6472009A679B /* extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+UIViewController.swift"; sourceTree = "<group>"; };
 		DA0509D6280E43F4009A679B /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		DABBE2D5280862E600B3DE96 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		DACB21D828070B58002AEAA7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DACB21D828070B58002AEAA7 /* Heritage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heritage.swift; sourceTree = "<group>"; };
 		DACB63B1280E4F88009D6609 /* extension+UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+UITableViewCell.swift"; sourceTree = "<group>"; };
+		DACB63B32810E3E3009D6609 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		DAD5489A28045FB500F93F7A /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		DAD5489D280510AB00F93F7A /* extension+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +136,7 @@
 		DAB2A681280916A7003B97A3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DACB63B32810E3E3009D6609 /* NavigationViewController.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				DABBE2D5280862E600B3DE96 /* ListViewController.swift */,
 				ACBF2E8F28087B8A00DC501F /* ItemViewController.swift */,
@@ -154,8 +159,8 @@
 				DAD5489D280510AB00F93F7A /* extension+Decodable.swift */,
 				DA0509D2280D6472009A679B /* extension+UIViewController.swift */,
 				ACA8718C280D5C3500FEF04A /* extension+Array.swift */,
-				ACA8718E280D6D7000FEF04A /* extension+Int.swift */,
 				DACB63B1280E4F88009D6609 /* extension+UITableViewCell.swift */,
+				ACA2DAAB2810ECF400EFAA54 /* extension+UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -164,7 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				DAD5489A28045FB500F93F7A /* Exposition.swift */,
-				DACB21D828070B58002AEAA7 /* Item.swift */,
+				DACB21D828070B58002AEAA7 /* Heritage.swift */,
+				AC524854280FBE5E00081F12 /* NumberFormatter.swift */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 			);
 			path = Model;
@@ -279,13 +285,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
-				ACA8718F280D6D7000FEF04A /* extension+Int.swift in Sources */,
+				AC524855280FBE5E00081F12 /* NumberFormatter.swift in Sources */,
 				DAD5489E280510AB00F93F7A /* extension+Decodable.swift in Sources */,
+				DACB63B42810E3E3009D6609 /* NavigationViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				DABBE2D6280862E600B3DE96 /* ListViewController.swift in Sources */,
 				DA0509D7280E43F4009A679B /* ItemTableViewCell.swift in Sources */,
-				DACB21D928070B58002AEAA7 /* Item.swift in Sources */,
+				ACA2DAAC2810ECF400EFAA54 /* extension+UILabel.swift in Sources */,
+				DACB21D928070B58002AEAA7 /* Heritage.swift in Sources */,
 				ACD9B7642807116300013B55 /* DataLoadError.swift in Sources */,
 				ACA8718D280D5C3500FEF04A /* extension+Array.swift in Sources */,
 				DA0509D3280D6472009A679B /* extension+UIViewController.swift in Sources */,

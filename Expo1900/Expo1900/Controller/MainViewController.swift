@@ -7,16 +7,22 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var visitorsLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var posterImageView: UIImageView!
+    @IBOutlet weak private var visitorsLabel: UILabel!
+    @IBOutlet weak private var locationLabel: UILabel!
+    @IBOutlet weak private var durationLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var listViewButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayExpoInfo()
+        changeButtonLayoutSetting()
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,15 +41,34 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(listVC, animated: true)
     }
     //MARK: -functions
+    private func changeButtonLayoutSetting() {
+        listViewButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        listViewButton.titleLabel?.numberOfLines = 0
+        listViewButton.titleLabel?.maximumContentSizeCategory = .accessibilityExtraLarge
+        listViewButton.titleLabel?.textAlignment = .center
+    }
+    
     private func displayExpoInfo() {
-        guard let expoInfo = Exposition.getInfo(view: self) else { return }
-        
-        titleLabel.text = divide(title: expoInfo.title)
-        posterImageView.image = UIImage(named: "poster.png")
-        visitorsLabel.text = " : \(expoInfo.visitors.changeVisitorsFormat() ?? "정보 없음")"
-        locationLabel.text = " : \(expoInfo.location)"
-        durationLabel.text = " : \(expoInfo.duration)"
-        descriptionLabel.text = expoInfo.description
+        do {
+            let expoInfo = try Exposition.getInfo()
+            titleLabel.text = divide(title: expoInfo.title)
+            posterImageView.image = UIImage(named: "poster.png")
+            visitorsLabel.text = "방문객 : \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")"
+            locationLabel.text = "개최지 : \(expoInfo.location)"
+            durationLabel.text = "개최 기간 : \(expoInfo.duration)"
+            descriptionLabel.text = expoInfo.description
+            
+            changeFontSize(for: expoInfo)
+        } catch let error {
+            showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
+        }
+    }
+    
+    private func changeFontSize(for expoInfo: Exposition) {
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+        visitorsLabel.changeFontSize(bodyFont, targetString: ": \(ExpoNumberFormatter.changeVisitorsFormat(from: expoInfo.visitors) ?? "정보 없음")")
+        locationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.location)")
+        durationLabel.changeFontSize(bodyFont, targetString: ": \(expoInfo.duration)")
     }
     
     private func divide(title: String) -> String {

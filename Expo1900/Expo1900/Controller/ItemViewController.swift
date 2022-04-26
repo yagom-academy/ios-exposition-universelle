@@ -8,18 +8,27 @@
 import UIKit
 
 final class ItemViewController: UIViewController {
-    @IBOutlet private weak var itemImageView: UIImageView!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    var item: Item?
+    @IBOutlet weak private var itemImageView: UIImageView!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    
+    private var item: Item?
+    
+    init?(_ coder: NSCoder, _ item: Item) {
+        self.item = item
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayItemInfo()
     }
-    
+    // MARK: - functions
     private func displayItemInfo() {
         guard let item = item else { return }
-        
         navigationItem.title = item.name
         itemImageView.image = UIImage(named: "\(item.imageName).png")
         descriptionLabel.text = item.description

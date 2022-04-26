@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Item: Decodable {
+struct Heritage: Decodable, Item {
     let name: String
     let imageName: String
     let shortDescription: String
@@ -20,13 +20,16 @@ struct Item: Decodable {
         case description = "desc"
     }
     
-    static func getItems(view: UIViewController) -> [Item] {
-        var items: [Item] = []
-        do {
-            items = try [Item].decode(with: "items")
-        } catch let error {
-            view.showAlert(for: "경고", message: "데이터 로드 오류 \n" + error.localizedDescription)
-        }
-        return items
+    static func getItems() throws -> [Self] {
+        return try [Self].decode(with: "items")
     }
+}
+
+protocol Item {
+    var name: String { get }
+    var imageName: String { get }
+    var shortDescription: String { get }
+    var description: String { get }
+    
+    static func getItems() throws -> [Self]
 }
