@@ -1,8 +1,6 @@
-//
 //  ParisExpo.swift
 //  Expo1900
-//
-//  Created by LIMGAUI on 2022/04/11.
+//  Created by LIMGAUI on 2022/04/11
 
 import Foundation
 

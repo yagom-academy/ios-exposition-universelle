@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E0348612807AEA000B1A9C6 /* Decodable+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */; };
+		0E0348612807AEA000B1A9C6 /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0348602807AE9F00B1A9C6 /* DecoderError.swift */; };
 		0E9E5A6F28081C9F0079B650 /* KoreanItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E5A6E28081C9F0079B650 /* KoreanItemViewController.swift */; };
 		0E9E5A73280863C40079B650 /* KoreanItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E5A72280863C40079B650 /* KoreanItemDetailViewController.swift */; };
 		0E9E5A75280873D80079B650 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9E5A74280873D80079B650 /* UIViewController+extension.swift */; };
 		0EA3879128044C07005A48A6 /* KoreanHistoricalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA3879028044C07005A48A6 /* KoreanHistoricalItem.swift */; };
 		0EA38799280458CF005A48A6 /* KoreanHistoricalItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA38798280458CF005A48A6 /* KoreanHistoricalItemTests.swift */; };
+		0EA983B3280ECAE500C81A5F /* ParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA983B2280ECAE500C81A5F /* ParserManager.swift */; };
+		0EA983B5280ECBA600C81A5F /* AssetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA983B4280ECBA600C81A5F /* AssetData.swift */; };
 		AB03BD66280806D100F3A2B4 /* KoreanItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB03BD65280806D100F3A2B4 /* KoreanItemTableViewCell.swift */; };
+		AB206D42280EC6570048649B /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB206D41280EC6570048649B /* AlertMessage.swift */; };
+		AB206D44280EC9130048649B /* FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB206D43280EC9130048649B /* FileName.swift */; };
 		AB245AD02804569A0061D087 /* ParisExpo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245ACF2804569A0061D087 /* ParisExpo.swift */; };
 		AB245AD828045FFB0061D087 /* ParisExpoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB245AD728045FFB0061D087 /* ParisExpoTests.swift */; };
 		AB717BC32807C6E4001B7F6B /* ExpoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB717BC22807C6E4001B7F6B /* ExpoAssets.xcassets */; };
@@ -44,14 +48,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+extension.swift"; sourceTree = "<group>"; };
+		0E0348602807AE9F00B1A9C6 /* DecoderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
 		0E9E5A6E28081C9F0079B650 /* KoreanItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemViewController.swift; sourceTree = "<group>"; };
 		0E9E5A72280863C40079B650 /* KoreanItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemDetailViewController.swift; sourceTree = "<group>"; };
 		0E9E5A74280873D80079B650 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		0EA3879028044C07005A48A6 /* KoreanHistoricalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHistoricalItem.swift; sourceTree = "<group>"; };
 		0EA38796280458CE005A48A6 /* KoreanHistoricalItemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoreanHistoricalItemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA38798280458CF005A48A6 /* KoreanHistoricalItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanHistoricalItemTests.swift; sourceTree = "<group>"; };
+		0EA983B2280ECAE500C81A5F /* ParserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserManager.swift; sourceTree = "<group>"; };
+		0EA983B4280ECBA600C81A5F /* AssetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetData.swift; sourceTree = "<group>"; };
 		AB03BD65280806D100F3A2B4 /* KoreanItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemTableViewCell.swift; sourceTree = "<group>"; };
+		AB206D41280EC6570048649B /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
+		AB206D43280EC9130048649B /* FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileName.swift; sourceTree = "<group>"; };
 		AB245ACF2804569A0061D087 /* ParisExpo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpo.swift; sourceTree = "<group>"; };
 		AB245AD528045FFB0061D087 /* ParisExpoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParisExpoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB245AD728045FFB0061D087 /* ParisExpoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpoTests.swift; sourceTree = "<group>"; };
@@ -95,6 +103,8 @@
 		0E9E5A7628088B810079B650 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AB206D45280ED1460048649B /* Error */,
+				AB206D40280EC6460048649B /* Constant */,
 				0E9E5A7728088B8F0079B650 /* Extension */,
 			);
 			path = Utils;
@@ -103,7 +113,6 @@
 		0E9E5A7728088B8F0079B650 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				0E0348602807AE9F00B1A9C6 /* Decodable+extension.swift */,
 				0E9E5A74280873D80079B650 /* UIViewController+extension.swift */,
 				ABDD6761280D0B1D0048C425 /* UITableViewCell+extension.swift */,
 			);
@@ -125,6 +134,23 @@
 				0EA38798280458CF005A48A6 /* KoreanHistoricalItemTests.swift */,
 			);
 			path = KoreanHistoricalItemTests;
+			sourceTree = "<group>";
+		};
+		AB206D40280EC6460048649B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				AB206D41280EC6570048649B /* AlertMessage.swift */,
+				AB206D43280EC9130048649B /* FileName.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		AB206D45280ED1460048649B /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0E0348602807AE9F00B1A9C6 /* DecoderError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		AB245ACB280445070061D087 /* Controller */ = {
@@ -152,6 +178,8 @@
 			children = (
 				0EA3879028044C07005A48A6 /* KoreanHistoricalItem.swift */,
 				AB245ACF2804569A0061D087 /* ParisExpo.swift */,
+				0EA983B2280ECAE500C81A5F /* ParserManager.swift */,
+				0EA983B4280ECBA600C81A5F /* AssetData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,15 +383,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ParisExpoViewController.swift in Sources */,
-				0E0348612807AEA000B1A9C6 /* Decodable+extension.swift in Sources */,
+				AB206D44280EC9130048649B /* FileName.swift in Sources */,
+				0E0348612807AEA000B1A9C6 /* DecoderError.swift in Sources */,
 				0E9E5A75280873D80079B650 /* UIViewController+extension.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				AB245AD02804569A0061D087 /* ParisExpo.swift in Sources */,
 				0EA3879128044C07005A48A6 /* KoreanHistoricalItem.swift in Sources */,
+				0EA983B5280ECBA600C81A5F /* AssetData.swift in Sources */,
 				ABDD6762280D0B1D0048C425 /* UITableViewCell+extension.swift in Sources */,
 				0E9E5A6F28081C9F0079B650 /* KoreanItemViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				AB03BD66280806D100F3A2B4 /* KoreanItemTableViewCell.swift in Sources */,
+				AB206D42280EC6570048649B /* AlertMessage.swift in Sources */,
+				0EA983B3280ECAE500C81A5F /* ParserManager.swift in Sources */,
 				0E9E5A73280863C40079B650 /* KoreanItemDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

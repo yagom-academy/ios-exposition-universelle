@@ -1,11 +1,16 @@
-//
 //  KoreanItemVC.swift
 //  Expo1900
-//
-//  Created by 김태현 on 2022/04/14.
-//
+//  Created by 김태현 on 2022/04/14
 
 import UIKit
+
+fileprivate enum UItitle {
+    static let koreaItemsText = "한국의 출품작"
+}
+
+fileprivate enum CellIdentifier {
+    static let empty = "empty cell"
+}
 
 final class KoreanItemViewController: UIViewController {
     var koreanItems: [KoreanHistoricalItem]?
@@ -16,7 +21,8 @@ final class KoreanItemViewController: UIViewController {
         super.viewDidLoad()
         configurateDelegateProperties()
         initializeKoreanItemsData()
-        navigationItem.title = "한국의 출품작"
+        registerEmptyCell()
+        navigationItem.title = UItitle.koreaItemsText
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,10 +37,15 @@ final class KoreanItemViewController: UIViewController {
 
 extension KoreanItemViewController {
     private func initializeKoreanItemsData() {
-        guard let items = try? [KoreanHistoricalItem].convert(from: "items") else {
-            return
+        do {
+            koreanItems = try AssetData().assignKoreanItems()
+        } catch {
+            showFailureAlert(message: AlertMessage.notFoundData)
         }
-        koreanItems = items
+    }
+    
+    private func registerEmptyCell() {
+        koreanItemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifier.empty)
     }
 }
 
@@ -43,15 +54,14 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
         if let koreanItemsCount = koreanItems?.count {
             return koreanItemsCount
         }
-        return 0
+        return .zero
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanItemTableViewCell.identifier, for: indexPath) as? KoreanItemTableViewCell,
            let koreanItems = koreanItems else {
-            showFailureAlert()
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "empty cell")
-            return tableView.dequeueReusableCell(withIdentifier: "empty cell", for: indexPath)
+            showFailureAlert(message: AlertMessage.notFoundData)
+            return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.empty, for: indexPath)
         }
         cell.assignValue(from: koreanItems[indexPath.row])
         return cell
@@ -63,14 +73,5 @@ extension KoreanItemViewController: UITableViewDelegate, UITableViewDataSource {
         }
         koreanItemDetailVC.koreanItem = koreanItems?[indexPath.row]
         navigationController?.pushViewController(koreanItemDetailVC, animated: true)
-    }
-}
-
-extension KoreanItemViewController {
-    private func showFailureAlert() {
-        let alertController = UIAlertController(title: nil, message: "적절한 데이터를 불러올 수 없습니다.", preferredStyle: .alert)
-        let confirmButton = UIAlertAction(title: "ok", style: .default)
-        alertController.addAction(confirmButton)
-        present(alertController, animated: true)
     }
 }

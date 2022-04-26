@@ -8,7 +8,6 @@ fileprivate enum UITitle {
     static let visitorText = "방문객 :"
     static let locationText = "개최지 :"
     static let durationText = "개최 기간 :"
-    static let goToKoreanItemsText = "한국의 출품작 보러가기"
     static let mainText = "메인"
 }
 
@@ -16,10 +15,13 @@ fileprivate enum Unit {
     static let people = " 명"
 }
 
-fileprivate enum FileName {
-    static let poster = "poster"
-    static let flag = "flag"
-    static let parisExpo = "exposition_universelle_1900"
+fileprivate enum Sign {
+    static let parentheses = "("
+    static let linebreakAndParentheses = "\n("
+}
+
+fileprivate enum UIDeviceKey {
+    static let orientation = "orientation"
 }
 
 final class ParisExpoViewController: UIViewController {
@@ -47,7 +49,9 @@ final class ParisExpoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+        configureNavigationUI()
+        configurekoreanItemsButton()
+        configureUIDeviceOrientation()
     }
     
     override func viewDidLoad() {
@@ -55,7 +59,15 @@ final class ParisExpoViewController: UIViewController {
         initializeParisExpoData()
         configureImages()
         configureLabels()
+    }
+    
+    private func configureNavigationUI() {
+        navigationController?.navigationBar.isHidden = true
         navigationItem.title = UITitle.mainText
+    }
+    
+    private func configureUIDeviceOrientation() {
+        UIDevice.current.setValue(UIDeviceOrientation.portrait.rawValue, forKey: UIDeviceKey.orientation)
     }
     
     private func configureImages() {
@@ -70,11 +82,10 @@ final class ParisExpoViewController: UIViewController {
         configureLocationLabel()
         configureDurationLabel()
         configureDesciptionLabel()
-        configureKoreanItemsButtonLabel()
     }
     
     private func configureTitleLabel() {
-        titleLabel.text = parisExpoData?.title.replacingOccurrences(of: "(", with: "\n(")
+        titleLabel.text = parisExpoData?.title.replacingOccurrences(of: Sign.parentheses, with: Sign.linebreakAndParentheses)
     }
     
     private func configureVisitorLabel() {
@@ -104,16 +115,17 @@ final class ParisExpoViewController: UIViewController {
         descriptionLabel.text = parisExpoData?.description
     }
     
-    private func configureKoreanItemsButtonLabel() {
-        koreanItemsButton.titleLabel?.text = UITitle.goToKoreanItemsText
+    private func configurekoreanItemsButton() {
+        koreanItemsButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
     }
 }
 
 extension ParisExpoViewController {
     private func initializeParisExpoData() {
-        guard let data = try? ParisExpo.convert(from: FileName.parisExpo) else {
-            return
+        do {
+            parisExpoData = try AssetData().assignParisExpo()
+        } catch {
+            showFailureAlert(message: AlertMessage.notFoundData)
         }
-        parisExpoData = data
     }
 }

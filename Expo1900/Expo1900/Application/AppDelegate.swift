@@ -15,5 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) { }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if let navigationController: UINavigationController = window?.rootViewController as? UINavigationController,
+           let _ = navigationController.topViewController as? ParisExpoViewController
+             {
+            return .portrait
+        }
+        return .all
+    }
 }
 
