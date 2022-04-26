@@ -12,6 +12,7 @@
 		642DEC482807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC472807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift */; };
 		642DEC4A2807F61200749D52 /* WorldFairPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC492807F61200749D52 /* WorldFairPosterViewController.swift */; };
 		642DEC83280E82C300749D52 /* AssetSeeker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DEC82280E82C300749D52 /* AssetSeeker.swift */; };
+		64A2EDA82812842E00617EFD /* SceneTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A2EDA72812842E00617EFD /* SceneTransitionViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* KoreaEntriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* KoreaEntriesViewController.swift */; };
@@ -20,6 +21,8 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		DA838CAE280E676100A4026A /* ExpoMagicNumberEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA838CAD280E676100A4026A /* ExpoMagicNumberEnum.swift */; };
 		DA838CB2280E909800A4026A /* ExpoStringEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA838CB1280E909800A4026A /* ExpoStringEnum.swift */; };
+		DA897BDE2812445E00600D6B /* ReplaceTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA897BDD2812445E00600D6B /* ReplaceTitles.swift */; };
+		DA897BE028124AA600600D6B /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA897BDF28124AA600600D6B /* ExpoInformation.swift */; };
 		DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */; };
 		DA982A8528086AA0000EDB09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8428086AA0000EDB09 /* Parser.swift */; };
 		DA982A8B280CFED6000EDB09 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA982A8A280CFED6000EDB09 /* Alert.swift */; };
@@ -44,6 +47,7 @@
 		642DEC472807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		642DEC492807F61200749D52 /* WorldFairPosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldFairPosterViewController.swift; sourceTree = "<group>"; };
 		642DEC82280E82C300749D52 /* AssetSeeker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSeeker.swift; sourceTree = "<group>"; };
+		64A2EDA72812842E00617EFD /* SceneTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA838CAD280E676100A4026A /* ExpoMagicNumberEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMagicNumberEnum.swift; sourceTree = "<group>"; };
 		DA838CB1280E909800A4026A /* ExpoStringEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoStringEnum.swift; sourceTree = "<group>"; };
+		DA897BDD2812445E00600D6B /* ReplaceTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceTitles.swift; sourceTree = "<group>"; };
+		DA897BDF28124AA600600D6B /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		DA982A802807FFC3000EDB09 /* KoreaEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetailViewController.swift; sourceTree = "<group>"; };
 		DA982A8428086AA0000EDB09 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		DA982A8A280CFED6000EDB09 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -87,6 +93,8 @@
 				642DEC472807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift */,
 				DA982A8428086AA0000EDB09 /* Parser.swift */,
 				642DEC82280E82C300749D52 /* AssetSeeker.swift */,
+				DA897BDD2812445E00600D6B /* ReplaceTitles.swift */,
+				DA897BDF28124AA600600D6B /* ExpoInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* KoreaEntriesViewController.swift */,
+				64A2EDA72812842E00617EFD /* SceneTransitionViewController.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				642DEC492807F61200749D52 /* WorldFairPosterViewController.swift */,
@@ -288,13 +297,16 @@
 			files = (
 				642DEC482807DFE400749D52 /* KoreaEntryDetailTableViewCell.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* KoreaEntriesViewController.swift in Sources */,
+				DA897BE028124AA600600D6B /* ExpoInformation.swift in Sources */,
 				DA838CAE280E676100A4026A /* ExpoMagicNumberEnum.swift in Sources */,
 				642DEC4A2807F61200749D52 /* WorldFairPosterViewController.swift in Sources */,
+				DA897BDE2812445E00600D6B /* ReplaceTitles.swift in Sources */,
 				DA982A8D280D04B1000EDB09 /* ExpoError.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				DA982A8B280CFED6000EDB09 /* Alert.swift in Sources */,
 				642DEC83280E82C300749D52 /* AssetSeeker.swift in Sources */,
+				64A2EDA82812842E00617EFD /* SceneTransitionViewController.swift in Sources */,
 				DA982A812807FFC3000EDB09 /* KoreaEntryDetailViewController.swift in Sources */,
 				642DEC2A2804496C00749D52 /* WorldFairPoster.swift in Sources */,
 				DA982A8528086AA0000EDB09 /* Parser.swift in Sources */,

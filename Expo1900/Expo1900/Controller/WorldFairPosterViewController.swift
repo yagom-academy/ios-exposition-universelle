@@ -32,6 +32,8 @@ final class WorldFairPosterViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = ExpoStringEnum.mainTitle
         updateUI()
+        worldFairPosterImageView.isAccessibilityElement = true
+        worldFairPosterImageView.accessibilityLabel = "파리 박람회 포스터"
         updateImageViews()
     }
     
@@ -54,7 +56,9 @@ final class WorldFairPosterViewController: UIViewController {
         
     private func updateUI() {
         var worldFairPosterData: WorldFairPoster?
-
+        let replacedTitleText = ReplaceTitles()
+        let expoInformation = ExpoInformation()
+        
         do {
             worldFairPosterData = try decodeWorldFairPoster()
         } catch ExpoError.decodeError {
@@ -62,11 +66,15 @@ final class WorldFairPosterViewController: UIViewController {
         } catch {
             showAlert(alertTitle: ExpoStringEnum.unexpectedError, okTitle: ExpoStringEnum.okTitle)
         }
-        titleLabel.text = worldFairPosterData?.title
-        visitorLabel.text = String(worldFairPosterData?.visitors ?? ExpoMagicNumberEnum.defaultVisitor)
-        locationLabel.text = worldFairPosterData?.location
-        durationLabel.text = worldFairPosterData?.duration
-        descriptionLabel.text = worldFairPosterData?.description
+        do {
+            titleLabel.text = try replacedTitleText.replaceTitle()
+            visitorLabel.text = try expoInformation.showVisitorLabel()
+            locationLabel.text = try expoInformation.showLocationLabel()
+            durationLabel.text = try expoInformation.showDurationLabel()
+            descriptionLabel.text = try expoInformation.showDescriptionLabel()
+        } catch {
+            showAlert(alertTitle: ExpoStringEnum.failedTransferData, okTitle: ExpoStringEnum.okTitle)
+        }
     }
     
     private func updateImageViews() {
