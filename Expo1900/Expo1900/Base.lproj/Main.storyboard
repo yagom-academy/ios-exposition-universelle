@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONN-CF-NGc">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONN-CF-NGc">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-Tb-bqs" userLabel="Contents View">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-Tb-bqs" userLabel="Contents View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="458"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-8w-RtL" userLabel="Title">
@@ -56,69 +56,66 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djd-j3-WkS">
-                                                <rect key="frame" x="10" y="368" width="394" height="80"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1C9-y5-Oh5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="80" id="9MK-mo-wAe"/>
-                                                            <constraint firstAttribute="width" constant="80" id="urM-uI-fBR"/>
-                                                        </constraints>
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        </preferredSymbolConfiguration>
-                                                    </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IR1-f9-VTF">
-                                                        <rect key="frame" x="80" y="0.0" width="234" height="80"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="한국의 출품작 보러가기">
-                                                            <color key="titleColor" systemColor="linkColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="showListButtonIsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZB-P8-neQ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-8h-abQ">
-                                                        <rect key="frame" x="314" y="0.0" width="80" height="80"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="80" id="f59-Oj-cPR"/>
-                                                            <constraint firstAttribute="height" constant="80" id="zrj-jY-TrR"/>
-                                                        </constraints>
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        </preferredSymbolConfiguration>
-                                                    </imageView>
-                                                </subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="250" ambiguous="YES" image="flag" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1C9-y5-Oh5" userLabel="Left Flag">
+                                                <rect key="frame" x="10" y="368" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="IR1-f9-VTF" secondAttribute="height" id="fiA-pC-K2g"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" secondItem="FYW-Tb-bqs" secondAttribute="width" multiplier="0.15" id="6B8-sD-lkf"/>
+                                                    <constraint firstAttribute="width" secondItem="1C9-y5-Oh5" secondAttribute="height" multiplier="1.2" id="IHN-aX-c10"/>
                                                 </constraints>
-                                            </stackView>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                </preferredSymbolConfiguration>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IR1-f9-VTF">
+                                                <rect key="frame" x="90" y="368" width="234" height="80"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="한국의 출품작 보러가기"/>
+                                                <connections>
+                                                    <action selector="showListButtonIsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZB-P8-neQ"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="flag" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-8h-abQ" userLabel="Right Flag">
+                                                <rect key="frame" x="324" y="368" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="1C9-y5-Oh5" secondAttribute="width" multiplier="1:1" id="Cz4-g9-ugQ"/>
+                                                    <constraint firstAttribute="height" secondItem="1C9-y5-Oh5" secondAttribute="height" multiplier="1:1" id="fyA-GU-can"/>
+                                                </constraints>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                </preferredSymbolConfiguration>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="1C9-y5-Oh5" firstAttribute="leading" secondItem="FYW-Tb-bqs" secondAttribute="leading" constant="10" id="2t5-zl-Lha"/>
                                             <constraint firstAttribute="width" id="49f-8k-zYC"/>
                                             <constraint firstAttribute="trailing" secondItem="7Le-wY-w8Z" secondAttribute="trailing" constant="10" id="4EO-mv-QT7"/>
                                             <constraint firstItem="7Le-wY-w8Z" firstAttribute="top" secondItem="1R4-Z4-ZTG" secondAttribute="bottom" constant="10" id="4Sk-zf-8po"/>
                                             <constraint firstItem="7Le-wY-w8Z" firstAttribute="leading" secondItem="FYW-Tb-bqs" secondAttribute="leading" constant="10" id="5Us-Qx-Y9U"/>
+                                            <constraint firstAttribute="trailing" secondItem="4ow-8h-abQ" secondAttribute="trailing" constant="10" id="9HK-mf-fsE"/>
                                             <constraint firstAttribute="trailing" secondItem="PPf-Yg-MKq" secondAttribute="trailing" constant="10" id="BBE-3n-nye"/>
-                                            <constraint firstAttribute="trailing" secondItem="djd-j3-WkS" secondAttribute="trailing" constant="10" id="CBP-8x-cXq"/>
-                                            <constraint firstItem="djd-j3-WkS" firstAttribute="top" secondItem="7Le-wY-w8Z" secondAttribute="bottom" constant="10" id="GrX-tG-rpB"/>
+                                            <constraint firstAttribute="bottom" secondItem="IR1-f9-VTF" secondAttribute="bottom" constant="10" id="BwC-89-FV9"/>
                                             <constraint firstAttribute="trailing" secondItem="ktN-8w-RtL" secondAttribute="trailing" constant="10" id="H3g-yz-1gq"/>
+                                            <constraint firstItem="1C9-y5-Oh5" firstAttribute="top" secondItem="7Le-wY-w8Z" secondAttribute="bottom" constant="10" id="HQd-lw-Deo"/>
                                             <constraint firstAttribute="trailing" secondItem="1R4-Z4-ZTG" secondAttribute="trailing" constant="10" id="PmW-NH-yTT"/>
+                                            <constraint firstItem="4ow-8h-abQ" firstAttribute="leading" secondItem="IR1-f9-VTF" secondAttribute="trailing" id="SXH-fp-qjf"/>
                                             <constraint firstItem="1R4-Z4-ZTG" firstAttribute="top" secondItem="PPf-Yg-MKq" secondAttribute="bottom" constant="10" id="T3b-Ka-pDj"/>
-                                            <constraint firstItem="djd-j3-WkS" firstAttribute="leading" secondItem="FYW-Tb-bqs" secondAttribute="leading" constant="10" id="UZG-XP-ecp"/>
                                             <constraint firstItem="b27-L0-HqB" firstAttribute="leading" secondItem="FYW-Tb-bqs" secondAttribute="leading" constant="10" id="Uku-pF-xMQ"/>
+                                            <constraint firstItem="IR1-f9-VTF" firstAttribute="leading" secondItem="1C9-y5-Oh5" secondAttribute="trailing" id="VPT-6K-Ryy"/>
+                                            <constraint firstItem="IR1-f9-VTF" firstAttribute="top" secondItem="7Le-wY-w8Z" secondAttribute="bottom" constant="10" id="WW4-vA-XDI"/>
+                                            <constraint firstItem="4ow-8h-abQ" firstAttribute="top" secondItem="7Le-wY-w8Z" secondAttribute="bottom" constant="10" id="XzU-OK-4bW"/>
                                             <constraint firstItem="8Tj-we-nDF" firstAttribute="centerX" secondItem="FYW-Tb-bqs" secondAttribute="centerX" id="kyL-py-TzM"/>
                                             <constraint firstItem="ktN-8w-RtL" firstAttribute="leading" secondItem="FYW-Tb-bqs" secondAttribute="leading" constant="10" id="mXT-Yj-OEa"/>
                                             <constraint firstItem="1R4-Z4-ZTG" firstAttribute="leading" secondItem="FYW-Tb-bqs" secondAttribute="leading" constant="10" id="muz-Ic-nVz"/>
                                             <constraint firstItem="b27-L0-HqB" firstAttribute="top" secondItem="8Tj-we-nDF" secondAttribute="bottom" constant="10" id="nha-LL-r9h"/>
+                                            <constraint firstItem="IR1-f9-VTF" firstAttribute="centerX" secondItem="FYW-Tb-bqs" secondAttribute="centerX" id="od7-km-gsI"/>
                                             <constraint firstItem="8Tj-we-nDF" firstAttribute="top" secondItem="ktN-8w-RtL" secondAttribute="bottom" constant="10" id="qa6-6w-Zth"/>
                                             <constraint firstItem="ktN-8w-RtL" firstAttribute="top" secondItem="FYW-Tb-bqs" secondAttribute="top" constant="10" id="qcQ-Lu-Lcg"/>
                                             <constraint firstItem="PPf-Yg-MKq" firstAttribute="top" secondItem="b27-L0-HqB" secondAttribute="bottom" constant="10" id="rSK-He-j5B"/>
+                                            <constraint firstAttribute="bottom" secondItem="1C9-y5-Oh5" secondAttribute="bottom" constant="10" id="rw4-6a-nD5"/>
                                             <constraint firstAttribute="trailing" secondItem="b27-L0-HqB" secondAttribute="trailing" constant="10" id="uU2-7f-J4u"/>
-                                            <constraint firstAttribute="bottom" secondItem="djd-j3-WkS" secondAttribute="bottom" constant="10" id="w0p-PL-Efj"/>
+                                            <constraint firstAttribute="bottom" secondItem="4ow-8h-abQ" secondAttribute="bottom" constant="10" id="zZS-qC-egU"/>
                                             <constraint firstItem="PPf-Yg-MKq" firstAttribute="leading" secondItem="FYW-Tb-bqs" secondAttribute="leading" constant="10" id="zlE-SO-0c3"/>
                                         </constraints>
                                         <variation key="default">
@@ -152,7 +149,6 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="7Le-wY-w8Z" id="Fua-EA-7De"/>
                         <outlet property="durationLabel" destination="1R4-Z4-ZTG" id="HUY-Ef-I4X"/>
-                        <outlet property="koreanItemsButton" destination="IR1-f9-VTF" id="f5U-aj-KLf"/>
                         <outlet property="locationLabel" destination="PPf-Yg-MKq" id="jDy-Bj-l09"/>
                         <outlet property="posterImage" destination="8Tj-we-nDF" id="3lH-gA-DFY"/>
                         <outlet property="titleLabel" destination="ktN-8w-RtL" id="je5-MT-jzo"/>
@@ -205,16 +201,16 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gri-nQ-E4y">
-                                            <rect key="frame" x="140" y="31" width="225.5" height="47"/>
+                                            <rect key="frame" x="140" y="31" width="245.5" height="47"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fy-Hz-cpU" userLabel="Title">
-                                                    <rect key="frame" x="0.0" y="0.0" width="225.5" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="245.5" height="30"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" text="Short Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXu-BJ-MQW" userLabel="Short Description">
-                                                    <rect key="frame" x="0.0" y="30" width="225.5" height="17"/>
+                                                    <rect key="frame" x="0.0" y="30" width="245.5" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -224,7 +220,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="04u-1Q-nDY" secondAttribute="bottom" constant="10" id="00U-Kw-aYK"/>
-                                        <constraint firstAttribute="trailing" secondItem="gri-nQ-E4y" secondAttribute="trailing" constant="20" id="Jws-ee-7P2"/>
+                                        <constraint firstAttribute="trailing" secondItem="gri-nQ-E4y" secondAttribute="trailing" id="Jws-ee-7P2"/>
                                         <constraint firstItem="04u-1Q-nDY" firstAttribute="leading" secondItem="r7k-yG-zWm" secondAttribute="leading" constant="10" id="Mfb-jw-gPT"/>
                                         <constraint firstItem="gri-nQ-E4y" firstAttribute="top" secondItem="r7k-yG-zWm" secondAttribute="top" constant="10" id="Swf-wC-HFo"/>
                                         <constraint firstItem="gri-nQ-E4y" firstAttribute="centerY" secondItem="r7k-yG-zWm" secondAttribute="centerY" id="fEO-dB-UM4"/>
@@ -248,6 +244,10 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hSF-IZ-cdm" id="8w1-3E-oHK"/>
+                            <outlet property="delegate" destination="hSF-IZ-cdm" id="KJy-v5-08b"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4bb-jP-Q3b"/>
                     <connections>
@@ -330,9 +330,6 @@
     <resources>
         <image name="flag" width="851" height="567"/>
         <image name="poster" width="144" height="200"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

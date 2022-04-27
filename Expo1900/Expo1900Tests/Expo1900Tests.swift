@@ -21,48 +21,54 @@ class Expo1900Tests: XCTestCase {
     func test_getDecodedExpositionInfo의리턴값이_nil이아니다() throws {
         // given
         let jsonManager = JsonManager()
-        // when
-        let expositionInfo = try? jsonManager.decodedExpositionInfo()
-        // then
-        XCTAssertNotNil(expositionInfo)
+        do {
+            // when
+            let expositionInfo: ExpositionInfo = try jsonManager.decodedResult()
+            // then
+            XCTAssertNotNil(expositionInfo)
+        } catch {
+            XCTFail()
+        }
     }
     
     func test_getDecodedItems의리턴값이_nil이아니다() throws {
         // given
         let jsonManager = JsonManager()
-        // when
-        let item = try? jsonManager.decodedItems()
-        // then
-        XCTAssertNotNil(item)
+        
+        do {
+            // when
+            let item: [Item] = try jsonManager.decodedResult()
+            // then
+            XCTAssertNotNil(item)
+        } catch {
+            XCTFail()
+        }
     }
     
     func test_noFileError() throws {
         // given
         let jsonManager = MockJsonManager()
-        var result: ExpoError?
-        // when
+    
         do {
-            _ = try jsonManager.decodedItems()
+            // when
+            let _: [Item] = try jsonManager.decodedResult()
         } catch {
-            result = error as? ExpoError
+            let result = error as? ExpoError
+            // then
+            XCTAssertEqual(result, ExpoError.noFileError)
         }
-        // then
-        XCTAssertEqual(result, ExpoError.noFileError)
     }
     
     func test_decodingError() throws {
         // given
         let jsonManager = MockJsonManager()
-        var result: ExpoError?
-        // when
         do {
-            _ = try jsonManager.decodedExpositionInfo()
+            // when
+            let _: ExpositionInfo = try jsonManager.decodedResult()
         } catch {
-            result = error as? ExpoError
+           let result = error as? ExpoError
+           // then
+           XCTAssertEqual(result, ExpoError.decodingError)
         }
-        // then
-        XCTAssertEqual(result, ExpoError.decodingError)
     }
 }
-
-

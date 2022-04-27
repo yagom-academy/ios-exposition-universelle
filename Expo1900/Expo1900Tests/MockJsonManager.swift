@@ -9,9 +9,9 @@ import UIKit
 @testable import Expo1900
 
 struct MockJsonManager: JsonManagerable {
-    func decodedItems() throws -> [Item] {
+    func decodedResult() throws -> [Item] {
         let jsonDecoder = JSONDecoder()
-         
+        
         guard let itemData = NSDataAsset(name: "wrongName") else {
             throw ExpoError.noFileError
         }
@@ -23,13 +23,13 @@ struct MockJsonManager: JsonManagerable {
         return items
     }
     
-    func decodedExpositionInfo() throws -> ExpositionInfo {
+    func decodedResult() throws -> ExpositionInfo {
         let jsonDecoder = JSONDecoder()
         
         guard let expositionInfoData = NSDataAsset(name: DataFileName.items) else {
             throw ExpoError.noFileError
         }
-  
+        
         guard let expositionInfo = try? jsonDecoder.decode(ExpositionInfo.self, from: expositionInfoData.data) else {
             throw ExpoError.decodingError
         }

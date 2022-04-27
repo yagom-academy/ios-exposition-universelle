@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol {
+final class HeritageListViewController: UIViewController, GenerateErrorAlertProtocol, ViewControllerIdentifier {
 
     @IBOutlet private weak var heritageListTableView: UITableView!
+    
     private var items: [Item] = []
-    static let identifier = String(describing: HeritageListViewController.self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +63,7 @@ extension HeritageListViewController: UITableViewDelegate {
 extension HeritageListViewController {
     private func loadItems() -> [Item]? {
         let jsonManager: JsonManagerable = JsonManager()
+        
         do {
             let heritageInfo: [Item] = try jsonManager.decodedResult()
             return heritageInfo
@@ -77,8 +78,6 @@ extension HeritageListViewController {
         items = loadItems() ?? []
         navigationController?.navigationBar.topItem?.title = "메인"
         title = "한국의 출품작"
-        heritageListTableView.dataSource = self
-        heritageListTableView.delegate = self
     }
 }
 
