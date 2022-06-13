@@ -7,12 +7,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let dataManager = DataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        dataManager.getData()
     }
-
-
 }
 
