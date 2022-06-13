@@ -2,10 +2,8 @@
 //  ExpoInformation.swift
 //  Expo1900
 //
-//  Created by 김동용 on 2022/06/13.
+//  Created by unchain, bard on 2022/06/13.
 //
-
-import Foundation
 
 struct ExpoInformation: Codable {
     var title: String
