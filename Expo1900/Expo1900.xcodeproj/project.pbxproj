@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183CA64F28571B6600D6C40F /* expo_assets in Resources */ = {isa = PBXBuildFile; fileRef = 183CA64E28571B6500D6C40F /* expo_assets */; };
+		183CA6522857220600D6C40F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183CA6512857220600D6C40F /* DataManager.swift */; };
 		AFDF7DEB2857143500496513 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDF7DEA2857143500496513 /* ItemData.swift */; };
 		AFDF7DEE2857162600496513 /* ExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDF7DED2857162600496513 /* ExpositionData.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		183CA64E28571B6500D6C40F /* expo_assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = expo_assets; path = ../../../Downloads/expo_assets; sourceTree = "<group>"; };
+		183CA6512857220600D6C40F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		AFDF7DEA2857143500496513 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		AFDF7DED2857162600496513 /* ExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionData.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,10 +77,12 @@
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				183CA6512857220600D6C40F /* DataManager.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
+				183CA64E28571B6500D6C40F /* expo_assets */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -139,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				183CA64F28571B6600D6C40F /* expo_assets in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
@@ -152,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				183CA6522857220600D6C40F /* DataManager.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				AFDF7DEB2857143500496513 /* ItemData.swift in Sources */,
