@@ -2,7 +2,7 @@
 
 ### 만국박람회 프로젝트 저장소
 
->프로젝트 기간 2022.06.13 ~ 2022.06.14
+>프로젝트 기간 2022.06.13 ~ 2022.06.24
 >
 >팀원 : [unchain123](https://github.com/unchain123), [bard](https://github.com/bar-d)/ 리뷰어 : [콘](https://github.com/protocorn93)
 ## 목차
