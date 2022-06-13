@@ -12,4 +12,11 @@ struct EntryList: Codable {
     var imageName: String
     var shortDesc: String
     var desc: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case imageName = "image_name"
+        case shortDesc = "short_desc"
+        case desc
+    }
 }
