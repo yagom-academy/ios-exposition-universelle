@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct EntryList: Codable {
+    var name: String
+    var imageName: String
+    var shortDesc: String
+    var desc: String
+}
