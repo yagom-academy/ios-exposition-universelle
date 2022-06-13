@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		4D80FDD628576AF100A048C7 /* Expo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80FDD528576AF100A048C7 /* Expo.swift */; };
 		4D80FDD828576B2C00A048C7 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80FDD728576B2C00A048C7 /* Entry.swift */; };
-		B496557528576C9C00195BF8 /* exposition_universelle_1900.json in Resources */ = {isa = PBXBuildFile; fileRef = B496557428576C9C00195BF8 /* exposition_universelle_1900.json */; };
-		B496557728576CAA00195BF8 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = B496557628576CAA00195BF8 /* items.json */; };
+		B49655822857745000195BF8 /* exposition_universelle_1900.json in Resources */ = {isa = PBXBuildFile; fileRef = B49655812857745000195BF8 /* exposition_universelle_1900.json */; };
+		B49655842857746100195BF8 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = B49655832857746000195BF8 /* items.json */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -22,8 +22,8 @@
 /* Begin PBXFileReference section */
 		4D80FDD528576AF100A048C7 /* Expo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo.swift; sourceTree = "<group>"; };
 		4D80FDD728576B2C00A048C7 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		B496557428576C9C00195BF8 /* exposition_universelle_1900.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = exposition_universelle_1900.json; path = ../../../../../../../Downloads/expo_assets/exposition_universelle_1900.dataset/exposition_universelle_1900.json; sourceTree = "<group>"; };
-		B496557628576CAA00195BF8 /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = items.json; path = ../../../../../../../Downloads/expo_assets/items.dataset/items.json; sourceTree = "<group>"; };
+		B49655812857745000195BF8 /* exposition_universelle_1900.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exposition_universelle_1900.json; sourceTree = "<group>"; };
+		B49655832857746000195BF8 /* items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		4D80FDD32857685900A048C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B496557328576C8300195BF8 /* JSON */,
+				B49655802857744000195BF8 /* JSON */,
 				4D80FDD528576AF100A048C7 /* Expo.swift */,
 				4D80FDD728576B2C00A048C7 /* Entry.swift */,
 			);
@@ -71,11 +71,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B496557328576C8300195BF8 /* JSON */ = {
+		B49655802857744000195BF8 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				B496557428576C9C00195BF8 /* exposition_universelle_1900.json */,
-				B496557628576CAA00195BF8 /* items.json */,
+				B49655812857745000195BF8 /* exposition_universelle_1900.json */,
+				B49655832857746000195BF8 /* items.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -168,9 +168,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B496557528576C9C00195BF8 /* exposition_universelle_1900.json in Resources */,
+				B49655822857745000195BF8 /* exposition_universelle_1900.json in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
-				B496557728576CAA00195BF8 /* items.json in Resources */,
+				B49655842857746100195BF8 /* items.json in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
