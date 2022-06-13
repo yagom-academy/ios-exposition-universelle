@@ -5,7 +5,7 @@
 //  Created by Kiwi, Finnn on 2022/06/13.
 //
 
-struct Expo {
+struct Expo: Codable {
     var title: String
     var visitors: Int
     var location: String

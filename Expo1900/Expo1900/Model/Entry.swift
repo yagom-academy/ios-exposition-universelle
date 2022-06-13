@@ -5,7 +5,7 @@
 //  Created by Kiwi, Finnn on 2022/06/13.
 //
 
-struct Entry {
+struct Entry: Codable {
     var name: String
     var imageName: String
     var shortDesc: String
