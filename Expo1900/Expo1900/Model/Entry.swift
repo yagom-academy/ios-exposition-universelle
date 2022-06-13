@@ -5,8 +5,6 @@
 //  Created by Kiwi, Finnn on 2022/06/13.
 //
 
-import Foundation
-
 struct Entry {
     var name: String
     var imageName: String
