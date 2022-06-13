@@ -6,7 +6,7 @@
 //
 import UIKit
 
-struct EntryEntity: Codable {
+struct EntryEntity: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
