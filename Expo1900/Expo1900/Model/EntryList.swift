@@ -10,13 +10,13 @@ import Foundation
 struct EntryList: Codable {
     var name: String
     var imageName: String
-    var shortDesc: String
-    var desc: String
+    var shortDescription: String
+    var description: String
     
     enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
-        case shortDesc = "short_desc"
-        case desc
+        case shortDescription = "short_desc"
+        case description = "desc"
     }
 }
