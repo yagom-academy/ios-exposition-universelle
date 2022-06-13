@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA19289285708BD00CE0C7D /* EntryList.swift */; };
 		8FA1928D2857216000CE0C7D /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA1928C2857216000CE0C7D /* items.json */; };
+		8FA1928F2857502A00CE0C7D /* expositionUniverselle.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA1928E2857502A00CE0C7D /* expositionUniverselle.json */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		8FA19289285708BD00CE0C7D /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
 		8FA1928C2857216000CE0C7D /* items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
+		8FA1928E2857502A00CE0C7D /* expositionUniverselle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = expositionUniverselle.json; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				8FA1928C2857216000CE0C7D /* items.json */,
+				8FA1928E2857502A00CE0C7D /* expositionUniverselle.json */,
 			);
 			path = DummyJSON;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
+				8FA1928F2857502A00CE0C7D /* expositionUniverselle.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
