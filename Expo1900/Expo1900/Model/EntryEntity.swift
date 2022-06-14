@@ -19,3 +19,12 @@ extension EntryEntity {
         return uiImage
     }
 }
+
+private extension EntryEntity {
+    enum CodingKeys: String, CodingKey {
+        case name
+        case imageName = "image_name"
+        case shortDescription = "short_desc"
+        case description
+    }
+}
