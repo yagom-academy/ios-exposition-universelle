@@ -1,5 +1,5 @@
 //
-//  ItemData.swift
+//  Item.swift
 //  Expo1900
 //
 //  Created by 웡빙, bonf on 2022/06/13.
