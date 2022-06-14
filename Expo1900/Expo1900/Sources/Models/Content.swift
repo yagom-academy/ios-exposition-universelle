@@ -1,4 +1,4 @@
-struct Content: Codable {
+struct Content: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
