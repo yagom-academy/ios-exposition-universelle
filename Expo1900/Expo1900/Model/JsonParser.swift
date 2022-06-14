@@ -5,21 +5,21 @@
 //  Created by Baek on 2022/06/14.
 //
 
-import Foundation
+
+import UIKit
 
 enum JsonParser {
-    static func fetch(_ fileName: String) -> Data? {
-        let extensionType = "json"
+    static func fetch(_ fileName: String) -> ExpositionPostEntity? {
+        let jsonDecoder = JSONDecoder()
+        var expositionPostEntity: ExpositionPostEntity?
         
-        guard let fileLocation = Bundle.main.url(forResource: fileName, withExtension: extensionType) else {
-            return nil
+        if let asset = NSDataAsset.init(name: fileName) {
+            do {
+                expositionPostEntity = try jsonDecoder.decode(ExpositionPostEntity.self, from: asset.data)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
-        
-        do {
-            let data = try Data(contentsOf: fileLocation)
-            return data
-        } catch {
-            return nil
-        }
+        return expositionPostEntity
     }
 }

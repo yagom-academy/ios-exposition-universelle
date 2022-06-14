@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A894FA628582A9B00A4F6FD /* EntryEntity.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A894FA528582A9B00A4F6FD /* EntryEntity.json */; };
 		8A894FA828582C6000A4F6FD /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A894FA728582C6000A4F6FD /* JsonParser.swift */; };
 		8A894FB0285832C100A4F6FD /* ExpositionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A894FAF285832C100A4F6FD /* ExpositionTest.swift */; };
 		905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43E72857046E00BB84E3 /* EntryEntity.swift */; };
@@ -32,8 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8A894FA428582A6400A4F6FD /* ExpositionPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExpositionPost.json; sourceTree = "<group>"; };
-		8A894FA528582A9B00A4F6FD /* EntryEntity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EntryEntity.json; path = ../../../../../../Downloads/expo_assets/items.dataset/EntryEntity.json; sourceTree = "<group>"; };
 		8A894FA728582C6000A4F6FD /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		8A894FAD285832C100A4F6FD /* ExpositionTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpositionTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A894FAF285832C100A4F6FD /* ExpositionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTest.swift; sourceTree = "<group>"; };
@@ -68,15 +65,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A894FA128582A0500A4F6FD /* DummyJson */ = {
-			isa = PBXGroup;
-			children = (
-				8A894FA528582A9B00A4F6FD /* EntryEntity.json */,
-				8A894FA428582A6400A4F6FD /* ExpositionPost.json */,
-			);
-			path = DummyJson;
-			sourceTree = "<group>";
-		};
 		8A894FAE285832C100A4F6FD /* ExpositionTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +114,6 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				8A894FA128582A0500A4F6FD /* DummyJson */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -225,7 +212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A894FA628582A9B00A4F6FD /* EntryEntity.json in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
