@@ -8,13 +8,13 @@ import UIKit
 
 struct EntryEntity: Decodable {
     let name: String
-    let imageName: String
+    private let imageName: String
     let shortDescription: String
     let description: String
 }
 
 extension EntryEntity {
-    var convertedUIImage: UIImage? {
+    var image: UIImage? {
         let uiImage = UIImage(named: self.imageName)
         return uiImage
     }
