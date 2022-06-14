@@ -13,6 +13,23 @@ struct ExpositionPostEntity: Decodable {
     let duration: String  
     let description: String
 }
+
+extension ExpositionPostEntity {
+    func manufacture(_ content: ExpositionPost) -> String {
+        switch content {
+        case .title:
+            return title
+        case .visitors:
+            return "방문객 : \(visitors.setNumberFormatter()) 명"
+        case .location:
+            return "개최지 : \(location)"
+        case .duration:
+            return "개최 기간 : \(duration)"
+        case .description:
+            return description
+        }
+    }
+}
 private extension Int {
     func setNumberFormatter() -> String {
         let numberFormatter = NumberFormatter()
