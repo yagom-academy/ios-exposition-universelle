@@ -6,10 +6,10 @@
 //
 
 struct Entry: Codable {
-    var name: String
-    var imageName: String
-    var shortDesc: String
-    var desc: String
+    let name: String
+    let imageName: String
+    let shortDesc: String
+    let desc: String
     
     enum CodingKeys: String, CodingKey {
         case name = "name"
