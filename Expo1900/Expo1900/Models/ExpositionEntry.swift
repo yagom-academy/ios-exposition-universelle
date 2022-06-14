@@ -1,10 +1,3 @@
-//
-//  ExpositionEntry.swift
-//  Expo1900
-//
-//  Created by Gordon Choi on 2022/06/14.
-//
-
 struct ExpositionEntry: Decodable {
     let name: String
     let imageAddress: String
