@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43E72857046E00BB84E3 /* EntryEntity.swift */; };
 		905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */; };
+		909123082858212900854F1B /* ExpositionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909123072858212900854F1B /* ExpositionPost.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		905C43E72857046E00BB84E3 /* EntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEntity.swift; sourceTree = "<group>"; };
 		905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpositionPostEntity.swift; sourceTree = "<group>"; };
+		909123072858212900854F1B /* ExpositionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPost.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */,
 				905C43E72857046E00BB84E3 /* EntryEntity.swift */,
+				909123072858212900854F1B /* ExpositionPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				909123082858212900854F1B /* ExpositionPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

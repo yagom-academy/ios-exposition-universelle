@@ -11,6 +11,13 @@ struct EntryEntity: Decodable {
     private let imageName: String
     let shortDescription: String
     let description: String
+    
+    init(name: String, imageName: String, shortDescription: String, description: String) {
+        self.name = name
+        self.imageName = imageName
+        self.shortDescription = shortDescription
+        self.description = description
+    }
 }
 
 extension EntryEntity {
