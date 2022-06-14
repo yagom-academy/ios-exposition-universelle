@@ -8,17 +8,18 @@
 import Foundation
 
 struct Entry: Codable, Identifiable {
-    var id = UUID()
+    var id: String
     let name: String
     let imageName: String
-    let shortDesc: String
-    let desc: String
+    let shortDescription: String
+    let longDescription: String
     
-    enum CodingKeys: String, CodingKey {
-            case name
-            case imageName = "image_name"
-            case shortDesc = "short_desc"
-            case desc
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case imageName = "image_name"
+        case shortDescription = "short_desc"
+        case longDescription = "desc"
     }
 }
 
