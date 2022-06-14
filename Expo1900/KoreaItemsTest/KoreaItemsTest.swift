@@ -2,13 +2,13 @@
 //  KoreaItemsTest.swift
 //  KoreaItemsTest
 //
-//  Created by NAMU on 2022/06/14.
+//  Created by Brad, Groot on 2022/06/14.
 //
 
 import XCTest
 @testable import Expo1900
+
 class KoreaItemsTest: XCTestCase {
-    
     var items: NSDataAsset!
     var jsonDecoder: JSONDecoder!
     
@@ -73,10 +73,10 @@ class KoreaItemsTest: XCTestCase {
         let itemInformation = try? jsonDecoder.decode([KoreaItems].self, from: items.data)
         
         //when
-        let result = "《'백운화상초록불조직지심체요절》"
+        let result = "《'백운화상초록불조"
         
         //then
-        XCTAssertEqual(result, itemInformation![0].getDesc().prefix(17).description)
+        XCTAssertEqual(result, itemInformation![0].getDesc().prefix(10).description)
     }
 }
 

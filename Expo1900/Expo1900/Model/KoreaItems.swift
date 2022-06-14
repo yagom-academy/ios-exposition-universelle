@@ -2,7 +2,7 @@
 //  KoreaItems.swift
 //  Expo1900
 //
-//  Created by NAMU on 2022/06/14.
+//  Created by Brad, Groot on 2022/06/14.
 //
 
 import UIKit

@@ -2,13 +2,13 @@
 //  ExpoInformationTest.swift
 //  ExpoInformationTest
 //
-//  Created by 허건 on 2022/06/13.
+//  Created by Brad, Groot on 2022/06/13.
 //
 
 import XCTest
 @testable import Expo1900
-class ExpoInformationTest: XCTestCase {
 
+class ExpoInformationTest: XCTestCase {
     var expo1900: NSDataAsset!
     var jsonDecoder: JSONDecoder!
     
@@ -73,9 +73,9 @@ class ExpoInformationTest: XCTestCase {
         let expoInformation = try? jsonDecoder.decode(ExpoInformation.self, from: expo1900.data)
         
         // when
-        let result = "1900년 파리 만국박람회(지금의 세계"
+        let result = "1900년 파리 만"
         
         // then
-        XCTAssertEqual(result, expoInformation?.getDescription().prefix(21).description)
+        XCTAssertEqual(result, expoInformation?.getDescription().prefix(10).description)
     }
 }

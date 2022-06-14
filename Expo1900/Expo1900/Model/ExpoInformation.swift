@@ -2,7 +2,7 @@
 //  ExpoInformation.swift
 //  Expo1900
 //
-//  Created by 허건 on 2022/06/13.
+//  Created by Brad, Groot on 2022/06/13.
 //
 
 struct ExpoInformation: Decodable {
