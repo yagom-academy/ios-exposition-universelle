@@ -22,7 +22,7 @@ class MainUIScrollView: UIScrollView {
     
     lazy var mainTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 28)
+        label.font = UIFont.boldSystemFont(ofSize: 24)
         label.text = validJson?.title
         label.numberOfLines = 2
         label.textAlignment = .center
@@ -70,15 +70,46 @@ class MainUIScrollView: UIScrollView {
         return label
     }()
     
+    let leftFlagImage: UIImageView = {
+        let imageView = UIImageView()
+        let image = UIImage(named: "flag.png")
+        imageView.image = image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.5).isActive = true
+        return imageView
+    }()
+    
+    let rightFlagImage: UIImageView = {
+        let imageView = UIImageView()
+        let image = UIImage(named: "flag.png")
+        imageView.image = image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.5).isActive = true
+        return imageView
+    }()
+    
     let koreanEntryButton: UIButton = {
         let button = UIButton(type: .custom)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor( .systemBlue, for: .normal)
         return button
     }()
     
+    
+    lazy var buttonStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [leftFlagImage, koreanEntryButton, rightFlagImage])
+        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.distribution = .equalCentering
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return stackView
+    }()
+    
     lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImage, audienceLabel, venueLabel, periodLabel, descriptionLabel, koreanEntryButton])
+        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImage, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView])
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -115,7 +146,7 @@ class MainUIScrollView: UIScrollView {
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            mainStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            mainStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -50),
             mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
