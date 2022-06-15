@@ -7,7 +7,7 @@
 import UIKit
 
 class ExpositionPostViewController: UIViewController {
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 28)
         label.textAlignment = .center
@@ -15,8 +15,8 @@ class ExpositionPostViewController: UIViewController {
         label.numberOfLines = 2
         return label
     }()
-
-    let imageView: UIImageView = {
+    
+    private let postImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .white
         imageView.image = UIImage(named: "poster")
@@ -26,7 +26,7 @@ class ExpositionPostViewController: UIViewController {
         return imageView
     }()
     
-    let visitorLabel: UILabel = {
+    private let visitorLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +34,7 @@ class ExpositionPostViewController: UIViewController {
         return label
     }()
     
-    let locationLabel: UILabel = {
+    private let locationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ class ExpositionPostViewController: UIViewController {
         return label
     }()
     
-    let durationLabel: UILabel = {
+    private let durationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,31 +50,46 @@ class ExpositionPostViewController: UIViewController {
         return label
     }()
     
-    let descriptionTextView: UITextView = {
-        let View = UITextView()
-        View.textAlignment = .center
-        View.translatesAutoresizingMaskIntoConstraints = false
-        
-        return View
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
     }()
     
-    let flagImageView: UIImageView = {
-        let flagimageView = UIImageView()
-        flagimageView.backgroundColor = .red
-        flagimageView.image = UIImage(named: "flag")
-        flagimageView.contentMode = .scaleAspectFill
-        flagimageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return flagimageView
+    private let leftFlagImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .white
+        imageView.image = UIImage(named: "flag")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+        return imageView
     }()
     
-    let expositionEnterButton: UIButton = {
-        let expositionEnterButton = UIButton()
-        expositionEnterButton.setTitle("한국의 출품작 보러가기", for: .normal)
-        
-        return expositionEnterButton
+    private let rightFlagImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .white
+        imageView.image = UIImage(named: "flag")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+        return imageView
     }()
 
+    private let expositionEnterButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.widthAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        button.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
