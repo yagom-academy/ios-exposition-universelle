@@ -109,10 +109,8 @@ class ViewController: UIViewController {
         guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "KoreaEntryViewController") as? KoreaEntryViewController else {
             return
         }
-        
-        let koreaEntryVC = UINavigationController(rootViewController: controller)
-        
-        self.navigationController?.pushViewController(koreaEntryVC, animated: true)
+
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
