@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		183CA6C6285817CF00D6C40F /* ItemDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183CA6C5285817CF00D6C40F /* ItemDataManagerTests.swift */; };
+		1873CB962859997100974770 /* expo_assets in Resources */ = {isa = PBXBuildFile; fileRef = 1873CB952859997100974770 /* expo_assets */; };
 		18E1890628581BAA008E85E2 /* ExpositionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1890528581BAA008E85E2 /* ExpositionDataManager.swift */; };
 		18E1890828581D8E008E85E2 /* ExpositionDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1890728581D8E008E85E2 /* ExpositionDataManagerTests.swift */; };
 		AF77632528573A17008E14BC /* ItemDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77632428573A17008E14BC /* ItemDataManager.swift */; };
-		AFD19E302858D758002D3D03 /* expo_assets in Resources */ = {isa = PBXBuildFile; fileRef = AFD19E2F2858D758002D3D03 /* expo_assets */; };
 		AFDF7DEB2857143500496513 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDF7DEA2857143500496513 /* Item.swift */; };
 		AFDF7DEE2857162600496513 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDF7DED2857162600496513 /* Exposition.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
@@ -35,16 +35,16 @@
 /* Begin PBXFileReference section */
 		183CA6BB2858172D00D6C40F /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		183CA6C5285817CF00D6C40F /* ItemDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataManagerTests.swift; sourceTree = "<group>"; };
+		1873CB952859997100974770 /* expo_assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = expo_assets; path = ../../Downloads/expo_assets; sourceTree = "<group>"; };
 		18E1890528581BAA008E85E2 /* ExpositionDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionDataManager.swift; sourceTree = "<group>"; };
 		18E1890728581D8E008E85E2 /* ExpositionDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionDataManagerTests.swift; sourceTree = "<group>"; };
 		AF77632428573A17008E14BC /* ItemDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataManager.swift; sourceTree = "<group>"; };
-		AFD19E2F2858D758002D3D03 /* expo_assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = expo_assets; path = ../../../Downloads/expo_assets; sourceTree = "<group>"; };
 		AFDF7DEA2857143500496513 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AFDF7DED2857162600496513 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
-				AFD19E2F2858D758002D3D03 /* expo_assets */,
+				1873CB952859997100974770 /* expo_assets */,
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
 				183CA6BC2858172D00D6C40F /* Expo1900Tests */,
 				C79FF4B22589F401005FB0FD /* Products */,
@@ -114,7 +114,7 @@
 				AFDF7DEC2857143A00496513 /* Model */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -210,8 +210,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1873CB962859997100974770 /* expo_assets in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
-				AFD19E302858D758002D3D03 /* expo_assets in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
@@ -233,7 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				AF77632528573A17008E14BC /* ItemDataManager.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
