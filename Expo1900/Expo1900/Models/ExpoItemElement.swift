@@ -21,5 +21,3 @@ struct ExpoItemElement: Codable {
         case desc
     }
 }
-
-typealias ExpoItem = [ExpoItemElement]
