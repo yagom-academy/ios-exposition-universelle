@@ -84,6 +84,33 @@ class MainViewController: UIViewController {
         stackView.addArrangedSubview(description)
         description.numberOfLines = 0
         description.text = result.description
+        
+        let buttonStack = makeHorizontalStackView()
+        stackView.addArrangedSubview(buttonStack)
+        
+        let firstFlagView = UIImageView()
+        let flagImage = UIImage(named: "flag")
+        let newSizeImage = resizeImage(image: flagImage!, width: 20, height: 20)
+        firstFlagView.image = newSizeImage
+
+        let secondFlagView = UIImageView()
+        secondFlagView.image = newSizeImage
+        
+        buttonStack.addArrangedSubview(firstFlagView)
+        
+        let button = makeButton()
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        
+        buttonStack.addArrangedSubview(button)
+        
+        buttonStack.addArrangedSubview(secondFlagView)
+        
+        button.addTarget(self, action: #selector(buttonDidTapped(_:)), for: .touchUpInside)
+    }
+    
+    @objc func buttonDidTapped(_ sender: UIButton) {
+            print("버튼 눌림")
     }
     
     func makeScrollView() -> UIScrollView {
@@ -118,6 +145,20 @@ class MainViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 15)
         label.text = "title"
         return label
+    }
+    
+    func makeButton() -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }
+    
+    func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: width, height: height))
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
 }
 
