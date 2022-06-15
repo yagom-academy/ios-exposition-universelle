@@ -9,13 +9,16 @@ import UIKit
 class MainViewController: UIViewController {
     
     var expositionDataManager = ExpositionDataManager()
-  
+    let numberFormatter = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let result = expositionDataManager.getData() else { return }
         
+        numberFormatter.numberStyle = .decimal
+        
         navigationController?.isNavigationBarHidden = true
+        
         let scrollView = makeScrollView()
         view.addSubview(scrollView)
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
@@ -51,7 +54,7 @@ class MainViewController: UIViewController {
         
         let visitorsText = makeLabel()
         visitorsStack.addArrangedSubview(visitorsText)
-        visitorsText.text = "\(String(describing: result.visitors))"
+        visitorsText.text = "\(numberFormatter.string(for: result.visitors) ?? "") 명"
         
         let locationStack = makeHorizontalStackView()
         stackView.addArrangedSubview(locationStack)
