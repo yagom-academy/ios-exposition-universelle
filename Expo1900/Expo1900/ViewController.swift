@@ -8,7 +8,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var expositionUniverselle: ExpositionUniverselle? = nil
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -18,8 +18,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupExpoInformation()
         
+    }
+    
+    private func setupExpoInformation() {
+        parseExpositionUniverselleData()
+        updatePosterDescription()
+    }
+    
+    private func parseExpositionUniverselleData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
+        
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
         }
@@ -27,36 +37,67 @@ class ViewController: UIViewController {
         do {
             self.expositionUniverselle = try jsonDecoder.decode(ExpositionUniverselle.self, from: dataAsset.data)
         } catch {
-            print("error")
+            handleError(error)
         }
+    }
+    
+    private func handleError(_ error: Error) {
+        switch error {
+        case ExpoError.decoding:
+            print(ExpoError.decoding.localizedDescription)
+        default:
+            print("unknown error!!")
+        }
+    }
+    
+    private func updatePosterDescription() {
+        updateTitleLabel()
+        updateVisitorsLabel()
+        updateLocationLabel()
+        updateDurationLabel()
+        updateDescriptionLabel()
+    }
+    
+    private func updateTitleLabel() {
         let title = expositionUniverselle?.title
         let changeTitle = title?.replacingOccurrences(of: "(", with: "\n(")
         
         titleLabel.text = changeTitle
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.systemFont(ofSize: 25.0)
-        
+    }
+    
+    private func updateVisitorsLabel() {
         let numberformatter = NumberFormatter()
         numberformatter.numberStyle = .decimal
         
-        guard let result = numberformatter.string(for: expositionUniverselle?.visitors) else {
+        guard let visitors = numberformatter.string(for: expositionUniverselle?.visitors) else {
             return
         }
         
-        guard let location = expositionUniverselle?.location,
-        let duration = expositionUniverselle?.duration else {
+        visitorsLabel.text = "방문객 : \(visitors) 명"
+    }
+    
+    private func updateLocationLabel() {
+        guard let location = expositionUniverselle?.location else {
             return
         }
         
-        visitorsLabel.text = "방문객 : \(result) 명"
         locationLabel.text = "개최지 : \(location)"
-        durationLabel.text = "개최기간 : \(duration)"
-        descriptionLabel.text = expositionUniverselle?.description
+    }
+    
+    private func updateDurationLabel() {
+        guard let duration = expositionUniverselle?.duration else {
+            return
+        }
         
+        durationLabel.text = "개최기간 : \(duration)"
+    }
+    
+    private func updateDescriptionLabel() {
+        descriptionLabel.text = expositionUniverselle?.description
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
     }
-
-
 }
 
