@@ -21,6 +21,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupExpoInformation()
 //        navigationButton.setTitle("한국의 출품작 보러가기", for: .normal)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func setupExpoInformation() {
