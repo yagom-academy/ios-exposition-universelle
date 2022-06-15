@@ -10,11 +10,16 @@ import Foundation
 // MARK: - Exposition
 struct Exposition: Codable {
     let title: String
+    let location: String
+    let duration: String
+    let expositionDescription: String
     let visitors: Int
-    let location, duration, expositionDescription: String
 
     enum CodingKeys: String, CodingKey {
-        case title, visitors, location, duration
+        case title
+        case location
+        case duration
         case expositionDescription = "description"
+        case visitors
     }
 }
