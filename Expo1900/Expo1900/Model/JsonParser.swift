@@ -8,18 +8,18 @@
 
 import UIKit
 
-enum JsonParser {
-    static func fetch(_ fileName: String) -> ExpositionPostEntity? {
+enum JsonParser<T:Decodable> {
+    static func fetch(_ fileName: String) -> T? {
         let jsonDecoder = JSONDecoder()
-        var expositionPostEntity: ExpositionPostEntity?
+        var entity: T?
         
         if let asset = NSDataAsset.init(name: fileName) {
             do {
-                expositionPostEntity = try jsonDecoder.decode(ExpositionPostEntity.self, from: asset.data)
+                entity = try jsonDecoder.decode(T.self, from: asset.data)
             } catch {
                 print(error.localizedDescription)
             }
         }
-        return expositionPostEntity
+        return entity
     }
 }
