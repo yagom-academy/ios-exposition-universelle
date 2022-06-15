@@ -70,8 +70,15 @@ class MainUIScrollView: UIScrollView {
         return label
     }()
     
+    let koreanEntryButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitleColor( .systemBlue, for: .normal)
+        return button
+    }()
+    
     lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImage, audienceLabel, venueLabel, periodLabel, descriptionLabel])
+        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImage, audienceLabel, venueLabel, periodLabel, descriptionLabel, koreanEntryButton])
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
