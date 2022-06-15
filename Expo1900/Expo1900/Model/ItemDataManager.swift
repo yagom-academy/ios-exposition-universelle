@@ -6,22 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 struct ItemDataManager {
     
     func getData() -> [Item]? {
-        guard let filePath = Bundle.main.path(forResource: "items",
-                                              ofType: "json",
-                                              inDirectory: "expo_assets/items.dataset") else {
+        guard let filePath = NSDataAsset.init(name: "items") else {
             return nil
         }
-        guard let data = try? String(contentsOfFile: filePath).data(using: .utf8) else {
-            return nil
-        }
+        
         let decoder = JSONDecoder()
         var itemList: [Item]?
         do {
-            itemList = try decoder.decode([Item].self, from: data)
+            itemList = try decoder.decode([Item].self, from: filePath.data)
         } catch {
             switch error {
             case DecodingError.typeMismatch(let type, let context):
