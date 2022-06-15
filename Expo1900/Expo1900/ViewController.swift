@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
-        stack.alignment = .fill
+        stack.alignment = .center
         stack.distribution = .equalSpacing
         stack.spacing = 15
         stack.axis = .vertical
@@ -20,8 +20,9 @@ class ViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 40)
+        label.font = UIFont.systemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         label.text = "파리 만국박람회 1900\n(L'Exposition de Paris 1900)"
         label.numberOfLines = 2
         return label
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
     private let imageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "poster~universal@1x.png")
+        //image.draw(CGRect(x: 0, y: 0, width: 100, height: 100))
         return image
     }()
     
@@ -37,6 +39,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         label.text = "48130300"
         return label
     }()
@@ -45,6 +48,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         label.text = "프랑스 파리"
         return label
     }()
@@ -53,6 +57,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         label.text = "1900. 04. 14 - 1900. 11. 12"
         return label
     }()
@@ -76,28 +81,44 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setStackView()
+        setScrollView()
         
     }
 
-    private func setStackView() {
+    private func setScrollView() {
         self.view.addSubview(scrollView)
+        setScrollViewLayout()
+        
         scrollView.addSubview(stackView)
-        setLayout()
+        setStackViewLayout()
+        
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(imageView)
+        setImageViewLayout()
         stackView.addArrangedSubview(visitorLabel)
         stackView.addArrangedSubview(venueLabel)
         stackView.addArrangedSubview(periodLabel)
         stackView.addArrangedSubview(descriptionLabel)
     }
     
-    private func setLayout() {
+    private func setScrollViewLayout() {
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 5).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 5).isActive = true
     }
-
+    
+    private func setStackViewLayout() {
+        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 5).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 5).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 5).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+    }
+    
+    private func setImageViewLayout() {
+        imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.4).isActive = true
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.6).isActive = true
+    }
 }
 
