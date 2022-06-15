@@ -8,34 +8,103 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var expositionDataManager = ExpositionDataManager()
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let stackView = makeStackView()
-        view.addSubview(stackView)
-        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        guard let result = expositionDataManager.getData() else { return }
+        
+        navigationController?.isNavigationBarHidden = true
+        let scrollView = makeScrollView()
+        view.addSubview(scrollView)
+        scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        let stackView = makeVerticalStackView()
+        scrollView.addSubview(stackView)
+        stackView.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
         
         let title = makeLabel()
         stackView.addArrangedSubview(title)
+        title.font = UIFont.systemFont(ofSize: 25)
+        title.numberOfLines = 0
+        title.text = result.title
         
-        let visitors = makeLabel()
-        stackView.addArrangedSubview(visitors)
+        let uiview = UIImageView()
+        let image = UIImage(named: "poster")
+        uiview.image = image
+        stackView.addArrangedSubview(uiview)
         
-        let location = makeLabel()
-        stackView.addArrangedSubview(location)
+        let visitorsStack = makeHorizontalStackView()
+        stackView.addArrangedSubview(visitorsStack)
         
-        let duration = makeLabel()
-        stackView.addArrangedSubview(duration)
+        let visitorsTitle = makeLabel()
+        visitorsStack.addArrangedSubview(visitorsTitle)
+        visitorsTitle.font = UIFont.systemFont(ofSize: 20)
+        visitorsTitle.text = "방문객 :"
+        
+        let visitorsText = makeLabel()
+        visitorsStack.addArrangedSubview(visitorsText)
+        visitorsText.text = "\(String(describing: result.visitors))"
+        
+        let locationStack = makeHorizontalStackView()
+        stackView.addArrangedSubview(locationStack)
+        
+        let locationTitle = makeLabel()
+        locationStack.addArrangedSubview(locationTitle)
+        locationTitle.font = UIFont.systemFont(ofSize: 20)
+        locationTitle.text = "개최지 :"
+        
+        let locationText = makeLabel()
+        locationStack.addArrangedSubview(locationText)
+        locationText.text = "\(result.location)"
+        
+        let durationStack = makeHorizontalStackView()
+        stackView.addArrangedSubview(durationStack)
+        
+        let durationTitle = makeLabel()
+        durationStack.addArrangedSubview(durationTitle)
+        durationTitle.font = UIFont.systemFont(ofSize: 20)
+        durationTitle.text = "개최 기간 :"
+        
+        let durationText = makeLabel()
+        durationStack.addArrangedSubview(durationText)
+        durationText.text = "\(result.duration)"
+        
+        let description = makeLabel()
+        stackView.addArrangedSubview(description)
+        description.numberOfLines = 0
+        description.text = result.description
     }
     
-    func makeStackView() -> UIStackView {
+    func makeScrollView() -> UIScrollView {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }
+    
+    func makeVerticalStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
+        stackView.spacing = 8
+        return stackView
+    }
+    
+    func makeHorizontalStackView() -> UIStackView {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
         stackView.spacing = 8
         return stackView
     }
@@ -43,7 +112,7 @@ class MainViewController: UIViewController {
     func makeLabel() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.systemFont(ofSize: 15)
         label.text = "title"
         return label
     }
