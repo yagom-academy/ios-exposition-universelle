@@ -36,10 +36,10 @@ class MainViewController: UIViewController {
         title.numberOfLines = 0
         title.text = result.title
         
-        let uiview = UIImageView()
-        let image = UIImage(named: "poster")
-        uiview.image = image
-        stackView.addArrangedSubview(uiview)
+        let posterView = UIImageView()
+        let posterImage = UIImage(named: "poster")
+        posterView.image = posterImage
+        stackView.addArrangedSubview(posterView)
         
         let visitorsStack = makeHorizontalStackView()
         stackView.addArrangedSubview(visitorsStack)
