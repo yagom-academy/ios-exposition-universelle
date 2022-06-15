@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataManager<T> {
+struct DataManager {
     func load(fileName: String) -> Data? {
         guard let fileLocation = Bundle.main.url(forResource: fileName, withExtension: "json") else {
             return nil
@@ -20,15 +20,24 @@ struct DataManager<T> {
             return nil
         }
     }
-}
-
-extension DataManager where T: Codable {
-    func parse(fileName: String) -> T? {
+    
+    func expositionParse(fileName: String) -> Exposition?  {
         guard let jsonData = load(fileName: fileName),
-              let dataList = try? JSONDecoder().decode(T.self, from: jsonData) else {
+              let dataList = try? JSONDecoder().decode(Exposition.self, from: jsonData) else {
             return nil
         }
         
         return dataList
     }
+    
+    func entryParse(fileName: String) -> Entry?  {
+        guard let jsonData = load(fileName: fileName),
+              let dataList = try? JSONDecoder().decode(Entry.self, from: jsonData) else {
+            return nil
+        }
+        
+        return dataList
+    }
+    
 }
+
