@@ -15,11 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var navigationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupExpoInformation()
-        
+//        navigationButton.setTitle("한국의 출품작 보러가기", for: .normal)
     }
     
     private func setupExpoInformation() {
@@ -64,7 +65,7 @@ class ViewController: UIViewController {
         
         titleLabel.text = changeTitle
         titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.systemFont(ofSize: 25.0)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
     }
     
     private func updateVisitorsLabel() {
@@ -98,6 +99,20 @@ class ViewController: UIViewController {
         descriptionLabel.text = expositionUniverselle?.description
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
+    }
+    
+    @IBAction func navigationButtonDidTap(_ sender: UIButton) {
+        goToKoreaEntryView()
+    }
+    
+    func goToKoreaEntryView() {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "KoreaEntryViewController") as? KoreaEntryViewController else {
+            return
+        }
+        
+        let koreaEntryVC = UINavigationController(rootViewController: controller)
+        
+        self.navigationController?.pushViewController(koreaEntryVC, animated: true)
     }
 }
 
