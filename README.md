@@ -36,7 +36,7 @@
 ## 🚀 UML  
 **[ClassDiagram]**
 
-![image](https://user-images.githubusercontent.com/45350356/173483569-2689a921-3c4c-4864-845f-cf1d72a2cea1.png)
+![](https://i.imgur.com/zxio2Ko.jpg)
 </br>
 ---
 ## 💡 키워드
