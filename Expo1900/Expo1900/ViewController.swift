@@ -1,6 +1,6 @@
 //
 //  Expo1900 - ViewController.swift
-//  Created by yagom. 
+//  Created by unchain, bard
 //  Copyright © yagom academy. All rights reserved.
 // 
 
@@ -10,9 +10,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
 

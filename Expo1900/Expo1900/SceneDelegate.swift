@@ -1,6 +1,6 @@
 //
 //  Expo1900 - SceneDelegate.swift
-//  Created by yagom. 
+//  Created by unchain, bard. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
