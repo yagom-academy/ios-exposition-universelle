@@ -6,30 +6,9 @@
 //
 
 struct ExpoInformation: Decodable {
-    private var title: String
-    private var visitors: Int
-    private var location: String
-    private var duration: String
-    private var description: String
-    
-    func getTitle() -> String {
-        return title
-    }
-    
-    func getVisitors() -> Int {
-        return visitors
-    }
-    
-    func getLocation() -> String {
-        return location
-    }
-    
-    func getDuration() -> String {
-        return duration
-    }
-    
-    func getDescription() -> String {
-        return description
-    }
+    private(set) var title: String
+    private(set) var visitors: Int
+    private(set) var location: String
+    private(set) var duration: String
+    private(set) var description: String
 }
-
