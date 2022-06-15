@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		374CA13A28581CA90033B957 /* KoreaItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA13928581CA90033B957 /* KoreaItems.swift */; };
+		374CA13A28581CA90033B957 /* KoreaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA13928581CA90033B957 /* KoreaItem.swift */; };
 		374CA14228581E8F0033B957 /* KoreaItemsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA14128581E8F0033B957 /* KoreaItemsTest.swift */; };
 		A3DF407228575A31005B1FC9 /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF407128575A31005B1FC9 /* ExpoInformation.swift */; };
 		A3DF407A28575B2F005B1FC9 /* ExpoInformationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF407928575B2F005B1FC9 /* ExpoInformationTest.swift */; };
@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		374CA13928581CA90033B957 /* KoreaItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItems.swift; sourceTree = "<group>"; };
+		374CA13928581CA90033B957 /* KoreaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItem.swift; sourceTree = "<group>"; };
 		374CA13F28581E8F0033B957 /* KoreaItemsTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoreaItemsTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		374CA14128581E8F0033B957 /* KoreaItemsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemsTest.swift; sourceTree = "<group>"; };
 		A3DF407128575A31005B1FC9 /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				A3DF407128575A31005B1FC9 /* ExpoInformation.swift */,
-				374CA13928581CA90033B957 /* KoreaItems.swift */,
+				374CA13928581CA90033B957 /* KoreaItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
-				374CA13A28581CA90033B957 /* KoreaItems.swift in Sources */,
+				374CA13A28581CA90033B957 /* KoreaItem.swift in Sources */,
 				A3DF407228575A31005B1FC9 /* ExpoInformation.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
