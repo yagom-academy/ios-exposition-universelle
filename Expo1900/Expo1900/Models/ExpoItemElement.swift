@@ -9,7 +9,10 @@ import Foundation
 
 // MARK: - ExpoItemElement
 struct ExpoItemElement: Codable {
-    let name, imageName, shortDesc, desc: String
+    let name: String
+    let imageName: String
+    let shortDesc: String
+    let desc: String
 
     enum CodingKeys: String, CodingKey {
         case name
