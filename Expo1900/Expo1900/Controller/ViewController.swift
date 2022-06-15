@@ -7,11 +7,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let mainTitleLabel: UILabel = {
+    
+    lazy var numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
+        return formatter
+    }()
+    
+    lazy var validJson = decodeJson()
+    
+    lazy var mainTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "파리 만국박람회"
+        label.text = validJson?.title
+        label.numberOfLines = 2
+        label.textAlignment = .center
         return label
     }()
     
@@ -22,31 +33,37 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    let audienceLabel: UILabel = {
+    lazy var audienceLabel: UILabel = {
         let label = UILabel()
+        guard let audienceNumber = validJson?.visitors,
+              let formattedNumber = numberFormatter.string(from: audienceNumber as NSNumber) else { return UILabel() }
+        
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "파리 만국박람회"
+        label.text = "방문객 : \(formattedNumber) 명"
         return label
     }()
     
-    let venueLabel: UILabel = {
+    lazy var venueLabel: UILabel = {
         let label = UILabel()
+        guard let location = validJson?.location else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "파리 만국박람회"
+        label.text = "개최지 : \(location)"
         return label
     }()
     
-    let periodLabel: UILabel = {
+    lazy var periodLabel: UILabel = {
         let label = UILabel()
+        guard let duration = validJson?.duration else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "파리 만국박람회"
+        label.text = "개최기간 : \(duration)"
         return label
     }()
     
-    let descriptionLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "파리 만국박람회"
+        label.text = validJson?.description
+        label.numberOfLines = 0
         return label
     }()
     
@@ -78,7 +95,15 @@ class ViewController: UIViewController {
             mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+    
+    func decodeJson() -> Expo? {
+        let decoder = JSONDecoder()
         
+        guard let fileLocation = Bundle.main.url(forResource: "exposition_universelle_1900", withExtension: "json"),
+              let data = try? Data(contentsOf: fileLocation),
+              let expoInfo =  try? decoder.decode(Expo.self, from: data) else { return nil }
+        return expoInfo
     }
 }
 
