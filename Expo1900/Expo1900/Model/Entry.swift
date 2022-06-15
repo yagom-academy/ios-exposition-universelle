@@ -7,15 +7,13 @@
 
 import Foundation
 
-struct Entry: Codable, Identifiable {
-    var id: String
+struct Entry: Codable {
     let name: String
     let imageName: String
     let shortDescription: String
     let longDescription: String
     
     private enum CodingKeys: String, CodingKey {
-        case id
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"
