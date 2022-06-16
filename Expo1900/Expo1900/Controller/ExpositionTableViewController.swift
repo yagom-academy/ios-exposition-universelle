@@ -49,6 +49,12 @@ extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSou
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let expositionDetailViewController = ExpositionDetailViewController()
+        expositionDetailViewController.entryEntity = entryEntity?[indexPath.row]
+        self.navigationController?.pushViewController(expositionDetailViewController, animated: true)
+    }
 }
 
 extension ExpositionTableViewController {
