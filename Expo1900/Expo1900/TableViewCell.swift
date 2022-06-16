@@ -42,7 +42,7 @@ class TableViewCell: UITableViewCell {
         
         addStackView()
         addView()
-        constraintStackViewLayout()
+        constraintLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -50,19 +50,23 @@ class TableViewCell: UITableViewCell {
     }
     
     private func addStackView() {
-        stackView.addArrangedSubview(itemImageView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(shortDescriptionLabel)
     }
     
     private func addView() {
+        self.contentView.addSubview(itemImageView)
         self.contentView.addSubview(stackView)
     }
     
-    private func constraintStackViewLayout() {
-        stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+    private func constraintLayout() {
+        itemImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        itemImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5).isActive = true
+        itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        
+        stackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 5).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5).isActive = true
+        stackView.topAnchor.constraint(equalTo: itemImageView.topAnchor).isActive = true
     }
 }

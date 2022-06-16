@@ -22,6 +22,7 @@ class ItemListViewController: UIViewController {
         configureTableView()
         addTableView()
         constraintTableViewLayout()
+        tableView.rowHeight = 100
     }
     
     private func addTableView() {
