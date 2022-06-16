@@ -36,4 +36,13 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: DescriptionViewController = segue.destination as? DescriptionViewController else { return }
+        guard let cell: CustomTableViewCell = sender as? CustomTableViewCell else { return }
+        
+        nextViewController.imageToSet = cell.koreaEntryImage
+        nextViewController.textToSet = cell.detailedDescription
+        nextViewController.thirdNavigationItem.title = cell.koreaEntryTitle.text
+    }
 }
