@@ -48,3 +48,17 @@ extension ExpositionPosterViewController {
         rightFlagImageView.image = UIImage(named: "flag")
     }
 }
+
+// MARK: - 데이터 옮기는 메서드
+extension ExpositionPosterViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let target = segue.destination as? UINavigationController,
+              let destinationViewController = target.topViewController as? KoreanEntryTableViewContoller,
+              let asset = NSDataAsset.init(name: "items"),
+              let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: asset.data) else {
+            return
+        }
+
+        destinationViewController.entries = entries
+    }
+}
