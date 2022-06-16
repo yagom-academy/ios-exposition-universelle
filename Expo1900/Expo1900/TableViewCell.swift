@@ -16,14 +16,14 @@ class TableViewCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.systemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let shortDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 15)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -61,13 +61,15 @@ class TableViewCell: UITableViewCell {
     }
     
     private func constraintLayout() {
-        itemImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        itemImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        itemImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        itemImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5).isActive = true
         itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         
         stackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 5).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5).isActive = true
-        stackView.topAnchor.constraint(equalTo: itemImageView.topAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: itemImageView.centerYAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5).isActive = true
+        //stackView.topAnchor.constraint(equalTo: itemImageView.topAnchor).isActive = true
     }
 }
