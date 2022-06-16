@@ -96,15 +96,6 @@ class Expo1900ViewController: UIViewController {
         expo1900StackView.widthAnchor.constraint(equalTo: expo1900ScrollView.frameLayoutGuide.widthAnchor).isActive = true
         expo1900StackView.trailingAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.trailingAnchor).isActive = true
     }
-
-    private func decodingJsonData() -> ExpoInformation? {
-        guard let expo1900 = NSDataAsset(name: "exposition_universelle_1900") else {
-            return nil
-        }
-        let jsonDecoder = JSONDecoder()
-        let expoInformation = try? jsonDecoder.decode(ExpoInformation.self, from: expo1900.data)
-        return expoInformation ?? nil
-    }
 }
 
 
