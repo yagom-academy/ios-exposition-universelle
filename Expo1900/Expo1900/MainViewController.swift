@@ -115,7 +115,8 @@ class MainViewController: UIViewController {
     }
     
     @objc func buttonDidTapped(_ sender: UIButton) {
-            print("버튼 눌림")
+        let itemTableViewController = ItemTableViewController.instantiate(bundle: nil, identifier: "ItemView")
+        self.navigationController?.pushViewController(itemTableViewController, animated: true)
     }
     
     func makeScrollView() -> UIScrollView {

@@ -10,6 +10,9 @@
 		183CA6C6285817CF00D6C40F /* ItemDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183CA6C5285817CF00D6C40F /* ItemDataManagerTests.swift */; };
 		18E1890628581BAA008E85E2 /* ExpositionDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1890528581BAA008E85E2 /* ExpositionDataManager.swift */; };
 		18E1890828581D8E008E85E2 /* ExpositionDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1890728581D8E008E85E2 /* ExpositionDataManagerTests.swift */; };
+		AF3AACA7285AFA2700EE5F5B /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3AACA6285AFA2700EE5F5B /* ItemTableViewController.swift */; };
+		AF3AACA9285AFCB100EE5F5B /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3AACA8285AFCB100EE5F5B /* ItemTableViewCell.swift */; };
+		AF3AACAB285B015800EE5F5B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3AACAA285B015800EE5F5B /* UIViewController+Extension.swift */; };
 		AF77632528573A17008E14BC /* ItemDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77632428573A17008E14BC /* ItemDataManager.swift */; };
 		AFDF7DEB2857143500496513 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDF7DEA2857143500496513 /* Item.swift */; };
 		AFDF7DEE2857162600496513 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDF7DED2857162600496513 /* Exposition.swift */; };
@@ -36,6 +39,9 @@
 		183CA6C5285817CF00D6C40F /* ItemDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataManagerTests.swift; sourceTree = "<group>"; };
 		18E1890528581BAA008E85E2 /* ExpositionDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionDataManager.swift; sourceTree = "<group>"; };
 		18E1890728581D8E008E85E2 /* ExpositionDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionDataManagerTests.swift; sourceTree = "<group>"; };
+		AF3AACA6285AFA2700EE5F5B /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		AF3AACA8285AFCB100EE5F5B /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		AF3AACAA285B015800EE5F5B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		AF77632428573A17008E14BC /* ItemDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataManager.swift; sourceTree = "<group>"; };
 		AFDF7DEA2857143500496513 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AFDF7DED2857162600496513 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
@@ -111,7 +117,10 @@
 				AFDF7DEC2857143A00496513 /* Model */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				AF3AACAA285B015800EE5F5B /* UIViewController+Extension.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				AF3AACA6285AFA2700EE5F5B /* ItemTableViewController.swift */,
+				AF3AACA8285AFCB100EE5F5B /* ItemTableViewCell.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -230,11 +239,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				AF3AACA9285AFCB100EE5F5B /* ItemTableViewCell.swift in Sources */,
 				AF77632528573A17008E14BC /* ItemDataManager.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				AFDF7DEB2857143500496513 /* Item.swift in Sources */,
 				18E1890628581BAA008E85E2 /* ExpositionDataManager.swift in Sources */,
+				AF3AACA7285AFA2700EE5F5B /* ItemTableViewController.swift in Sources */,
+				AF3AACAB285B015800EE5F5B /* UIViewController+Extension.swift in Sources */,
 				AFDF7DEE2857162600496513 /* Exposition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
