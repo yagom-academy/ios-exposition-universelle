@@ -15,7 +15,8 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D733FBCC285974C900232E87 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733FBCB285974C900232E87 /* ParsingTests.swift */; };
-		D746BD47285AEDDB00B7A2F9 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD46285AEDDB00B7A2F9 /* JSONParser.swift */; };
+		D746BD47285AEDDB00B7A2F9 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */; };
+		D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD48285AEE6300B7A2F9 /* ParseError.swift */; };
 		D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79200D72857511100F3D5FA /* ExpoInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +42,8 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D733FBC9285974C900232E87 /* ParsingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D733FBCB285974C900232E87 /* ParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
-		D746BD46285AEDDB00B7A2F9 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		D746BD48285AEE6300B7A2F9 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		D79200D72857511100F3D5FA /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +70,8 @@
 			children = (
 				8FA19289285708BD00CE0C7D /* EntryList.swift */,
 				D79200D72857511100F3D5FA /* ExpoInformation.swift */,
-				D746BD46285AEDDB00B7A2F9 /* JSONParser.swift */,
+				D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */,
+				D746BD4A285AEE6900B7A2F9 /* Error */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +131,14 @@
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D746BD4A285AEE6900B7A2F9 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				D746BD48285AEE6300B7A2F9 /* ParseError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */,
+				D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */,
 				D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */,
-				D746BD47285AEDDB00B7A2F9 /* JSONParser.swift in Sources */,
+				D746BD47285AEDDB00B7A2F9 /* JsonParser.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
