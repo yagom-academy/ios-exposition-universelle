@@ -8,7 +8,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var expositionDataManager = ExpositionDataManager()
+    let expositionDataManager = ExpositionDataManager()
     let numberFormatter = NumberFormatter()
     
     override func viewDidLoad() {
@@ -16,8 +16,6 @@ class MainViewController: UIViewController {
         guard let result = expositionDataManager.getData() else { return }
         
         numberFormatter.numberStyle = .decimal
-        
-        navigationController?.isNavigationBarHidden = true
         
         let scrollView = makeScrollView()
         view.addSubview(scrollView)
@@ -107,6 +105,11 @@ class MainViewController: UIViewController {
         buttonStack.addArrangedSubview(secondFlagView)
         
         button.addTarget(self, action: #selector(buttonDidTapped(_:)), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        navigationController?.isNavigationBarHidden = true
     }
     
     @objc func buttonDidTapped(_ sender: UIButton) {
