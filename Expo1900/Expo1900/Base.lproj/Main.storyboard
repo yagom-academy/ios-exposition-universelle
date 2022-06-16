@@ -42,12 +42,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="-849"/>
+            <point key="canvasLocation" x="113" y="124"/>
         </scene>
-        <!--View Controller-->
+        <!--Expo Home View Controller-->
         <scene sceneID="LT0-jK-kek">
             <objects>
-                <viewController id="ln2-6t-JP1" sceneMemberID="viewController">
+                <viewController id="ln2-6t-JP1" customClass="ExpoHomeViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="obh-nS-rEQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
@@ -109,6 +109,9 @@
                                                         <rect key="frame" x="60" y="0.0" width="67" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="pushToExpoMenuButtonDidTap:" destination="ln2-6t-JP1" eventType="touchUpInside" id="g5Y-M8-Bnd"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0nm-It-vvK">
                                                         <rect key="frame" x="137" y="0.0" width="50" height="50"/>
@@ -146,6 +149,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="liE-TR-kq3"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="KKW-Bs-XbB" id="CxC-N6-3Mc"/>
+                        <outlet property="durationLabel" destination="GYc-QQ-f4Y" id="kCQ-i1-HAg"/>
+                        <outlet property="leftFlagImageView" destination="5Nk-Yh-q3D" id="Jb2-er-Clp"/>
+                        <outlet property="locationLabel" destination="xfS-iD-b23" id="B8h-fl-aGe"/>
+                        <outlet property="mainImageView" destination="XtC-ny-9kr" id="NRU-k9-IAT"/>
+                        <outlet property="rightFlagImageView" destination="0nm-It-vvK" id="IGw-Dz-4rU"/>
+                        <outlet property="titleLabel" destination="v5V-pY-EYS" id="BsI-ly-8Qy"/>
+                        <outlet property="visitorsLabel" destination="0Pw-ty-YHV" id="wjy-v9-4ZX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdl-3d-IiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
