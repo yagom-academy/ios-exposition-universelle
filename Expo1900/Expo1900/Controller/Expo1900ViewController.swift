@@ -8,6 +8,8 @@
 import UIKit
 
 class Expo1900ViewController: UIViewController {
+    var expoData = ExpoData()
+
     let expo1900ScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,6 +74,12 @@ class Expo1900ViewController: UIViewController {
             .forEach {self.expo1900StackView.addArrangedSubview($0)}
         self.expo1900ScrollView.addSubview(expo1900StackView)
         setStackViewConstraints()
+        expoData.decodingJsonData()
+        titleLabel.text = expoData.title
+        visitorsLabel.text = expoData.visitors
+        locationLabel.text = expoData.location
+        durationLabel.text = expoData.duration
+        descriptionLabel.text = expoData.description
     }
 
     private func setScrollViewConstraints() {
