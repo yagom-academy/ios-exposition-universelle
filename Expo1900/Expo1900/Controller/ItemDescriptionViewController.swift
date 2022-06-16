@@ -10,17 +10,19 @@ import UIKit
 class ItemDescriptionViewController: UIViewController {
     
     let itemDescriptionScrollView = ItemDescriptionUIScrollView()
+    
     var entryInfo: Entry? {
         didSet {
             itemDescriptionScrollView.itemDetailInfo = entryInfo
         }
     }
     override func loadView() {
-        view = ItemDescriptionUIScrollView()
+        view = itemDescriptionScrollView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = entryInfo?.name
     }
 
 }
