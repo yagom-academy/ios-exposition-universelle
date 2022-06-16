@@ -36,6 +36,8 @@ class MainViewController: UIViewController {
         title.font = UIFont.systemFont(ofSize: 25)
         title.numberOfLines = 0
         title.text = result.title
+        title.text = title.text?.replacingOccurrences(of: "(", with: "\n(")
+        title.textAlignment = .center
         
         let posterView = UIImageView()
         let posterImage = UIImage(named: "poster")
