@@ -18,7 +18,7 @@ class MainUIScrollView: UIScrollView {
         return formatter
     }()
     
-    lazy var validJson = decodeJson()
+    lazy var validJson = ViewController
     
     lazy var mainTitleLabel: UILabel = {
         let label = UILabel()
@@ -38,7 +38,7 @@ class MainUIScrollView: UIScrollView {
     
     lazy var audienceLabel: UILabel = {
         let label = UILabel()
-        guard let audienceNumber = validJson?.visitors,
+//        guard let audienceNumber = validJson?.visitors,
               let formattedNumber = numberFormatter.string(from: audienceNumber as NSNumber) else { return UILabel() }
         
         label.font = UIFont.systemFont(ofSize: 20)
@@ -149,14 +149,5 @@ class MainUIScrollView: UIScrollView {
             mainStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -50),
             mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
-    }
-    
-    func decodeJson() -> Expo? {
-        let decoder = JSONDecoder()
-        
-        guard let fileLocation = Bundle.main.url(forResource: "exposition_universelle_1900", withExtension: "json"),
-              let data = try? Data(contentsOf: fileLocation),
-              let expoInfo =  try? decoder.decode(Expo.self, from: data) else { return nil }
-        return expoInfo
     }
 }

@@ -18,5 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
+    func decodeJson<T: Codable>(jsonName: String) -> T? {
+        let decoder = JSONDecoder()
+        
+        guard let fileLocation = Bundle.main.url(forResource: jsonName, withExtension: "json"),
+              let data = try? Data(contentsOf: fileLocation),
+              let expoInfo =  try? decoder.decode(T.self, from: data) else { return nil }
+        return expoInfo
+    }
 }
-
