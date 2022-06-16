@@ -17,6 +17,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		FD5D7E3128572B4400B18D7A /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5D7E3028572B4400B18D7A /* Exposition.swift */; };
 		FDC68BF52859D74700804449 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC68BF42859D74700804449 /* Error.swift */; };
+		FDC68BF7285AF9C100804449 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC68BF6285AF9C100804449 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD5D7E3028572B4400B18D7A /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		FDC68BF42859D74700804449 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		FDC68BF6285AF9C100804449 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				FD5D7E3028572B4400B18D7A /* Exposition.swift */,
 				204057A52857336F00192823 /* Content.swift */,
 				FDC68BF42859D74700804449 /* Error.swift */,
+				FDC68BF6285AF9C100804449 /* ItemCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC68BF7285AF9C100804449 /* ItemCell.swift in Sources */,
 				FD5D7E3128572B4400B18D7A /* Exposition.swift in Sources */,
 				20A2740D285AF1C200836444 /* ItemListViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
