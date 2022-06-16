@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct ExpositionPostEntity: Decodable {
     let title: String
     let visitors: Int
