@@ -20,12 +20,20 @@ class ViewController: UIViewController {
         return stack
     }()
     
+    private let subStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .center
+        stack.distribution = .equalSpacing
+        return stack
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.systemFont(ofSize: 26)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
     
@@ -63,7 +71,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 50
+        label.numberOfLines = 0
         return label
     }()
     
@@ -74,7 +82,30 @@ class ViewController: UIViewController {
         scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.tintColor = .blue
+        button.backgroundColor = .blue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let leftFlagImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "flag.png")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
 
+    private let rightFlagImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "flag.png")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setScrollView()
@@ -86,6 +117,7 @@ class ViewController: UIViewController {
         setScrollViewLayout()
         
         scrollView.addSubview(stackView)
+        //scrollView.addSubview(subStackView)
         setStackViewLayout()
         
         stackView.addArrangedSubview(titleLabel)
@@ -95,6 +127,11 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(venueLabel)
         stackView.addArrangedSubview(periodLabel)
         stackView.addArrangedSubview(descriptionLabel)
+        
+        stackView.addArrangedSubview(subStackView)
+        subStackView.addArrangedSubview(leftFlagImageView)
+        subStackView.addArrangedSubview(button)
+        subStackView.addArrangedSubview(rightFlagImageView)
     }
     
     private func setScrollViewLayout() {
@@ -106,19 +143,33 @@ class ViewController: UIViewController {
     
     private func setStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 5).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
         stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 5).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 5).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        
+        subStackView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        //subStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        //subStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        
+        //button.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     private func setImageViewLayout() {
         imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.4).isActive = true
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.6).isActive = true
+        
+//        leftFlagImageView.widthAnchor.constraint(equalTo: subStackView.widthAnchor, multiplier: 0.2).isActive = true
+//        leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.5).isActive = true
+//        
+//        rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor).isActive = true
+//        rightFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.heightAnchor).isActive = true
     }
     
     private func updateText() {
-        titleLabel.text = expositionData!.title
+        let title = expositionData!.title.replacingOccurrences(of: "(", with: "\n(")
+        
+        titleLabel.text = title
         visitorLabel.text = "방문객 : \(expositionData!.visitors)명"
         venueLabel.text = "개최지 : \(expositionData!.location)"
         periodLabel.text = "개최 기간: \(expositionData!.duration)"
