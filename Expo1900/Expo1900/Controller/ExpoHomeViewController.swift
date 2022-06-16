@@ -25,11 +25,8 @@ class ExpoHomeViewController: UIViewController {
         updateUI()
     }
     
-    //let visitorsNumber = String(visitorsLabel.text)
-
     private func updateUI() {
         let visitorsNumber = String(exposition?.visitors ?? 0)
-        
         titleLabel.text = exposition?.title
         mainImageView.image = UIImage(named: "poster")
         visitorsLabel.text = visitorsNumber
@@ -41,6 +38,8 @@ class ExpoHomeViewController: UIViewController {
     }
     
     @IBAction func pushToExpoMenuButtonDidTap(_ sender: UIButton) {
+        guard let menuVC = storyboard?.instantiateViewController(withIdentifier: "ExpoMenuViewController") as? ExpoMenuViewController else { return }
+        self.navigationController?.pushViewController(menuVC, animated: true)
     }
     
     private func loadJsonData(_ fileName: String, _ extensionName: String) {
@@ -61,6 +60,4 @@ class ExpoHomeViewController: UIViewController {
         }
         return fileLocation
     }
-    
-    
 }
