@@ -15,6 +15,7 @@
 		451D05AD2859B927000539A0 /* exposition.json in Resources */ = {isa = PBXBuildFile; fileRef = 451D05AC2859B927000539A0 /* exposition.json */; };
 		451D05AE2859B927000539A0 /* exposition.json in Resources */ = {isa = PBXBuildFile; fileRef = 451D05AC2859B927000539A0 /* exposition.json */; };
 		45DE81CB285B7F8300822CF2 /* ExpoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81CA285B7F8300822CF2 /* ExpoHomeViewController.swift */; };
+		45DE81CE285B978400822CF2 /* ExpoMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81CD285B978400822CF2 /* ExpoMenuViewController.swift */; };
 		7E4D79F32859AC17009AB4C0 /* ExpoItemModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D79F22859AC17009AB4C0 /* ExpoItemModelsTests.swift */; };
 		7EAA367628572A8500621D65 /* ExpoItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA367528572A8500621D65 /* ExpoItemElement.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		451D05A72859B31F000539A0 /* items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		451D05AC2859B927000539A0 /* exposition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exposition.json; sourceTree = "<group>"; };
 		45DE81CA285B7F8300822CF2 /* ExpoHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoHomeViewController.swift; sourceTree = "<group>"; };
+		45DE81CD285B978400822CF2 /* ExpoMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMenuViewController.swift; sourceTree = "<group>"; };
 		7E4D79F02859AC17009AB4C0 /* ExpoItemModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpoItemModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4D79F22859AC17009AB4C0 /* ExpoItemModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemModelsTests.swift; sourceTree = "<group>"; };
 		7EAA367528572A8500621D65 /* ExpoItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemElement.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				45DE81CA285B7F8300822CF2 /* ExpoHomeViewController.swift */,
+				45DE81CD285B978400822CF2 /* ExpoMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				45DE81CB285B7F8300822CF2 /* ExpoHomeViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				45DE81CE285B978400822CF2 /* ExpoMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
