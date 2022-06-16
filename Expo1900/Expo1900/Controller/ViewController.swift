@@ -17,5 +17,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        mainScrollView.koreanEntryButton.addTarget(self, action: #selector(didkoreanEntryButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func didkoreanEntryButtonTapped() {
+        navigationController?.pushViewController(ItemTableViewController(), animated: true)
     }
 }
