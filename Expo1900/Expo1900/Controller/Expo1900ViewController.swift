@@ -71,6 +71,7 @@ class Expo1900ViewController: UIViewController {
         [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel]
             .forEach {self.expo1900StackView.addArrangedSubview($0)}
         self.expo1900ScrollView.addSubview(expo1900StackView)
+        setStackViewConstraints()
     }
 
     private func setScrollViewConstraints() {
@@ -78,6 +79,14 @@ class Expo1900ViewController: UIViewController {
         expo1900ScrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         expo1900ScrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
         expo1900ScrollView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+    }
+    
+    private func setStackViewConstraints() {
+        expo1900StackView.topAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.topAnchor).isActive = true
+        expo1900StackView.bottomAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.bottomAnchor).isActive = true
+        expo1900StackView.leadingAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.leadingAnchor).isActive = true
+        expo1900StackView.widthAnchor.constraint(equalTo: expo1900ScrollView.frameLayoutGuide.widthAnchor).isActive = true
+        expo1900StackView.trailingAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.trailingAnchor).isActive = true
     }
 }
 
