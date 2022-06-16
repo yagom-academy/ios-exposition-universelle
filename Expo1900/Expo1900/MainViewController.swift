@@ -109,6 +109,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setScrollView()
         updateText()
+        
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+    
+    @objc func didTapButton(sender: UIButton)  {
+        guard let secondView = self.storyboard?.instantiateViewController(withIdentifier: "ItemListView") as? ItemListViewController else { return }
+        self.navigationController?.pushViewController(secondView, animated: true)
     }
 
     private func setScrollView() {
