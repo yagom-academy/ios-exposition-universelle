@@ -8,14 +8,16 @@
 import UIKit
 
 final class ExpositionDetailViewController: UIViewController {
-    var entryEntity: EntryEntity?
     private var expositionDetailView: ExpositionDetailView?
+    var entryEntity: EntryEntity?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    
+}
+
+extension ExpositionDetailViewController {
     private func configureUI() {
         if let entryEntity = entryEntity {
             expositionDetailView = ExpositionDetailView(self.view, data: entryEntity)

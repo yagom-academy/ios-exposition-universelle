@@ -133,6 +133,7 @@ private extension ExpositionPostView {
     
     func addSubview(from rootView: UIView) {
         rootView.addSubview(contentScrollView)
+        
         self.contentScrollView.addSubview(contentView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(postImageView)
