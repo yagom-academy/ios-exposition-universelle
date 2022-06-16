@@ -30,7 +30,12 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
-        cell.label.text = "\(indexPath)"
+        if let result = result {
+            cell.nameLabel.text = "\(String(describing: result[indexPath.row].name))"
+            cell.shortDescriptionLabel.text = "\(String(describing: result[indexPath.row].shortDescription))"
+            cell.imageNameView.image = cell.generateImage(name: result[indexPath.row].imageName )
+            cell.accessoryType = .disclosureIndicator
+        }
         return cell
     }
     
