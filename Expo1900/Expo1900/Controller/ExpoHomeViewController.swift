@@ -22,6 +22,22 @@ class ExpoHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadJsonData("exposition", "json")
+        updateUI()
+    }
+    
+    //let visitorsNumber = String(visitorsLabel.text)
+
+    private func updateUI() {
+        let visitorsNumber = String(exposition?.visitors ?? 0)
+        
+        titleLabel.text = exposition?.title
+        mainImageView.image = UIImage(named: "poster")
+        visitorsLabel.text = visitorsNumber
+        locationLabel.text = exposition?.location
+        durationLabel.text = exposition?.duration
+        descriptionLabel.text = exposition?.expositionDescription
+        leftFlagImageView.image = UIImage(named: "flag")
+        rightFlagImageView.image = UIImage(named: "flag")
     }
     
     @IBAction func pushToExpoMenuButtonDidTap(_ sender: UIButton) {
@@ -45,4 +61,6 @@ class ExpoHomeViewController: UIViewController {
         }
         return fileLocation
     }
+    
+    
 }
