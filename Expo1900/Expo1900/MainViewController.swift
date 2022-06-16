@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     let expositionData = DataManager().expositionParse(fileName: "exposition_universelle_1900")
 
@@ -86,8 +86,7 @@ class ViewController: UIViewController {
     private let button: UIButton = {
         let button = UIButton()
         button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.tintColor = .blue
-        button.backgroundColor = .blue
+        button.setTitleColor(UIColor.link, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -114,56 +113,49 @@ class ViewController: UIViewController {
 
     private func setScrollView() {
         self.view.addSubview(scrollView)
-        setScrollViewLayout()
-        
         scrollView.addSubview(stackView)
-        //scrollView.addSubview(subStackView)
-        setStackViewLayout()
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(imageView)
-        setImageViewLayout()
         stackView.addArrangedSubview(visitorLabel)
         stackView.addArrangedSubview(venueLabel)
         stackView.addArrangedSubview(periodLabel)
         stackView.addArrangedSubview(descriptionLabel)
-        
         stackView.addArrangedSubview(subStackView)
+        
         subStackView.addArrangedSubview(leftFlagImageView)
         subStackView.addArrangedSubview(button)
         subStackView.addArrangedSubview(rightFlagImageView)
+        
+        setScrollViewLayout()
+        setStackViewLayout()
+        setImageViewLayout()
     }
     
     private func setScrollViewLayout() {
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 5).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 5).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5).isActive = true
     }
     
     private func setStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
         stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 5).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 5).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -5).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
-        subStackView.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        //subStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
-        //subStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
-        
-        //button.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        subStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        subStackView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8).isActive = true
     }
     
     private func setImageViewLayout() {
         imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.4).isActive = true
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.6).isActive = true
         
-//        leftFlagImageView.widthAnchor.constraint(equalTo: subStackView.widthAnchor, multiplier: 0.2).isActive = true
-//        leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.5).isActive = true
-//        
-//        rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor).isActive = true
-//        rightFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.heightAnchor).isActive = true
+        leftFlagImageView.widthAnchor.constraint(equalTo: subStackView.widthAnchor, multiplier: 0.2).isActive = true
+        rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor).isActive = true
     }
     
     private func updateText() {
