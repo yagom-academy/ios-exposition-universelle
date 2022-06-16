@@ -25,11 +25,13 @@ class ItemTableViewCell: UITableViewCell {
     
     lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy var itemShortDescriptionLable: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     
@@ -39,6 +41,7 @@ class ItemTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
+        stackView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         return stackView
     }()
     
@@ -46,8 +49,8 @@ class ItemTableViewCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: [itemImageView, itemLabelStackView])
         stackView.spacing = 10
         stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
         return stackView

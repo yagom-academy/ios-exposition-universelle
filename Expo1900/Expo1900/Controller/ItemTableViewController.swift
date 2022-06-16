@@ -13,6 +13,7 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "entryCell")
     }
     
@@ -30,5 +31,11 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    func setNavigationBar() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.backItem?.title = "메인"
+        title = "한국의 출품작"
     }
 }
