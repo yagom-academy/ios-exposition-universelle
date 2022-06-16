@@ -13,8 +13,8 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "한국의 출품작"
         result = itemDataManager.getData()
         
         tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemCell")

@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let result = expositionDataManager.getData() else { return }
-        
+        navigationItem.title = "메인"
         numberFormatter.numberStyle = .decimal
         
         let scrollView = makeScrollView()
