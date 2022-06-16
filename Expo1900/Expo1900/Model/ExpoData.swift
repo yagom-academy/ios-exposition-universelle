@@ -20,7 +20,7 @@ struct ExpoData {
             return
         }
         title = expoInformation.title
-        visitors = "방문객 : \(expoInformation.visitors.description) 명"
+        visitors = "방문객 : \(expoInformation.visitors.numberFormatterParse()) 명"
         location = "개최지 : \(expoInformation.location)"
         duration = "개최기간 : \(expoInformation.duration)"
         description = expoInformation.description
