@@ -1,5 +1,5 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - ExpositionPostViewController.swift
 //  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
 //
