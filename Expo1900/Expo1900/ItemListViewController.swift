@@ -9,7 +9,8 @@ import UIKit
 
 class ItemListViewController: UIViewController {
     
-    let entryData = DataManager().entryParse(fileName: "items")
+    private let entryData = DataManager().entryParse(fileName: "items")
+    private let backButton = UIBarButtonItem(title: "메인", style: .plain, target: nil, action: nil)
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -20,6 +21,8 @@ class ItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "한국의 출품작"
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
 
         configureTableView()
         addTableView()

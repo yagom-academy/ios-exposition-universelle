@@ -7,9 +7,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     let expositionData = DataManager().expositionParse(fileName: "exposition_universelle_1900")
-
+    
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .center
@@ -97,7 +97,7 @@ class MainViewController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-
+    
     private let rightFlagImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "flag.png")
@@ -113,11 +113,21 @@ class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     @objc func didTapButton(sender: UIButton)  {
         guard let secondView = self.storyboard?.instantiateViewController(withIdentifier: "ItemListView") as? ItemListViewController else { return }
         self.navigationController?.pushViewController(secondView, animated: true)
     }
-
+    
     private func setScrollView() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
