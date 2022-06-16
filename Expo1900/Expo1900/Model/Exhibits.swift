@@ -18,3 +18,9 @@ struct Exhibits: Decodable {
     }
 }
 
+extension Exhibits {
+    func getImage() {
+        return
+    }
+}
+

@@ -19,9 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupExpoInformation()
-//        navigationButton.setTitle("한국의 출품작 보러가기", for: .normal)
         
+        setupExpoInformation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
