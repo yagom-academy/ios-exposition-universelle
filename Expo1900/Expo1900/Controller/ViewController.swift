@@ -10,6 +10,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setting()
+    }
+    
+    func setting() {
+        view.backgroundColor = .white
     }
 }
 
