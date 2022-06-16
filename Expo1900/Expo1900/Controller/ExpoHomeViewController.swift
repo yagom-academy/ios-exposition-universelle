@@ -8,6 +8,8 @@
 import UIKit
 
 class ExpoHomeViewController: UIViewController {
+    private var exposition: Exposition?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -19,8 +21,28 @@ class ExpoHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadJsonData("exposition", "json")
     }
     
     @IBAction func pushToExpoMenuButtonDidTap(_ sender: UIButton) {
+    }
+    
+    private func loadJsonData(_ fileName: String, _ extensionName: String) {
+        let jsonDecoder = JSONDecoder()
+        let fileUrl = loadFileLocation(fileName, extensionName)
+        do {
+            let data = try Data(contentsOf: fileUrl)
+            let decodedData = try jsonDecoder.decode(Exposition.self, from: data)
+            exposition = decodedData
+        } catch {
+            fatalError("JSON DATA LOAD ERROR: \(fileName),\(extensionName)")
+        }
+    }
+    
+    private func loadFileLocation(_ fileName: String, _ extensionName: String) -> URL {
+        guard let fileLocation = Bundle.main.url(forResource: fileName, withExtension: extensionName) else {
+            return URL(fileURLWithPath: "")
+        }
+        return fileLocation
     }
 }
