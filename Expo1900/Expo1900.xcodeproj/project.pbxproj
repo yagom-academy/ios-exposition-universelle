@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0591D6A1285B723700730426 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0591D6A0285B723700730426 /* ItemListViewController.swift */; };
+		722D0347285B774B009A0118 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D0346285B774B009A0118 /* TableViewCell.swift */; };
 		72C3A3A228597212008B37D9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3A3A128597212008B37D9 /* DataManager.swift */; };
 		72C3A3F328597580008B37D9 /* folds~universal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72C3A3A528597580008B37D9 /* folds~universal@3x.png */; };
 		72C3A3F428597580008B37D9 /* folds~universal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72C3A3A628597580008B37D9 /* folds~universal@2x.png */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		0591D6A0285B723700730426 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		722D0346285B774B009A0118 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		72C3A3A128597212008B37D9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		72C3A3A528597580008B37D9 /* folds~universal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folds~universal@3x.png"; sourceTree = "<group>"; };
 		72C3A3A628597580008B37D9 /* folds~universal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folds~universal@2x.png"; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 				0591D6A0285B723700730426 /* ItemListViewController.swift */,
+				722D0346285B774B009A0118 /* TableViewCell.swift */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F1E5C228570F6E0033905A /* Entry.swift in Sources */,
+				722D0347285B774B009A0118 /* TableViewCell.swift in Sources */,
 				0591D6A1285B723700730426 /* ItemListViewController.swift in Sources */,
 				72C3A3A228597212008B37D9 /* DataManager.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
