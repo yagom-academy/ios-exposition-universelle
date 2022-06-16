@@ -2,7 +2,7 @@
 //  MainUIScrollView.swift
 //  Expo1900
 //
-//  Created by LeeChiheon on 2022/06/15.
+//  Created by Kiwi, Finnn on 2022/06/15.
 //
 
 import UIKit
@@ -10,6 +10,7 @@ import UIKit
 class MainUIScrollView: UIScrollView {
     
     let contentView = UIView()
+    let expoInfo: Expo? = JSONDecoder.decodeJson(jsonName: "exposition_universelle_1900")
     
     lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -18,12 +19,10 @@ class MainUIScrollView: UIScrollView {
         return formatter
     }()
     
-    lazy var validJson = ViewController
-    
     lazy var mainTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.text = validJson?.title
+        label.text = expoInfo?.title
         label.numberOfLines = 2
         label.textAlignment = .center
         return label
@@ -38,7 +37,7 @@ class MainUIScrollView: UIScrollView {
     
     lazy var audienceLabel: UILabel = {
         let label = UILabel()
-//        guard let audienceNumber = validJson?.visitors,
+        guard let audienceNumber = expoInfo?.visitors,
               let formattedNumber = numberFormatter.string(from: audienceNumber as NSNumber) else { return UILabel() }
         
         label.font = UIFont.systemFont(ofSize: 20)
@@ -48,7 +47,7 @@ class MainUIScrollView: UIScrollView {
     
     lazy var venueLabel: UILabel = {
         let label = UILabel()
-        guard let location = validJson?.location else { return UILabel() }
+        guard let location = expoInfo?.location else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
         label.text = "개최지 : \(location)"
         return label
@@ -56,7 +55,7 @@ class MainUIScrollView: UIScrollView {
     
     lazy var periodLabel: UILabel = {
         let label = UILabel()
-        guard let duration = validJson?.duration else { return UILabel() }
+        guard let duration = expoInfo?.duration else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
         label.text = "개최기간 : \(duration)"
         return label
@@ -65,7 +64,7 @@ class MainUIScrollView: UIScrollView {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = validJson?.description
+        label.text = expoInfo?.description
         label.numberOfLines = 0
         return label
     }()
