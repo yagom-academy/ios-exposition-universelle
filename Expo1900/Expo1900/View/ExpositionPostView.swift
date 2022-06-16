@@ -18,7 +18,6 @@ final class ExpositionPostView: UIView {
     private let contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 2000).isActive = true
         return view
     }()
     
@@ -153,17 +152,17 @@ private extension ExpositionPostView {
     }
     
     func setUpBaseUIConstraints(from rootView: UIView) {
-        let safeArea = rootView.safeAreaLayoutGuide
         let contentLayoutGuide = contentScrollView.contentLayoutGuide
         let frameLayoutGuide = contentScrollView.frameLayoutGuide
         
         NSLayoutConstraint.activate([
-            self.contentScrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            self.contentScrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            self.contentScrollView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            self.contentScrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            self.contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
+            self.contentScrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+            self.contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+            self.contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
             self.contentView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
             
+            self.contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 2050),
             self.contentView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
             self.contentView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
             self.contentView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
@@ -176,7 +175,7 @@ private extension ExpositionPostView {
     func setUpChildUIContraints() {
         NSLayoutConstraint.activate([
             self.titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            self.titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            self.titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             self.titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             self.postImageView.widthAnchor.constraint(equalToConstant: 140),
@@ -200,11 +199,11 @@ private extension ExpositionPostView {
             self.descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             self.descriptionLabel.topAnchor.constraint(equalTo: self.durationLabel.bottomAnchor, constant: 10),
             
-            self.leftFlagImageView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            self.leftFlagImageView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
             self.rightFlagImageView.topAnchor.constraint(equalTo: leftFlagImageView.topAnchor),
             self.expositionEnterButton.topAnchor.constraint(equalTo: leftFlagImageView.topAnchor),
             
-            self.leftFlagImageView.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor, constant: 40),
+            self.leftFlagImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
             self.expositionEnterButton.leadingAnchor.constraint(equalTo: leftFlagImageView.trailingAnchor, constant: 30),
             self.rightFlagImageView.leadingAnchor.constraint(equalTo: expositionEnterButton.trailingAnchor, constant: 30),
         ])
