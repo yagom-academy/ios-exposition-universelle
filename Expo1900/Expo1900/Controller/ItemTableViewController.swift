@@ -30,7 +30,9 @@ class ItemTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let itemDescriptionViewController = ItemDescriptionViewController()
+        itemDescriptionViewController.entryInfo = self.entryInfo?[indexPath.row]
+        navigationController?.pushViewController(ItemDescriptionViewController(), animated: true)
     }
     
     func setNavigationBar() {
