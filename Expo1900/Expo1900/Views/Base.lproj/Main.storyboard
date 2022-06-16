@@ -147,8 +147,90 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pmH-cJ-jz6">
+            <objects>
+                <navigationController id="S1z-6d-2vr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mdc-dB-CnQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="S7d-xs-TjU" kind="relationship" relationship="rootViewController" id="BVl-Jk-Wxx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZ9-fB-xdZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="117"/>
+        </scene>
+        <!--한국의 출품작-->
+        <scene sceneID="vwD-HZ-7h2">
+            <objects>
+                <tableViewController id="S7d-xs-TjU" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="trh-TH-lsf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eBv-zG-45k">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="80.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eBv-zG-45k" id="ZlG-Qz-ex1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pT9-6v-6E4">
+                                            <rect key="frame" x="20" y="0.0" width="80" height="80.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="URJ-f4-vx9"/>
+                                                <constraint firstAttribute="height" constant="80" id="gX6-qk-Zyw"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLe-Gx-YVc">
+                                            <rect key="frame" x="108" y="4" width="306" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1900년 파리 만국박람회(지금의 세계 박람회[World’s Fair/Exposition/Expo])는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCi-y5-UZy">
+                                            <rect key="frame" x="108" y="25" width="298" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dCi-y5-UZy" firstAttribute="top" secondItem="pLe-Gx-YVc" secondAttribute="bottom" id="0XY-FR-79S"/>
+                                        <constraint firstItem="pLe-Gx-YVc" firstAttribute="top" secondItem="ZlG-Qz-ex1" secondAttribute="top" constant="4" id="Aoh-YW-FCL"/>
+                                        <constraint firstItem="pT9-6v-6E4" firstAttribute="leading" secondItem="ZlG-Qz-ex1" secondAttribute="leading" constant="20" id="GDE-rs-UzZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="pT9-6v-6E4" secondAttribute="bottom" id="Wrs-2n-EnM"/>
+                                        <constraint firstAttribute="trailing" secondItem="dCi-y5-UZy" secondAttribute="trailing" constant="8" id="cCp-P5-tHa"/>
+                                        <constraint firstItem="pLe-Gx-YVc" firstAttribute="leading" secondItem="pT9-6v-6E4" secondAttribute="trailing" constant="8" id="cNh-ey-JDC"/>
+                                        <constraint firstItem="pT9-6v-6E4" firstAttribute="centerY" secondItem="ZlG-Qz-ex1" secondAttribute="centerY" id="f1C-di-s5T"/>
+                                        <constraint firstItem="dCi-y5-UZy" firstAttribute="leading" secondItem="pT9-6v-6E4" secondAttribute="trailing" constant="8" id="lAD-Hg-NR4"/>
+                                        <constraint firstItem="pT9-6v-6E4" firstAttribute="top" secondItem="ZlG-Qz-ex1" secondAttribute="top" id="pUo-CJ-YLn"/>
+                                        <constraint firstAttribute="trailing" secondItem="pLe-Gx-YVc" secondAttribute="trailing" id="seK-Zj-88D"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="S7d-xs-TjU" id="pUc-iZ-zvd"/>
+                            <outlet property="delegate" destination="S7d-xs-TjU" id="ixf-Ep-19D"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="jM0-y7-guG">
+                        <barButtonItem key="backBarButtonItem" title="메인" id="qFX-1E-Iqn"/>
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="one-OT-xT6"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwa-tM-YU5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831.8840579710147" y="116.51785714285714"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
