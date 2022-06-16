@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - EXPOInformationViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-class ExpoInformationViewController: UIViewController {
+class EXPOInformationViewController: UIViewController {
     var expositionUniverselle: ExpositionUniverselle? = nil
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,8 +21,7 @@ class ExpoInformationViewController: UIViewController {
         super.viewDidLoad()
         
         setupExpoInformation()
-        
-        navigationItem.backButtonTitle = "메인"
+        NavigationBarFormatter.setBackButton(navigationItem, title: "메인")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,33 +35,19 @@ class ExpoInformationViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = false
     }
-    
+
     private func setupExpoInformation() {
         parseExpositionUniverselleData()
         updatePosterDescription()
     }
     
     private func parseExpositionUniverselleData() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let parsedInformation = JSONData.parse(name: "exposition_universelle_1900",
+                                                     to: expositionUniverselle) else {
             return
         }
         
-        do {
-            self.expositionUniverselle = try jsonDecoder.decode(ExpositionUniverselle.self, from: dataAsset.data)
-        } catch {
-            handleError(error)
-        }
-    }
-    
-    private func handleError(_ error: Error) {
-        switch error {
-        case ExpoError.decoding:
-            print(ExpoError.decoding.localizedDescription)
-        default:
-            print("unknown error!!")
-        }
+        expositionUniverselle = parsedInformation
     }
     
     private func updatePosterDescription() {
@@ -74,17 +59,19 @@ class ExpoInformationViewController: UIViewController {
     }
     
     private func updateTitleLabel() {
-        let title = expositionUniverselle?.title
-        let changeTitle = title?.replacingOccurrences(of: "(", with: "\n(")
+        guard let title = expositionUniverselle?.title else {
+            return
+        }
+        
+        let changeTitle = title.replacingOccurrences(of: "(", with: "\n(")
         
         titleLabel.text = changeTitle
-        titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        CustomLabel.setNumberOfLinesToZero(into: descriptionLabel)
+        CustomLabel.setLabelFont(into: titleLabel, style: .title2)
     }
     
     private func updateVisitorsLabel() {
-        let numberformatter = NumberFormatter()
-        numberformatter.numberStyle = .decimal
+        let numberformatter = CustomLabel.setNumberFormat()
         
         guard let visitors = numberformatter.string(for: expositionUniverselle?.visitors) else {
             return
@@ -110,16 +97,20 @@ class ExpoInformationViewController: UIViewController {
     }
     
     private func updateDescriptionLabel() {
-        descriptionLabel.text = expositionUniverselle?.description
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.numberOfLines = 0
+        guard let description = expositionUniverselle?.description else {
+            return
+        }
+        
+        descriptionLabel.text = description
+        CustomLabel.setNumberOfLinesToZero(into: descriptionLabel)
+        CustomLabel.setLineBreakMode(into: descriptionLabel, style: .byWordWrapping)
     }
     
-    @IBAction func navigationButtonDidTap(_ sender: UIButton) {
+    @IBAction private func navigationButtonDidTap(_ sender: UIButton) {
         goToKoreaEntryView()
     }
     
-    func goToKoreaEntryView() {
+    private func goToKoreaEntryView() {
         guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "KoreaEntryViewController") as? KoreaEntryViewController else {
             return
         }
