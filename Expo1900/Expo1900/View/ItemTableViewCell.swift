@@ -11,36 +11,63 @@ class ItemTableViewCell: UITableViewCell {
     
     var itemInfo: Entry? {
         didSet {
-            testLabel.text = itemInfo?.name
+            guard let image = itemInfo?.imageName else { return }
+            itemTitleLabel.text = itemInfo?.name
+            itemImageView.image = UIImage(named: image)
+            itemShortDescriptionLable.text = itemInfo?.shortDescription
         }
     }
     
-    let testLabel: UILabel = {
+    lazy var itemTitleLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
-//    lazy var itemImageView: UIImageView = {
-//        let imageView = UIImageView()
-//        let image = UIImage(named: )
-//        return imageView
-//    }()
+    lazy var itemImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    
+    lazy var itemShortDescriptionLable: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    
+    lazy var itemLabelStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [itemTitleLabel, itemShortDescriptionLable])
+        stackView.spacing = 20
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    lazy var itemStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [itemImageView, itemLabelStackView])
+        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackView)
+        return stackView
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        addSubview(testLabel)
-        testLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            testLabel.topAnchor.constraint(equalTo: topAnchor),
-            testLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            testLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            testLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
+        setupConfigure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupConfigure() {
+        NSLayoutConstraint.activate([
+            itemStackView.topAnchor.constraint(equalTo: topAnchor),
+            itemStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            itemStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            itemStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
 }
