@@ -8,7 +8,7 @@
 import Foundation
 
 struct DataManager {
-    func load(fileName: String) -> Data? {
+    private func load(fileName: String) -> Data? {
         guard let fileLocation = Bundle.main.url(forResource: fileName, withExtension: "json") else {
             return nil
         }
@@ -30,10 +30,10 @@ struct DataManager {
         return dataList
     }
     
-    func entryParse(fileName: String) -> Entry?  {
+    func entryParse(fileName: String) -> [Entry?]  {
         guard let jsonData = load(fileName: fileName),
-              let dataList = try? JSONDecoder().decode(Entry.self, from: jsonData) else {
-            return nil
+              let dataList = try? JSONDecoder().decode([Entry].self, from: jsonData) else {
+            return [nil]
         }
         
         return dataList

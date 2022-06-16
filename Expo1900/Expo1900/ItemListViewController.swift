@@ -9,6 +9,8 @@ import UIKit
 
 class ItemListViewController: UIViewController {
     
+    let entryData = DataManager().entryParse(fileName: "items")
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +53,12 @@ extension ItemListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
             return UITableViewCell()
         }
-        cell.titleLabel.text = "안녕"
+        cell.titleLabel.text = entryData[indexPath.row]!.name
+        cell.shortDescriptionLabel.text = entryData[indexPath.row]!.shortDescription
+        
+        
+        let name = entryData[indexPath.row]!.imageName + "~universal@1x.png"
+        cell.itemImageView.image = UIImage(named: name)
         return cell
     }
 }
