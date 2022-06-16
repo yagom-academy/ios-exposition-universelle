@@ -36,5 +36,17 @@ extension ViewController {
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+    
+        //MARK: - titleLabel
+        guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else { return }
+                
+        guard let decodeData = try? JSONDecoder().decode(ExpoInformation.self, from: data) else { return }
+        
+        let headTitle = decodeData.title.split(separator: "(")
+        let expoTitle = UILabel()
+        expoTitle.text = headTitle[0] + "\n(\(headTitle[1])"
+        expoTitle.numberOfLines = 0
+        stackView.addArrangedSubview(expoTitle)
     }
+    
 }

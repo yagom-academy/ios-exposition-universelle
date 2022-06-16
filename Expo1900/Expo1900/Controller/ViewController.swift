@@ -7,10 +7,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    let scrollView = UIScrollView()
-//    let contentView = UIView()
-//    let stackView = UIStackView()
-//    let label = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
