@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpoInformationViewController: UIViewController {
     var expositionUniverselle: ExpositionUniverselle? = nil
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupExpoInformation()
+        
+        navigationItem.backButtonTitle = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
