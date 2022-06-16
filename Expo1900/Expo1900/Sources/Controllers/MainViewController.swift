@@ -33,6 +33,11 @@ final class MainViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     private func decodeExpositionData() throws -> Exposition {
         guard let mainPage = NSDataAsset.init(name: "exposition_universelle_1900") else { throw DataHandlingError.invalidFile }
         

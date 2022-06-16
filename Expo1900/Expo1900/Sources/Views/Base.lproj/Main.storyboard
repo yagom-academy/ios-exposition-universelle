@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aOg-tw-4yI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4w7-23-imF">
-                                <rect key="frame" x="16" y="44" width="382" height="852"/>
+                                <rect key="frame" x="16" y="88" width="382" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ptJ-aw-LYo">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="430.5"/>
@@ -70,6 +70,9 @@
                                                         <rect key="frame" x="38" y="0.0" width="153" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <connections>
+                                                            <segue destination="htN-Lw-4wc" kind="show" id="B35-wd-sug"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6OX-SG-hvc">
                                                         <rect key="frame" x="199" y="0.0" width="30" height="30"/>
@@ -102,12 +105,14 @@
                             <constraint firstItem="4w7-23-imF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sCU-VJ-eNs"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="메인" id="kvw-ew-uVP"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="ANb-6M-VAl" id="WXU-y9-XZ7"/>
                         <outlet property="durationLabel" destination="1mx-sl-mx2" id="Ppr-Rs-26A"/>
                         <outlet property="expositionImageView" destination="6I1-nD-3gb" id="7iZ-Ev-Fam"/>
                         <outlet property="leftFlagImageView" destination="AxW-Qs-gPa" id="4aV-09-ljo"/>
                         <outlet property="locationLabel" destination="ggZ-HE-7PN" id="L6i-mI-gEV"/>
+                        <outlet property="mainPageNavigationBar" destination="kvw-ew-uVP" id="RN2-3a-qeS"/>
                         <outlet property="presentItemsButton" destination="bKu-Bl-8dI" id="NMl-Z2-PXZ"/>
                         <outlet property="rightFlagImageView" destination="6OX-SG-hvc" id="wY4-BX-OFF"/>
                         <outlet property="titleLabel" destination="1Lf-qO-vCJ" id="wwA-q3-yyU"/>
@@ -117,6 +122,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-717" y="93"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aFJ-zC-ldi">
+            <objects>
+                <navigationController id="aOg-tw-4yI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HFI-21-ac5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="imh-3S-eUQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25D-7Q-0HS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1510" y="92"/>
+        </scene>
+        <!--한국의 출품작-->
+        <scene sceneID="8tJ-tb-12U">
+            <objects>
+                <viewController id="htN-Lw-4wc" customClass="ItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XLb-El-Vx3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="toa-4z-y3h">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <navigationBar key="tableFooterView" contentMode="scaleToFill" id="FaH-Vc-LdO">
+                                    <rect key="frame" x="0.0" y="110.5" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                </navigationBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="74R-x3-bwN">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="74R-x3-bwN" id="6mA-t2-xhi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Psc-Pk-gdP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Psc-Pk-gdP" firstAttribute="trailing" secondItem="toa-4z-y3h" secondAttribute="trailing" id="7AB-Vg-xUQ"/>
+                            <constraint firstItem="toa-4z-y3h" firstAttribute="top" secondItem="Psc-Pk-gdP" secondAttribute="top" id="mCT-uX-ESp"/>
+                            <constraint firstItem="toa-4z-y3h" firstAttribute="leading" secondItem="Psc-Pk-gdP" secondAttribute="leading" id="ofI-5B-z1C"/>
+                            <constraint firstItem="Psc-Pk-gdP" firstAttribute="bottom" secondItem="toa-4z-y3h" secondAttribute="bottom" id="ofU-IG-10C"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="8Sl-AG-E3D"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gfd-vI-0IS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="92"/>
         </scene>
     </scenes>
     <resources>
