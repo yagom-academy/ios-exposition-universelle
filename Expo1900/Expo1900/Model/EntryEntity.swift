@@ -18,20 +18,18 @@ struct EntryEntity: Decodable {
         self.shortDescription = shortDescription
         self.description = description
     }
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case imageName = "image_name"
+        case shortDescription = "short_desc"
+        case description = "desc"
+    }
 }
 
 extension EntryEntity {
     var image: UIImage? {
         let uiImage = UIImage(named: self.imageName)
         return uiImage
-    }
-}
-
-private extension EntryEntity {
-    enum CodingKeys: String, CodingKey {
-        case name
-        case imageName = "image_name"
-        case shortDescription = "short_desc"
-        case description
     }
 }
