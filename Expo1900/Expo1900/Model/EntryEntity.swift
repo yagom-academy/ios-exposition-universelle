@@ -4,6 +4,7 @@
 //
 //  Created by Derrick kim on 2022/06/13.
 //
+
 import UIKit
 
 struct EntryEntity: Decodable {
@@ -11,13 +12,6 @@ struct EntryEntity: Decodable {
     private let imageName: String
     let shortDescription: String
     let description: String
-    
-    init(name: String, imageName: String, shortDescription: String, description: String) {
-        self.name = name
-        self.imageName = imageName
-        self.shortDescription = shortDescription
-        self.description = description
-    }
     
     enum CodingKeys: String, CodingKey {
         case name

@@ -5,7 +5,6 @@
 //  Created by Baek on 2022/06/14.
 //
 
-
 import UIKit
 
 enum JsonParser<T:Decodable> {

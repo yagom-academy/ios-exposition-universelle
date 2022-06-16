@@ -32,7 +32,6 @@ final class ExpositionPostView: UIView {
     
     private let postImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .white
         imageView.image = UIImage(named: "poster")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +72,6 @@ final class ExpositionPostView: UIView {
     
     private let leftFlagImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .white
         imageView.image = UIImage(named: "flag")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +82,6 @@ final class ExpositionPostView: UIView {
     
     private let rightFlagImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .white
         imageView.image = UIImage(named: "flag")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -160,8 +157,8 @@ private extension ExpositionPostView {
             self.contentScrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
             self.contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
             self.contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
-            self.contentView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
             
+            self.contentView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
             self.contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 2050),
             self.contentView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
             self.contentView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),

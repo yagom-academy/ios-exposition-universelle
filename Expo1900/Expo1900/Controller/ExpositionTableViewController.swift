@@ -52,7 +52,7 @@ extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSou
 }
 
 extension ExpositionTableViewController {
-    func configureUI() {
+    private func configureUI() {
         expositionTableView.delegate = self
         expositionTableView.dataSource = self
         
