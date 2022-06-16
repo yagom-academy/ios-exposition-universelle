@@ -11,7 +11,7 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var secondNavigationItem: UINavigationItem!
     let entryList = try! JsonParser.parseEntryList()
-    let firstViewController = ViewController()
+    let firstViewController = MainViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

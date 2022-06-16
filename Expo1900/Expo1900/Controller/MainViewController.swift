@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - MainViewController.swift
 //  Created by unchain, bard
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     @IBOutlet weak var expoTitle: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var numberOfVisitors: UILabel!
@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         expoDuration.text = "개최 기간 : " + decodedData.duration
         expoDescription.text = decodedData.description
         
-        // 네비게이션 안보이게 하기
         self.navigationController?.isNavigationBarHidden = true
         firstNavigationItem?.backButtonTitle = "메인"
         
