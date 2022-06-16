@@ -45,10 +45,17 @@ final class MainViewController: UIViewController {
     
     private func setAllLabels(of exposition: Exposition) {
         titleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = "방문객 : \(exposition.visitors) 명"
+        visitorsLabel.text = "방문객 :  \(applyNumberFormat(to: exposition.visitors)) 명"
         locationLabel.text = "개최지 : \(exposition.location)"
         durationLabel.text = "개최 기간 : \(exposition.duration)"
         descriptionLabel.text = exposition.description
+    }
+    
+    private func applyNumberFormat(to number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        return numberFormatter.string(for: number) ?? ""
     }
     
     private func setAllImages() {
