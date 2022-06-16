@@ -20,15 +20,17 @@ class Expo1900ViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = 5
+        stackView.spacing = 10
         return stackView
     }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Title"
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.numberOfLines = 2
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -42,28 +44,25 @@ class Expo1900ViewController: UIViewController {
     
     let visitorsLabel: UILabel = {
         let label = UILabel()
-        label.text = "Visitors"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let locationLabel: UILabel = {
         let label = UILabel()
-        label.text = "location"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let durationLabel: UILabel = {
         let label = UILabel()
-        label.text = "duration"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "description"
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -72,8 +71,8 @@ class Expo1900ViewController: UIViewController {
         super.viewDidLoad()
         self.view.addSubview(expo1900ScrollView)
         setScrollViewConstraints()
-        [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel]
-            .forEach {self.expo1900StackView.addArrangedSubview($0)}
+        let storeLabel = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel]
+        storeLabel.forEach {self.expo1900StackView.addArrangedSubview($0)}
         self.expo1900ScrollView.addSubview(expo1900StackView)
         setStackViewConstraints()
         expoData.decodingJsonData()
