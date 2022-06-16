@@ -56,7 +56,7 @@ final class ExpositionTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setConstraint()
+        addSubView()
     }
     
     required init?(coder: NSCoder) {
@@ -72,7 +72,7 @@ final class ExpositionTableViewCell: UITableViewCell {
 }
 
 extension ExpositionTableViewCell {
-    private func setConstraint() {
+    private func addSubView() {
         contentView.addSubview(horizontalStackView)
         
         horizontalStackView.addArrangedSubview(entryImage)
@@ -80,6 +80,10 @@ extension ExpositionTableViewCell {
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(shortDescription)
         
+        setUpUIConstraints()
+    }
+    
+    private func setUpUIConstraints() {
         NSLayoutConstraint.activate([
             horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
