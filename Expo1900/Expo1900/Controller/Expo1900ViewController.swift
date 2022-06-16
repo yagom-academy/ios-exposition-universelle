@@ -35,6 +35,8 @@ class Expo1900ViewController: UIViewController {
     
     let posterImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "poster")
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
