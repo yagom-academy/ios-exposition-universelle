@@ -18,6 +18,7 @@
 		D733FBCC285974C900232E87 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733FBCB285974C900232E87 /* ParsingTests.swift */; };
 		D746BD47285AEDDB00B7A2F9 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */; };
 		D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD48285AEE6300B7A2F9 /* ParseError.swift */; };
+		D791815F285B650F00B3A310 /* ViewContorller+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791815E285B650F00B3A310 /* ViewContorller+extension.swift */; };
 		D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79200D72857511100F3D5FA /* ExpoInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		D733FBCB285974C900232E87 /* ParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		D746BD48285AEE6300B7A2F9 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
+		D791815E285B650F00B3A310 /* ViewContorller+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewContorller+extension.swift"; sourceTree = "<group>"; };
 		D79200D72857511100F3D5FA /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				D791815E285B650F00B3A310 /* ViewContorller+extension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D791815F285B650F00B3A310 /* ViewContorller+extension.swift in Sources */,
 				8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */,
 				D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */,
 				D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */,
