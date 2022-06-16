@@ -7,7 +7,15 @@
 import UIKit
 
 class ExpositionPosterViewController: UIViewController {
-
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var leftFlagImageView: UIImageView!
+    @IBOutlet private weak var rightFlagImageView: UIImageView!
 }
 
 // MARK: - 뷰 라이프사이클 메서드
@@ -15,18 +23,28 @@ extension ExpositionPosterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        configurePosterView()
     }
 }
 
+// MARK: - 뷰 초기 설정 메서드
 extension ExpositionPosterViewController {
-    func configure() {
+    func configurePosterView() {
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900"),
               let poster = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data) else {
             return
         }
         
-        // TODO: IBOutlet 생성하고, poster 인스턴스의 각 프로퍼티를 알맞은 IBOutlet에 채워넣자.
-        // TODO: ExpositionPoster 모델에 해당하는 데이터는 이미지 이름을 따로 가리키고 있지 않다. 어떻게 이미지를 미리 가져와서 뷰에 쏴줄 수 있을지 생각해보자.
+        titleLabel.text = poster.title
+        // TODO: 방문객 숫자에 numberFormatter 적용하기
+        visitorsLabel.text = "방문객 : \(poster.visitors) 명"
+        locationLabel.text = "개최지 : \(poster.location)"
+        durationLabel.text = "개최 기간 : \(poster.duration)"
+        descriptionLabel.text = poster.description
+        
+        // TODO: 여기서 이미지를 가져오는 것이 괜찮을까?
+        posterImageView.image = UIImage(named: "poster")
+        leftFlagImageView.image = UIImage(named: "flag")
+        rightFlagImageView.image = UIImage(named: "flag")
     }
 }
