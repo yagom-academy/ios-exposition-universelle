@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ItemDescriptionUIScrollView: UIScrollView {
+final class ItemDescriptionUIScrollView: UIScrollView {
     
-    let contentView = UIView()
+    private let contentView = UIView()
     var itemDetailInfo: Entry? {
         didSet {
             guard let image = itemDetailInfo?.imageName else { return }
@@ -18,18 +18,18 @@ class ItemDescriptionUIScrollView: UIScrollView {
         }
     }
     
-    lazy var itemImageView: UIImageView = {
+    private lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
     
-    lazy var itemDescriptionLabel: UILabel = {
+    private lazy var itemDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label
     }()
     
-    lazy var itemStackView: UIStackView = {
+    private lazy var itemStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [itemImageView, itemDescriptionLabel])
         stackView.spacing = 10
         stackView.axis = .vertical

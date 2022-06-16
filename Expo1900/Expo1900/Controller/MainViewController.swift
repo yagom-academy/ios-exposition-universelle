@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     private let mainScrollView = MainUIScrollView()
     
@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
         mainScrollView.koreanEntryButton.addTarget(self, action: #selector(didkoreanEntryButtonTapped), for: .touchUpInside)
     }
     
-    @objc func didkoreanEntryButtonTapped() {
+    @objc private func didkoreanEntryButtonTapped() {
         navigationController?.pushViewController(ItemTableViewController(), animated: true)
     }
 }

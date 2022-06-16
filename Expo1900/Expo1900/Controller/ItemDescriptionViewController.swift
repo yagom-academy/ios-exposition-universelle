@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ItemDescriptionViewController: UIViewController {
+final class ItemDescriptionViewController: UIViewController {
     
-    let itemDescriptionScrollView = ItemDescriptionUIScrollView()
+    private let itemDescriptionScrollView = ItemDescriptionUIScrollView()
     
     var entryInfo: Entry? {
         didSet {

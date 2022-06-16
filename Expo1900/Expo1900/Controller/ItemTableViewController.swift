@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ItemTableViewController: UITableViewController {
+final class ItemTableViewController: UITableViewController {
 
-    let entryInfo: [Entry]? = JSONDecoder.decodeJson(jsonName: "items")
+    private let entryInfo: [Entry]? = JSONDecoder.decodeJson(jsonName: "items")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ItemTableViewController: UITableViewController {
         navigationController?.pushViewController(itemDescriptionViewController, animated: true)
     }
     
-    func setNavigationBar() {
+    private func setNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.backItem?.title = "메인"
         title = "한국의 출품작"

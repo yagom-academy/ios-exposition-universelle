@@ -7,19 +7,19 @@
 
 import UIKit
 
-class MainUIScrollView: UIScrollView {
+final class MainUIScrollView: UIScrollView {
     
-    let contentView = UIView()
-    let expoInfo: Expo? = JSONDecoder.decodeJson(jsonName: "exposition_universelle_1900")
+    private let contentView = UIView()
+    private let expoInfo: Expo? = JSONDecoder.decodeJson(jsonName: "exposition_universelle_1900")
     
-    lazy var numberFormatter: NumberFormatter = {
+    private lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         
         return formatter
     }()
     
-    lazy var mainTitleLabel: UILabel = {
+    private lazy var mainTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.text = expoInfo?.title
@@ -28,14 +28,14 @@ class MainUIScrollView: UIScrollView {
         return label
     }()
     
-    let mainImage: UIImageView = {
+    private let mainImage: UIImageView = {
         let imageView = UIImageView()
         guard let image = UIImage(named: "poster.png") else { return UIImageView() }
         imageView.image = image
         return imageView
     }()
     
-    lazy var audienceLabel: UILabel = {
+    private lazy var audienceLabel: UILabel = {
         let label = UILabel()
         guard let audienceNumber = expoInfo?.visitors,
               let formattedNumber = numberFormatter.string(from: audienceNumber as NSNumber) else { return UILabel() }
@@ -45,7 +45,7 @@ class MainUIScrollView: UIScrollView {
         return label
     }()
     
-    lazy var venueLabel: UILabel = {
+    private lazy var venueLabel: UILabel = {
         let label = UILabel()
         guard let location = expoInfo?.location else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
@@ -53,7 +53,7 @@ class MainUIScrollView: UIScrollView {
         return label
     }()
     
-    lazy var periodLabel: UILabel = {
+    private lazy var periodLabel: UILabel = {
         let label = UILabel()
         guard let duration = expoInfo?.duration else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
@@ -61,7 +61,7 @@ class MainUIScrollView: UIScrollView {
         return label
     }()
     
-    lazy var descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
         label.text = expoInfo?.description
@@ -69,7 +69,7 @@ class MainUIScrollView: UIScrollView {
         return label
     }()
     
-    let leftFlagImage: UIImageView = {
+    private let leftFlagImage: UIImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "flag.png")
         imageView.image = image
@@ -78,7 +78,7 @@ class MainUIScrollView: UIScrollView {
         return imageView
     }()
     
-    let rightFlagImage: UIImageView = {
+    private let rightFlagImage: UIImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "flag.png")
         imageView.image = image
@@ -96,7 +96,7 @@ class MainUIScrollView: UIScrollView {
     }()
     
     
-    lazy var buttonStackView: UIStackView = {
+    private lazy var buttonStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [leftFlagImage, koreanEntryButton, rightFlagImage])
         stackView.spacing = 10
         stackView.axis = .horizontal
@@ -107,7 +107,7 @@ class MainUIScrollView: UIScrollView {
         return stackView
     }()
     
-    lazy var mainStackView: UIStackView = {
+    private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImage, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView])
         stackView.spacing = 10
         stackView.axis = .vertical
@@ -135,12 +135,12 @@ class MainUIScrollView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func mainStackViewConfigure() {
+    private func mainStackViewConfigure() {
         backgroundColor = .white
         addSubview(mainStackView)
     }
     
-    func setupLabelConstraints() {
+    private func setupLabelConstraints() {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),

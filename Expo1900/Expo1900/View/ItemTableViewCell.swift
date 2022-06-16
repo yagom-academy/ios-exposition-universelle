@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+final class ItemTableViewCell: UITableViewCell {
     
     var itemInfo: Entry? {
         didSet {
@@ -18,24 +18,24 @@ class ItemTableViewCell: UITableViewCell {
         }
     }
     
-    lazy var itemTitleLabel: UILabel = {
+    private lazy var itemTitleLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    lazy var itemImageView: UIImageView = {
+    private lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    lazy var itemShortDescriptionLable: UILabel = {
+    private lazy var itemShortDescriptionLable: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label
     }()
     
-    lazy var itemLabelStackView: UIStackView = {
+    private lazy var itemLabelStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [itemTitleLabel, itemShortDescriptionLable])
         stackView.spacing = 20
         stackView.axis = .vertical
@@ -45,7 +45,7 @@ class ItemTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    lazy var itemStackView: UIStackView = {
+    private lazy var itemStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [itemImageView, itemLabelStackView])
         stackView.spacing = 10
         stackView.axis = .horizontal
@@ -65,7 +65,7 @@ class ItemTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupConfigure() {
+    private func setupConfigure() {
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: topAnchor),
             itemStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
