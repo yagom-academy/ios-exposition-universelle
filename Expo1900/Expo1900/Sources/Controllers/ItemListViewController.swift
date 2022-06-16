@@ -54,3 +54,8 @@ extension ItemListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension ItemListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
