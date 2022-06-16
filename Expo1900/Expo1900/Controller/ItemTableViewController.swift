@@ -9,17 +9,23 @@ import UIKit
 
 class ItemTableViewController: UITableViewController {
 
+    let entryInfo: [Entry]? = JSONDecoder.decodeJson(jsonName: "items")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "entryCell")
     }
 
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        guard let entryInfo = entryInfo else { return 0 }
+
+        return entryInfo.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell",for: indexPath)
+        return cell
     }
 }
