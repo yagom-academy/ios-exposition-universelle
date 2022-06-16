@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A894FA828582C6000A4F6FD /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A894FA728582C6000A4F6FD /* JsonParser.swift */; };
 		8A894FB0285832C100A4F6FD /* ExpositionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A894FAF285832C100A4F6FD /* ExpositionTest.swift */; };
+		8AA59366285AFA1100494FE9 /* ExpositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */; };
 		905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43E72857046E00BB84E3 /* EntryEntity.swift */; };
 		905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */; };
 		909123082858212900854F1B /* ExpositionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909123072858212900854F1B /* ExpositionPost.swift */; };
@@ -35,6 +36,7 @@
 		8A894FA728582C6000A4F6FD /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		8A894FAD285832C100A4F6FD /* ExpositionTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpositionTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A894FAF285832C100A4F6FD /* ExpositionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTest.swift; sourceTree = "<group>"; };
+		8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTableViewCell.swift; sourceTree = "<group>"; };
 		905C43E72857046E00BB84E3 /* EntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEntity.swift; sourceTree = "<group>"; };
 		905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpositionPostEntity.swift; sourceTree = "<group>"; };
 		909123072858212900854F1B /* ExpositionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPost.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				90E08104285ACB5900950E42 /* ExpositionPostView.swift */,
+				8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				909123082858212900854F1B /* ExpositionPost.swift in Sources */,
 				90E08105285ACB5900950E42 /* ExpositionPostView.swift in Sources */,
 				90E080BB2859C23200950E42 /* ExpositionTableViewController.swift in Sources */,
+				8AA59366285AFA1100494FE9 /* ExpositionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
