@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionTableViewController: UITableViewController {
+final class ExpositionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false

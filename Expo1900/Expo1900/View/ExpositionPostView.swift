@@ -1,12 +1,13 @@
 //
-//  Expo1900 - ViewController.swift
-//  Created by yagom.
-//  Copyright © yagom academy. All rights reserved.
+//  ExpositionPostView.swift
+//  Expo1900
+//
+//  Created by Derrick kim on 2022/06/16.
 //
 
 import UIKit
 
-class ExpositionPostViewController: UIViewController {
+final class ExpositionPostView: UIView {
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,10 +24,10 @@ class ExpositionPostViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 28)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
     
@@ -103,45 +104,39 @@ class ExpositionPostViewController: UIViewController {
         return button
     }()
     
-    private var expositionPostEntity: ExpositionPostEntity?
+    private var rootViewController: UIViewController?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addSubview()
-        setDefaultValue()
+    init(_ rootViewController: UIViewController, data: ExpositionPostEntity) {
+        super.init(frame: .null)
+        self.rootViewController = rootViewController
+        
+        addSubview(from: rootViewController.view)
+        setDefaultValue(with: data)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
-private extension ExpositionPostViewController {
-    func setDefaultValue() {
-        expositionPostEntity = JsonParser<ExpositionPostEntity>.fetch("ExpositionPost")
+private extension ExpositionPostView {
+    @objc func tappedExpositionEnterButton(_ sender: UIButton) {
+        let expositionTableViewController = ExpositionTableViewController()
+        rootViewController?.navigationController?.pushViewController(expositionTableViewController, animated: true)
+    }
+    
+    func setDefaultValue(with data: ExpositionPostEntity) {
+        titleLabel.text = data.manufacture(ExpositionPost.title)
+        visitorLabel.text = data.manufacture(ExpositionPost.visitors)
+        locationLabel.text = data.manufacture(ExpositionPost.location)
+        durationLabel.text = data.manufacture(ExpositionPost.duration)
+        descriptionLabel.text = data.manufacture(ExpositionPost.description)
         
-        titleLabel.text = expositionPostEntity?.manufacture(ExpositionPost.title)
-        visitorLabel.text = expositionPostEntity?.manufacture(ExpositionPost.visitors)
-        locationLabel.text = expositionPostEntity?.manufacture(ExpositionPost.location)
-        durationLabel.text = expositionPostEntity?.manufacture(ExpositionPost.duration)
-        descriptionLabel.text = expositionPostEntity?.manufacture(ExpositionPost.description)
-        
-        self.navigationController?.navigationBar.isHidden = true
         expositionEnterButton.addTarget(self, action: #selector(tappedExpositionEnterButton(_:)), for: .touchUpInside)
     }
     
-    @objc func tappedExpositionEnterButton(_ sender: UIButton) {
-        let expositionTableViewController = ExpositionTableViewController()
-        self.navigationController?.pushViewController(expositionTableViewController, animated: true)
-    }
-}
-
-// - MARK: view setting
-
-private extension ExpositionPostViewController {
-    func addSubview() {
-        self.view.addSubview(contentScrollView)
+    func addSubview(from rootView: UIView) {
+        rootView.addSubview(contentScrollView)
         self.contentScrollView.addSubview(contentView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(postImageView)
@@ -154,11 +149,11 @@ private extension ExpositionPostViewController {
         self.contentView.addSubview(expositionEnterButton)
         self.contentView.addSubview(rightFlagImageView)
         
-        setUpParentUIConstraints()
+        setUpBaseUIConstraints(from: rootView)
     }
     
-    func setUpParentUIConstraints() {
-        let safeArea = view.safeAreaLayoutGuide
+    func setUpBaseUIConstraints(from rootView: UIView) {
+        let safeArea = rootView.safeAreaLayoutGuide
         let contentLayoutGuide = contentScrollView.contentLayoutGuide
         let frameLayoutGuide = contentScrollView.frameLayoutGuide
         
@@ -177,7 +172,7 @@ private extension ExpositionPostViewController {
         
         setUpChildUIContraints()
     }
-    
+
     func setUpChildUIContraints() {
         NSLayoutConstraint.activate([
             self.titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -186,7 +181,7 @@ private extension ExpositionPostViewController {
             
             self.postImageView.widthAnchor.constraint(equalToConstant: 140),
             self.postImageView.heightAnchor.constraint(equalToConstant: 200),
-            self.postImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            self.postImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             self.postImageView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 10),
             
             self.visitorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
