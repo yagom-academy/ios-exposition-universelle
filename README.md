@@ -14,17 +14,27 @@
 ## 프로젝트 소개
 - json데이터, 테이블 뷰를 이용해서 만국박람회 구성하기
 
+## 개발자 소개
+|바드|언체인|
+|:---:|:---:|
+|<img src="https://avatars.githubusercontent.com/u/92622931?v=4" width="250" height="250">|<img src="https://i.imgur.com/gEAc4rf.png" width="250" height="250">|
+|[@bard](https://github.com/bar-d)|[unchain123](https://github.com/unchain123)|
+
+
+
+## 타임라인
+
 ## Preview
+## 기본 구현 방식
 <img src="https://i.imgur.com/xLGt5Qk.gif" width="250" height="450"/>   &nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/EL7YBCC.gif" width="250" height="450"/>
 
 <img src="https://i.imgur.com/stXFxGl.png" width="300" height="550"/>   &nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/t8cNCxn.png" width="300" height="550"/>
 
 <img src="https://i.imgur.com/u8UIGFM.png" width="300" height="550"/>   &nbsp;&nbsp;&nbsp;<img src="https://i.imgur.com/KlO854d.png" width="300" height="550"/>
 
-
-
-
 ## UML
+![](https://i.imgur.com/OGGKLIN.jpg)
+
 
 ## 개발환경 및 라이브러리
 [![swift](https://img.shields.io/badge/swift-5.6-orange)]() [![xcode](https://img.shields.io/badge/Xcode-13.3-blue)]()
@@ -60,13 +70,11 @@ step2에서는 NSDataAsset을 JSON데이터를 Assets 카탈로그에 저장을 
 따라서 NSDataAsset을 통해 Assets 카탈로그에서 불러오는 방식으로 변경
 
 ### `XCode 자체 오류`
-
-&nbsp;&nbsp;&nbsp;  <img src="https://i.imgur.com/uGjVTvP.gif" width="250" height="450"/>  
-
+![](https://i.imgur.com/uGjVTvP.gif)
 - 처음 네비게이션 바 아이템의 백 버튼의 텍스트를 한국의 출품작으로 변경을 해주었는데, 첫번째 셀에서만 동작하지 않는 일이 발생  
 아무리 봐도 코드에 문제가 없는 것 같아 클린 빌드도 해보고, XCode를 종료하고 켜보았는데도 전혀 달라진 점이 없었음  
 -> unchain이 pull을 받아 실행해보니 정상적인 작동을 함;;  
-추후에 언체인이 코드 작성 후 push를 한 후 내 레포지토리에 pull을 하니 정상적인 작동;;
+추후에 언체인이 코드 작성 후 push를 한 후 내 레포지토리에 pull을 하니 정상적인 작동;; 
 
 ### `오토레이아웃`
 - 아직 오토레이아웃에 대한 정확한 개념이 잡힌 것 같지가 않아 스토리보드로 될 것 같은 방식으로 구현 후, 이것저것 시도해보며 오토레이아웃 작성  
@@ -74,6 +82,10 @@ step2에서는 NSDataAsset을 JSON데이터를 Assets 카탈로그에 저장을 
 
 ### `huggingPriority, ResistancePriority`
 - 첫번째 뷰컨트롤러에서 이미지 뷰와 버튼 간의 크기를 설정하는 과정에서 버튼에 텍스트가 추가 되었을 때 버튼의 컨텐츠가 양 옆의 이미지뷰에 밀리면서 두줄로 나오는 현상이 발생해서 이를 해결하기 위해 huggingPriority, ResistancePriority를 사용해보려 했지만 변화가 없었습니다. 그래서 이미지뷰의 크기를 줄여서 해결을 했습니다. 자세한 오토레이아웃 설정은 STEP3에서 진행하기 때문에 다시 공부해서 다음 스탭에서 적용해 보겠습니다. 
+
+## `UML`
+UML내에서 중첩 타입은 어떻게 표현을 할것인가?
+-> nestedFunction로 표시하여 연관 화살표로 해당 부모 타입과 연결
 
 
 ## 배운개념
