@@ -2,7 +2,7 @@
 //  ExpoMenuTableViewCell.swift
 //  Expo1900
 //
-//  Created by 변재은 on 2022/06/17.
+//  Created by 재재, 보리사랑 on 2022/06/17.
 //
 
 import UIKit

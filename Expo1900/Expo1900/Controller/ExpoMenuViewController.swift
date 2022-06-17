@@ -2,7 +2,7 @@
 //  ExpoMenuViewController.swift
 //  Expo1900
 //
-//  Created by 유한석 on 2022/06/17.
+//  Created by 재재, 보리사랑 on 2022/06/17.
 //
 
 import UIKit
@@ -31,7 +31,6 @@ extension ExpoMenuViewController: UITableViewDelegate {
             return
         }
         detailVC.expoItemElement = expoItemList[indexPath.row]
-        
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
@@ -42,7 +41,6 @@ extension ExpoMenuViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //셀을 반환해야함 > 어떤셀? 우리가 만든 셀
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpoMenuTableViewCell") as? ExpoMenuTableViewCell else {
             return UITableViewCell()
         }
