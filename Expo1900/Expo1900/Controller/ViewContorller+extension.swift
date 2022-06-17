@@ -9,6 +9,8 @@ import UIKit
 extension ViewController {
     func setting() {
         self.view.backgroundColor = .white
+        guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else { return }
+        guard let decodeData = try? JSONDecoder().decode(ExpoInformation.self, from: data) else { return }
         
         //MARK: - scrollViewConstraints
         let scrollView = UIScrollView()
@@ -23,6 +25,7 @@ extension ViewController {
         
         //MARK: - mainViewConstraints
         let stackView = UIStackView()
+        
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .center
@@ -38,15 +41,20 @@ extension ViewController {
         ])
     
         //MARK: - titleLabel
-        guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else { return }
-                
-        guard let decodeData = try? JSONDecoder().decode(ExpoInformation.self, from: data) else { return }
-        
         let headTitle = decodeData.title.split(separator: "(")
         let expoTitle = UILabel()
+        
         expoTitle.text = headTitle[0] + "\n(\(headTitle[1])"
         expoTitle.numberOfLines = 0
+        expoTitle.textAlignment = .center
         stackView.addArrangedSubview(expoTitle)
+        
+        //MARK: - image
+        let posterImage = UIImageView()
+
+        posterImage.image = UIImage(named: "poster")
+        stackView.addArrangedSubview(posterImage)
+    
     }
     
 }
