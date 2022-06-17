@@ -84,6 +84,14 @@
 			path = Expo1900Tests;
 			sourceTree = "<group>";
 		};
+		1861B933285C59D20016B268 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AF3AACAA285B015800EE5F5B /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		AFDF7DEC2857143A00496513 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,9 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				AFDF7DEC2857143A00496513 /* Model */,
+				1861B933285C59D20016B268 /* Extension */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				AF3AACAA285B015800EE5F5B /* UIViewController+Extension.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				AF3AACA6285AFA2700EE5F5B /* ItemTableViewController.swift */,
 				AF3AACA8285AFCB100EE5F5B /* ItemTableViewCell.swift */,
