@@ -93,6 +93,29 @@ ios - Human Interface Guidelines
 
 # Step
 
+## 실행 화면(기능 설명)
+
+|파리만국박람회 소개 화면|한국 출품작 소개 화면|출품작 상세 소개 화면|
+|:--:|:--:|:--:|
+|![EXPOInformationViewController](https://user-images.githubusercontent.com/99063327/174227640-f8d1a00b-957a-449e-b48b-f0b9e4d0aa2c.gif)|![KoreaEntryViewController](https://user-images.githubusercontent.com/99063327/174229792-2c3bb96c-1609-4bf2-b065-7957198ffe64.gif)|![KoreaEntryDetailsViewController](https://user-images.githubusercontent.com/99063327/174230832-9e656db0-add6-44b7-bf48-84cf62fa37dd.gif)|
+
+### 1. 파리만국박람회 소개 화면(EXPOInformationViewController)
+
+- `ScrollView` 내에 파리 만국박람회의 `title`, `image`, `visitors`, `location`, `duration`, `description`에 관한 `label` 및 `imageView`를 생성하여 스크롤을 통해 원하는 내용을 볼 수 있게 하였다.
+- `view`의 최하단에 '한국의 출품작 보러가기'라는 이름을 가진 버튼을 생성하여, `KoreaEntryViewController`로 화면 전환(`push`) 기능을 수행하였다.
+<br/>
+
+### 2. 한국 출품작 소개 화면(KoreaEntryViewController)
+
+- `TableView`를 생성하여 각각의 셀에 한국의 출품작의 `image`, `name`, `short_desc`을 표시하였다.
+- 셀을 클릭하면 해당 출품작에 관한 `image`와 `description`을 표시하는 세번째 화면으로 화면전환(`segue`) 기능을 수행하였다.
+<br/>
+
+### 3. 출품작 상세 소개 화면(KoreaEntryDetailsViewController)
+
+- `ScrollView`내 `image`와 `description`에 관한 `label` 및 `ImageView`를 생성하여 스크롤을 통해 원하는 내용을 볼 수 있게 하였다.
+- `NavigationBar`의 `BackButton`을 통하여 이전 화면인 `KoreaEntryViewController`로 돌아가는 기능도 추가하였다.
+
 ## Step 1
 
 - feat: Exhibits 파일 생성 및 struct(Exhibits) 선언
@@ -245,29 +268,6 @@ func type<T, Metatype>(of value: T) -> Metatype
 - `Meta Type`
 
 ## Step 2
-
-## 실행 화면(기능 설명)
-
-|파리만국박람회 소개 화면|한국 출품작 소개 화면|출품작 상세 소개 화면|
-|:--:|:--:|:--:|
-|![EXPOInformationViewController](https://user-images.githubusercontent.com/99063327/174227640-f8d1a00b-957a-449e-b48b-f0b9e4d0aa2c.gif)|![KoreaEntryViewController](https://user-images.githubusercontent.com/99063327/174229792-2c3bb96c-1609-4bf2-b065-7957198ffe64.gif)|![KoreaEntryDetailsViewController](https://user-images.githubusercontent.com/99063327/174230832-9e656db0-add6-44b7-bf48-84cf62fa37dd.gif)|
-
-### 1. 파리만국박람회 소개 화면(EXPOInformationViewController)
-
-- `ScrollView` 내에 파리 만국박람회의 `title`, `image`, `visitors`, `location`, `duration`, `description`에 관한 `label` 및 `imageView`를 생성하여 스크롤을 통해 원하는 내용을 볼 수 있게 하였다.
-- `view`의 최하단에 '한국의 출품작 보러가기'라는 이름을 가진 버튼을 생성하여, `KoreaEntryViewController`로 화면 전환(`push`) 기능을 수행하였다.
-<br/>
-
-### 2. 한국 출품작 소개 화면(KoreaEntryViewController)
-
-- `TableView`를 생성하여 각각의 셀에 한국의 출품작의 `image`, `name`, `short_desc`을 표시하였다.
-- 셀을 클릭하면 해당 출품작에 관한 `image`와 `description`을 표시하는 세번째 화면으로 화면전환(`segue`) 기능을 수행하였다.
-<br/>
-
-### 3. 출품작 상세 소개 화면(KoreaEntryDetailsViewController)
-
-- `ScrollView`내 `image`와 `description`에 관한 `label` 및 `ImageView`를 생성하여 스크롤을 통해 원하는 내용을 볼 수 있게 하였다.
-- `NavigationBar`의 `BackButton`을 통하여 이전 화면인 `KoreaEntryViewController`로 돌아가는 기능도 추가하였다.
 
 ## 고민했던 점
 
