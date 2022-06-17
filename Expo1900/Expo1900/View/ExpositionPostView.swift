@@ -8,6 +8,46 @@
 import UIKit
 
 final class ExpositionPostView: UIView {
+    private let verticalStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .vertical
+        stackview.alignment = .center
+        stackview.distribution = .equalSpacing
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.spacing = 10
+        return stackview
+    }()
+    
+    private let horizontalStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.alignment = .center
+        stackview.distribution = .equalSpacing
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.spacing = 5
+        return stackview
+    }()
+    
+    private let rightEmptyStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.alignment = .center
+        stackview.distribution = .equalSpacing
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.spacing = 5
+        return stackview
+    }()
+    
+    private let leftEmptyStackView: UIStackView = {
+        let stackview = UIStackView()
+        stackview.axis = .horizontal
+        stackview.alignment = .center
+        stackview.distribution = .equalSpacing
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.spacing = 5
+        return stackview
+    }()
+    
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -94,8 +134,6 @@ final class ExpositionPostView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.widthAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
-        button.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         return button
     }()
@@ -135,18 +173,21 @@ private extension ExpositionPostView {
     func addSubview(from rootView: UIView) {
         rootView.addSubview(contentScrollView)
         
-        self.contentScrollView.addSubview(contentView)
-        self.contentView.addSubview(titleLabel)
-        self.contentView.addSubview(postImageView)
-        self.contentView.addSubview(visitorLabel)
-        self.contentView.addSubview(locationLabel)
-        self.contentView.addSubview(durationLabel)
-        self.contentView.addSubview(descriptionLabel)
+        self.contentScrollView.addSubview(verticalStackView)
+        self.contentScrollView.addSubview(horizontalStackView)
         
-        self.contentView.addSubview(leftFlagImageView)
-        self.contentView.addSubview(expositionEnterButton)
-        self.contentView.addSubview(rightFlagImageView)
+        self.verticalStackView.addArrangedSubview(titleLabel)
+        self.verticalStackView.addArrangedSubview(postImageView)
+        self.verticalStackView.addArrangedSubview(visitorLabel)
+        self.verticalStackView.addArrangedSubview(locationLabel)
+        self.verticalStackView.addArrangedSubview(durationLabel)
+        self.verticalStackView.addArrangedSubview(descriptionLabel)
         
+        self.horizontalStackView.addArrangedSubview(rightEmptyStackView)
+        self.horizontalStackView.addArrangedSubview(leftFlagImageView)
+        self.horizontalStackView.addArrangedSubview(expositionEnterButton)
+        self.horizontalStackView.addArrangedSubview(rightFlagImageView)
+        self.horizontalStackView.addArrangedSubview(leftEmptyStackView)
         setUpBaseUIConstraints(from: rootView)
     }
     
@@ -160,12 +201,19 @@ private extension ExpositionPostView {
             self.contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
             self.contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
             
-            self.contentView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            self.contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 2050),
-            self.contentView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            self.contentView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            self.contentView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
-            self.contentView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            verticalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
+            verticalStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
+            verticalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            
+            descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
+            descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
+            
+            horizontalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
+            horizontalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
+            horizontalStackView.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 10),
+            horizontalStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: 10),
+            horizontalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
         ])
         
         setUpChildUIContraints()
@@ -173,38 +221,7 @@ private extension ExpositionPostView {
 
     func setUpChildUIContraints() {
         NSLayoutConstraint.activate([
-            self.titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            self.titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            self.titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            self.postImageView.widthAnchor.constraint(equalToConstant: 140),
-            self.postImageView.heightAnchor.constraint(equalToConstant: 200),
-            self.postImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            self.postImageView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 10),
-            
-            self.visitorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            self.visitorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            self.visitorLabel.topAnchor.constraint(equalTo: self.postImageView.bottomAnchor, constant: 10),
-            
-            self.locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            self.locationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            self.locationLabel.topAnchor.constraint(equalTo: self.visitorLabel.bottomAnchor, constant: 10),
-            
-            self.durationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            self.durationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            self.durationLabel.topAnchor.constraint(equalTo: self.locationLabel.bottomAnchor, constant: 10),
-            
-            self.descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            self.descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            self.descriptionLabel.topAnchor.constraint(equalTo: self.durationLabel.bottomAnchor, constant: 10),
-            
-            self.leftFlagImageView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
-            self.rightFlagImageView.topAnchor.constraint(equalTo: leftFlagImageView.topAnchor),
-            self.expositionEnterButton.topAnchor.constraint(equalTo: leftFlagImageView.topAnchor),
-            
-            self.leftFlagImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            self.expositionEnterButton.leadingAnchor.constraint(equalTo: leftFlagImageView.trailingAnchor, constant: 30),
-            self.rightFlagImageView.leadingAnchor.constraint(equalTo: expositionEnterButton.trailingAnchor, constant: 30),
         ])
     }
 }
