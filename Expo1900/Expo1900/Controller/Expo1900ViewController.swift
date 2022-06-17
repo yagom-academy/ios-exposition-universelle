@@ -67,14 +67,53 @@ class Expo1900ViewController: UIViewController {
         return label
     }()
     
+    let expo1900SubStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalCentering
+        return stackView
+    }()
+    
+    let leftFlagImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let rightFlagImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let nextViewButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.setContentCompressionResistancePriority(UILayoutPriority(751), for: .horizontal)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(expo1900ScrollView)
-        setScrollViewConstraints()
-        let storeLabel = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel]
-        storeLabel.forEach {self.expo1900StackView.addArrangedSubview($0)}
+        
+        let storeUIView = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, expo1900SubStackView]
+        storeUIView.forEach {self.expo1900StackView.addArrangedSubview($0)}
+        
+        let subStoreUIView = [leftFlagImageView, nextViewButton, rightFlagImageView]
+        subStoreUIView.forEach {self.expo1900SubStackView.addArrangedSubview($0)}
+        
         self.expo1900ScrollView.addSubview(expo1900StackView)
+        
+        setScrollViewConstraints()
         setStackViewConstraints()
+        setSubStackViewConstraints()
+        
         expoData.decodingJsonData()
         titleLabel.text = expoData.title
         visitorsLabel.text = expoData.visitors
@@ -96,6 +135,14 @@ class Expo1900ViewController: UIViewController {
         expo1900StackView.leadingAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.leadingAnchor).isActive = true
         expo1900StackView.widthAnchor.constraint(equalTo: expo1900ScrollView.frameLayoutGuide.widthAnchor).isActive = true
         expo1900StackView.trailingAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.trailingAnchor).isActive = true
+    }
+    
+    private func setSubStackViewConstraints() {
+        expo1900SubStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
+        expo1900SubStackView.bottomAnchor.constraint(equalTo: expo1900StackView.bottomAnchor).isActive = true
+        expo1900SubStackView.leadingAnchor.constraint(equalTo: expo1900StackView.leadingAnchor).isActive = true
+        expo1900SubStackView.trailingAnchor.constraint(equalTo: expo1900StackView.trailingAnchor).isActive = true
+        expo1900SubStackView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
     }
 }
 
