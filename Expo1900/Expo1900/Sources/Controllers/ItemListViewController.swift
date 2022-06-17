@@ -8,6 +8,7 @@ class ItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         itemTableView.dataSource = self
+        itemTableView.delegate = self
         itemTableView.rowHeight = 150
 
         do {
@@ -56,6 +57,16 @@ extension ItemListViewController: UITableViewDataSource {
 }
 
 extension ItemListViewController: UITableViewDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemViewSegue" {
+            guard let itemViewController = segue.destination as? ItemViewController else { return }
+            guard let indexPath = sender as? IndexPath else { return }
+            
+            itemViewController.content = contents[indexPath.row]
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "itemViewSegue", sender: indexPath)
     }
 }
