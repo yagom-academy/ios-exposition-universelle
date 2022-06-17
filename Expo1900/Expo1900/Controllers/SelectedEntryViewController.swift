@@ -14,6 +14,7 @@ class SelectedEntryViewController: UIViewController {
     var entry: ExpositionEntry?
 }
 
+// MARK: - 뷰 라이프사이클 메서드
 extension SelectedEntryViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ extension SelectedEntryViewController {
     }
 }
 
+// MARK: - 뷰 초기 설정 메서드
 extension SelectedEntryViewController {
     private func configureView() {
         navigationItem.title = entry?.name

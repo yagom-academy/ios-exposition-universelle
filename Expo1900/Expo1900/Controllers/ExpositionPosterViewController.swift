@@ -6,6 +6,8 @@
 
 import UIKit
 
+// TODO: 고정된 값을 가진 String 값들을 담아 주는 네임스페이스 생성
+
 class ExpositionPosterViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -29,7 +31,7 @@ extension ExpositionPosterViewController {
 
 // MARK: - 뷰 초기 설정 메서드
 extension ExpositionPosterViewController {
-    func configurePosterView() {
+    private func configurePosterView() {
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900"),
               let poster = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data) else {
             return
@@ -42,7 +44,6 @@ extension ExpositionPosterViewController {
         durationLabel.text = "개최 기간 : \(poster.duration)"
         descriptionLabel.text = poster.description
         
-        // TODO: 여기서 이미지를 가져오는 것이 괜찮을까?
         posterImageView.image = UIImage(named: "poster")
         leftFlagImageView.image = UIImage(named: "flag")
         rightFlagImageView.image = UIImage(named: "flag")
@@ -51,16 +52,13 @@ extension ExpositionPosterViewController {
 
 // MARK: - 데이터 옮기는 메서드
 extension ExpositionPosterViewController {
-    @IBAction func act(_ sender: UIButton) {
-        realAct()
-    }
-    
-    func realAct() {
+    @IBAction private func didTapKoreanEntryButton(_ sender: UIButton) {
         guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: "KoreanEntryTableVC") as? KoreanEntryTableViewController,
               let asset = NSDataAsset.init(name: "items"),
               let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: asset.data) else {
             return
         }
+        
         KoreanEntryTableViewContoller.entries = entries
         self.navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
     }

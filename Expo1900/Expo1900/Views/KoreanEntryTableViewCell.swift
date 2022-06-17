@@ -11,7 +11,10 @@ class KoreanEntryTableViewCell: UITableViewCell {
     var entryImageView: UIImageView!
     var titleLabel: UILabel!
     var shortDescriptionLabel: UILabel!
-    
+}
+
+// MARK: - 초기 설정 메서드
+extension KoreanEntryTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -46,9 +49,5 @@ class KoreanEntryTableViewCell: UITableViewCell {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: entryImageView.bottomAnchor)
         ])
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 }
