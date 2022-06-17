@@ -363,6 +363,24 @@
 			path = najeon.imageset;
 			sourceTree = "<group>";
 		};
+		72C88FC8285C56960090CCE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				0591D6A0285B723700730426 /* ItemListViewController.swift */,
+				72729E1C285C25D600349EC2 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		72C88FC9285C56B60090CCE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				722D0346285B774B009A0118 /* TableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		72F1E5C028570F560033905A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,13 +412,11 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				72C88FC9285C56B60090CCE6 /* View */,
+				72C88FC8285C56960090CCE6 /* Controller */,
 				72F1E5C028570F560033905A /* Model */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
-				0591D6A0285B723700730426 /* ItemListViewController.swift */,
-				722D0346285B774B009A0118 /* TableViewCell.swift */,
-				72729E1C285C25D600349EC2 /* DetailViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
