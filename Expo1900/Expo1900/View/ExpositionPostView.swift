@@ -158,6 +158,8 @@ final class ExpositionPostView: UIView {
     }
 }
 
+// - MARK: View Settings
+
 private extension ExpositionPostView {
     @objc func tappedExpositionEnterButton(_ sender: UIButton) {
         let expositionTableViewController = ExpositionTableViewController()

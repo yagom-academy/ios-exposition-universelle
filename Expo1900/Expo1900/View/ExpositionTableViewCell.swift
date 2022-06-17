@@ -60,6 +60,8 @@ final class ExpositionTableViewCell: UITableViewCell {
     }
 }
 
+// - MARK: View Settings
+
 extension ExpositionTableViewCell {
     private func addSubView() {
         contentView.addSubview(entryImage)

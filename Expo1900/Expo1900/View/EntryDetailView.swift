@@ -56,6 +56,8 @@ final class EntryDetailView: UIView {
     }
 }
 
+// - MARK: View Settings
+
 private extension EntryDetailView {
     func addSubview(from rootView: UIView) {
         rootView.addSubview(contentScrollView)

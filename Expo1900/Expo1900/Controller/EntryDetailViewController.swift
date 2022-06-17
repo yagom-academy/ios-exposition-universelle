@@ -17,6 +17,8 @@ final class EntryDetailViewController: UIViewController {
     }
 }
 
+// - MARK: View Settings
+
 extension EntryDetailViewController {
     private func configureUI() {
         if let entryEntity = entryEntity {

@@ -25,6 +25,8 @@ final class ExpositionTableViewController: UIViewController {
     }
 }
 
+// - MARK: TableView Settings
+
 extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let entryEntity = entryEntity {
@@ -52,6 +54,8 @@ extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSou
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
+
+// - MARK: View Settings
 
 extension ExpositionTableViewController {
     private func configureUI() {
