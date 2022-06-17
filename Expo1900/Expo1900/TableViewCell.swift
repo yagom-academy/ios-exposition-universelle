@@ -44,6 +44,7 @@ class TableViewCell: UITableViewCell {
         addStackView()
         addView()
         constraintLayout()
+        self.accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -66,10 +67,9 @@ class TableViewCell: UITableViewCell {
         itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5).isActive = true
         itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         
-        stackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 5).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 15).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
         stackView.centerYAnchor.constraint(equalTo: itemImageView.centerYAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5).isActive = true
-        //stackView.topAnchor.constraint(equalTo: itemImageView.topAnchor).isActive = true
     }
 }

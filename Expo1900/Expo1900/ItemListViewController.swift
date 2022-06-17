@@ -47,6 +47,11 @@ class ItemListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+        self.navigationController?.pushViewController(detailView, animated: true)
+    }
 }
 
 extension ItemListViewController: UITableViewDataSource {
