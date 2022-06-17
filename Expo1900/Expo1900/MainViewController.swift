@@ -179,10 +179,19 @@ class MainViewController: UIViewController {
         let title = expositionData!.title.replacingOccurrences(of: "(", with: "\n(")
         
         titleLabel.text = title
-        visitorLabel.text = "방문객 : \(expositionData!.visitors)명"
+        visitorLabel.text = "방문객 : \(expositionData!.visitors.formatNumber())명"
         venueLabel.text = "개최지 : \(expositionData!.location)"
         periodLabel.text = "개최 기간: \(expositionData!.duration)"
         descriptionLabel.text = expositionData?.description
     }
 }
 
+extension Int {
+    func formatNumber() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let number = numberFormatter.string(for: self) else { return "" }
+        return number
+    }
+}
