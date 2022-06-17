@@ -24,18 +24,18 @@ class ItemListViewController: UIViewController {
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
 
         configureTableView()
-        addTableView()
-        constraintTableViewLayout()
+        setTableView()
+        setTableViewLayout()
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
     }
     
-    private func addTableView() {
+    private func setTableView() {
         self.view.addSubview(tableView)
     }
     
-    private func constraintTableViewLayout() {
+    private func setTableViewLayout() {
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true

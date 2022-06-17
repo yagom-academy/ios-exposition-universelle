@@ -128,9 +128,20 @@ class MainViewController: UIViewController {
     }
     
     private func setScrollView() {
+        addScrollView()
+        addStackView()
+        
+        setScrollViewLayout()
+        setStackViewLayout()
+        setImageViewLayout()
+    }
+    
+    private func addScrollView() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        
+    }
+    
+    private func addStackView() {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(visitorLabel)
@@ -142,10 +153,6 @@ class MainViewController: UIViewController {
         subStackView.addArrangedSubview(leftFlagImageView)
         subStackView.addArrangedSubview(button)
         subStackView.addArrangedSubview(rightFlagImageView)
-        
-        setScrollViewLayout()
-        setStackViewLayout()
-        setImageViewLayout()
     }
     
     private func setScrollViewLayout() {

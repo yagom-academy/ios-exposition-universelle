@@ -43,7 +43,9 @@ class TableViewCell: UITableViewCell {
         
         addStackView()
         addView()
-        constraintLayout()
+        setImageViewLayout()
+        setStackViewLayout()
+        
         self.accessoryType = .disclosureIndicator
     }
     
@@ -61,12 +63,14 @@ class TableViewCell: UITableViewCell {
         self.contentView.addSubview(stackView)
     }
     
-    private func constraintLayout() {
+    private func setImageViewLayout() {
         itemImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         itemImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5).isActive = true
         itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-        
+    }
+    
+    private func setStackViewLayout() {
         stackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 15).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
         stackView.centerYAnchor.constraint(equalTo: itemImageView.centerYAnchor).isActive = true

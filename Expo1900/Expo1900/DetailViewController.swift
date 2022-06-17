@@ -47,14 +47,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = itemData?.name
         
-        setScrollView()
+        addScrollView()
         setScrollViewLayout()
         setStackViewLayout()
         setImageViewLayout()
         updateComponent()
     }
     
-    private func setScrollView() {
+    private func addScrollView() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         
