@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Exposition
-struct Exposition: Codable {
+struct Exposition: Codable, ExpoData {
     let title: String
     let location: String
     let duration: String

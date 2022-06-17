@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - ExpoItemElement
-struct ExpoItemElement: Codable {
+struct ExpoItemElement: Codable, ExpoData {
     let name: String
     let imageName: String
     let shortDesc: String
