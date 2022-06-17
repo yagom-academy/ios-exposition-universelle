@@ -32,11 +32,3 @@ extension ExpositionPostEntity {
         }
     }
 }
-private extension Int {
-    func setNumberFormatter() -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.usesSignificantDigits = true
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter.string(from: NSNumber(value: self)) ?? ""
-    }
-}
