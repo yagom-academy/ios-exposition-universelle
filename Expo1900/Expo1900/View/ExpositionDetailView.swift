@@ -37,6 +37,7 @@ final class ExpositionDetailView: UIView {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label

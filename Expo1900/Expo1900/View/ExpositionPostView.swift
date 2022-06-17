@@ -80,6 +80,7 @@ final class ExpositionPostView: UIView {
     
     private let visitorLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -88,6 +89,7 @@ final class ExpositionPostView: UIView {
     
     private let locationLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -96,6 +98,7 @@ final class ExpositionPostView: UIView {
     
     private let durationLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -104,6 +107,7 @@ final class ExpositionPostView: UIView {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
