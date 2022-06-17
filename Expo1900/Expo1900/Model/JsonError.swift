@@ -6,7 +6,8 @@
 //
 
 enum JsonError: Error {
-    case decodingFailure 
+    case decodingFailure
+    case noneFile
 }
 
 extension JsonError {
@@ -14,6 +15,8 @@ extension JsonError {
         switch self {
         case .decodingFailure:
             return "JSON파일 디코딩을 실패했습니다.!"
+        case .noneFile:
+            return "JSON파일이 없습니다.!"
         }
     }
 }

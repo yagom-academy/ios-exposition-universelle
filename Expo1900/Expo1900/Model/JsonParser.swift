@@ -18,7 +18,10 @@ enum JsonParser<T:Decodable> {
             } catch {
                 throw JsonError.decodingFailure
             }
+        } else {
+            throw JsonError.noneFile
         }
+        
         return entity
     }
 }
