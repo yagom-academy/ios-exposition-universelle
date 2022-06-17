@@ -15,7 +15,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     
     @IBOutlet private weak var leftFlagImageView: UIImageView!
-    @IBOutlet private weak var presentItemsButton: UIButton!
+    @IBOutlet private weak var presentKoreanContentsButton: UIButton!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
 
     override func viewDidLoad() {

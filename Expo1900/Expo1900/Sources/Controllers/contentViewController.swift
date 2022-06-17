@@ -1,7 +1,7 @@
 import UIKit
 
-final class ItemViewController: UIViewController {
-    @IBOutlet private weak var itemImageView: UIImageView!
+final class contentViewController: UIViewController {
+    @IBOutlet private weak var contentImageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
     var content: Content?
@@ -14,7 +14,7 @@ final class ItemViewController: UIViewController {
     
     private func setUIComponents() {
         guard let content = content else { return }
-        itemImageView.image = UIImage(named: content.imageName)
+        contentImageView.image = UIImage(named: content.imageName)
         descriptionLabel.text = content.description
         title = content.name
     }

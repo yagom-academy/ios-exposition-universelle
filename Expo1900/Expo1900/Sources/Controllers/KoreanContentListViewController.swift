@@ -1,15 +1,15 @@
 import UIKit
 
-class ItemListViewController: UIViewController {
-    @IBOutlet weak var itemTableView: UITableView!
+final class KoreanContentListViewController: UIViewController {
+    @IBOutlet private weak var contentTableView: UITableView!
 
     private var contents: [Content] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        itemTableView.dataSource = self
-        itemTableView.delegate = self
-        itemTableView.rowHeight = 150
+        contentTableView.dataSource = self
+        contentTableView.delegate = self
+        contentTableView.rowHeight = 150
 
         do {
             contents = try decodeContentData()
@@ -26,29 +26,29 @@ class ItemListViewController: UIViewController {
     }
     
     private func decodeContentData() throws -> [Content] {
-        guard let koreanItems = NSDataAsset.init(name: "items") else { throw DataHandlingError.invalidFile }
+        guard let koreanContents = NSDataAsset.init(name: "items") else { throw DataHandlingError.invalidFile }
         
         let jsonDecoder = JSONDecoder()
-        let contents = try jsonDecoder.decode([Content].self, from: koreanItems.data)
+        let contents = try jsonDecoder.decode([Content].self, from: koreanContents.data)
         
         return contents
     }
 }
 
-extension ItemListViewController: UITableViewDataSource {
+extension KoreanContentListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = itemTableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? ItemCell ?? ItemCell()
+        let cell = contentTableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath) as? ContentCell ?? ContentCell()
         let currentContent = contents[indexPath.row]
         
         cell.descriptionLabel.numberOfLines = 0
         cell.titleLabel.font = .preferredFont(forTextStyle: .title2)
         cell.accessoryType = .disclosureIndicator
         
-        cell.itemImageView.image = UIImage(named: currentContent.imageName)
+        cell.contentImageView.image = UIImage(named: currentContent.imageName)
         cell.titleLabel.text = currentContent.name
         cell.descriptionLabel.text = currentContent.shortDescription
         
@@ -56,17 +56,17 @@ extension ItemListViewController: UITableViewDataSource {
     }
 }
 
-extension ItemListViewController: UITableViewDelegate {
+extension KoreanContentListViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "itemViewSegue" {
-            guard let itemViewController = segue.destination as? ItemViewController else { return }
+        if segue.identifier == "contentViewSegue" {
+            guard let contentViewController = segue.destination as? contentViewController else { return }
             guard let indexPath = sender as? IndexPath else { return }
             
-            itemViewController.content = contents[indexPath.row]
+            contentViewController.content = contents[indexPath.row]
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "itemViewSegue", sender: indexPath)
+        performSegue(withIdentifier: "contentViewSegue", sender: indexPath)
     }
 }

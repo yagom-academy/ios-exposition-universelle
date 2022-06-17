@@ -1,7 +1,7 @@
 import UIKit
 
-class ItemCell: UITableViewCell {
-    @IBOutlet weak var itemImageView: UIImageView!
+class ContentCell: UITableViewCell {
+    @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
