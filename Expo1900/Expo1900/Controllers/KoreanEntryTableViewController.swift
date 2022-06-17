@@ -17,7 +17,6 @@ extension KoreanEntryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.reloadData()
     }
 }
 
@@ -29,7 +28,17 @@ extension KoreanEntryTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "koreanEntryCell", for: indexPath)
-
-        return cell
+        
+        guard let entryCell = cell as? KoreanEntryTableViewCell else {
+            return cell
+        }
+        
+        let data = entries?[indexPath.row]
+        
+        entryCell.entryImageView.image = data?.thumbnail
+        entryCell.titleLabel.text = data?.name
+        entryCell.shortDescriptionLabel.text = data?.shortDescription
+        
+        return entryCell
     }
 }
