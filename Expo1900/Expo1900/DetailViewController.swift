@@ -8,7 +8,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
     var itemData: Entry?
     
     private let imageView: UIImageView = {

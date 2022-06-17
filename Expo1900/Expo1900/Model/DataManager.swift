@@ -38,6 +38,5 @@ struct DataManager {
         
         return dataList
     }
-    
 }
 

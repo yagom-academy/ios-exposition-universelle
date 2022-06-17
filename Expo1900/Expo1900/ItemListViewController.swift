@@ -8,7 +8,6 @@
 import UIKit
 
 class ItemListViewController: UIViewController {
-    
     private let entryData = DataManager().entryParse(fileName: "items")
     private let backButton = UIBarButtonItem(title: "메인", style: .plain, target: nil, action: nil)
     
@@ -47,12 +46,6 @@ class ItemListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
-        detailView.itemData = entryData[indexPath.row]
-        self.navigationController?.pushViewController(detailView, animated: true)
-    }
 }
 
 extension ItemListViewController: UITableViewDataSource {
@@ -75,5 +68,9 @@ extension ItemListViewController: UITableViewDataSource {
 }
 
 extension ItemListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+        detailView.itemData = entryData[indexPath.row]
+        self.navigationController?.pushViewController(detailView, animated: true)
+    }
 }

@@ -7,7 +7,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     let expositionData = DataManager().expositionParse(fileName: "exposition_universelle_1900")
     
     private let stackView: UIStackView = {
@@ -183,15 +182,5 @@ class MainViewController: UIViewController {
         venueLabel.text = "개최지 : \(expositionData!.location)"
         periodLabel.text = "개최 기간: \(expositionData!.duration)"
         descriptionLabel.text = expositionData?.description
-    }
-}
-
-extension Int {
-    func formatNumber() -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        guard let number = numberFormatter.string(for: self) else { return "" }
-        return number
     }
 }
