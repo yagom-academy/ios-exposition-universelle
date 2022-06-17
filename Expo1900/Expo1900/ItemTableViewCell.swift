@@ -48,21 +48,22 @@ class ItemTableViewCell: UITableViewCell {
         self.contentView.addSubview(itemImageView)
         self.contentView.addSubview(labelStackView)
         
-        updateConstraints()
+        itemImageViewAutoLayout()
+        labelStackViewAutoLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func updateConstraints() {
-        super.updateConstraints()
-        
+    func itemImageViewAutoLayout() {
         itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         itemImageView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.2).isActive = true
         itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
         itemImageView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        
+    }
+    
+    func labelStackViewAutoLayout() {
         labelStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
         labelStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 10).isActive = true
         labelStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
