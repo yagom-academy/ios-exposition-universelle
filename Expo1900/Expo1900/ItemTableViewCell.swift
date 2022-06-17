@@ -68,9 +68,5 @@ class ItemTableViewCell: UITableViewCell {
         subStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
         subStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
     }
-    
-    func generateImage(name: String) -> UIImage? {
-        guard let image = UIImage(named: name) else { return nil }
-        return image
     }
 }

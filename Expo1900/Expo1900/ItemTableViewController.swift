@@ -34,7 +34,7 @@ class ItemTableViewController: UITableViewController {
         if let result = result {
             cell.nameLabel.text = "\(String(describing: result[indexPath.row].name))"
             cell.shortDescriptionLabel.text = "\(String(describing: result[indexPath.row].shortDescription))"
-            cell.imageNameView.image = cell.generateImage(name: result[indexPath.row].imageName )
+            cell.itemImageView.image = UIImage(named: result[indexPath.row].imageName )
             cell.accessoryType = .disclosureIndicator
         }
         tableView.estimatedRowHeight = 200
