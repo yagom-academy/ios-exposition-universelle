@@ -46,7 +46,7 @@ class ItemTableViewController: UITableViewController {
         let detailViewController = DetailViewController.instantiate(bundle: nil, identifier: "DetailView")
         if let result = result {
             detailViewController.itemTitle = result[indexPath.row].name
-            detailViewController.imageNameView.image = UIImage(named: result[indexPath.row].imageName)
+            detailViewController.itemImageView.image = UIImage(named: result[indexPath.row].imageName)
             detailViewController.descriptionLabel.text = result[indexPath.row].description
         }
         self.navigationController?.pushViewController(detailViewController, animated: true)
