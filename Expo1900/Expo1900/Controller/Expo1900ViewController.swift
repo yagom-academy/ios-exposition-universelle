@@ -95,6 +95,7 @@ class Expo1900ViewController: UIViewController {
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         button.setContentCompressionResistancePriority(UILayoutPriority(751), for: .horizontal)
+        button.addTarget(nil, action: #selector(tappedNextViewButtonEvent), for: .touchUpInside)
         return button
     }()
     
@@ -143,6 +144,11 @@ class Expo1900ViewController: UIViewController {
         expo1900SubStackView.leadingAnchor.constraint(equalTo: expo1900StackView.leadingAnchor).isActive = true
         expo1900SubStackView.trailingAnchor.constraint(equalTo: expo1900StackView.trailingAnchor).isActive = true
         expo1900SubStackView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+    }
+    
+    @objc private func tappedNextViewButtonEvent() {
+        let koreaItemsTableViewController = KoreaItemsTableViewController()
+        self.navigationController?.pushViewController(koreaItemsTableViewController, animated: true)
     }
 }
 
