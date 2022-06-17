@@ -8,16 +8,24 @@
 import UIKit
 
 class SelectedEntryViewController: UIViewController {
-    
-    var data: ExpositionEntry?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.title = "Test"
-    }
-    
     @IBOutlet weak var selectedEntryImageView: UIImageView!
     @IBOutlet weak var selectedEntryDescriptionLabel: UILabel!
     
-    
+    var entry: ExpositionEntry?
 }
 
+extension SelectedEntryViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureView()
+    }
+}
+
+extension SelectedEntryViewController {
+    private func configureView() {
+        navigationItem.title = entry?.name
+        selectedEntryImageView.image = entry?.thumbnail
+        selectedEntryDescriptionLabel.text = entry?.description
+    }
+}
