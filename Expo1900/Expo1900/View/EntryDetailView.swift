@@ -1,5 +1,5 @@
 //
-//  ExpositionDetailView.swift
+//  EntryDetailView.swift
 //  Expo1900
 //
 //  Created by Baek on 2022/06/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExpositionDetailView: UIView {
+final class EntryDetailView: UIView {
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +56,7 @@ final class ExpositionDetailView: UIView {
     }
 }
 
-private extension ExpositionDetailView {
+private extension EntryDetailView {
     func addSubview(from rootView: UIView) {
         rootView.addSubview(contentScrollView)
         contentScrollView.addSubview(verticalStackView)

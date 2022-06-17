@@ -1,5 +1,5 @@
 //
-//  ExpositionDetailViewController.swift
+//  EntryDetailViewController.swift
 //  Expo1900
 //
 //  Created by Baek on 2022/06/16.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class ExpositionDetailViewController: UIViewController {
-    private var expositionDetailView: ExpositionDetailView?
+final class EntryDetailViewController: UIViewController {
+    private var expositionDetailView: EntryDetailView?
     var entryEntity: EntryEntity?
     
     override func viewDidLoad() {
@@ -17,10 +17,10 @@ final class ExpositionDetailViewController: UIViewController {
     }
 }
 
-extension ExpositionDetailViewController {
+extension EntryDetailViewController {
     private func configureUI() {
         if let entryEntity = entryEntity {
-            expositionDetailView = ExpositionDetailView(self.view, data: entryEntity)
+            expositionDetailView = EntryDetailView(self.view, data: entryEntity)
             self.title = entryEntity.name
         }
     }
