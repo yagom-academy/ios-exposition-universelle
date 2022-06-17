@@ -8,7 +8,7 @@
 import UIKit
 
 enum JsonParser<T:Decodable> {
-    static func fetch(_ fileName: String) -> T? {
+    static func fetch(_ fileName: String) throws -> T? {
         let jsonDecoder = JSONDecoder()
         var entity: T?
         
@@ -16,7 +16,7 @@ enum JsonParser<T:Decodable> {
             do {
                 entity = try jsonDecoder.decode(T.self, from: asset.data)
             } catch {
-                print(error.localizedDescription)
+                throw JsonError.decodingFailure
             }
         }
         return entity

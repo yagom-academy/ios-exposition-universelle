@@ -21,7 +21,7 @@ final class ExpositionTableViewController: UIViewController {
         
         configureUI()
         
-        entryEntity = JsonParser<[EntryEntity]>.fetch("EntryEntity")
+        entryEntity = try? JsonParser<[EntryEntity]>.fetch("EntryEntity")
     }
 }
 
@@ -31,10 +31,6 @@ extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSou
             return entryEntity.count
         }
         return 0
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,8 +62,8 @@ extension ExpositionTableViewController {
         self.title = "한국의 출품작"
         self.view.addSubview(expositionTableView)
         
+        expositionTableView.estimatedRowHeight = 100
         expositionTableView.rowHeight = UITableView.automaticDimension
-        expositionTableView.estimatedRowHeight = UITableView.automaticDimension
         
         NSLayoutConstraint.activate([
             expositionTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

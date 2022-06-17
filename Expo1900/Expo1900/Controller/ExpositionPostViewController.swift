@@ -23,7 +23,7 @@ final class ExpositionPostViewController: UIViewController {
 
 extension ExpositionPostViewController {
     private func configureUI() {
-        guard let expositionPostEntity = JsonParser<ExpositionPostEntity>.fetch("ExpositionPost") else {
+        guard let expositionPostEntity = try? JsonParser<ExpositionPostEntity>.fetch("ExpositionPost") else {
             return
         }
         
