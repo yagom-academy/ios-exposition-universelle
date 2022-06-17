@@ -104,19 +104,14 @@ class Expo1900ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .systemBackground
         self.view.addSubview(expo1900ScrollView)
-        
-        let storeUIView = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, expo1900SubStackView]
-        storeUIView.forEach {self.expo1900StackView.addArrangedSubview($0)}
-        
-        let subStoreUIView = [leftFlagImageView, nextViewButton, rightFlagImageView]
-        subStoreUIView.forEach {self.expo1900SubStackView.addArrangedSubview($0)}
-        
         self.expo1900ScrollView.addSubview(expo1900StackView)
         
-        setScrollViewConstraints()
-        setStackViewConstraints()
-        setSubStackViewConstraints()
-        
+        addUIItemStackView()
+        setViewConstraints()
+        setLabelText()
+    }
+    
+    private func setLabelText() {
         expoData.decodingJsonData()
         titleLabel.text = expoData.title
         visitorsLabel.text = expoData.visitors
@@ -124,7 +119,21 @@ class Expo1900ViewController: UIViewController {
         durationLabel.text = expoData.duration
         descriptionLabel.text = expoData.description
     }
-
+    
+    private func setViewConstraints() {
+        setScrollViewConstraints()
+        setStackViewConstraints()
+        setSubStackViewConstraints()
+    }
+    
+    private func addUIItemStackView() {
+        let storeUIView = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, expo1900SubStackView]
+        storeUIView.forEach {self.expo1900StackView.addArrangedSubview($0)}
+        
+        let subStoreUIView = [leftFlagImageView, nextViewButton, rightFlagImageView]
+        subStoreUIView.forEach {self.expo1900SubStackView.addArrangedSubview($0)}
+    }
+    
     private func setScrollViewConstraints() {
         expo1900ScrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         expo1900ScrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
