@@ -10,10 +10,10 @@ import UIKit
 class DetailViewController: UIViewController {
     var itemTitle: String?
     
-    let imageNameView: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+    let itemImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
     let descriptionLabel: UILabel = {
@@ -25,29 +25,40 @@ class DetailViewController: UIViewController {
     }()
     
     lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.distribution = .fill
-        stack.addArrangedSubview(imageNameView)
-        stack.addArrangedSubview(descriptionLabel)
-        return stack
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.addArrangedSubview(itemImageView)
+        stackView.addArrangedSubview(descriptionLabel)
+        return stackView
+    }()
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(stackView)
+        return scrollView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = itemTitle
-        
-        let scrollView = UIScrollView()
         self.view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollViewAutoLayout()
+        stackViewAutoLayout()
+    }
+    
+    private func scrollViewAutoLayout() {
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        scrollView.addSubview(stackView)
-        
+    }
+    
+    private func stackViewAutoLayout() {
         stackView.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
         stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
