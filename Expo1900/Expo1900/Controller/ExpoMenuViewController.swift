@@ -30,6 +30,8 @@ extension ExpoMenuViewController: UITableViewDelegate {
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
             return
         }
+        detailVC.expoItemElement = expoItemList[indexPath.row]
+        
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

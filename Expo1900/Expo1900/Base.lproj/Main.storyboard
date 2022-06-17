@@ -249,17 +249,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="디테일 뷰컨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx7-2x-8Gr">
-                                <rect key="frame" x="197" y="472" width="138" height="113"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxM-kF-gPB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xeG-Tf-xXI">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="148.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AMN-n8-Lwd">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUX-rw-rKq">
+                                                <rect key="frame" x="0.0" y="128" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="148.5" id="Dj0-3x-bZU"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xeG-Tf-xXI" firstAttribute="top" secondItem="PyS-1K-CIp" secondAttribute="top" id="7eb-Ww-pIS"/>
+                                    <constraint firstItem="xeG-Tf-xXI" firstAttribute="leading" secondItem="PyS-1K-CIp" secondAttribute="leading" id="MRI-Kq-qyJ"/>
+                                    <constraint firstItem="xeG-Tf-xXI" firstAttribute="width" secondItem="Aft-vl-eGU" secondAttribute="width" id="N1C-cI-0BI"/>
+                                    <constraint firstItem="xeG-Tf-xXI" firstAttribute="bottom" secondItem="PyS-1K-CIp" secondAttribute="bottom" id="jko-gL-Lgr"/>
+                                    <constraint firstItem="xeG-Tf-xXI" firstAttribute="trailing" secondItem="PyS-1K-CIp" secondAttribute="trailing" id="tps-Hm-Nq7"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="PyS-1K-CIp"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Aft-vl-eGU"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LN7-tn-hdY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sxM-kF-gPB" firstAttribute="top" secondItem="LN7-tn-hdY" secondAttribute="top" id="0Jv-IE-8wV"/>
+                            <constraint firstItem="sxM-kF-gPB" firstAttribute="leading" secondItem="LN7-tn-hdY" secondAttribute="leading" id="GIQ-oc-zTu"/>
+                            <constraint firstItem="LN7-tn-hdY" firstAttribute="bottom" secondItem="sxM-kF-gPB" secondAttribute="bottom" id="LGh-dt-kkC"/>
+                            <constraint firstItem="LN7-tn-hdY" firstAttribute="trailing" secondItem="sxM-kF-gPB" secondAttribute="trailing" id="w5T-xF-1tf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ExpoItemDescriptionLabel" destination="CUX-rw-rKq" id="fpx-3f-uf5"/>
+                        <outlet property="ExpoItemImageView" destination="AMN-n8-Lwd" id="ScX-4s-JZj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szH-hi-cyc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
