@@ -10,7 +10,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setting()
+        self.navigationController?.isNavigationBarHidden = true
     }
 }
 

@@ -89,6 +89,45 @@ extension ViewController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .left
         stackView.addArrangedSubview(descriptionLabel)
+        
+        //MARK: - buttonStackView
+        let buttonStackView = UIStackView()
+        
+        buttonStackView.spacing = 10
+        buttonStackView.axis = .horizontal
+        stackView.addArrangedSubview(buttonStackView)
+        
+        //MARK: - leftFlagImage
+        let leftFlagImage = UIImageView()
+        leftFlagImage.image = UIImage(named: "flag")
+        
+        NSLayoutConstraint.activate([leftFlagImage.heightAnchor.constraint(equalToConstant: 50),
+                                     leftFlagImage.widthAnchor.constraint(equalToConstant: 50)])
+        
+        buttonStackView.addArrangedSubview(leftFlagImage)
+        
+        //MARK: - goToKoreaEntrybutton
+        let goToKoreaEntrybutton = UIButton()
+        goToKoreaEntrybutton.translatesAutoresizingMaskIntoConstraints = false
+        goToKoreaEntrybutton.setTitle("한국의 출품작 보러가기", for: .normal)
+        goToKoreaEntrybutton.setTitleColor(.systemBlue, for: .normal)
+//        goToKoreaEntrybutton.addTarget(self, action: #selector(<#T##@objc method#>), for: .touchUpInside)
+        
+//
+        buttonStackView.addArrangedSubview(goToKoreaEntrybutton)
+        
+        //MARK: - didTappedButton
+//        @objc func didTappedButton(_ sender: UIButton) {
+//
+//        }
+        //MARK: - rightFlagImage
+        let rightFlagImage = UIImageView()
+        rightFlagImage.image = UIImage(named: "flag")
+        
+        NSLayoutConstraint.activate([rightFlagImage.heightAnchor.constraint(equalToConstant: 50),
+                                     rightFlagImage.widthAnchor.constraint(equalToConstant: 50)])
+        
+        buttonStackView.addArrangedSubview(rightFlagImage)
     }
     
 }
