@@ -61,7 +61,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k5x-29-gii">
-                                                <rect key="frame" x="113.5" y="152.5" width="187" height="50"/>
+                                                <rect key="frame" x="70.5" y="152.5" width="273" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Nk-Yh-q3D">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -71,15 +71,15 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJu-Jv-Hdm">
-                                                        <rect key="frame" x="60" y="0.0" width="67" height="50"/>
+                                                        <rect key="frame" x="60" y="0.0" width="153" height="50"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
                                                         <connections>
                                                             <action selector="pushToExpoMenuButtonDidTap:" destination="ln2-6t-JP1" eventType="touchUpInside" id="g5Y-M8-Bnd"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0nm-It-vvK">
-                                                        <rect key="frame" x="137" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="223" y="0.0" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="Vps-63-E6f"/>
                                                             <constraint firstAttribute="height" constant="50" id="ufO-sz-eUk"/>
@@ -252,14 +252,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxM-kF-gPB">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xeG-Tf-xXI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xeG-Tf-xXI">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="148.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AMN-n8-Lwd">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUX-rw-rKq">
-                                                <rect key="frame" x="0.0" y="128" width="414" height="20.5"/>
+                                                <rect key="frame" x="186.5" y="128" width="41.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
