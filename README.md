@@ -45,8 +45,8 @@
 
 |메인화면|한국 출품작 리스트|상세화면|
 |:-:|:-:|:-:|
-|<img src="https://i.imgur.com/JPkvrrN.gif">|<img src="https://i.imgur.com/DCCZnyb.gif">|<img src="https://i.imgur.com/GbtxcYz.gif">|
-|메인화면입니다 <br> "한국의 출품작 보러가기"<br>버튼 클릭시 다음화면으로 넘어 갑니다.| 한국의 출품작을 <br> 리스트로 나타내고 있습니다.<br> 작품 리스트 클릭시 상세보기 화면으로 전환 됩니다.|각 출품작의 <br>이미지와 상세설명이 있습니다.<br> 작품 설명 길이에 따라 스크롤 가능합니다|!
+|<img src="https://i.imgur.com/JPkvrrN.gif">|<img src="https://i.imgur.com/DCCZnyb.gif">|![thirdScreen](https://user-images.githubusercontent.com/59466342/174215016-d71a490b-f294-42a4-8a74-513d3d279985.gif)|
+|메인화면입니다 <br> "한국의 출품작 보러가기"<br>버튼 클릭시 다음화면으로 넘어 갑니다.| 한국의 출품작을 <br> 리스트로 나타내고 있습니다.<br> 작품 리스트 클릭시 상세보기 화면으로 전환 됩니다.|각 출품작의 <br>이미지와 상세설명이 있습니다.<br> 작품 설명 길이에 따라 스크롤 가능합니다|
 
 <br>
 
