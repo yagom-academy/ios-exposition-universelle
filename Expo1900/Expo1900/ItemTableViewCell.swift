@@ -41,7 +41,7 @@ class ItemTableViewCell: UITableViewCell {
         stack.addArrangedSubview(subStackView)
         return stack
     }()
-    
+        
     lazy var subStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +56,7 @@ class ItemTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         self.addSubview(stackView)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +67,6 @@ class ItemTableViewCell: UITableViewCell {
         stackView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        
         super.updateConstraints()
     }
     

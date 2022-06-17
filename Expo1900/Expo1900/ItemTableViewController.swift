@@ -18,6 +18,7 @@ class ItemTableViewController: UITableViewController {
         result = itemDataManager.getData()
         
         tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemCell")
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,5 +49,4 @@ class ItemTableViewController: UITableViewController {
         }
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
-    
 }
