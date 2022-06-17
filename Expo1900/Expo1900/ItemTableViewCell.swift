@@ -28,25 +28,15 @@ class ItemTableViewCell: UITableViewCell {
     let imageNameView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
         return image
-    }()
-    
-    lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.distribution = .fill
-        stack.alignment = .fill
-        stack.addArrangedSubview(imageNameView)
-        stack.addArrangedSubview(subStackView)
-        return stack
     }()
         
     lazy var subStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.distribution = .fill
+        stack.distribution = .equalSpacing
         stack.alignment = .leading
         stack.addArrangedSubview(nameLabel)
         stack.addArrangedSubview(shortDescriptionLabel)
@@ -55,8 +45,10 @@ class ItemTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
-        self.addSubview(stackView)
+        self.contentView.addSubview(imageNameView)
+        self.contentView.addSubview(subStackView)
         
+        updateConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -64,10 +56,17 @@ class ItemTableViewCell: UITableViewCell {
     }
     
     override func updateConstraints() {
-        stackView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
         super.updateConstraints()
+
+        imageNameView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        imageNameView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.2).isActive = true
+        imageNameView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
+        imageNameView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+
+        subStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
+        subStackView.leadingAnchor.constraint(equalTo: imageNameView.trailingAnchor, constant: 10).isActive = true
+        subStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
+        subStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
     }
     
     func generateImage(name: String) -> UIImage? {

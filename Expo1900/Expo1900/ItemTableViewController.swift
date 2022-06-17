@@ -37,6 +37,8 @@ class ItemTableViewController: UITableViewController {
             cell.imageNameView.image = cell.generateImage(name: result[indexPath.row].imageName )
             cell.accessoryType = .disclosureIndicator
         }
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableView.automaticDimension
         return cell
     }
     
