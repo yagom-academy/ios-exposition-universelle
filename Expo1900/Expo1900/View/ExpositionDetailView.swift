@@ -18,8 +18,8 @@ final class ExpositionDetailView: UIView {
     private let verticalStackView: UIStackView = {
         let stackview = UIStackView()
         stackview.axis = .vertical
-        stackview.alignment = .fill
-        stackview.distribution = .fillProportionally
+        stackview.alignment = .center
+        stackview.distribution = .equalSpacing
         stackview.translatesAutoresizingMaskIntoConstraints = false
         stackview.spacing = 10
         stackview.backgroundColor = .white
@@ -37,7 +37,6 @@ final class ExpositionDetailView: UIView {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -75,13 +74,15 @@ private extension ExpositionDetailView {
             contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
             contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
             
-            entryImage.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 20),
-            descriptionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 800),
             verticalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
+            verticalStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
             verticalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+
+            descriptionLabel.topAnchor.constraint(equalTo: entryImage.bottomAnchor, constant: 10),
+            descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
+            descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
         ])
     }
     

@@ -21,36 +21,24 @@ final class ExpositionTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.textAlignment = .left
         return label
     }()
     
     private let shortDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.heightAnchor.constraint(lessThanOrEqualToConstant: 300).isActive = true
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
         label.numberOfLines = 0
         return label
     }()
-    
-    private let horizontalStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.alignment = .fill
-        stackview.distribution = .fillProportionally
-        stackview.spacing = 10
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        return stackview
-    }()
-    
+        
     private let verticalStackView: UIStackView = {
         let stackview = UIStackView()
         stackview.axis = .vertical
-        stackview.alignment = .fill
-        stackview.distribution = .fillProportionally
+        stackview.alignment = .leading
+        stackview.distribution = .equalSpacing
         stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.spacing = 0
+
         return stackview
     }()
     
@@ -74,10 +62,9 @@ final class ExpositionTableViewCell: UITableViewCell {
 
 extension ExpositionTableViewCell {
     private func addSubView() {
-        contentView.addSubview(horizontalStackView)
+        contentView.addSubview(entryImage)
+        contentView.addSubview(verticalStackView)
         
-        horizontalStackView.addArrangedSubview(entryImage)
-        horizontalStackView.addArrangedSubview(verticalStackView)
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(shortDescription)
         
@@ -86,11 +73,13 @@ extension ExpositionTableViewCell {
     
     private func setUpUIConstraints() {
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            entryImage.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 10)
+            entryImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            entryImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            verticalStackView.leadingAnchor.constraint(equalTo: entryImage.trailingAnchor, constant: 10),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
+            verticalStackView.centerYAnchor.constraint(equalTo: entryImage.centerYAnchor),
         ])
     }
     
