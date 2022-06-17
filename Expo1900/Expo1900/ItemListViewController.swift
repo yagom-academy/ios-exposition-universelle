@@ -50,6 +50,7 @@ class ItemListViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
+        detailView.itemData = entryData[indexPath.row]
         self.navigationController?.pushViewController(detailView, animated: true)
     }
 }
