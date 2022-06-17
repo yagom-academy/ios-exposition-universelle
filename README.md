@@ -1,10 +1,10 @@
 # iOS 커리어 스타터 캠프
 
 ## 프로젝트 저장소
-> 프로젝트 기간: 2022-06-13 ~ 2022-06-24
-> 팀원: [브래드](https://github.com/bradheo65), [그루트](https://github.com/Groot-94)
-리뷰어: [@ryan-son](https://github.com/ryan-son)
-그라운드롤: [GroundRole](https://github.com/bradheo65/ios-exposition-universelle/blob/Step02/Docs/GroundRole.md)
+> 프로젝트 기간: 2022-06-13 ~ 2022-06-24</br>
+> 팀원: [브래드](https://github.com/bradheo65), [그루트](https://github.com/Groot-94)</br>
+> 리뷰어: [@ryan-son](https://github.com/ryan-son)</br>
+> 그라운드롤: [GroundRole](https://github.com/bradheo65/ios-exposition-universelle/blob/Step02/Docs/GroundRole.md)</br>
 ## 📑 목차
 - [🙋🏻‍♂️ 개발자 소개](#🙋🏻‍♂️-개발자-소개)
 - [📈 프로젝트 소개](#📈-프로젝트-소개)
