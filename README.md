@@ -49,12 +49,13 @@ bonf , wongbing
 # Step2
 기간 : 2022.6.15(수) ~ 2022.6.17(금)
 
-## 구현사항
 <p>
-<div class=pull-left>
-<img src="https://i.imgur.com/4STBcUU.gif" width="300" height="600"/><img src="https://i.imgur.com/ki5XeDs.pnghttps://i.imgur.com/4STBcUU.gif" width="50" height="600"/>
-</div>
 
+<div class=pull-left>
+
+![화면_기록_2022-06-17_오후_2_59_40_AdobeExpress](https://user-images.githubusercontent.com/95671495/174245483-7ab07eaa-91e7-4106-83c3-4ecc858de8d8.gif)
+
+</div>
 
 ### - Storyboard ID를 이용한 네비게이션
 뷰 간의 이동을 하기 위해서 각 뷰의 식별자가 필요했는데, 코드로 뷰를 짠 경우 이 식별자 지정을 할 수가 없었다, 그래서 뷰마다 빈 ViewController 를 만들어 준뒤, Storyboard ID 를 지정해주어 사용 하였다. 
@@ -141,8 +142,7 @@ title.text 내의 "(" 를 "\n("로 변경하도록 구현했다.
     title.text = title.text?.replacingOccurrences(of: "(", with: "\n(")
     title.textAlignment = .center
 ```
-<img src="https://i.imgur.com/u3W5HEU.png" width="250" height="500"/>
-<img src="https://i.imgur.com/66t1M9e.png" width="250" height="500"/>
+<img src="https://i.imgur.com/u3W5HEU.png" width="250" height="500"/><img src="https://i.imgur.com/66t1M9e.png" width="250" height="500"/>
 
 ### - 스크롤이 되지 않는 문제
 UIViewController 로 뷰를 구성하니 위아래 스크롤이 되지 않았다. 그래서, 모든 UI요소를 새로 만들어준 UIScrollerView 에 다시 추가해준 뒤, UIScrollView - SuperView 와의 Constraints 을 설정 해주었다. 
@@ -159,8 +159,7 @@ func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage? {
 }
 ```
 
-<img src="https://i.imgur.com/Iih7Yd6.png" width="250" height="500"/>
-<img src="https://i.imgur.com/wuVmwG0.png" width="250" height="500"/>
+<img src="https://i.imgur.com/Iih7Yd6.png" width="250" height="500"/><img src="https://i.imgur.com/wuVmwG0.png" width="250" height="500"/>
 
 ## 궁금한 점
 
