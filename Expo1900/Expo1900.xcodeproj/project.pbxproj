@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F505F7F285C65AC0001D06E /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F505F7E285C65AC0001D06E /* EntryListViewController.swift */; };
+		8F505F81285C65D00001D06E /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F505F80285C65D00001D06E /* DescriptionViewController.swift */; };
 		8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA19289285708BD00CE0C7D /* EntryList.swift */; };
 		8FF05ECA285AF0E80000B72D /* Int+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF05EC9285AF0E80000B72D /* Int+extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -17,8 +19,6 @@
 		D733FBCC285974C900232E87 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D733FBCB285974C900232E87 /* ParsingTests.swift */; };
 		D746BD47285AEDDB00B7A2F9 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */; };
 		D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD48285AEE6300B7A2F9 /* ParseError.swift */; };
-		D7918165285C291100B3A310 /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7918164285C291100B3A310 /* EntryListViewController.swift */; };
-		D7918167285C292200B3A310 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7918166285C292200B3A310 /* DescriptionViewController.swift */; };
 		D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79200D72857511100F3D5FA /* ExpoInformation.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F505F7E285C65AC0001D06E /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
+		8F505F80285C65D00001D06E /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		8FA19289285708BD00CE0C7D /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
 		8FF05EC9285AF0E80000B72D /* Int+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,8 +48,6 @@
 		D733FBCB285974C900232E87 /* ParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
 		D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		D746BD48285AEE6300B7A2F9 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
-		D7918164285C291100B3A310 /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
-		D7918166285C292200B3A310 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		D79200D72857511100F3D5FA /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
-				D7918164285C291100B3A310 /* EntryListViewController.swift */,
-				D7918166285C292200B3A310 /* DescriptionViewController.swift */,
+				8F505F7E285C65AC0001D06E /* EntryListViewController.swift */,
+				8F505F80285C65D00001D06E /* DescriptionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,13 +257,13 @@
 				8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */,
 				D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */,
 				D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */,
-				D7918167285C292200B3A310 /* DescriptionViewController.swift in Sources */,
+				8F505F81285C65D00001D06E /* DescriptionViewController.swift in Sources */,
 				D746BD47285AEDDB00B7A2F9 /* JsonParser.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				8FF05ECA285AF0E80000B72D /* Int+extension.swift in Sources */,
-				D7918165285C291100B3A310 /* EntryListViewController.swift in Sources */,
+				8F505F7F285C65AC0001D06E /* EntryListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

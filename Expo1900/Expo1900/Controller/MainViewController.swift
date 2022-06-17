@@ -99,17 +99,19 @@ class MainViewController: UIViewController {
         goToKoreaEntryButton.translatesAutoresizingMaskIntoConstraints = false
         goToKoreaEntryButton.setTitle("한국의 출품작 보러가기", for: .normal)
         goToKoreaEntryButton.setTitleColor(.systemBlue, for: .normal)
-        //        goToKoreaEntrybutton.addTarget(self, action: #selector(<#T##@objc method#>), for: .touchUpInside)
+        goToKoreaEntryButton.addTarget(nil, action: #selector(didTappedButton), for: .touchUpInside)
         return goToKoreaEntryButton
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setting()
-        //MARK: - didTappedButton
-        //        @objc func didTappedButton(_ sender: UIButton) {
-        //
-        //        }
+        self.navigationItem.backButtonTitle = "메인"
+    }
+    
+    @objc func didTappedButton(_ sender: UIButton) {
+        let entryListViewController = EntryListViewController()
+        self.navigationController?.pushViewController(entryListViewController, animated: true)
     }
     
     func setting() {
