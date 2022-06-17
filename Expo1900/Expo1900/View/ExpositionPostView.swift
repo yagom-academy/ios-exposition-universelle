@@ -215,13 +215,5 @@ private extension ExpositionPostView {
             horizontalStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: 10),
             horizontalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
         ])
-        
-        setUpChildUIContraints()
-    }
-
-    func setUpChildUIContraints() {
-        NSLayoutConstraint.activate([
-            
-        ])
     }
 }
