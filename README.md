@@ -115,7 +115,6 @@
 
 - `ScrollView`내 `image`와 `description`에 관한 `label` 및 `ImageView`를 생성하여 스크롤을 통해 원하는 내용을 볼 수 있게 하였다.
 - `NavigationBar`의 `BackButton`을 통하여 이전 화면인 `KoreaEntryViewController`로 돌아가는 기능도 추가하였다.
-
 ## Step 1
 
 - feat: Exhibits 파일 생성 및 struct(Exhibits) 선언
@@ -320,28 +319,20 @@ override func viewWillDisappear(_ animated: Bool) {
 - 네비게이션 바에 `title`과 `backButtonTitle`을 설정해주는 방법으로 다음의 두 방법을 발견하였습니다.
 
 ```swift
-// 첫번째 방법
+// 1번 방법
 navigationItem.title = "한국의 출품작"
 navigationItem.backButtonTitle = "메인"
 
-// 두번째 방법
+// 2번 방법
 navigationController?.navigationBar.topItem?.title = "한국의 출품작"
 navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
 ```
+|두번째 VC내 1번 방법 사용|두번째 VC내 2번 방법 사용|첫번째 VC와 두번째 VC 내 1번 방법 사용|
+|:--:|:--:|:--:|
+|<img width="338" alt="secondVC 내 navigationController" src="https://user-images.githubusercontent.com/99063327/174234793-02f81c9a-ee30-4732-98cc-aa82ebde61d8.png">|<img width="336" alt="secondVC 내 navigationItem" src="https://user-images.githubusercontent.com/99063327/174234797-c0d15197-10d9-4f7b-8edb-610ff542c11f.png">|<img width="337" alt="firstVC 내 backbutton 및 secondVC 내 navigationItem" src="https://user-images.githubusercontent.com/99063327/174234783-0552fbe2-64b8-4753-bd70-cee9a221e420.png">|
+|`KoreaEntryViewController` 내의 `viewDidLoad` 함수에서 첫번째 방법을 사용해보니 위와 같이 백버튼은 원하는 네이밍이 잘 표시되었으나, 네비게이션 타이틀은 표시되지 않았습니다.|`KoreaEntryViewController` 내의 `viewDidLoad` 함수에서 두번째 방법을 사용해보니 이버에는 위와 같이 네비게이션 타이틀은 원하는 네이밍이 잘 표시되었으나, 백 버튼의 네이밍이 원하는 대로 표시되지 않았습니다.|이번에는 첫번째 방법을 사용하되, `backButtonTitle`은 첫번째 `VC`인 `EXPOInformationViewController`에서 생성하고, `navigation title`은 두번째 VC인 `KoreaEntryViewController`에서 생성하였습니다. <br/> 그러면 위와같이 네이밍이 원하는 바와 같이 나올 수 있었습니다.|
 
 
-- [두번째 VC인 `KoreaEntryViewController` 내 첫번째 방법 사용]
-<img width="338" alt="secondVC 내 navigationController" src="https://user-images.githubusercontent.com/99063327/174234793-02f81c9a-ee30-4732-98cc-aa82ebde61d8.png">
-- `KoreaEntryViewController` 내의 `viewDidLoad` 함수에서 첫번째 방법을 사용해보니 위와 같이 백버튼은 원하는 네이밍이 잘 표시되었으나, 네비게이션 타이틀은 표시되지 않았다.
-
-- [두번째 VC인 `KoreaEntryViewController` 내 두번째 방법 사용]
-<img width="336" alt="secondVC 내 navigationItem" src="https://user-images.githubusercontent.com/99063327/174234797-c0d15197-10d9-4f7b-8edb-610ff542c11f.png">
-- `KoreaEntryViewController` 내의 `viewDidLoad` 함수에서 두번째 방법을 사용해보니 이버에는 위와 같이 네비게이션 타이틀은 원하는 네이밍이 잘 표시되었으나, 백 버튼의 네이밍이 원하는 대로 표시되지 않았습니다.
-
-- [첫번째 VC인 `EXPOInformationViewController`에 첫번째 방법의 backButton 생성 및 `KoreaEntryViewController` 내 첫번째 방법의 title 생성]
-<img width="337" alt="firstVC 내 backbutton 및 secondVC 내 navigationItem" src="https://user-images.githubusercontent.com/99063327/174234783-0552fbe2-64b8-4753-bd70-cee9a221e420.png">
-
-- 이번에는 첫번째 방법을 사용하되, `backButtonTitle`은 첫번째 `VC`인 `EXPOInformationViewController`에서 생성하고, `navigation title`은 두번째 VC인 `KoreaEntryViewController`에서 생성하였습니다. 그러면 위와같이 네이밍이 원하는 바와 같이 나올 수 있었습니다.
 
 - 문제점을 해결할 수는 있었으나, 왜 그렇게 구현되는지 원리를 제대로 이해하지는 못했습니다. 저희가 이해한 바로는 첫번째 방법과 두번째 방법은 충분히 서로를 대체할 수 있는 함수로 인식하였는데, 같은 위치에 메서드를 호출하여도 다른 결과를 보였습니다. 이에 그 원리를 질문드리고 싶습니다.
 
