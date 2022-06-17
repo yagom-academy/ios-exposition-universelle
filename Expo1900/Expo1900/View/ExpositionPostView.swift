@@ -170,6 +170,10 @@ private extension ExpositionPostView {
         locationLabel.text = data.manufacture(ExpositionPost.location)
         durationLabel.text = data.manufacture(ExpositionPost.duration)
         descriptionLabel.text = data.manufacture(ExpositionPost.description)
+
+        visitorLabel.setTitleStyle()
+        locationLabel.setTitleStyle()
+        durationLabel.setTitleStyle()
         
         expositionEnterButton.addTarget(self, action: #selector(tappedExpositionEnterButton(_:)), for: .touchUpInside)
     }

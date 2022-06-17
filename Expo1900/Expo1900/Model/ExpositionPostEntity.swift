@@ -19,8 +19,7 @@ extension ExpositionPostEntity {
     func manufacture(_ content: ExpositionPost) -> String {
         switch content {
         case .title:
-            let content = title.split(separator: "(").map{ String($0) }
-            let result = content[0] + "\n(" + content[1]
+            let result = title.replacingOccurrences(of: "(", with: "\n(")
             return result
         case .visitors:
             return "방문객 : \(visitors.setNumberFormatter()) 명"
