@@ -166,7 +166,8 @@ private func setData(of data: Content) {
 - 장점: `tableView(_: didSelectRowAt:)`에서만 처리할 수 있음
 - 단점: segue 없이 코드로만 되어 있어 직관적이지 못함 
 <br>
-> **프로젝트 내에서는 두 번째 방식인 performSegue, prepare 사용**
+
+> **프로젝트 내에서는 두 번째 방식인 performSegue, prepare 사용** <br>
 > 근거: segue를 이용해 화면 이동을 구현하는 것이 가장 직관적으로 느껴졌음. 테이블 뷰의 델리게이트 함수인 `tableView(_: didSelectRowAt:)` 함수 역시 사용해보는 것이 좋다고 생각함.
 
 ### 3. catch 에러처리
@@ -257,7 +258,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 <br>
 
 ## 🔗 참고 링크
-[Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
-[Filling a Table with Data](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data(https://developer.apple.com/documentation/uikit/uitableview))
-[JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder)
+[Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views) <br>
+[Filling a Table with Data](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data(https://developer.apple.com/documentation/uikit/uitableview)) <br>
+[JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder) <br>
 [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
