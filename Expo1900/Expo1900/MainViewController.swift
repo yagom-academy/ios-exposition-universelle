@@ -90,7 +90,7 @@ class MainViewController: UIViewController {
         
         let firstFlagView = UIImageView()
         let flagImage = UIImage(named: "flag")
-        let newSizeImage = resizeImage(image: flagImage!, width: 20, height: 20)
+        let newSizeImage = resizeImage(image: flagImage, width: 20, height: 20)
         firstFlagView.image = newSizeImage
 
         let secondFlagView = UIImageView()
@@ -118,6 +118,9 @@ class MainViewController: UIViewController {
         let itemTableViewController = ItemTableViewController.instantiate(bundle: nil, identifier: "ItemView")
         self.navigationController?.pushViewController(itemTableViewController, animated: true)
     }
+}
+
+private extension MainViewController {
     
     func makeScrollView() -> UIScrollView {
         let scrollView = UIScrollView()
@@ -159,12 +162,12 @@ class MainViewController: UIViewController {
         return button
     }
     
-    func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {
+    func resizeImage(image: UIImage?, width: CGFloat, height: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContext(CGSize(width: width, height: height))
-        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        image?.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage!
+        return newImage
     }
 }
 
