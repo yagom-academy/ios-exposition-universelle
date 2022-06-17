@@ -51,14 +51,17 @@ extension ExpositionPosterViewController {
 
 // MARK: - 데이터 옮기는 메서드
 extension ExpositionPosterViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let target = segue.destination as? UINavigationController,
-              let destinationViewController = target.topViewController as? KoreanEntryTableViewContoller,
+    @IBAction func act(_ sender: UIButton) {
+        realAct()
+    }
+    
+    func realAct() {
+        guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: "KoreanEntryTableVC") as? KoreanEntryTableViewController,
               let asset = NSDataAsset.init(name: "items"),
               let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: asset.data) else {
             return
         }
-
-        destinationViewController.entries = entries
+        KoreanEntryTableViewContoller.entries = entries
+        self.navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
     }
 }

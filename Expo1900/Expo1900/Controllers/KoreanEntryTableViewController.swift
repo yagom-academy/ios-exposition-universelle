@@ -7,12 +7,13 @@
 
 import UIKit
 
-class KoreanEntryTableViewContoller: UITableViewController {
+class KoreanEntryTableViewController: UITableViewController {
     var entries: [ExpositionEntry]?
+    var posterViewController: UIViewController?
 }
 
 // MARK: - 뷰 라이프사이클 메서드
-extension KoreanEntryTableViewContoller {
+extension KoreanEntryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +22,7 @@ extension KoreanEntryTableViewContoller {
 }
 
 // MARK: - 테이블 뷰 관련 메서드
-extension KoreanEntryTableViewContoller {
+extension KoreanEntryTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries?.count ?? 1
     }
