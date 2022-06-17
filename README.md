@@ -6,7 +6,8 @@
 ## 만국박람회 프로젝트 
 
 ## 소개
-과거에 개최했던 파리 만국박람회 1900의 한국 출품작에 대해 소개하는 애플리케이션이다. 이 애플리케이션에서는 한국에서 출품했던 작품들에 대해 자세히 알아볼 수 있디.
+- 과거에 개최했던 파리 만국박람회 1900의 한국 출품작에 대해 소개하는 애플리케이션이다.
+- 이 애플리케이션에서는 한국에서 출품했던 작품들에 대해 자세히 알아볼 수 있다.
 
 ## 팀원
 
@@ -57,42 +58,41 @@
 10: 00 - 22: 00
 
 [식사 시간]
-점심 12 : 30 ~ 14 : 00
-저녁 18 : 00 ~ 19 : 30
+- 점심 12 : 30 ~ 14 : 00
+- 저녁 18 : 00 ~ 19 : 30
 
 [연락이 어려운 시간]
 없음
 
 [휴일]
-예톤 : 주말
-수꿍 : 주말
+- 예톤 : 주말
+- 수꿍 : 주말
 
 ### 규칙
 
 [커밋]
 
-최소기능 단위 commit
-카르마 스타일 따르기 ( 한글로 작성 )
-feat = 주로 사용자에게 새로운 기능이 추가되는 경우
-fix = 사용자가 사용하는 부분에서 bug가 수정되는 경우
-docs = 문서에 변경 사항이 있는 경우
-style = 세미콜론을 까먹어서 추가하는 것 같이 형식적인 부분을 다루는 경우 (코드의 변화가 생산적인 것이 아닌 경우)
-refactor = production code를 수정하는 경우 (변수의 네이밍을 수정하는 경우)
-test = 테스트 코드를 수정하거나, 추가하는 경우 (코드의 변화가 생산적인 것이 아닌 경우)
+- 최소기능 단위 commit
+- 카르마 스타일 따르기 ( 한글로 작성 )
+- feat = 주로 사용자에게 새로운 기능이 추가되는 경우
+- fix = 사용자가 사용하는 부분에서 bug가 수정되는 경우
+- docs = 문서에 변경 사항이 있는 경우
+- style = 세미콜론을 까먹어서 추가하는 것 같이 형식적인 부분을 다루는 경우 (코드의 변화가 생산적인 것이 아닌 경우)
+- refactor = production code를 수정하는 경우 (변수의 네이밍을 수정하는 경우)
+- test = 테스트 코드를 수정하거나, 추가하는 경우 (코드의 변화가 생산적인 것이 아닌 경우)
 
 [컨벤션]
 
-Swift API Design Guidelines
-Swift Language Guide
-ios - Human Interface Guidelines
+- Swift API Design Guidelines
+- Swift Language Guide
+- ios - Human Interface Guidelines
 
 [커뮤니케이션]
 
-디스코드 회의실
-디스코드 다이렉트 메시지
+- 디스코드 회의실
+- 디스코드 다이렉트 메시지
 
 # Step
-
 ## 실행 화면(기능 설명)
 
 |파리만국박람회 소개 화면|한국 출품작 소개 화면|출품작 상세 소개 화면|
@@ -340,17 +340,25 @@ navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
 
 - [첫번째 VC인 `EXPOInformationViewController`에 첫번째 방법의 backButton 생성 및 `KoreaEntryViewController` 내 첫번째 방법의 title 생성]
 <img width="337" alt="firstVC 내 backbutton 및 secondVC 내 navigationItem" src="https://user-images.githubusercontent.com/99063327/174234783-0552fbe2-64b8-4753-bd70-cee9a221e420.png">
+
 - 이번에는 첫번째 방법을 사용하되, `backButtonTitle`은 첫번째 `VC`인 `EXPOInformationViewController`에서 생성하고, `navigation title`은 두번째 VC인 `KoreaEntryViewController`에서 생성하였습니다. 그러면 위와같이 네이밍이 원하는 바와 같이 나올 수 있었습니다.
+
 - 문제점을 해결할 수는 있었으나, 왜 그렇게 구현되는지 원리를 제대로 이해하지는 못했습니다. 저희가 이해한 바로는 첫번째 방법과 두번째 방법은 충분히 서로를 대체할 수 있는 함수로 인식하였는데, 같은 위치에 메서드를 호출하여도 다른 결과를 보였습니다. 이에 그 원리를 질문드리고 싶습니다.
+
 - 또한, `backButtonTitle`은 두번째 `VC`가 아닌, 첫번째 `VC`에서 설정해줘야 원하는 네이밍을 생성할 수 있었는데, 이렇게 작용하는 근거가 무엇인지 궁금합니다. 
 
 
 ### 2. 이미지 사이즈 dynamic하게 변경하는 법
 ![](https://i.imgur.com/fq7mou3.png)
+
 - 아래 코드에서 `defaultContentConfiguration` 메서드를 사용해 위의 `cell`을 만들어주었고, `cell` 안의 `content`의 `imageProperties`의 사이즈를 50으로 정해주었습니다.
-- 그런데 사이즈를 50으로 `static`하게 지정해주는 것이 아니라 기기마다 알맞게 적용되도록 `dynamic`하게 설정하고 싶었습니다.
+
+- 그런데 사이즈를 50으로 `static`하게 지정해주는 것이 아니라 기기마다 알맞게 적용되도록 `dynamic`하게 설정하고 싶었습니다
+
 - 그런데 메서드나 속성을 찾아봐도 `dynamic`하게 이미지 사이즈를 설정해주는 것에 대해 나와있지 않아서 그냥 이대로 설정해주었습니다.
+
 - `defaultContentConfiguration` 메서드를 사용해 만들어준 셀 내부의 이미지를 옆의 `text`와 `secondaryText`와의 관계를 통해 오토레이아웃을 지정해주는 방법이 따로 있는지 질문드리고 싶습니다.
+
 - 코드
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -452,3 +460,4 @@ private func updateTitleLabel() {
 - [TableView 데이터전달(prepare)](https://velog.io/@wook4506/iOS-Swift-TableView-데이터-전달prepare)
 - [Navigation Bar Title 변경](https://exception-log.tistory.com/158)
 - [Generic](https://seons-dev.tistory.com/entry/Swift-기초문법-제네릭-Generic)
+
