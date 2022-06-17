@@ -101,6 +101,8 @@ class Expo1900ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        self.view.backgroundColor = .systemBackground
         self.view.addSubview(expo1900ScrollView)
         
         let storeUIView = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, expo1900SubStackView]
