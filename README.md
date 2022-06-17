@@ -1,10 +1,10 @@
 # iOS 커리어 스타터 캠프
 
 ## 프로젝트 저장소
-> 프로젝트 기간: 2022-06-13 ~ 2022-06-24</br>
-> 팀원: [브래드](https://github.com/bradheo65), [그루트](https://github.com/Groot-94)</br>
-> 리뷰어: [@ryan-son](https://github.com/ryan-son)</br>
-> 그라운드롤: [GroundRole](https://github.com/bradheo65/ios-exposition-universelle/blob/Step02/Docs/GroundRole.md)</br>
+> 프로젝트 기간: 2022-06-13 ~ 2022-06-24
+> 팀원: [브래드](https://github.com/bradheo65), [그루트](https://github.com/Groot-94)
+리뷰어: [@ryan-son](https://github.com/ryan-son)
+그라운드롤: [GroundRule](https://github.com/bradheo65/ios-exposition-universelle/blob/Step02/Docs/GroundRule.md)
 ## 📑 목차
 - [🙋🏻‍♂️ 개발자 소개](#🙋🏻‍♂️-개발자-소개)
 - [📈 프로젝트 소개](#📈-프로젝트-소개)
@@ -113,26 +113,26 @@
 ---
 ### STEP 1 Reviews
 #### 1. 프로퍼티를 읽어오기 위해 별도의 메서드를 작성할 수 있지만, 프로퍼티에 읽기 전용의 접근 수준을 지정하면 동일한 효과를 낼 수 있을 것 같아요. 
-```swift
+```swift=
 func getTitle() -> String {
         return title
     }
 
-func getVisitors() -> Int {
-    return visitors
-}
+    func getVisitors() -> Int {
+        return visitors
+    }
 
-func getLocation() -> String {
-    return location
-}
+    func getLocation() -> String {
+        return location
+    }
 
-func getDuration() -> String {
-    return duration
-}
+    func getDuration() -> String {
+        return duration
+    }
 
-func getDescription() -> String {
-    return description
-}
+    func getDescription() -> String {
+        return description
+    }
 ```
 - func을 선택한 이유: private(set)과 func 중 어떤 방식을 사용할 지 논의를 했었습니다. 기능의 차이가 없기 때문에 func이 좀 더 익숙하고 표현방식이 더 명확하다고 생각해서 func으로 만들었습니다.
 - 궁금증: 라이언의 의견을 듣고 생각해보니 func으로 만드는 경우에 메모리가 더 커질수도 있겠다고 생각이 들었습니다. 실제로 이렇게 동일한 기능을 func으로 구현하면 메모리가 더 커지는게 맞는지 궁금합니다.
