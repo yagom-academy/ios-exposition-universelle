@@ -59,10 +59,10 @@ extension KoreanContentListViewController: UITableViewDataSource {
 extension KoreanContentListViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "contentViewSegue" {
-            guard let contentViewController = segue.destination as? contentViewController else { return }
+            guard let contentViewController = segue.destination as? ContentViewController else { return }
             guard let indexPath = sender as? IndexPath else { return }
             
-            contentViewController.content = contents[indexPath.row]
+            contentViewController.receiveContentData(contents[indexPath.row])
         }
     }
     
