@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     let expositionDataManager = ExpositionDataManager()
     let numberFormatter = NumberFormatter()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let result = expositionDataManager.getData() else { return }
@@ -87,24 +88,17 @@ class MainViewController: UIViewController {
         
         let buttonStack = makeHorizontalStackView()
         stackView.addArrangedSubview(buttonStack)
-        
-        let firstFlagView = UIImageView()
-        let flagImage = UIImage(named: "flag")
-        let newSizeImage = resizeImage(image: flagImage, width: 20, height: 20)
-        firstFlagView.image = newSizeImage
-
-        let secondFlagView = UIImageView()
-        secondFlagView.image = newSizeImage
-        
-        buttonStack.addArrangedSubview(firstFlagView)
-        
+       
         let button = makeButton()
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         
-        buttonStack.addArrangedSubview(button)
+        let leftImageView = makeImageView(named: "flag", x: 60, y: 40)
+        let rightImageView = makeImageView(named: "flag", x: 60, y: 40)
         
-        buttonStack.addArrangedSubview(secondFlagView)
+        buttonStack.addArrangedSubview(leftImageView)
+        buttonStack.addArrangedSubview(button)
+        buttonStack.addArrangedSubview(rightImageView)
         
         button.addTarget(self, action: #selector(buttonDidTapped(_:)), for: .touchUpInside)
     }
@@ -162,12 +156,12 @@ private extension MainViewController {
         return button
     }
     
-    func resizeImage(image: UIImage?, width: CGFloat, height: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContext(CGSize(width: width, height: height))
-        image?.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
+    func makeImageView(named: String, x: CGFloat, y: CGFloat) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.widthAnchor.constraint(equalToConstant: x).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: y).isActive = true
+        imageView.image = UIImage(named: named)
+        return imageView
     }
 }
 
