@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - MainViewController.swift
 //  Created by unchain, bard
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     let stackView: UIStackView = {
@@ -118,6 +118,7 @@ class ViewController: UIViewController {
         setScrollView()
         setContentView()
         setStackView()
+        
         stackView.addArrangedSubview(expoTitle)
         stackView.addArrangedSubview(posterImage)
         stackView.addArrangedSubview(visitorsLabel)
@@ -125,6 +126,7 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(durationLabel)
         stackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(buttonStackView)
+        
         buttonStackView.addArrangedSubview(leftFlagImage)
         buttonStackView.addArrangedSubview(goToKoreaEntryButton)
         buttonStackView.addArrangedSubview(rightFlagImage)
