@@ -19,6 +19,7 @@
 		45DE81D0285CAD2C00822CF2 /* ExpoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81CF285CAD2C00822CF2 /* ExpoData.swift */; };
 		45DE81D3285CAD7900822CF2 /* JsonDataDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81D2285CAD7900822CF2 /* JsonDataDecoding.swift */; };
 		45DE81D8285CC17E00822CF2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81D7285CC17E00822CF2 /* DetailViewController.swift */; };
+		45DE81DA285CD56300822CF2 /* NavigationItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81D9285CD56300822CF2 /* NavigationItemManager.swift */; };
 		7E416809285CB5680059FFFF /* ExpoMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E416808285CB5680059FFFF /* ExpoMenuTableViewCell.swift */; };
 		7E4D79F32859AC17009AB4C0 /* ExpoItemModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4D79F22859AC17009AB4C0 /* ExpoItemModelsTests.swift */; };
 		7EAA367628572A8500621D65 /* ExpoItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAA367528572A8500621D65 /* ExpoItemElement.swift */; };
@@ -38,6 +39,7 @@
 		45DE81CF285CAD2C00822CF2 /* ExpoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoData.swift; sourceTree = "<group>"; };
 		45DE81D2285CAD7900822CF2 /* JsonDataDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataDecoding.swift; sourceTree = "<group>"; };
 		45DE81D7285CC17E00822CF2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		45DE81D9285CD56300822CF2 /* NavigationItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemManager.swift; sourceTree = "<group>"; };
 		7E416808285CB5680059FFFF /* ExpoMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMenuTableViewCell.swift; sourceTree = "<group>"; };
 		7E4D79F02859AC17009AB4C0 /* ExpoItemModelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpoItemModelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4D79F22859AC17009AB4C0 /* ExpoItemModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoItemModelsTests.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				45DE81D2285CAD7900822CF2 /* JsonDataDecoding.swift */,
+				45DE81D9285CD56300822CF2 /* NavigationItemManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				45058F9728572F4500CED391 /* Exposition.swift in Sources */,
 				7E416809285CB5680059FFFF /* ExpoMenuTableViewCell.swift in Sources */,
 				7EAA367628572A8500621D65 /* ExpoItemElement.swift in Sources */,
+				45DE81DA285CD56300822CF2 /* NavigationItemManager.swift in Sources */,
 				45DE81D3285CAD7900822CF2 /* JsonDataDecoding.swift in Sources */,
 				45DE81CB285B7F8300822CF2 /* ExpoHomeViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,

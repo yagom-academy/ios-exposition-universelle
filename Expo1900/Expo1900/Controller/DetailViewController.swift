@@ -16,6 +16,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        modifyNavigationTitle(to: expoItemElement?.name ?? "", in: self)
+        modifyNavigationBackButtonTitle(to: "한국의 출품작", in: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        modifyNavigationTitle(to: expoItemElement?.name ?? "", in: self)
+        modifyNavigationBackButtonTitle(to: "한국의 출품작", in: self)
     }
     
     private func updateUI() {
