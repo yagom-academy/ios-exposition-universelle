@@ -39,6 +39,11 @@ class KoreaItemsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemDetailViewController = ItemDetailViewController()
+        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
+    }
+    
     private func decodingJsonData() {
         guard let items = NSDataAsset(name: "items"),
               let decondedKoreaItems = try? JSONDecoder().decode([KoreaItem].self, from: items.data) else {
