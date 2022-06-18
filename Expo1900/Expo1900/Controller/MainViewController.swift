@@ -180,15 +180,25 @@ class MainViewController: UIViewController {
         rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor).isActive = true
     }
     
+    private func checkExpositionData() -> Exposition? {
+        do {
+            let expositionData = try DataManager().expositionParse(fileName: "exposition_universelle_1900")
+            return expositionData
+        } catch {
+            print(ParsingError.decodingError)
+            return nil
+        }
+    }
+    
     private func updateText() {
-        guard let introductionData = expositionData else { return }
+        guard let expositionData = checkExpositionData() else { return }
         
-        let title = introductionData.title.replacingOccurrences(of: "(", with: "\n(")
+        let title = expositionData.title.replacingOccurrences(of: "(", with: "\n(")
         
         titleLabel.text = title
-        visitorLabel.text = "방문객 : \(introductionData.visitors.formatNumber())명"
-        venueLabel.text = "개최지 : \(introductionData.location)"
-        periodLabel.text = "개최 기간: \(introductionData.duration)"
-        descriptionLabel.text = introductionData.description
+        visitorLabel.text = "방문객 : \(expositionData.visitors.formatNumber())명"
+        venueLabel.text = "개최지 : \(expositionData.location)"
+        periodLabel.text = "개최 기간: \(expositionData.duration)"
+        descriptionLabel.text = expositionData.description
     }
 }

@@ -21,10 +21,10 @@ struct DataManager {
         }
     }
     
-    func expositionParse(fileName: String) -> Exposition?  {
+    func expositionParse(fileName: String) throws -> Exposition?  {
         guard let jsonData = load(fileName: fileName),
               let dataList = try? JSONDecoder().decode(Exposition.self, from: jsonData) else {
-            return nil
+            throw ParsingError.decodingError
         }
         
         return dataList
