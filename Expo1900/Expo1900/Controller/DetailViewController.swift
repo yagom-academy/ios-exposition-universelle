@@ -29,7 +29,6 @@ class DetailViewController: UIViewController {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.backgroundColor = .white
-        scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
     
@@ -80,8 +79,8 @@ class DetailViewController: UIViewController {
     
     private func configureStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 15).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -15).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
     }

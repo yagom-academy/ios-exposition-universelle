@@ -78,7 +78,6 @@ class MainViewController: UIViewController {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.backgroundColor = .white
-        scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
     
@@ -92,14 +91,14 @@ class MainViewController: UIViewController {
     
     private let leftFlagImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "flag.png")
+        image.image = UIImage(named: "flag")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     private let rightFlagImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "flag.png")
+        image.image = UIImage(named: "flag")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -165,8 +164,8 @@ class MainViewController: UIViewController {
     private func configureStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 5).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -5).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 15).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -15).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
         subStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
