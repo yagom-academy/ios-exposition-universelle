@@ -101,7 +101,7 @@ class Expo1900ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationItem.title = "메인"
         self.view.backgroundColor = .systemBackground
         self.view.addSubview(expo1900ScrollView)
         self.expo1900ScrollView.addSubview(expo1900StackView)
@@ -111,6 +111,11 @@ class Expo1900ViewController: UIViewController {
         setLabelText()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+
     private func setLabelText() {
         expoData.decodingJsonData()
         titleLabel.text = expoData.title

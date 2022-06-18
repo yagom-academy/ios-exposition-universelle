@@ -18,6 +18,8 @@ class KoreaItemsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "한국의 출품작"
+        self.navigationController?.isNavigationBarHidden = false
         self.tableView = koreaItemsTableView
         decodingJsonData()
     }
