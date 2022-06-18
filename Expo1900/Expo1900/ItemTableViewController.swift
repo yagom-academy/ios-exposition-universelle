@@ -13,12 +13,9 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
-        navigationItem.title = "한국의 출품작"
-        result = itemDataManager.getData()
-        
-        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemCell")
-        
+        specifyNavigationBarSetting()
+        parseItemModel()
+        specifyTableViewSetting()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,5 +47,20 @@ class ItemTableViewController: UITableViewController {
         }
         let detailViewController = DetailViewController()
         self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    private func specifyNavigationBarSetting() {
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "한국의 출품작"
+    }
+    
+    private func parseItemModel() {
+        itemModel = itemDataManager.fetchData()
+    }
+    
+    private func specifyTableViewSetting() {
+        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemCell")
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableView.automaticDimension
     }
 }
