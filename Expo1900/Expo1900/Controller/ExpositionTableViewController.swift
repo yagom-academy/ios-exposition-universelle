@@ -77,5 +77,8 @@ extension ExpositionTableViewController {
         ])
         
         expositionTableView.register(ExpositionTableViewCell.self, forCellReuseIdentifier: "ExpositionTableViewCell")
+        guard let result = try? JsonParser<[EntryEntity]>.fetch(JSONFile.entryEntity.name) else {
+            return
+        }
     }
 }

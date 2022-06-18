@@ -28,6 +28,9 @@ extension ExpositionPostViewController {
         guard let expositionPostEntity = try? JsonParser<ExpositionPostEntity>.fetch("ExpositionPost") else {
             return
         }
+        guard let result = try? JsonParser<ExpositionPostEntity>.fetch(JSONFile.expositionPost.name) else {
+            return fetchData()
+        }
         
         expositionPostView = ExpositionPostView(self, data: expositionPostEntity)
         self.navigationController?.navigationBar.isHidden = true
