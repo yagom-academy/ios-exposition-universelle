@@ -9,6 +9,7 @@ import UIKit
 
 class KoreaItemsTableViewController: UITableViewController {
     var koreaItems = [KoreaItem]()
+    weak var sendDataDelegate: SendDataDelgate?
     
     let koreaItemsTableView: UITableView = {
         let tableView = UITableView()
@@ -42,6 +43,8 @@ class KoreaItemsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemDetailViewController = ItemDetailViewController()
         self.navigationController?.pushViewController(itemDetailViewController, animated: true)
+        sendDataDelegate = itemDetailViewController
+        sendDataDelegate?.sendItemData(item: koreaItems[indexPath.row])
     }
     
     private func decodingJsonData() {
@@ -51,4 +54,8 @@ class KoreaItemsTableViewController: UITableViewController {
         }
         self.koreaItems = decondedKoreaItems
     }
+}
+
+protocol SendDataDelgate: AnyObject {
+    func sendItemData(item: KoreaItem)
 }

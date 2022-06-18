@@ -8,8 +8,16 @@
 import UIKit
 
 class ItemDetailViewController: UIViewController {
+    var koreaItem: KoreaItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+    }
+}
+
+extension ItemDetailViewController: SendDataDelgate {
+    func sendItemData(item: KoreaItem) {
+        koreaItem = item
     }
 }
