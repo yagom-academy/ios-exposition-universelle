@@ -21,33 +21,22 @@ final class ExpositionPostView: UIView {
     private let horizontalStackView: UIStackView = {
         let stackview = UIStackView()
         stackview.axis = .horizontal
-        stackview.alignment = .center
+        stackview.alignment = .fill
         stackview.distribution = .equalSpacing
         stackview.translatesAutoresizingMaskIntoConstraints = false
         stackview.spacing = 5
         return stackview
     }()
     
-    private let rightEmptyStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.alignment = .center
-        stackview.distribution = .equalSpacing
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.spacing = 5
-        return stackview
-    }()
-    
-    private let leftEmptyStackView: UIStackView = {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.alignment = .center
-        stackview.distribution = .equalSpacing
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.spacing = 5
-        return stackview
-    }()
-    
+    private var emptyStackView: UIStackView {
+        get {
+            let stackview = UIStackView()
+            stackview.translatesAutoresizingMaskIntoConstraints = false
+            return stackview
+        }
+        set {}
+    }
+
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -114,25 +103,18 @@ final class ExpositionPostView: UIView {
         return label
     }()
     
-    private let leftFlagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "flag")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
-        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
-        return imageView
-    }()
-    
-    private let rightFlagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "flag")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
-        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
-        return imageView
-    }()
+    private var flagImageView: UIImageView {
+        get {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: "flag")
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+            return imageView
+        }
+        set {}
+    }
     
     private let expositionEnterButton: UIButton = {
         let button = UIButton()
@@ -193,11 +175,15 @@ private extension ExpositionPostView {
         self.verticalStackView.addArrangedSubview(durationLabel)
         self.verticalStackView.addArrangedSubview(descriptionLabel)
         
-        self.horizontalStackView.addArrangedSubview(rightEmptyStackView)
-        self.horizontalStackView.addArrangedSubview(leftFlagImageView)
+        self.horizontalStackView.addArrangedSubview(emptyStackView)
+        emptyStackView = UIStackView()
+        
+        self.horizontalStackView.addArrangedSubview(flagImageView)
         self.horizontalStackView.addArrangedSubview(expositionEnterButton)
-        self.horizontalStackView.addArrangedSubview(rightFlagImageView)
-        self.horizontalStackView.addArrangedSubview(leftEmptyStackView)
+        flagImageView = UIImageView()
+        
+        self.horizontalStackView.addArrangedSubview(flagImageView)
+        self.horizontalStackView.addArrangedSubview(emptyStackView)
         setUpBaseUIConstraints(from: rootView)
     }
     
