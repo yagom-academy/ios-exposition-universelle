@@ -49,13 +49,12 @@ bonf , wongbing
 # Step2
 기간 : 2022.6.15(수) ~ 2022.6.17(금)
 
-<p>
+## 구현사항
+  <table><tr><td valign="top" width="35%">
 
-<div class=pull-left>
+<img src="https://user-images.githubusercontent.com/95671495/174422607-bbd021ee-6b9e-4c94-ac41-f4364c7a2ecf.gif" width="250" height="500"/>
 
-![화면_기록_2022-06-17_오후_2_59_40_AdobeExpress](https://user-images.githubusercontent.com/95671495/174245483-7ab07eaa-91e7-4106-83c3-4ecc858de8d8.gif)
-
-</div>
+</td><td valign="top" width="65%">
 
 ### - Storyboard ID를 이용한 네비게이션
 뷰 간의 이동을 하기 위해서 각 뷰의 식별자가 필요했는데, 코드로 뷰를 짠 경우 이 식별자 지정을 할 수가 없었다, 그래서 뷰마다 빈 ViewController 를 만들어 준뒤, Storyboard ID 를 지정해주어 사용 하였다. 
@@ -64,15 +63,10 @@ bonf , wongbing
 다음 뷰를 인스턴스화 시키는 `instantiate(from:, bundle:, identifier:)` 메서드를 만들어주어 , 뷰간 이동과 데이터 전달을 시켜주었습니다. 
 
 ### - 오토레이아웃
-tableView에서 각 cell 마다`tableView.estimatedRowHeight = 200`,
+tableView에서 각 cell 마다 `tableView.estimatedRowHeight = 200`,
 `tableView.rowHeight = UITableView.automaticDimension`를 이용하여, content의 크기에 따라 rowheight를 맞춰주었습니다.
 `image.contentMode = .scaleAspectFit`를 사용해 image의 크기를 ImageView에 맞게 설정해주고, imageView의 오토레이아웃을 설정해주었습니다.
-</p>
-
-
-</br>
-
-</br>
+</td></tr></table>
 
 
 ### constraints
