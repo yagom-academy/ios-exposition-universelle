@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     var itemData: Entry?
     
     private let imageView: UIImageView = {

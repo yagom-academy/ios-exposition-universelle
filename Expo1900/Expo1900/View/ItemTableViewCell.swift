@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+final class ItemTableViewCell: UITableViewCell {
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

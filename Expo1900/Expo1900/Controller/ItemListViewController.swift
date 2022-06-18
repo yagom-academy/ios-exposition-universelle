@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemListViewController: UIViewController {
+final class ItemListViewController: UIViewController {
     private let entryData = DataManager().entryParse(fileName: "items")
     private let backButton = UIBarButtonItem(title: "메인", style: .plain, target: nil, action: nil)
     

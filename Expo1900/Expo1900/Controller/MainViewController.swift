@@ -6,9 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    let expositionData = DataManager().expositionParse(fileName: "exposition_universelle_1900")
-    
+final class MainViewController: UIViewController {
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .center
