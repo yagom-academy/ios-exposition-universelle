@@ -134,7 +134,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func enterButtonDidTapped(_ sender: UIButton) {
-        let itemTableViewController = ItemTableViewController.instantiate(bundle: nil, identifier: "ItemView")
+        let itemTableViewController = ItemTableViewController()
         self.navigationController?.pushViewController(itemTableViewController, animated: true)
     }
 }
