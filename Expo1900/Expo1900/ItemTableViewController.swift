@@ -28,24 +28,13 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
-        if let result = result {
-            cell.nameLabel.text = "\(String(describing: result[indexPath.row].name))"
-            cell.shortDescriptionLabel.text = "\(String(describing: result[indexPath.row].shortDescription))"
-            cell.itemImageView.image = UIImage(named: result[indexPath.row].imageName )
-            cell.accessoryType = .disclosureIndicator
-        }
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableView.automaticDimension
+        cell.parseData(from: itemModel, with: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let result = result {
-            detailViewController.itemTitle = result[indexPath.row].name
-            detailViewController.itemImageView.image = UIImage(named: result[indexPath.row].imageName)
-            detailViewController.descriptionLabel.text = result[indexPath.row].description
-        }
         let detailViewController = DetailViewController()
+        detailViewController.parseData(from: itemModel, with: indexPath)
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     

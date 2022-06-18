@@ -64,4 +64,11 @@ class DetailViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
     }
+    
+    func parseData(from model: [Item]?, with indexPath: IndexPath) {
+        guard let model = model else { return }
+        itemTitle = model[indexPath.row].name
+        itemImageView.image = UIImage(named: model[indexPath.row].imageName)
+        descriptionLabel.text = model[indexPath.row].description
+    }
 }

@@ -69,4 +69,12 @@ class ItemTableViewCell: UITableViewCell {
         labelStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
         labelStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
     }
+    
+    func parseData(from model: [Item]?, with indexPath: IndexPath) {
+        guard let model = model else { return }
+        nameLabel.text = "\(String(describing: model[indexPath.row].name))"
+        shortDescriptionLabel.text = "\(String(describing: model[indexPath.row].shortDescription))"
+        itemImageView.image = UIImage(named: model[indexPath.row].imageName)
+        accessoryType = .disclosureIndicator
+    }
 }
