@@ -16,13 +16,19 @@ class MainViewController: UIViewController {
     }()
     
     lazy var scrollView: UIScrollView = {
-        let scrollView = makeScrollView()
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(stackView)
         return scrollView
     }()
     
     lazy var stackView: UIStackView = {
-        let stackView = makeVerticalStackView()
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 8
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(posterImageView)
         stackView.addArrangedSubview(visitorsStackView)
@@ -107,7 +113,8 @@ class MainViewController: UIViewController {
         let leftImageView = makeImageView(named: "flag", x: 60, y: 40)
         let rightImageView = makeImageView(named: "flag", x: 60, y: 40)
         
-        let enterButton = makeButton()
+        let enterButton = UIButton()
+        enterButton.translatesAutoresizingMaskIntoConstraints = false
         enterButton.setTitle("한국의 출품작 보러가기", for: .normal)
         enterButton.setTitleColor(.systemBlue, for: .normal)
         enterButton.addTarget(self, action: #selector(enterButtonDidTapped(_:)), for: .touchUpInside)
@@ -141,22 +148,6 @@ class MainViewController: UIViewController {
 
 private extension MainViewController {
     
-    func makeScrollView() -> UIScrollView {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }
-    
-    func makeVerticalStackView() -> UIStackView {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 8
-        return stackView
-    }
-    
     func makeHorizontalStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -172,12 +163,6 @@ private extension MainViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 15)
         return label
-    }
-    
-    func makeButton() -> UIButton {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
     }
     
     func makeImageView(named: String, x: CGFloat, y: CGFloat) -> UIImageView {
