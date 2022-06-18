@@ -80,7 +80,7 @@ extension ExpositionTableViewCell {
             
             verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             verticalStackView.leadingAnchor.constraint(equalTo: entryImage.trailingAnchor, constant: 10),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             verticalStackView.centerYAnchor.constraint(equalTo: entryImage.centerYAnchor),
         ])
     }
