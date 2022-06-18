@@ -61,7 +61,7 @@ extension ItemListViewController: UITableViewDataSource {
         cell.shortDescriptionLabel.text = entryData[indexPath.row]!.shortDescription
         
         
-        let name = entryData[indexPath.row]!.imageName + "~universal@1x.png"
+        let name = entryData[indexPath.row]!.imageName
         cell.itemImageView.image = UIImage(named: name)
         return cell
     }

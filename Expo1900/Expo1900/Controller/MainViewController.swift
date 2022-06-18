@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "poster~universal@1x.png")
+        image.image = UIImage(named: "poster")
         return image
     }()
     

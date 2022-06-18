@@ -86,7 +86,7 @@ class DetailViewController: UIViewController {
     }
     
     private func updateComponent() {
-        let name = itemData!.imageName + "~universal@1x.png"
+        let name = itemData!.imageName
         imageView.image = UIImage(named: name)
         
         descriptionLabel.text = itemData!.longDescription
