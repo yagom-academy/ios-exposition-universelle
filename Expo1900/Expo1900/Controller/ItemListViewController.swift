@@ -57,11 +57,12 @@ extension ItemListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
-        cell.titleLabel.text = entryData[indexPath.row]!.name
-        cell.shortDescriptionLabel.text = entryData[indexPath.row]!.shortDescription
+        guard let itemData = entryData[indexPath.row] else { return UITableViewCell() }
         
+        cell.titleLabel.text = itemData.name
+        cell.shortDescriptionLabel.text = itemData.shortDescription
         
-        let name = entryData[indexPath.row]!.imageName
+        let name = itemData.imageName
         cell.itemImageView.image = UIImage(named: name)
         return cell
     }

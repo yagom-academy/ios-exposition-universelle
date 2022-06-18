@@ -86,9 +86,11 @@ class DetailViewController: UIViewController {
     }
     
     private func updateComponent() {
-        let name = itemData!.imageName
+        guard let selectedData = itemData else { return }
+        
+        let name = selectedData.imageName
         imageView.image = UIImage(named: name)
         
-        descriptionLabel.text = itemData!.longDescription
+        descriptionLabel.text = selectedData.longDescription
     }
 }

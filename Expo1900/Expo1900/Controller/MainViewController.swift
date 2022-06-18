@@ -181,12 +181,14 @@ class MainViewController: UIViewController {
     }
     
     private func updateText() {
-        let title = expositionData!.title.replacingOccurrences(of: "(", with: "\n(")
+        guard let introductionData = expositionData else { return }
+        
+        let title = introductionData.title.replacingOccurrences(of: "(", with: "\n(")
         
         titleLabel.text = title
-        visitorLabel.text = "방문객 : \(expositionData!.visitors.formatNumber())명"
-        venueLabel.text = "개최지 : \(expositionData!.location)"
-        periodLabel.text = "개최 기간: \(expositionData!.duration)"
-        descriptionLabel.text = expositionData?.description
+        visitorLabel.text = "방문객 : \(introductionData.visitors.formatNumber())명"
+        venueLabel.text = "개최지 : \(introductionData.location)"
+        periodLabel.text = "개최 기간: \(introductionData.duration)"
+        descriptionLabel.text = introductionData.description
     }
 }
