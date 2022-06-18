@@ -25,14 +25,24 @@ final class ExpositionPostViewController: UIViewController {
 
 extension ExpositionPostViewController {
     private func configureUI() {
-        guard let expositionPostEntity = try? JsonParser<ExpositionPostEntity>.fetch("ExpositionPost") else {
+        guard let data = fetchData() else {
             return
         }
+        expositionPostView = ExpositionPostView(self, expositionPostEntity: data)
+    }
+    
+    private func fetchData() -> ExpositionPostEntity? {
         guard let result = try? JsonParser<ExpositionPostEntity>.fetch(JSONFile.expositionPost.name) else {
             return fetchData()
         }
         
-        expositionPostView = ExpositionPostView(self, data: expositionPostEntity)
-        self.navigationController?.navigationBar.isHidden = true
+        switch result {
+        case .success(let data):
+            return data
+        case .failure(let error):
+            self.showConfirmAlert(message: error.message)
+        }
+        
+        return fetchData()
     }
 }

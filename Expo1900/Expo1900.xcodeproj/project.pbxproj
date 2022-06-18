@@ -20,6 +20,7 @@
 		90E080BB2859C23200950E42 /* ExpositionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */; };
 		90E08105285ACB5900950E42 /* ExpositionPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E08104285ACB5900950E42 /* ExpositionPostView.swift */; };
 		90E0810D285B5CAF00950E42 /* JsonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0810C285B5CAF00950E42 /* JsonError.swift */; };
+		90EB84E3285D9EF600AAB6F5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */; };
 		90EB84E5285DA43B00AAB6F5 /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB84E4285DA43B00AAB6F5 /* JSONFile.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -53,6 +54,7 @@
 		90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTableViewController.swift; sourceTree = "<group>"; };
 		90E08104285ACB5900950E42 /* ExpositionPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPostView.swift; sourceTree = "<group>"; };
 		90E0810C285B5CAF00950E42 /* JsonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonError.swift; sourceTree = "<group>"; };
+		90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		90EB84E4285DA43B00AAB6F5 /* JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				8A8D49A8285C610B00B9E7D6 /* Int+Extensions.swift */,
 				8A8D49AA285C615400B9E7D6 /* UILabel+Extensions.swift */,
+				90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				90E08105285ACB5900950E42 /* ExpositionPostView.swift in Sources */,
 				8A8D49AB285C615400B9E7D6 /* UILabel+Extensions.swift in Sources */,
 				8A8D49A6285B1FF300B9E7D6 /* EntryDetailView.swift in Sources */,
+				90EB84E3285D9EF600AAB6F5 /* UIViewController+Extensions.swift in Sources */,
 				8A8D49A9285C610B00B9E7D6 /* Int+Extensions.swift in Sources */,
 				90E080BB2859C23200950E42 /* ExpositionTableViewController.swift in Sources */,
 				8AA59366285AFA1100494FE9 /* ExpositionTableViewCell.swift in Sources */,

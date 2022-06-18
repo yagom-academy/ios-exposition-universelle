@@ -144,7 +144,7 @@ final class ExpositionPostView: UIView {
     
     private var rootViewController: UIViewController?
     
-    init(_ rootViewController: UIViewController, data: ExpositionPostEntity) {
+    init(_ rootViewController: UIViewController, expositionPostEntity data: ExpositionPostEntity) {
         super.init(frame: .null)
         self.rootViewController = rootViewController
         

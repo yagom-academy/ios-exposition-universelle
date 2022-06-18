@@ -20,8 +20,6 @@ final class ExpositionTableViewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        
-        entryEntity = try? JsonParser<[EntryEntity]>.fetch("EntryEntity")
     }
 }
 
@@ -77,8 +75,20 @@ extension ExpositionTableViewController {
         ])
         
         expositionTableView.register(ExpositionTableViewCell.self, forCellReuseIdentifier: "ExpositionTableViewCell")
+        
+        fetchData() 
+    }
+    
+    private func fetchData() {
         guard let result = try? JsonParser<[EntryEntity]>.fetch(JSONFile.entryEntity.name) else {
             return
+        }
+        
+        switch result {
+        case .success(let data):
+            entryEntity = data
+        case .failure(let error):
+            self.showConfirmAlert(message: error.message)
         }
     }
 }

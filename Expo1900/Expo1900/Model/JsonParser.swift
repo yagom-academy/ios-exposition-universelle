@@ -8,20 +8,16 @@
 import UIKit
 
 enum JsonParser<T:Decodable> {
-    static func fetch(_ fileName: String) throws -> T? {
+    static func fetch(_ fileName: String) throws -> Result<T, JsonError>? {
         let jsonDecoder = JSONDecoder()
-        var entity: T?
         
-        if let asset = NSDataAsset.init(name: fileName) {
-            do {
-                entity = try jsonDecoder.decode(T.self, from: asset.data)
-            } catch {
-                throw JsonError.decodingFailure
+        do {
+            guard let asset = NSDataAsset.init(name: fileName) else {
+                return .failure(JsonError.noneFile)
             }
-        } else {
-            throw JsonError.noneFile
+            return .success(try jsonDecoder.decode(T.self, from: asset.data))
+        } catch {
+            return .failure(JsonError.decodingFailure)
         }
-        
-        return entity
     }
 }
