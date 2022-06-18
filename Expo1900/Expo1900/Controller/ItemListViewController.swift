@@ -8,7 +8,7 @@
 import UIKit
 
 final class ItemListViewController: UIViewController {
-    private let entryData = DataManager().entryParse(fileName: "items")
+    private let entriesData = DataManager().entryParse(fileName: "items")
     private let backButton = UIBarButtonItem(title: "메인", style: .plain, target: nil, action: nil)
     
     private let tableView: UITableView = {
@@ -50,14 +50,14 @@ final class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entryData.count
+        return entriesData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
-        guard let itemData = entryData[indexPath.row] else { return UITableViewCell() }
+        guard let itemData = entriesData[indexPath.row] else { return UITableViewCell() }
         
         cell.titleLabel.text = itemData.name
         cell.shortDescriptionLabel.text = itemData.shortDescription
@@ -71,7 +71,7 @@ extension ItemListViewController: UITableViewDataSource {
 extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
-        detailView.itemData = entryData[indexPath.row]
+        detailView.itemData = entriesData[indexPath.row]
         self.navigationController?.pushViewController(detailView, animated: true)
     }
 }
