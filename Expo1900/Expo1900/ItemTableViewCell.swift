@@ -47,9 +47,8 @@ class ItemTableViewCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(itemImageView)
         self.contentView.addSubview(labelStackView)
-        
-        itemImageViewAutoLayout()
-        labelStackViewAutoLayout()
+        designateItemImageViewConstraints()
+        designateLabelStackViewConstraints()
     }
     
     required init?(coder: NSCoder) {
