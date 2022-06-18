@@ -54,7 +54,7 @@ final class DetailViewController: UIViewController {
         configureScrollViewLayout()
         configureStackViewLayout()
         configureImageViewLayout()
-        updateComponent()
+        setComponent()
     }
     
     private func addScrollView() {
@@ -85,7 +85,7 @@ final class DetailViewController: UIViewController {
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
     }
     
-    private func updateComponent() {
+    private func setComponent() {
         guard let selectedData = itemData else { return }
         
         let name = selectedData.imageName
