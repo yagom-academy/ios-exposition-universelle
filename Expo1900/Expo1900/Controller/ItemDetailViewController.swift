@@ -15,7 +15,7 @@ class ItemDetailViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-
+    
     let itemDetailStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +24,19 @@ class ItemDetailViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 10
         return stackView
+    }()
+    
+    let itemImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     override func viewDidLoad() {
@@ -35,6 +48,9 @@ class ItemDetailViewController: UIViewController {
         
         setScrollViewConstraints()
         setStackViewConstraints()
+        setStackViewConstraints()
+        setKoreaItemData()
+        addUIItemStackView()
     }
     
     private func setScrollViewConstraints() {
@@ -49,6 +65,16 @@ class ItemDetailViewController: UIViewController {
         itemDetailStackView.bottomAnchor.constraint(equalTo: itemDetailScrollView.contentLayoutGuide.bottomAnchor).isActive = true
         itemDetailStackView.leadingAnchor.constraint(equalTo: itemDetailScrollView.frameLayoutGuide.leadingAnchor, constant: 10).isActive = true
         itemDetailStackView.trailingAnchor.constraint(equalTo: itemDetailScrollView.frameLayoutGuide.trailingAnchor, constant: -10).isActive = true
+    }
+    
+    private func setKoreaItemData() {
+        itemImageView.image = koreaItem?.image
+        descriptionLabel.text = koreaItem?.description
+    }
+    
+    private func addUIItemStackView() {
+        let storeUIView = [itemImageView, descriptionLabel]
+        storeUIView.forEach { self.itemDetailStackView.addArrangedSubview($0) }
     }
 }
 
