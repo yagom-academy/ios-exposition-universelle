@@ -38,6 +38,7 @@ class DetailViewController: UIViewController {
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .systemBackground
         scrollView.addSubview(stackView)
         return scrollView
     }()
