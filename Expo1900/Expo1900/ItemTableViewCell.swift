@@ -8,7 +8,7 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
-    
+
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25)
@@ -56,14 +56,14 @@ class ItemTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func itemImageViewAutoLayout() {
+    func designateItemImageViewConstraints() {
         itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         itemImageView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.2).isActive = true
         itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
         itemImageView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
     }
     
-    func labelStackViewAutoLayout() {
+    func designateLabelStackViewConstraints() {
         labelStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
         labelStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 10).isActive = true
         labelStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true

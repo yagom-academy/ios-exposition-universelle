@@ -23,7 +23,7 @@ class ExpositionDataManagerTests: XCTestCase {
     
     func test_Exposition의JSON데이터가_읽어와지는지_확인() {
         //given
-        let result = sut.getData()!
+        let result = sut.fetchData()!
         XCTAssertEqual(result.title, "파리 만국박람회 1900(L'Exposition de Paris 1900)")
     }
 }

@@ -23,7 +23,7 @@ class ItemDataManagerTests: XCTestCase {
     
     func test_Item의JSON데이터가_읽어와지는지_확인() {
         //given
-        let result = sut.getData()!
+        let result = sut.fetchData()!
         XCTAssertEqual(result[0].name, "직지심체요절")
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class ItemTableViewController: UITableViewController {
     let itemDataManager = ItemDataManager()
-    var result: [Item]?
+    var itemModel: [Item]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class ItemTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return result?.count ?? 0
+        return itemModel?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

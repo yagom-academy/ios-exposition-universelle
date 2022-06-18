@@ -11,8 +11,8 @@ class MainViewController: UIViewController {
     let expositionDataManager = ExpositionDataManager()
     let numberFormatter = NumberFormatter()
     
-    lazy var result: Exposition? = {
-        return expositionDataManager.getData()
+    lazy var expositionModel: Exposition? = {
+        return expositionDataManager.fetchData()
     }()
     
     lazy var scrollView: UIScrollView = {
@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         stackView.addArrangedSubview(locationStackView)
         stackView.addArrangedSubview(durationStackView)
         stackView.addArrangedSubview(descriptionLabel)
-        stackView.addArrangedSubview(buttonStackView)
+        stackView.addArrangedSubview(enterButtonStackView)
         return stackView
     }()
     
@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
         let label = makeLabel()
         label.font = UIFont.systemFont(ofSize: 25)
         label.numberOfLines = 0
-        label.text = result?.title
+        label.text = expositionModel?.title
         label.text = label.text?.replacingOccurrences(of: "(", with: "\n(")
         label.textAlignment = .center
         return label
@@ -57,7 +57,7 @@ class MainViewController: UIViewController {
         titleLabel.text = "방문객 :"
         
         let textLabel = makeLabel()
-        textLabel.text = "\(numberFormatter.string(for: result?.visitors) ?? "") 명"
+        textLabel.text = "\(numberFormatter.string(for: expositionModel?.visitors) ?? "") 명"
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(textLabel)
@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
         titleLabel.text = "개최지 :"
         
         let textLabel = makeLabel()
-        textLabel.text = "\(result?.location ?? "")"
+        textLabel.text = "\(expositionModel?.location ?? "")"
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(textLabel)
@@ -87,7 +87,7 @@ class MainViewController: UIViewController {
         titleLabel.text = "개최 기간 :"
         
         let textLabel = makeLabel()
-        textLabel.text = "\(result?.duration ?? "")"
+        textLabel.text = "\(expositionModel?.duration ?? "")"
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(textLabel)
@@ -97,11 +97,11 @@ class MainViewController: UIViewController {
     lazy var descriptionLabel: UILabel = {
         let label = makeLabel()
         label.numberOfLines = 0
-        label.text = result?.description ?? ""
+        label.text = expositionModel?.description ?? ""
         return label
     }()
     
-    lazy var buttonStackView: UIStackView = {
+    lazy var enterButtonStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
         
         let leftImageView = makeImageView(named: "flag", x: 60, y: 40)
