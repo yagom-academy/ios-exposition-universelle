@@ -10,9 +10,15 @@ import UIKit
 class KoreaItemsTableViewController: UITableViewController {
     var koreaItems = [KoreaItem]()
     
+    let koreaItemsTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(KoreaItemsTableViewCell.self, forCellReuseIdentifier: "KoreaItemsTableViewCell")
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView = koreaItemsTableView
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -58,7 +64,7 @@ class KoreaItemsTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
