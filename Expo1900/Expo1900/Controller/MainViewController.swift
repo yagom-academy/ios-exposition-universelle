@@ -106,7 +106,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setScrollView()
+        copnfigureScrollView()
         updateText()
         
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -127,13 +127,13 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(secondView, animated: true)
     }
     
-    private func setScrollView() {
+    private func copnfigureScrollView() {
         addScrollView()
         addStackView()
         
-        setScrollViewLayout()
-        setStackViewLayout()
-        setImageViewLayout()
+        configureScrollViewLayout()
+        configureStackViewLayout()
+        configureImageViewLayout()
     }
     
     private func addScrollView() {
@@ -155,14 +155,14 @@ class MainViewController: UIViewController {
         subStackView.addArrangedSubview(rightFlagImageView)
     }
     
-    private func setScrollViewLayout() {
+    private func configureScrollViewLayout() {
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 5).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5).isActive = true
     }
     
-    private func setStackViewLayout() {
+    private func configureStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
         stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 5).isActive = true
@@ -173,7 +173,7 @@ class MainViewController: UIViewController {
         subStackView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8).isActive = true
     }
     
-    private func setImageViewLayout() {
+    private func configureImageViewLayout() {
         imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.4).isActive = true
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.6).isActive = true
         

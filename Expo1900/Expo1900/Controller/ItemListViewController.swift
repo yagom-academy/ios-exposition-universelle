@@ -14,7 +14,7 @@ class ItemListViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         return tableView
     }()
     
@@ -50,11 +50,11 @@ class ItemListViewController: UIViewController {
 
 extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return entryData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
         cell.titleLabel.text = entryData[indexPath.row]!.name

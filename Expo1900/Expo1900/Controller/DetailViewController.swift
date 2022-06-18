@@ -47,10 +47,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = itemData?.name
         
+        configureComponentLayout()
+    }
+    
+    private func configureComponentLayout() {
         addScrollView()
-        setScrollViewLayout()
-        setStackViewLayout()
-        setImageViewLayout()
+        configureScrollViewLayout()
+        configureStackViewLayout()
+        configureImageViewLayout()
         updateComponent()
     }
     
@@ -62,19 +66,19 @@ class DetailViewController: UIViewController {
         stackView.addArrangedSubview(descriptionLabel)
     }
     
-    private func setScrollViewLayout() {
+    private func configureScrollViewLayout() {
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -5).isActive = true
     }
     
-    private func setImageViewLayout() {
+    private func configureImageViewLayout() {
         imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.4).isActive = true
         imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
     }
     
-    private func setStackViewLayout() {
+    private func configureStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
         stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10).isActive = true
