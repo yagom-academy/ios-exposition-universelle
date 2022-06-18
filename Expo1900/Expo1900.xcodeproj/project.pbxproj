@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0591D6A1285B723700730426 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0591D6A0285B723700730426 /* ItemListViewController.swift */; };
-		722D0347285B774B009A0118 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D0346285B774B009A0118 /* TableViewCell.swift */; };
+		722D0347285B774B009A0118 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D0346285B774B009A0118 /* ItemTableViewCell.swift */; };
 		72729E1D285C25D600349EC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72729E1C285C25D600349EC2 /* DetailViewController.swift */; };
 		72C3A3A228597212008B37D9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C3A3A128597212008B37D9 /* DataManager.swift */; };
 		72C3A3F328597580008B37D9 /* folds~universal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72C3A3A528597580008B37D9 /* folds~universal@3x.png */; };
@@ -69,7 +69,7 @@
 
 /* Begin PBXFileReference section */
 		0591D6A0285B723700730426 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
-		722D0346285B774B009A0118 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		722D0346285B774B009A0118 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		72729E1C285C25D600349EC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		72C3A3A128597212008B37D9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		72C3A3A528597580008B37D9 /* folds~universal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folds~universal@3x.png"; sourceTree = "<group>"; };
@@ -376,7 +376,7 @@
 		72C88FC9285C56B60090CCE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				722D0346285B774B009A0118 /* TableViewCell.swift */,
+				722D0346285B774B009A0118 /* ItemTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -542,7 +542,7 @@
 			files = (
 				72729E1D285C25D600349EC2 /* DetailViewController.swift in Sources */,
 				72F1E5C228570F6E0033905A /* Entry.swift in Sources */,
-				722D0347285B774B009A0118 /* TableViewCell.swift in Sources */,
+				722D0347285B774B009A0118 /* ItemTableViewCell.swift in Sources */,
 				0591D6A1285B723700730426 /* ItemListViewController.swift in Sources */,
 				72C3A3A228597212008B37D9 /* DataManager.swift in Sources */,
 				72C88FC7285C4F1C0090CCE6 /* Int+Extension.swift in Sources */,
