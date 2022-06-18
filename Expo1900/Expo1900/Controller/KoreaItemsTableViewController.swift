@@ -8,7 +8,8 @@
 import UIKit
 
 class KoreaItemsTableViewController: UITableViewController {
-
+    var koreaItems = [KoreaItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -85,5 +86,12 @@ class KoreaItemsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    private func decodingJsonData() {
+        guard let items = NSDataAsset(name: "items"),
+              let decondedKoreaItems = try? JSONDecoder().decode([KoreaItem].self, from: items.data) else {
+            return
+        }
+        self.koreaItems = decondedKoreaItems
+    }
 }
