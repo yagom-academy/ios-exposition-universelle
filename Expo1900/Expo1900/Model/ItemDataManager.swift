@@ -10,7 +10,7 @@ import UIKit
 
 struct ItemDataManager {
     
-    func getData() -> [Item]? {
+    func fetchData() -> [Item]? {
         guard let filePath = NSDataAsset.init(name: "items") else {
             return nil
         }

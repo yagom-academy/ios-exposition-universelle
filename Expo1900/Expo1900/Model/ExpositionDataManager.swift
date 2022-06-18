@@ -10,7 +10,7 @@ import UIKit
 
 struct ExpositionDataManager {
     
-    func getData() -> Exposition? {
+    func fetchData() -> Exposition? {
         guard let filePath = NSDataAsset.init(name: "exposition_universelle_1900") else {
             return nil
         }
