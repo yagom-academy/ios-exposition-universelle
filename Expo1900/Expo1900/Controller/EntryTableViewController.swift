@@ -1,5 +1,5 @@
 //
-//  ExpositionTableViewController.swift
+//  EntryTableViewController.swift
 //  Expo1900
 //
 //  Created by Derrick kim on 2022/06/15.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExpositionTableViewController: UIViewController {
+final class EntryTableViewController: UIViewController {
     private let expositionTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +25,7 @@ final class ExpositionTableViewController: UIViewController {
 
 // - MARK: TableView Settings
 
-extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSource {
+extension EntryTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let entryEntity = entryEntity {
             return entryEntity.count
@@ -34,7 +34,7 @@ extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.expositionTableView.dequeueReusableCell(withIdentifier: "ExpositionTableViewCell", for: indexPath) as? ExpositionTableViewCell else {
+        guard let cell = self.expositionTableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath) as? EntryTableViewCell else {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
@@ -57,7 +57,7 @@ extension ExpositionTableViewController: UITableViewDelegate, UITableViewDataSou
 
 // - MARK: View Settings
 
-extension ExpositionTableViewController {
+extension EntryTableViewController {
     private func configureUI() {
         expositionTableView.delegate = self
         expositionTableView.dataSource = self
@@ -76,7 +76,7 @@ extension ExpositionTableViewController {
             expositionTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        expositionTableView.register(ExpositionTableViewCell.self, forCellReuseIdentifier: "ExpositionTableViewCell")
+        expositionTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryTableViewCell")
         
         fetchData() 
     }

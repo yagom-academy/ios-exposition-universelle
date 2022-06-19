@@ -1,5 +1,5 @@
 //
-//  ExpositionTableViewCell.swift
+//  EntryTableViewCell.swift
 //  Expo1900
 //
 //  Created by Baek on 2022/06/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExpositionTableViewCell: UITableViewCell {
+final class EntryTableViewCell: UITableViewCell {
     private let entryImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -62,7 +62,7 @@ final class ExpositionTableViewCell: UITableViewCell {
 
 // - MARK: View Settings
 
-extension ExpositionTableViewCell {
+extension EntryTableViewCell {
     private func addSubView() {
         contentView.addSubview(entryImage)
         contentView.addSubview(verticalStackView)

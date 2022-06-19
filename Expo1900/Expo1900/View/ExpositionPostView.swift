@@ -144,8 +144,8 @@ final class ExpositionPostView: UIView {
 
 private extension ExpositionPostView {
     @objc func tappedExpositionEnterButton(_ sender: UIButton) {
-        let expositionTableViewController = ExpositionTableViewController()
-        rootViewController?.navigationController?.pushViewController(expositionTableViewController, animated: true)
+        let entryTableViewController = EntryTableViewController()
+        rootViewController?.navigationController?.pushViewController(entryTableViewController, animated: true)
     }
     
     func setDefaultValue(with data: ExpositionPostEntity) {
