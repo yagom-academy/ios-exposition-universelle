@@ -7,30 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A894FA828582C6000A4F6FD /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A894FA728582C6000A4F6FD /* JsonParser.swift */; };
+		8A894FB0285832C100A4F6FD /* ExpositionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A894FAF285832C100A4F6FD /* ExpositionTest.swift */; };
+		8A8D49A4285B1FAF00B9E7D6 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D49A3285B1FAF00B9E7D6 /* EntryDetailViewController.swift */; };
+		8A8D49A6285B1FF300B9E7D6 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D49A5285B1FF300B9E7D6 /* EntryDetailView.swift */; };
+		8A8D49A9285C610B00B9E7D6 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D49A8285C610B00B9E7D6 /* Int+Extensions.swift */; };
+		8A8D49AB285C615400B9E7D6 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D49AA285C615400B9E7D6 /* UILabel+Extensions.swift */; };
+		8AA59366285AFA1100494FE9 /* ExpositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */; };
 		905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43E72857046E00BB84E3 /* EntryEntity.swift */; };
 		905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */; };
+		909123082858212900854F1B /* ExpositionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909123072858212900854F1B /* ExpositionPost.swift */; };
+		90E080BB2859C23200950E42 /* ExpositionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */; };
+		90E08105285ACB5900950E42 /* ExpositionPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E08104285ACB5900950E42 /* ExpositionPostView.swift */; };
+		90E0810D285B5CAF00950E42 /* JsonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0810C285B5CAF00950E42 /* JsonError.swift */; };
+		90EB84E3285D9EF600AAB6F5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */; };
+		90EB84E5285DA43B00AAB6F5 /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB84E4285DA43B00AAB6F5 /* JSONFile.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
-		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
+		C79FF4B92589F401005FB0FD /* ExpositionPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionPostViewController.swift */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8A894FB1285832C100A4F6FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C79FF4A92589F401005FB0FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79FF4B02589F401005FB0FD;
+			remoteInfo = Expo1900;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8A894FA728582C6000A4F6FD /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		8A894FAD285832C100A4F6FD /* ExpositionTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpositionTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A894FAF285832C100A4F6FD /* ExpositionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTest.swift; sourceTree = "<group>"; };
+		8A8D49A3285B1FAF00B9E7D6 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		8A8D49A5285B1FF300B9E7D6 /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		8A8D49A8285C610B00B9E7D6 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		8A8D49AA285C615400B9E7D6 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTableViewCell.swift; sourceTree = "<group>"; };
 		905C43E72857046E00BB84E3 /* EntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEntity.swift; sourceTree = "<group>"; };
 		905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpositionPostEntity.swift; sourceTree = "<group>"; };
+		909123072858212900854F1B /* ExpositionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPost.swift; sourceTree = "<group>"; };
+		90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTableViewController.swift; sourceTree = "<group>"; };
+		90E08104285ACB5900950E42 /* ExpositionPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPostView.swift; sourceTree = "<group>"; };
+		90E0810C285B5CAF00950E42 /* JsonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonError.swift; sourceTree = "<group>"; };
+		90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		90EB84E4285DA43B00AAB6F5 /* JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* ExpositionPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPostViewController.swift; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A894FAA285832C100A4F6FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79FF4AE2589F401005FB0FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,11 +83,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A894FAE285832C100A4F6FD /* ExpositionTest */ = {
+			isa = PBXGroup;
+			children = (
+				8A894FAF285832C100A4F6FD /* ExpositionTest.swift */,
+			);
+			path = ExpositionTest;
+			sourceTree = "<group>";
+		};
+		8A8D49A7285C60B700B9E7D6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A8D49A8285C610B00B9E7D6 /* Int+Extensions.swift */,
+				8A8D49AA285C615400B9E7D6 /* UILabel+Extensions.swift */,
+				90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		905C43A62856C89A00BB84E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				90E08104285ACB5900950E42 /* ExpositionPostView.swift */,
+				8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */,
+				8A8D49A5285B1FF300B9E7D6 /* EntryDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -55,14 +116,48 @@
 			children = (
 				905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */,
 				905C43E72857046E00BB84E3 /* EntryEntity.swift */,
+				909123072858212900854F1B /* ExpositionPost.swift */,
+				8A894FA728582C6000A4F6FD /* JsonParser.swift */,
+				90E0810C285B5CAF00950E42 /* JsonError.swift */,
+				90EB84E4285DA43B00AAB6F5 /* JSONFile.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		90E080BF2859D7C600950E42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ExpositionPostViewController.swift */,
+				90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */,
+				8A8D49A3285B1FAF00B9E7D6 /* EntryDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		90E0810A285B3B9800950E42 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4C22589F404005FB0FD /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		90E0810B285B3C1300950E42 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
+				8A894FAE285832C100A4F6FD /* ExpositionTest */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B12589F401005FB0FD /* Expo1900.app */,
+				8A894FAD285832C100A4F6FD /* ExpositionTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,13 +174,12 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4C22589F404005FB0FD /* Info.plist */,
+				90E0810B285B3C1300950E42 /* Application */,
+				90E0810A285B3B9800950E42 /* Resources */,
+				8A8D49A7285C60B700B9E7D6 /* Extensions */,
 				905C43A72856C8AF00BB84E3 /* Model */,
 				905C43A62856C89A00BB84E3 /* View */,
+				90E080BF2859D7C600950E42 /* Controller */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -92,6 +187,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8A894FAC285832C100A4F6FD /* ExpositionTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A894FB3285832C100A4F6FD /* Build configuration list for PBXNativeTarget "ExpositionTest" */;
+			buildPhases = (
+				8A894FA9285832C100A4F6FD /* Sources */,
+				8A894FAA285832C100A4F6FD /* Frameworks */,
+				8A894FAB285832C100A4F6FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A894FB2285832C100A4F6FD /* PBXTargetDependency */,
+			);
+			name = ExpositionTest;
+			productName = ExpositionTest;
+			productReference = 8A894FAD285832C100A4F6FD /* ExpositionTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C79FF4B02589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C79FF4C52589F404005FB0FD /* Build configuration list for PBXNativeTarget "Expo1900" */;
@@ -115,9 +228,13 @@
 		C79FF4A92589F401005FB0FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					8A894FAC285832C100A4F6FD = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = C79FF4B02589F401005FB0FD;
+					};
 					C79FF4B02589F401005FB0FD = {
 						CreatedOnToolsVersion = 12.1;
 					};
@@ -137,47 +254,74 @@
 			projectRoot = "";
 			targets = (
 				C79FF4B02589F401005FB0FD /* Expo1900 */,
+				8A894FAC285832C100A4F6FD /* ExpositionTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8A894FAB285832C100A4F6FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79FF4AF2589F401005FB0FD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
-				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8A894FA9285832C100A4F6FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A894FB0285832C100A4F6FD /* ExpositionTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79FF4AD2589F401005FB0FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* ExpositionPostViewController.swift in Sources */,
 				905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */,
+				90EB84E5285DA43B00AAB6F5 /* JSONFile.swift in Sources */,
+				8A8D49A4285B1FAF00B9E7D6 /* EntryDetailViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				8A894FA828582C6000A4F6FD /* JsonParser.swift in Sources */,
+				909123082858212900854F1B /* ExpositionPost.swift in Sources */,
+				90E0810D285B5CAF00950E42 /* JsonError.swift in Sources */,
+				90E08105285ACB5900950E42 /* ExpositionPostView.swift in Sources */,
+				8A8D49AB285C615400B9E7D6 /* UILabel+Extensions.swift in Sources */,
+				8A8D49A6285B1FF300B9E7D6 /* EntryDetailView.swift in Sources */,
+				90EB84E3285D9EF600AAB6F5 /* UIViewController+Extensions.swift in Sources */,
+				8A8D49A9285C610B00B9E7D6 /* Int+Extensions.swift in Sources */,
+				90E080BB2859C23200950E42 /* ExpositionTableViewController.swift in Sources */,
+				8AA59366285AFA1100494FE9 /* ExpositionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		C79FF4BA2589F401005FB0FD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C79FF4BB2589F401005FB0FD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		8A894FB2285832C100A4F6FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C79FF4B02589F401005FB0FD /* Expo1900 */;
+			targetProxy = 8A894FB1285832C100A4F6FD /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -189,6 +333,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8A894FB4285832C100A4F6FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.ExpositionTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/Expo1900";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Debug;
+		};
+		8A894FB5285832C100A4F6FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.ExpositionTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/Expo1900";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Release;
+		};
 		C79FF4C32589F404005FB0FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -311,7 +495,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +513,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +528,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8A894FB3285832C100A4F6FD /* Build configuration list for PBXNativeTarget "ExpositionTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A894FB4285832C100A4F6FD /* Debug */,
+				8A894FB5285832C100A4F6FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C79FF4AC2589F401005FB0FD /* Build configuration list for PBXProject "Expo1900" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
