@@ -9,6 +9,17 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
 
+    lazy var labelStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .leading
+        stackView.addArrangedSubview(nameLabel)
+        stackView.addArrangedSubview(shortDescriptionLabel)
+        return stackView
+    }()
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25)
@@ -30,17 +41,6 @@ class ItemTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
-    }()
-    
-    lazy var labelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .leading
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(shortDescriptionLabel)
-        return stackView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
