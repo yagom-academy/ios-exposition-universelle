@@ -167,7 +167,7 @@ class ExpoMainViewController: UIViewController {
     }
     
     @objc private func tappedNextViewButtonEvent() {
-        let koreaItemsTableViewController = KoreaItemsTableViewController()
+        let koreaItemsTableViewController = KoreaItemTableViewController()
         self.navigationController?.pushViewController(koreaItemsTableViewController, animated: true)
     }
 }

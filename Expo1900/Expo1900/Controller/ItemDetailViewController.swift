@@ -78,7 +78,7 @@ class ItemDetailViewController: UIViewController {
     }
 }
 
-extension ItemDetailViewController: SendDataDelgate {
+extension ItemDetailViewController: SendDataDelegate {
     func sendItemData(item: KoreaItem) {
         koreaItem = item
     }
