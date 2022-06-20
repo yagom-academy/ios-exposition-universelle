@@ -34,7 +34,7 @@ extension EntryTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.expositionTableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath) as? EntryTableViewCell else {
+        guard let cell = self.expositionTableView.dequeueReusableCell(withIdentifier: EntryTableViewCell.reuseIdentifier, for: indexPath) as? EntryTableViewCell else {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
@@ -78,7 +78,7 @@ extension EntryTableViewController {
             expositionTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        expositionTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryTableViewCell")
+        expositionTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
         
         fetchData() 
     }

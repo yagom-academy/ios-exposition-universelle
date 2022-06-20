@@ -62,7 +62,7 @@ final class EntryTableViewCell: UITableViewCell {
 
 // - MARK: View Settings
 
-extension EntryTableViewCell {
+extension EntryTableViewCell: ReuseIdentifying {
     private func addSubView() {
         contentView.addSubview(entryImage)
         contentView.addSubview(verticalStackView)

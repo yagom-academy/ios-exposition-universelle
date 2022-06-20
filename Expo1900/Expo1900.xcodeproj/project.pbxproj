@@ -16,6 +16,7 @@
 		8AA59366285AFA1100494FE9 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59365285AFA1100494FE9 /* EntryTableViewCell.swift */; };
 		905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43E72857046E00BB84E3 /* EntryEntity.swift */; };
 		905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */; };
+		9089FCED2860AAE500700A70 /* ReuseIdentifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9089FCEC2860AAE500700A70 /* ReuseIdentifying.swift */; };
 		909123082858212900854F1B /* ExpositionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909123072858212900854F1B /* ExpositionPost.swift */; };
 		90E080BB2859C23200950E42 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E080BA2859C23200950E42 /* EntryTableViewController.swift */; };
 		90E08105285ACB5900950E42 /* ExpositionPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E08104285ACB5900950E42 /* ExpositionPostView.swift */; };
@@ -50,6 +51,7 @@
 		8AA59365285AFA1100494FE9 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		905C43E72857046E00BB84E3 /* EntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEntity.swift; sourceTree = "<group>"; };
 		905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpositionPostEntity.swift; sourceTree = "<group>"; };
+		9089FCEC2860AAE500700A70 /* ReuseIdentifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifying.swift; sourceTree = "<group>"; };
 		909123072858212900854F1B /* ExpositionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPost.swift; sourceTree = "<group>"; };
 		90E080BA2859C23200950E42 /* EntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
 		90E08104285ACB5900950E42 /* ExpositionPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPostView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				8A894FA728582C6000A4F6FD /* JsonParser.swift */,
 				90E0810C285B5CAF00950E42 /* JsonError.swift */,
 				90EB84E4285DA43B00AAB6F5 /* JSONFile.swift */,
+				9089FCEC2860AAE500700A70 /* ReuseIdentifying.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */,
+				9089FCED2860AAE500700A70 /* ReuseIdentifying.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionPostViewController.swift in Sources */,
 				905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */,
 				90EB84E5285DA43B00AAB6F5 /* JSONFile.swift in Sources */,
