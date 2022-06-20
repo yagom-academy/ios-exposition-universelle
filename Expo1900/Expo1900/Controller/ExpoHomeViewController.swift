@@ -21,7 +21,7 @@ class ExpoHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setExpositionData()
+        setupExpositionData()
         updateUI()
     }
     
@@ -42,8 +42,8 @@ class ExpoHomeViewController: UIViewController {
         self.navigationController?.pushViewController(menuVC, animated: true)
     }
     
-    private func setExpositionData() {
-        let exposition = loadJsonData(type: Exposition.self, "exposition", "json") 
+    private func setupExpositionData() {
+        let exposition = loadJsonData(type: Exposition.self, "exposition", "json")
         self.exposition = exposition
     }
 }

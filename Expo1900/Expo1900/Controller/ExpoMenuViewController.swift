@@ -47,8 +47,8 @@ extension ExpoMenuViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let currentExpoItemElement = expoItemList[indexPath.row]
-        cell.settingLableView(name: currentExpoItemElement.name, shortDescription: currentExpoItemElement.shortDesc)
-        cell.settingImageView(name: currentExpoItemElement.imageName)
+        cell.setupLableView(name: currentExpoItemElement.name, shortDescription: currentExpoItemElement.shortDesc)
+        cell.setupImageView(name: currentExpoItemElement.imageName)
         return cell
     }
 }
