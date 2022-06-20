@@ -8,6 +8,9 @@
 import UIKit
 
 class ExpoMainViewController: UIViewController {
+    //MARK: - Expo Main Property
+    var expoData = ExpoData()
+    
     //MARK: - Expo Main View
     
     let mainScrollView: UIScrollView = {
@@ -35,31 +38,6 @@ class ExpoMainViewController: UIViewController {
         return label
     }()
     
-    let posterImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "poster")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    let visitorsLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let locationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let durationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -74,20 +52,6 @@ class ExpoMainViewController: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .equalCentering
         return stackView
-    }()
-    
-    let leftFlagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "flag")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    let rightFlagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "flag")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
     }()
     
     let nextViewButton: UIButton = {
@@ -108,9 +72,9 @@ class ExpoMainViewController: UIViewController {
         self.view.addSubview(mainScrollView)
         self.mainScrollView.addSubview(mainStackView)
         
+        setLabelText()
         addUIItemStackView()
         setViewConstraints()
-        setLabelText()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,10 +85,11 @@ class ExpoMainViewController: UIViewController {
     //MARK: - Setting View Methods
     
     private func addUIItemStackView() {
-        let storeUIView = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, subStackView]
+        let storeUIView = [titleLabel, createImageView(imageName: "poster"), createLabel(expoData.visitors),
+                           createLabel(expoData.location), createLabel(expoData.duration), descriptionLabel, subStackView]
         storeUIView.forEach {self.mainStackView.addArrangedSubview($0)}
         
-        let subStoreUIView = [leftFlagImageView, nextViewButton, rightFlagImageView]
+        let subStoreUIView = [createImageView(imageName: "flag"), nextViewButton, createImageView(imageName: "flag")]
         subStoreUIView.forEach {self.subStackView.addArrangedSubview($0)}
     }
     
@@ -157,17 +122,27 @@ class ExpoMainViewController: UIViewController {
     }
     
     private func setLabelText() {
-        var expoData = ExpoData()
         expoData.decodingJsonData()
         titleLabel.text = expoData.title
-        visitorsLabel.text = expoData.visitors
-        locationLabel.text = expoData.location
-        durationLabel.text = expoData.duration
         descriptionLabel.text = expoData.description
     }
     
     @objc private func tappedNextViewButtonEvent() {
         let koreaItemsTableViewController = KoreaItemTableViewController()
         self.navigationController?.pushViewController(koreaItemsTableViewController, animated: true)
+    }
+    
+    private func createImageView(imageName: String) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: imageName)
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }
+    
+    private func createLabel(_ text: String?) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }
 }
