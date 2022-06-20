@@ -16,12 +16,12 @@ class ExpoMenuViewController: UIViewController {
         super.viewDidLoad()
         expoItemTableView.delegate = self
         expoItemTableView.dataSource = self
-        setExpositionData()
+        setupExpositionData()
         modifyNavigationTitle(to: "한국의 출품작", in: self)
         modifyNavigationBackButtonTitle(to: "메인", in: self)
     }
     
-    private func setExpositionData() {
+    private func setupExpositionData() {
         let expoItemList = loadJsonData(type: Array<ExpoItemElement>.self, "items", "json")
         self.expoItemList = expoItemList
     }

@@ -21,11 +21,11 @@ class ExpoHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setExpositionData()
+        setupExpositionData()
         updateUI()
     }
     
-    private func setExpositionData() {
+    private func setupExpositionData() {
         let exposition = loadJsonData(type: Exposition.self, "exposition", "json") 
         self.exposition = exposition
     }
