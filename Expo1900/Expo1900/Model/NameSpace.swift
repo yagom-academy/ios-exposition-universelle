@@ -2,7 +2,7 @@
 //  NameSpace.swift
 //  Expo1900
 //
-//  Created by 이예은 on 2022/06/20.
+//  Created by 수꿍, yeton on 2022/06/20.
 //
 enum NameSpace: String {
     case expoInfoData = "exposition_universelle_1900"

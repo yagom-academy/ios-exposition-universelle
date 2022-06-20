@@ -6,7 +6,7 @@
 
 import UIKit
 
-class EXPOInformationViewController: UIViewController {
+final class EXPOInformationViewController: UIViewController {
     private var expositionUniverselle: ExpositionUniverselle?
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -49,62 +49,6 @@ class EXPOInformationViewController: UIViewController {
         expositionUniverselle = parsedInformation
     }
     
-    private func updatePosterDescription() {
-        updateTitleLabel()
-        updateVisitorsLabel()
-        updateLocationLabel()
-        updateDurationLabel()
-        updateDescriptionLabel()
-    }
-    
-    private func updateTitleLabel() {
-        guard let title = expositionUniverselle?.title else {
-            return
-        }
-        
-        let changeTitle = title.replacingOccurrences(of: NameSpace.bracket.name, with: NameSpace.bracketWithLineBreak.name)
-        
-        self.titleLabel.text = changeTitle
-        CustomLabel.setNumberOfLinesToZero(into: descriptionLabel)
-        CustomLabel.setLabelFont(into: titleLabel, style: .title2)
-    }
-    
-    private func updateVisitorsLabel() {
-        let numberformatter = CustomLabel.setNumberFormat()
-        
-        guard let visitors = numberformatter.string(for: expositionUniverselle?.visitors) else {
-            return
-        }
-        
-        self.visitorsLabel.text = NameSpace.visitors.name + String(visitors) + NameSpace.numberOfPeople.name
-    }
-    
-    private func updateLocationLabel() {
-        guard let location = expositionUniverselle?.location else {
-            return
-        }
-        
-        self.locationLabel.text = NameSpace.location.name +  String(location)
-    }
-    
-    private func updateDurationLabel() {
-        guard let duration = expositionUniverselle?.duration else {
-            return
-        }
-        
-        self.durationLabel.text = NameSpace.duration.name + String(duration)
-    }
-    
-    private func updateDescriptionLabel() {
-        guard let description = expositionUniverselle?.description else {
-            return
-        }
-        
-        self.descriptionLabel.text = description
-        CustomLabel.setNumberOfLinesToZero(into: descriptionLabel)
-        CustomLabel.setLineBreakMode(into: descriptionLabel, style: .byWordWrapping)
-    }
-    
     @IBAction private func navigationButtonDidTap(_ sender: UIButton) {
         goToKoreaEntryView()
     }
@@ -115,6 +59,58 @@ class EXPOInformationViewController: UIViewController {
         }
 
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    private func updatePosterDescription() {
+        guard let expositionUniverselle = expositionUniverselle else {
+            return
+        }
+        
+        updateTitleLabel(from: expositionUniverselle)
+        updateVisitorsLabel(from: expositionUniverselle)
+        updateLocationLabel(from: expositionUniverselle)
+        updateDurationLabel(from: expositionUniverselle)
+        updateDescriptionLabel(from: expositionUniverselle)
+    }
+    
+    private func updateTitleLabel(from expo: ExpositionUniverselle) {
+        let title = expo.title
+        
+        let changeTitle = title.replacingOccurrences(of: NameSpace.bracket.name, with: NameSpace.bracketWithLineBreak.name)
+        
+        self.titleLabel.text = changeTitle
+        self.descriptionLabel.setNumberOfLines(0)
+        self.titleLabel.setLabelFont(style: .title2)
+    }
+    
+    private func updateVisitorsLabel(from expo: ExpositionUniverselle) {
+        let numberformatter = self.visitorsLabel.setNumberFormat(style: .decimal)
+        
+        guard let visitors = numberformatter.string(for: expo.visitors) else {
+            return
+        }
+        
+        self.visitorsLabel.text = NameSpace.visitors.name + String(visitors) + NameSpace.numberOfPeople.name
+    }
+    
+    private func updateLocationLabel(from expo: ExpositionUniverselle) {
+        let location = expo.location
+        
+        self.locationLabel.text = NameSpace.location.name +  String(location)
+    }
+    
+    private func updateDurationLabel(from expo: ExpositionUniverselle) {
+        let duration = expo.duration
+        
+        self.durationLabel.text = NameSpace.duration.name + String(duration)
+    }
+    
+    private func updateDescriptionLabel(from expo: ExpositionUniverselle) {
+        let description = expositionUniverselle?.description
+
+        self.descriptionLabel.text = description
+        self.descriptionLabel.setNumberOfLines(0)
+        self.descriptionLabel.setLineBreakMode(style: .byWordWrapping)
     }
 }
 

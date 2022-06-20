@@ -7,15 +7,14 @@
 
 import UIKit
 
-class KoreaEntryViewController: UIViewController {
+final class KoreaEntryViewController: UIViewController {
     private var koreaEntry = [Exhibits]()
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.dataSource = self
         
         parseKoreaEntryItems()
         NavigationBarFormatter.setTitle(navigationItem, title: NameSpace.koreaEntry.name)
@@ -31,13 +30,15 @@ class KoreaEntryViewController: UIViewController {
             
         let destination = segue.destination as? KoreaEntryDetailsViewController
       
-        destination?.deliveredImageName = koreaEntry[index].imageName
-        destination?.deliveredDescription = koreaEntry[index].description
-        destination?.deliveredTitle = koreaEntry[index].name
+        let exhibit = koreaEntry[index]
+        
+        destination?.exhibit = exhibit
     }
     
     private func parseKoreaEntryItems() {
-        guard let parsedItems = JSONData.parse(name: NameSpace.expoEntryData.name, to: koreaEntry) else {
+        guard let parsedItems = JSONData.parse(
+            name: NameSpace.expoEntryData.name,
+            to: koreaEntry) else {
             return
         }
         
@@ -45,7 +46,7 @@ class KoreaEntryViewController: UIViewController {
     }
 }
 
-extension KoreaEntryViewController: UITableViewDataSource, UITableViewDelegate {
+extension KoreaEntryViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
