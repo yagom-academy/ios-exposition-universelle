@@ -20,7 +20,7 @@ final class EXPOInformationViewController: UIViewController {
         super.viewDidLoad()
         
         setupExpoInformation()
-        NavigationBarFormatter.setTitle(navigationItem, title: NameSpace.firstVCTitle.name)
+        self.navigationItem.setTitle(NameSpace.firstVCTitle.name)
     }
     
     override func viewWillAppear(_ animated: Bool) {

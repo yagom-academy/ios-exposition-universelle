@@ -24,7 +24,7 @@ final class KoreaEntryDetailsViewController: UIViewController {
         }
         
         self.entryImageView.image = UIImage(named: exhibit.imageName)
-        NavigationBarFormatter.setTitle( navigationItem, title: exhibit.name)
+        self.navigationItem.setTitle(exhibit.name)
         self.entryDescriptionLabel.text = exhibit.description
         self.entryDescriptionLabel.setLineBreakMode(style: .byWordWrapping)
         self.entryDescriptionLabel.setNumberOfLines(0)
