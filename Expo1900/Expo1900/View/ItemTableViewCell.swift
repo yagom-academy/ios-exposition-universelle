@@ -11,9 +11,8 @@ final class ItemTableViewCell: UITableViewCell {
     
     var itemInfo: Entry? {
         didSet {
-            guard let image = itemInfo?.imageName else { return }
             itemTitleLabel.text = itemInfo?.name
-            itemImageView.image = UIImage(named: image)
+            itemImageView.image = itemInfo?.image
             itemShortDescriptionLable.text = itemInfo?.shortDescription
         }
     }

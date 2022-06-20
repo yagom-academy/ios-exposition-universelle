@@ -15,56 +15,43 @@ final class MainUIScrollView: UIScrollView {
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        
         return formatter
     }()
     
-    private lazy var mainTitleLabel: UILabel = {
+    private let mainTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.text = expoInfo?.title
         label.numberOfLines = 2
         label.textAlignment = .center
         return label
     }()
     
-    private let mainImage: UIImageView = {
+    private let mainImageView: UIImageView = {
         let imageView = UIImageView()
-        guard let image = UIImage(named: "poster.png") else { return UIImageView() }
-        imageView.image = image
         return imageView
     }()
     
-    private lazy var audienceLabel: UILabel = {
+    private let audienceLabel: UILabel = {
         let label = UILabel()
-        guard let audienceNumber = expoInfo?.visitors,
-              let formattedNumber = numberFormatter.string(from: audienceNumber as NSNumber) else { return UILabel() }
-        
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "방문객 : \(formattedNumber) 명"
         return label
     }()
     
-    private lazy var venueLabel: UILabel = {
+    private let venueLabel: UILabel = {
         let label = UILabel()
-        guard let location = expoInfo?.location else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "개최지 : \(location)"
         return label
     }()
     
-    private lazy var periodLabel: UILabel = {
+    private let periodLabel: UILabel = {
         let label = UILabel()
-        guard let duration = expoInfo?.duration else { return UILabel() }
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "개최기간 : \(duration)"
         return label
     }()
     
-    private lazy var descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = expoInfo?.description
         label.numberOfLines = 0
         return label
     }()
@@ -108,7 +95,7 @@ final class MainUIScrollView: UIScrollView {
     }()
     
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImage, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView])
+        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImageView, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView])
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -123,11 +110,26 @@ final class MainUIScrollView: UIScrollView {
         setupContentViewConstraints()
         mainStackViewConfigure()
         setupLabelConstraints()
+        setupData()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupData() {
+        guard let audienceNumber = expoInfo?.visitors,
+              let formattedNumber = numberFormatter.string(from: audienceNumber as NSNumber),
+              let location = expoInfo?.location,
+              let duration = expoInfo?.duration else { return }
+        
+        mainTitleLabel.text = expoInfo?.title
+        mainImageView.image = UIImage(named: "poster.png")
+        audienceLabel.text = "방문객 : \(formattedNumber) 명"
+        venueLabel.text = "개최지 : \(location)"
+        periodLabel.text = "개최기간 : \(duration)"
+        descriptionLabel.text = expoInfo?.description
     }
     
     private func setupContentViewConstraints() {

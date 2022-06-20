@@ -12,8 +12,7 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     private let contentView = UIView()
     var itemDetailInfo: Entry? {
         didSet {
-            guard let image = itemDetailInfo?.imageName else { return }
-            itemImageView.image = UIImage(named: image)
+            itemImageView.image = itemDetailInfo?.image
             itemDescriptionLabel.text = itemDetailInfo?.desc
         }
     }
