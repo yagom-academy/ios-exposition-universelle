@@ -10,7 +10,6 @@ import UIKit
 class DescriptionViewController: UIViewController {
     @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var detailedDescription: UILabel!
-    @IBOutlet weak var thirdNavigationItem: UINavigationItem!
     var textToSet: String?
     var imageToSet: UIImageView?
     

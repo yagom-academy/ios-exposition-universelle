@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var expoLocation: UILabel!
     @IBOutlet weak var expoDuration: UILabel!
     @IBOutlet weak var expoDescription: UILabel!
-    @IBOutlet weak var firstNavigationItem: UINavigationItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +29,7 @@ class MainViewController: UIViewController {
         expoDescription.text = decodedData.description
         
         self.navigationController?.isNavigationBarHidden = true
-        firstNavigationItem?.backButtonTitle = "메인"
+        self.navigationController?.navigationBar.topItem?.title = "메인"
         
     }
     

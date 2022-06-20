@@ -9,7 +9,6 @@ import UIKit
 
 class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var secondNavigationItem: UINavigationItem!
     let entryList = try! JsonParser.parseEntryList()
     let firstViewController = MainViewController()
     
@@ -17,8 +16,11 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        secondNavigationItem.title = "한국의 출품작"
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "한국의 출품작"
     }
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +45,5 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         nextViewController.imageToSet = cell.koreaEntryImage
         nextViewController.textToSet = cell.detailedDescription
-        nextViewController.thirdNavigationItem.title = cell.koreaEntryTitle.text
     }
 }
