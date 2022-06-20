@@ -17,7 +17,7 @@ class KoreaItemTableViewController: UITableViewController {
     
     let itemTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(KoreaItemsTableViewCell.self, forCellReuseIdentifier: "KoreaItemsTableViewCell")
+        tableView.register(KoreaItemTableViewCell.self, forCellReuseIdentifier: "KoreaItemTableViewCell")
         return tableView
     }()
     
@@ -38,7 +38,7 @@ class KoreaItemTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreaItemsTableViewCell", for: indexPath) as? KoreaItemsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreaItemTableViewCell", for: indexPath) as? KoreaItemTableViewCell else {
             return UITableViewCell()
         }
         cell.itemImageView.image = item[indexPath.row].image

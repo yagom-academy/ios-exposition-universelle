@@ -7,9 +7,10 @@
 
 import UIKit
 
-class KoreaItemsTableViewCell: UITableViewCell {
+class KoreaItemTableViewCell: UITableViewCell {
+    //MARK: - KoreaItem Cell View
     
-    let koreaItemsStackView: UIStackView = {
+    let itemStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -19,7 +20,7 @@ class KoreaItemsTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let koreaItemsSubStackView: UIStackView = {
+    let itemSubStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -31,6 +32,7 @@ class KoreaItemsTableViewCell: UITableViewCell {
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 80).isActive = true
         return imageView
     }()
     
@@ -49,27 +51,35 @@ class KoreaItemsTableViewCell: UITableViewCell {
         return label
     }()
     
+    //MARK: - Initializer
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(koreaItemsStackView)
-        setConstraints()
+        self.contentView.addSubview(itemStackView)
+        
+        addUIItemStackView()
+        setViewConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setConstraints() {
-        let storeUIView = [itemImageView, koreaItemsSubStackView]
-        storeUIView.forEach { koreaItemsStackView.addArrangedSubview($0) }
+    //MARK: - Setting View Methods
+    
+    private func addUIItemStackView() {
+        let storeUIView = [itemImageView, itemSubStackView]
+        storeUIView.forEach { itemStackView.addArrangedSubview($0) }
         
         let subStoreUIView = [titleLabel, shortDescriptionLabel]
-        subStoreUIView.forEach { koreaItemsSubStackView.addArrangedSubview($0) }
-        
-        koreaItemsStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-        koreaItemsStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-        koreaItemsStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
-        koreaItemsStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
-        koreaItemsSubStackView.widthAnchor.constraint(equalTo: self.itemImageView.widthAnchor, multiplier: 4).isActive = true
+        subStoreUIView.forEach { itemSubStackView.addArrangedSubview($0) }
+    }
+    
+    private func setViewConstraints() {
+        itemStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        itemStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+        itemStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        itemStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        itemSubStackView.widthAnchor.constraint(equalTo: self.itemImageView.widthAnchor, multiplier: 4).isActive = true
     }
 }
