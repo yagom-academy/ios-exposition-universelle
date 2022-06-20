@@ -35,10 +35,9 @@ extension ExpositionPosterViewController {
         }
         
         titleLabel.text = poster.title
-        // TODO: 방문객 숫자에 numberFormatter 적용하기
-        visitorsLabel.text = "방문객 : \(poster.visitors) 명"
-        locationLabel.text = "개최지 : \(poster.location)"
-        durationLabel.text = "개최 기간 : \(poster.duration)"
+        visitorsLabel.text = poster.visitorContents
+        locationLabel.text = poster.locationContents
+        durationLabel.text = poster.durationContents
         descriptionLabel.text = poster.description
         
         posterImageView.image = UIImage(named: "poster")
