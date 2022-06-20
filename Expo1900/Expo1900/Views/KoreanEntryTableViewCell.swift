@@ -7,12 +7,11 @@
 
 import UIKit
 
-class KoreanEntryTableViewCell: UITableViewCell {
+class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
     var entryImageView: UIImageView!
     var titleLabel: UILabel!
     var shortDescriptionLabel: UILabel!
 }
-
 
 extension KoreanEntryTableViewCell {
     override func awakeFromNib() {

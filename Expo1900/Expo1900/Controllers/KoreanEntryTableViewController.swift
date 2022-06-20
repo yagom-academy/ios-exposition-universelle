@@ -10,7 +10,7 @@ import UIKit
 // TODO: 고정된 값을 가진 String 값들을 담아 주는 네임스페이스 생성
 
 class KoreanEntryTableViewController: UITableViewController {
-    var entries: [ExpositionEntry]?
+    var entries: [ExpositionEntry] = []
 }
 
 extension KoreanEntryTableViewController {
@@ -21,16 +21,19 @@ extension KoreanEntryTableViewController {
 
 extension KoreanEntryTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries?.count ?? 1
+        return entries.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "koreanEntryCell", for: indexPath) as? KoreanEntryTableViewCell else { return UITableViewCell() }
-        let data = entries?[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreanEntryTableViewCell.reuseIdentifier, for: indexPath) as? KoreanEntryTableViewCell else {
+            return UITableViewCell()
+        }
         
-        cell.entryImageView.image = data?.thumbnail
-        cell.titleLabel.text = data?.name
-        cell.shortDescriptionLabel.text = data?.shortDescription
+        let data = entries[indexPath.row]
+        
+        cell.entryImageView.image = data.thumbnail
+        cell.titleLabel.text = data.name
+        cell.shortDescriptionLabel.text = data.shortDescription
         
         return cell
     }
@@ -39,7 +42,7 @@ extension KoreanEntryTableViewController {
 extension KoreanEntryTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedEntryViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectedEntryVC") as? SelectedEntryViewController else { return }
-        selectedEntryViewController.entry = entries?[indexPath.row]
+        selectedEntryViewController.entry = entries[indexPath.row]
         self.navigationController?.pushViewController(selectedEntryViewController, animated: true)
     }
 }

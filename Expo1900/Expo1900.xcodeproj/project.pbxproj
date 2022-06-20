@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F1854A928605A07007D7919 /* ReuseIdentifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1854A828605A07007D7919 /* ReuseIdentifying.swift */; };
 		4F982FBC285830AB00FCB18D /* ExpositionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F982FBB285830AB00FCB18D /* ExpositionEntry.swift */; };
 		4FFC4B80285C50EC00F6C18A /* KoreanEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFC4B7F285C50EC00F6C18A /* KoreanEntryTableViewCell.swift */; };
 		6A653966285B831500E48C17 /* KoreanEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A653965285B831500E48C17 /* KoreanEntryTableViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F1854A828605A07007D7919 /* ReuseIdentifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifying.swift; sourceTree = "<group>"; };
 		4F982FBB285830AB00FCB18D /* ExpositionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionEntry.swift; sourceTree = "<group>"; };
 		4FFC4B7F285C50EC00F6C18A /* KoreanEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryTableViewCell.swift; sourceTree = "<group>"; };
 		6A653965285B831500E48C17 /* KoreanEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryTableViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F1854A7286059E7007D7919 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4F1854A828605A07007D7919 /* ReuseIdentifying.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		4F982FB728582AE900FCB18D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 		4F982FB828582AEF00FCB18D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4F1854A7286059E7007D7919 /* Protocols */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				4FFC4B7F285C50EC00F6C18A /* KoreanEntryTableViewCell.swift */,
 			);
@@ -185,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F982FBC285830AB00FCB18D /* ExpositionEntry.swift in Sources */,
+				4F1854A928605A07007D7919 /* ReuseIdentifying.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionPosterViewController.swift in Sources */,
 				6AFE52F2285C612600351329 /* SelectedEntryViewController.swift in Sources */,
 				6A653966285B831500E48C17 /* KoreanEntryTableViewController.swift in Sources */,
