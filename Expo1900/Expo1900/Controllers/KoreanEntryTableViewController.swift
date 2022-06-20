@@ -25,19 +25,14 @@ extension KoreanEntryTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "koreanEntryCell", for: indexPath)
-        
-        guard let entryCell = cell as? KoreanEntryTableViewCell else {
-            return cell
-        }
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "koreanEntryCell", for: indexPath) as? KoreanEntryTableViewCell else { return UITableViewCell() }
         let data = entries?[indexPath.row]
         
-        entryCell.entryImageView.image = data?.thumbnail
-        entryCell.titleLabel.text = data?.name
-        entryCell.shortDescriptionLabel.text = data?.shortDescription
+        cell.entryImageView.image = data?.thumbnail
+        cell.titleLabel.text = data?.name
+        cell.shortDescriptionLabel.text = data?.shortDescription
         
-        return entryCell
+        return cell
     }
 }
 
