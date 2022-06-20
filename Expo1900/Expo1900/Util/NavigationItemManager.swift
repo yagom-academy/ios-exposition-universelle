@@ -7,10 +7,12 @@
 
 import UIKit
 
-func modifyNavigationBackButtonTitle(to name: String, in VC: UIViewController) {
-    VC.navigationController?.navigationBar.topItem?.backButtonTitle = name
-}
-
-func modifyNavigationTitle(to name: String, in VC: UIViewController) {
-    VC.title = name
+extension UIViewController {
+    func modifyNavigationBackButtonTitle(to name: String, in VC: UIViewController) {
+        VC.navigationController?.navigationBar.topItem?.backButtonTitle = name
+    }
+    
+    func modifyNavigationTitle(to name: String, in VC: UIViewController) {
+        VC.title = name
+    }
 }

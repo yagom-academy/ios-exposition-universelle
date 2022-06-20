@@ -20,11 +20,6 @@ class DetailViewController: UIViewController {
         modifyNavigationBackButtonTitle(to: "한국의 출품작", in: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        modifyNavigationTitle(to: expoItemElement?.name ?? "", in: self)
-        modifyNavigationBackButtonTitle(to: "한국의 출품작", in: self)
-    }
-    
     private func updateUI() {
         ExpoItemImageView.image = UIImage(named: expoItemElement?.imageName ?? "")
         ExpoItemDescriptionLabel.text = expoItemElement?.desc

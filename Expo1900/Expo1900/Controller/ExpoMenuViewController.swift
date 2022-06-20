@@ -17,9 +17,6 @@ class ExpoMenuViewController: UIViewController {
         expoItemTableView.delegate = self
         expoItemTableView.dataSource = self
         setExpositionData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         modifyNavigationTitle(to: "한국의 출품작", in: self)
         modifyNavigationBackButtonTitle(to: "메인", in: self)
     }
