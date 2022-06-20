@@ -8,7 +8,7 @@
 import UIKit
 
 struct JSONData {
-    static func parse<T>(name: String, to parsedItems: T) -> T? where T: Decodable {
+    static func parse<T: Decodable>(name: String, to parsedItems: T) -> T? {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         let parsedItemsType = type(of: parsedItems)
 
@@ -24,24 +24,7 @@ struct JSONData {
             return nil
         }
     }
-
-    static func parse<T>(name: String, to parsedItems: [T]) -> [T]? where T: Decodable {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        let parsedItemsType = type(of: parsedItems)
-
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: name) else {
-            return nil
-        }
-
-        do {
-            let data = try jsonDecoder.decode(parsedItemsType.self, from: dataAsset.data)
-            return data
-        } catch {
-            self.handleError(error)
-            return nil
-        }
-    }
-
+    
     static private func handleError(_ error: Error) {
         switch error {
         case EXPOError.decoding:
