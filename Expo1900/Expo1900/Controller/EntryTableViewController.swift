@@ -48,9 +48,11 @@ extension EntryTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        
-        let entryDetailViewController = EntryDetailViewController()
-        entryDetailViewController.entryEntity = entryEntity?[indexPath.row]
+
+        guard let data = entryEntity?[indexPath.row] else {
+            return
+        }
+        let entryDetailViewController = EntryDetailViewController(data: data)
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
