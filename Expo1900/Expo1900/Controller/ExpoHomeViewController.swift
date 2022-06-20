@@ -21,8 +21,13 @@ class ExpoHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupExpositionData()
+        setExpositionData()
         updateUI()
+    }
+    
+    private func setExpositionData() {
+        let exposition = loadJsonData(type: Exposition.self, "exposition", "json") 
+        self.exposition = exposition
     }
     
     private func updateUI() {
@@ -40,10 +45,5 @@ class ExpoHomeViewController: UIViewController {
     @IBAction func pushToExpoMenuButtonDidTap(_ sender: UIButton) {
         guard let menuVC = storyboard?.instantiateViewController(withIdentifier: "ExpoMenuViewController") as? ExpoMenuViewController else { return }
         self.navigationController?.pushViewController(menuVC, animated: true)
-    }
-    
-    private func setupExpositionData() {
-        let exposition = loadJsonData(type: Exposition.self, "exposition", "json")
-        self.exposition = exposition
     }
 }
