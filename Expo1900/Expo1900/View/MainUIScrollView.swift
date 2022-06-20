@@ -119,6 +119,17 @@ final class MainUIScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(contentView)
+        
+        setupContentViewConstraints()
+        mainStackViewConfigure()
+        setupLabelConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupContentViewConstraints() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: topAnchor),
@@ -126,13 +137,6 @@ final class MainUIScrollView: UIScrollView {
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
             contentView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
-        
-        mainStackViewConfigure()
-        setupLabelConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func mainStackViewConfigure() {

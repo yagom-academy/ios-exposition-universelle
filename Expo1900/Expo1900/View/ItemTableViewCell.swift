@@ -52,12 +52,12 @@ final class ItemTableViewCell: UITableViewCell {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stackView)
         return stackView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(itemStackView)
         setupConfigure()
     }
     
