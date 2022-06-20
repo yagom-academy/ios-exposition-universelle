@@ -7,16 +7,16 @@
 
 import UIKit
 
-class Expo1900ViewController: UIViewController {
-    var expoData = ExpoData()
-
-    let expo1900ScrollView: UIScrollView = {
+class ExpoMainViewController: UIViewController {
+    //MARK: - Expo Main View
+    
+    let mainScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    let expo1900StackView: UIStackView = {
+    let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -29,7 +29,7 @@ class Expo1900ViewController: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -67,7 +67,7 @@ class Expo1900ViewController: UIViewController {
         return label
     }()
     
-    let expo1900SubStackView: UIStackView = {
+    let subStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -99,12 +99,14 @@ class Expo1900ViewController: UIViewController {
         return button
     }()
     
+    //MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "메인"
         self.view.backgroundColor = .systemBackground
-        self.view.addSubview(expo1900ScrollView)
-        self.expo1900ScrollView.addSubview(expo1900StackView)
+        self.view.addSubview(mainScrollView)
+        self.mainScrollView.addSubview(mainStackView)
         
         addUIItemStackView()
         setViewConstraints()
@@ -115,14 +117,15 @@ class Expo1900ViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
-
-    private func setLabelText() {
-        expoData.decodingJsonData()
-        titleLabel.text = expoData.title
-        visitorsLabel.text = expoData.visitors
-        locationLabel.text = expoData.location
-        durationLabel.text = expoData.duration
-        descriptionLabel.text = expoData.description
+    
+    //MARK: - Setting View Methods
+    
+    private func addUIItemStackView() {
+        let storeUIView = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, subStackView]
+        storeUIView.forEach {self.mainStackView.addArrangedSubview($0)}
+        
+        let subStoreUIView = [leftFlagImageView, nextViewButton, rightFlagImageView]
+        subStoreUIView.forEach {self.subStackView.addArrangedSubview($0)}
     }
     
     private func setViewConstraints() {
@@ -131,35 +134,36 @@ class Expo1900ViewController: UIViewController {
         setSubStackViewConstraints()
     }
     
-    private func addUIItemStackView() {
-        let storeUIView = [titleLabel, posterImageView, visitorsLabel, locationLabel, durationLabel, descriptionLabel, expo1900SubStackView]
-        storeUIView.forEach {self.expo1900StackView.addArrangedSubview($0)}
-        
-        let subStoreUIView = [leftFlagImageView, nextViewButton, rightFlagImageView]
-        subStoreUIView.forEach {self.expo1900SubStackView.addArrangedSubview($0)}
-    }
-    
     private func setScrollViewConstraints() {
-        expo1900ScrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        expo1900ScrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        expo1900ScrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        expo1900ScrollView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        mainScrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        mainScrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        mainScrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        mainScrollView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
     
     private func setStackViewConstraints() {
-        expo1900StackView.topAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.topAnchor).isActive = true
-        expo1900StackView.bottomAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.bottomAnchor).isActive = true
-        expo1900StackView.leadingAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.leadingAnchor).isActive = true
-        expo1900StackView.widthAnchor.constraint(equalTo: expo1900ScrollView.frameLayoutGuide.widthAnchor).isActive = true
-        expo1900StackView.trailingAnchor.constraint(equalTo: expo1900ScrollView.contentLayoutGuide.trailingAnchor).isActive = true
+        mainStackView.topAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.topAnchor).isActive = true
+        mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.bottomAnchor).isActive = true
+        mainStackView.leadingAnchor.constraint(equalTo: mainScrollView.frameLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        mainStackView.trailingAnchor.constraint(equalTo: mainScrollView.frameLayoutGuide.trailingAnchor, constant: -10).isActive = true
     }
     
     private func setSubStackViewConstraints() {
-        expo1900SubStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
-        expo1900SubStackView.bottomAnchor.constraint(equalTo: expo1900StackView.bottomAnchor).isActive = true
-        expo1900SubStackView.leadingAnchor.constraint(equalTo: expo1900StackView.leadingAnchor).isActive = true
-        expo1900SubStackView.trailingAnchor.constraint(equalTo: expo1900StackView.trailingAnchor).isActive = true
-        expo1900SubStackView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+        subStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
+        subStackView.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor).isActive = true
+        subStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor).isActive = true
+        subStackView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor).isActive = true
+        subStackView.heightAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
+    }
+    
+    private func setLabelText() {
+        var expoData = ExpoData()
+        expoData.decodingJsonData()
+        titleLabel.text = expoData.title
+        visitorsLabel.text = expoData.visitors
+        locationLabel.text = expoData.location
+        durationLabel.text = expoData.duration
+        descriptionLabel.text = expoData.description
     }
     
     @objc private func tappedNextViewButtonEvent() {
@@ -167,5 +171,3 @@ class Expo1900ViewController: UIViewController {
         self.navigationController?.pushViewController(koreaItemsTableViewController, animated: true)
     }
 }
-
-
