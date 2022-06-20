@@ -9,7 +9,7 @@ import UIKit
 
 class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    let entryList = try! JsonParser.parseEntryList()
+    let entryList = try! JSONParser.parseEntryList()
     let firstViewController = MainViewController()
     
     override func viewDidLoad() {

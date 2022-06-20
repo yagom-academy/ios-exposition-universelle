@@ -1,5 +1,5 @@
 //
-//  JsonParser.swift
+//  JSONParser.swift
 //  Expo1900
 //
 //  Created by unchain, bard on 2022/06/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct JsonParser {
+struct JSONParser {
     static func parseExpoInformation() throws -> ExpoInformation {
         guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else { throw ParseError.unknown }
         guard let decodedData = try? JSONDecoder().decode(ExpoInformation.self, from: data) else { throw ParseError.unknown  }

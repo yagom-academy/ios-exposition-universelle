@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
         expoTitle.text = headTitle[0] + "\n(\(headTitle[1])"
         posterImage.image = UIImage(named: "poster")
         
-        numberOfVisitors.text = "방문객 : " + (decodedData.visitors.formatNumber() ?? "")  + "명"
+        numberOfVisitors.text = "방문객 : " + (decodedData.visitors.formatDecimalNumber() ?? "")  + "명"
         expoLocation.text = "개최지 : " + decodedData.location
         expoDuration.text = "개최 기간 : " + decodedData.duration
         expoDescription.text = decodedData.description

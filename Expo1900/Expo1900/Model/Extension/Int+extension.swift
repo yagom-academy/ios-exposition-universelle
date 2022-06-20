@@ -8,7 +8,7 @@
 import Foundation
 
 extension Int {
-    func formatNumber() -> String? {
+    func formatDecimalNumber() -> String? {
         let numberformatter = NumberFormatter()
         numberformatter.numberStyle = .decimal
         
