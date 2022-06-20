@@ -6,7 +6,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, ExpoInformationRepository {
+    func fetch() throws -> ExpoInformation {
+        guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else { throw ParseError.unknown }
+        guard let decodedData = try? JSONDecoder().decode(ExpoInformation.self, from: data) else { throw ParseError.unknown  }
+        return decodedData
+    }
+    
     @IBOutlet weak var expoTitle: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var numberOfVisitors: UILabel!
