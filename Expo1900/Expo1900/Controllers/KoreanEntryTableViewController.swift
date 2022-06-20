@@ -30,10 +30,7 @@ extension KoreanEntryTableViewController {
         }
         
         let data = entries[indexPath.row]
-        
-        cell.entryImageView.image = data.thumbnail
-        cell.titleLabel.text = data.name
-        cell.shortDescriptionLabel.text = data.shortDescription
+        cell.configure(with: data)
         
         return cell
     }

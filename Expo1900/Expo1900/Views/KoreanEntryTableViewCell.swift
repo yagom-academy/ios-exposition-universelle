@@ -50,3 +50,11 @@ extension KoreanEntryTableViewCell {
         ])
     }
 }
+
+extension KoreanEntryTableViewCell {
+    func configure(with data: ExpositionEntry) {
+        entryImageView.image = data.thumbnail
+        titleLabel.text = data.name
+        shortDescriptionLabel.text = data.shortDescription
+    }
+}

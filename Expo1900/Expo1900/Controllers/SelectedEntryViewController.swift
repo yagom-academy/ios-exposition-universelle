@@ -8,8 +8,8 @@
 import UIKit
 
 class SelectedEntryViewController: UIViewController {
-    @IBOutlet weak var selectedEntryImageView: UIImageView!
-    @IBOutlet weak var selectedEntryDescriptionLabel: UILabel!
+    @IBOutlet private weak var selectedEntryImageView: UIImageView!
+    @IBOutlet private weak var selectedEntryDescriptionLabel: UILabel!
     
     var entry: ExpositionEntry?
 }
