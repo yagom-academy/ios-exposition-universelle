@@ -8,15 +8,19 @@
 import UIKit
 
 class ItemDetailViewController: UIViewController {
-    var koreaItem: KoreaItem?
+    //MARK: - ItemDetail Property
+
+    var Item: KoreaItem?
     
-    let itemDetailScrollView: UIScrollView = {
+    //MARK: -  ItemDetail View
+
+    let itemScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    let itemDetailStackView: UIStackView = {
+    let itemStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -29,6 +33,7 @@ class ItemDetailViewController: UIViewController {
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
         return imageView
     }()
     
@@ -39,47 +44,52 @@ class ItemDetailViewController: UIViewController {
         return label
     }()
     
+    //MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
-        self.navigationItem.title = koreaItem?.name
-        self.view.addSubview(itemDetailScrollView)
-        self.itemDetailScrollView.addSubview(itemDetailStackView)
+        self.navigationItem.title = Item?.name
+        self.view.addSubview(itemScrollView)
+        self.itemScrollView.addSubview(itemStackView)
         
         setScrollViewConstraints()
-        setStackViewConstraints()
         setStackViewConstraints()
         setKoreaItemData()
         addUIItemStackView()
     }
+
+    //MARK: - Setting View Methods
     
     private func setScrollViewConstraints() {
-        itemDetailScrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        itemDetailScrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        itemDetailScrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        itemDetailScrollView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        itemScrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        itemScrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        itemScrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        itemScrollView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
     
     private func setStackViewConstraints() {
-        itemDetailStackView.topAnchor.constraint(equalTo: itemDetailScrollView.contentLayoutGuide.topAnchor).isActive = true
-        itemDetailStackView.bottomAnchor.constraint(equalTo: itemDetailScrollView.contentLayoutGuide.bottomAnchor).isActive = true
-        itemDetailStackView.leadingAnchor.constraint(equalTo: itemDetailScrollView.frameLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        itemDetailStackView.trailingAnchor.constraint(equalTo: itemDetailScrollView.frameLayoutGuide.trailingAnchor, constant: -10).isActive = true
+        itemStackView.topAnchor.constraint(equalTo: itemScrollView.contentLayoutGuide.topAnchor).isActive = true
+        itemStackView.bottomAnchor.constraint(equalTo: itemScrollView.contentLayoutGuide.bottomAnchor).isActive = true
+        itemStackView.leadingAnchor.constraint(equalTo: itemScrollView.frameLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        itemStackView.trailingAnchor.constraint(equalTo: itemScrollView.frameLayoutGuide.trailingAnchor, constant: -10).isActive = true
     }
     
     private func setKoreaItemData() {
-        itemImageView.image = koreaItem?.image
-        descriptionLabel.text = koreaItem?.description
+        itemImageView.image = Item?.image
+        descriptionLabel.text = Item?.description
     }
-    
+        
     private func addUIItemStackView() {
         let storeUIView = [itemImageView, descriptionLabel]
-        storeUIView.forEach { self.itemDetailStackView.addArrangedSubview($0) }
+        storeUIView.forEach { self.itemStackView.addArrangedSubview($0) }
     }
 }
 
+//MARK: - Extension Delegate
+
 extension ItemDetailViewController: SendDataDelegate {
     func sendItemData(item: KoreaItem) {
-        koreaItem = item
+        Item = item
     }
 }
