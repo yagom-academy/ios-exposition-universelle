@@ -16,7 +16,6 @@
 		451D05AE2859B927000539A0 /* exposition.json in Resources */ = {isa = PBXBuildFile; fileRef = 451D05AC2859B927000539A0 /* exposition.json */; };
 		45DE81CB285B7F8300822CF2 /* ExpoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81CA285B7F8300822CF2 /* ExpoHomeViewController.swift */; };
 		45DE81CE285B978400822CF2 /* ExpoMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81CD285B978400822CF2 /* ExpoMenuViewController.swift */; };
-		45DE81D0285CAD2C00822CF2 /* ExpoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81CF285CAD2C00822CF2 /* ExpoData.swift */; };
 		45DE81D3285CAD7900822CF2 /* JsonDataDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81D2285CAD7900822CF2 /* JsonDataDecoding.swift */; };
 		45DE81D8285CC17E00822CF2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81D7285CC17E00822CF2 /* DetailViewController.swift */; };
 		45DE81DA285CD56300822CF2 /* NavigationItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DE81D9285CD56300822CF2 /* NavigationItemManager.swift */; };
@@ -36,7 +35,6 @@
 		451D05AC2859B927000539A0 /* exposition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exposition.json; sourceTree = "<group>"; };
 		45DE81CA285B7F8300822CF2 /* ExpoHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoHomeViewController.swift; sourceTree = "<group>"; };
 		45DE81CD285B978400822CF2 /* ExpoMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoMenuViewController.swift; sourceTree = "<group>"; };
-		45DE81CF285CAD2C00822CF2 /* ExpoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoData.swift; sourceTree = "<group>"; };
 		45DE81D2285CAD7900822CF2 /* JsonDataDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataDecoding.swift; sourceTree = "<group>"; };
 		45DE81D7285CC17E00822CF2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		45DE81D9285CD56300822CF2 /* NavigationItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemManager.swift; sourceTree = "<group>"; };
@@ -99,14 +97,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		45DE81D4285CB10100822CF2 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				45DE81CF285CAD2C00822CF2 /* ExpoData.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		7E416807285CB51D0059FFFF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				45DE81D1285CAD5D00822CF2 /* Util */,
-				45DE81D4285CB10100822CF2 /* Protocol */,
 				7EAA367428572A2B00621D65 /* Models */,
 				451D05A62859B315000539A0 /* Data */,
 				7E416807285CB51D0059FFFF /* View */,
@@ -291,7 +280,6 @@
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				45DE81D8285CC17E00822CF2 /* DetailViewController.swift in Sources */,
 				45DE81CE285B978400822CF2 /* ExpoMenuViewController.swift in Sources */,
-				45DE81D0285CAD2C00822CF2 /* ExpoData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

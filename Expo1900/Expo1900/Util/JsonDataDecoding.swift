@@ -7,7 +7,7 @@
 
 import Foundation
 
-func loadJsonData<ExpoData: Decodable>(type: ExpoData.Type ,_ fileName: String, _ extensionName: String) -> ExpoData {
+func loadJsonData<T: Decodable>(type: T.Type ,_ fileName: String, _ extensionName: String) -> T {
     let jsonDecoder = JSONDecoder()
     let fileUrl = loadFileLocation(fileName, extensionName)
     do {
