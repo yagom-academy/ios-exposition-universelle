@@ -18,18 +18,18 @@ final class ItemTableViewCell: UITableViewCell {
         }
     }
     
-    private lazy var itemTitleLabel: UILabel = {
+    private let itemTitleLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    private lazy var itemImageView: UIImageView = {
+    private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private lazy var itemShortDescriptionLable: UILabel = {
+    private let itemShortDescriptionLable: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label

@@ -12,7 +12,7 @@ final class MainUIScrollView: UIScrollView {
     private let contentView = UIView()
     private let expoInfo: Expo? = JSONDecoder.decodeJson(jsonName: "exposition_universelle_1900")
     
-    private lazy var numberFormatter: NumberFormatter = {
+    private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         

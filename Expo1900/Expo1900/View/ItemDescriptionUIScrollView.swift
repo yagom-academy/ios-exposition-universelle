@@ -18,12 +18,12 @@ final class ItemDescriptionUIScrollView: UIScrollView {
         }
     }
     
-    private lazy var itemImageView: UIImageView = {
+    private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
     
-    private lazy var itemDescriptionLabel: UILabel = {
+    private let itemDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label
@@ -35,7 +35,6 @@ final class ItemDescriptionUIScrollView: UIScrollView {
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
-        contentView.addSubview(stackView)
         return stackView
     }()
    
@@ -43,6 +42,16 @@ final class ItemDescriptionUIScrollView: UIScrollView {
         super.init(frame: frame)
         backgroundColor = .white
         addSubview(contentView)
+        contentView.addSubview(itemStackView)
+        setupContentViewConstraints()
+        setupItemStackViewConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupContentViewConstraints() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: topAnchor),
@@ -50,7 +59,9 @@ final class ItemDescriptionUIScrollView: UIScrollView {
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
             contentView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
-        
+    }
+    
+    private func setupItemStackViewConstraints() {
         itemStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -58,9 +69,5 @@ final class ItemDescriptionUIScrollView: UIScrollView {
             itemStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             itemStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
