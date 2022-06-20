@@ -58,7 +58,7 @@ final class ItemTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(itemStackView)
-        setupConfigure()
+        setupSubviews()
     }
     
     @available(*, unavailable)
@@ -66,7 +66,7 @@ final class ItemTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupConfigure() {
+    private func setupSubviews() {
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: topAnchor),
             itemStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
