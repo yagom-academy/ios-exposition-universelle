@@ -6,22 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 struct ExpositionDataManager {
     
-    func getData() -> Exposition? {
-        guard let filePath = Bundle.main.path(forResource: "exposition_universelle_1900",
-                                              ofType: "json",
-                                              inDirectory: "expo_assets/exposition_universelle_1900.dataset") else {
+    func fetchData() -> Exposition? {
+        guard let filePath = NSDataAsset.init(name: "exposition_universelle_1900") else {
             return nil
         }
-        guard let data = try? String(contentsOfFile: filePath).data(using: .utf8) else {
-            return nil
-        }
+        
         let decoder = JSONDecoder()
         var expositionList: Exposition?
         do {
-            expositionList = try decoder.decode(Exposition.self, from: data)
+            expositionList = try decoder.decode(Exposition.self, from: filePath.data)
         } catch {
             switch error {
             case DecodingError.typeMismatch(let type, let context):
