@@ -1,5 +1,5 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - ExpositionPosterViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
 // 
@@ -20,16 +20,13 @@ class ExpositionPosterViewController: UIViewController {
     @IBOutlet private weak var rightFlagImageView: UIImageView!
 }
 
-// MARK: - 뷰 라이프사이클 메서드
 extension ExpositionPosterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configurePosterView()
     }
 }
 
-// MARK: - 뷰 초기 설정 메서드
 extension ExpositionPosterViewController {
     private func configurePosterView() {
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900"),
@@ -50,7 +47,6 @@ extension ExpositionPosterViewController {
     }
 }
 
-// MARK: - 데이터 옮기는 메서드
 extension ExpositionPosterViewController {
     @IBAction private func didTapKoreanEntryButton(_ sender: UIButton) {
         guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: "KoreanEntryTableVC") as? KoreanEntryTableViewController,

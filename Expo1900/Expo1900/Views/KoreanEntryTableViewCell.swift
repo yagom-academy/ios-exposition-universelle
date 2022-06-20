@@ -13,7 +13,7 @@ class KoreanEntryTableViewCell: UITableViewCell {
     var shortDescriptionLabel: UILabel!
 }
 
-// MARK: - 초기 설정 메서드
+
 extension KoreanEntryTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()

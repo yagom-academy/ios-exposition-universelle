@@ -13,14 +13,12 @@ class KoreanEntryTableViewController: UITableViewController {
     var entries: [ExpositionEntry]?
 }
 
-// MARK: - 뷰 라이프사이클 메서드
 extension KoreanEntryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
-// MARK: - Table View Data Source 메서드
 extension KoreanEntryTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries?.count ?? 1
@@ -43,7 +41,6 @@ extension KoreanEntryTableViewController {
     }
 }
 
-// MARK: - Table View Delegate 메서드
 extension KoreanEntryTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedEntryViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectedEntryVC") as? SelectedEntryViewController else { return }
