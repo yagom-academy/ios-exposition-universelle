@@ -40,8 +40,6 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        addSubview(contentView)
-        contentView.addSubview(itemStackView)
         setupContentViewConstraints()
         setupItemStackViewConstraints()
     }
@@ -52,6 +50,8 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     }
     
     private func setupContentViewConstraints() {
+        addSubview(contentView)
+        
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: topAnchor),
@@ -62,6 +62,8 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     }
     
     private func setupItemStackViewConstraints() {
+        contentView.addSubview(itemStackView)
+        
         itemStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: contentView.topAnchor),

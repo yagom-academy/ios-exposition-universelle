@@ -56,7 +56,6 @@ final class ItemTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(itemStackView)
         setupSubviews()
     }
     
@@ -66,6 +65,8 @@ final class ItemTableViewCell: UITableViewCell {
     }
     
     private func setupSubviews() {
+        addSubview(itemStackView)
+        
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: topAnchor),
             itemStackView.bottomAnchor.constraint(equalTo: bottomAnchor),

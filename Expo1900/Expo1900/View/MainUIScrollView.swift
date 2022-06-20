@@ -105,8 +105,6 @@ final class MainUIScrollView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(contentView)
-        
         setupContentViewConstraints()
         mainStackViewConfigure()
         setupLabelConstraints()
@@ -133,6 +131,8 @@ final class MainUIScrollView: UIScrollView {
     }
     
     private func setupContentViewConstraints() {
+        addSubview(contentView)
+        
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: topAnchor),
