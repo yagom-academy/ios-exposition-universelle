@@ -11,6 +11,7 @@
 		20917620285B191D006B9924 /* KoreaEntryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2091761F285B191D006B9924 /* KoreaEntryDetailsViewController.swift */; };
 		20E039CF2859C8B400BE6316 /* EXPOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E039CE2859C8B400BE6316 /* EXPOError.swift */; };
 		420AD684285762D000BB3106 /* Exhibits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420AD683285762D000BB3106 /* Exhibits.swift */; };
+		426108C8286050EE00756C00 /* NameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426108C7286050EE00756C00 /* NameSpace.swift */; };
 		42BC0322285A1976008FAAD5 /* KoreaEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0321285A1976008FAAD5 /* KoreaEntryViewController.swift */; };
 		42BC0326285B5802008FAAD5 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0325285B5802008FAAD5 /* JSONData.swift */; };
 		42BC0328285B8442008FAAD5 /* NavigationBarFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0327285B8442008FAAD5 /* NavigationBarFormatter.swift */; };
@@ -28,6 +29,7 @@
 		2091761F285B191D006B9924 /* KoreaEntryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDetailsViewController.swift; sourceTree = "<group>"; };
 		20E039CE2859C8B400BE6316 /* EXPOError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXPOError.swift; sourceTree = "<group>"; };
 		420AD683285762D000BB3106 /* Exhibits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibits.swift; sourceTree = "<group>"; };
+		426108C7286050EE00756C00 /* NameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpace.swift; sourceTree = "<group>"; };
 		42BC0321285A1976008FAAD5 /* KoreaEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryViewController.swift; sourceTree = "<group>"; };
 		42BC0325285B5802008FAAD5 /* JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		42BC0327285B8442008FAAD5 /* NavigationBarFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarFormatter.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				42BC0327285B8442008FAAD5 /* NavigationBarFormatter.swift */,
 				42BC0329285B84B4008FAAD5 /* CustomLabel.swift */,
 				20E039CE2859C8B400BE6316 /* EXPOError.swift */,
+				426108C7286050EE00756C00 /* NameSpace.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,9 +83,9 @@
 		42BC032D285B84F5008FAAD5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C79FF4B82589F401005FB0FD /* EXPOInformationViewController.swift */,
 				42BC0321285A1976008FAAD5 /* KoreaEntryViewController.swift */,
 				2091761F285B191D006B9924 /* KoreaEntryDetailsViewController.swift */,
-				C79FF4B82589F401005FB0FD /* EXPOInformationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				C79FF4B92589F401005FB0FD /* EXPOInformationViewController.swift in Sources */,
 				20917620285B191D006B9924 /* KoreaEntryDetailsViewController.swift in Sources */,
 				2056C54728576C62007191A9 /* ExpositionUniverselle.swift in Sources */,
+				426108C8286050EE00756C00 /* NameSpace.swift in Sources */,
 				420AD684285762D000BB3106 /* Exhibits.swift in Sources */,
 				42BC0328285B8442008FAAD5 /* NavigationBarFormatter.swift in Sources */,
 				42BC0322285A1976008FAAD5 /* KoreaEntryViewController.swift in Sources */,

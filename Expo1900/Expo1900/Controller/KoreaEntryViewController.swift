@@ -8,8 +8,8 @@
 import UIKit
 
 class KoreaEntryViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    var koreaEntry = [Exhibits]()
+    private var koreaEntry = [Exhibits]()
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +18,11 @@ class KoreaEntryViewController: UIViewController {
         tableView.dataSource = self
         
         parseKoreaEntryItems()
-        NavigationBarFormatter.setTitle(navigationItem, title: "한국의 출품작")
+        NavigationBarFormatter.setTitle(navigationItem, title: NameSpace.koreaEntry.name)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "transferToDetailsVC" else {
+        guard segue.identifier == NameSpace.transferToDetailsVCId.name else {
             return
         }
         guard let index = self.tableView.indexPathForSelectedRow?.row else {
@@ -37,11 +37,11 @@ class KoreaEntryViewController: UIViewController {
     }
     
     private func parseKoreaEntryItems() {
-        guard let parsedItems = JSONData.parse(name: "items", to: koreaEntry) else {
+        guard let parsedItems = JSONData.parse(name: NameSpace.expoEntryData.name, to: koreaEntry) else {
             return
         }
         
-        koreaEntry = parsedItems
+        self.koreaEntry = parsedItems
     }
 }
 
@@ -51,11 +51,11 @@ extension KoreaEntryViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return koreaEntry.count
+        return self.koreaEntry.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: NameSpace.entryCellId.name, for: indexPath)
         var content = cell.defaultContentConfiguration()
         
         content.text = koreaEntry[indexPath.row].name

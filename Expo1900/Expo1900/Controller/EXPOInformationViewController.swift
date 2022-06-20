@@ -7,21 +7,20 @@
 import UIKit
 
 class EXPOInformationViewController: UIViewController {
-    var expositionUniverselle: ExpositionUniverselle? = nil
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var navigationButton: UIButton!
+    private var expositionUniverselle: ExpositionUniverselle?
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var navigationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupExpoInformation()
-        NavigationBarFormatter.setBackButton(navigationItem, title: "메인")
+        NavigationBarFormatter.setTitle(navigationItem, title: NameSpace.firstVCTitle.name)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +41,7 @@ class EXPOInformationViewController: UIViewController {
     }
     
     private func parseExpositionUniverselleData() {
-        guard let parsedInformation = JSONData.parse(name: "exposition_universelle_1900",
+        guard let parsedInformation = JSONData.parse(name: NameSpace.expoInfoData.name,
                                                      to: expositionUniverselle) else {
             return
         }
@@ -63,9 +62,9 @@ class EXPOInformationViewController: UIViewController {
             return
         }
         
-        let changeTitle = title.replacingOccurrences(of: "(", with: "\n(")
+        let changeTitle = title.replacingOccurrences(of: NameSpace.bracket.name, with: NameSpace.bracketWithLineBreak.name)
         
-        titleLabel.text = changeTitle
+        self.titleLabel.text = changeTitle
         CustomLabel.setNumberOfLinesToZero(into: descriptionLabel)
         CustomLabel.setLabelFont(into: titleLabel, style: .title2)
     }
@@ -77,7 +76,7 @@ class EXPOInformationViewController: UIViewController {
             return
         }
         
-        visitorsLabel.text = "방문객 : \(visitors) 명"
+        self.visitorsLabel.text = NameSpace.visitors.name + String(visitors) + NameSpace.numberOfPeople.name
     }
     
     private func updateLocationLabel() {
@@ -85,7 +84,7 @@ class EXPOInformationViewController: UIViewController {
             return
         }
         
-        locationLabel.text = "개최지 : \(location)"
+        self.locationLabel.text = NameSpace.location.name +  String(location)
     }
     
     private func updateDurationLabel() {
@@ -93,7 +92,7 @@ class EXPOInformationViewController: UIViewController {
             return
         }
         
-        durationLabel.text = "개최기간 : \(duration)"
+        self.durationLabel.text = NameSpace.duration.name + String(duration)
     }
     
     private func updateDescriptionLabel() {
@@ -101,7 +100,7 @@ class EXPOInformationViewController: UIViewController {
             return
         }
         
-        descriptionLabel.text = description
+        self.descriptionLabel.text = description
         CustomLabel.setNumberOfLinesToZero(into: descriptionLabel)
         CustomLabel.setLineBreakMode(into: descriptionLabel, style: .byWordWrapping)
     }
@@ -111,7 +110,7 @@ class EXPOInformationViewController: UIViewController {
     }
     
     private func goToKoreaEntryView() {
-        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "KoreaEntryViewController") as? KoreaEntryViewController else {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: NameSpace.koreaEntryViewControllerId.name) as? KoreaEntryViewController else {
             return
         }
 
