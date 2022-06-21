@@ -1,8 +1,8 @@
 //
-//  MainViewController+extnesion.swift
+//  MainViewController+extension.swift
 //  Expo1900
 //
-//  Created by 김동용 on 2022/06/21.
+//  Created by unchain, bard on 2022/06/21.
 //
 
 import UIKit
