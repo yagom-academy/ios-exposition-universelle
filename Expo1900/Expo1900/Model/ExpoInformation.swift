@@ -17,7 +17,7 @@ extension ExpoInformation {
     func toDomain() -> ExpoData {
         return ExpoData(
             title: title,
-            visitors: "방문객 : \(visitors.numberFormatterParse()) 명",
+            visitors: "방문객 : \(visitors.formatted(style: .decimal)) 명",
             location: "개최지 : \(location)",
             duration: "개최기간 : \(duration)",
             description: description

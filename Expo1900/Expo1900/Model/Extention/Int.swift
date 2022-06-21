@@ -8,11 +8,12 @@
 import Foundation
 
 extension Int {
-    func numberFormatterParse() -> String {
+    func formatted(style: NumberFormatter.Style) -> String {
+        let defaultOptionalValue = ""
         let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
+        numberFormatter.numberStyle = style
         guard let result = numberFormatter.string(from: self as NSNumber) else {
-            return ""
+            return defaultOptionalValue
         }
         return result
     }
