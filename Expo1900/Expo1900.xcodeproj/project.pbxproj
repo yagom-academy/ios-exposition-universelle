@@ -23,6 +23,7 @@
 		D746BD47285AEDDB00B7A2F9 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD46285AEDDB00B7A2F9 /* JSONParser.swift */; };
 		D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD48285AEE6300B7A2F9 /* ParseError.swift */; };
 		D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79200D72857511100F3D5FA /* ExpoInformation.swift */; };
+		D7DC3DEA286159BA006088C8 /* MainViewController+extnesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DC3DE9286159BA006088C8 /* MainViewController+extnesion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D746BD46285AEDDB00B7A2F9 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		D746BD48285AEE6300B7A2F9 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		D79200D72857511100F3D5FA /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
+		D7DC3DE9286159BA006088C8 /* MainViewController+extnesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+extnesion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				D7DC3DE9286159BA006088C8 /* MainViewController+extnesion.swift */,
 				8FF05ECB285AF9900000B72D /* EntryListViewController.swift */,
 				8FF05ECD285AF9A60000B72D /* DescriptionViewController.swift */,
 				8FF05ED1285AFA090000B72D /* Cell */,
@@ -298,6 +301,7 @@
 			files = (
 				8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */,
 				D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */,
+				D7DC3DEA286159BA006088C8 /* MainViewController+extnesion.swift in Sources */,
 				8FF05ED0285AF9F50000B72D /* CustomTableViewCell.swift in Sources */,
 				D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */,
 				8FF05ECE285AF9A60000B72D /* DescriptionViewController.swift in Sources */,

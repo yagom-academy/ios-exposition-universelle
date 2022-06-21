@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DataRepository {
-    static func fetch<T: Codable>(fileName: String, type: T) throws -> T
+    static func fetch<T: Codable>(fileName: String, parsedItems: T) -> T?
 }
