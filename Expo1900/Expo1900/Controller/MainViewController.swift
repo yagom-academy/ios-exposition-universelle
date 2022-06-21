@@ -16,8 +16,8 @@ final class MainViewController: UIViewController {
     var expo: ExpoInformation?
     
     @IBAction private func entryListbuttonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "EntryList", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "EntryList") as? EntryListViewController else { return }
+        let storyboard = UIStoryboard(name: ExpoNameSpace.entryListIdentifier.name, bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: ExpoNameSpace.entryListIdentifier.name) as? EntryListViewController else { return }
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }

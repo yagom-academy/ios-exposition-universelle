@@ -10,7 +10,7 @@ import UIKit
 final class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private(set) weak var tableView: UITableView!
     private(set) var entryList: [EntryList]?
-    private(set) var cellIdentifier = "customCell"
+    private(set) var cellIdentifier = ExpoNameSpace.cellIdentifier.name
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else { return }
-        let storyboard = UIStoryboard(name: "Description", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "Description") as? DescriptionViewController else { return }
+        let storyboard = UIStoryboard(name: ExpoNameSpace.descriptionIdentifier.name, bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: ExpoNameSpace.descriptionIdentifier.name) as? DescriptionViewController else { return }
         
         cell.sendData(to: viewController)
         viewController.entryList = entryList?[indexPath.row]

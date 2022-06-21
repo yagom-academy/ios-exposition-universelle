@@ -18,6 +18,9 @@ enum ExpoNameSpace: String {
     case visit = "명"
     case `where` = "개최지 : "
     case howlong = "개최 기간 : "
+    case entryListIdentifier = "EntryList"
+    case descriptionIdentifier = "Description"
+    case cellIdentifier = "customCell"
     
     var name: String {
         switch self {
@@ -41,6 +44,12 @@ enum ExpoNameSpace: String {
             return "개최지 : "
         case .howlong:
             return "개최 기간 : "
+        case .entryListIdentifier:
+            return "EntryList"
+        case .descriptionIdentifier:
+            return "Description"
+        case .cellIdentifier:
+            return "customCell"
         }
     }
 }
