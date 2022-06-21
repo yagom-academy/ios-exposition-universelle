@@ -21,7 +21,8 @@ class ItemTableViewCell: UITableViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -29,7 +30,8 @@ class ItemTableViewCell: UITableViewCell {
     
     let shortDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.preferredFont(forTextStyle: .callout)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

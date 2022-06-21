@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
     
     lazy var titleLabel: UILabel = {
         let label = makeLabel()
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.numberOfLines = 0
         label.text = expositionModel?.title
         label.text = label.text?.replacingOccurrences(of: "(", with: "\n(")
@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
     
     lazy var visitorsTitleLabel: UILabel = {
         let titleLabel = makeLabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         titleLabel.text = "방문객 :"
         return titleLabel
     }()
@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
     
     lazy var locationTitleLabel: UILabel = {
         let titleLabel = makeLabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         titleLabel.text = "개최지 :"
         return titleLabel
     }()
@@ -91,7 +91,7 @@ class MainViewController: UIViewController {
     
     lazy var durationTitleLabel: UILabel = {
         let titleLabel = makeLabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         titleLabel.text = "개최 기간 :"
         return titleLabel
     }()
@@ -170,7 +170,8 @@ private extension MainViewController {
     func makeLabel() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }
     
