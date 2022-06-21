@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" id="Q25-si-0Wo"/>
                     <connections>
                         <outlet property="tableView" destination="rH8-PX-m3m" id="kbN-qC-d5Z"/>
-                        <segue destination="r47-RU-Z28" kind="push" id="pmJ-xs-5A3"/>
+                        <segue destination="r47-RU-Z28" kind="show" identifier="EntryList" id="pmJ-xs-5A3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ppl-eY-xry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
