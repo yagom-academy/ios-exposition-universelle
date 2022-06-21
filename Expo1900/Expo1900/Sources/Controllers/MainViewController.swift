@@ -20,16 +20,15 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        adjustLabelAttribute()
         setupImages()
         
         do {
             let decodedData = try decodeExpositionData()
-            setAllLabels(of: decodedData)
+            setupLabels(of: decodedData)
         } catch let error as DataHandlingError {
             print(error.description)
         } catch {
-            print("Undexpected error: \(error)")
+            print("Unexpected error: \(error)")
         }
     }
     
@@ -48,7 +47,11 @@ final class MainViewController: UIViewController {
         return exposition
     }
     
-    private func setAllLabels(of exposition: Exposition) {
+    private func setupLabels(of exposition: Exposition) {
+        descriptionLabel.numberOfLines = 0
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        
         titleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = "방문객 :  \(applyNumberFormat(to: exposition.visitors)) 명"
         locationLabel.text = "개최지 : \(exposition.location)"
@@ -67,13 +70,6 @@ final class MainViewController: UIViewController {
         expositionImageView.image = #imageLiteral(resourceName: "poster")
         leftFlagImageView.image = #imageLiteral(resourceName: "flag")
         rightFlagImageView.image = #imageLiteral(resourceName: "flag")
-    }
-    
-    private func adjustLabelAttribute() {
-        descriptionLabel.numberOfLines = 0
-        
-        titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
     }
 }
 
