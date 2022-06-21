@@ -18,8 +18,12 @@ final class EntryTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activateOnlyPortraitOrientation(false)
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activateOnlyPortraitOrientation(false)
     }
 }
 

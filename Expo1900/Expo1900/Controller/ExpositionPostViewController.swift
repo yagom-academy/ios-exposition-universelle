@@ -11,12 +11,16 @@ final class ExpositionPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activateOnlyPortraitOrientation(true)
         configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.activateOnlyPortraitOrientation(true)
+        
+        let orientation = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+        
         self.title = "메인"
         self.navigationController?.navigationBar.isHidden = true
     }
