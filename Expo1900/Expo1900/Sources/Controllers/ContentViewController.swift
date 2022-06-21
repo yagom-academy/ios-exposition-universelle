@@ -8,7 +8,6 @@ final class ContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionLabel.numberOfLines = 0
         setUIComponents()
     }
 
@@ -18,8 +17,11 @@ final class ContentViewController: UIViewController {
     
     private func setUIComponents() {
         guard let content = content else { return }
-        contentImageView.image = UIImage(named: content.imageName)
+        
+        descriptionLabel.numberOfLines = 0
+        
         descriptionLabel.text = content.description
+        contentImageView.image = UIImage(named: content.imageName)
         title = content.name
     }
 }
