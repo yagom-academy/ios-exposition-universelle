@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(stackView)
         return scrollView
     }()
     
@@ -29,13 +28,6 @@ class MainViewController: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.spacing = 8
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(posterImageView)
-        stackView.addArrangedSubview(visitorsStackView)
-        stackView.addArrangedSubview(locationStackView)
-        stackView.addArrangedSubview(durationStackView)
-        stackView.addArrangedSubview(descriptionLabel)
-        stackView.addArrangedSubview(enterButtonStackView)
         return stackView
     }()
     
@@ -57,47 +49,56 @@ class MainViewController: UIViewController {
     
     lazy var visitorsStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
+        return stackView
+    }()
+    
+    lazy var visitorsTitleLabel: UILabel = {
         let titleLabel = makeLabel()
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.text = "방문객 :"
-        
+        return titleLabel
+    }()
+    
+    lazy var visitorsTextLabel: UILabel = {
         let textLabel = makeLabel()
         textLabel.text = "\(numberFormatter.string(for: expositionModel?.visitors) ?? "") 명"
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textLabel)
-        return stackView
+        return textLabel
     }()
     
     lazy var locationStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
+        return stackView
+    }()
+    
+    lazy var locationTitleLabel: UILabel = {
         let titleLabel = makeLabel()
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.text = "개최지 :"
-        
+        return titleLabel
+    }()
+    
+    lazy var locationTextLabel: UILabel = {
         let textLabel = makeLabel()
         textLabel.text = "\(expositionModel?.location ?? "")"
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textLabel)
-        return stackView
+        return textLabel
     }()
     
     lazy var durationStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
+        return stackView
+    }()
+    
+    lazy var durationTitleLabel: UILabel = {
         let titleLabel = makeLabel()
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.text = "개최 기간 :"
-        
+        return titleLabel
+    }()
+    
+    lazy var durationTextLabel: UILabel = {
         let textLabel = makeLabel()
         textLabel.text = "\(expositionModel?.duration ?? "")"
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textLabel)
-        return stackView
+        return textLabel
     }()
     
     lazy var descriptionLabel: UILabel = {
@@ -109,20 +110,24 @@ class MainViewController: UIViewController {
     
     lazy var enterButtonStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
-        let leftImageView = makeImageView(named: "flag", x: 60, y: 40)
-        let rightImageView = makeImageView(named: "flag", x: 60, y: 40)
-        
+        return stackView
+    }()
+    
+    lazy var leftImageView: UIImageView = {
+        return makeImageView(named: "flag", x: 60, y: 40)
+    }()
+    
+    lazy var rightImageView: UIImageView = {
+        return makeImageView(named: "flag", x: 60, y: 40)
+    }()
+    
+    lazy var enterButton: UIButton = {
         let enterButton = UIButton()
         enterButton.translatesAutoresizingMaskIntoConstraints = false
         enterButton.setTitle("한국의 출품작 보러가기", for: .normal)
         enterButton.setTitleColor(.systemBlue, for: .normal)
         enterButton.addTarget(self, action: #selector(enterButtonDidTapped(_:)), for: .touchUpInside)
-        
-        stackView.addArrangedSubview(leftImageView)
-        stackView.addArrangedSubview(enterButton)
-        stackView.addArrangedSubview(rightImageView)
-        return stackView
+        return enterButton
     }()
     
     override func viewDidLoad() {
@@ -130,7 +135,7 @@ class MainViewController: UIViewController {
         navigationItem.title = "메인"
         numberFormatter.numberStyle = .decimal
         
-        view.addSubview(scrollView)
+        addAllSubview()
         designateScrollViewConstraints()
         designateStackViewConstraints()
     }
@@ -185,6 +190,33 @@ private extension MainViewController {
         stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
+    }
+    
+    func addAllSubview() {
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(stackView)
+        
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(posterImageView)
+        stackView.addArrangedSubview(visitorsStackView)
+        stackView.addArrangedSubview(locationStackView)
+        stackView.addArrangedSubview(durationStackView)
+        stackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(enterButtonStackView)
+        
+        visitorsStackView.addArrangedSubview(visitorsTitleLabel)
+        visitorsStackView.addArrangedSubview(visitorsTextLabel)
+        
+        locationStackView.addArrangedSubview(locationTitleLabel)
+        locationStackView.addArrangedSubview(locationTextLabel)
+        
+        durationStackView.addArrangedSubview(durationTitleLabel)
+        durationStackView.addArrangedSubview(durationTextLabel)
+        
+        enterButtonStackView.addArrangedSubview(leftImageView)
+        enterButtonStackView.addArrangedSubview(enterButton)
+        enterButtonStackView.addArrangedSubview(rightImageView)
     }
 }
 
