@@ -21,7 +21,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adjustLabelAttribute()
-        setAllImages()
+        setupImages()
         
         do {
             let decodedData = try decodeExpositionData()
@@ -63,9 +63,8 @@ final class MainViewController: UIViewController {
         return numberFormatter.string(for: number) ?? ""
     }
     
-    private func setAllImages() {
+    private func setupImages() {
         expositionImageView.image = #imageLiteral(resourceName: "poster")
-        
         leftFlagImageView.image = #imageLiteral(resourceName: "flag")
         rightFlagImageView.image = #imageLiteral(resourceName: "flag")
     }
