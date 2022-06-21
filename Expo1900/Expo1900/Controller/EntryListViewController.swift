@@ -23,16 +23,6 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
         self.navigationController?.navigationBar.topItem?.title = ExpoNameSpace.koreaEntry.name
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else { return }
-        let storyboard = UIStoryboard(name: ExpoNameSpace.descriptionIdentifier.name, bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: ExpoNameSpace.descriptionIdentifier.name) as? DescriptionViewController else { return }
-        
-        cell.sendData(to: viewController)
-        viewController.entryList = entryList?[indexPath.row]
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let entryList = entryList else { return 0 }
         
@@ -45,6 +35,17 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
         updateCell(cell: cell, indexPath: indexPath)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else { return }
+        let storyboard = UIStoryboard(name: ExpoNameSpace.descriptionIdentifier.name, bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: ExpoNameSpace.descriptionIdentifier.name) as? DescriptionViewController else { return }
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        cell.sendData(to: viewController)
+        viewController.entryList = entryList?[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func fetchEntryList() {
