@@ -20,28 +20,28 @@ extension MainViewController {
         self.navigationController?.navigationBar.topItem?.title = "메인"
     }
     
-    func updateTitle(of expo: ExpoInformation) {
+    private func updateTitle(of expo: ExpoInformation) {
         let headTitle = expo.title.split(separator: "(")
         expoTitle.text = headTitle[0] + "\n(\(headTitle[1])"
     }
     
-    func updateImage() {
+    private func updateImage() {
         posterImage.image = UIImage(named: "poster")
     }
     
-    func updateVisitorsInformation(of expo: ExpoInformation) {
+    private func updateVisitorsInformation(of expo: ExpoInformation) {
         numberOfVisitors.text = "방문객 : " + (expo.visitors.formatDecimalNumber() ?? "") + "명"
     }
     
-    func updateLocationInformation(of expo: ExpoInformation) {
+    private func updateLocationInformation(of expo: ExpoInformation) {
         expoLocation.text = "개최지 : " + expo.location
     }
     
-    func updateDutrationInformation(of expo: ExpoInformation) {
+    private func updateDutrationInformation(of expo: ExpoInformation) {
         expoDuration.text = "개최 기간 : " + expo.duration
     }
     
-    func updateDescriptionInformation(of expo: ExpoInformation) {
+    private func updateDescriptionInformation(of expo: ExpoInformation) {
         expoDescription.text = expo.description
     }
 }

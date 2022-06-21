@@ -6,19 +6,19 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    @IBOutlet weak var expoTitle: UILabel!
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var numberOfVisitors: UILabel!
-    @IBOutlet weak var expoLocation: UILabel!
-    @IBOutlet weak var expoDuration: UILabel!
-    @IBOutlet weak var expoDescription: UILabel!
+final class MainViewController: UIViewController {
+    @IBOutlet private(set) weak var expoTitle: UILabel!
+    @IBOutlet private(set) weak var posterImage: UIImageView!
+    @IBOutlet private(set) weak var numberOfVisitors: UILabel!
+    @IBOutlet private(set) weak var expoLocation: UILabel!
+    @IBOutlet private(set) weak var expoDuration: UILabel!
+    @IBOutlet private(set)  weak var expoDescription: UILabel!
     var expo: ExpoInformation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchExpoInformation()
-        updateUI()
+        self.fetchExpoInformation()
+        self.updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    func fetchExpoInformation() {
+    private func fetchExpoInformation() {
         guard let expo = JSONParser.fetch(fileName: "exposition_universelle_1900", parsedItems: expo) else { return }
         self.expo = expo
     }
