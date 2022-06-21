@@ -26,6 +26,7 @@
 		D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746BD48285AEE6300B7A2F9 /* ParseError.swift */; };
 		D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79200D72857511100F3D5FA /* ExpoInformation.swift */; };
 		D7D80B792861C3BA00B3C8FB /* Description.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D80B782861C3BA00B3C8FB /* Description.storyboard */; };
+		D7D80B7D2862098B00B3C8FB /* EntryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D80B7C2862098B00B3C8FB /* EntryList.storyboard */; };
 		D7DC3DEA286159BA006088C8 /* MainViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DC3DE9286159BA006088C8 /* MainViewController+extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		D746BD48285AEE6300B7A2F9 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		D79200D72857511100F3D5FA /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		D7D80B782861C3BA00B3C8FB /* Description.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Description.storyboard; sourceTree = "<group>"; };
+		D7D80B7C2862098B00B3C8FB /* EntryList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EntryList.storyboard; sourceTree = "<group>"; };
 		D7DC3DE9286159BA006088C8 /* MainViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				D7D80B7C2862098B00B3C8FB /* EntryList.storyboard */,
 				D7D80B782861C3BA00B3C8FB /* Description.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
@@ -290,6 +293,7 @@
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				D7D80B792861C3BA00B3C8FB /* Description.storyboard in Resources */,
+				D7D80B7D2862098B00B3C8FB /* EntryList.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);

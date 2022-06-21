@@ -25,12 +25,12 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else { return }
-        let sb = UIStoryboard(name: "Description", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "Description") as? DescriptionViewController else { return }
+        let storyboard = UIStoryboard(name: "Description", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "Description") as? DescriptionViewController else { return }
         
-        cell.sendData(to: vc)
-        vc.entryList = entryList?[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        cell.sendData(to: viewController)
+        viewController.entryList = entryList?[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

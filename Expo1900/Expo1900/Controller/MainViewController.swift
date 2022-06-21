@@ -15,6 +15,13 @@ final class MainViewController: UIViewController {
     @IBOutlet private(set)  weak var expoDescription: UILabel!
     var expo: ExpoInformation?
     
+    @IBAction private func entryListbuttonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "EntryList", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "EntryList") as? EntryListViewController else { return }
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchExpoInformation()
