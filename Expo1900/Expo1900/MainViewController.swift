@@ -61,6 +61,7 @@ class MainViewController: UIViewController {
     
     lazy var visitorsTextLabel: UILabel = {
         let textLabel = makeLabel()
+        numberFormatter.numberStyle = .decimal
         textLabel.text = "\(numberFormatter.string(for: expositionModel?.visitors) ?? "") 명"
         return textLabel
     }()
@@ -132,9 +133,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "메인"
-        numberFormatter.numberStyle = .decimal
-        
         addAllSubview()
         designateScrollViewConstraints()
         designateStackViewConstraints()
@@ -142,7 +140,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-        navigationController?.isNavigationBarHidden = true
+        designateNavigationSetting()
     }
     
     @objc func enterButtonDidTapped(_ sender: UIButton) {
@@ -192,7 +190,7 @@ private extension MainViewController {
         stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
     }
     
-    func addAllSubview() {
+    func addAllSubviews() {
         view.addSubview(scrollView)
         
         scrollView.addSubview(stackView)
@@ -217,6 +215,11 @@ private extension MainViewController {
         enterButtonStackView.addArrangedSubview(leftImageView)
         enterButtonStackView.addArrangedSubview(enterButton)
         enterButtonStackView.addArrangedSubview(rightImageView)
+    }
+    
+    func designateNavigationSetting() {
+        navigationItem.title = "메인"
+        navigationController?.isNavigationBarHidden = true
     }
 }
 
