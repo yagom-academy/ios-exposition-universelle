@@ -15,8 +15,7 @@ class ItemTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.alignment = .leading
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(shortDescriptionLabel)
+        
         return stackView
     }()
     
@@ -45,8 +44,7 @@ class ItemTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(itemImageView)
-        self.contentView.addSubview(labelStackView)
+        addAllSubviews()
         designateItemImageViewConstraints()
         designateLabelStackViewConstraints()
     }
@@ -54,15 +52,18 @@ class ItemTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+extension ItemTableViewCell{
     
-    func designateItemImageViewConstraints() {
+    private func designateItemImageViewConstraints() {
         itemImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         itemImageView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.2).isActive = true
         itemImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
         itemImageView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
     }
     
-    func designateLabelStackViewConstraints() {
+    private func designateLabelStackViewConstraints() {
         labelStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10).isActive = true
         labelStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 10).isActive = true
         labelStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10).isActive = true
@@ -75,5 +76,12 @@ class ItemTableViewCell: UITableViewCell {
         shortDescriptionLabel.text = "\(String(describing: model.shortDescription))"
         itemImageView.image = UIImage(named: model.imageName)
         accessoryType = .disclosureIndicator
+    }
+    
+    private func addAllSubviews() {
+        self.contentView.addSubview(itemImageView)
+        self.contentView.addSubview(labelStackView)
+        labelStackView.addArrangedSubview(nameLabel)
+        labelStackView.addArrangedSubview(shortDescriptionLabel)
     }
 }

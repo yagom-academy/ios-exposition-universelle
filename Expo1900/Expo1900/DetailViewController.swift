@@ -14,7 +14,6 @@ class DetailViewController: UIViewController {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .systemBackground
-        scrollView.addSubview(stackView)
         return scrollView
     }()
     
@@ -24,8 +23,6 @@ class DetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.addArrangedSubview(itemImageView)
-        stackView.addArrangedSubview(descriptionLabel)
         return stackView
     }()
     
@@ -45,12 +42,14 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = itemTitle
-        self.view.addSubview(scrollView)
-        
+        addAllSubviews()
+        designateNavigationSetting()
         designateScrollViewConstraints()
         designateStackViewConstraints()
     }
+}
+
+extension DetailViewController {
     
     private func designateScrollViewConstraints() {
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
@@ -66,10 +65,22 @@ class DetailViewController: UIViewController {
         stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
     }
     
+    private func designateNavigationSetting() {
+        navigationItem.title = itemTitle
+    }
+    
     func parseData(from model: Item?) {
         guard let model = model else { return }
         itemTitle = model.name
         itemImageView.image = UIImage(named: model.imageName)
         descriptionLabel.text = model.description
     }
+    
+    private func addAllSubviews() {
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+        stackView.addArrangedSubview(itemImageView)
+        stackView.addArrangedSubview(descriptionLabel)
+    }
+    
 }
