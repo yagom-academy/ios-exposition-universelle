@@ -13,7 +13,6 @@ final class KoreaEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.dataSource = self
         
         parseKoreaEntryItems()
