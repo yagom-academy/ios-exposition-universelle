@@ -1,6 +1,6 @@
 import UIKit
 
-final class ContentViewController: UIViewController {
+final class ContentDetailViewController: UIViewController {
     @IBOutlet private weak var contentImageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
@@ -11,7 +11,7 @@ final class ContentViewController: UIViewController {
         setUIComponents()
     }
 
-    func receiveContentData(_ data: Content) {
+    func setupContentData(_ data: Content) {
         content = data
     }
     
