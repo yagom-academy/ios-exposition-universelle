@@ -11,7 +11,6 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     let entryList = try! JSONParser.parseEntryList()
     let firstViewController = MainViewController()
-    let asdf = try! JSONParser.fetch(filename: "exposition_universelle_1900")
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
