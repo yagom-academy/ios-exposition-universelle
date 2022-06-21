@@ -8,7 +8,7 @@
 import UIKit
 
 final class EntryTableViewController: UIViewController {
-    private let expositionTableView: UITableView = {
+    private let entryTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -38,7 +38,7 @@ extension EntryTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.expositionTableView.dequeueReusableCell(withIdentifier: EntryTableViewCell.reuseIdentifier, for: indexPath) as? EntryTableViewCell else {
+        guard let cell = self.entryTableView.dequeueReusableCell(withIdentifier: EntryTableViewCell.reuseIdentifier, for: indexPath) as? EntryTableViewCell else {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
@@ -65,24 +65,24 @@ extension EntryTableViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension EntryTableViewController {
     private func configureUI() {
-        expositionTableView.delegate = self
-        expositionTableView.dataSource = self
+        entryTableView.delegate = self
+        entryTableView.dataSource = self
         
         self.navigationController?.navigationBar.isHidden = false
         self.title = "한국의 출품작"
-        self.view.addSubview(expositionTableView)
+        self.view.addSubview(entryTableView)
         
-        expositionTableView.estimatedRowHeight = 100
-        expositionTableView.rowHeight = UITableView.automaticDimension
+        entryTableView.estimatedRowHeight = 100
+        entryTableView.rowHeight = UITableView.automaticDimension
         
         NSLayoutConstraint.activate([
-            expositionTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            expositionTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            expositionTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            expositionTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            entryTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            entryTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            entryTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            entryTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        expositionTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
+        entryTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
         
         fetchData() 
     }
