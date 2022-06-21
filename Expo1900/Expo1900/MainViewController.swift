@@ -63,6 +63,7 @@ class MainViewController: UIViewController {
         let textLabel = makeLabel()
         numberFormatter.numberStyle = .decimal
         textLabel.text = "\(numberFormatter.string(for: expositionModel?.visitors) ?? "") 명"
+        textLabel.numberOfLines = 0
         return textLabel
     }()
     
@@ -81,6 +82,7 @@ class MainViewController: UIViewController {
     lazy var locationTextLabel: UILabel = {
         let textLabel = makeLabel()
         textLabel.text = "\(expositionModel?.location ?? "")"
+        textLabel.numberOfLines = 0
         return textLabel
     }()
     
@@ -99,6 +101,7 @@ class MainViewController: UIViewController {
     lazy var durationTextLabel: UILabel = {
         let textLabel = makeLabel()
         textLabel.text = "\(expositionModel?.duration ?? "")"
+        textLabel.numberOfLines = 0
         return textLabel
     }()
     
