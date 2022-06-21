@@ -17,7 +17,7 @@ final class KoreaEntryViewController: UIViewController {
         self.tableView.dataSource = self
         
         parseKoreaEntryItems()
-        self.navigationItem.setTitle(NameSpace.koreaEntry.name)
+        self.navigationItem.setTitle("한국의 출품작")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

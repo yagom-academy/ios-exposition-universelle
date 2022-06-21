@@ -20,7 +20,7 @@ final class EXPOInformationViewController: UIViewController {
         super.viewDidLoad()
         
         setupExpoInformation()
-        self.navigationItem.setTitle(NameSpace.firstVCTitle.name)
+        self.navigationItem.setTitle("메인")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +76,7 @@ final class EXPOInformationViewController: UIViewController {
     private func updateTitleLabel(from expo: ExpositionUniverselle) {
         let title = expo.title
         
-        let changeTitle = title.replacingOccurrences(of: NameSpace.bracket.name, with: NameSpace.bracketWithLineBreak.name)
+        let changeTitle = title.replacingOccurrences(of: "(", with: "\n(")
         
         self.titleLabel.text = changeTitle
         self.descriptionLabel.setNumberOfLines(0)
@@ -90,19 +90,19 @@ final class EXPOInformationViewController: UIViewController {
             return
         }
         
-        self.visitorsLabel.text = NameSpace.visitors.name + String(visitors) + NameSpace.numberOfPeople.name
+        self.visitorsLabel.text = "방문객 : \(visitors) 명"
     }
     
     private func updateLocationLabel(from expo: ExpositionUniverselle) {
         let location = expo.location
         
-        self.locationLabel.text = NameSpace.location.name +  String(location)
+        self.locationLabel.text = "개최지 : \(location)"
     }
     
     private func updateDurationLabel(from expo: ExpositionUniverselle) {
         let duration = expo.duration
         
-        self.durationLabel.text = NameSpace.duration.name + String(duration)
+        self.durationLabel.text = "개최 기간 : \(duration)"
     }
     
     private func updateDescriptionLabel(from expo: ExpositionUniverselle) {
