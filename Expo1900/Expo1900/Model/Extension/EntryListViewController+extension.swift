@@ -23,7 +23,7 @@ extension EntryListViewController {
     }
     
     private func updatekoreaEntryImage(of cell: CustomTableViewCell, _ indexPath: IndexPath) {
-        cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? "")
+        cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? ExpoNameSpace.empty.name)
     }
     
     private func updateKoreaEntryTitle(of cell: CustomTableViewCell, _ indexPath: IndexPath) {

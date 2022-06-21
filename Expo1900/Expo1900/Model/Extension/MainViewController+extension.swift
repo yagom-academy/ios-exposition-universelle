@@ -17,7 +17,7 @@ extension MainViewController {
         updateLocationInformation(of: expo)
         updateDutrationInformation(of: expo)
         updateDescriptionInformation(of: expo)
-        self.navigationController?.navigationBar.topItem?.title = "메인"
+        self.navigationController?.navigationBar.topItem?.title = ExpoNameSpace.firstViewcontrollerTitle.name
     }
     
     private func updateTitle(of expo: ExpoInformation) {
@@ -26,19 +26,20 @@ extension MainViewController {
     }
     
     private func updateImage() {
-        posterImage.image = UIImage(named: "poster")
+        posterImage.image = UIImage(named: ExpoNameSpace.expoPoster.name)
     }
     
     private func updateVisitorsInformation(of expo: ExpoInformation) {
-        numberOfVisitors.text = "방문객 : " + (expo.visitors.formatDecimalNumber() ?? "") + "명"
+        guard let expoVisitors = expo.visitors.formatDecimalNumber() else { return }
+        numberOfVisitors.text = ExpoNameSpace.howMany.name + expoVisitors + ExpoNameSpace.visit.name
     }
     
     private func updateLocationInformation(of expo: ExpoInformation) {
-        expoLocation.text = "개최지 : " + expo.location
+        expoLocation.text = ExpoNameSpace.where.name + expo.location
     }
     
     private func updateDutrationInformation(of expo: ExpoInformation) {
-        expoDuration.text = "개최 기간 : " + expo.duration
+        expoDuration.text = ExpoNameSpace.howlong.name + expo.duration
     }
     
     private func updateDescriptionInformation(of expo: ExpoInformation) {

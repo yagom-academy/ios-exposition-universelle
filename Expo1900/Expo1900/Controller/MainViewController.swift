@@ -27,7 +27,7 @@ final class MainViewController: UIViewController {
     }
     
     private func fetchExpoInformation() {
-        guard let expo = JSONParser.fetch(fileName: "exposition_universelle_1900", parsedItems: expo) else { return }
+        guard let expo = JSONParser.fetch(fileName: ExpoNameSpace.expoInformationJSONFileName.name, parsedItems: expo) else { return }
         self.expo = expo
     }
 }

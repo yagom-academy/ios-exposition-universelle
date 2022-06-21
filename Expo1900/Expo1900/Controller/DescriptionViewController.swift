@@ -10,12 +10,12 @@ import UIKit
 final class DescriptionViewController: UIViewController {
     @IBOutlet private(set) weak var imageview: UIImageView!
     @IBOutlet private(set) weak var detailedDescription: UILabel!
-    var textToSet: String?
-    var imageToSet: UIImageView?
+    var detailedDescriptionText: String?
+    var entryImage: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageview.image = self.imageToSet?.image
-        self.detailedDescription.text = self.textToSet
+        self.imageview.image = self.entryImage?.image
+        self.detailedDescription.text = self.detailedDescriptionText
     }
 }

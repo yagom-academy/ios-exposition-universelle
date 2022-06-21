@@ -10,6 +10,7 @@ import UIKit
 final class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private(set) weak var tableView: UITableView!
     private(set) var entryList: [EntryList]?
+    private(set) var cellIdentifier = "customCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,7 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "한국의 출품작"
+        self.navigationController?.navigationBar.topItem?.title = ExpoNameSpace.koreaEntry.name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,7 +38,7 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         
         updateCell(cell: cell, indexPath: indexPath)
         
@@ -45,7 +46,7 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     private func fetchEntryList() {
-        guard let entryList = JSONParser.fetch(fileName: "items", parsedItems: entryList) else { return }
+        guard let entryList = JSONParser.fetch(fileName: ExpoNameSpace.koreaEntryJSONFileName.name, parsedItems: entryList) else { return }
         
         self.entryList = entryList
     }
