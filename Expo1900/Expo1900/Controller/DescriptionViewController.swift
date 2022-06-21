@@ -18,5 +18,6 @@ final class DescriptionViewController: UIViewController {
         super.viewDidLoad()
         self.imageview.image = UIImage(named: entryList?.imageName ?? "")
         self.detailedDescription.text = entryList?.description
+        self.title = entryList?.name
     }
 }
