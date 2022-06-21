@@ -23,6 +23,7 @@ final class EntryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activateOnlyPortraitOrientation(false)
         configureUI()
     }
 }

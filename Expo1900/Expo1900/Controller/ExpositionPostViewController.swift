@@ -11,6 +11,7 @@ final class ExpositionPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activateOnlyPortraitOrientation(true)
         configureUI()
     }
     
