@@ -7,9 +7,16 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-    @IBOutlet weak var koreaEntryImage: UIImageView!
-    @IBOutlet weak var koreaEntryTitle: UILabel!
-    @IBOutlet weak var shortDescription: UILabel!
+    @IBOutlet private(set) weak var koreaEntryImage: UIImageView!
+    @IBOutlet private(set) weak var koreaEntryTitle: UILabel!
+    @IBOutlet private(set) weak var shortDescription: UILabel!
     var detailedDescription: String?
     var cellImage: UIImageView?
+    
+    func sendData(to viewController: DescriptionViewController) {
+        guard let test = self.koreaEntryTitle.text else { return }
+
+        viewController.detailedDescriptionText = test
+        viewController.entryImage = self.koreaEntryImage
+    }
 }

@@ -6,19 +6,26 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    @IBOutlet weak var expoTitle: UILabel!
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var numberOfVisitors: UILabel!
-    @IBOutlet weak var expoLocation: UILabel!
-    @IBOutlet weak var expoDuration: UILabel!
-    @IBOutlet weak var expoDescription: UILabel!
+final class MainViewController: UIViewController {
+    @IBOutlet private(set) weak var expoTitle: UILabel!
+    @IBOutlet private(set) weak var posterImage: UIImageView!
+    @IBOutlet private(set) weak var numberOfVisitors: UILabel!
+    @IBOutlet private(set) weak var expoLocation: UILabel!
+    @IBOutlet private(set) weak var expoDuration: UILabel!
+    @IBOutlet private(set)  weak var expoDescription: UILabel!
     var expo: ExpoInformation?
+    
+    @IBAction private func entryListbuttonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: ExpoNameSpace.entryListIdentifier.name, bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: ExpoNameSpace.entryListIdentifier.name) as? EntryListViewController else { return }
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchExpoInformation()
-        updateUI()
+        self.fetchExpoInformation()
+        self.updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +33,8 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    func fetchExpoInformation() {
-        guard let expo = JSONParser.fetch(fileName: "exposition_universelle_1900", parsedItems: expo) else { return }
+    private func fetchExpoInformation() {
+        guard let expo = JSONParser.fetch(fileName: ExpoNameSpace.expoInformationJSONFileName.name, parsedItems: expo) else { return }
         self.expo = expo
     }
 }

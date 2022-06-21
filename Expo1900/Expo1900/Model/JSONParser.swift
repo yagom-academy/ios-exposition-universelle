@@ -16,6 +16,7 @@ struct JSONParser: DataRepository {
         
         do {
             let data = try jsonDecoder.decode(parsedItemsType.self, from: dataAsset.data)
+            
             return data
         } catch {
             print(ParseError.unknown)
