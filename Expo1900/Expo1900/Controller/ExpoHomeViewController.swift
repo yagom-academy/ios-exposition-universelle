@@ -25,21 +25,37 @@ class ExpoHomeViewController: UIViewController {
         updateUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     private func setupExpositionData() {
         let exposition = loadJsonData(type: Exposition.self, "exposition", "json") 
         self.exposition = exposition
     }
     
     private func updateUI() {
-        let visitorsNumber = String(exposition?.visitors ?? 0)
-        titleLabel.text = exposition?.title
+        let visitorsNumber = modifyDecimalStyle(number: exposition?.visitors)
+        titleLabel.text = exposition?.title.replacingOccurrences(of: "(", with: "\n(")
         mainImageView.image = UIImage(named: "poster")
-        visitorsLabel.text = visitorsNumber
-        locationLabel.text = exposition?.location
-        durationLabel.text = exposition?.duration
+        visitorsLabel.text = "방문객 : " + visitorsNumber
+        locationLabel.text = "개최지 : " + (exposition?.location ?? "")
+        durationLabel.text = "개최 기간 : " + (exposition?.duration ?? "")
         descriptionLabel.text = exposition?.expositionDescription
         leftFlagImageView.image = UIImage(named: "flag")
         rightFlagImageView.image = UIImage(named: "flag")
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func modifyDecimalStyle(number: Int?) -> String {
+        guard let number = number else {
+            return ""
+        }
+
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(for: number) ?? ""
     }
     
     @IBAction func pushToExpoMenuButtonDidTap(_ sender: UIButton) {

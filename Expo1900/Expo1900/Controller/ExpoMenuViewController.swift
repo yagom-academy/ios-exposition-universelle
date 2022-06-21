@@ -21,6 +21,11 @@ class ExpoMenuViewController: UIViewController {
         modifyNavigationBackButtonTitle(to: "메인", in: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func setupExpositionData() {
         let expoItemList = loadJsonData(type: Array<ExpoItemElement>.self, "items", "json")
         self.expoItemList = expoItemList
