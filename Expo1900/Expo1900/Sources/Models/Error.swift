@@ -1,6 +1,3 @@
-import Foundation
-import UIKit
-
 enum DataHandlingError: Error {
     case invalidFile
     case notDecoded
