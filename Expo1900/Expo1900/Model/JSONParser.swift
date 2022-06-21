@@ -7,5 +7,19 @@
 
 import UIKit
 
-struct JSONParser {
+struct JSONParser: DataRepository {
+    static func fetch<T: Codable>(fileName: String, parsedItems: T) -> T? {
+        let jsonDecoder = JSONDecoder()
+        let parsedItemsType = type(of: parsedItems)
+        
+        guard let dataAsset = NSDataAsset(name: fileName) else { return nil }
+        
+        do {
+            let data = try jsonDecoder.decode(parsedItemsType.self, from: dataAsset.data)
+            return data
+        } catch {
+            print(ParseError.unknown)
+            return nil
+        }
+    }
 }
