@@ -133,7 +133,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAllSubview()
+        addAllSubviews()
         designateScrollViewConstraints()
         designateStackViewConstraints()
     }
@@ -141,6 +141,12 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         designateNavigationSetting()
+        AppUtility.lockOrientation(orientation: .portrait)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppUtility.lockOrientation(orientation: .all)
     }
     
     @objc func enterButtonDidTapped(_ sender: UIButton) {
@@ -222,4 +228,3 @@ private extension MainViewController {
         navigationController?.isNavigationBarHidden = true
     }
 }
-
