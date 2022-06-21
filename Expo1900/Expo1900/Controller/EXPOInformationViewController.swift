@@ -7,6 +7,7 @@
 import UIKit
 
 final class EXPOInformationViewController: UIViewController {
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     private var expositionUniverselle: ExpositionUniverselle?
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -26,12 +27,14 @@ final class EXPOInformationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        appdelegate.shouldSupportAllOrientation = false
         self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        appdelegate.shouldSupportAllOrientation = true
         self.navigationController?.isNavigationBarHidden = false
     }
 
@@ -113,4 +116,3 @@ final class EXPOInformationViewController: UIViewController {
         self.descriptionLabel.setLineBreakMode(style: .byWordWrapping)
     }
 }
-
