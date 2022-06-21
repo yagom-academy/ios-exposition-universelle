@@ -28,6 +28,8 @@ class DetailViewController: UIViewController {
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
         return imageView
     }()
 
