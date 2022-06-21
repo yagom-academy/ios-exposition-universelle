@@ -51,16 +51,9 @@ extension KoreanContentListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = contentTableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath) as? ContentCell ?? ContentCell()
-        let currentContent = contents[indexPath.row]
         
-        cell.descriptionLabel.numberOfLines = 0
-        cell.titleLabel.font = .preferredFont(forTextStyle: .title2)
-        cell.accessoryType = .disclosureIndicator
-        
-        cell.contentImageView.image = UIImage(named: currentContent.imageName)
-        cell.titleLabel.text = currentContent.name
-        cell.descriptionLabel.text = currentContent.shortDescription
-        
+        cell.setup(content: contents[indexPath.row])
+
         return cell
     }
 }
