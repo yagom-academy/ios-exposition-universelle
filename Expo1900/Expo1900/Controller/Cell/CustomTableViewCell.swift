@@ -14,7 +14,9 @@ class CustomTableViewCell: UITableViewCell {
     var cellImage: UIImageView?
     
     func sendData(to viewController: DescriptionViewController) {
-        viewController.detailedDescriptionText = self.detailedDescription
+        guard let test = self.koreaEntryTitle.text else { return }
+
+        viewController.detailedDescriptionText = test
         viewController.entryImage = self.koreaEntryImage
     }
 }

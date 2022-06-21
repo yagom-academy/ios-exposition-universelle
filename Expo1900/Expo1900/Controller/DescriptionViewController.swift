@@ -12,10 +12,11 @@ final class DescriptionViewController: UIViewController {
     @IBOutlet private(set) weak var detailedDescription: UILabel!
     var detailedDescriptionText: String?
     var entryImage: UIImageView?
+    var entryList: EntryList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageview.image = self.entryImage?.image
-        self.detailedDescription.text = self.detailedDescriptionText
+        self.imageview.image = UIImage(named: entryList?.imageName ?? "")
+        self.detailedDescription.text = entryList?.description
     }
 }
