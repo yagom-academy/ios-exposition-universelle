@@ -12,8 +12,8 @@ final class EntryTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 80).isActive = true
-        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 40).isActive = true
+        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 90).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 60).isActive = true
         return imageView
     }()
     
@@ -27,7 +27,7 @@ final class EntryTableViewCell: UITableViewCell {
     private let shortDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.numberOfLines = 0
         return label
     }()
