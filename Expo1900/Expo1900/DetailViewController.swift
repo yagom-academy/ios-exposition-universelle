@@ -13,7 +13,6 @@ class DetailViewController: UIViewController {
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .systemBackground
         return scrollView
     }()
     
@@ -43,6 +42,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addAllSubviews()
+        designateViewBackgroundColor()
         designateNavigationSetting()
         designateScrollViewConstraints()
         designateStackViewConstraints()
@@ -67,6 +67,10 @@ extension DetailViewController {
     
     private func designateNavigationSetting() {
         navigationItem.title = itemTitle
+    }
+    
+    private func designateViewBackgroundColor() {
+        view.backgroundColor = .systemBackground
     }
     
     func parseData(from model: Item?) {
