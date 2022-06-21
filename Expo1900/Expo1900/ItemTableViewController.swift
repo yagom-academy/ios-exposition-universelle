@@ -9,12 +9,12 @@ import UIKit
 
 class ItemTableViewController: UITableViewController {
     let itemDataManager = ItemDataManager()
-    var itemModel: [Item]?
+    var items: [Item]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         specifyNavigationBarSetting()
-        parseItemModel()
+        generateItems()
         specifyTableViewSetting()
     }
 
@@ -23,18 +23,18 @@ class ItemTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemModel?.count ?? 0
+        return items?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
-        cell.parseData(from: itemModel, with: indexPath)
+        cell.parseData(from: items?[indexPath.row])
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = DetailViewController()
-        detailViewController.parseData(from: itemModel, with: indexPath)
+        detailViewController.parseData(from: items?[indexPath.row])
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
@@ -43,8 +43,8 @@ class ItemTableViewController: UITableViewController {
         navigationItem.title = "한국의 출품작"
     }
     
-    private func parseItemModel() {
-        itemModel = itemDataManager.fetchData()
+    private func generateItems() {
+        items = itemDataManager.fetchData()
     }
     
     private func specifyTableViewSetting() {
