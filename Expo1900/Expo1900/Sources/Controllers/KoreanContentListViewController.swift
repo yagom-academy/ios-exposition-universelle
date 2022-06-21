@@ -10,7 +10,16 @@ final class KoreanContentListViewController: UIViewController {
         contentTableView.dataSource = self
         contentTableView.delegate = self
         contentTableView.rowHeight = 150
-
+        
+        fetchContentData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func fetchContentData() {
         do {
             contents = try decodeContentData()
         } catch let error as DataHandlingError {
@@ -18,11 +27,6 @@ final class KoreanContentListViewController: UIViewController {
         } catch {
             print("Undexpected error: \(error)")
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func decodeContentData() throws -> [Content] {

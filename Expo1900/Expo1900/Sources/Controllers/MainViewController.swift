@@ -22,6 +22,15 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         setupImages()
         
+        fetchExpositionData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func fetchExpositionData() {
         do {
             let decodedData = try decodeExpositionData()
             setupLabels(of: decodedData)
@@ -30,11 +39,6 @@ final class MainViewController: UIViewController {
         } catch {
             print("Unexpected error: \(error)")
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func decodeExpositionData() throws -> Exposition {
