@@ -12,3 +12,15 @@ struct ExpoInformation: Decodable {
     private(set) var duration: String
     private(set) var description: String
 }
+
+extension ExpoInformation {
+    func toDomain() -> ExpoData {
+        return ExpoData(
+            title: title,
+            visitors: "방문객 : \(visitors.numberFormatterParse()) 명",
+            location: "개최지 : \(location)",
+            duration: "개최기간 : \(duration)",
+            description: description
+        )
+    }
+}

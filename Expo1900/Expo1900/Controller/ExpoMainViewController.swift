@@ -122,7 +122,8 @@ class ExpoMainViewController: UIViewController {
     }
     
     private func setLabelText() {
-        expoData.decodingJsonData()
+        guard let expoInformation = fetchExpoInformation(from: Asset.expoInformation) else { return }
+        expoData = expoInformation.toDomain()
         titleLabel.text = expoData.title
         descriptionLabel.text = expoData.description
     }
@@ -144,5 +145,13 @@ class ExpoMainViewController: UIViewController {
         label.text = text
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }
+    
+    private func fetchExpoInformation(from assetName: String) -> ExpoInformation? {
+        guard let expoInformationAsset = NSDataAsset(name: assetName),
+              let expoInformation = try? JSONDecoder().decode(ExpoInformation.self, from: expoInformationAsset.data) else {
+            return nil
+        }
+        return expoInformation
     }
 }
