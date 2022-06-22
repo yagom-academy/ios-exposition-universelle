@@ -23,8 +23,20 @@ class ExpositionPosterViewController: UIViewController {
 extension ExpositionPosterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configurePosterView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
 
     private func configurePosterView() {
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900"),
