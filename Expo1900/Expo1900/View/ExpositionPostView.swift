@@ -40,13 +40,8 @@ final class ExpositionPostView: UIView {
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .white
         return scrollView
-    }()
-    
-    private let contentView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
     }()
     
     private let titleLabel: UILabel = {
@@ -192,6 +187,10 @@ private extension ExpositionPostView {
         verticalStackView.insetsLayoutMarginsFromSafeArea = false
         contentScrollView.contentInsetAdjustmentBehavior = .never
         
+        guard let safeArea = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.safeAreaInsets else {
+            return
+        }
+        
         NSLayoutConstraint.activate([
             self.contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
             self.contentScrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
@@ -203,6 +202,8 @@ private extension ExpositionPostView {
             self.verticalStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
             self.verticalStackView.widthAnchor.constraint(equalTo: rootView.widthAnchor),
             
+            self.titleLabel.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: max(20.0, (safeArea.top))),
+            
             self.descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
             self.descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
             
@@ -210,7 +211,7 @@ private extension ExpositionPostView {
             self.horizontalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
             self.horizontalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
          
-            self.horizontalStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -max(20.0, (UIApplication.shared.keyWindow?.safeAreaInsets.bottom)!)),
+            self.horizontalStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -max(20.0, (safeArea.bottom))),
             self.horizontalStackView.widthAnchor.constraint(equalTo: rootView.widthAnchor),
         ])
     }
