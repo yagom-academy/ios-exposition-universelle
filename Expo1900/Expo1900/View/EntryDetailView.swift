@@ -84,8 +84,8 @@ private extension EntryDetailView {
             verticalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
 
             descriptionLabel.topAnchor.constraint(equalTo: entryImage.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: 10),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -10),
         ])
     }
     

@@ -40,7 +40,6 @@ final class ExpositionPostView: UIView {
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .white
         return scrollView
     }()
     
@@ -188,8 +187,10 @@ private extension ExpositionPostView {
     }
     
     func setUpBaseUIConstraints(from rootView: UIView) {
-        let contentLayoutGuide = contentScrollView.contentLayoutGuide
-        let frameLayoutGuide = contentScrollView.frameLayoutGuide
+        horizontalStackView.insetsLayoutMarginsFromSafeArea = false
+        contentScrollView.insetsLayoutMarginsFromSafeArea = false
+        verticalStackView.insetsLayoutMarginsFromSafeArea = false
+        contentScrollView.contentInsetAdjustmentBehavior = .never
         
         NSLayoutConstraint.activate([
             self.contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
@@ -197,19 +198,20 @@ private extension ExpositionPostView {
             self.contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
             self.contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
             
-            verticalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            verticalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            self.verticalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+            self.verticalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+            self.verticalStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+            self.verticalStackView.widthAnchor.constraint(equalTo: rootView.widthAnchor),
             
-            descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
+            self.descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
+            self.descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
             
-            horizontalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            horizontalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            horizontalStackView.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 10),
-            horizontalStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: 10),
-            horizontalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            self.horizontalStackView.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 10),
+            self.horizontalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+            self.horizontalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+         
+            self.horizontalStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -max(20.0, (UIApplication.shared.keyWindow?.safeAreaInsets.bottom)!)),
+            self.horizontalStackView.widthAnchor.constraint(equalTo: rootView.widthAnchor),
         ])
     }
 }

@@ -70,16 +70,17 @@ extension EntryTableViewController {
         
         self.navigationController?.navigationBar.isHidden = false
         self.title = "한국의 출품작"
+        view.backgroundColor = .white
         self.view.addSubview(entryTableView)
         
         entryTableView.estimatedRowHeight = 100
         entryTableView.rowHeight = UITableView.automaticDimension
         
         NSLayoutConstraint.activate([
-            entryTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            entryTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            entryTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            entryTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            entryTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            entryTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            entryTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            entryTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
         
         entryTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
