@@ -91,7 +91,6 @@ final class MainUIScrollView: UIView {
         return button
     }()
     
-    
     private let buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.spacing = 10
@@ -115,16 +114,8 @@ final class MainUIScrollView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(mainScrollView)
-        mainScrollView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            mainScrollView.topAnchor.constraint(equalTo: topAnchor),
-            mainScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            mainScrollView.widthAnchor.constraint(equalTo: widthAnchor),
-            mainScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-        
         mainStackViewConfigure()
+        setupMainScrollViewConstraints()
         setupLabelConstraints()
         setupData()
     }
@@ -168,6 +159,18 @@ final class MainUIScrollView: UIView {
             mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.bottomAnchor, constant: -10),
             mainStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -25),
             mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    func setupMainScrollViewConstraints() {
+        addSubview(mainScrollView)
+        
+        mainScrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainScrollView.topAnchor.constraint(equalTo: topAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            mainScrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            mainScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     

@@ -43,18 +43,9 @@ final class ItemDescriptionUIScrollView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        addSubview(itemDescriptionScrollView)
-        
-        itemDescriptionScrollView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            itemDescriptionScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            itemDescriptionScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            itemDescriptionScrollView.widthAnchor.constraint(equalTo: widthAnchor),
-            itemDescriptionScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-        
         itemImageView.contentMode = .scaleAspectFit
         
+        setupItemDescriptionScrollViewConstraints()
         setupItemStackViewConstraints()
     }
     
@@ -79,6 +70,18 @@ final class ItemDescriptionUIScrollView: UIView {
             itemStackView.bottomAnchor.constraint(equalTo: itemDescriptionScrollView.bottomAnchor),
             itemStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -25),
             itemStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    func setupItemDescriptionScrollViewConstraints() {
+        addSubview(itemDescriptionScrollView)
+        
+        itemDescriptionScrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            itemDescriptionScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            itemDescriptionScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            itemDescriptionScrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            itemDescriptionScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     
