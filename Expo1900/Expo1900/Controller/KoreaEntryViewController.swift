@@ -8,22 +8,30 @@
 import UIKit
 
 final class KoreaEntryViewController: UIViewController {
-    private var koreaEntry = [Exhibits]()
+    // MARK: Properties
+    
     @IBOutlet private weak var tableView: UITableView!
     
+    private var koreaEntry = [Exhibits]()
+    
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
+        tableView.dataSource = self
         
         parseKoreaEntryItems()
-        self.navigationItem.setTitle("한국의 출품작")
+        navigationItem.title = "한국의 출품작"
     }
+}
+
+extension KoreaEntryViewController {
+    // MARK: - UI
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == NameSpace.transferToDetailsVCId.name else {
             return
         }
-        guard let index = self.tableView.indexPathForSelectedRow?.row else {
+        guard let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
             
@@ -33,6 +41,10 @@ final class KoreaEntryViewController: UIViewController {
         
         destination?.exhibit = exhibit
     }
+}
+
+extension KoreaEntryViewController {
+    // MARK: - Parsing
     
     private func parseKoreaEntryItems() {
         guard let parsedItems = JSONData.parse(
@@ -41,17 +53,19 @@ final class KoreaEntryViewController: UIViewController {
             return
         }
         
-        self.koreaEntry = parsedItems
+        koreaEntry = parsedItems
     }
 }
 
 extension KoreaEntryViewController: UITableViewDataSource {
+    // MARK: - TableView Data Source
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.koreaEntry.count
+        return koreaEntry.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

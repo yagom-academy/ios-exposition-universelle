@@ -12,7 +12,7 @@ enum NameSpace: String {
     case entryCellId = "entryCell"
     
     var name: String {
-        return self.rawValue
+        rawValue
     }
 }
 

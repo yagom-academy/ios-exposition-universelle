@@ -14,8 +14,7 @@
 		426108C8286050EE00756C00 /* NameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426108C7286050EE00756C00 /* NameSpace.swift */; };
 		42BC0322285A1976008FAAD5 /* KoreaEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0321285A1976008FAAD5 /* KoreaEntryViewController.swift */; };
 		42BC0326285B5802008FAAD5 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0325285B5802008FAAD5 /* JSONData.swift */; };
-		42BC0328285B8442008FAAD5 /* extension+UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0327285B8442008FAAD5 /* extension+UINavigationItem.swift */; };
-		42BC032A285B84B4008FAAD5 /* extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0329285B84B4008FAAD5 /* extension+UILabel.swift */; };
+		42BC032A285B84B4008FAAD5 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC0329285B84B4008FAAD5 /* UILabel+Extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* EXPOInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* EXPOInformationViewController.swift */; };
@@ -32,8 +31,7 @@
 		426108C7286050EE00756C00 /* NameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpace.swift; sourceTree = "<group>"; };
 		42BC0321285A1976008FAAD5 /* KoreaEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryViewController.swift; sourceTree = "<group>"; };
 		42BC0325285B5802008FAAD5 /* JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
-		42BC0327285B8442008FAAD5 /* extension+UINavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+UINavigationItem.swift"; sourceTree = "<group>"; };
-		42BC0329285B84B4008FAAD5 /* extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+UILabel.swift"; sourceTree = "<group>"; };
+		42BC0329285B84B4008FAAD5 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,14 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20C0680A286335950011DA5F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		420AD682285762B500BB3106 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				420AD683285762D000BB3106 /* Exhibits.swift */,
 				2056C54628576C62007191A9 /* ExpositionUniverselle.swift */,
 				42BC0325285B5802008FAAD5 /* JSONData.swift */,
-				42BC0327285B8442008FAAD5 /* extension+UINavigationItem.swift */,
-				42BC0329285B84B4008FAAD5 /* extension+UILabel.swift */,
+				42BC0329285B84B4008FAAD5 /* UILabel+Extension.swift */,
 				20E039CE2859C8B400BE6316 /* EXPOError.swift */,
 				426108C7286050EE00756C00 /* NameSpace.swift */,
 			);
@@ -72,8 +78,6 @@
 		42BC032C285B84DC008FAAD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
@@ -117,6 +121,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				20C0680A286335950011DA5F /* Common */,
 				42BC032E285B8508008FAAD5 /* Resource */,
 				42BC032D285B84F5008FAAD5 /* Controller */,
 				42BC032C285B84DC008FAAD5 /* View */,
@@ -201,10 +206,9 @@
 				2056C54728576C62007191A9 /* ExpositionUniverselle.swift in Sources */,
 				426108C8286050EE00756C00 /* NameSpace.swift in Sources */,
 				420AD684285762D000BB3106 /* Exhibits.swift in Sources */,
-				42BC0328285B8442008FAAD5 /* extension+UINavigationItem.swift in Sources */,
 				42BC0322285A1976008FAAD5 /* KoreaEntryViewController.swift in Sources */,
 				42BC0326285B5802008FAAD5 /* JSONData.swift in Sources */,
-				42BC032A285B84B4008FAAD5 /* extension+UILabel.swift in Sources */,
+				42BC032A285B84B4008FAAD5 /* UILabel+Extension.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				20E039CF2859C8B400BE6316 /* EXPOError.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,

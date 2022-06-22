@@ -7,8 +7,8 @@
 import UIKit
 
 final class EXPOInformationViewController: UIViewController {
-    let appdelegate = UIApplication.shared.delegate as! AppDelegate
-    private var expositionUniverselle: ExpositionUniverselle?
+    // MARK: Properties
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -17,53 +17,50 @@ final class EXPOInformationViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var navigationButton: UIButton!
     
+    private let appdelegate = UIApplication.shared.delegate as! AppDelegate
+    private var expositionUniverselle: ExpositionUniverselle?
+    
+    // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupExpoInformation()
-        self.navigationItem.setTitle("메인")
+        navigationItem.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         appdelegate.shouldSupportAllOrientation = false
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         appdelegate.shouldSupportAllOrientation = true
-        self.navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
     }
+}
 
+// MARK: - UI
+extension EXPOInformationViewController {
     private func setupExpoInformation() {
         parseExpositionUniverselleData()
         updatePosterDescription()
     }
     
     private func parseExpositionUniverselleData() {
-        guard let parsedInformation = JSONData.parse(name: NameSpace.expoInfoData.name,
-                                                     to: expositionUniverselle) else {
+        guard let parsedInformation = JSONData.parse(
+            name: NameSpace.expoInfoData.name,
+            to: expositionUniverselle) else {
             return
         }
         
         expositionUniverselle = parsedInformation
     }
     
-    @IBAction private func navigationButtonDidTap(_ sender: UIButton) {
-        goToKoreaEntryView()
-    }
-    
-    private func goToKoreaEntryView() {
-        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: NameSpace.koreaEntryViewControllerId.name) as? KoreaEntryViewController else {
-            return
-        }
-
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
-
     private func updatePosterDescription() {
         guard let expositionUniverselle = expositionUniverselle else {
             return
@@ -78,41 +75,55 @@ final class EXPOInformationViewController: UIViewController {
     
     private func updateTitleLabel(from expo: ExpositionUniverselle) {
         let title = expo.title
-        
         let changeTitle = title.replacingOccurrences(of: "(", with: "\n(")
         
-        self.titleLabel.text = changeTitle
-        self.descriptionLabel.setNumberOfLines(0)
-        self.titleLabel.setLabelFont(style: .title2)
+        titleLabel.text = changeTitle
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        titleLabel.numberOfLines = 0
     }
     
     private func updateVisitorsLabel(from expo: ExpositionUniverselle) {
-        let numberformatter = self.visitorsLabel.setNumberFormat(style: .decimal)
+        let numberformatter = visitorsLabel.setNumberFormat(style: .decimal)
         
         guard let visitors = numberformatter.string(for: expo.visitors) else {
             return
         }
         
-        self.visitorsLabel.text = "방문객 : \(visitors) 명"
+        visitorsLabel.text = "방문객 : \(visitors) 명"
     }
     
     private func updateLocationLabel(from expo: ExpositionUniverselle) {
         let location = expo.location
         
-        self.locationLabel.text = "개최지 : \(location)"
+        locationLabel.text = "개최지 : \(location)"
     }
     
     private func updateDurationLabel(from expo: ExpositionUniverselle) {
         let duration = expo.duration
         
-        self.durationLabel.text = "개최 기간 : \(duration)"
+        durationLabel.text = "개최 기간 : \(duration)"
     }
     
     private func updateDescriptionLabel(from expo: ExpositionUniverselle) {
         let description = expositionUniverselle?.description
+        
+        descriptionLabel.text = description
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
+    }
+}
 
-        self.descriptionLabel.text = description
-        self.descriptionLabel.setNumberOfLines(0)
-        self.descriptionLabel.setLineBreakMode(style: .byWordWrapping)
+// MARK: - Action
+extension EXPOInformationViewController {
+    @IBAction private func tapNavigationButton(_ sender: UIButton) {
+        goToKoreaEntryView()
+    }
+    
+    private func goToKoreaEntryView() {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: NameSpace.koreaEntryViewControllerId.name) as? KoreaEntryViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -8,25 +8,34 @@
 import UIKit
 
 final class KoreaEntryDetailsViewController: UIViewController {
-    var exhibit: Exhibits?
+    // MARK: Properties
+    
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDescriptionLabel: UILabel!
+    
+    var exhibit: Exhibits?
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUIItems()
     }
+}
+
+extension KoreaEntryDetailsViewController {
+    // MARK: - UI
     
     private func updateUIItems() {
         guard let exhibit = exhibit else {
             return
         }
         
-        self.entryImageView.image = UIImage(named: exhibit.imageName)
-        self.navigationItem.setTitle(exhibit.name)
-        self.entryDescriptionLabel.text = exhibit.description
-        self.entryDescriptionLabel.setLineBreakMode(style: .byWordWrapping)
-        self.entryDescriptionLabel.setNumberOfLines(0)
+        entryImageView.image = UIImage(named: exhibit.imageName)
+        navigationItem.title = exhibit.name
+        entryDescriptionLabel.text = exhibit.description
+        entryDescriptionLabel.lineBreakMode = .byWordWrapping
+        entryDescriptionLabel.numberOfLines = 0
     }
 }
