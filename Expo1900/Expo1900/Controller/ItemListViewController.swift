@@ -73,5 +73,7 @@ extension ItemListViewController: UITableViewDelegate {
         guard let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as? DetailViewController else { return }
         detailView.itemData = entriesData[indexPath.row]
         self.navigationController?.pushViewController(detailView, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
