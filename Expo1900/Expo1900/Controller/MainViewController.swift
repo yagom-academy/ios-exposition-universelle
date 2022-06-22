@@ -7,6 +7,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    var expoInformation: ExpoInformation?
+    
     let scrollView = UIScrollView()
     let contentView = UIView()
     let stackView: UIStackView = {
@@ -61,9 +63,8 @@ class MainViewController: UIViewController {
     
     let descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
-        guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else { return descriptionLabel }
-        guard let decodeData = try? JSONDecoder().decode(ExpoInformation.self, from: data) else { return descriptionLabel }
-        descriptionLabel.text = decodeData.description
+       
+//        descriptionLabel.text = expoInformation?.description
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .left
         return descriptionLabel
@@ -107,11 +108,20 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.setting()
         self.navigationItem.backButtonTitle = "메인"
+        
+        descriptionLabel.text = expoInformation?.description
     }
     
     @objc func didTappedButton(_ sender: UIButton) {
         let entryListViewController = EntryListViewController()
         self.navigationController?.pushViewController(entryListViewController, animated: true)
+    }
+    
+    //MARK: - fetchExpoInformaion
+    func fetchExpoInformaion() {
+        guard let expoInformation = JSONParser.fetch(fileName: ExpoNameSpace.expoInformationJSONFileName.name, parsedItems: expoInformation) else { return }
+        self.expoInformation = expoInformation
+
     }
     
     func setting() {

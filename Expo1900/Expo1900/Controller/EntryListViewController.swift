@@ -8,15 +8,7 @@
 import UIKit
 
 class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let entryList: [EntryList] = {
-        var entryList: [EntryList] = [EntryList]()
-        do {
-            entryList = try JsonParser.parseEntryList()
-        } catch {
-            print(ParseError.unknown.description)
-        }
-        return entryList
-    }()
+    var entryList: [EntryList]?
     
     let tableView : UITableView = {
         let tableView = UITableView()
@@ -37,6 +29,8 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let entryList = entryList else { return 0 }
+
         return entryList.count
     }
     
@@ -48,9 +42,9 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.koreaEntryImage.image = UIImage(named: entryList[indexPath.row].imageName)
-        cell.koreaEntryTitle.text = entryList[indexPath.row].name
-        cell.shortDescription.text = entryList[indexPath.row].shortDescription
+        cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? "")
+        cell.koreaEntryTitle.text = entryList?[indexPath.row].name
+        cell.shortDescription.text = entryList?[indexPath.row].shortDescription
         tableView.addSubview(cell)
         cell.addSubviews()
         cell.setKoreaEntryImageConstraints()
