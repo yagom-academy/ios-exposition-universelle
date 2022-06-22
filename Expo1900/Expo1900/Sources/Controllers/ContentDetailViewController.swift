@@ -19,8 +19,8 @@ final class ContentDetailViewController: UIViewController {
         guard let content = content else { return }
         
         descriptionLabel.numberOfLines = 0
-        
         descriptionLabel.text = content.description
+        
         contentImageView.image = UIImage(named: content.imageName)
         title = content.name
     }
