@@ -17,8 +17,10 @@ final class ContentDetailViewController: UIViewController {
     
     private func setUIComponents() {
         guard let content = content else { return }
-        
+
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = .preferredFont(forTextStyle: .body)
+        descriptionLabel.adjustsFontForContentSizeCategory = true
         descriptionLabel.text = content.description
         
         contentImageView.image = UIImage(named: content.imageName)

@@ -53,13 +53,26 @@ final class MainViewController: UIViewController {
     
     private func setupLabels(of exposition: Exposition) {
         descriptionLabel.numberOfLines = 0
+        
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        
+        titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
+        
+        visitorsLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        visitorsLabel.adjustsFontForContentSizeCategory = true
         visitorsLabel.text = "방문객 :  \(applyNumberFormat(to: exposition.visitors)) 명"
+        
+        locationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        locationLabel.adjustsFontForContentSizeCategory = true
         locationLabel.text = "개최지 : \(exposition.location)"
+        
+        durationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        durationLabel.adjustsFontForContentSizeCategory = true
         durationLabel.text = "개최 기간 : \(exposition.duration)"
+        
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.adjustsFontForContentSizeCategory = true
         descriptionLabel.text = exposition.description
     }
     
