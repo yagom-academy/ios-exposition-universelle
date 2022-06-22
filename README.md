@@ -186,3 +186,58 @@ var translatesAutoresizingMaskIntoConstraints: Bool { get set }
 Note that the autoresizing mask constraints fully specify the view’s size and position; therefore, you cannot add additional constraints to modify this size or position without introducing conflicts. If you want to use Auto Layout to dynamically calculate the size and position of your view, you must set this property to false, and then provide a non ambiguous, nonconflicting set of constraints for the view
 
 코드로 오토레이아웃을 작성 해주려면 이 속성은 false 로 해주어야 한다. 
+
+# Step3
+기간 : 2022.6.21(화) ~ 2022.6.22(수)
+## 구현사항
+### - 오토레이아웃
+- **모든 아이폰 화면에 맞춤**
+
+### - Accessibility
+- **줄임표 처리**
+    - Accessibility Inspector 에서 배율 조절을 최대로 했을 때, label이 ... 으로 생략되는 부분
+    - UILabel의 속성 numberOfLInes = 0 으로 해주어 해결 (Line Break를 따로 설정해줄 필요가 없었다)
+- **text Style**
+    - Dynamic Type으로 설정 해주기 위해 폰트 스타일을 custom이 아닌 , 내장되어있는 systemFont를 이용했다. 
+    - `adjustsFontForContentSizeCategory` 프로퍼티를 true 로 설정 해주었다. 
+    - **결과** : Accessibility Inspector 에서 배율설정을 할 때마다 동적으로 글자 크기가 바뀐다.
+- **Voice Over**
+    - 개최기간에 대힌 accessibility Label 을 수정 해주었다.
+    - MainViewController 에 description label 만 읽어지지 않는 현상 발생 
+### - DetailView 내의 imageView 설정
+- **크기지정**
+    - imageView 의 contentMode 를 scaleAspectFit 으로 설정해주니 사진의 원본비율로 나왔다. 
+    - 해금과 나전칠기 사진에서는 높이가 극적으로 늘어나는 현상이 발생
+    - imageView의 heightAnchor.constraint(lessThanEqualToConstant:)로 높이의 최대값에 제한을 주었더니 해결 되었다.
+
+### - Device Orientation
+- **세로모드 고정**
+    - AppDelegate 에 `orientationLock` 변수를 만들어 MainViewController 에서만 .portrait 로 설정 해주었다.
+
+     <img src="https://i.imgur.com/25NNBsn.gif" width="250" height="250"/>
+     <img src="https://i.imgur.com/qSeqjjq.gif" width="250" height="250"/>
+
+
+## 🛠Trouble Shooting🛠
+
+### 화면전환 깨짐
+<img src="https://i.imgur.com/9JyDpCD.gif" width="250" height="500"/>
+
+- backgoundColor를 systemBackground 로 지정해주었더니 해결 되었다. 
+
+## 궁금한점
+- **AccessibilityLabel**
+    - MainViewController 의 desc 부분이 읽어지지 않았습니다. AccessibilityLabel에 다시 추가를 해주었음에도 읽히지 않는 이유가 궁금합니다 ! 
+- self.contentView.heightAnchor 와 self.heightAnchor 의 차이점 
+    - ItemTableViewCell 에서 오토레이아웃 constraints 작업 중, 셀의 내용이 길어지면 셀높이도 같이 조절되도록 만들어 주었는데, 해금과 나전칠기의 imageView 높이조절 문제가 있었습니다. 밑에 첨부한 코드 하나만 바꿨더니 해결이 되었습니다. 왜 이렇게 되는지 궁금해서 여쭤보고 싶습니다 !
+
+<img src="https://i.imgur.com/Zpc7MPj.png" width="250" height="500"/>
+<img src="https://i.imgur.com/C8DrYUN.png" width="250" height="500"/>
+
+![](https://i.imgur.com/XL5SyIi.png)
+
+<img src="https://i.imgur.com/juYmK7f.png" width="250" height="500"/>
+
+![](https://i.imgur.com/Oy88MCE.png)
+
+
