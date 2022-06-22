@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F4896DC2862D5BA00429A63 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4896DB2862D5BA00429A63 /* CustomTableViewCell.swift */; };
 		8F505F7F285C65AC0001D06E /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F505F7E285C65AC0001D06E /* EntryListViewController.swift */; };
 		8F505F81285C65D00001D06E /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F505F80285C65D00001D06E /* DescriptionViewController.swift */; };
 		8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA19289285708BD00CE0C7D /* EntryList.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F4896DB2862D5BA00429A63 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		8F505F7E285C65AC0001D06E /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
 		8F505F80285C65D00001D06E /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		8FA19289285708BD00CE0C7D /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F4896DD2862D5BF00429A63 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8F4896DB2862D5BA00429A63 /* CustomTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		8FA192882857087300CE0C7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				8F505F7E285C65AC0001D06E /* EntryListViewController.swift */,
 				8F505F80285C65D00001D06E /* DescriptionViewController.swift */,
+				8F4896DD2862D5BF00429A63 /* Cell */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,6 +267,7 @@
 			files = (
 				8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */,
 				D746BD49285AEE6300B7A2F9 /* ParseError.swift in Sources */,
+				8F4896DC2862D5BA00429A63 /* CustomTableViewCell.swift in Sources */,
 				D79200D82857511100F3D5FA /* ExpoInformation.swift in Sources */,
 				8F505F81285C65D00001D06E /* DescriptionViewController.swift in Sources */,
 				D746BD47285AEDDB00B7A2F9 /* JsonParser.swift in Sources */,
