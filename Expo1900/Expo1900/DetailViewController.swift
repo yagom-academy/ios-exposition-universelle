@@ -89,5 +89,4 @@ extension DetailViewController {
         stackView.addArrangedSubview(itemImageView)
         stackView.addArrangedSubview(descriptionLabel)
     }
-    
 }
