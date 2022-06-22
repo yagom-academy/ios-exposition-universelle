@@ -100,8 +100,10 @@ class MainViewController: UIViewController {
     
     lazy var durationTextLabel: UILabel = {
         let textLabel = makeLabel()
-        textLabel.text = "\(expositionModel?.duration ?? "")"
+        let duration = expositionModel?.duration
+        textLabel.text = "\(duration ?? "")"
         textLabel.numberOfLines = 0
+        textLabel.accessibilityLabel = (duration?.replacingOccurrences(of: "-", with: "부터") ?? "") + "까지"
         return textLabel
     }()
     
@@ -109,6 +111,7 @@ class MainViewController: UIViewController {
         let label = makeLabel()
         label.numberOfLines = 0
         label.text = expositionModel?.description ?? ""
+        label.accessibilityLabel = "파리 만국박람회 1900 설명"
         return label
     }()
     
@@ -146,7 +149,7 @@ class MainViewController: UIViewController {
         designateNavigationSetting()
         AppUtility.lockOrientation(orientation: .portrait)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         AppUtility.lockOrientation(orientation: .all)

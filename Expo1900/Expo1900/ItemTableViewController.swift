@@ -8,6 +8,7 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
+    
     let itemDataManager = ItemDataManager()
     var items: [Item]?
     
