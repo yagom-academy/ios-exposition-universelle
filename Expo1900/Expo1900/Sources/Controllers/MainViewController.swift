@@ -18,6 +18,8 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var presentKoreanContentsButton: UIButton!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
 
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate ?? AppDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImages()
@@ -28,6 +30,12 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate.isVerticalOrientationBlocked = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate.isVerticalOrientationBlocked = false
     }
     
     private func fetchExpositionData() {
