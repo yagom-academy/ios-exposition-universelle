@@ -8,6 +8,12 @@
 import UIKit
 
 final class KoreaItemTableViewCell: UITableViewCell {
+    //MARK: - Setting Identifier
+    
+    static var identifier: String {
+        return "KoreaItemTableViewCell"
+    }
+    
     //MARK: - KoreaItem Cell View
     
     private let itemStackView: UIStackView = {

@@ -7,63 +7,69 @@
 
 import UIKit
 
-class KoreaItemTableViewController: UITableViewController {
+final class KoreaItemTableViewController: UITableViewController {
     //MARK: - KoreaItemTable Property
     
-    var item = [KoreaItem]()
-    weak var sendDataDelegate: SendDataDelegate?
+    private var koreaItems = [KoreaItem]()
+    private weak var sendDataDelegate: SendDataDelegate?
     
     //MARK: - KoreaItemTable View
     
-    let itemTableView: UITableView = {
+    private let itemTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(KoreaItemTableViewCell.self, forCellReuseIdentifier: "KoreaItemTableViewCell")
+        tableView.register(KoreaItemTableViewCell.self, forCellReuseIdentifier: KoreaItemTableViewCell.identifier)
         return tableView
     }()
     
     //MARK: - View Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = DetailSetUp.title
         self.navigationController?.isNavigationBarHidden = false
         self.tableView = itemTableView
-        decodingJsonData()
+        setKoreaItems()
     }
     
     //MARK: - Table View Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return item.count
+        return koreaItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "KoreaItemTableViewCell", for: indexPath) as? KoreaItemTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaItemTableViewCell.identifier, for: indexPath) as? KoreaItemTableViewCell else {
             return UITableViewCell()
         }
-        cell.itemImageView.image = item[indexPath.row].image
-        cell.titleLabel.text = item[indexPath.row].name
-        cell.shortDescriptionLabel.text = item[indexPath.row].shortDescription
+        cell.itemImageView.image = koreaItems[indexPath.row].image
+        cell.titleLabel.text = koreaItems[indexPath.row].name
+        cell.shortDescriptionLabel.text = koreaItems[indexPath.row].shortDescription
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     //MARK: - Table View Delegate
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemDetailViewController = ItemDetailViewController()
         self.navigationController?.pushViewController(itemDetailViewController, animated: true)
         sendDataDelegate = itemDetailViewController
-        sendDataDelegate?.sendItemData(item: item[indexPath.row])
+        sendDataDelegate?.sendItemData(item: koreaItems[indexPath.row])
     }
     
     //MARK: - Decoding JsonData Method
     
-    private func decodingJsonData() {
-        guard let items = NSDataAsset(name: "items"),
+    private func setKoreaItems() {
+        guard let items = NSDataAsset(name: Asset.KoreaItem),
               let decodedKoreaItems = try? JSONDecoder().decode([KoreaItem].self, from: items.data) else {
             return
         }
-        self.item = decodedKoreaItems
+        self.koreaItems = decodedKoreaItems
+    }
+}
+
+extension KoreaItemTableViewController {
+    private enum DetailSetUp {
+        static let title = "한국의 출품작"
     }
 }
