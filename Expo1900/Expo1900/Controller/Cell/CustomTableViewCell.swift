@@ -12,11 +12,4 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet private(set) weak var shortDescription: UILabel!
     var detailedDescription: String?
     var cellImage: UIImageView?
-    
-    func sendData(to viewController: DescriptionViewController) {
-        guard let test = self.koreaEntryTitle.text else { return }
-
-        viewController.detailedDescriptionText = test
-        viewController.entryImage = self.koreaEntryImage
-    }
 }

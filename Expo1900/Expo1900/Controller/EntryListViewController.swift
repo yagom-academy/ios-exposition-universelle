@@ -38,12 +38,10 @@ final class EntryListViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else { return }
         let storyboard = UIStoryboard(name: ExpoNameSpace.descriptionIdentifier.name, bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: ExpoNameSpace.descriptionIdentifier.name) as? DescriptionViewController else { return }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
-        cell.sendData(to: viewController)
         viewController.entryList = entryList?[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: true)
     }
