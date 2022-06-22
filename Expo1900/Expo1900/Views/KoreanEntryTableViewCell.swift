@@ -8,24 +8,24 @@
 import UIKit
 
 class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
-    private var entryImageView: UIImageView = {
+    private lazy var entryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    private var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: 24)
         return titleLabel
     }()
-    private var shortDescriptionLabel: UILabel = {
+    private lazy var shortDescriptionLabel: UILabel = {
         let shortDescriptionLabel = UILabel()
         shortDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         shortDescriptionLabel.numberOfLines = 0
         return shortDescriptionLabel
     }()
-    private var descriptionStackView: UIStackView = {
+    private lazy var descriptionStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 8

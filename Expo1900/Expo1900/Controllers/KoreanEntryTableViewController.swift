@@ -9,7 +9,7 @@ import UIKit
 
 // TODO: 고정된 값을 가진 String 값들을 담아 주는 네임스페이스 생성
 
-class KoreanEntryTableViewController: UITableViewController {
+class KoreanEntryTableViewController: UITableViewController, ViewControllerNameIdentifying {
     private var entries: [ExpositionEntry] = []
 }
 
@@ -21,7 +21,7 @@ extension KoreanEntryTableViewController {
     }
 
     private func setupTableViewData() {
-        guard let asset = NSDataAsset.init(name: "items"),
+        guard let asset = NSDataAsset.init(name: AssetFileName.items),
               let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: asset.data) else {
             return
         }
@@ -49,7 +49,7 @@ extension KoreanEntryTableViewController {
 
 extension KoreanEntryTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedEntryViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectedEntryVC") as? SelectedEntryViewController else { return }
+        guard let selectedEntryViewController = self.storyboard?.instantiateViewController(withIdentifier: SelectedEntryViewController.identifier) as? SelectedEntryViewController else { return }
         selectedEntryViewController.entry = entries[indexPath.row]
         self.navigationController?.pushViewController(selectedEntryViewController, animated: true)
     }

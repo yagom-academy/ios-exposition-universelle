@@ -39,7 +39,7 @@ extension ExpositionPosterViewController {
     
 
     private func configurePosterView() {
-        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900"),
+        guard let asset = NSDataAsset.init(name: AssetFileName.expositionUniverselle),
               let poster = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data) else {
             return
         }
@@ -50,15 +50,15 @@ extension ExpositionPosterViewController {
         durationLabel.text = poster.durationContents
         descriptionLabel.text = poster.description
         
-        posterImageView.image = UIImage(named: "poster")
-        leftFlagImageView.image = UIImage(named: "flag")
-        rightFlagImageView.image = UIImage(named: "flag")
+        posterImageView.image = UIImage(named: AssetFileName.poster)
+        leftFlagImageView.image = UIImage(named: AssetFileName.flag)
+        rightFlagImageView.image = UIImage(named: AssetFileName.flag)
     }
 }
 
 extension ExpositionPosterViewController {
     @IBAction private func didTapKoreanEntryButton(_ sender: UIButton) {
-        guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: "KoreanEntryTableVC") as? KoreanEntryTableViewController else {
+        guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: KoreanEntryTableViewController.identifier) as? KoreanEntryTableViewController else {
             return
         }
         self.navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
