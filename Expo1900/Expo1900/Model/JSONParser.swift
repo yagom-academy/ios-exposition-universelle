@@ -7,16 +7,19 @@
 
 import UIKit
 
-struct JsonParser {
-    static func parseExpoInformation() throws -> ExpoInformation {
-        guard let data = NSDataAsset(name: "exposition_universelle_1900")?.data else { throw ParseError.unknown }
-        guard let decodedData = try? JSONDecoder().decode(ExpoInformation.self, from: data) else { throw ParseError.unknown  }
-        return decodedData
-    }
-    
-    static func parseEntryList() throws -> [EntryList] {
-        guard let data = NSDataAsset(name: "items")?.data else { throw ParseError.unknown }
-        guard let decodedData = try? JSONDecoder().decode([EntryList].self, from: data) else { throw ParseError.unknown  }
-        return decodedData
+struct JSONParser: DataRepository {
+    static func fetch<T>(fileName: String, parsedItems: T) -> T? where T : Decodable, T : Encodable {
+        let jsonDecoder = JSONDecoder()
+        let parsedItemsType = type(of: parsedItems)
+        guard let data = NSDataAsset(name: fileName)?.data else { return nil }
+        
+        do {
+            let data = try jsonDecoder.decode(parsedItemsType.self, from: data)
+            
+            return data
+        } catch {
+            print(ParseError.unknown)
+            return nil
+        }
     }
 }
