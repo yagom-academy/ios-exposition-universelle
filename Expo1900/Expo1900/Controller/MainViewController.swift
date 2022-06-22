@@ -7,6 +7,8 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .center
@@ -112,11 +114,13 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
+        appDelegate.shouldSupportAllOrientation = true
     }
     
     @objc func didTapButton(sender: UIButton)  {
