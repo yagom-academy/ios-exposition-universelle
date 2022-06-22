@@ -83,8 +83,8 @@ final class MainUIScrollView: UIScrollView {
     }()
     
     
-    private lazy var buttonStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [leftFlagImage, koreanEntryButton, rightFlagImage])
+    private let buttonStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .horizontal
         stackView.distribution = .equalCentering
@@ -94,8 +94,8 @@ final class MainUIScrollView: UIScrollView {
         return stackView
     }()
     
-    private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImageView, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView])
+    private let mainStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -143,6 +143,14 @@ final class MainUIScrollView: UIScrollView {
     }
     
     private func mainStackViewConfigure() {
+        [leftFlagImage, koreanEntryButton, rightFlagImage].forEach {
+            buttonStackView.addArrangedSubview($0)
+        }
+        
+        [mainTitleLabel, mainImageView, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView].forEach {
+            mainStackView.addArrangedSubview($0)
+        }
+        
         backgroundColor = .white
         addSubview(mainStackView)
     }

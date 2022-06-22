@@ -2,7 +2,7 @@
 //  itemDescriptionUIScrollView.swift
 //  Expo1900
 //
-//  Created by Kiwon Song on 2022/06/16.
+//  Created by Kiwi, Finnn on 2022/06/16.
 //
 
 import UIKit
@@ -28,8 +28,8 @@ final class ItemDescriptionUIScrollView: UIScrollView {
         return label
     }()
     
-    private lazy var itemStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [itemImageView, itemDescriptionLabel])
+    private let itemStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -40,6 +40,7 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        
         setupContentViewConstraints()
         setupItemStackViewConstraints()
     }
@@ -63,6 +64,10 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     
     private func setupItemStackViewConstraints() {
         contentView.addSubview(itemStackView)
+        
+        [itemImageView, itemDescriptionLabel].forEach {
+            itemStackView.addArrangedSubview($0)
+        }
         
         itemStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

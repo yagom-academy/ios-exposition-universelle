@@ -34,8 +34,8 @@ final class ItemTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var itemLabelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [itemTitleLabel, itemShortDescriptionLable])
+    private let itemLabelStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 20
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -44,8 +44,8 @@ final class ItemTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    private lazy var itemStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [itemImageView, itemLabelStackView])
+    private let itemStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -66,6 +66,14 @@ final class ItemTableViewCell: UITableViewCell {
     
     private func setupSubviews() {
         addSubview(itemStackView)
+        
+        [itemTitleLabel, itemShortDescriptionLable].forEach {
+            itemLabelStackView.addArrangedSubview($0)
+        }
+        
+        [itemImageView, itemLabelStackView].forEach {
+            itemStackView.addArrangedSubview($0)
+        }
         
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: topAnchor),
