@@ -7,6 +7,8 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    // MARK: - Properties
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private let stackView: UIStackView = {
@@ -104,6 +106,8 @@ final class MainViewController: UIViewController {
         return image
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         copnfigureScrollView()
@@ -123,6 +127,8 @@ final class MainViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         appDelegate.shouldSupportAllOrientation = true
     }
+    
+    // MARK: - Method
     
     @objc func didTapButton(sender: UIButton)  {
         guard let secondView = self.storyboard?.instantiateViewController(withIdentifier: "ItemListView") as? ItemListViewController else { return }

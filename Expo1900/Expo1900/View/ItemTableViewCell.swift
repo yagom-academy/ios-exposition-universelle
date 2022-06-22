@@ -8,6 +8,8 @@
 import UIKit
 
 final class ItemTableViewCell: UITableViewCell {
+    // MARK: - Properties
+    
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +40,8 @@ final class ItemTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    // MARK: - init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -52,6 +56,8 @@ final class ItemTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Method
     
     private func addStackView() {
         stackView.addArrangedSubview(titleLabel)

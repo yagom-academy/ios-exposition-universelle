@@ -8,6 +8,8 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
+    // MARK: - Properties
+    
     var itemData: Entry?
     
     private let imageView: UIImageView = {
@@ -42,12 +44,16 @@ final class DetailViewController: UIViewController {
         return stack
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = itemData?.name
         
         configureComponentLayout()
     }
+    
+    // MARK: - Method
     
     private func configureComponentLayout() {
         addScrollView()

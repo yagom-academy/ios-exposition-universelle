@@ -8,6 +8,8 @@
 import UIKit
 
 final class ItemListViewController: UIViewController {
+    // MARK: - Properties
+    
     private let entriesData = DataManager().entryParse(fileName: "items")
     private let backButton = UIBarButtonItem(title: "메인", style: .plain, target: nil, action: nil)
     
@@ -17,6 +19,8 @@ final class ItemListViewController: UIViewController {
         tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "TableViewCell")
         return tableView
     }()
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,8 @@ final class ItemListViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
     }
+    
+    // MARK: - Method
     
     private func setTableView() {
         self.view.addSubview(tableView)
@@ -47,6 +53,8 @@ final class ItemListViewController: UIViewController {
         self.tableView.delegate = self
     }
 }
+
+// MARK: - Extension
 
 extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
