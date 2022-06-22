@@ -21,7 +21,7 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = ExpoNameSpace.koreaEntry.name
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -33,18 +33,21 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let entryList = entryList else { return 0 }
-
+        
         return entryList.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let descriptionViewController = DescriptionViewController()
+        
+        descriptionViewController.entryList = entryList?[indexPath.row]
         self.navigationController?.pushViewController(descriptionViewController, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpoNameSpace.cellIdentifier.name, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+        
         cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? "")
         cell.koreaEntryTitle.text = entryList?[indexPath.row].name
         cell.shortDescription.text = entryList?[indexPath.row].shortDescription
@@ -53,7 +56,6 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.addSubviews()
         cell.setConstraints()
         updateCell(cell: cell, indexPath)
-        
         return cell
     }
     

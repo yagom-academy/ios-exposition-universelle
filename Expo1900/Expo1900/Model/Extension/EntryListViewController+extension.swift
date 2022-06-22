@@ -2,7 +2,7 @@
 //  EntryListViewController+extension.swift
 //  Expo1900
 //
-//  Created by 김동용 on 2022/06/22.
+//  Created by unchain, bard on 2022/06/22.
 //
 
 import UIKit
@@ -18,7 +18,6 @@ extension EntryListViewController {
         updatekoreaEntryImage(of: cell, indexPath)
         updateKoreaEntryTitle(of: cell, indexPath)
         updateShortDescription(of: cell, indexPath)
-//        updateDetailedDescription(of: cell, indexPath)
         updateCellAccessoryType(of: cell)
     }
 
@@ -33,10 +32,6 @@ extension EntryListViewController {
     private func updateShortDescription(of cell: CustomTableViewCell,  _ indexPath: IndexPath) {
         cell.shortDescription.text = entryList?[indexPath.row].shortDescription
     }
-
-//    private func updateDetailedDescription(of cell: CustomTableViewCell,  _ indexPath: IndexPath) {
-//        cell.detailedDescription = entryList?[indexPath.row].description
-//    }
 
     private func updateCellAccessoryType(of cell: CustomTableViewCell) {
         cell.accessoryType = .disclosureIndicator

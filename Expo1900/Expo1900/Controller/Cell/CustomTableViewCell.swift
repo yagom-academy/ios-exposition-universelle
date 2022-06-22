@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-    static let identifier = "customCell"
+    static let identifier = ExpoNameSpace.cellIdentifier.name
     
     let koreaEntryImage: UIImageView = {
        let image = UIImageView()
