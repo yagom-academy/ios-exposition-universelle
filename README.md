@@ -214,9 +214,8 @@ Note that the autoresizing mask constraints fully specify the view’s size and 
 - **세로모드 고정**
     - AppDelegate 에 `orientationLock` 변수를 만들어 MainViewController 에서만 .portrait 로 설정 해주었다.
 
-     <img src="https://i.imgur.com/25NNBsn.gif" width="250" height="250"/>
-     <img src="https://i.imgur.com/qSeqjjq.gif" width="250" height="250"/>
-
+     <img src="https://user-images.githubusercontent.com/95671495/174949389-5c3ef202-4e57-4f03-b810-dbb905f82548.gif" width="250" height="250"/>
+     <img src="https://user-images.githubusercontent.com/95671495/174949512-9cba4c2e-9b89-4a35-8d70-4e81cba5b70c.gif" width="250" height="250"/>
 
 ## 🛠Trouble Shooting🛠
 
@@ -231,8 +230,8 @@ Note that the autoresizing mask constraints fully specify the view’s size and 
 - self.contentView.heightAnchor 와 self.heightAnchor 의 차이점 
     - ItemTableViewCell 에서 오토레이아웃 constraints 작업 중, 셀의 내용이 길어지면 셀높이도 같이 조절되도록 만들어 주었는데, 해금과 나전칠기의 imageView 높이조절 문제가 있었습니다. 밑에 첨부한 코드 하나만 바꿨더니 해결이 되었습니다. 왜 이렇게 되는지 궁금해서 여쭤보고 싶습니다 !
 
-<img src="https://i.imgur.com/Zpc7MPj.png" width="250" height="500"/>
-<img src="https://i.imgur.com/C8DrYUN.png" width="250" height="500"/>
+  <img src="https://i.imgur.com/Zpc7MPj.png" width="250" height="500"/>
+  <img src="https://i.imgur.com/C8DrYUN.png" width="250" height="500"/>
 
 ![](https://i.imgur.com/XL5SyIi.png)
 
