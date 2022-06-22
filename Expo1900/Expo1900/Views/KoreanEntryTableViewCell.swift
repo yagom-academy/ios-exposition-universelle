@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
+final class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
     private lazy var entryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

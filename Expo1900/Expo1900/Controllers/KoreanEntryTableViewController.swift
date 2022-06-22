@@ -7,9 +7,7 @@
 
 import UIKit
 
-// TODO: 고정된 값을 가진 String 값들을 담아 주는 네임스페이스 생성
-
-class KoreanEntryTableViewController: UITableViewController, ViewControllerNameIdentifying {
+final class KoreanEntryTableViewController: UITableViewController, ViewControllerNameIdentifying {
     private var entries: [ExpositionEntry] = []
 }
 

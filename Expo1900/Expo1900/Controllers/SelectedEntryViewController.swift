@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectedEntryViewController: UIViewController, ViewControllerNameIdentifying {
+final class SelectedEntryViewController: UIViewController, ViewControllerNameIdentifying {
     @IBOutlet private weak var selectedEntryImageView: UIImageView!
     @IBOutlet private weak var selectedEntryDescriptionLabel: UILabel!
     
