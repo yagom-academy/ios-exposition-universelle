@@ -25,6 +25,8 @@ final class ItemDescriptionUIScrollView: UIView {
     
     private let itemDescriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
@@ -50,6 +52,8 @@ final class ItemDescriptionUIScrollView: UIView {
             itemDescriptionScrollView.widthAnchor.constraint(equalTo: widthAnchor),
             itemDescriptionScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+        
+        itemImageView.contentMode = .scaleAspectFit
         
         setupItemStackViewConstraints()
     }

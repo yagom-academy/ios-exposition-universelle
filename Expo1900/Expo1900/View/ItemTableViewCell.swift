@@ -19,6 +19,9 @@ final class ItemTableViewCell: UITableViewCell {
     
     private let itemTitleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -31,17 +34,18 @@ final class ItemTableViewCell: UITableViewCell {
     
     private let itemShortDescriptionLable: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
     
     private let itemLabelStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 20
+        stackView.spacing = 5
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
-        stackView.widthAnchor.constraint(equalToConstant: 280).isActive = true
         return stackView
     }()
 
@@ -67,6 +71,7 @@ final class ItemTableViewCell: UITableViewCell {
     
         itemImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            itemImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
             itemImageView.topAnchor.constraint(equalTo: topAnchor),
             itemImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
@@ -74,10 +79,12 @@ final class ItemTableViewCell: UITableViewCell {
         ])
         itemLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            itemLabelStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            itemLabelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            itemLabelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            itemLabelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             itemLabelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
+        
+        layoutIfNeeded()
     }
     
     func updateEntry(by entry: Entry?) {
