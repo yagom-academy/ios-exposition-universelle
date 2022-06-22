@@ -24,6 +24,7 @@ final class ItemTableViewCell: UITableViewCell {
     
     private let itemImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -39,24 +40,15 @@ final class ItemTableViewCell: UITableViewCell {
         stackView.spacing = 20
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        stackView.distribution = .equalSpacing
+        stackView.widthAnchor.constraint(equalToConstant: 280).isActive = true
         return stackView
     }()
-    
-    private let itemStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.spacing = 10
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         accessoryType = .disclosureIndicator
+        
         setupSubviews()
     }
     
@@ -66,21 +58,25 @@ final class ItemTableViewCell: UITableViewCell {
     }
     
     private func setupSubviews() {
-        contentView.addSubview(itemStackView)
-        
+        contentView.addSubview(itemImageView)
+        contentView.addSubview(itemLabelStackView)
+
         [itemTitleLabel, itemShortDescriptionLable].forEach {
             itemLabelStackView.addArrangedSubview($0)
         }
-        
-        [itemImageView, itemLabelStackView].forEach {
-            itemStackView.addArrangedSubview($0)
-        }
-        
+    
+        itemImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            itemStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            itemStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            itemStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            itemStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            itemImageView.topAnchor.constraint(equalTo: topAnchor),
+            itemImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
+            itemImageView.trailingAnchor.constraint(equalTo: itemLabelStackView.leadingAnchor,constant: -10)
+        ])
+        itemLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            itemLabelStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            itemLabelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            itemLabelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
     

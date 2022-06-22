@@ -70,7 +70,7 @@ final class ItemDescriptionUIScrollView: UIView {
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: itemDescriptionScrollView.topAnchor),
             itemStackView.bottomAnchor.constraint(equalTo: itemDescriptionScrollView.bottomAnchor),
-            itemStackView.widthAnchor.constraint(equalTo: widthAnchor),
+            itemStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -50),
             itemStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
