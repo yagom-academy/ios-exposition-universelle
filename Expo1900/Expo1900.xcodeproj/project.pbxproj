@@ -16,7 +16,7 @@
 		A3971953285C4ABA00872695 /* KoreaItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3971952285C4ABA00872695 /* KoreaItemTableViewController.swift */; };
 		A3AEA3CF2859AA1B00F8889C /* KoreaItemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA14128581E8F0033B957 /* KoreaItemTest.swift */; };
 		A3AEA3D02859AA1C00F8889C /* ExpoInformationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF407928575B2F005B1FC9 /* ExpoInformationTest.swift */; };
-		A3C4E23E28603CF00085E5CB /* SendDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4E23D28603CF00085E5CB /* SendDataDelegate.swift */; };
+		A3C4E23E28603CF00085E5CB /* KoreaItemSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4E23D28603CF00085E5CB /* KoreaItemSettable.swift */; };
 		A3DF407228575A31005B1FC9 /* ExpoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF407128575A31005B1FC9 /* ExpoInformation.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -45,7 +45,7 @@
 		37A306E6285DC78500C88E64 /* KoreaItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemDetailViewController.swift; sourceTree = "<group>"; };
 		A3971952285C4ABA00872695 /* KoreaItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemTableViewController.swift; sourceTree = "<group>"; };
 		A3AEA3C62859AA1200F8889C /* DecodingTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodingTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3C4E23D28603CF00085E5CB /* SendDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataDelegate.swift; sourceTree = "<group>"; };
+		A3C4E23D28603CF00085E5CB /* KoreaItemSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemSettable.swift; sourceTree = "<group>"; };
 		A3DF407128575A31005B1FC9 /* ExpoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformation.swift; sourceTree = "<group>"; };
 		A3DF407928575B2F005B1FC9 /* ExpoInformationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInformationTest.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +124,7 @@
 		A3C4E23C28603CCB0085E5CB /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				A3C4E23D28603CF00085E5CB /* SendDataDelegate.swift */,
+				A3C4E23D28603CF00085E5CB /* KoreaItemSettable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 				A3971953285C4ABA00872695 /* KoreaItemTableViewController.swift in Sources */,
 				378D361C2861DFC500B20E3C /* ExpoData.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
-				A3C4E23E28603CF00085E5CB /* SendDataDelegate.swift in Sources */,
+				A3C4E23E28603CF00085E5CB /* KoreaItemSettable.swift in Sources */,
 				374CA13A28581CA90033B957 /* KoreaItem.swift in Sources */,
 				378D361A2861DD4400B20E3C /* Asset.swift in Sources */,
 				37A306D8285B58BE00C88E64 /* Int.swift in Sources */,

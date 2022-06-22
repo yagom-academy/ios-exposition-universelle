@@ -11,7 +11,7 @@ final class KoreaItemTableViewController: UITableViewController {
     //MARK: - KoreaItemTable Property
     
     private var koreaItems = [KoreaItem]()
-    private weak var sendDataDelegate: SendDataDelegate?
+    private weak var koreaItemSettableDelegate: KoreaItemSettable?
     
     //MARK: - KoreaItemTable View
     
@@ -53,8 +53,8 @@ final class KoreaItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemDetailViewController = KoreaItemDetailViewController()
         self.navigationController?.pushViewController(itemDetailViewController, animated: true)
-        sendDataDelegate = itemDetailViewController
-        sendDataDelegate?.sendItemData(item: koreaItems[indexPath.row])
+        koreaItemSettableDelegate = itemDetailViewController
+        koreaItemSettableDelegate?.setData(koreaItems[indexPath.row])
     }
     
     //MARK: - Setting Data Method

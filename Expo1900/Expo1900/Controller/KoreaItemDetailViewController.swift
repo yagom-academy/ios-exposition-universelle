@@ -96,8 +96,8 @@ final class KoreaItemDetailViewController: UIViewController {
 
 //MARK: - Extension Delegate
 
-extension KoreaItemDetailViewController: SendDataDelegate {
-    func sendItemData(item: KoreaItem) {
+extension KoreaItemDetailViewController: KoreaItemSettable {
+    func setData(_ item: KoreaItem) {
         koreaItems = item
     }
 }

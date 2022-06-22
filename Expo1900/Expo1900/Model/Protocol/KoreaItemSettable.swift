@@ -5,6 +5,6 @@
 //  Created by Brad, Groot on 2022/06/20.
 //
 
-protocol SendDataDelegate: AnyObject {
-    func sendItemData(item: KoreaItem)
+protocol KoreaItemSettable: AnyObject {
+    func setData(_ item: KoreaItem)
 }
