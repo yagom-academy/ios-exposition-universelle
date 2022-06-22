@@ -86,6 +86,7 @@ final class MainViewController: UIViewController {
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.link, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentMode = .scaleAspectFit
         return button
     }()
     
@@ -165,13 +166,12 @@ final class MainViewController: UIViewController {
     
     private func configureStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -15).isActive = true
         stackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 15).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -15).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
         subStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        subStackView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8).isActive = true
     }
     
     private func configureImageViewLayout() {
