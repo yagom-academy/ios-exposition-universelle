@@ -73,11 +73,11 @@ final class KoreaItemTableViewCell: UITableViewCell {
     //MARK: - Setting View Methods
     
     private func addItemStackView() {
-        let storeUIView = [itemImageView, itemSubStackView]
-        storeUIView.forEach { itemStackView.addArrangedSubview($0) }
+        let mainStackViewItemsArray = [itemImageView, itemSubStackView]
+        mainStackViewItemsArray.forEach { itemStackView.addArrangedSubview($0) }
         
-        let subStoreUIView = [titleLabel, shortDescriptionLabel]
-        subStoreUIView.forEach { itemSubStackView.addArrangedSubview($0) }
+        let subStackViewItemsArray = [titleLabel, shortDescriptionLabel]
+        subStackViewItemsArray.forEach { itemSubStackView.addArrangedSubview($0) }
     }
     
     private func setViewConstraints() {

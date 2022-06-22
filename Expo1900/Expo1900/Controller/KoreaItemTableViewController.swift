@@ -57,7 +57,7 @@ final class KoreaItemTableViewController: UITableViewController {
         sendDataDelegate?.sendItemData(item: koreaItems[indexPath.row])
     }
     
-    //MARK: - Decoding JsonData Method
+    //MARK: - Setting Data Method
     
     private func setKoreaItems() {
         guard let items = NSDataAsset(name: Asset.KoreaItem),
@@ -67,6 +67,8 @@ final class KoreaItemTableViewController: UITableViewController {
         self.koreaItems = decodedKoreaItems
     }
 }
+
+//MARK: - NameSpace for Setting View Detail Option
 
 extension KoreaItemTableViewController {
     private enum DetailSetUp {
