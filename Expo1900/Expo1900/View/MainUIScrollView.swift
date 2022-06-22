@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class MainUIScrollView: UIScrollView {
+final class MainUIScrollView: UIView {
+    
+    private let mainScrollView = UIScrollView()
     
     private let expoInfo: Expo? = JSONDecoder.decodeJson(jsonName: "exposition_universelle_1900")
     
@@ -104,6 +106,16 @@ final class MainUIScrollView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        addSubview(mainScrollView)
+        mainScrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainScrollView.topAnchor.constraint(equalTo: topAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            mainScrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            mainScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+        
         mainStackViewConfigure()
         setupLabelConstraints()
         setupData()
@@ -138,14 +150,14 @@ final class MainUIScrollView: UIScrollView {
         }
         
         backgroundColor = .white
-        addSubview(mainStackView)
+        mainScrollView.addSubview(mainStackView)
     }
     
     private func setupLabelConstraints() {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
+            mainStackView.topAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.bottomAnchor),
             mainStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -50),
             mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])

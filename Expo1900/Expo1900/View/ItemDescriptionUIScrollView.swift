@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class ItemDescriptionUIScrollView: UIScrollView {
+final class ItemDescriptionUIScrollView: UIView {
+    
+    private let itemDescriptionScrollView = UIScrollView()
     
     private var itemDetailInfo: Entry? {
         didSet {
@@ -39,6 +41,15 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        addSubview(itemDescriptionScrollView)
+        
+        itemDescriptionScrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            itemDescriptionScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            itemDescriptionScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            itemDescriptionScrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            itemDescriptionScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
         
         setupItemStackViewConstraints()
     }
@@ -49,7 +60,7 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     }
  
     private func setupItemStackViewConstraints() {
-        addSubview(itemStackView)
+        itemDescriptionScrollView.addSubview(itemStackView)
         
         [itemImageView, itemDescriptionLabel].forEach {
             itemStackView.addArrangedSubview($0)
@@ -57,8 +68,8 @@ final class ItemDescriptionUIScrollView: UIScrollView {
         
         itemStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            itemStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            itemStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
+            itemStackView.topAnchor.constraint(equalTo: itemDescriptionScrollView.topAnchor),
+            itemStackView.bottomAnchor.constraint(equalTo: itemDescriptionScrollView.bottomAnchor),
             itemStackView.widthAnchor.constraint(equalTo: widthAnchor),
             itemStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
