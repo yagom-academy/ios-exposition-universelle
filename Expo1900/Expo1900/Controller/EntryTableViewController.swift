@@ -73,19 +73,26 @@ extension EntryTableViewController {
         view.backgroundColor = .white
         self.view.addSubview(entryTableView)
         
-        entryTableView.estimatedRowHeight = 100
-        entryTableView.rowHeight = UITableView.automaticDimension
+        entryTableView.insetsLayoutMarginsFromSafeArea = false
+        entryTableView.contentInsetAdjustmentBehavior = .never
+                
+        entryTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
+        setConstraint()
+        
+        fetchData()
+    }
+    
+    func setConstraint() {
+        guard let safeArea = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.safeAreaInsets else {
+            return
+        }
         
         NSLayoutConstraint.activate([
-            entryTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            entryTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             entryTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            entryTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            entryTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            entryTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -max(20.0, safeArea.bottom)),
+            entryTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
-        
-        entryTableView.register(EntryTableViewCell.self, forCellReuseIdentifier: EntryTableViewCell.reuseIdentifier)
-        
-        fetchData() 
     }
     
     private func fetchData() {

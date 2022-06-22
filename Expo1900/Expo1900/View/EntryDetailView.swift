@@ -68,26 +68,23 @@ private extension EntryDetailView {
     }
     
     func setUpUIConstraints(from rootView: UIView) {
-        let contentLayoutGuide = contentScrollView.contentLayoutGuide
-        let frameLayoutGuide = contentScrollView.frameLayoutGuide
-        
-        NSLayoutConstraint.activate([
-            contentScrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
-            contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
-            contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-            contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
-            
-            verticalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: -10),
-            verticalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            NSLayoutConstraint.activate([
+                contentScrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+                contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
+                contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+                contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
 
-            descriptionLabel.topAnchor.constraint(equalTo: entryImage.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor, constant: -10),
-        ])
-    }
+                verticalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+                verticalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+                verticalStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+                verticalStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -10),
+                verticalStackView.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor),
+
+                descriptionLabel.topAnchor.constraint(equalTo: entryImage.bottomAnchor, constant: 10),
+                descriptionLabel.leadingAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+                descriptionLabel.trailingAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            ])
+        }
     
     func setDefaultValue(with data: EntryEntity) {
         self.entryImage.image = data.image

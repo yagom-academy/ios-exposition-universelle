@@ -199,10 +199,10 @@ private extension ExpositionPostView {
             
             self.verticalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
             self.verticalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
-            self.verticalStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+            self.verticalStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: max(20.0, (safeArea.top))),
             self.verticalStackView.widthAnchor.constraint(equalTo: rootView.widthAnchor),
             
-            self.titleLabel.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: max(20.0, (safeArea.top))),
+            self.titleLabel.topAnchor.constraint(equalTo: verticalStackView.topAnchor),
             
             self.descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
             self.descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
