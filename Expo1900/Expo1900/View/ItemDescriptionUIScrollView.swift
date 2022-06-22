@@ -66,11 +66,14 @@ final class ItemDescriptionUIScrollView: UIView {
             itemStackView.addArrangedSubview($0)
         }
         
+        itemImageView.translatesAutoresizingMaskIntoConstraints = false
+        itemImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
+        
         itemStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             itemStackView.topAnchor.constraint(equalTo: itemDescriptionScrollView.topAnchor),
             itemStackView.bottomAnchor.constraint(equalTo: itemDescriptionScrollView.bottomAnchor),
-            itemStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -50),
+            itemStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -25),
             itemStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
