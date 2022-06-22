@@ -16,6 +16,18 @@ class KoreanEntryTableViewController: UITableViewController {
 extension KoreanEntryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTableViewData()
+    }
+}
+
+extension KoreanEntryTableViewController {
+    func setupTableViewData() {
+        guard let asset = NSDataAsset.init(name: "items"),
+              let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: asset.data) else {
+            return
+        }
+        self.entries = entries
     }
 }
 

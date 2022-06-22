@@ -48,13 +48,9 @@ extension ExpositionPosterViewController {
 
 extension ExpositionPosterViewController {
     @IBAction private func didTapKoreanEntryButton(_ sender: UIButton) {
-        guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: "KoreanEntryTableVC") as? KoreanEntryTableViewController,
-              let asset = NSDataAsset.init(name: "items"),
-              let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: asset.data) else {
+        guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: "KoreanEntryTableVC") as? KoreanEntryTableViewController else {
             return
         }
-        
-        KoreanEntryTableViewContoller.entries = entries
         self.navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
     }
 }
