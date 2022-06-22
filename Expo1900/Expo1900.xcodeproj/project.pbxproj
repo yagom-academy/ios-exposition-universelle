@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F4896DC2862D5BA00429A63 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4896DB2862D5BA00429A63 /* CustomTableViewCell.swift */; };
+		8F4896E12862FC3800429A63 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4896E02862FC3800429A63 /* DataRepository.swift */; };
 		8F505F7F285C65AC0001D06E /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F505F7E285C65AC0001D06E /* EntryListViewController.swift */; };
 		8F505F81285C65D00001D06E /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F505F80285C65D00001D06E /* DescriptionViewController.swift */; };
 		8FA1928A285708BD00CE0C7D /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA19289285708BD00CE0C7D /* EntryList.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		8F4896DB2862D5BA00429A63 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8F4896E02862FC3800429A63 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		8F505F7E285C65AC0001D06E /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
 		8F505F80285C65D00001D06E /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		8FA19289285708BD00CE0C7D /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
@@ -79,12 +81,21 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		8F4896DF2862FC0A00429A63 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				8F4896E02862FC3800429A63 /* DataRepository.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		8FA192882857087300CE0C7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				8FA19289285708BD00CE0C7D /* EntryList.swift */,
 				D79200D72857511100F3D5FA /* ExpoInformation.swift */,
 				D746BD46285AEDDB00B7A2F9 /* JsonParser.swift */,
+				8F4896DF2862FC0A00429A63 /* Protocol */,
 				8FF05EC8285AF0D20000B72D /* Extension */,
 				D746BD4A285AEE6900B7A2F9 /* Error */,
 			);
@@ -290,6 +301,7 @@
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				8F4896E12862FC3800429A63 /* DataRepository.swift in Sources */,
 				8FF05ECA285AF0E80000B72D /* Int+extension.swift in Sources */,
 				8F505F7F285C65AC0001D06E /* EntryListViewController.swift in Sources */,
 			);
