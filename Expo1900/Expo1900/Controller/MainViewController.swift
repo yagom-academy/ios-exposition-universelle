@@ -32,6 +32,10 @@ final class MainViewController: UIViewController {
         updateUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     @objc func didTappedButton(_ sender: UIButton) {
         let entryListViewController = EntryListViewController()
         self.navigationController?.pushViewController(entryListViewController, animated: true)

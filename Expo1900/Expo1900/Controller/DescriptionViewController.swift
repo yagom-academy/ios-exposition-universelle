@@ -36,7 +36,6 @@ class DescriptionViewController: UIViewController {
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -46,6 +45,10 @@ class DescriptionViewController: UIViewController {
         
         addSubViews()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func addSubViews() {
