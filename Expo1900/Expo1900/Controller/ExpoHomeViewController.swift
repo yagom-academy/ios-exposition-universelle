@@ -28,8 +28,14 @@ class ExpoHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        AppUtility.lockOrientation(.portrait)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppUtility.lockOrientation(.all)
+    }
+
     private func setupExpositionData() {
         let exposition = loadJsonData(type: Exposition.self, "exposition", "json") 
         self.exposition = exposition
