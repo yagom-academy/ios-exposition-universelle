@@ -9,7 +9,6 @@ import UIKit
 
 final class MainUIScrollView: UIScrollView {
     
-    private let contentView = UIView()
     private let expoInfo: Expo? = JSONDecoder.decodeJson(jsonName: "exposition_universelle_1900")
     
     private let numberFormatter: NumberFormatter = {
@@ -105,7 +104,6 @@ final class MainUIScrollView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupContentViewConstraints()
         mainStackViewConfigure()
         setupLabelConstraints()
         setupData()
@@ -130,18 +128,6 @@ final class MainUIScrollView: UIScrollView {
         descriptionLabel.text = expoInfo?.description
     }
     
-    private func setupContentViewConstraints() {
-        addSubview(contentView)
-        
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-    }
-    
     private func mainStackViewConfigure() {
         [leftFlagImage, koreanEntryButton, rightFlagImage].forEach {
             buttonStackView.addArrangedSubview($0)
@@ -158,10 +144,10 @@ final class MainUIScrollView: UIScrollView {
     private func setupLabelConstraints() {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            mainStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -50),
-            mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            mainStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
+            mainStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -50),
+            mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }

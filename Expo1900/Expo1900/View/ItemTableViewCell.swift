@@ -56,6 +56,7 @@ final class ItemTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        accessoryType = .disclosureIndicator
         setupSubviews()
     }
     
@@ -65,7 +66,7 @@ final class ItemTableViewCell: UITableViewCell {
     }
     
     private func setupSubviews() {
-        addSubview(itemStackView)
+        contentView.addSubview(itemStackView)
         
         [itemTitleLabel, itemShortDescriptionLable].forEach {
             itemLabelStackView.addArrangedSubview($0)
@@ -76,10 +77,10 @@ final class ItemTableViewCell: UITableViewCell {
         }
         
         NSLayoutConstraint.activate([
-            itemStackView.topAnchor.constraint(equalTo: topAnchor),
-            itemStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            itemStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            itemStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            itemStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            itemStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            itemStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            itemStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 }
