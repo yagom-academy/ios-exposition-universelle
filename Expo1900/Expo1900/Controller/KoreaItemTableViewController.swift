@@ -51,7 +51,7 @@ final class KoreaItemTableViewController: UITableViewController {
     //MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let itemDetailViewController = ItemDetailViewController()
+        let itemDetailViewController = KoreaItemDetailViewController()
         self.navigationController?.pushViewController(itemDetailViewController, animated: true)
         sendDataDelegate = itemDetailViewController
         sendDataDelegate?.sendItemData(item: koreaItems[indexPath.row])
