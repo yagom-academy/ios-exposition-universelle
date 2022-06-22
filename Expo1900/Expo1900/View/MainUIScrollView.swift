@@ -73,7 +73,7 @@ final class MainUIScrollView: UIScrollView {
         return imageView
     }()
     
-    let koreanEntryButton: UIButton = {
+    private let koreanEntryButton: UIButton = {
         let button = UIButton(type: .custom)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
@@ -149,5 +149,9 @@ final class MainUIScrollView: UIScrollView {
             mainStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -50),
             mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+    }
+    
+    func addTargetKoreanEntryButton(target: Any?, action: Selector, for event: UIControl.Event) {
+        koreanEntryButton.addTarget(target, action: action, for: event)
     }
 }

@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        mainScrollView.koreanEntryButton.addTarget(self, action: #selector(didkoreanEntryButtonTapped), for: .touchUpInside)
+        mainScrollView.addTargetKoreanEntryButton(target: self, action: #selector(didkoreanEntryButtonTapped), for: .touchUpInside)
     }
     
     override func loadView() {
