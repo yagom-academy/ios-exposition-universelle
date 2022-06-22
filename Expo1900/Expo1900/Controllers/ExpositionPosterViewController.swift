@@ -25,9 +25,7 @@ extension ExpositionPosterViewController {
         super.viewDidLoad()
         configurePosterView()
     }
-}
 
-extension ExpositionPosterViewController {
     private func configurePosterView() {
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900"),
               let poster = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data) else {

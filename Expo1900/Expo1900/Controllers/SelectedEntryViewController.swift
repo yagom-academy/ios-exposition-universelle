@@ -17,11 +17,10 @@ class SelectedEntryViewController: UIViewController {
 extension SelectedEntryViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureView()
     }
-}
 
-extension SelectedEntryViewController {
     private func configureView() {
         navigationItem.title = entry?.name
         selectedEntryImageView.image = entry?.thumbnail
