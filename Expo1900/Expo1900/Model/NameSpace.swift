@@ -19,7 +19,8 @@ enum ExpoNameSpace: String {
     case entryListIdentifier = "EntryList"
     case descriptionIdentifier = "Description"
     case cellIdentifier = "customCell"
-
+    case flagImage = "flag"
+    
     var name: String {
         switch self {
         case .koreaEntry:
@@ -48,6 +49,8 @@ enum ExpoNameSpace: String {
             return "Description"
         case .cellIdentifier:
             return "customCell"
+        case .flagImage:
+            return "flag"
         }
     }
 }
