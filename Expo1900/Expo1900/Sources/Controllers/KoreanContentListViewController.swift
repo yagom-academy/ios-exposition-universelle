@@ -9,7 +9,7 @@ final class KoreanContentListViewController: UIViewController {
         super.viewDidLoad()
         contentTableView.dataSource = self
         contentTableView.delegate = self
-        contentTableView.rowHeight = 150
+        contentTableView.rowHeight = UITableView.automaticDimension
         
         fetchContentData()
     }

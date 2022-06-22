@@ -7,7 +7,7 @@ class ContentCell: UITableViewCell {
     
     func setup(content: Content) {
         descriptionLabel.numberOfLines = 0
-        titleLabel.font = .preferredFont(forTextStyle: .title2)
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
         accessoryType = .disclosureIndicator
         
         contentImageView.image = UIImage(named: content.imageName)
