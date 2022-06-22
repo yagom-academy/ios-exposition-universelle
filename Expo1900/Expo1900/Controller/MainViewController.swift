@@ -12,8 +12,18 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
         mainScrollView.addTargetKoreanEntryButton(target: self, action: #selector(didkoreanEntryButtonTapped), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.rotationBlock = true
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func loadView() {
