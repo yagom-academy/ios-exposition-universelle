@@ -40,6 +40,12 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         return entryList.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { return }
+        let descriptionViewController = DescriptionViewController()
+        self.navigationController?.pushViewController(descriptionViewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         cell.koreaEntryImage.image = UIImage(named: entryList[indexPath.row].imageName)
