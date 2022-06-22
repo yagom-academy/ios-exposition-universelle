@@ -11,7 +11,7 @@ final class ItemDescriptionViewController: UIViewController {
     
     var entryInfo: Entry? {
         didSet {
-            itemDescriptionScrollView.itemDetailInfo = entryInfo
+            itemDescriptionScrollView.updateEntry(by: entryInfo)
         }
     }
     

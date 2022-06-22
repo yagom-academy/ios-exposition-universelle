@@ -9,7 +9,7 @@ import UIKit
 
 final class ItemTableViewCell: UITableViewCell {
     
-    var itemInfo: Entry? {
+    private var itemInfo: Entry? {
         didSet {
             itemTitleLabel.text = itemInfo?.name
             itemImageView.image = itemInfo?.image
@@ -82,5 +82,9 @@ final class ItemTableViewCell: UITableViewCell {
             itemStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             itemStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
+    }
+    
+    func updateEntry(by entry: Entry?) {
+        itemInfo = entry
     }
 }

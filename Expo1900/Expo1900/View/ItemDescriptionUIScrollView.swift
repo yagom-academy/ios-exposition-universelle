@@ -9,7 +9,7 @@ import UIKit
 
 final class ItemDescriptionUIScrollView: UIScrollView {
     
-    var itemDetailInfo: Entry? {
+    private var itemDetailInfo: Entry? {
         didSet {
             itemImageView.image = itemDetailInfo?.image
             itemDescriptionLabel.text = itemDetailInfo?.desc
@@ -62,5 +62,9 @@ final class ItemDescriptionUIScrollView: UIScrollView {
             itemStackView.widthAnchor.constraint(equalTo: widthAnchor),
             itemStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+    }
+    
+    func updateEntry(by entry: Entry?) {
+        itemDetailInfo = entry
     }
 }
