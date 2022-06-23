@@ -48,9 +48,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -66,9 +67,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
-        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -76,9 +78,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
-        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -86,9 +89,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
-        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -96,9 +100,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textAlignment = .left
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
