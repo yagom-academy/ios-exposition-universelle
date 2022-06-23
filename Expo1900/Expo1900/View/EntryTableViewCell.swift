@@ -21,6 +21,9 @@ final class EntryTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -28,6 +31,9 @@ final class EntryTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
+        label.adjustsFontForContentSizeCategory = true
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         return label
     }()
