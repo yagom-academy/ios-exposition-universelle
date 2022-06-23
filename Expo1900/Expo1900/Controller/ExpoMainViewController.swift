@@ -100,7 +100,7 @@ final class ExpoMainViewController: UIViewController {
     private func setLabelText() {
         guard let expoInformation = fetchExpoInformation(from: Asset.expoInformation) else { return }
         expoData = expoInformation.toDomain()
-        titleLabel.text = expoData?.title
+        titleLabel.text = expoData?.title.replacingOccurrences(of: "(", with: "\n(")
         descriptionLabel.text = expoData?.description
     }
     
