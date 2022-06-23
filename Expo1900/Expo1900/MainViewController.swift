@@ -145,14 +145,14 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
+        super.viewWillAppear(animated)
         designateNavigationSetting()
-        AppUtility.lockOrientation(orientation: .portrait)
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        AppUtility.lockOrientation(orientation: .all)
+        AppUtility.lockOrientation(.all)
     }
     
     @objc func enterButtonDidTapped(_ sender: UIButton) {
