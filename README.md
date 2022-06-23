@@ -28,8 +28,9 @@
 
 | 앱 실행 예시 | 접근성 작동 예시 |
 | -------- | -------- |
-| ![](https://i.imgur.com/CO0i0Cw.gif) | ![](https://i.imgur.com/Ewx5BHc.gif)
+| ![](https://i.imgur.com/owKv9GL.gif) | ![](https://i.imgur.com/Ewx5BHc.gif)
 # 키워드
+
 `JSON`, `Codable`, `Navigation`, `Table View`, `Functional Programming`, `Delegation`, `MVC`, `Design Patterns`
 
 # 핵심경험
