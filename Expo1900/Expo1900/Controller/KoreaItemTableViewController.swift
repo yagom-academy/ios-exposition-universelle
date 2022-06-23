@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class KoreaItemTableViewController: UITableViewController {
+final class KoreaItemTableViewController: UIViewController {
     //MARK: - KoreaItemTable Property
     
     private var koreaItems = [KoreaItem]()
@@ -18,6 +18,7 @@ final class KoreaItemTableViewController: UITableViewController {
     private let itemTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(KoreaItemTableViewCell.self, forCellReuseIdentifier: KoreaItemTableViewCell.identifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
@@ -25,36 +26,32 @@ final class KoreaItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = DetailSetUp.title
-        self.navigationController?.isNavigationBarHidden = false
-        self.tableView = itemTableView
+
+        setNavigationItem()
+        setKoreaView()
+        setKoreaTableViewConstraint()
         setKoreaItems()
     }
     
-    //MARK: - Table View Data Source
+    //MARK: - Setting View Methods
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return koreaItems.count
+    private func setNavigationItem() {
+        self.navigationItem.title = DetailSetUp.title
+        self.navigationController?.isNavigationBarHidden = false
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaItemTableViewCell.identifier, for: indexPath) as? KoreaItemTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.itemImageView.image = koreaItems[indexPath.row].image
-        cell.titleLabel.text = koreaItems[indexPath.row].name
-        cell.shortDescriptionLabel.text = koreaItems[indexPath.row].shortDescription
-        cell.accessoryType = .disclosureIndicator
-        return cell
+    private func setKoreaView() {
+        self.view.backgroundColor = .systemBackground
+        self.view.addSubview(itemTableView)
+        self.itemTableView.dataSource = self
+        self.itemTableView.delegate = self
     }
     
-    //MARK: - Table View Delegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let itemDetailViewController = KoreaItemDetailViewController()
-        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
-        koreaItemSettableDelegate = itemDetailViewController
-        koreaItemSettableDelegate?.setData(koreaItems[indexPath.row])
+    private func setKoreaTableViewConstraint() {
+        itemTableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        itemTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        itemTableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        itemTableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
     
     //MARK: - Setting Data Method
@@ -66,6 +63,37 @@ final class KoreaItemTableViewController: UITableViewController {
         }
         self.koreaItems = decodedKoreaItems
     }
+}
+
+//MARK: - TableView DataSource, Delegate
+
+extension KoreaItemTableViewController: UITableViewDataSource, UITableViewDelegate {
+    //MARK: Table View Data Source
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return koreaItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaItemTableViewCell.identifier, for: indexPath) as? KoreaItemTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.itemImageView.image = koreaItems[indexPath.row].image
+        cell.titleLabel.text = koreaItems[indexPath.row].name
+        cell.shortDescriptionLabel.text = koreaItems[indexPath.row].shortDescription
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    //MARK: Table View Delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemDetailViewController = KoreaItemDetailViewController()
+        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
+        koreaItemSettableDelegate = itemDetailViewController
+        koreaItemSettableDelegate?.setData(koreaItems[indexPath.row])
+    }
+    
 }
 
 //MARK: - NameSpace for Setting View Detail Option
