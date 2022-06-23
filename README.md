@@ -218,7 +218,8 @@ Note that the autoresizing mask constraints fully specify the view’s size and 
 ## 🛠Trouble Shooting🛠
 
 ### 화면전환 깨짐
-<img src="https://i.imgur.com/9JyDpCD.gif" width="250" height="500"/>
+<img src="https://user-images.githubusercontent.com/95671495/175250174-c8108c71-fcdc-4454-a8ad-9cafc02e6ff7.gif" width="250" height="500"/>
+  
 - backgoundColor를 systemBackground 로 지정해주었더니 해결 되었다. 
 ## 궁금한점
 - **AccessibilityLabel**
