@@ -28,14 +28,14 @@ extension ExpositionPosterViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
         lockRotation()
     }
         
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
         releaseRotation()
     }
     
@@ -78,6 +78,6 @@ extension ExpositionPosterViewController {
         guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: KoreanEntryTableViewController.identifier) as? KoreanEntryTableViewController else {
             return
         }
-        self.navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
+        navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
     }
 }

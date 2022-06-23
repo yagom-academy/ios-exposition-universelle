@@ -49,6 +49,6 @@ extension KoreanEntryTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedEntryViewController = self.storyboard?.instantiateViewController(withIdentifier: SelectedEntryViewController.identifier) as? SelectedEntryViewController else { return }
         selectedEntryViewController.entry = entries[indexPath.row]
-        self.navigationController?.pushViewController(selectedEntryViewController, animated: true)
+        navigationController?.pushViewController(selectedEntryViewController, animated: true)
     }
 }
