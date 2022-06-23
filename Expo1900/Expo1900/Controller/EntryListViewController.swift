@@ -21,19 +21,14 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.navigationController?.isNavigationBarHidden = false
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(tableView)
         self.fetchEntryList()
         self.setTableView()
+        self.title = ExpoNameSpace.koreaEntry.name
         
         updateUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.title = ExpoNameSpace.koreaEntry.name
     }
     
     func tableView(_ tableView: UITableView,
@@ -75,6 +70,8 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
+    
+    //MARK: - fetchEntryList
     
     private func fetchEntryList() {
         guard let entryList = JSONParser.fetch(fileName: ExpoNameSpace.koreaEntryJSONFileName.name,

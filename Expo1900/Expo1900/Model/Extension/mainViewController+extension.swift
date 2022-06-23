@@ -98,6 +98,8 @@ extension MainViewController {
         self.rightFlagImage.image = UIImage(named: ExpoNameSpace.flagImage.name)
     }
     
+    //MARK: - constraints
+    
     private func setGoToKoreaEntryButton() {
         self.goToKoreaEntryButton.translatesAutoresizingMaskIntoConstraints = false
         self.goToKoreaEntryButton.setTitle(ExpoNameSpace.koreaEntry.name, for: .normal)

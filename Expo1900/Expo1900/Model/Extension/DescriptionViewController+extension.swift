@@ -32,14 +32,13 @@ extension DescriptionViewController {
         self.stackView.addArrangedSubview(descriptionLabel)
     }
     
-    //MARK: - setConstraints
+    //MARK: - constraints
     func setConstraints() {
         self.setScrollViewConstraints()
         self.setViewConstraints()
         self.setStackViewConstraints()
     }
     
-    //MARK: - setScrollViewConstraints
     func setScrollViewConstraints() {
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -50,7 +49,6 @@ extension DescriptionViewController {
         ])
     }
     
-    //MARK: - setViewConstraints
     func setViewConstraints() {
         self.contentsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

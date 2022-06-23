@@ -27,13 +27,18 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setting()
-        self.navigationItem.backButtonTitle = ExpoNameSpace.firstViewcontrollerTitle.name
+        self.title = ExpoNameSpace.firstViewcontrollerTitle.name
         self.fetchExpoInformaion()
         self.updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @objc func didTappedButton(_ sender: UIButton) {
