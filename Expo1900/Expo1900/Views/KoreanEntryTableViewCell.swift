@@ -53,7 +53,7 @@ extension KoreanEntryTableViewCell {
     private func setupLayout() {
         NSLayoutConstraint.activate([
             entryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            entryImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
+            entryImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: 8),
             entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
             entryImageView.widthAnchor.constraint(equalTo: entryImageView.heightAnchor)
