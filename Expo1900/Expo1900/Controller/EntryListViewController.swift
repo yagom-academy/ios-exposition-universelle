@@ -8,20 +8,13 @@
 import UIKit
 
 class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let entryList: [EntryList] = {
-        var entryList: [EntryList] = [EntryList]()
-        do {
-            entryList = try JsonParser.parseEntryList()
-        } catch {
-            print(ParseError.unknown.description)
-        }
-        return entryList
-    }()
+    var entryList: [EntryList]?
     
     let tableView : UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableView.register(CustomTableViewCell.self,
+                           forCellReuseIdentifier: CustomTableViewCell.identifier)
         return tableView
     }()
     
@@ -29,34 +22,44 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = ExpoNameSpace.koreaEntry.name
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(tableView)
-        setTableView()
+        self.fetchEntryList()
+        self.setTableView()
+        
+        updateUI()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        guard let entryList = entryList else { return 0 }
+        
         return entryList.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { return }
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         let descriptionViewController = DescriptionViewController()
-        self.navigationController?.pushViewController(descriptionViewController, animated: true)
+        
+        descriptionViewController.entryList = entryList?[indexPath.row]
+        self.navigationController?.pushViewController(descriptionViewController,
+                                                      animated: true)
+        self.tableView.deselectRow(at: indexPath,
+                                   animated: true)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.koreaEntryImage.image = UIImage(named: entryList[indexPath.row].imageName)
-        cell.koreaEntryTitle.text = entryList[indexPath.row].name
-        cell.shortDescription.text = entryList[indexPath.row].shortDescription
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpoNameSpace.cellIdentifier.name,
+                                                       for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+                
         tableView.addSubview(cell)
         cell.addSubviews()
-        cell.setKoreaEntryImageConstraints()
-        cell.setKoreaEntryTitleConstraints()
-        cell.setShortDescriptionConstraints()
-//        cell.setCellConstraints()
+        cell.setConstraints()
+        updateCell(cell: cell,
+                   indexPath)
         return cell
     }
     
@@ -67,5 +70,12 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+    }
+    
+    private func fetchEntryList() {
+        guard let entryList = JSONParser.fetch(fileName: ExpoNameSpace.koreaEntryJSONFileName.name,
+                                               parsedItems: entryList) else { return }
+        
+        self.entryList = entryList
     }
 }

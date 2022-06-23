@@ -15,7 +15,4 @@ extension Int {
         guard let formattedResult = numberformatter.string(from: self as NSNumber) else { return nil }
         return formattedResult
     }
-    @objc func asdfsd() throws -> Int{
-        
-    }
 }

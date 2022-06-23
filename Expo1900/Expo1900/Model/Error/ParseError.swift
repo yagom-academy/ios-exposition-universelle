@@ -13,7 +13,8 @@ enum ParseError: LocalizedError {
     var description: String {
         switch self {
         case .unknown:
-            return NSLocalizedString("unknown data", comment: "unknown data")
+            return NSLocalizedString("unknown data",
+                                     comment: "unknown data")
         }
     }
 }

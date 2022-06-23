@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-    static let identifier = "customCell"
+    static let identifier = ExpoNameSpace.cellIdentifier.name
     
     let koreaEntryImage: UIImageView = {
        let image = UIImageView()
@@ -26,62 +26,51 @@ class CustomTableViewCell: UITableViewCell {
     let shortDescription: UILabel = {
         let description = UILabel()
         description.translatesAutoresizingMaskIntoConstraints = false
+        description.numberOfLines = 0
+
         return description
+    }()
+    
+    let verticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.distribution = .equalCentering
+        stackView.alignment = .top
+        return stackView
     }()
     
     func addSubviews() {
         self.contentView.addSubview(koreaEntryImage)
-        self.contentView.addSubview(koreaEntryTitle)
-        self.contentView.addSubview(shortDescription)
+        self.contentView.addSubview(verticalStackView)
+        setStackView()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setConstraints() {
+        self.setKoreaEntryImageConstraints()
+        self.setStackViewConstraints()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setStackView() {
+        self.verticalStackView.addArrangedSubview(koreaEntryTitle)
+        self.verticalStackView.addArrangedSubview(shortDescription)
     }
-
+    
     func setKoreaEntryImageConstraints() {
         NSLayoutConstraint.activate([
-            koreaEntryImage.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            koreaEntryImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            koreaEntryImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            koreaEntryImage.widthAnchor.constraint(equalToConstant: 100),
-            koreaEntryImage.heightAnchor.constraint(equalTo: self.contentView.heightAnchor)
+            self.koreaEntryImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            self.koreaEntryImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.3),
+            self.koreaEntryImage.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
-    
-    func setKoreaEntryTitleConstraints() {
+   
+    func setStackViewConstraints() {
         NSLayoutConstraint.activate([
-            koreaEntryTitle.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            koreaEntryTitle.leadingAnchor.constraint(equalTo: koreaEntryImage.trailingAnchor, constant: 8),
-            koreaEntryTitle.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            koreaEntryTitle.heightAnchor.constraint(equalToConstant: 20)
-        ])
-    }
-    
-    func setShortDescriptionConstraints() {
-        shortDescription.numberOfLines = 0
-        NSLayoutConstraint.activate([
-            shortDescription.topAnchor.constraint(equalTo: koreaEntryTitle.bottomAnchor, constant: 8),
-            shortDescription.leadingAnchor.constraint(equalTo: koreaEntryImage.trailingAnchor, constant: 8),
-            shortDescription.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            shortDescription.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            shortDescription.heightAnchor.constraint(equalToConstant: 20),
-        ])
-    }
-    
-    func setCellConstraints() {
-        NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: koreaEntryTitle.topAnchor),
-            self.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            self.bottomAnchor.constraint(equalTo: shortDescription.bottomAnchor)
+            self.verticalStackView.centerYAnchor.constraint(equalTo: koreaEntryImage.centerYAnchor),
+            self.verticalStackView.leadingAnchor.constraint(equalTo: koreaEntryImage.trailingAnchor, constant: 10),
+            self.verticalStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.verticalStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
         ])
     }
 }
