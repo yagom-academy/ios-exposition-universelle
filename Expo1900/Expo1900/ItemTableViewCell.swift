@@ -72,7 +72,7 @@ extension ItemTableViewCell{
         labelStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10).isActive = true
     }
     
-    func parseData(from model: Item?) {
+    func updateData(from model: Item?) {
         guard let model = model else { return }
         nameLabel.text = "\(String(describing: model.name))"
         shortDescriptionLabel.text = "\(String(describing: model.shortDescription))"

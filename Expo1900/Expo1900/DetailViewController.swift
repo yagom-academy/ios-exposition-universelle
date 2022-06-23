@@ -76,7 +76,7 @@ extension DetailViewController {
         view.backgroundColor = .systemBackground
     }
     
-    func parseData(from model: Item?) {
+    func updateData(from model: Item?) {
         guard let model = model else { return }
         itemTitle = model.name
         itemImageView.image = UIImage(named: model.imageName)

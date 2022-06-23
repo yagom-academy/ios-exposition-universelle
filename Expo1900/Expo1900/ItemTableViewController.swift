@@ -29,13 +29,15 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
-        cell.parseData(from: items?[indexPath.row])
+        let item = items?[indexPath.row]
+        cell.updateData(from: item)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = DetailViewController()
-        detailViewController.parseData(from: items?[indexPath.row])
+        let item = items?[indexPath.row]
+        detailViewController.updateData(from: item)
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
