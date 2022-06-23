@@ -14,4 +14,12 @@ extension UILabel {
         
         return numberformatter
     }
+    
+    func changeFontSize(font: UIFont, targetString: String) {
+        let fullText = text ?? ""
+        let range = (fullText as NSString).range(of: targetString)
+        let attributedString = NSMutableAttributedString(string: fullText)
+        attributedString.addAttribute(.font, value: font, range: range)
+        attributedText = attributedString
+    }
 }

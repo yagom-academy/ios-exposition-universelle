@@ -24,7 +24,7 @@ final class EXPOInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupExpoInformation()
         navigationItem.title = "메인"
     }
@@ -66,48 +66,55 @@ extension EXPOInformationViewController {
             return
         }
         
-        updateTitleLabel(from: expositionUniverselle)
-        updateVisitorsLabel(from: expositionUniverselle)
-        updateLocationLabel(from: expositionUniverselle)
-        updateDurationLabel(from: expositionUniverselle)
-        updateDescriptionLabel(from: expositionUniverselle)
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+        let title2Font = UIFont.preferredFont(forTextStyle: .title2)
+        
+        updateTitleLabel(font: title2Font, from: expositionUniverselle)
+        updateVisitorsLabel(font: bodyFont, from: expositionUniverselle)
+        updateLocationLabel(font: bodyFont, from: expositionUniverselle)
+        updateDurationLabel(font: bodyFont, from: expositionUniverselle)
+        updateDescriptionLabel(font: bodyFont, from: expositionUniverselle)
     }
     
-    private func updateTitleLabel(from expo: ExpositionUniverselle) {
+    private func updateTitleLabel(font: UIFont, from expo: ExpositionUniverselle) {
         let title = expo.title
         let changeTitle = title.replacingOccurrences(of: "(", with: "\n(")
         
         titleLabel.text = changeTitle
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        titleLabel.font = font
         titleLabel.numberOfLines = 0
     }
     
-    private func updateVisitorsLabel(from expo: ExpositionUniverselle) {
+    private func updateVisitorsLabel(font: UIFont, from expo: ExpositionUniverselle) {
         let numberformatter = visitorsLabel.setNumberFormat(style: .decimal)
         
         guard let visitors = numberformatter.string(for: expo.visitors) else {
             return
         }
         
-        visitorsLabel.text = "방문객 : \(visitors) 명"
+        visitorsLabel.text = "방문객 수 : \(visitors) 명"
+        visitorsLabel.changeFontSize(font: font, targetString: "\(visitors) 명")
     }
     
-    private func updateLocationLabel(from expo: ExpositionUniverselle) {
+    private func updateLocationLabel(font: UIFont, from expo: ExpositionUniverselle) {
         let location = expo.location
         
         locationLabel.text = "개최지 : \(location)"
+        locationLabel.changeFontSize(font: font, targetString: location)
     }
     
-    private func updateDurationLabel(from expo: ExpositionUniverselle) {
+    private func updateDurationLabel(font: UIFont, from expo: ExpositionUniverselle) {
         let duration = expo.duration
         
         durationLabel.text = "개최 기간 : \(duration)"
+        durationLabel.changeFontSize(font: font, targetString: duration)
     }
     
-    private func updateDescriptionLabel(from expo: ExpositionUniverselle) {
+    private func updateDescriptionLabel(font: UIFont, from expo: ExpositionUniverselle) {
         let description = expositionUniverselle?.description
         
         descriptionLabel.text = description
+        descriptionLabel.font = font
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
     }
