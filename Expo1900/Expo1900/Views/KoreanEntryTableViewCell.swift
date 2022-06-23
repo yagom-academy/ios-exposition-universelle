@@ -40,6 +40,7 @@ extension KoreanEntryTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.accessoryType = .disclosureIndicator
         setupAttribute()
         setupLayout()
     }
