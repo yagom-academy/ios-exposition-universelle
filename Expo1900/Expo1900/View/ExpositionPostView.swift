@@ -50,6 +50,7 @@ final class ExpositionPostView: UIView {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -67,6 +68,7 @@ final class ExpositionPostView: UIView {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -76,6 +78,7 @@ final class ExpositionPostView: UIView {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -85,6 +88,7 @@ final class ExpositionPostView: UIView {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -94,6 +98,7 @@ final class ExpositionPostView: UIView {
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
