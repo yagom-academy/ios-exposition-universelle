@@ -72,7 +72,7 @@ extension KoreaEntryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath) as! EntryTableViewCell
         
-        cell.entryImageView.image = UIImage(named: koreaEntry[indexPath.row].imageName)
+        cell.entryImageView.image = UIImage(named: koreaEntry[indexPath.row].imageName)?.withAlignmentRectInsets(UIEdgeInsets(top: -10, left: 0, bottom: -10, right: 0))
         cell.titleLabel.text = koreaEntry[indexPath.row].name
         cell.descriptionLabel.text = koreaEntry[indexPath.row].shortDescription
         
