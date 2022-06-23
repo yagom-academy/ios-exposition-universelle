@@ -21,6 +21,8 @@ final class KoreaEntryViewController: UIViewController {
         
         parseKoreaEntryItems()
         navigationItem.title = "한국의 출품작"
+        
+        tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryTableViewCell")
     }
 }
 
@@ -69,16 +71,12 @@ extension KoreaEntryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NameSpace.entryCellId.name, for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath) as! EntryTableViewCell
         
-        content.text = koreaEntry[indexPath.row].name
-        content.secondaryText = koreaEntry[indexPath.row].shortDescription
-        content.image = UIImage(named: koreaEntry[indexPath.row].imageName)
-        content.imageProperties.maximumSize.width = 50
-        content.imageProperties.maximumSize.height = 50
+        cell.entryImageView.image = UIImage(named: koreaEntry[indexPath.row].imageName)
+        cell.titleLabel.text = koreaEntry[indexPath.row].name
+        cell.descriptionLabel.text = koreaEntry[indexPath.row].shortDescription
         
-        cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
         
         return cell
