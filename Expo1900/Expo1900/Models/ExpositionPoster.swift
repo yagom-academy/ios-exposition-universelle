@@ -1,3 +1,5 @@
+import Foundation
+
 struct ExpositionPoster: Decodable {
     let title: String
     let description: String
@@ -6,9 +8,11 @@ struct ExpositionPoster: Decodable {
     private let location: String
     private let duration: String
     
-    // TODO: 방문객 숫자에 numberFormatter 적용하기
     var visitorContents: String {
-        return "방문객 : \(visitors) 명"
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let visitorInFormat = formatter.string(from: NSNumber(value: visitors)) ?? "0"
+        return "방문객 : \(visitorInFormat) 명"
     }
     
     var locationContents: String {
