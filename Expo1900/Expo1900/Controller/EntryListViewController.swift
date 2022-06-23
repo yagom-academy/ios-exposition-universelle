@@ -22,7 +22,6 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = ExpoNameSpace.koreaEntry.name
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -30,6 +29,11 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.setTableView()
         
         updateUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = ExpoNameSpace.koreaEntry.name
     }
     
     func tableView(_ tableView: UITableView,
@@ -66,8 +70,8 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     func setTableView() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
