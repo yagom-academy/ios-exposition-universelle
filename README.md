@@ -1,12 +1,13 @@
 # 🌏 만국박람회
 > 기간: 2022-06-13 ~ 2022-06-24
+> 
 > 팀원: [Finnn](https://github.com/finnn1), [Kiwi](https://github.com/kiwi1023)
+> 
 > 리뷰어: [Charlie](https://github.com/kcharliek)
 
 # 목차
 * [프로젝트 소개](#프로젝트-소개)
     * [개발환경 및 라이브러리](#개발환경-및-라이브러리)
-* [UML](#UML)
 * [구현내용](#구현내용)
 * [키워드](#키워드)
 * [핵심경험](#핵심경험)
@@ -28,8 +29,9 @@
 
 | 앱 실행 예시 | 접근성 작동 예시 |
 | -------- | -------- |
-| ![](https://i.imgur.com/owKv9GL.gif) | ![](https://i.imgur.com/Ewx5BHc.gif)
+| ![](https://i.imgur.com/YcqIodV.gif) | ![](https://i.imgur.com/Ewx5BHc.gif)
 # 키워드
+
 
 `JSON`, `Codable`, `Navigation`, `Table View`, `Functional Programming`, `Delegation`, `MVC`, `Design Patterns`
 
