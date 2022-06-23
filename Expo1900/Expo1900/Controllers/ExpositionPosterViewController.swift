@@ -61,7 +61,7 @@ extension ExpositionPosterViewController {
             return
         }
         
-        titleLabel.text = poster.title
+        titleLabel.text = poster.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = poster.visitorContents
         locationLabel.text = poster.locationContents
         durationLabel.text = poster.durationContents
