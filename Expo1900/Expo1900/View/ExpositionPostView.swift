@@ -48,6 +48,8 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -65,8 +67,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         return label
     }()
     
@@ -74,8 +78,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         return label
     }()
     
@@ -83,8 +89,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         return label
     }()
     
@@ -92,6 +100,8 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textAlignment = .left
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label

@@ -40,6 +40,9 @@ final class EntryDetailView: UIView {
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
