@@ -53,24 +53,24 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     func setStackView() {
-        verticalStackView.addArrangedSubview(koreaEntryTitle)
-        verticalStackView.addArrangedSubview(shortDescription)
+        self.verticalStackView.addArrangedSubview(koreaEntryTitle)
+        self.verticalStackView.addArrangedSubview(shortDescription)
     }
     
     func setKoreaEntryImageConstraints() {
         NSLayoutConstraint.activate([
-            koreaEntryImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            koreaEntryImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.3),
-            koreaEntryImage.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+            self.koreaEntryImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            self.koreaEntryImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.3),
+            self.koreaEntryImage.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
    
     func setStackViewConstraints() {
         NSLayoutConstraint.activate([
-            verticalStackView.centerYAnchor.constraint(equalTo: koreaEntryImage.centerYAnchor),
-            verticalStackView.leadingAnchor.constraint(equalTo: koreaEntryImage.trailingAnchor, constant: 10),
-            verticalStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
+            self.verticalStackView.centerYAnchor.constraint(equalTo: koreaEntryImage.centerYAnchor),
+            self.verticalStackView.leadingAnchor.constraint(equalTo: koreaEntryImage.trailingAnchor, constant: 10),
+            self.verticalStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.verticalStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
         ])
     }
 }

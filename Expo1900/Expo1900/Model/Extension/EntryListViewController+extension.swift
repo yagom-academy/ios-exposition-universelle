@@ -14,22 +14,29 @@ extension EntryListViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 
-    func updateCell(cell: CustomTableViewCell, _ indexPath: IndexPath) {
-        updatekoreaEntryImage(of: cell, indexPath)
-        updateKoreaEntryTitle(of: cell, indexPath)
-        updateShortDescription(of: cell, indexPath)
-        updateCellAccessoryType(of: cell)
+    func updateCell(cell: CustomTableViewCell,
+                    _ indexPath: IndexPath) {
+        self.updatekoreaEntryImage(of: cell,
+                                   indexPath)
+        self.updateKoreaEntryTitle(of: cell,
+                                   indexPath)
+        self.updateShortDescription(of: cell,
+                                    indexPath)
+        self.updateCellAccessoryType(of: cell)
     }
 
-    private func updatekoreaEntryImage(of cell: CustomTableViewCell,  _ indexPath: IndexPath) {
+    private func updatekoreaEntryImage(of cell: CustomTableViewCell,
+                                       _ indexPath: IndexPath) {
         cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? ExpoNameSpace.empty.name)
     }
 
-    private func updateKoreaEntryTitle(of cell: CustomTableViewCell,  _ indexPath: IndexPath) {
+    private func updateKoreaEntryTitle(of cell: CustomTableViewCell,
+                                       _ indexPath: IndexPath) {
         cell.koreaEntryTitle.text = entryList?[indexPath.row].name
     }
 
-    private func updateShortDescription(of cell: CustomTableViewCell,  _ indexPath: IndexPath) {
+    private func updateShortDescription(of cell: CustomTableViewCell,
+                                        _ indexPath: IndexPath) {
         cell.shortDescription.text = entryList?[indexPath.row].shortDescription
     }
 

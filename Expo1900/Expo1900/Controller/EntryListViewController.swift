@@ -13,7 +13,8 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     let tableView : UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableView.register(CustomTableViewCell.self,
+                           forCellReuseIdentifier: CustomTableViewCell.identifier)
         return tableView
     }()
     
@@ -31,31 +32,34 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         updateUI()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         guard let entryList = entryList else { return 0 }
         
         return entryList.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         let descriptionViewController = DescriptionViewController()
         
         descriptionViewController.entryList = entryList?[indexPath.row]
-        self.navigationController?.pushViewController(descriptionViewController, animated: true)
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.navigationController?.pushViewController(descriptionViewController,
+                                                      animated: true)
+        self.tableView.deselectRow(at: indexPath,
+                                   animated: true)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpoNameSpace.cellIdentifier.name, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
-        
-        cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? "")
-        cell.koreaEntryTitle.text = entryList?[indexPath.row].name
-        cell.shortDescription.text = entryList?[indexPath.row].shortDescription
-        
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpoNameSpace.cellIdentifier.name,
+                                                       for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+                
         tableView.addSubview(cell)
         cell.addSubviews()
         cell.setConstraints()
-        updateCell(cell: cell, indexPath)
+        updateCell(cell: cell,
+                   indexPath)
         return cell
     }
     
@@ -69,7 +73,8 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     private func fetchEntryList() {
-        guard let entryList = JSONParser.fetch(fileName: ExpoNameSpace.koreaEntryJSONFileName.name, parsedItems: entryList) else { return }
+        guard let entryList = JSONParser.fetch(fileName: ExpoNameSpace.koreaEntryJSONFileName.name,
+                                               parsedItems: entryList) else { return }
         
         self.entryList = entryList
     }

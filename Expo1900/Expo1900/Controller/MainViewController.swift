@@ -28,8 +28,8 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         self.setting()
         self.navigationItem.backButtonTitle = ExpoNameSpace.firstViewcontrollerTitle.name
-        fetchExpoInformaion()
-        updateUI()
+        self.fetchExpoInformaion()
+        self.updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,12 +38,14 @@ final class MainViewController: UIViewController {
     
     @objc func didTappedButton(_ sender: UIButton) {
         let entryListViewController = EntryListViewController()
-        self.navigationController?.pushViewController(entryListViewController, animated: true)
+        self.navigationController?.pushViewController(entryListViewController,
+                                                      animated: true)
     }
     
     //MARK: - fetchExpoInformaion
     func fetchExpoInformaion() {
-        guard let expoInformation = JSONParser.fetch(fileName: ExpoNameSpace.expoInformationJSONFileName.name, parsedItems: expoInformation) else { return }
+        guard let expoInformation = JSONParser.fetch(fileName: ExpoNameSpace.expoInformationJSONFileName.name,
+                                                     parsedItems: expoInformation) else { return }
         self.expoInformation = expoInformation
     }
 }

@@ -8,13 +8,15 @@
 import UIKit
 
 struct JSONParser: DataRepository {
-    static func fetch<T>(fileName: String, parsedItems: T) -> T? where T : Decodable, T : Encodable {
+    static func fetch<T>(fileName: String,
+                         parsedItems: T) -> T? where T : Decodable, T : Encodable {
         let jsonDecoder = JSONDecoder()
         let parsedItemsType = type(of: parsedItems)
         guard let data = NSDataAsset(name: fileName)?.data else { return nil }
         
         do {
-            let data = try jsonDecoder.decode(parsedItemsType.self, from: data)
+            let data = try jsonDecoder.decode(parsedItemsType.self,
+                                              from: data)
             
             return data
         } catch {

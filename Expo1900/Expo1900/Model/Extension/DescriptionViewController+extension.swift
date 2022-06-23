@@ -9,39 +9,39 @@ import UIKit
 
 extension DescriptionViewController {
     func setUI() {
-        setDescriptionLabel()
-        setStackView()
+        self.setDescriptionLabel()
+        self.setStackView()
     }
     
     func setDescriptionLabel() {
-        descriptionLabel.numberOfLines = 0
+        self.descriptionLabel.numberOfLines = 0
     }
     
     func setStackView() {
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 10
+        self.stackView.axis = .vertical
+        self.stackView.alignment = .center
+        self.stackView.distribution = .equalSpacing
+        self.stackView.spacing = 10
     }
     
     func addSubViews() {
         self.view.addSubview(scrollView)
-        scrollView.addSubview(contentsView)
-        contentsView.addSubview(stackView)
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(descriptionLabel)
+        self.scrollView.addSubview(contentsView)
+        self.contentsView.addSubview(stackView)
+        self.stackView.addArrangedSubview(imageView)
+        self.stackView.addArrangedSubview(descriptionLabel)
     }
     
     //MARK: - setConstraints
     func setConstraints() {
-        setScrollViewConstraints()
-        setViewConstraints()
-        setStackViewConstraints()
+        self.setScrollViewConstraints()
+        self.setViewConstraints()
+        self.setStackViewConstraints()
     }
     
     //MARK: - setScrollViewConstraints
     func setScrollViewConstraints() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -52,7 +52,7 @@ extension DescriptionViewController {
     
     //MARK: - setViewConstraints
     func setViewConstraints() {
-        contentsView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentsView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentsView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -63,7 +63,7 @@ extension DescriptionViewController {
     }
     
     func setStackViewConstraints() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.contentsView.topAnchor ),
             stackView.leadingAnchor.constraint(equalTo: self.contentsView.leadingAnchor, constant: 20),
