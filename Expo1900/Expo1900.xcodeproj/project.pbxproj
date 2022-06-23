@@ -13,6 +13,7 @@
 		37A306D8285B58BE00C88E64 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A306D7285B58BE00C88E64 /* Int.swift */; };
 		37A306E1285D950700C88E64 /* KoreaItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A306E0285D950700C88E64 /* KoreaItemTableViewCell.swift */; };
 		37A306E7285DC78500C88E64 /* KoreaItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A306E6285DC78500C88E64 /* KoreaItemDetailViewController.swift */; };
+		A3126E0828643350003A901B /* ExpoNaviationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3126E0728643350003A901B /* ExpoNaviationController.swift */; };
 		A3971953285C4ABA00872695 /* KoreaItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3971952285C4ABA00872695 /* KoreaItemTableViewController.swift */; };
 		A3AEA3CF2859AA1B00F8889C /* KoreaItemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA14128581E8F0033B957 /* KoreaItemTest.swift */; };
 		A3AEA3D02859AA1C00F8889C /* ExpoInformationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DF407928575B2F005B1FC9 /* ExpoInformationTest.swift */; };
@@ -43,6 +44,7 @@
 		37A306D7285B58BE00C88E64 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		37A306E0285D950700C88E64 /* KoreaItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemTableViewCell.swift; sourceTree = "<group>"; };
 		37A306E6285DC78500C88E64 /* KoreaItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemDetailViewController.swift; sourceTree = "<group>"; };
+		A3126E0728643350003A901B /* ExpoNaviationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoNaviationController.swift; sourceTree = "<group>"; };
 		A3971952285C4ABA00872695 /* KoreaItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemTableViewController.swift; sourceTree = "<group>"; };
 		A3AEA3C62859AA1200F8889C /* DecodingTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodingTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C4E23D28603CF00085E5CB /* KoreaItemSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemSettable.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				37A306E6285DC78500C88E64 /* KoreaItemDetailViewController.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				A3126E0728643350003A901B /* ExpoNaviationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3126E0828643350003A901B /* ExpoNaviationController.swift in Sources */,
 				37A306E7285DC78500C88E64 /* KoreaItemDetailViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoMainViewController.swift in Sources */,
 				A3971953285C4ABA00872695 /* KoreaItemTableViewController.swift in Sources */,
