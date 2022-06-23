@@ -96,7 +96,7 @@ final class DetailViewController: UIViewController {
         guard let selectedData = itemData else { return }
         
         let name = selectedData.imageName
-        imageView.image = UIImage(named: name)
+        imageView.image = UIImage(named: name!)
         
         descriptionLabel.text = selectedData.longDescription
     }
