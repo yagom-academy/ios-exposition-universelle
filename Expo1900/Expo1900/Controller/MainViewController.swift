@@ -9,7 +9,9 @@ import UIKit
 final class MainViewController: UIViewController {
     // MARK: - Properties
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
@@ -126,13 +128,11 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
-        appDelegate.shouldSupportAllOrientation = true
     }
     
     // MARK: - Method
