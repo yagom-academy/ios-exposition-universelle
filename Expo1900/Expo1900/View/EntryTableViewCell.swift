@@ -70,7 +70,7 @@ extension EntryTableViewCell {
         entryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.0).isActive = true
         entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2).isActive = true
-        entryImageView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        entryImageView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
         
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         stackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 10.0).isActive = true
