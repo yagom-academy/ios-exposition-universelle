@@ -15,10 +15,10 @@ extension KoreanEntryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableViewData()
+        setupEntries()
     }
 
-    private func setupTableViewData() {
+    private func setupEntries() {
         guard let asset = NSDataAsset.init(name: AssetFileName.items),
               let entries = try? JSONDecoder().decode([ExpositionEntry].self, from: asset.data) else {
             return
