@@ -8,6 +8,7 @@ import UIKit
 
 final class EntryTableViewCell: UITableViewCell {
     // MARK: Properties
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,8 +58,9 @@ final class EntryTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - UI
+
 extension EntryTableViewCell {
-    // MARK: - UI
     private func setAutoLayout() {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(descriptionLabel)

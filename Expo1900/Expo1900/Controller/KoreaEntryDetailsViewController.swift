@@ -25,6 +25,7 @@ final class KoreaEntryDetailsViewController: UIViewController {
 }
 
 // MARK: - UI
+
 extension KoreaEntryDetailsViewController {
     
     private func updateUIItems() {

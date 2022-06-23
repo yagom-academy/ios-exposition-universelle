@@ -15,6 +15,7 @@ final class KoreaEntryViewController: UIViewController {
     private var koreaEntry = [Exhibits]()
     
     // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -26,9 +27,9 @@ final class KoreaEntryViewController: UIViewController {
     }
 }
 
+// MARK: - UI
+
 extension KoreaEntryViewController {
-    // MARK: - UI
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == NameSpace.transferToDetailsVCId.name else {
             return
@@ -44,9 +45,9 @@ extension KoreaEntryViewController {
     }
 }
 
+// MARK: - Parsing
+
 extension KoreaEntryViewController {
-    // MARK: - Parsing
-    
     private func parseKoreaEntryItems() {
         guard let parsedItems = JSONData.parse(
             name: NameSpace.expoEntryData.name,
@@ -58,9 +59,9 @@ extension KoreaEntryViewController {
     }
 }
 
+// MARK: - TableView Data Source
+
 extension KoreaEntryViewController: UITableViewDataSource {
-    // MARK: - TableView Data Source
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -82,9 +83,9 @@ extension KoreaEntryViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - TableView Delegate
+
 extension KoreaEntryViewController: UITableViewDelegate {
-    // MARK: - TableView Delegate
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: NameSpace.transferToDetailsVCId.name, sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
