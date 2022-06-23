@@ -70,8 +70,8 @@ extension ItemListViewController: UITableViewDataSource {
         cell.titleLabel.text = itemData.name
         cell.shortDescriptionLabel.text = itemData.shortDescription
         
-        let name = itemData.imageName
-        cell.itemImageView.image = UIImage(named: name!)
+        guard let name = itemData.imageName else { return UITableViewCell() }
+        cell.itemImageView.image = UIImage(named: name)
         return cell
     }
 }

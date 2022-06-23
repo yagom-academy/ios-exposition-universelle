@@ -95,8 +95,8 @@ final class DetailViewController: UIViewController {
     private func setComponent() {
         guard let selectedData = itemData else { return }
         
-        let name = selectedData.imageName
-        imageView.image = UIImage(named: name!)
+        guard let name = selectedData.imageName else { return }
+        imageView.image = UIImage(named: name)
         
         descriptionLabel.text = selectedData.longDescription
     }
