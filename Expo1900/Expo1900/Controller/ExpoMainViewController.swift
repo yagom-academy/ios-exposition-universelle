@@ -33,6 +33,7 @@ final class ExpoMainViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +42,8 @@ final class ExpoMainViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,6 +62,9 @@ final class ExpoMainViewController: UIViewController {
         let button = UIButton()
         button.setTitle(DetailSetUp.buttonTitle, for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.titleLabel?.numberOfLines = DetailSetUp.labelNumberOfLines
         button.setContentCompressionResistancePriority(DetailSetUp.buttonCompressionResistancePriority, for: .horizontal)
         button.addTarget(nil, action: #selector(tappedNextViewButtonEvent), for: .touchUpInside)
         return button
@@ -157,6 +163,8 @@ final class ExpoMainViewController: UIViewController {
     private func createLabel(_ text: String?) -> UILabel {
         let label = UILabel()
         label.text = text
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }

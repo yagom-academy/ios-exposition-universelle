@@ -38,8 +38,10 @@ final class KoreaItemDetailViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = DetailSetUp.labelNumberOfLines
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = DetailSetUp.labelNumberOfLines
         return label
     }()
     

@@ -51,6 +51,7 @@ final class KoreaItemTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
         return label
     }()
@@ -58,6 +59,8 @@ final class KoreaItemTableViewCell: UITableViewCell {
     let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
         return label
     }()
