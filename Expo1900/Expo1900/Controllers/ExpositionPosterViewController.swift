@@ -61,10 +61,10 @@ extension ExpositionPosterViewController {
             return
         }
         
-        titleLabel.text = poster.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = poster.visitorContents
-        locationLabel.text = poster.locationContents
-        durationLabel.text = poster.durationContents
+        titleLabel.text = poster.formattedTitle
+        visitorsLabel.text = poster.formattedVisitor
+        locationLabel.text = poster.formattedLocation
+        durationLabel.text = poster.formattedDuration
         descriptionLabel.text = poster.description
         
         posterImageView.image = UIImage(named: AssetFileName.poster)
