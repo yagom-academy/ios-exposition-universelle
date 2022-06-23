@@ -27,15 +27,34 @@ extension ExpositionPosterViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationController?.isNavigationBarHidden = true
+        lockRotation()
     }
         
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         self.navigationController?.isNavigationBarHidden = false
+        releaseRotation()
     }
     
-
+    private func lockRotation() {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        delegate.restrictOrientation = .portrait
+    }
+    
+    private func releaseRotation() {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        delegate.restrictOrientation = .all
+    }
+    
     private func configurePosterView() {
         guard let asset = NSDataAsset.init(name: AssetFileName.expositionUniverselle),
               let poster = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data) else {
