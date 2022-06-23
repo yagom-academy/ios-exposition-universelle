@@ -53,6 +53,7 @@ final class KoreaItemTableViewCell: UITableViewCell {
         label.font = .preferredFont(forTextStyle: .title2)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         return label
     }()
     
@@ -62,6 +63,7 @@ final class KoreaItemTableViewCell: UITableViewCell {
         label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         return label
     }()
     

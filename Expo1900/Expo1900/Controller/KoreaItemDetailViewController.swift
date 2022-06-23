@@ -42,6 +42,7 @@ final class KoreaItemDetailViewController: UIViewController {
         label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         return label
     }()
     

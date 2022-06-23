@@ -35,6 +35,7 @@ final class ExpoMainViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -45,6 +46,7 @@ final class ExpoMainViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -166,6 +168,8 @@ final class ExpoMainViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakMode = .byWordWrapping
         return label
     }
     
