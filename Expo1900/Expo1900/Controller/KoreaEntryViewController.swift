@@ -18,10 +18,10 @@ final class KoreaEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         
         parseKoreaEntryItems()
         navigationItem.title = "한국의 출품작"
-        
         tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryTableViewCell")
     }
 }
@@ -36,9 +36,8 @@ extension KoreaEntryViewController {
         guard let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
-            
+        
         let destination = segue.destination as? KoreaEntryDetailsViewController
-      
         let exhibit = koreaEntry[index]
         
         destination?.exhibit = exhibit
@@ -80,5 +79,14 @@ extension KoreaEntryViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         
         return cell
+    }
+}
+
+extension KoreaEntryViewController: UITableViewDelegate {
+    // MARK: - TableView Delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: NameSpace.transferToDetailsVCId.name, sender: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
