@@ -17,7 +17,8 @@ final class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.systemFont(ofSize: 24)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        titleLabel.adjustsFontForContentSizeCategory = true
         return titleLabel
     }()
     private lazy var shortDescriptionLabel: UILabel = {
@@ -25,6 +26,8 @@ final class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
         shortDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         shortDescriptionLabel.numberOfLines = 0
         shortDescriptionLabel.lineBreakMode = .byWordWrapping
+        shortDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        shortDescriptionLabel.adjustsFontForContentSizeCategory = true
         return shortDescriptionLabel
     }()
     private lazy var descriptionStackView: UIStackView = {
