@@ -30,16 +30,19 @@ final class EntryDetailView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
-        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
         return imageView
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -68,26 +71,23 @@ private extension EntryDetailView {
     }
     
     func setUpUIConstraints(from rootView: UIView) {
-        let contentLayoutGuide = contentScrollView.contentLayoutGuide
-        let frameLayoutGuide = contentScrollView.frameLayoutGuide
-        
-        NSLayoutConstraint.activate([
-            contentScrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
-            contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
-            contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-            contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
-            
-            verticalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor),
-            verticalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            NSLayoutConstraint.activate([
+                contentScrollView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
+                contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
+                contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+                contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
 
-            descriptionLabel.topAnchor.constraint(equalTo: entryImage.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
-        ])
-    }
+                verticalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+                verticalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+                verticalStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+                verticalStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -10),
+                verticalStackView.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor),
+
+                descriptionLabel.topAnchor.constraint(equalTo: entryImage.bottomAnchor, constant: 10),
+                descriptionLabel.leadingAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+                descriptionLabel.trailingAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            ])
+        }
     
     func setDefaultValue(with data: EntryEntity) {
         self.entryImage.image = data.image

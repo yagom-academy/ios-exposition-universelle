@@ -9,11 +9,26 @@ import UIKit
 
 final class EntryDetailViewController: UIViewController {
     private var expositionDetailView: EntryDetailView?
-    var entryEntity: EntryEntity?
+    private let entryEntityData: EntryEntity
+    
+    init(data: EntryEntity) {
+        self.entryEntityData = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activateOnlyPortraitOrientation(false)
     }
 }
 
@@ -21,9 +36,7 @@ final class EntryDetailViewController: UIViewController {
 
 extension EntryDetailViewController {
     private func configureUI() {
-        if let entryEntity = entryEntity {
-            expositionDetailView = EntryDetailView(self.view, data: entryEntity)
-            self.title = entryEntity.name
-        }
+        expositionDetailView = EntryDetailView(self.view, data: entryEntityData)
+        self.title = entryEntityData.name
     }
 }

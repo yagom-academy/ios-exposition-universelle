@@ -13,11 +13,12 @@
 		8A8D49A6285B1FF300B9E7D6 /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D49A5285B1FF300B9E7D6 /* EntryDetailView.swift */; };
 		8A8D49A9285C610B00B9E7D6 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D49A8285C610B00B9E7D6 /* Int+Extensions.swift */; };
 		8A8D49AB285C615400B9E7D6 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D49AA285C615400B9E7D6 /* UILabel+Extensions.swift */; };
-		8AA59366285AFA1100494FE9 /* ExpositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */; };
+		8AA59366285AFA1100494FE9 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA59365285AFA1100494FE9 /* EntryTableViewCell.swift */; };
 		905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43E72857046E00BB84E3 /* EntryEntity.swift */; };
 		905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */; };
+		9089FCED2860AAE500700A70 /* ReuseIdentifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9089FCEC2860AAE500700A70 /* ReuseIdentifying.swift */; };
 		909123082858212900854F1B /* ExpositionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909123072858212900854F1B /* ExpositionPost.swift */; };
-		90E080BB2859C23200950E42 /* ExpositionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */; };
+		90E080BB2859C23200950E42 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E080BA2859C23200950E42 /* EntryTableViewController.swift */; };
 		90E08105285ACB5900950E42 /* ExpositionPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E08104285ACB5900950E42 /* ExpositionPostView.swift */; };
 		90E0810D285B5CAF00950E42 /* JsonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E0810C285B5CAF00950E42 /* JsonError.swift */; };
 		90EB84E3285D9EF600AAB6F5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */; };
@@ -47,11 +48,12 @@
 		8A8D49A5285B1FF300B9E7D6 /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
 		8A8D49A8285C610B00B9E7D6 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		8A8D49AA285C615400B9E7D6 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
-		8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTableViewCell.swift; sourceTree = "<group>"; };
+		8AA59365285AFA1100494FE9 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		905C43E72857046E00BB84E3 /* EntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEntity.swift; sourceTree = "<group>"; };
 		905C43F228576CC800BB84E3 /* ExpositionPostEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpositionPostEntity.swift; sourceTree = "<group>"; };
+		9089FCEC2860AAE500700A70 /* ReuseIdentifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifying.swift; sourceTree = "<group>"; };
 		909123072858212900854F1B /* ExpositionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPost.swift; sourceTree = "<group>"; };
-		90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTableViewController.swift; sourceTree = "<group>"; };
+		90E080BA2859C23200950E42 /* EntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
 		90E08104285ACB5900950E42 /* ExpositionPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionPostView.swift; sourceTree = "<group>"; };
 		90E0810C285B5CAF00950E42 /* JsonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonError.swift; sourceTree = "<group>"; };
 		90EB84E2285D9EF600AAB6F5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				90E08104285ACB5900950E42 /* ExpositionPostView.swift */,
-				8AA59365285AFA1100494FE9 /* ExpositionTableViewCell.swift */,
+				8AA59365285AFA1100494FE9 /* EntryTableViewCell.swift */,
 				8A8D49A5285B1FF300B9E7D6 /* EntryDetailView.swift */,
 			);
 			path = View;
@@ -120,6 +122,7 @@
 				8A894FA728582C6000A4F6FD /* JsonParser.swift */,
 				90E0810C285B5CAF00950E42 /* JsonError.swift */,
 				90EB84E4285DA43B00AAB6F5 /* JSONFile.swift */,
+				9089FCEC2860AAE500700A70 /* ReuseIdentifying.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionPostViewController.swift */,
-				90E080BA2859C23200950E42 /* ExpositionTableViewController.swift */,
+				90E080BA2859C23200950E42 /* EntryTableViewController.swift */,
 				8A8D49A3285B1FAF00B9E7D6 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				905C43E82857046E00BB84E3 /* EntryEntity.swift in Sources */,
+				9089FCED2860AAE500700A70 /* ReuseIdentifying.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionPostViewController.swift in Sources */,
 				905C43F328576CC800BB84E3 /* ExpositionPostEntity.swift in Sources */,
 				90EB84E5285DA43B00AAB6F5 /* JSONFile.swift in Sources */,
@@ -306,8 +310,8 @@
 				8A8D49A6285B1FF300B9E7D6 /* EntryDetailView.swift in Sources */,
 				90EB84E3285D9EF600AAB6F5 /* UIViewController+Extensions.swift in Sources */,
 				8A8D49A9285C610B00B9E7D6 /* Int+Extensions.swift in Sources */,
-				90E080BB2859C23200950E42 /* ExpositionTableViewController.swift in Sources */,
-				8AA59366285AFA1100494FE9 /* ExpositionTableViewCell.swift in Sources */,
+				90E080BB2859C23200950E42 /* EntryTableViewController.swift in Sources */,
+				8AA59366285AFA1100494FE9 /* EntryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

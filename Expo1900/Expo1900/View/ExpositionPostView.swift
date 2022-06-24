@@ -44,16 +44,13 @@ final class ExpositionPostView: UIView {
         return scrollView
     }()
     
-    private let contentView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -71,8 +68,11 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -80,8 +80,11 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -89,8 +92,11 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textAlignment = .center
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
@@ -98,7 +104,10 @@ final class ExpositionPostView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textAlignment = .left
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
@@ -144,8 +153,8 @@ final class ExpositionPostView: UIView {
 
 private extension ExpositionPostView {
     @objc func tappedExpositionEnterButton(_ sender: UIButton) {
-        let expositionTableViewController = ExpositionTableViewController()
-        rootViewController?.navigationController?.pushViewController(expositionTableViewController, animated: true)
+        let entryTableViewController = EntryTableViewController()
+        rootViewController?.navigationController?.pushViewController(entryTableViewController, animated: true)
     }
     
     func setDefaultValue(with data: ExpositionPostEntity) {
@@ -155,9 +164,9 @@ private extension ExpositionPostView {
         durationLabel.text = data.manufacture(ExpositionPost.duration)
         descriptionLabel.text = data.manufacture(ExpositionPost.description)
 
-        visitorLabel.setTitleStyle()
-        locationLabel.setTitleStyle()
-        durationLabel.setTitleStyle()
+        visitorLabel.setTitle(by: ":", for: .title3)
+        locationLabel.setTitle(by: ":", for: .title3)
+        durationLabel.setTitle(by: ":", for: .title3)
         
         expositionEnterButton.addTarget(self, action: #selector(tappedExpositionEnterButton(_:)), for: .touchUpInside)
     }
@@ -188,8 +197,14 @@ private extension ExpositionPostView {
     }
     
     func setUpBaseUIConstraints(from rootView: UIView) {
-        let contentLayoutGuide = contentScrollView.contentLayoutGuide
-        let frameLayoutGuide = contentScrollView.frameLayoutGuide
+        horizontalStackView.insetsLayoutMarginsFromSafeArea = false
+        contentScrollView.insetsLayoutMarginsFromSafeArea = false
+        verticalStackView.insetsLayoutMarginsFromSafeArea = false
+        contentScrollView.contentInsetAdjustmentBehavior = .never
+        
+        guard let safeArea = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.safeAreaInsets else {
+            return
+        }
         
         NSLayoutConstraint.activate([
             self.contentScrollView.topAnchor.constraint(equalTo: rootView.topAnchor),
@@ -197,19 +212,22 @@ private extension ExpositionPostView {
             self.contentScrollView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
             self.contentScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
             
-            verticalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: contentLayoutGuide.topAnchor),
-            verticalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            self.verticalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+            self.verticalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+            self.verticalStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: max(20.0, (safeArea.top))),
+            self.verticalStackView.widthAnchor.constraint(equalTo: rootView.widthAnchor),
             
-            descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
+            self.titleLabel.topAnchor.constraint(equalTo: verticalStackView.topAnchor),
             
-            horizontalStackView.leadingAnchor.constraint(equalTo: contentLayoutGuide.leadingAnchor),
-            horizontalStackView.trailingAnchor.constraint(equalTo: contentLayoutGuide.trailingAnchor),
-            horizontalStackView.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 10),
-            horizontalStackView.bottomAnchor.constraint(equalTo: contentLayoutGuide.bottomAnchor, constant: 10),
-            horizontalStackView.widthAnchor.constraint(equalTo: frameLayoutGuide.widthAnchor),
+            self.descriptionLabel.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10),
+            self.descriptionLabel.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: -10),
+            
+            self.horizontalStackView.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 10),
+            self.horizontalStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+            self.horizontalStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+         
+            self.horizontalStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -max(20.0, (safeArea.bottom))),
+            self.horizontalStackView.widthAnchor.constraint(equalTo: rootView.widthAnchor),
         ])
     }
 }

@@ -16,6 +16,11 @@ final class ExpositionPostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.activateOnlyPortraitOrientation(true)
+        
+        let portraitOrientation = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(portraitOrientation, forKey: "orientation")
+
         self.title = "메인"
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -40,7 +45,7 @@ extension ExpositionPostViewController {
         case .success(let data):
             return data
         case .failure(let error):
-            self.showConfirmAlert(message: error.message)
+            self.showConfirmAlert(title: "확인", message: error.message, alertStyle: .confirm)
         }
         
         return fetchData()

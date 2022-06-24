@@ -1,5 +1,5 @@
 //
-//  ExpositionTableViewCell.swift
+//  EntryTableViewCell.swift
 //  Expo1900
 //
 //  Created by Baek on 2022/06/16.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class ExpositionTableViewCell: UITableViewCell {
+final class EntryTableViewCell: UITableViewCell {
     private let entryImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 80).isActive = true
-        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 40).isActive = true
+        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 90).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 60).isActive = true
         return imageView
     }()
     
@@ -21,13 +21,19 @@ final class ExpositionTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private let shortDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
+        label.adjustsFontForContentSizeCategory = true
+        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         return label
     }()
@@ -62,7 +68,7 @@ final class ExpositionTableViewCell: UITableViewCell {
 
 // - MARK: View Settings
 
-extension ExpositionTableViewCell {
+extension EntryTableViewCell: ReuseIdentifying {
     private func addSubView() {
         contentView.addSubview(entryImage)
         contentView.addSubview(verticalStackView)
