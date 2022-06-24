@@ -1,3 +1,4 @@
+
 # 제목: 만국박람회 프로젝트
 
 ### 프로젝트 저장소
@@ -12,7 +13,6 @@
 |<img src = "https://i.imgur.com/NffqjhR.png" width = "75%" height = "30%">|<img src = "https://i.imgur.com/TeCoRmz.jpg" width="25%" height = "20%">|
 |[Github](https://github.com/ZZBAE)|[Github](https://github.com/yusw10)|
     
-
 
 ---
 
@@ -57,6 +57,7 @@
   - Readme.md 작성
 
 ---
+
 ## 프로젝트 내용
 
 ### 주요 기능
@@ -109,6 +110,7 @@
 
 
 ---
+
 ## 참고 
 
 
