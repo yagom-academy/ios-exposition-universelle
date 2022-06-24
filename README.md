@@ -12,6 +12,10 @@
 <br>
 
 ## 👨‍👨‍👦‍👦 팀원 및 리뷰어
+| 민쏜 & Judy |
+| :--: |
+|<img src="https://i.imgur.com/LJKXXUG.jpg" width="400">|
+
 - **minsson**🎾 (@minsson) 
 - **Judy**🐰 (@Judy-999) 
 - 리뷰어: **하리보**🧸(@HARIBO)
@@ -34,12 +38,12 @@
 
 |메인화면 1|메인화면 2|
 |:------:|:-----:|
-| ![](https://i.imgur.com/EfQMVbH.png)| ![](https://i.imgur.com/pozoglJ.png)|
+|<img src="https://i.imgur.com/EfQMVbH.png" width="300">| <img src="https://i.imgur.com/pozoglJ.png" width="300">|
 
 
 |한국의 출품작 화면|출품작 상세 화면|
 |:-----------:|:----------:|
-| ![](https://i.imgur.com/Ve8UsMw.png) | ![](https://i.imgur.com/XBsY7a6.png)|
+|<img src="https://i.imgur.com/Ve8UsMw.png" width="300">|<img src="https://i.imgur.com/XBsY7a6.png" width="300">|
 
 
 <br>
@@ -507,7 +511,7 @@ contentTableView.rowHeight = UITableView.automaticDimension
 - 대부분 알맞게 나왔지만 세로로 된 이미지, 특히 **<해금>** 항목은 아래와 같이 이미지의 높이가 비정상적으로 크게 나오는 문제 발생
 
 
-<img src="https://i.imgur.com/T6guLYQ.png" width="50%" height="50%">
+<img src="https://i.imgur.com/T6guLYQ.png" width="300">
 
 <br><br>
 
