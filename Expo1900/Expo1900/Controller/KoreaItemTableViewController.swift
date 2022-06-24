@@ -57,7 +57,7 @@ final class KoreaItemTableViewController: UIViewController {
     //MARK: - Setting Data Method
     
     private func setKoreaItems() {
-        guard let items = NSDataAsset(name: Asset.KoreaItem),
+        guard let items = NSDataAsset(name: Asset.koreaItem),
               let decodedKoreaItems = try? JSONDecoder().decode([KoreaItem].self, from: items.data) else {
             return
         }
