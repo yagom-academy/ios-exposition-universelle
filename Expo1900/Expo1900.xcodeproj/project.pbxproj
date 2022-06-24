@@ -13,6 +13,7 @@
 		4DE27A9F285AD213001D01B8 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE27A9E285AD213001D01B8 /* ItemTableViewController.swift */; };
 		4DE27AA1285AECF4001D01B8 /* ItemDescriptionUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE27AA0285AECF4001D01B8 /* ItemDescriptionUIScrollView.swift */; };
 		4DE27AA3285AED33001D01B8 /* ItemDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE27AA2285AED33001D01B8 /* ItemDescriptionViewController.swift */; };
+		B40364DE2865A233002AC59E /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40364DD2865A233002AC59E /* MainNavigationController.swift */; };
 		B49655822857745000195BF8 /* exposition_universelle_1900.json in Resources */ = {isa = PBXBuildFile; fileRef = B49655812857745000195BF8 /* exposition_universelle_1900.json */; };
 		B49655842857746100195BF8 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = B49655832857746000195BF8 /* items.json */; };
 		B4DFB1182859AFB0007E62F8 /* MainUIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DFB1172859AFB0007E62F8 /* MainUIScrollView.swift */; };
@@ -31,6 +32,7 @@
 		4DE27A9E285AD213001D01B8 /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		4DE27AA0285AECF4001D01B8 /* ItemDescriptionUIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDescriptionUIScrollView.swift; sourceTree = "<group>"; };
 		4DE27AA2285AED33001D01B8 /* ItemDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDescriptionViewController.swift; sourceTree = "<group>"; };
+		B40364DD2865A233002AC59E /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		B49655812857745000195BF8 /* exposition_universelle_1900.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exposition_universelle_1900.json; sourceTree = "<group>"; };
 		B49655832857746000195BF8 /* items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		B4DFB1172859AFB0007E62F8 /* MainUIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIScrollView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		4D80FDD22857680200A048C7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B40364DD2865A233002AC59E /* MainNavigationController.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				4DE27A9E285AD213001D01B8 /* ItemTableViewController.swift */,
 				4DE27AA2285AED33001D01B8 /* ItemDescriptionViewController.swift */,
@@ -203,6 +206,7 @@
 				4DE27A9F285AD213001D01B8 /* ItemTableViewController.swift in Sources */,
 				B4E8175B285ACCC700E4EFCE /* JSONDecoder+Extension.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
+				B40364DE2865A233002AC59E /* MainNavigationController.swift in Sources */,
 				4D80FDD628576AF100A048C7 /* Expo.swift in Sources */,
 				4DE27A9D285AD1F2001D01B8 /* ItemTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,

@@ -17,11 +17,6 @@ final class ItemTableViewController: UITableViewController {
         tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "entryCell")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.rotationBlock = false
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let entryInfo = entryInfo else { return 0 }
         return entryInfo.count

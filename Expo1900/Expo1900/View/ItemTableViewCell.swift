@@ -14,6 +14,7 @@ final class ItemTableViewCell: UITableViewCell {
             itemTitleLabel.text = itemInfo?.name
             itemImageView.image = itemInfo?.image
             itemShortDescriptionLable.text = itemInfo?.shortDescription
+//            layoutIfNeeded()
         }
     }
     
@@ -46,6 +47,7 @@ final class ItemTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
 
@@ -64,12 +66,11 @@ final class ItemTableViewCell: UITableViewCell {
     private func setupSubviews() {
         contentView.addSubview(itemImageView)
         contentView.addSubview(itemLabelStackView)
-
+    
         [itemTitleLabel, itemShortDescriptionLable].forEach {
             itemLabelStackView.addArrangedSubview($0)
         }
-    
-        itemImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             itemImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
             itemImageView.topAnchor.constraint(equalTo: topAnchor),
@@ -77,14 +78,12 @@ final class ItemTableViewCell: UITableViewCell {
             itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
             itemImageView.trailingAnchor.constraint(equalTo: itemLabelStackView.leadingAnchor,constant: -10)
         ])
-        itemLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             itemLabelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             itemLabelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             itemLabelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
-        
-        layoutIfNeeded()
     }
     
     func updateEntry(by entry: Entry?) {
