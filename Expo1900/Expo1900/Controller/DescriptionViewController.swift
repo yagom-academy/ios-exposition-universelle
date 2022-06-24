@@ -16,8 +16,9 @@ final class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageview.image = UIImage(named: entryList?.imageName ?? "")
+        self.imageview.image = UIImage(named: entryList?.imageName ?? ExpoNameSpace.empty.name)
         self.detailedDescription.text = entryList?.description
         self.title = entryList?.name
+        self.imageview.accessibilityLabel = (entryList?.name ?? ExpoNameSpace.empty.name) + "사진"
     }
 }

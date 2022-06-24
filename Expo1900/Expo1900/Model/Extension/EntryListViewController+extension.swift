@@ -24,6 +24,8 @@ extension EntryListViewController {
     
     private func updatekoreaEntryImage(of cell: CustomTableViewCell, _ indexPath: IndexPath) {
         cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? ExpoNameSpace.empty.name)
+        cell.koreaEntryImage.accessibilityLabel = (entryList?[indexPath.row].name ?? "") + "사진"
+        cell.koreaEntryImage.accessibilityTraits = .none
     }
     
     private func updateKoreaEntryTitle(of cell: CustomTableViewCell, _ indexPath: IndexPath) {

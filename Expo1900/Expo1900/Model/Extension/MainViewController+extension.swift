@@ -39,10 +39,13 @@ extension MainViewController {
     }
     
     private func updateDutrationInformation(of expo: ExpoInformation) {
+        let duration = expo.duration.replacingOccurrences(of: "-", with: "~")
         expoDuration.text = ExpoNameSpace.howlong.name + expo.duration
+        expoDuration.accessibilityLabel = ExpoNameSpace.howlong.name + duration
     }
     
     private func updateDescriptionInformation(of expo: ExpoInformation) {
         expoDescription.text = expo.description
+        expoDescription.accessibilityLabel = "엑스포에 대한 설명입니다."
     }
 }

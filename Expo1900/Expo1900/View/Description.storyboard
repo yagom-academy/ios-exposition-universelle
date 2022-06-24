@@ -28,6 +28,10 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-VH-c4C">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="394"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" none="YES"/>
+                                                            <bool key="isElement" value="YES"/>
+                                                        </accessibility>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Ocd-VH-c4C" secondAttribute="height" multiplier="1:1" id="nVt-iw-DUz"/>
                                                         </constraints>
