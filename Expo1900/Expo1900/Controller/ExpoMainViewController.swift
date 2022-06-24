@@ -113,13 +113,13 @@ final class ExpoMainViewController: UIViewController {
             createLabel(expoData?.duration),
             descriptionLabel,
             subStackView]
-        mainStackViewItemsArray.forEach {self.mainStackView.addArrangedSubview($0)}
+        mainStackViewItemsArray.forEach { self.mainStackView.addArrangedSubview($0) }
         
         let subStackViewItemsArray = [
             createImageView(imageName: Asset.flag),
             nextViewButton,
             createImageView(imageName: Asset.flag)]
-        subStackViewItemsArray.forEach {self.subStackView.addArrangedSubview($0)}
+        subStackViewItemsArray.forEach { self.subStackView.addArrangedSubview($0) }
     }
     
     private func setViewConstraints() {
