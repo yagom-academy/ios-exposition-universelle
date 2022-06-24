@@ -37,9 +37,12 @@
 
 ## 5. 실행 화면 및 기능 설명
 ### 1️⃣ 실행 화면 사진 및 코드
-|[파리만국박람회 소개 화면 코드 보기](https://github.com/Hugh-github/ios-exposition-universelle/blob/Step2/Expo1900/Expo1900/Controller/MainViewController.swift)|[한국 출품작 소개 화면 코드 보기](https://github.com/Hugh-github/ios-exposition-universelle/blob/Step2/Expo1900/Expo1900/Controller/ItemListViewController.swift)|[출품작 상세 소개 화면 코드 보기](https://github.com/Hugh-github/ios-exposition-universelle/blob/Step2/Expo1900/Expo1900/Controller/DetailViewController.swift)|Dynamic Type 적용 화면|
-|:--:|:--:|:--:|:--:|
-|![스크린샷 2022-06-17 오후 2 16 40](https://user-images.githubusercontent.com/50102522/174239413-e47d3df1-ca9a-499a-9b92-ca7b7559c75b.png)|![스크린샷 2022-06-17 오후 2 16 32](https://user-images.githubusercontent.com/50102522/174239434-f8f6b5cb-6c24-4e37-82d6-159f662d84f2.png)|![스크린샷 2022-06-17 오후 2 16 49](https://user-images.githubusercontent.com/50102522/174239460-f1b09bb5-ec27-465e-a4c0-4fd7728c619b.png)| <img src="https://user-images.githubusercontent.com/102569735/175462914-11578d53-dd92-437a-92e5-c81de62b9973.gif" width="600" height="440"/> | 
+
+|[파리만국박람회 소개 화면 코드 보기](https://github.com/Hugh-github/ios-exposition-universelle/blob/Step2/Expo1900/Expo1900/Controller/MainViewController.swift)|[한국 출품작 소개 화면 코드 보기](https://github.com/Hugh-github/ios-exposition-universelle/blob/Step2/Expo1900/Expo1900/Controller/ItemListViewController.swift)|
+|:--:|:--:|
+|<img src="https://user-images.githubusercontent.com/50102522/174239413-e47d3df1-ca9a-499a-9b92-ca7b7559c75b.png" width="300" height="550"/>|<img src="https://user-images.githubusercontent.com/50102522/174239434-f8f6b5cb-6c24-4e37-82d6-159f662d84f2.png" width="300" height="550"/> |
+|[출품작 상세 소개 화면 코드 보기](https://github.com/Hugh-github/ios-exposition-universelle/blob/Step2/Expo1900/Expo1900/Controller/DetailViewController.swift)|Dynamic Type 적용 화면|
+|<img src="https://user-images.githubusercontent.com/50102522/174239460-f1b09bb5-ec27-465e-a4c0-4fd7728c619b.png" width="300" height="550"/> | <img src="https://user-images.githubusercontent.com/102569735/175462914-11578d53-dd92-437a-92e5-c81de62b9973.gif" width="300" height="550"/> |
 
 <br>
 
