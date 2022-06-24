@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(stackView)
         return scrollView
     }()
     
@@ -29,19 +28,12 @@ class MainViewController: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.spacing = 8
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(posterImageView)
-        stackView.addArrangedSubview(visitorsStackView)
-        stackView.addArrangedSubview(locationStackView)
-        stackView.addArrangedSubview(durationStackView)
-        stackView.addArrangedSubview(descriptionLabel)
-        stackView.addArrangedSubview(enterButtonStackView)
         return stackView
     }()
     
     lazy var titleLabel: UILabel = {
         let label = makeLabel()
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.numberOfLines = 0
         label.text = expositionModel?.title
         label.text = label.text?.replacingOccurrences(of: "(", with: "\n(")
@@ -57,87 +49,110 @@ class MainViewController: UIViewController {
     
     lazy var visitorsStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
-        let titleLabel = makeLabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
-        titleLabel.text = "방문객 :"
-        
-        let textLabel = makeLabel()
-        textLabel.text = "\(numberFormatter.string(for: expositionModel?.visitors) ?? "") 명"
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textLabel)
         return stackView
+    }()
+    
+    lazy var visitorsTitleLabel: UILabel = {
+        let titleLabel = makeLabel()
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        titleLabel.text = "방문객 :"
+        return titleLabel
+    }()
+    
+    lazy var visitorsTextLabel: UILabel = {
+        let textLabel = makeLabel()
+        numberFormatter.numberStyle = .decimal
+        textLabel.text = "\(numberFormatter.string(for: expositionModel?.visitors) ?? "") 명"
+        textLabel.numberOfLines = 0
+        return textLabel
     }()
     
     lazy var locationStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
+        return stackView
+    }()
+    
+    lazy var locationTitleLabel: UILabel = {
         let titleLabel = makeLabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         titleLabel.text = "개최지 :"
-        
+        return titleLabel
+    }()
+    
+    lazy var locationTextLabel: UILabel = {
         let textLabel = makeLabel()
         textLabel.text = "\(expositionModel?.location ?? "")"
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textLabel)
-        return stackView
+        textLabel.numberOfLines = 0
+        return textLabel
     }()
     
     lazy var durationStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
-        let titleLabel = makeLabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
-        titleLabel.text = "개최 기간 :"
-        
-        let textLabel = makeLabel()
-        textLabel.text = "\(expositionModel?.duration ?? "")"
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textLabel)
         return stackView
+    }()
+    
+    lazy var durationTitleLabel: UILabel = {
+        let titleLabel = makeLabel()
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        titleLabel.text = "개최 기간 :"
+        return titleLabel
+    }()
+    
+    lazy var durationTextLabel: UILabel = {
+        let textLabel = makeLabel()
+        let duration = expositionModel?.duration
+        textLabel.text = "\(duration ?? "")"
+        textLabel.numberOfLines = 0
+        textLabel.accessibilityLabel = (duration?.replacingOccurrences(of: "-", with: "부터") ?? "") + "까지"
+        return textLabel
     }()
     
     lazy var descriptionLabel: UILabel = {
         let label = makeLabel()
         label.numberOfLines = 0
         label.text = expositionModel?.description ?? ""
+        label.accessibilityLabel = "파리 만국박람회 1900 설명"
         return label
     }()
     
     lazy var enterButtonStackView: UIStackView = {
         let stackView = makeHorizontalStackView()
-        
-        let leftImageView = makeImageView(named: "flag", x: 60, y: 40)
-        let rightImageView = makeImageView(named: "flag", x: 60, y: 40)
-        
+        return stackView
+    }()
+    
+    lazy var leftImageView: UIImageView = {
+        return makeImageView(named: "flag", x: 60, y: 40)
+    }()
+    
+    lazy var rightImageView: UIImageView = {
+        return makeImageView(named: "flag", x: 60, y: 40)
+    }()
+    
+    lazy var enterButton: UIButton = {
         let enterButton = UIButton()
         enterButton.translatesAutoresizingMaskIntoConstraints = false
         enterButton.setTitle("한국의 출품작 보러가기", for: .normal)
         enterButton.setTitleColor(.systemBlue, for: .normal)
         enterButton.addTarget(self, action: #selector(enterButtonDidTapped(_:)), for: .touchUpInside)
-        
-        stackView.addArrangedSubview(leftImageView)
-        stackView.addArrangedSubview(enterButton)
-        stackView.addArrangedSubview(rightImageView)
-        return stackView
+        return enterButton
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "메인"
-        numberFormatter.numberStyle = .decimal
-        
-        view.addSubview(scrollView)
+        addAllSubviews()
         designateScrollViewConstraints()
         designateStackViewConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
-        navigationController?.isNavigationBarHidden = true
+        super.viewWillAppear(animated)
+        designateNavigationSetting()
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppUtility.lockOrientation(.all)
     }
     
     @objc func enterButtonDidTapped(_ sender: UIButton) {
@@ -161,7 +176,8 @@ private extension MainViewController {
     func makeLabel() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }
     
@@ -184,7 +200,38 @@ private extension MainViewController {
         stackView.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
         stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -10).isActive = true
+    }
+    
+    func addAllSubviews() {
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(stackView)
+        
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(posterImageView)
+        stackView.addArrangedSubview(visitorsStackView)
+        stackView.addArrangedSubview(locationStackView)
+        stackView.addArrangedSubview(durationStackView)
+        stackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(enterButtonStackView)
+        
+        visitorsStackView.addArrangedSubview(visitorsTitleLabel)
+        visitorsStackView.addArrangedSubview(visitorsTextLabel)
+        
+        locationStackView.addArrangedSubview(locationTitleLabel)
+        locationStackView.addArrangedSubview(locationTextLabel)
+        
+        durationStackView.addArrangedSubview(durationTitleLabel)
+        durationStackView.addArrangedSubview(durationTextLabel)
+        
+        enterButtonStackView.addArrangedSubview(leftImageView)
+        enterButtonStackView.addArrangedSubview(enterButton)
+        enterButtonStackView.addArrangedSubview(rightImageView)
+    }
+    
+    func designateNavigationSetting() {
+        navigationItem.title = "메인"
+        navigationController?.isNavigationBarHidden = true
     }
 }
-
