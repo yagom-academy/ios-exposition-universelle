@@ -29,7 +29,8 @@
 <br>
 
 ## 4. UML, 순서도
-(추가 예정)
+![UML](https://user-images.githubusercontent.com/50102522/175470689-7ad0b0d9-a4a6-485b-9024-8a6b73b8b949.png)
+
 
 <br>
 
