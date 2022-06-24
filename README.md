@@ -13,8 +13,8 @@
     - [STEP1에서 PR내용](#STEP1PR)
     - [STEP2에서 PR내용](#STEP2PR)
 
-- [고민한점STEP1](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP1)  
-[고민한점STEP2](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP2)  
+- [고민한점STEP1](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP1)
+[고민한점STEP2](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP2)
 [고민한점STEP3](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP3)
 ## 프로젝트 소개
 - json데이터, 테이블 뷰를 이용해서 만국박람회 구성하기
@@ -30,13 +30,13 @@
 
 |첫번째 화면 구현동작|두번째 화면 및 세번째 화면 구현 동작|  
 |:---:|:---:|  
-|<img src="https://i.imgur.com/p3cMMtv.gif" width="400"/>|<img src="https://i.imgur.com/KOJU4A1.gif" width="400"/>|  
+|<img src="https://i.imgur.com/xJfUNws.gif" width="400"/>|<img src="https://i.imgur.com/PVU2seK.gif" width="400"/>|  
 |첫번째 화면|첫번째 화면 최하단 부분|  
-|<img src="https://i.imgur.com/5aqX8xW.jpg" width="400"/>|<img src="https://i.imgur.com/KcARFwP.png" width="300" height="550"/>|  
-|두번째 화면|세번째 화면|  
-|<img src="https://i.imgur.com/H2PgbqG.png" width="400"/>|<img src="https://i.imgur.com/LZiPiKM.png" width="400"/>|
-|첫번째 화면 세로고정|다이나믹 타입 적용|
-|<img src = "https://i.imgur.com/cEsrsJ6.gif" height = 400>|<img src="https://user-images.githubusercontent.com/92622931/175485822-5a3ae0e0-a50e-44ef-be90-66d3da091ec4.gif" width="400"/>|
+|<img src="https://i.imgur.com/5aqX8xW.jpg" width="400"/>|<img src="https://i.imgur.com/KcARFwP.png" width="400"/>|  
+|두번째 화면|세번째 화면|   
+|<img src="https://i.imgur.com/H2PgbqG.png" width="400"/>|<img src="https://i.imgur.com/LZiPiKM.png" width="400"/>|  
+|첫번째 화면 세로고정|다이나믹 타입 적용|  
+|<img src = "https://i.imgur.com/cEsrsJ6.gif" width = 400>|<img src="https://user-images.githubusercontent.com/92622931/175485822-5a3ae0e0-a50e-44ef-be90-66d3da091ec4.gif" width="400"/>|
 
 
 ## UML
@@ -49,4 +49,5 @@
 ## PR메세지
 ### [STEP1PR](https://github.com/yagom-academy/ios-exposition-universelle/pull/169)
 ### [STEP2PR](https://github.com/yagom-academy/ios-exposition-universelle/pull/176)
+
 
