@@ -97,11 +97,10 @@ final class KoreaItemTableViewCell: UITableViewCell {
     private func setViewConstraints() {
         itemStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
         itemStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-        itemStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20).isActive = true
+        itemStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: DetailSetUp.itemStackViewLeadingSpacing).isActive = true
         itemStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
-        itemImageView.topAnchor.constraint(equalTo: itemImageStackView.topAnchor, constant: 10).isActive = true
-        itemImageView.bottomAnchor.constraint(equalTo: itemImageStackView.bottomAnchor, constant: -10).isActive = true
-//        itemImageStackView.leadingAnchor.constraint(equalTo: itemStackView.leadingAnchor, constant: 10).isActive = true
+        itemImageView.topAnchor.constraint(equalTo: itemImageStackView.topAnchor, constant: DetailSetUp.itemImageTopSpacing).isActive = true
+        itemImageView.bottomAnchor.constraint(equalTo: itemImageStackView.bottomAnchor, constant: DetailSetUp.itemImageBottomSpacing).isActive = true
         itemImageStackView.widthAnchor.constraint(equalToConstant: DetailSetUp.itemImageStackViewWidth).isActive = true
         itemImageStackView.heightAnchor.constraint(equalToConstant: DetailSetUp.itemImageStackViewHeight).isActive = true
     }
@@ -111,10 +110,13 @@ final class KoreaItemTableViewCell: UITableViewCell {
 
 extension KoreaItemTableViewCell {
     enum DetailSetUp {
-        static let itemStackViewSpacing: CGFloat = 5
-        static let itemLabelStackSpacing: CGFloat = 10
         static let labelNumberOfLines = 0
         static let subStacViewWidthMultiplier: CGFloat = 3.5
+        static let itemStackViewSpacing: CGFloat = 5
+        static let itemStackViewLeadingSpacing: CGFloat = 20
+        static let itemLabelStackSpacing: CGFloat = 10
+        static let itemImageTopSpacing: CGFloat = 10
+        static let itemImageBottomSpacing: CGFloat = -10
         static let itemImageStackViewHeight: CGFloat = 100
         static let itemImageStackViewWidth: CGFloat = 100
     }
