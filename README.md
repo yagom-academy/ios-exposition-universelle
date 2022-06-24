@@ -717,6 +717,7 @@ extension UILabel {
     content.imageProperties.reservedLayoutSize.height = cell.frame.height
     ```
 - 예시 영상
+
 ![셀_재사용_문제](https://user-images.githubusercontent.com/99063327/175296689-e4d60806-aa70-4e02-a411-9c5646b358c6.gif)
 - 이 문제는 셀의 재사용 때문에 발생하는 것으로 추정되는데, 이를 해결하기 위해서는 `prepareForReuse` 메서드를 통해 셀의 높이를 초기화해야 된다고 생각한다.
 - 이를 사용하기 위해서는 `custom cell`을 생성하여 `UITableViewCell` 클래스를 상속하여야 하므로, `custom cell`을 생성하지 않고는 해결하기 어렵다고 판단하였다.
