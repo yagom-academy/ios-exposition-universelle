@@ -33,6 +33,7 @@ final class KoreaItemDetailViewController: UIViewController {
     private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.isAccessibilityElement = true
         return imageView
     }()
     
@@ -88,6 +89,7 @@ final class KoreaItemDetailViewController: UIViewController {
     
     private func setKoreaItemData() {
         itemImageView.image = koreaItems?.image
+        itemImageView.accessibilityLabel = koreaItems?.name
         descriptionLabel.text = koreaItems?.description
     }
         
