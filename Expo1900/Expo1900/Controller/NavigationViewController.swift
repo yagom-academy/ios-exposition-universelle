@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NavigationViewController: UINavigationController {
+final class NavigationViewController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return self.topViewController!.supportedInterfaceOrientations
     }
