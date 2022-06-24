@@ -4,7 +4,7 @@
 > 프로젝트 기간: 2022-06-13 ~ 2022-06-24</br>
 > 팀원: [브래드](https://github.com/bradheo65), [그루트](https://github.com/Groot-94)</br>
 리뷰어: [@ryan-son](https://github.com/ryan-son)</br>
-그라운드롤: [GroundRole](https://github.com/bradheo65/ios-exposition-universelle/blob/Step03/Docs/GroundRule.md)
+그라운드롤: [GroundRule](https://github.com/bradheo65/ios-exposition-universelle/blob/Step03/Docs/GroundRule.md)
 
 ## 📑 목차
 - [개발자 소개](#개발자-소개)
