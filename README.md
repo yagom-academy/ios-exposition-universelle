@@ -12,7 +12,9 @@
 * [키워드](#키워드)
 * [핵심경험](#핵심경험)
 * [기능설명](#기능설명)
-
+    * [STEP 1](https://github.com/finnn1/ios-exposition-universelle/blob/STEP3/Docs/STEP01.md)
+    * [STEP 2](https://github.com/finnn1/ios-exposition-universelle/blob/STEP3/Docs/STEP02.md)
+    * [STEP 3](https://github.com/finnn1/ios-exposition-universelle/blob/STEP3/Docs/STEP03.md)
 
 # 프로젝트 소개
 만국박람회(World's Fair)를 iOS 어플리케이션으로 구현해보는 프로젝트입니다.
