@@ -9,7 +9,7 @@ import UIKit
 
 final class NavigationViewController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return self.topViewController!.supportedInterfaceOrientations
+        return self.topViewController?.supportedInterfaceOrientations ?? .all
     }
 
     override func viewDidLoad() {

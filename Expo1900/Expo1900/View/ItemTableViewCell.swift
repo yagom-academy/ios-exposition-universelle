@@ -10,13 +10,13 @@ import UIKit
 final class ItemTableViewCell: UITableViewCell {
     // MARK: - Properties
     
-    private let itemImageView: UIImageView = {
+    let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private var titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
@@ -24,7 +24,7 @@ final class ItemTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let shortDescriptionLabel: UILabel = {
+    let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true

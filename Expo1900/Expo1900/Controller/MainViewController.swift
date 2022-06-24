@@ -95,6 +95,7 @@ final class MainViewController: UIViewController {
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.link, for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.titleLabel?.numberOfLines = 0
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.contentMode = .scaleAspectFit
@@ -119,7 +120,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        copnfigureScrollView()
+        configureScrollView()
         updateText()
         
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -142,7 +143,7 @@ final class MainViewController: UIViewController {
         self.navigationController?.pushViewController(secondView, animated: true)
     }
     
-    private func copnfigureScrollView() {
+    private func configureScrollView() {
         addScrollView()
         addStackView()
         
