@@ -9,14 +9,13 @@ import UIKit
 
 final class ItemDescriptionViewController: UIViewController {
     
-    var entryInfo: Entry? {
+    private var entryInfo: Entry? {
         didSet {
-            itemDescriptionScrollView.itemDetailInfo = entryInfo
+            itemDescriptionScrollView.updateEntry(by: entryInfo)
         }
     }
     
     private let itemDescriptionScrollView = ItemDescriptionUIScrollView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,5 +24,9 @@ final class ItemDescriptionViewController: UIViewController {
     
     override func loadView() {
         view = itemDescriptionScrollView
+    }
+    
+    func updateEntry(by entry: Entry?) {
+        entryInfo = entry
     }
 }

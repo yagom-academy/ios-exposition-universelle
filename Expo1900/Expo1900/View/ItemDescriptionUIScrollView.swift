@@ -2,15 +2,16 @@
 //  itemDescriptionUIScrollView.swift
 //  Expo1900
 //
-//  Created by Kiwon Song on 2022/06/16.
+//  Created by Kiwi, Finnn on 2022/06/16.
 //
 
 import UIKit
 
-final class ItemDescriptionUIScrollView: UIScrollView {
+final class ItemDescriptionUIScrollView: UIView {
     
-    private let contentView = UIView()
-    var itemDetailInfo: Entry? {
+    private let itemDescriptionScrollView = UIScrollView()
+    
+    private var itemDetailInfo: Entry? {
         didSet {
             itemImageView.image = itemDetailInfo?.image
             itemDescriptionLabel.text = itemDetailInfo?.desc
@@ -24,12 +25,14 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     
     private let itemDescriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
     
-    private lazy var itemStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [itemImageView, itemDescriptionLabel])
+    private let itemStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -40,7 +43,9 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        setupContentViewConstraints()
+        itemImageView.contentMode = .scaleAspectFit
+        
+        setupItemDescriptionScrollViewConstraints()
         setupItemStackViewConstraints()
     }
     
@@ -48,28 +53,39 @@ final class ItemDescriptionUIScrollView: UIScrollView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func setupContentViewConstraints() {
-        addSubview(contentView)
-        
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-    }
-    
+ 
     private func setupItemStackViewConstraints() {
-        contentView.addSubview(itemStackView)
+        itemDescriptionScrollView.addSubview(itemStackView)
+        
+        [itemImageView, itemDescriptionLabel].forEach {
+            itemStackView.addArrangedSubview($0)
+        }
+        
+        itemImageView.translatesAutoresizingMaskIntoConstraints = false
+        itemImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
         
         itemStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            itemStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            itemStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            itemStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-            itemStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            itemStackView.topAnchor.constraint(equalTo: itemDescriptionScrollView.topAnchor),
+            itemStackView.bottomAnchor.constraint(equalTo: itemDescriptionScrollView.bottomAnchor),
+            itemStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -25),
+            itemStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+    }
+    
+    func setupItemDescriptionScrollViewConstraints() {
+        addSubview(itemDescriptionScrollView)
+        
+        itemDescriptionScrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            itemDescriptionScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            itemDescriptionScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            itemDescriptionScrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            itemDescriptionScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    func updateEntry(by entry: Entry?) {
+        itemDetailInfo = entry
     }
 }

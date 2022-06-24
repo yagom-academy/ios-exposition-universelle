@@ -10,10 +10,17 @@ final class MainViewController: UIViewController {
     
     private let mainScrollView = MainUIScrollView()
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainScrollView.addTargetKoreanEntryButton(target: self, action: #selector(didkoreanEntryButtonTapped), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
-        mainScrollView.koreanEntryButton.addTarget(self, action: #selector(didkoreanEntryButtonTapped), for: .touchUpInside)
     }
     
     override func loadView() {

@@ -25,13 +25,13 @@ final class ItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let entryInfo = entryInfo else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell",for: indexPath) as! ItemTableViewCell
-        cell.itemInfo = entryInfo[indexPath.row]
+        cell.updateEntry(by: entryInfo[indexPath.row])
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemDescriptionViewController = ItemDescriptionViewController()
-        itemDescriptionViewController.entryInfo = self.entryInfo?[indexPath.row]
+        itemDescriptionViewController.updateEntry(by: self.entryInfo?[indexPath.row])
         navigationController?.pushViewController(itemDescriptionViewController, animated: true)
     }
     

@@ -9,53 +9,52 @@ import UIKit
 
 final class ItemTableViewCell: UITableViewCell {
     
-    var itemInfo: Entry? {
+    private var itemInfo: Entry? {
         didSet {
             itemTitleLabel.text = itemInfo?.name
             itemImageView.image = itemInfo?.image
             itemShortDescriptionLable.text = itemInfo?.shortDescription
+            layoutIfNeeded()
         }
     }
     
     private let itemTitleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
     private let itemImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private let itemShortDescriptionLable: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
     
-    private lazy var itemLabelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [itemTitleLabel, itemShortDescriptionLable])
-        stackView.spacing = 20
+    private let itemLabelStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.spacing = 5
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        return stackView
-    }()
-    
-    private lazy var itemStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [itemImageView, itemLabelStackView])
-        stackView.spacing = 10
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        accessoryType = .disclosureIndicator
+        
         setupSubviews()
     }
     
@@ -65,13 +64,29 @@ final class ItemTableViewCell: UITableViewCell {
     }
     
     private func setupSubviews() {
-        addSubview(itemStackView)
+        contentView.addSubview(itemImageView)
+        contentView.addSubview(itemLabelStackView)
+    
+        [itemTitleLabel, itemShortDescriptionLable].forEach {
+            itemLabelStackView.addArrangedSubview($0)
+        }
         
         NSLayoutConstraint.activate([
-            itemStackView.topAnchor.constraint(equalTo: topAnchor),
-            itemStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            itemStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            itemStackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            itemImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.15),
+            itemImageView.topAnchor.constraint(equalTo: topAnchor),
+            itemImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            itemImageView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
+            itemImageView.trailingAnchor.constraint(equalTo: itemLabelStackView.leadingAnchor,constant: -10)
         ])
+        
+        NSLayoutConstraint.activate([
+            itemLabelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            itemLabelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            itemLabelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+    }
+    
+    func updateEntry(by entry: Entry?) {
+        itemInfo = entry
     }
 }

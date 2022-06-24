@@ -7,9 +7,10 @@
 
 import UIKit
 
-final class MainUIScrollView: UIScrollView {
+final class MainUIScrollView: UIView {
     
-    private let contentView = UIView()
+    private let mainScrollView = UIScrollView()
+    
     private let expoInfo: Expo? = JSONDecoder.decodeJson(jsonName: "exposition_universelle_1900")
     
     private let numberFormatter: NumberFormatter = {
@@ -20,8 +21,9 @@ final class MainUIScrollView: UIScrollView {
     
     private let mainTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.numberOfLines = 2
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
@@ -33,25 +35,32 @@ final class MainUIScrollView: UIScrollView {
     
     private let audienceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
     private let venueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
     private let periodLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
@@ -74,7 +83,7 @@ final class MainUIScrollView: UIScrollView {
         return imageView
     }()
     
-    let koreanEntryButton: UIButton = {
+    private let koreanEntryButton: UIButton = {
         let button = UIButton(type: .custom)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
@@ -82,9 +91,8 @@ final class MainUIScrollView: UIScrollView {
         return button
     }()
     
-    
-    private lazy var buttonStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [leftFlagImage, koreanEntryButton, rightFlagImage])
+    private let buttonStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .horizontal
         stackView.distribution = .equalCentering
@@ -94,8 +102,8 @@ final class MainUIScrollView: UIScrollView {
         return stackView
     }()
     
-    private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [mainTitleLabel, mainImageView, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView])
+    private let mainStackView: UIStackView = {
+        let stackView = UIStackView()
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -105,8 +113,9 @@ final class MainUIScrollView: UIScrollView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupContentViewConstraints()
+        
         mainStackViewConfigure()
+        setupMainScrollViewConstraints()
         setupLabelConstraints()
         setupData()
     }
@@ -130,30 +139,42 @@ final class MainUIScrollView: UIScrollView {
         descriptionLabel.text = expoInfo?.description
     }
     
-    private func setupContentViewConstraints() {
-        addSubview(contentView)
-        
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-    }
-    
     private func mainStackViewConfigure() {
+        [leftFlagImage, koreanEntryButton, rightFlagImage].forEach {
+            buttonStackView.addArrangedSubview($0)
+        }
+        
+        [mainTitleLabel, mainImageView, audienceLabel, venueLabel, periodLabel, descriptionLabel, buttonStackView].forEach {
+            mainStackView.addArrangedSubview($0)
+        }
+        
         backgroundColor = .white
-        addSubview(mainStackView)
+        mainScrollView.addSubview(mainStackView)
     }
     
     private func setupLabelConstraints() {
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            mainStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -50),
-            mainStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+            mainStackView.topAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.contentLayoutGuide.bottomAnchor, constant: -10),
+            mainStackView.widthAnchor.constraint(equalTo: widthAnchor, constant: -25),
+            mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+    }
+    
+    func setupMainScrollViewConstraints() {
+        addSubview(mainScrollView)
+        
+        mainScrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainScrollView.topAnchor.constraint(equalTo: topAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            mainScrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            mainScrollView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
+    
+    func addTargetKoreanEntryButton(target: Any?, action: Selector, for event: UIControl.Event) {
+        koreanEntryButton.addTarget(target, action: action, for: event)
     }
 }
