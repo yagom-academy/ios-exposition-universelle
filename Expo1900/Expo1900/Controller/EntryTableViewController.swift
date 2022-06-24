@@ -104,21 +104,7 @@ extension EntryTableViewController {
         case .success(let data):
             entryEntity = data
         case .failure(let error):
-            self.showErrorAlert(message: error.message)
+            self.showConfirmAlert(title: "뒤로가기", message: error.message, alertStyle: .revert)
         }
-    }
-    
-    func showErrorAlert(message: String) {
-        let alertController = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "뒤로가기", style: .default) { _ in
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
-        alertController.addAction(alertAction)
-        alertController.addAction(cancelAction)
-
-        self.present(alertController, animated: true)
     }
 }

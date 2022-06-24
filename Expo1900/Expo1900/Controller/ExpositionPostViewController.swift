@@ -45,18 +45,9 @@ extension ExpositionPostViewController {
         case .success(let data):
             return data
         case .failure(let error):
-            self.showErrorAlert(message: error.message)
+            self.showConfirmAlert(title: "확인", message: error.message, alertStyle: .confirm)
         }
         
         return fetchData()
-    }
-    
-    func showErrorAlert(message: String) {
-        let alertController = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-        
-        alertController.addAction(cancelAction)
-
-        self.present(alertController, animated: true)
     }
 }
