@@ -14,7 +14,7 @@ final class ItemTableViewCell: UITableViewCell {
             itemTitleLabel.text = itemInfo?.name
             itemImageView.image = itemInfo?.image
             itemShortDescriptionLable.text = itemInfo?.shortDescription
-//            layoutIfNeeded()
+            layoutIfNeeded()
         }
     }
     
