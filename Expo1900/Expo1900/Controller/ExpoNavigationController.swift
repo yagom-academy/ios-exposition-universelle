@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpoNaviationController: UINavigationController {
+final class ExpoNavigationController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         guard self.topViewController is ExpoMainViewController else {
             return .all
