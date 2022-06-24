@@ -10,6 +10,4 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet private(set) weak var koreaEntryImage: UIImageView!
     @IBOutlet private(set) weak var koreaEntryTitle: UILabel!
     @IBOutlet private(set) weak var shortDescription: UILabel!
-    var detailedDescription: String?
-    var cellImage: UIImageView?
 }
