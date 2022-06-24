@@ -48,6 +48,8 @@ final class ExpoMainViewController: UIViewController {
         label.numberOfLines = DetailSetUp.labelNumberOfLines
         label.lineBreakStrategy = .hangulWordPriority
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
+        label.accessibilityLabel = DetailSetUp.expoDescriptionLabel
         return label
     }()
     
@@ -112,13 +114,15 @@ final class ExpoMainViewController: UIViewController {
             createLabel(expoData?.location),
             createLabel(expoData?.duration),
             descriptionLabel,
-            subStackView]
+            subStackView
+        ]
         mainStackViewItemsArray.forEach { self.mainStackView.addArrangedSubview($0) }
         
         let subStackViewItemsArray = [
             createImageView(imageName: Asset.flag),
             nextViewButton,
-            createImageView(imageName: Asset.flag)]
+            createImageView(imageName: Asset.flag)
+        ]
         subStackViewItemsArray.forEach { self.subStackView.addArrangedSubview($0) }
     }
     
@@ -159,6 +163,12 @@ final class ExpoMainViewController: UIViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: imageName)
         imageView.contentMode = .scaleAspectFit
+        imageView.isAccessibilityElement = true
+        if imageName == Asset.posterImage {
+            imageView.accessibilityLabel = expoData?.title
+        } else {
+            imageView.accessibilityLabel = DetailSetUp.koreaFlag
+        }
         return imageView
     }
     
@@ -170,6 +180,8 @@ final class ExpoMainViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = DetailSetUp.labelNumberOfLines
         label.lineBreakMode = .byWordWrapping
+        guard text == expoData?.duration else { return label }
+        label.accessibilityLabel = expoData?.duration.replacingOccurrences(of: "-", with: "~")
         return label
     }
     
@@ -193,6 +205,8 @@ extension ExpoMainViewController {
         static let buttonTitle = "한국의 출품작 보러가기"
         static let buttonCompressionResistancePriority = UILayoutPriority(751)
         static let title = "메인"
+        static let koreaFlag = "대한민국 국기"
+        static let expoDescriptionLabel = "파리만국박람회 설명"
         static let mainStackViewLeadingWithFrameLayoutGuide: CGFloat = 10
         static let mainStackViewTrailingWithFrameLayoutGuide: CGFloat = -10
         static let subStackViewTopWithDescriptionLabelBottom: CGFloat = 10
