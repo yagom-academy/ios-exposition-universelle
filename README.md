@@ -116,7 +116,7 @@
 
 |파리만국박람회 소개 화면|한국 출품작 소개 화면|출품작 상세 소개 화면|
 |:--:|:--:|:--:|
-|![EXPOInformationViewController](https://user-images.githubusercontent.com/99063327/174227640-f8d1a00b-957a-449e-b48b-f0b9e4d0aa2c.gif)|![KoreaEntryViewController](https://user-images.githubusercontent.com/99063327/174229792-2c3bb96c-1609-4bf2-b065-7957198ffe64.gif)|![KoreaEntryDetailsViewController](https://user-images.githubusercontent.com/99063327/174230832-9e656db0-add6-44b7-bf48-84cf62fa37dd.gif)|
+|![EXPOInformationViewController](https://user-images.githubusercontent.com/99063327/174227640-f8d1a00b-957a-449e-b48b-f0b9e4d0aa2c.gif)|![KoreaEntryViewController](https://user-images.githubusercontent.com/98514397/175473467-546fc42d-67b7-424f-8a7d-120faa33cc5f.gif)|![KoreaEntryDetailsViewController](https://user-images.githubusercontent.com/99063327/174230832-9e656db0-add6-44b7-bf48-84cf62fa37dd.gif)|
 
 ### 1. 파리만국박람회 소개 화면(EXPOInformationViewController)
 
