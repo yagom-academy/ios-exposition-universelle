@@ -17,11 +17,11 @@ class ExpoMenuTableViewCell: UITableViewCell {
          setupImageView(name: expoItemElement.imageName)
     }
     
-    func setupImageView(name: String) {
+    private func setupImageView(name: String) {
         self.expoItemImageView.image = UIImage(named: name)
     }
     
-    func setupLableView(name: String, shortDescription: String) {
+    private func setupLableView(name: String, shortDescription: String) {
         self.expoItemNameLabel.text = name
         self.expoItemDescriptionLabel.text = shortDescription
     }
