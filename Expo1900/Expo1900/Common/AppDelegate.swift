@@ -8,17 +8,7 @@ import UIKit
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-    // MARK: Properties
-    
-    var shouldSupportAllOrientation = true
-    
     // MARK: UI
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return shouldSupportAllOrientation == true
-            ? UIInterfaceOrientationMask.all
-            : UIInterfaceOrientationMask.portrait
-    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true

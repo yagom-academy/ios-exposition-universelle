@@ -17,7 +17,6 @@ final class EXPOInformationViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var navigationButton: UIButton!
     
-    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     private var expositionUniverselle: ExpositionUniverselle?
     
     // MARK: Life Cycle
@@ -29,17 +28,19 @@ final class EXPOInformationViewController: UIViewController {
         navigationItem.title = "메인"
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        appDelegate?.shouldSupportAllOrientation = false
         navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        appDelegate?.shouldSupportAllOrientation = true
         navigationController?.isNavigationBarHidden = false
     }
 }
