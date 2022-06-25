@@ -13,9 +13,9 @@
     - [STEP1에서 PR내용](#STEP1PR)
     - [STEP2에서 PR내용](#STEP2PR)
 
-- [고민한점STEP1](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP1)  
-[고민한점STEP2](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP2)  
-[고민한점STEP3](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP3)
+- [고민한점STEP1](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP1.md)  
+[고민한점STEP2](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP2.md)  
+[고민한점STEP3](https://github.com/bar-d/ios-exposition-universelle/blob/develop/%EB%A7%8C%EA%B5%AD%EB%B0%95%EB%9E%8C%ED%9A%8CSTEP3.md)
 ## 프로젝트 소개
 - json데이터, 테이블 뷰를 이용해서 만국박람회 구성하기
 
