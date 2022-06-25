@@ -51,7 +51,6 @@ class ExpoHomeViewController: UIViewController {
         descriptionLabel.text = exposition?.expositionDescription
         leftFlagImageView.image = UIImage(named: "flag")
         rightFlagImageView.image = UIImage(named: "flag")
-        navigationController?.navigationBar.isHidden = true
     }
     
     private func modifyDecimalStyle(number: Int?) -> String {
