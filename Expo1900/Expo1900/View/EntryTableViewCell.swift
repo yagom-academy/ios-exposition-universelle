@@ -56,6 +56,12 @@ final class EntryTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setup(image: UIImage, title: String, description: String) {
+        self.entryImageView.image = image
+        self.titleLabel.text = title
+        self.descriptionLabel.text = description
+    }
 }
 
 // MARK: - UI
