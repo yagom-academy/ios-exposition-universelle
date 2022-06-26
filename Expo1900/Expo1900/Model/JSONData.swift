@@ -34,6 +34,3 @@ struct JSONData {
         }
     }
 }
-
-
-

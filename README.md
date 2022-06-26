@@ -39,6 +39,23 @@
 - 금 
     - `MVC` 패턴에 맞게 프로젝트 파일들의 폴더 이동 및 중복되는 코드 구조체 내 메서드로 분리 
 
+### 2주차
+
+- 월 
+    - 열거형 NameSpace을 생성
+    - 1주차에 작성한 코드 컨벤션 통일
+    - JSONData의 메서드(Parse)를 제너릭을 활용하여 1개의 메서드로 통합
+- 화 
+    - UINavigationItem을 extension 해줌 
+    - appDelegate에서 프로퍼티 `shouldSupportAllOrientation`와 메서드`supportedInterfaceOrientationsFor`를 구현하여 가로/세로 모드 자유자재로 변경할 수 있도록 해줌 
+- 수 
+    - 코딩 컨벤션에 따른 코드 수정
+    - 리뷰어 쿠마의 커멘트에 따라 프로젝트 step2 리팩토링
+- 목 
+    - 기존에 cell을 만들어주었던 `defaultContentConfiguration`방식에서 직접 custom한 cell을 만들어주는 방식으로 변경
+    - 2번째 뷰 컨트롤러의 테이블뷰 내부 cell과 오토레이아웃을 코드로 작성 및 수정
+    - UI 요소에 dynamic type 적용
+
 
 ### **이번 프로젝트를 수행함에 있어 꼭 읽고 참고해야 하는 문서**
 - [defaultContentconfiguration](https://developer.apple.com/documentation/uikit/uitableviewcell/3601058-defaultcontentconfiguration)
@@ -49,13 +66,15 @@
 - [TableView 데이터전달(prepare)](https://velog.io/@wook4506/iOS-Swift-TableView-데이터-전달prepare)
 - [Navigation Bar Title 변경](https://exception-log.tistory.com/158)
 - [Generic](https://seons-dev.tistory.com/entry/Swift-기초문법-제네릭-Generic)
-
-### 프로젝트 수행 중 핵심 경험
+- [performSegue](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621413-performsegue)
+- [withAlignmentRectInsets](https://developer.apple.com/documentation/uikit/uiimage/1624100-withalignmentrectinsets)
+- [translatesAutoresizingMaskIntoConstraints](https://developer.apple.com/documentation/uikit/uiview/1622572-translatesautoresizingmaskintoco)
+- [attributedText](https://ios-development.tistory.com/654)
 
 ### 시간
 
 [프로젝트에 집중하는 시간]
-10: 00 - 22: 00
+- 10: 00 - 22: 00
 
 [식사 시간]
 - 점심 12 : 30 ~ 14 : 00
@@ -97,7 +116,7 @@
 
 |파리만국박람회 소개 화면|한국 출품작 소개 화면|출품작 상세 소개 화면|
 |:--:|:--:|:--:|
-|![EXPOInformationViewController](https://user-images.githubusercontent.com/99063327/174227640-f8d1a00b-957a-449e-b48b-f0b9e4d0aa2c.gif)|![KoreaEntryViewController](https://user-images.githubusercontent.com/99063327/174229792-2c3bb96c-1609-4bf2-b065-7957198ffe64.gif)|![KoreaEntryDetailsViewController](https://user-images.githubusercontent.com/99063327/174230832-9e656db0-add6-44b7-bf48-84cf62fa37dd.gif)|
+|![EXPOInformationViewController](https://user-images.githubusercontent.com/99063327/174227640-f8d1a00b-957a-449e-b48b-f0b9e4d0aa2c.gif)|![KoreaEntryViewController](https://user-images.githubusercontent.com/98514397/175473467-546fc42d-67b7-424f-8a7d-120faa33cc5f.gif)|![KoreaEntryDetailsViewController](https://user-images.githubusercontent.com/99063327/174230832-9e656db0-add6-44b7-bf48-84cf62fa37dd.gif)|
 
 ### 1. 파리만국박람회 소개 화면(EXPOInformationViewController)
 
@@ -115,6 +134,7 @@
 
 - `ScrollView`내 `image`와 `description`에 관한 `label` 및 `ImageView`를 생성하여 스크롤을 통해 원하는 내용을 볼 수 있게 하였다.
 - `NavigationBar`의 `BackButton`을 통하여 이전 화면인 `KoreaEntryViewController`로 돌아가는 기능도 추가하였다.
+
 ## Step 1
 
 - feat: Exhibits 파일 생성 및 struct(Exhibits) 선언
@@ -144,9 +164,19 @@
 - refactor: EXPOInformationViewController파일 Controller 폴더로 이동 및 리팩토링
 - refactor: KoreaEntryDetailsViewController파일 Controller 폴더로 이동 및 리팩토링
 - refactor: EXPOError파일 Model 폴더로 이동 및 리팩토링
-- feat: struct(JSONData) 선언 …
-- feat: NavigationBarFormatter,CustomLabel 구조체 선언 …
+- feat: struct(JSONData) 선언
+- feat: NavigationBarFormatter,CustomLabel 구조체 선언 
+- refactor: 불필요한 NameSpace 제거
 
+## Step 3
+
+- feat: 첫번째 화면 가로모드 안되도록 설정
+- refactor: 코딩 컨벤션에 따른 코드 수정 
+- feat: EntryTableViewCell 생성 및 오토레이아웃 적용
+- refactor: ExpoInformationViewController 내부 Label 수정 
+- feat: UITableViewDelegate 프로토콜을 채택하여 performSegue 메서드 구현
+- refactor: EntryTableViewCell 오토레이아웃 수정
+- feat: label에 dynamic type 적용 및 주석 처리
 
 ## Step 1
 
@@ -452,3 +482,326 @@ private func updateTitleLabel() {
 - [Navigation Bar Title 변경](https://exception-log.tistory.com/158)
 - [Generic](https://seons-dev.tistory.com/entry/Swift-기초문법-제네릭-Generic)
 
+## Step 3
+
+## 고민했던 점
+
+### 주제
+### 1. 디바이스 회전 제한 메서드 호출 범위
+
+- 프로젝트 요구사항으로 첫 화면인 포스터는 세로로만 볼 수 있도록 하고, 출품작 목록과 상세 두 화면은 모두 가로로 회전이 가능하도록 명시되어 있었다.
+- `AppDelegate` 파일 내, 디바이스 회전을 구현하는 메서드를 작성하여, `ViewController`에서 아래의 코드를 호출하기만 하면, 디바이스 회전을 제한할 수 있었다.
+- 코드
+    ```swift
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    appDelegate.shouldSupportAllOrientation = false
+    ```
+- 그런데 이 메서드를, 처음에는 다음과 같이 각각의 `ViewController`의 `viewDidLoad` 메서드 내에서, 호출해야 한다고 생각했다.
+- 코드
+    ```swift
+    final class EXPOInformationViewController: UIViewController {
+        private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        override func viewDidLoad() {
+            super.viewDidLoad()
+
+            appDelegate.shouldSupportAllOrientation = false
+    }
+
+
+    final class KoreaEntryViewController: UIViewController {
+        private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        override func viewDidLoad() {
+            super.viewDidLoad()
+
+            appDelegate.shouldSupportAllOrientation = true
+    }
+
+
+    final class KoreaEntryDetailsViewController: UIViewController {
+        private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        override func viewDidLoad() {
+            super.viewDidLoad()
+
+            appDelegate.shouldSupportAllOrientation = true
+    }
+    ```
+- 하지만, 이와 같이 진행을 한다면, `appDelegate` 상수 선언이 반복적으로 사용되어, 싱글톤과 같은 방법을 필요로 하고, 두번째와 세번째 뷰컨트롤러는 설정 값이 같기 때문에 중복적으로 호출된 느낌이 받았으며, 또한, `viewDidLoad`에서 호출시, 뷰가 메모리에 올라간 한번만 호출되기 때문에 지속적으로 디바이스 회전을 제한하지 못하였다.
+- 위의 문제점을 종합해본 결과, 다음과 같이, 첫번째 뷰컨트롤러의 `viewWillAppear`에 세로 모드만 지원하고, `viewWillDisAppear`에서 이 제약을 다시 풀어지면, 두번째 및 세번째 뷰컨트롤러에서는 화면 회전이 정상적으로 작동하였고, `viewDidLoad`에서 구현하지 않아 지속적으로 디바이스 회전을 제한하였으며, `appDelegate` 상수 선언을 최초 1회만 실행하면 되었다.
+- 코드(`EXPOInformationViewController`)
+    ```swift
+    final class EXPOInformationViewController: UIViewController {
+        // MARK: Properties
+
+        ...
+
+        private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        ...
+
+        // MARK: Life Cycle
+
+        ...
+
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+
+            appDelegate.shouldSupportAllOrientation = false
+            ...
+        }
+
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+
+            appDelegate.shouldSupportAllOrientation = true
+            ...
+        }
+    }
+    ```
+
+### 2. ContentConfiguration 이미지 크기 제한
+
+- `ContentConfiguration` 기능을 통하여, 셀 내 이미지의 크기를 제한하고 싶어 다음과 같이 코드를 작성하였으나, 이미지와 텍스트의 정렬이 이미지 크기의 차이로 인하여 깔끔하게 정렬이 이루어지지 않았다.
+- 코드
+```swift
+extension KoreaEntryViewController: UITableViewDataSource {
+    ...
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NameSpace.entryCellId.name, for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        
+        tableView.separatorInset.left = .zero
+                
+        content.text = koreaEntry[indexPath.row].name
+        content.secondaryText = koreaEntry[indexPath.row].shortDescription
+        content.image = UIImage(named: koreaEntry[indexPath.row].imageName)
+
+        content.textProperties.font = UIFont.preferredFont(forTextStyle: .title2)
+        content.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .body)
+        content.imageProperties.maximumSize.width = 50
+        content.imageProperties.maximumSize.height = 50
+                
+        cell.contentConfiguration = content
+        cell.accessoryType = .disclosureIndicator
+
+        return cell
+    }
+}
+```
+- 예시 사진
+<img width="340" alt="스크린샷 2022-06-23 오후 8 53 58" src="https://user-images.githubusercontent.com/99063327/175292809-f38df45a-c0d8-44ab-b28f-c7549fed4a20.png">
+- 이를 해결하기 위해선, 각각의 이미지 크기에 상관없이, 이미지의 레이아웃 크기를 설정해줄 필요가 있었다.
+- 학습 결과, `reservedLayoutSize`를 통해 이미지의 레이아웃 크기를 설정함으로써, 이미지의 크기에 관계없이 이미지와 텍스트 간 정렬이 올바르게 적용되었다.
+- 예시 사진
+<img width="337" alt="스크린샷 2022-06-23 오후 9 01 48" src="https://user-images.githubusercontent.com/99063327/175294079-e7a36a38-d575-4c21-af70-894ac7871250.png">
+- 주의할 점은, `reservedLayoutSize`는 이미지의 크기를 결정하지 않으므로, `maximumSize`와 함께 사용하기를 권한다.
+
+
+### 3. 한 string 내에서 폰트의 크기가 달라져야 할 경우 
+- 명세를 보니, `"방문객 수 : \(visitors) 명"` 라는 `string` 내에서 `방문객 수 :`와 `\(visitors)명`의 폰트 크기가 다른 것을 확인하였습니다. 
+- 그래서 하나의 문자열 내에서 특정 부분만 font를 바꿔주는 것에 대해 두 가지의 방법을 생각해보았습니다.
+
+[첫 번째 방법]
+- `label`을 아예 2개 만든 후 첫 번째 `label`에 `방문객 수 :`을 넣고, 두 번째 `label`에 `\(visitors)명`을 넣은 뒤 첫 번째 `label`의 `font`를 지정해주는 방법
+
+[두 번째 방법]
+- `label`은 1개를 만든 후, 그 안에서 처리하는 방법
+- `UILabel`을 `extension`해서 바꾸고자 하는 `string` 부분의 `range`를 구한 뒤 `NSMutableAttributedString`을 사용하여 그 범위 부분만 바꿔주는 방법
+
+- 코드
+```swift
+extension UILabel {
+    func changeFontSize(font: UIFont, targetString: String) {
+        let fullText = text ?? ""
+        let range = (fullText as NSString).range(of: targetString)
+        let attributedString = NSMutableAttributedString(string: fullText)
+        attributedString.addAttribute(.font, value: font, range: range)
+        attributedText = attributedString
+    }
+}
+
+```
+- 이번 프로젝트에서는 라벨을 한 개만 생성하여 `UILabel`을 `extension` 해주는 두 번째 방법을 사용하여 해결하였습니다.
+
+
+
+## 의문점
+
+### 주제
+### 1. UIApplication.shared.delegate as! AppDelegate 와  AppDelegate()의 차이
+
+- `AppDelegate` 파일 내 클래스에서, 디바이스의 회전을 제한하는 메서드를 다음과 같이 구현하였습니다.
+- 코드(`AppDelegate`)
+    ```swift
+    final class AppDelegate: UIResponder, UIApplicationDelegate {
+        // MARK: Properties
+
+        var shouldSupportAllOrientation = true
+
+        // MARK: UI
+
+        func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+            if shouldSupportAllOrientation == true {
+                return UIInterfaceOrientationMask.all
+            }
+
+            return UIInterfaceOrientationMask.portrait
+        }
+        ...
+    }
+    ```
+- 코드(`EXPOInformationViewController`)
+    ```swift
+    final class EXPOInformationViewController: UIViewController {
+        // MARK: Properties
+
+        ...
+
+        private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        ...
+
+        // MARK: Life Cycle
+
+        ...
+
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+
+            appDelegate.shouldSupportAllOrientation = false
+            ...
+        }
+
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+
+            appDelegate.shouldSupportAllOrientation = true
+            ...
+        }
+    }
+    ```
+- 이에 `EXPOInformationViewController`에서 `appDelegate`이란 상수를 선언함에 있어, `UIApplication.shared.delegate as! AppDelegate` 로 값을 할당해주었습니다.
+- 상수를 선언함에 있어 `AppDelegate()`로 상수의 값을 할당해주면 안되는 것인지 의문이 제기되었습니다.
+- 이를 고민한 결과, `UIApplication.shared.delegate`는 현재 구현한 만국박람회 어플리케이션의 `delegate`를 `AppDelegate`로 다운캐스팅을 한 것이므로, 시뮬레이터 내 디바이스 회전에 대한 메서드가 정상적으로 가동됩니다.
+- 하지만, 그저 `AppDelegate()`로 설정을 하면, 만국박람회의 어플리케이션의 `AppDelegate`가 아닌, 일반적인 `AppDelegate` 타입이 생성된 것임을 깨달았습니다.
+- 이를 비유하자면, 모나미 볼펜을 구매하기 위해서는, 모나미 볼펜을 생성하는 공장(`UIApplication`)에서 생산한 모나미 볼펜(`UIApplication.shared.delegate`)을 구매하여야 하는것이지, `AppDelegate()`는 어디서 생산된지도 모르고, 모나미 볼펜도 아닌, 그냥 볼펜을 산 것과 같은 의미로 이해해 보았습니다.
+- 이와 같이, 이해해 본 바가 올바른 이해인지 여쭤보고 싶습니다!
+
+### 2. 이미지도 dynamic type이 적용되야 하는지
+- 첫 번째 `viewController`의 태극기 이미지와 두 번째 `viewController`의 테이블 뷰 왼쪽 이미지를 `accessibility Inspector`로 키워도 이미지 크기가 커지지 않았습니다.
+- 그 이유는 첫 번째 `viewController`의 태극기 이미지는 1:1 비율로 크기를 정해주었기 때문이고, 두 번째 `viewController`의 이미지는 `width` 크기를 지정해주었기 때문입니다.
+
+[두 번째 `viewController`의 이미지 부분 오토레이아웃] 
+```swift
+ entryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.0).isActive = true
+        entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2).isActive = true
+        entryImageView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+```
+- 그래서 혹시 두 개의 이미지 크기도 다이나믹 하게 적용이 되야 하는지 쿠마에게 여쭤보고 싶습니다. 만일 적용이 되야 한다면 텍스트도 함께 커지게 될 때 이미지가 어느정도의 범위까지 커져야 하는지도 궁금합니다..!
+
+### 3. ContentConfiguration과 Custom Cell
+
+- `UITableViewDataSource`의 메소드인 `func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)`에서 이미지 및 텍스트를 추가하기 위한 방법으로 두 가지 방법을 발견하였다. - 하나는, `cell.imageView.image` 나 `cell.textLabel.text`로 접근하는 방식이었고, 다른 하나는 `ContentConfiguration`을 통해 접근하는 방식이었다.
+- 전자의 방법은 iOS 14를 끝으로 `deprecated` 되는 방법이기 때문에, 후자의 방법을 사용하는 것이 좋다고 판단하였다.
+- 그런데, `ContentConfiguration`을 사용던 중, 상수 값이 아닌 다음과 같이 `image`의 `maximumSize`와 `reservedLayoutSize`를 `cell`의 `frame`을 기준으로 만들어보니, 스크롤을 반복할수록, 셀의 크기가 비정상적으로 증가하였다.
+- 코드
+    ```swift
+    content.imageProperties.maximumSize.width = cell.frame.width * 0.1
+    content.imageProperties.maximumSize.height = cell.frame.height
+    content.imageProperties.reservedLayoutSize.width = cell.frame.width * 0.1
+    content.imageProperties.reservedLayoutSize.height = cell.frame.height
+    ```
+- 예시 영상
+
+![셀_재사용_문제](https://user-images.githubusercontent.com/99063327/175296689-e4d60806-aa70-4e02-a411-9c5646b358c6.gif)
+- 이 문제는 셀의 재사용 때문에 발생하는 것으로 추정되는데, 이를 해결하기 위해서는 `prepareForReuse` 메서드를 통해 셀의 높이를 초기화해야 된다고 생각한다.
+- 이를 사용하기 위해서는 `custom cell`을 생성하여 `UITableViewCell` 클래스를 상속하여야 하므로, `custom cell`을 생성하지 않고는 해결하기 어렵다고 판단하였다.
+- 이를 통해, 두 가지 질문을 드리고 싶습니다.
+- 하나는 `contentConfiguration` 내에서 셀 재사용 문제를 해결할 방법이 없는지 궁금합니다.
+- 다음으로, `Cell.frame.height`가 저희가 생각하는 셀의 크기를 의미하는 것인지 여쭈어보고 싶습니다.
+
+### 4. 오토레이아웃 문제
+
+
+### [문제가 발생한 Cell 구조]
+<img src = "https://user-images.githubusercontent.com/98514397/175303717-2bddc656-a91a-455b-b44a-96d74709ef3e.png" width = "70%" height = "10%"> 
+
+### [첫 번째 문제]
+
+- 위와 같은 `cell`에서 `imageView`의 오토레이아웃을 잡아주는 데에 있어 문제가 있었습니다.
+- 맨 처음에는 아래와 같이 `imageView`의 오토레이아웃을 잡아주었는데, 아래처럼 `contentView`에 `heightAnchor`를 주면 높이가 한없이 커지는 현상이 발생했습니다. 
+
+```swift
+class EntryTableViewCell {
+    entryImageView.centerYAnchor.constraint(equalTo:     contentView.centerYAnchor).isActive = true
+        entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.0).isActive = true
+        entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2).isActive = true
+        entryImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
+}
+```
+
+- 그래서 아래 코드와 같이 `entryImageView`의 `heightAnchor`를 `contentView`가 아닌 `Cell` 자체의 `heightAnchor`에 지정해주었더니 정상적으로 셀이 보였습니다.
+```swift 
+entryImageView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+```
+
+- 둘의 차이는 `imageView`의 `height`를 준 기준을 `contentView`로 준 것과 `cell`로 준 차이밖에 없는데 이렇게 다른 결과가 나오는 이유가 무엇인지 궁금합니다. Cell의 `ContentView`에 정해지지 않은 이미지의 크기를 주면 `ContentView`의 크기도 같이 커져버리는 것인지.. 정확히 이해가 가지 않습니다. 쿠마의 조언이 필요합니다!
+
+
+### [두 번째 문제]
+ 
+```swift
+class EntryTableViewCell {
+    private func setAutoLayout() {
+       stackView.addArrangedSubview(titleLabel)
+       stackView.addArrangedSubview(descriptionLabel)
+       contentView.addSubview(entryImageView)
+       contentView.addSubview(stackView)
+        
+        entryImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        entryImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        entryImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        entryImageView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -10.0).isActive = true
+        entryImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2).isActive = true
+        
+        
+        stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10.0).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+    }
+}
+```
+- `EntryTableCell` 내부 이미지 뷰와 스택 뷰의 오토레이아웃을 위와 같이 잡아주었습니다.
+- 위와 같이 오토레이아웃을 잡으니 `numberOfLines = 0`을 적용해주어도 화면에 stackView 내부의 descriptionLabel의 전체가 나타나지 않고 `...`처럼 텍스트가 잘리는 현상이 발생했습니다.
+- `top`과 `bottom`을 잡아주어서 그런건지.. 왜 이렇게 나오는지 이유를 모르겠어서 쿠마에게 여쭙고 싶습니다.
+
+[오류가 나는 화면]
+
+ <img src = "https://user-images.githubusercontent.com/98514397/175303548-f6de696a-febf-4cf2-a447-6b8d24b8e9a4.png" width = "30%" height = "10%"> 
+
+### 5. Navigation Back Button Title 변경 문제
+
+- `Accessibility`를 통해 `Dynamic Type`의 크기를 조절해본 결과, 네비게이션 바의 `back button title`의 크기가 `navigation bar title`의 영역을 침범하게 되면, `back button title`이 `back`으로 변경되는 것을 확인하였습니다.
+- 예시 영상
+![백버튼_타이틀_변경](https://user-images.githubusercontent.com/99063327/175301552-4195d4ee-7167-47c9-a246-7008301bf8e1.gif)
+- 이에 다이나믹 타입을 사용하면서 본래의 `back button title`을 유지하기 위한 방법이 있는지 궁금합니다.
+
+
+### 의문점 해결
+- PR 받은 후 수정!
+
+## 배운 개념
+- `performSegue`, `withAlignmentRectInsets`, `translatesAutoresizingMaskIntoConstraints`, `attributedText`, `supportedInterfaceOrientationsFor`
+
+## 참고 문서
+
+- [performSegue](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621413-performsegue)
+- [withAlignmentRectInsets](https://developer.apple.com/documentation/uikit/uiimage/1624100-withalignmentrectinsets)
+- [translatesAutoresizingMaskIntoConstraints](https://developer.apple.com/documentation/uikit/uiview/1622572-translatesautoresizingmaskintoco)
+- [attributedText](https://ios-development.tistory.com/654) 
+- [supportedInterfaceOrientationsFor](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621435-supportedinterfaceorientations)

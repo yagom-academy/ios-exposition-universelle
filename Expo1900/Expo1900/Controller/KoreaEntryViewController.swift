@@ -8,33 +8,46 @@
 import UIKit
 
 final class KoreaEntryViewController: UIViewController {
-    private var koreaEntry = [Exhibits]()
+    // MARK: Properties
+    
     @IBOutlet private weak var tableView: UITableView!
+    
+    private var koreaEntry = [Exhibits]()
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.dataSource = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
         parseKoreaEntryItems()
-        self.navigationItem.setTitle(NameSpace.koreaEntry.name)
+        navigationItem.title = "한국의 출품작"
+        tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: "EntryTableViewCell")
     }
-    
+}
+
+// MARK: - UI
+
+extension KoreaEntryViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == NameSpace.transferToDetailsVCId.name else {
             return
         }
-        guard let index = self.tableView.indexPathForSelectedRow?.row else {
+        guard let index = tableView.indexPathForSelectedRow?.row else {
             return
         }
-            
+        
         let destination = segue.destination as? KoreaEntryDetailsViewController
-      
         let exhibit = koreaEntry[index]
         
         destination?.exhibit = exhibit
     }
-    
+}
+
+// MARK: - Parsing
+
+extension KoreaEntryViewController {
     private func parseKoreaEntryItems() {
         guard let parsedItems = JSONData.parse(
             name: NameSpace.expoEntryData.name,
@@ -42,9 +55,11 @@ final class KoreaEntryViewController: UIViewController {
             return
         }
         
-        self.koreaEntry = parsedItems
+        koreaEntry = parsedItems
     }
 }
+
+// MARK: - TableView Data Source
 
 extension KoreaEntryViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,22 +67,30 @@ extension KoreaEntryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.koreaEntry.count
+        return koreaEntry.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NameSpace.entryCellId.name, for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath) as? EntryTableViewCell else {
+            return UITableViewCell()
+        }
         
-        content.text = koreaEntry[indexPath.row].name
-        content.secondaryText = koreaEntry[indexPath.row].shortDescription
-        content.image = UIImage(named: koreaEntry[indexPath.row].imageName)
-        content.imageProperties.maximumSize.width = 50
-        content.imageProperties.maximumSize.height = 50
+        let entryImage = UIImage(named: koreaEntry[indexPath.row].imageName)!.withAlignmentRectInsets(UIEdgeInsets(top: -10, left: 0, bottom: -10, right: 0))
+        let entryTitle = koreaEntry[indexPath.row].name
+        let entryDescription = koreaEntry[indexPath.row].shortDescription
         
-        cell.contentConfiguration = content
+        cell.setup(image: entryImage, title: entryTitle, description: entryDescription)
         cell.accessoryType = .disclosureIndicator
         
         return cell
+    }
+}
+
+// MARK: - TableView Delegate
+
+extension KoreaEntryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: NameSpace.transferToDetailsVCId.name, sender: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
