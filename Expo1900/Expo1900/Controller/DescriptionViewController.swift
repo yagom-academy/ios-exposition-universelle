@@ -24,4 +24,14 @@ class DescriptionViewController: UIViewController {
         self.title = entryList?.name
         self.descriptionLabel.text = entryList?.description
     }
+   
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(entryList: EntryList) {
+        super.init(nibName: nil, bundle: nil)
+        self.entryList = entryList
+        self.viewDidLoad()
+    }
 }

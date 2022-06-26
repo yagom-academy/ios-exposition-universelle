@@ -39,9 +39,10 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        let descriptionViewController = DescriptionViewController()
+        guard let entryList = entryList?[indexPath.row] else { return }
+
+        let descriptionViewController = DescriptionViewController(entryList: entryList)
         
-        descriptionViewController.entryList = entryList?[indexPath.row]
         self.navigationController?.pushViewController(descriptionViewController,
                                                       animated: true)
         self.tableView.deselectRow(at: indexPath,
@@ -52,9 +53,7 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: EntryListCell.identifier,
                                                        for: indexPath) as? EntryListCell else { return UITableViewCell() }
-                
-        cell.addSubviews()
-        cell.setConstraints()
+
         updateCell(cell: cell,
                    indexPath)
         return cell
