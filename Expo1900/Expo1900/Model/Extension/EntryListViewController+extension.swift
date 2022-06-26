@@ -9,9 +9,8 @@ import UIKit
 
 extension EntryListViewController {
     func updateUI() {
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.navigationController?.isNavigationBarHidden = false
+        self.setDelgates()
+        self.setNavigation()
     }
 
     func updateCell(cell: EntryListCell,
@@ -24,7 +23,16 @@ extension EntryListViewController {
                                     indexPath)
         self.updateCellAccessoryType(of: cell)
     }
+    
+    private func setDelgates() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
 
+    private func setNavigation() {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     private func updatekoreaEntryImage(of cell: EntryListCell,
                                        _ indexPath: IndexPath) {
         cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? ExpoNameSpace.empty.name)

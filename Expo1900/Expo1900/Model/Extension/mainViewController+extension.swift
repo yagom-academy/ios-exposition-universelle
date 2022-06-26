@@ -12,14 +12,12 @@ extension MainViewController {
         guard let expoInformation = expoInformation else { return }
         
         self.setTitleText(of: expoInformation)
-        self.setPosterImage()
         self.setVisitorsLabel(of: expoInformation)
         self.setLocationLabel(of: expoInformation)
         self.setDurationLabel(of: expoInformation)
         self.setDescriptionLabel(of: expoInformation)
         self.setStackView()
         self.setButtonStackView()
-        self.setFlagImage()
         self.setStackViewSubviews()
         self.setDelegates()
         self.setConstraints()
@@ -56,13 +54,7 @@ extension MainViewController {
     private func setTitleText(of expoInformation: ExpoInformation) {
         let headTitle = expoInformation.title.split(separator: "(")
         
-        self.expoTitle.numberOfLines = 0
-        self.expoTitle.textAlignment = .center
         self.expoTitle.text = headTitle[0] + "\n(\(headTitle[1])"
-    }
-    
-    private func setPosterImage() {
-        self.posterImage.image = UIImage(named: ExpoNameSpace.expoPoster.name)
     }
     
     private func setVisitorsLabel(of expoInformation: ExpoInformation) {
@@ -79,8 +71,6 @@ extension MainViewController {
     }
     
     private func setDescriptionLabel(of expoInformation: ExpoInformation) {
-        self.descriptionLabel.numberOfLines = 0
-        self.descriptionLabel.textAlignment = .left
         self.descriptionLabel.text = expoInformation.description
     }
     
@@ -96,17 +86,10 @@ extension MainViewController {
         self.buttonStackView.axis = .horizontal
     }
     
-    private func setFlagImage() {
-        self.leftFlagImage.image = UIImage(named: ExpoNameSpace.flagImage.name)
-        self.rightFlagImage.image = UIImage(named: ExpoNameSpace.flagImage.name)
-    }
-    
     //MARK: - constraints
     
     private func setGoToKoreaEntryButton() {
         self.goToKoreaEntryButton.translatesAutoresizingMaskIntoConstraints = false
-        self.goToKoreaEntryButton.setTitle(ExpoNameSpace.koreaEntry.name, for: .normal)
-        self.goToKoreaEntryButton.setTitleColor(.systemBlue, for: .normal)
         self.goToKoreaEntryButton.addTarget(nil, action: #selector(didTappedButton), for: .touchUpInside)
     }
     
