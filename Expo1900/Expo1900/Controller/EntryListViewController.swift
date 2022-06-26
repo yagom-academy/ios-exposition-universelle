@@ -27,7 +27,7 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.setTableViewConstraints()
         self.title = ExpoNameSpace.koreaEntry.name
         
-        updateUI()
+        setUI()
     }
     
     func tableView(_ tableView: UITableView,

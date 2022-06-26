@@ -8,7 +8,7 @@
 import UIKit
 
 extension EntryListViewController {
-    func updateUI() {
+    func setUI() {
         self.setDelgates()
         self.setNavigation()
     }
