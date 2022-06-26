@@ -26,10 +26,9 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setting()
         self.title = ExpoNameSpace.firstViewcontrollerTitle.name
         self.fetchExpoInformaion()
-        self.updateUI()
+        self.setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {

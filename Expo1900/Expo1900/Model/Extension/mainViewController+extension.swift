@@ -8,7 +8,7 @@
 import UIKit
 
 extension MainViewController {
-    func updateUI() {
+    func setUI() {
         guard let expoInformation = expoInformation else { return }
         
         self.setTitleText(of: expoInformation)
@@ -20,34 +20,37 @@ extension MainViewController {
         self.setStackView()
         self.setButtonStackView()
         self.setFlagImage()
+        self.setStackViewSubviews()
+        self.setDelegates()
+        self.setConstraints()
     }
     
-    func setting() {
-        self.view.backgroundColor = .white
+    private func setNavigation() {
         self.navigationController?.isNavigationBarHidden = true
-        self.setScrollView()
-        self.setContentView()
+    }
+    
+    private func setConstraints() {
+        self.setScrollViewConstraints()
+        self.setContentViewConstraints()
         self.setStackViewConstraints()
         self.setFlagImageConstraints()
+    }
+    
+    private func setDelegates() {
+        self.view.backgroundColor = .white
         self.setGoToKoreaEntryButton()
         self.setStackViewSubviews()
         self.setbuttonStackSubviews()
     }
     
     private func setStackViewSubviews() {
-        self.stackView.addArrangedSubview(expoTitle)
-        self.stackView.addArrangedSubview(posterImage)
-        self.stackView.addArrangedSubview(visitorsLabel)
-        self.stackView.addArrangedSubview(locationLabel)
-        self.stackView.addArrangedSubview(durationLabel)
-        self.stackView.addArrangedSubview(descriptionLabel)
-        self.stackView.addArrangedSubview(buttonStackView)
+        [expoTitle, posterImage, visitorsLabel, locationLabel, durationLabel, descriptionLabel, buttonStackView]
+            .forEach { self.stackView.addArrangedSubview($0) }
     }
     
     private func setbuttonStackSubviews() {
-        self.buttonStackView.addArrangedSubview(leftFlagImage)
-        self.buttonStackView.addArrangedSubview(goToKoreaEntryButton)
-        self.buttonStackView.addArrangedSubview(rightFlagImage)
+        [leftFlagImage, goToKoreaEntryButton, rightFlagImage]
+            .forEach { self.buttonStackView.addArrangedSubview($0) }
     }
     
     private func setTitleText(of expoInformation: ExpoInformation) {
@@ -107,7 +110,7 @@ extension MainViewController {
         self.goToKoreaEntryButton.addTarget(nil, action: #selector(didTappedButton), for: .touchUpInside)
     }
     
-    private func setScrollView() {
+    private func setScrollViewConstraints() {
         self.view.addSubview(scrollView)
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -116,14 +119,14 @@ extension MainViewController {
                                      scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
     
-    private func setContentView() {
+    private func setContentViewConstraints() {
         self.scrollView.addSubview(contentView)
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-                                       contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-                                       contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-                                       contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-                                       contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)])
+                                     contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                                     contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                                     contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+                                     contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)])
     }
     
     private func setStackViewConstraints() {
