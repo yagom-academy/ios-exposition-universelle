@@ -36,7 +36,10 @@ struct DataManager {
             return [nil]
         }
         
-        return dataList
+        let result = dataList.filter { item in
+            item.name != nil && item.imageName != nil && item.shortDescription != nil && item.longDescription != nil
+        }
+        return result
     }
 }
 

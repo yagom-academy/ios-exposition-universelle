@@ -8,6 +8,8 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
+    // MARK: - Properties
+    
     var itemData: Entry?
     
     private let imageView: UIImageView = {
@@ -19,7 +21,8 @@ final class DetailViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -42,12 +45,16 @@ final class DetailViewController: UIViewController {
         return stack
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = itemData?.name
         
         configureComponentLayout()
     }
+    
+    // MARK: - Method
     
     private func configureComponentLayout() {
         addScrollView()
@@ -88,7 +95,7 @@ final class DetailViewController: UIViewController {
     private func setComponent() {
         guard let selectedData = itemData else { return }
         
-        let name = selectedData.imageName
+        guard let name = selectedData.imageName else { return }
         imageView.image = UIImage(named: name)
         
         descriptionLabel.text = selectedData.longDescription

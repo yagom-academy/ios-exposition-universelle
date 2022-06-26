@@ -7,6 +7,12 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    // MARK: - Properties
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
+    
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .center
@@ -27,7 +33,8 @@ final class MainViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 26)
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -42,7 +49,8 @@ final class MainViewController: UIViewController {
     
     private let visitorLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
@@ -50,7 +58,8 @@ final class MainViewController: UIViewController {
     
     private let venueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
@@ -58,7 +67,8 @@ final class MainViewController: UIViewController {
     
     private let periodLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
@@ -66,7 +76,8 @@ final class MainViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -83,7 +94,11 @@ final class MainViewController: UIViewController {
         let button = UIButton()
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.link, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentMode = .scaleAspectFit
         return button
     }()
     
@@ -101,9 +116,11 @@ final class MainViewController: UIViewController {
         return image
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        copnfigureScrollView()
+        configureScrollView()
         updateText()
         
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -119,12 +136,14 @@ final class MainViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
+    // MARK: - Method
+    
     @objc func didTapButton(sender: UIButton)  {
         guard let secondView = self.storyboard?.instantiateViewController(withIdentifier: "ItemListView") as? ItemListViewController else { return }
         self.navigationController?.pushViewController(secondView, animated: true)
     }
     
-    private func copnfigureScrollView() {
+    private func configureScrollView() {
         addScrollView()
         addStackView()
         
@@ -161,13 +180,12 @@ final class MainViewController: UIViewController {
     
     private func configureStackViewLayout() {
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -15).isActive = true
         stackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 15).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -15).isActive = true
         stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         
         subStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        subStackView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8).isActive = true
     }
     
     private func configureImageViewLayout() {
