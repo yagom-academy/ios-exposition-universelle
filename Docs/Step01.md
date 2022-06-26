@@ -30,30 +30,6 @@
 - Assets
 - Coding Key
 ---
-### STEP 1 Reviews
-#### 1. 프로퍼티를 읽어오기 위해 별도의 메서드를 작성할 수 있지만, 프로퍼티에 읽기 전용의 접근 수준을 지정하면 동일한 효과를 낼 수 있을 것 같아요. 
-```swift
-func getTitle() -> String {
-        return title
-    }
-
-    func getVisitors() -> Int {
-        return visitors
-    }
-
-    func getLocation() -> String {
-        return location
-    }
-
-    func getDuration() -> String {
-        return duration
-    }
-
-    func getDescription() -> String {
-        return description
-    }
-```
-- func을 선택한 이유: private(set)과 func 중 어떤 방식을 사용할 지 논의를 했었습니다. 기능의 차이가 없기 때문에 func이 좀 더 익숙하고 표현방식이 더 명확하다고 생각해서 func으로 만들었습니다.
-- 궁금증: 라이언의 의견을 듣고 생각해보니 func으로 만드는 경우에 메모리가 더 커질수도 있겠다고 생각이 들었습니다. 실제로 이렇게 동일한 기능을 func으로 구현하면 메모리가 더 커지는게 맞는지 궁금합니다.
->궁금증에 대한 답변 : 어떤 방식으로도 접근할 수 있을 것 같네요. 하지만 이 경우는 문법적으로 기능을 지원하고, 지원하는 방법을 사용하면 값을 읽어오기 위해 별도의 메서드를 만드는 보일러 플레이트 코드를 줄일 수 있다는 이점이 있다고 생각합니다. 언어의 특성에 맞게 내용을 작성한다고도 생각해볼 수 있겠네요. 더 살펴봐야겠지만 private(set) 과 메서드 구현이 메모리 사용에 유의미한 차이가 있지는 않을거라고 생각해요.
-
+### STEP 1 Reviews And Updates
+    
+[STEP 1 Pull Request](https://github.com/yagom-academy/ios-exposition-universelle/pull/173)

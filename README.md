@@ -1,10 +1,10 @@
-# iOS 커리어 스타터 캠프
+# 만국박람회
 
 ## 프로젝트 저장소
 > 프로젝트 기간: 2022-06-13 ~ 2022-06-24</br>
 > 팀원: [브래드](https://github.com/bradheo65), [그루트](https://github.com/Groot-94)</br>
 리뷰어: [@ryan-son](https://github.com/ryan-son)</br>
-그라운드롤: [GroundRole](https://github.com/bradheo65/ios-exposition-universelle/blob/Step02/Docs/GroundRole.md)
+그라운드롤: [GroundRule](https://github.com/bradheo65/ios-exposition-universelle/blob/Step03/Docs/GroundRule.md)
 
 ## 📑 목차
 - [개발자 소개](#개발자-소개)
@@ -16,7 +16,7 @@
 - [기능설명](#기능설명)
 - [1️⃣ STEP 1](https://github.com/bradheo65/ios-exposition-universelle/blob/Step02/Docs/Step01.md)
 - [2️⃣ STEP 2](https://github.com/bradheo65/ios-exposition-universelle/blob/Step02/Docs/Step02.md)
-
+- [3️⃣ STEP 3](https://github.com/bradheo65/ios-exposition-universelle/blob/Step03/Docs/Step03.md)
 
 ## 개발자 소개
 |브래드|그루트|
@@ -28,11 +28,12 @@
 1900년 파리 만국박람회에서 소개된 한국의 문화유산을 앱으로 확인해보자.
 
 ## UML  
-**[ClassDiagram]**
 
-![](https://i.imgur.com/yDPT5nU.jpg)
+### [ClassDiagram]
 
-**[UI sketch]**
+![](https://i.imgur.com/Ng1m76J.jpg)
+
+### [UI Sketch]
 
 | **파리 만국박람회**|
 |:---:|
@@ -48,10 +49,15 @@
 
 
 ## 구현내용
-|앱 실행 예시|
-|:---:|
-|<image src = "https://user-images.githubusercontent.com/45350356/174560674-70a74530-f471-4e81-b90f-b5d5b5c7cd6f.gif" width="300" height="550">
-|
+| 파리 박람회 소개 화면 | 출품작 소개 화면 | 출품작 상세 소개 화면 |
+| :--------: | :--------: | :--------: |
+| <image src = "https://user-images.githubusercontent.com/45350356/175464520-5843bfb8-fee9-4374-a7cb-363c97133839.gif" width="300" height="500">     | <image src = "https://user-images.githubusercontent.com/45350356/175464949-da42a376-e3d2-4fcb-bd8a-1b45c99bbe20.gif" width="300" height="500">     | <image src = "https://user-images.githubusercontent.com/45350356/175465149-d910602a-0174-46aa-928c-8bff9173d845.gif" width="300" height="500">     |
+
+
+### Dynamic Types 적용 후 화면
+| 파리 박람회 소개 화면 | 출품작 소개 화면 | 출품작 상세 소개 화면 |
+| :--------: | :--------: | :--------: |
+| <image src = "https://user-images.githubusercontent.com/45350356/175466206-abafa378-32df-4d4f-a87a-e0469cfeacec.gif" width="300" height="500">     | <image src = "https://user-images.githubusercontent.com/45350356/175465779-13a3cdb4-a8b1-4061-b283-8a7bcd6537b4.gif" width="300" height="500">     | <image src = "https://user-images.githubusercontent.com/45350356/175466044-40dc86e8-0015-4563-a47c-92e888b0f56a.gif" width="300" height="500">     |
 
 
 ## 키워드
@@ -62,7 +68,9 @@
 - TableView
     - Data Source
     - Delegate
-
+- Word Wrapping / Line Wrapping / Line Break
+- Accessibility
+- Dynamic Types
 ## 참고문서
 - [UITableView](https://developer.apple.com/documentation/uikit/uitableview)
 - [Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
@@ -82,7 +90,10 @@
 - [x] 주어진 JSON 데이터를 파싱하여 테이블뷰에 표시
 - [x] 내비게이션 컨트롤러를 활용한 화면 전환
 - [x] 뷰 컨트롤러 사이의 데이터 전달
-    
+- [x] 오토 레이아웃을 적용하여 다양한 기기에 대응
+- [x] Word Wrapping / Line Wrapping / Line Break 방식의 이해
+- [x] 접근성(Accessibility)의 개념과 필요성 이해
+- [x] Dynamic Types를 통해 텍스트 접근성 향상
 ## 기능설명
 ### **ExpoInformation**
     exposition_universelle_1900.json 파일 JsonDecode를 위한 데이터 포멧 타입 구현. 
@@ -90,16 +101,20 @@
     items.json 파일 JsonDecode를 위한 데이터 포멧 타입 구현. 
 ### **ExpoData**
     exposition_universelle_1900.json 파일을 Decode 하기 위한 타입 구현.
+### **ExpoNavigationController**
+    메인 NavigationController 구현.
 ### **ExpoMainViewController** 
     메인 ViewController 구현.
 ### **KoreaItemTableViewController**
     한국의 출품작 ViewController 구현.
 ### **KoreaItemTableViewCell**
-    한국의 출품작 TableView Cell 타입 구현
+    한국의 출품작 TableView Cell 타입 구현.
 ### **ItemDetailViewController**
-    한국의 출품작 상세 설명 ScrollView 타입 구현
+    한국의 출품작 상세 설명 ScrollView 타입 구현.
 ### **SendDataDelegate**
-    Delegation방식의 Data 전달을 위한 Protocol 구현
+    Delegation방식의 Data 전달을 위한 Protocol 구현.
 ### **Int**
-    Int 타입 Data parsing을 위한 Extention 구현
-
+    Int 타입 Data parsing을 위한 Extention 구현.
+### **Asset**
+    Asset 파일의 NameSpace 구현.
+    

@@ -33,13 +33,17 @@ final class KoreaItemDetailViewController: UIViewController {
     private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.isAccessibilityElement = true
         return imageView
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = DetailSetUp.labelNumberOfLines
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         return label
     }()
     
@@ -85,6 +89,7 @@ final class KoreaItemDetailViewController: UIViewController {
     
     private func setKoreaItemData() {
         itemImageView.image = koreaItems?.image
+        itemImageView.accessibilityLabel = koreaItems?.name
         descriptionLabel.text = koreaItems?.description
     }
         

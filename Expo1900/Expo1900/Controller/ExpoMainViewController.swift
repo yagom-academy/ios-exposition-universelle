@@ -33,7 +33,9 @@ final class ExpoMainViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -41,8 +43,13 @@ final class ExpoMainViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
+        label.accessibilityLabel = DetailSetUp.expoDescriptionLabel
         return label
     }()
     
@@ -59,6 +66,9 @@ final class ExpoMainViewController: UIViewController {
         let button = UIButton()
         button.setTitle(DetailSetUp.buttonTitle, for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.titleLabel?.numberOfLines = DetailSetUp.labelNumberOfLines
         button.setContentCompressionResistancePriority(DetailSetUp.buttonCompressionResistancePriority, for: .horizontal)
         button.addTarget(nil, action: #selector(tappedNextViewButtonEvent), for: .touchUpInside)
         return button
@@ -92,7 +102,7 @@ final class ExpoMainViewController: UIViewController {
     private func setLabelText() {
         guard let expoInformation = fetchExpoInformation(from: Asset.expoInformation) else { return }
         expoData = expoInformation.toDomain()
-        titleLabel.text = expoData?.title
+        titleLabel.text = expoData?.title.replacingOccurrences(of: "(", with: "\n(")
         descriptionLabel.text = expoData?.description
     }
     
@@ -104,14 +114,16 @@ final class ExpoMainViewController: UIViewController {
             createLabel(expoData?.location),
             createLabel(expoData?.duration),
             descriptionLabel,
-            subStackView]
-        mainStackViewItemsArray.forEach {self.mainStackView.addArrangedSubview($0)}
+            subStackView
+        ]
+        mainStackViewItemsArray.forEach { self.mainStackView.addArrangedSubview($0) }
         
         let subStackViewItemsArray = [
             createImageView(imageName: Asset.flag),
             nextViewButton,
-            createImageView(imageName: Asset.flag)]
-        subStackViewItemsArray.forEach {self.subStackView.addArrangedSubview($0)}
+            createImageView(imageName: Asset.flag)
+        ]
+        subStackViewItemsArray.forEach { self.subStackView.addArrangedSubview($0) }
     }
     
     private func setViewConstraints() {
@@ -151,13 +163,25 @@ final class ExpoMainViewController: UIViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: imageName)
         imageView.contentMode = .scaleAspectFit
+        imageView.isAccessibilityElement = true
+        if imageName == Asset.posterImage {
+            imageView.accessibilityLabel = expoData?.title
+        } else {
+            imageView.accessibilityLabel = DetailSetUp.koreaFlag
+        }
         return imageView
     }
     
     private func createLabel(_ text: String?) -> UILabel {
         let label = UILabel()
         label.text = text
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakMode = .byWordWrapping
+        guard text == expoData?.duration else { return label }
+        label.accessibilityLabel = expoData?.duration.replacingOccurrences(of: "-", with: "~")
         return label
     }
     
@@ -181,6 +205,8 @@ extension ExpoMainViewController {
         static let buttonTitle = "한국의 출품작 보러가기"
         static let buttonCompressionResistancePriority = UILayoutPriority(751)
         static let title = "메인"
+        static let koreaFlag = "대한민국 국기"
+        static let expoDescriptionLabel = "파리만국박람회 설명"
         static let mainStackViewLeadingWithFrameLayoutGuide: CGFloat = 10
         static let mainStackViewTrailingWithFrameLayoutGuide: CGFloat = -10
         static let subStackViewTopWithDescriptionLabelBottom: CGFloat = 10

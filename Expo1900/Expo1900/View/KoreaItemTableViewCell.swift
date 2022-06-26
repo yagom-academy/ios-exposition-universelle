@@ -21,17 +21,24 @@ final class KoreaItemTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.spacing = DetailSetUp.stackViewSpacing
+        stackView.spacing = DetailSetUp.itemStackViewSpacing
         return stackView
     }()
     
-    private let itemSubStackView: UIStackView = {
+    private let itemImageStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .center
+        return stackView
+    }()
+    
+    private let itemLabelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
+        stackView.spacing = DetailSetUp.itemLabelStackSpacing
         return stackView
     }()
     
@@ -44,15 +51,20 @@ final class KoreaItemTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .title2)
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         return label
     }()
     
     let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = DetailSetUp.labelNumberOfLines
+        label.lineBreakStrategy = .hangulWordPriority
         return label
     }()
     
@@ -73,21 +85,24 @@ final class KoreaItemTableViewCell: UITableViewCell {
     //MARK: - Setting View Methods
     
     private func addItemStackView() {
-        let mainStackViewItemsArray = [itemImageView, itemSubStackView]
+        let mainStackViewItemsArray = [itemImageStackView, itemLabelStackView]
         mainStackViewItemsArray.forEach { itemStackView.addArrangedSubview($0) }
         
-        let subStackViewItemsArray = [titleLabel, shortDescriptionLabel]
-        subStackViewItemsArray.forEach { itemSubStackView.addArrangedSubview($0) }
+        let labelStackViewItemsArray = [titleLabel, shortDescriptionLabel]
+        labelStackViewItemsArray.forEach { itemLabelStackView.addArrangedSubview($0) }
+        
+        itemImageStackView.addArrangedSubview(itemImageView)
     }
     
     private func setViewConstraints() {
         itemStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
         itemStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-        itemStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        itemStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: DetailSetUp.itemStackViewLeadingSpacing).isActive = true
         itemStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
-        itemSubStackView.widthAnchor.constraint(equalTo: self.itemImageView.widthAnchor
-                                                , multiplier: DetailSetUp.subStacViewWidthMultiplier).isActive = true
-        itemImageView.heightAnchor.constraint(lessThanOrEqualToConstant: DetailSetUp.imageViewMaxHeight).isActive = true
+        itemImageView.topAnchor.constraint(equalTo: itemImageStackView.topAnchor, constant: DetailSetUp.itemImageTopSpacing).isActive = true
+        itemImageView.bottomAnchor.constraint(equalTo: itemImageStackView.bottomAnchor, constant: DetailSetUp.itemImageBottomSpacing).isActive = true
+        itemImageStackView.widthAnchor.constraint(equalToConstant: DetailSetUp.itemImageStackViewWidth).isActive = true
+        itemImageStackView.heightAnchor.constraint(equalToConstant: DetailSetUp.itemImageStackViewHeight).isActive = true
     }
 }
 
@@ -95,10 +110,15 @@ final class KoreaItemTableViewCell: UITableViewCell {
 
 extension KoreaItemTableViewCell {
     enum DetailSetUp {
-        static let stackViewSpacing: CGFloat = 5
         static let labelNumberOfLines = 0
-        static let subStacViewWidthMultiplier: CGFloat = 4
-        static let imageViewMaxHeight: CGFloat = 80
+        static let subStacViewWidthMultiplier: CGFloat = 3.5
+        static let itemStackViewSpacing: CGFloat = 5
+        static let itemStackViewLeadingSpacing: CGFloat = 20
+        static let itemLabelStackSpacing: CGFloat = 10
+        static let itemImageTopSpacing: CGFloat = 10
+        static let itemImageBottomSpacing: CGFloat = -10
+        static let itemImageStackViewHeight: CGFloat = 100
+        static let itemImageStackViewWidth: CGFloat = 100
     }
 }
 
