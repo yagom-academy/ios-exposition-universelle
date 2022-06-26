@@ -21,6 +21,11 @@ class ExpoMenuViewController: UIViewController {
         modifyNavigationBackButtonTitle(to: "메인", in: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func setupExpositionData() {
         let expoItemList = loadJsonData(type: Array<ExpoItemElement>.self, "items", "json")
         self.expoItemList = expoItemList
@@ -47,8 +52,8 @@ extension ExpoMenuViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let currentExpoItemElement = expoItemList[indexPath.row]
-        cell.setupLableView(name: currentExpoItemElement.name, shortDescription: currentExpoItemElement.shortDesc)
-        cell.setupImageView(name: currentExpoItemElement.imageName)
+        cell.setupUI(with: currentExpoItemElement)
+        
         return cell
     }
 }

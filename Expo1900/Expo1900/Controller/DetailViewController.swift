@@ -10,8 +10,8 @@ import UIKit
 final class DetailViewController: UIViewController {
     var expoItemElement: ExpoItemElement?
     
-    @IBOutlet weak var ExpoItemImageView: UIImageView!
-    @IBOutlet weak var ExpoItemDescriptionLabel: UILabel!
+    @IBOutlet weak var expoItemImageView: UIImageView!
+    @IBOutlet weak var expoItemDescriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ final class DetailViewController: UIViewController {
     }
     
     private func updateUI() {
-        ExpoItemImageView.image = UIImage(named: expoItemElement?.imageName ?? "")
-        ExpoItemDescriptionLabel.text = expoItemElement?.desc
+        expoItemImageView.image = UIImage(named: expoItemElement?.imageName ?? "")
+        expoItemDescriptionLabel.text = expoItemElement?.desc
     }
 }
