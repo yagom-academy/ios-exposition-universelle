@@ -17,7 +17,6 @@ class DescriptionViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         addSubViews()
         setConstraints()
         setUI()

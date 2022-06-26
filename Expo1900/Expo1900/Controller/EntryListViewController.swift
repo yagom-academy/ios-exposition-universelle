@@ -21,11 +21,10 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
         self.view.addSubview(tableView)
         self.fetchEntryList()
         self.setTableView()
+        self.setTableViewConstraints()
         self.title = ExpoNameSpace.koreaEntry.name
         
         updateUI()
@@ -51,10 +50,9 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpoNameSpace.cellIdentifier.name,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EntryListCell.identifier,
                                                        for: indexPath) as? EntryListCell else { return UITableViewCell() }
                 
-        tableView.addSubview(cell)
         cell.addSubviews()
         cell.setConstraints()
         updateCell(cell: cell,
@@ -63,6 +61,11 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func setTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    func setTableViewConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -70,7 +73,6 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
-    
     //MARK: - fetchEntryList
     
     private func fetchEntryList() {

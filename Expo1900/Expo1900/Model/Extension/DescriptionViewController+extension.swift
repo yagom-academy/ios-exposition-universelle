@@ -11,6 +11,7 @@ extension DescriptionViewController {
     func setUI() {
         self.setDescriptionLabel()
         self.setStackView()
+        self.view.backgroundColor = .white
     }
     
     func setDescriptionLabel() {
