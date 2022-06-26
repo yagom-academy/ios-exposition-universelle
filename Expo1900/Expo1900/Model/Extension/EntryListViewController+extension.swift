@@ -14,7 +14,7 @@ extension EntryListViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 
-    func updateCell(cell: CustomTableViewCell,
+    func updateCell(cell: EntryListCell,
                     _ indexPath: IndexPath) {
         self.updatekoreaEntryImage(of: cell,
                                    indexPath)
@@ -25,22 +25,22 @@ extension EntryListViewController {
         self.updateCellAccessoryType(of: cell)
     }
 
-    private func updatekoreaEntryImage(of cell: CustomTableViewCell,
+    private func updatekoreaEntryImage(of cell: EntryListCell,
                                        _ indexPath: IndexPath) {
         cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? ExpoNameSpace.empty.name)
     }
 
-    private func updateKoreaEntryTitle(of cell: CustomTableViewCell,
+    private func updateKoreaEntryTitle(of cell: EntryListCell,
                                        _ indexPath: IndexPath) {
         cell.koreaEntryTitle.text = entryList?[indexPath.row].name
     }
 
-    private func updateShortDescription(of cell: CustomTableViewCell,
+    private func updateShortDescription(of cell: EntryListCell,
                                         _ indexPath: IndexPath) {
         cell.shortDescription.text = entryList?[indexPath.row].shortDescription
     }
 
-    private func updateCellAccessoryType(of cell: CustomTableViewCell) {
+    private func updateCellAccessoryType(of cell: EntryListCell) {
         cell.accessoryType = .disclosureIndicator
     }
 }

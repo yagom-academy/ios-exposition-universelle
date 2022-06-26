@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class EntryListCell: UITableViewCell {
     static let identifier = ExpoNameSpace.cellIdentifier.name
     
     let koreaEntryImage: UIImageView = {
@@ -52,12 +52,12 @@ class CustomTableViewCell: UITableViewCell {
         self.setStackViewConstraints()
     }
     
-    func setStackView() {
+    private func setStackView() {
         self.verticalStackView.addArrangedSubview(koreaEntryTitle)
         self.verticalStackView.addArrangedSubview(shortDescription)
     }
     
-    func setKoreaEntryImageConstraints() {
+    private func setKoreaEntryImageConstraints() {
         NSLayoutConstraint.activate([
             self.koreaEntryImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
             self.koreaEntryImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.3),
@@ -65,7 +65,7 @@ class CustomTableViewCell: UITableViewCell {
         ])
     }
    
-    func setStackViewConstraints() {
+    private func setStackViewConstraints() {
         NSLayoutConstraint.activate([
             self.verticalStackView.centerYAnchor.constraint(equalTo: koreaEntryImage.centerYAnchor),
             self.verticalStackView.leadingAnchor.constraint(equalTo: koreaEntryImage.trailingAnchor, constant: 10),

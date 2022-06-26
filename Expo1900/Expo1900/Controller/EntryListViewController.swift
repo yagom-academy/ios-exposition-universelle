@@ -13,8 +13,8 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     let tableView : UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(CustomTableViewCell.self,
-                           forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableView.register(EntryListCell.self,
+                           forCellReuseIdentifier: EntryListCell.identifier)
         return tableView
     }()
     
@@ -52,7 +52,7 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpoNameSpace.cellIdentifier.name,
-                                                       for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
+                                                       for: indexPath) as? EntryListCell else { return UITableViewCell() }
                 
         tableView.addSubview(cell)
         cell.addSubviews()
