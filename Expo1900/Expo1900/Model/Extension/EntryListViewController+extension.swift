@@ -18,12 +18,13 @@ extension EntryListViewController {
         updatekoreaEntryImage(of: cell, indexPath)
         updateKoreaEntryTitle(of: cell, indexPath)
         updateShortDescription(of: cell, indexPath)
-        updateDetailedDescription(of: cell, indexPath)
         updateCellAccessoryType(of: cell)
     }
     
     private func updatekoreaEntryImage(of cell: CustomTableViewCell, _ indexPath: IndexPath) {
         cell.koreaEntryImage.image = UIImage(named: entryList?[indexPath.row].imageName ?? ExpoNameSpace.empty.name)
+        cell.koreaEntryImage.accessibilityLabel = (entryList?[indexPath.row].name ?? "") + "사진"
+        cell.koreaEntryImage.accessibilityTraits = .none
     }
     
     private func updateKoreaEntryTitle(of cell: CustomTableViewCell, _ indexPath: IndexPath) {
@@ -32,10 +33,6 @@ extension EntryListViewController {
     
     private func updateShortDescription(of cell: CustomTableViewCell, _ indexPath: IndexPath) {
         cell.shortDescription.text = entryList?[indexPath.row].shortDescription
-    }
-    
-    private func updateDetailedDescription(of cell: CustomTableViewCell, _ indexPath: IndexPath) {
-        cell.detailedDescription = entryList?[indexPath.row].description
     }
     
     private func updateCellAccessoryType(of cell: CustomTableViewCell) {

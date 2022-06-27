@@ -10,14 +10,13 @@ import UIKit
 final class DescriptionViewController: UIViewController {
     @IBOutlet private(set) weak var imageview: UIImageView!
     @IBOutlet private(set) weak var detailedDescription: UILabel!
-    var detailedDescriptionText: String?
-    var entryImage: UIImageView?
     var entryList: EntryList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageview.image = UIImage(named: entryList?.imageName ?? "")
+        self.imageview.image = UIImage(named: entryList?.imageName ?? ExpoNameSpace.empty.name)
         self.detailedDescription.text = entryList?.description
         self.title = entryList?.name
+        self.imageview.accessibilityLabel = (entryList?.name ?? ExpoNameSpace.empty.name) + "사진"
     }
 }
