@@ -19,6 +19,7 @@ final class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
         titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.adjustsFontSizeToFitWidth = true
         return titleLabel
     }()
     private lazy var shortDescriptionLabel: UILabel = {
