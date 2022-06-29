@@ -44,7 +44,7 @@ extension ExpositionPosterViewController {
             return
         }
         
-        delegate.restrictOrientation = .portrait
+        delegate.allowedScreenPosition = .portrait
     }
     
     private func releaseRotation() {
@@ -52,7 +52,7 @@ extension ExpositionPosterViewController {
             return
         }
         
-        delegate.restrictOrientation = .all
+        delegate.allowedScreenPosition = .all
     }
     
     private func configurePosterView() {
