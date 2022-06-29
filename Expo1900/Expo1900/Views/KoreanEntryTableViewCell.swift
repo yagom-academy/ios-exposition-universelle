@@ -26,7 +26,7 @@ final class KoreanEntryTableViewCell: UITableViewCell, ReuseIdentifying {
         let shortDescriptionLabel = UILabel()
         shortDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         shortDescriptionLabel.numberOfLines = 0
-        shortDescriptionLabel.lineBreakMode = .byWordWrapping
+        shortDescriptionLabel.lineBreakStrategy = .hangulWordPriority
         shortDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         shortDescriptionLabel.adjustsFontForContentSizeCategory = true
         return shortDescriptionLabel
@@ -44,7 +44,6 @@ extension KoreanEntryTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        accessoryType = .disclosureIndicator
         setupAttribute()
         setupLayout()
     }
@@ -55,6 +54,8 @@ extension KoreanEntryTableViewCell {
         descriptionStackView.addArrangedSubview(titleLabel)
         descriptionStackView.addArrangedSubview(shortDescriptionLabel)
         contentView.addSubview(descriptionStackView)
+        
+        accessoryType = .disclosureIndicator
     }
     
     private func setupLayout() {
