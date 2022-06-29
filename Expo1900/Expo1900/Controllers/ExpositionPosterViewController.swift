@@ -27,25 +27,44 @@ extension ExpositionPosterViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        
+        navigationController?.isNavigationBarHidden = true
+        lockRotation()
     }
         
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        
+        navigationController?.isNavigationBarHidden = false
+        releaseRotation()
     }
     
-
+    private func lockRotation() {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        delegate.allowedScreenPosition = .portrait
+    }
+    
+    private func releaseRotation() {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        delegate.allowedScreenPosition = .all
+    }
+    
     private func configurePosterView() {
         guard let asset = NSDataAsset.init(name: AssetFileName.expositionUniverselle),
               let poster = try? JSONDecoder().decode(ExpositionPoster.self, from: asset.data) else {
             return
         }
         
-        titleLabel.text = poster.title
-        visitorsLabel.text = poster.visitorContents
-        locationLabel.text = poster.locationContents
-        durationLabel.text = poster.durationContents
+        titleLabel.text = poster.formattedTitle
+        visitorsLabel.text = poster.formattedVisitor
+        locationLabel.text = poster.formattedLocation
+        durationLabel.text = poster.formattedDuration
         descriptionLabel.text = poster.description
         
         posterImageView.image = UIImage(named: AssetFileName.poster)
@@ -59,6 +78,6 @@ extension ExpositionPosterViewController {
         guard let KoreanEntryTableViewContoller = self.storyboard?.instantiateViewController(withIdentifier: KoreanEntryTableViewController.identifier) as? KoreanEntryTableViewController else {
             return
         }
-        self.navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
+        navigationController?.pushViewController(KoreanEntryTableViewContoller, animated: true)
     }
 }

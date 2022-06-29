@@ -18,12 +18,20 @@ extension SelectedEntryViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureView()
+        configureData()
+        configureNavigationBar()
     }
 
-    private func configureView() {
+    private func configureData() {
         navigationItem.title = entry?.name
         selectedEntryImageView.image = entry?.thumbnail
         selectedEntryDescriptionLabel.text = entry?.description
+    }
+    
+    private func configureNavigationBar() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
     }
 }
