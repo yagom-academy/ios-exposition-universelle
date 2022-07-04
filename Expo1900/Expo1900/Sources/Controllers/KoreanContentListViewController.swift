@@ -25,7 +25,7 @@ final class KoreanContentListViewController: UIViewController {
         } catch let error as DataHandlingError {
             print(error.description)
         } catch {
-            print("Undexpected error: \(error)")
+            print("Unexpected error: \(error)")
         }
     }
     
@@ -56,6 +56,7 @@ extension KoreanContentListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = contentTableView.dequeueReusableCell(withIdentifier: "contentCell", for: indexPath) as? ContentCell ?? ContentCell()
         
+        cell.selectionStyle = .none
         cell.setup(content: contents[indexPath.row])
 
         return cell

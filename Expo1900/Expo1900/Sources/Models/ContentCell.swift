@@ -6,12 +6,17 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     func setup(content: Content) {
-        descriptionLabel.numberOfLines = 0
+        titleLabel.numberOfLines = 0
         titleLabel.font = .preferredFont(forTextStyle: .title1)
-        accessoryType = .disclosureIndicator
-        
-        contentImageView.image = UIImage(named: content.imageName)
+        titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.text = content.name
+        
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = .preferredFont(forTextStyle: .body)
+        descriptionLabel.adjustsFontForContentSizeCategory = true
         descriptionLabel.text = content.shortDescription
+        
+        accessoryType = .disclosureIndicator
+        contentImageView.image = UIImage(named: content.imageName)
     }
 }
