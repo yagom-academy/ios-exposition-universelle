@@ -1,5 +1,7 @@
 //  Expo1900 - SceneDelegate.swift
-//  Created by Mangdi, zhilly on 2022/10/17import UIKit
+//  Created by Mangdi, zhilly on 2022/10/17
+
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
