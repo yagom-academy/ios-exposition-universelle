@@ -1,8 +1,6 @@
 //  KoreanEntries.swift
 //  Created by Mangdi, zhilly on 2022/10/17
 
-import Foundation
-
 struct KoreanEntries: Codable {
     let name: String
     let imageName: String
