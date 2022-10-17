@@ -18,5 +18,5 @@ struct ImagesContents: Codable {
     }
     
     let images: [Images]
-    let info: [Info]
+    let info: Info
 }
