@@ -1,10 +1,5 @@
-//
 //  Expo1900 - SceneDelegate.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
-
-import UIKit
+//  Created by Mangdi, zhilly on 2022/10/17import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

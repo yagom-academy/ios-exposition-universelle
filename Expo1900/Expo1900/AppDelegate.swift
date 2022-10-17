@@ -1,8 +1,5 @@
-//
 //  Expo1900 - AppDelegate.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
+//  Created by Mangdi, zhilly on 2022/10/17
 
 import UIKit
 
