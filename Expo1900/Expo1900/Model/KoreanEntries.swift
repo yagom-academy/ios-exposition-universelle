@@ -5,8 +5,8 @@ import Foundation
 
 struct KoreanEntries: Codable {
     let name: String
-    let image_name: String
-    let short_desc: String
+    let imageName: String
+    let shortDesc: String
     let desc: String
     
     enum CodingKeys: String, CodingKey {
