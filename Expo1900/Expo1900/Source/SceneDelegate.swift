@@ -1,8 +1,8 @@
 //
-//  Expo1900 - SceneDelegate.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
+//  SceneDelegate.swift
+//  SceneDelegate
+//
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import UIKit
 

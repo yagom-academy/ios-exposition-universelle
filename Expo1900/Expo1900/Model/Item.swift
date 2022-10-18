@@ -1,15 +1,19 @@
 //
 //  Item.swift
-//  Expo1900
+//  Item
 //
-//  Created by 이정민 on 2022/10/18.
-//
-
-import Foundation
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 struct Item: Decodable {
     let name: String
-    let image_name: String
-    let short_desc: String
-    let desc: String
+    let imageName: String
+    let summary: String
+    let description: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case imageName = "image_name"
+        case summary = "short_desc"
+        case description = "desc"
+    }
 }

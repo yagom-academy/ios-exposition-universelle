@@ -2,7 +2,7 @@
 //  ExpoExhibitTests.swift
 //  ExpoExhibitTests
 //
-//  Copyright (c) 2022 Minii All rights reserved.
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import XCTest
 @testable import Expo1900

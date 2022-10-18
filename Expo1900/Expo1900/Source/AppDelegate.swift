@@ -1,8 +1,8 @@
 //
-//  Expo1900 - AppDelegate.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
+//  ExpoExhibitTests.swift
+//  ExpoExhibitTests
+//
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import UIKit
 

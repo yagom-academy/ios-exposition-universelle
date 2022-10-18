@@ -1,9 +1,8 @@
 //
 //  Exposition.swift
-//  Expo1900
+//  Exposition
 //
-//  Created by 이정민 on 2022/10/18.
-//
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 struct Exposition: Decodable {
     let title: String

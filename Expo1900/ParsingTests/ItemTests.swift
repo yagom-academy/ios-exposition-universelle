@@ -1,9 +1,8 @@
 //
 //  ItemTests.swift
-//  ExpoExhibitTests
+//  ItemTests
 //
-//  Created by 이정민 on 2022/10/18.
-//
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import XCTest
 @testable import Expo1900
