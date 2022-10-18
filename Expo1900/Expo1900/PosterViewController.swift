@@ -7,6 +7,8 @@
 import UIKit
 
 class PosterViewController: UIViewController {
+    var expositionParis: ExpositionParis?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -19,10 +21,20 @@ class PosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        jsonDecoding()
     }
     
     @IBAction func tapEntryButton(_ sender: UIButton) {
     }
     
+    func jsonDecoding() {
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        
+        do {
+            expositionParis = try jsonDecoder.decode(ExpositionParis.self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
