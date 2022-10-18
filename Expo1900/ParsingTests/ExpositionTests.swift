@@ -17,7 +17,7 @@ final class ExpositionTests: XCTestCase {
         sut = nil
     }
     
-    private func test_when_parsing_expo_then_not_nil() {
+    func test_when_parsing_expo_then_not_nil() {
         // given
         let jsonData = NSDataAsset(name: jsonName)?.data ?? Data()
         let decoder = JSONDecoder()
