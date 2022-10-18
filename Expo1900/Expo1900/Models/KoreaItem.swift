@@ -6,10 +6,10 @@
 //
 
 struct KoreaItem: Codable {
-    var name: String
-    var imageName: String
-    var shortDescription: String
-    var description: String
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
     
     enum CondingKeys: String, CodingKey {
         case name
