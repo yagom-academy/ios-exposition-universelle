@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         guard let expositionUniverselle = loadExpositionUniverselle() else { return }
 
         titleLabel.text = expositionUniverselle.title.split(separator: "(").joined(separator: "\n(")
-        visitorsCountLabel.text = " : \(changeNumberFormat(input: expositionUniverselle.visitors)) 명"
+        visitorsCountLabel.text = " : \(changeNumberToDecimalString(input: expositionUniverselle.visitors)) 명"
         locationLabel.text = " : \(expositionUniverselle.location)"
         durationLabel.text = " : \(expositionUniverselle.duration)"
         descriptionTextView.text = expositionUniverselle.description
@@ -39,10 +39,9 @@ class MainViewController: UIViewController {
         }
     }
     
-    func changeNumberFormat(input: Int) -> String {
+    func changeNumberToDecimalString(input: Int) -> String {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        
         return numberFormatter.string(for: input) ?? ""
     }
 }
