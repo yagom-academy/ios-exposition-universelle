@@ -18,15 +18,13 @@ class KoreanEntriesViewController: UIViewController {
     
     func loadKoreanEntries() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "koreanEntryCell") else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
             self.koreanEntries = try jsonDecoder.decode([KoreanEntries].self, from: dataAsset.data)
         } catch {
             return
         }
-        
-        self.koreanEntriesTableView.reloadData()
     }
 }
 
@@ -43,9 +41,9 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = koreanEntriesTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
         let entry: KoreanEntries = self.koreanEntries[indexPath.row]
-        
         var content = cell.defaultContentConfiguration()
-        //content.image = UIImage(named: entry.imageName)
+        
+        content.image = UIImage(named: entry.imageName)
         content.text = entry.name
         content.secondaryText = entry.shortDescription
         cell.contentConfiguration = content
