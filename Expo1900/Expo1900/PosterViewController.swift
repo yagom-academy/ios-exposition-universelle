@@ -23,6 +23,7 @@ class PosterViewController: UIViewController {
         super.viewDidLoad()
         jsonDecoding()
         configureViewFromDecodedData()
+        configureViewFromImageAsset()
     }
     
     @IBAction func tapEntryButton(_ sender: UIButton) {
@@ -44,11 +45,16 @@ class PosterViewController: UIViewController {
         guard let bindedVisitors = expositionParis?.visitors else { return }
         
         titleLabel.text = splitParagraph(of: bindedTitle)
-        posterImageView.image = UIImage(named: "poster")
         visitorsLabel.text = "\(formatNumber(num: bindedVisitors)) 명"
         locationLabel.text = expositionParis?.location
         durationLabel.text = expositionParis?.duration
         descriptionLabel.text = expositionParis?.description
+    }
+    
+    func configureViewFromImageAsset() {
+        posterImageView.image = UIImage(named: "poster")
+        leftFlagImageView.image = UIImage(named: "flag")
+        rightFlagImageView.image = UIImage(named: "flag")
     }
     
     func splitParagraph(of title: String) -> String {
