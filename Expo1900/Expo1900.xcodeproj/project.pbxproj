@@ -41,6 +41,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF66839B28FE652C00746CC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF66839928FE5F0200746CC7 /* Exhibition.swift */,
+				D06D751228FE630D001544E6 /* Exposition.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF66839C28FE65AF00746CC7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BF66839E28FE65D600746CC7 /* App */,
+				BF66839B28FE652C00746CC7 /* Model */,
+				BF66839F28FE65E100746CC7 /* View */,
+				BF6683A028FE660700746CC7 /* Controller */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BF66839D28FE65BC00746CC7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BF66839E28FE65D600746CC7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BF66839F28FE65E100746CC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF6683A028FE660700746CC7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +114,9 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				BF66839C28FE65AF00746CC7 /* Sources */,
+				BF66839D28FE65BC00746CC7 /* Resources */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
-				BF66839928FE5F0200746CC7 /* Exhibition.swift */,
-				D06D751228FE630D001544E6 /* Exposition.swift */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
