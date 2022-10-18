@@ -1,11 +1,6 @@
-//
 //  Exhibit.swift
 //  Expo1900
-//
-//  Created by 김인호 on 2022/10/18.
-//
-
-import Foundation
+//  Created by inho, LJ  on 2022/10/18.
 
 struct Exhibit: Decodable {
     let name: String

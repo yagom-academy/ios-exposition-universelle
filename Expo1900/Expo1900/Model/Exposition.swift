@@ -1,11 +1,6 @@
-//
 //  Exposition.swift
 //  Expo1900
-//
-//  Created by 임지연 on 2022/10/18.
-//
-
-import Foundation
+//  Created by inho, LJ on 2022/10/18.
 
 struct Exposition: Decodable {
     let title: String
