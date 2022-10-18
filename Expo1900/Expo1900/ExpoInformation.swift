@@ -1,11 +1,7 @@
 //
 //  ExpoInformation.swift
-//  Expo1900
+//  Created by sunnyCookie, Wonbi
 //
-//  Created by 맹선아 on 2022/10/18.
-//
-
-import Foundation
 
 struct ExpoInformation: Codable {
     let title: String

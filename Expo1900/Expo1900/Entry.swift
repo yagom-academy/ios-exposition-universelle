@@ -1,11 +1,7 @@
 //
 //  Entry.swift
-//  Expo1900
+//  Created by sunnyCookie, Wonbi
 //
-//  Created by Wonbi on 2022/10/18.
-//
-
-import Foundation
 
 struct Entry: Codable {
     let name: String
