@@ -7,4 +7,5 @@
 
 enum Identifier {
     static let koreaItemsVCIdentifier = "koreaItemsVC"
+    static let cellIdentifier = "itemCell"
 }
