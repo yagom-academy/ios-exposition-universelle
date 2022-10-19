@@ -8,6 +8,9 @@ import UIKit
 
 class ExpoViewController: UIViewController {
 
+    var expoData: ExpositionIntroduction?
+    let dataManager: DataManager = DataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
