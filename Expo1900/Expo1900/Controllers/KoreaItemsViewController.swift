@@ -16,6 +16,7 @@ class KoreaItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setData()
+        setNavigationBar()
         setTableView()
     }
     
@@ -39,6 +40,11 @@ class KoreaItemsViewController: UIViewController {
         koreanItemsTable.delegate = self
         koreanItemsTable.dataSource = self
     }
+    
+    func setNavigationBar() {
+        navigationController?.navigationBar.tintColor = .black
+        self.title = Constant.koreaItemsNavigationTitle
+    }
 }
 
 extension KoreaItemsViewController: UITableViewDelegate {
@@ -56,9 +62,22 @@ extension KoreaItemsViewController: UITableViewDataSource {
             errorCell.textLabel?.text = "Error"
             return errorCell
         }
-        cell.textLabel?.text = koreaItems[indexPath.row].name
-        cell.detailTextLabel?.text = koreaItems[indexPath.row].shortDescription
-        cell.imageView?.image = UIImage(named: koreaItems[indexPath.row].imageName)
+        
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = koreaItems[indexPath.row].name
+        content.textProperties.font = UIFont.systemFont(ofSize: 30)
+        
+        content.secondaryText = koreaItems[indexPath.row].shortDescription
+        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 15)
+        
+        content.image = UIImage(named: koreaItems[indexPath.row].imageName)
+        content.imageProperties.maximumSize = CGSize(width: 80, height: 80)
+        content.imageProperties.reservedLayoutSize = CGSize(width: 80, height: 80)
+        content.imageToTextPadding = CGFloat(10)
+        
+        cell.contentConfiguration = content
+
         return cell
     }
 }

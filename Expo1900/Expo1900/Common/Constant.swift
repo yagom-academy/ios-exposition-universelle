@@ -7,4 +7,5 @@
 
 enum Constant {
     static let nextButtonTitle = "한국의 출품작 보러가기"
+    static let koreaItemsNavigationTitle = "한국의 출품작"
 }
