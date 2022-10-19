@@ -8,11 +8,10 @@
 import UIKit
 
 class DetailEntryViewController: UIViewController {
-
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
-    
-
 }

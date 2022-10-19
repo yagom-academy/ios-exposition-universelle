@@ -8,10 +8,16 @@
 import UIKit
 
 class EntryViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
+    let customCell = "entryTableViewCell"
     var items: [Items] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         jsonDecoding()
     }
     
@@ -33,13 +39,17 @@ extension EntryViewController: UITableViewDelegate {
 
 extension EntryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: customCell, for: indexPath) as? EntryTableViewCell else { return UITableViewCell() }
+        
+        cell.entryImageView.image = UIImage(named: items[indexPath.row].imageName)
+        cell.entryLabel.text = items[indexPath.row].name
+        cell.entrySubLabel.text = items[indexPath.row].shortDesc
+        
+        return cell
     }
-    
-    
 }
 
