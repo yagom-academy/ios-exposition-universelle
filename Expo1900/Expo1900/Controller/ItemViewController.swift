@@ -1,9 +1,6 @@
 //
 //  ItemViewController.swift
 //  Expo1900
-//
-//  Created by 유연수 on 2022/10/19.
-//
 
 import UIKit
 
