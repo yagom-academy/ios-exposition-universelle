@@ -1,6 +1,6 @@
 //  Created by Rhovin, Aejong on 2022/10/18.
 
-struct ExpositionUniverselle1900: Decodable {
+struct Exposition: Decodable {
     let title: String
     let visitors: Int
     let location: String
