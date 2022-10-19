@@ -8,9 +8,22 @@
 import UIKit
 
 class EntryViewController: UIViewController {
+    var items: [Items] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        jsonDecoding()
+    }
+    
+    func jsonDecoding() {
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "Items") else { return }
+        
+        do {
+            items = try jsonDecoder.decode([Items].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
