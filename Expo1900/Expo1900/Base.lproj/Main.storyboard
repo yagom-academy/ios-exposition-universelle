@@ -50,7 +50,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descriptionLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buz-vy-BAH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descriptionLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buz-vy-BAH">
                                                 <rect key="frame" x="0.0" y="260" width="414" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -97,6 +97,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="05D-1W-Ql5"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="buz-vy-BAH" id="0cT-Dk-H8e"/>
+                        <outlet property="mainImage" destination="Jaw-K8-fQT" id="4XE-Eb-QyC"/>
+                        <outlet property="nextButton" destination="1FF-tS-thy" id="Q3A-CQ-CLU"/>
+                        <outlet property="placeLabel" destination="tse-PA-CkA" id="0VV-XW-Zv6"/>
+                        <outlet property="timeLabel" destination="ruC-q1-WKz" id="PDR-v2-v6k"/>
+                        <outlet property="titleLabel" destination="MsQ-iM-aJM" id="Rdw-6w-gMn"/>
+                        <outlet property="visitorLabel" destination="Gxj-Ej-gbI" id="8Ww-Ht-Oxp"/>
+                        <outletCollection property="buttonImage" destination="OJT-aw-lzn" collectionClass="NSMutableArray" id="5x0-7v-XCw"/>
+                        <outletCollection property="buttonImage" destination="p5x-ug-plH" collectionClass="NSMutableArray" id="1Fj-Wv-k8x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

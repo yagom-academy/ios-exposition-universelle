@@ -7,6 +7,8 @@
 
 enum AssetName {
     static let expoIntro = "exposition_universelle_1900"
+    static let expoImage = "poster"
+    static let flagButtonImage = "flag"
 }
 
 
