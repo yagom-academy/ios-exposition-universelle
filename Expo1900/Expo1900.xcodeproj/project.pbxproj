@@ -61,6 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AF7877928FFC7410094A911 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				572241CF28FE3AA3006E1783 /* Item.swift */,
+				1AF7876728FE3E0F0094A911 /* Exposition.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1AF7877A28FFC7480094A911 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1AF7877B28FFC7500094A911 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5761D81D28FFBE090041CF77 /* DecodingTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,13 +117,12 @@
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
-				572241CF28FE3AA3006E1783 /* Item.swift */,
-				1AF7876728FE3E0F0094A911 /* Exposition.swift */,
+				1AF7877928FFC7410094A911 /* Models */,
+				1AF7877B28FFC7500094A911 /* Views */,
+				1AF7877A28FFC7480094A911 /* Controllers */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
