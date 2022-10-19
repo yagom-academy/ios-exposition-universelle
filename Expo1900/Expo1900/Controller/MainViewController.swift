@@ -33,10 +33,10 @@ class MainViewController: UIViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        guard let exposition,
+        guard let exposition = exposition,
               let visitorsText = numberFormatter.string(from: Double(exposition.visitors) as NSNumber) else { return }
-        
-        titleLabel.text = exposition.title
+
+        updateTitleLabel()
         posterImage.image = UIImage(named: "poster")
         visitorsLabel.text = visitorsText + " 명"
         locationLabel.text = exposition.location
@@ -45,6 +45,15 @@ class MainViewController: UIViewController {
         
         leftFlagImage.image = UIImage(named: "flag")
         rightFlagImage.image = UIImage(named: "flag")
+    }
+    
+    func updateTitleLabel() {
+        guard var title = exposition?.title,
+        let index = title.firstIndex(of: "(") else { return }
+        
+        title.insert("\n", at: index)
+        titleLabel.text = title
+        
     }
 
 }
