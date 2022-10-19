@@ -14,6 +14,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D2D9B52B28FF9DF9004FE198 /* ExpositionParis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */; };
+		D2D9B52D28FFBF90004FE198 /* DetailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */; };
 		FC2684E228FF9B1900A02E7F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2684E128FF9B1900A02E7F /* EntryViewController.swift */; };
 		FC2684E428FFA85C00A02E7F /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */; };
 		FCDC20FB28FD48BC009B994E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDC20FA28FD48BC009B994E /* Items.swift */; };
@@ -29,6 +30,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpositionParis.swift; sourceTree = "<group>"; };
+		D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntryViewController.swift; sourceTree = "<group>"; };
 		FC2684E128FF9B1900A02E7F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		FCDC20FA28FD48BC009B994E /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				C79FF4B82589F401005FB0FD /* PosterViewController.swift */,
 				FC2684E128FF9B1900A02E7F /* EntryViewController.swift */,
 				FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */,
+				D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */,
 				D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */,
 				FCDC20FA28FD48BC009B994E /* Items.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
@@ -155,6 +158,7 @@
 				FC2684E428FFA85C00A02E7F /* EntryTableViewCell.swift in Sources */,
 				D2D9B52B28FF9DF9004FE198 /* ExpositionParis.swift in Sources */,
 				FC2684E228FF9B1900A02E7F /* EntryViewController.swift in Sources */,
+				D2D9B52D28FFBF90004FE198 /* DetailEntryViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
