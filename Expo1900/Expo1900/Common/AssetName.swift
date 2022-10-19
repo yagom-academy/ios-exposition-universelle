@@ -6,7 +6,8 @@
 //
 
 enum AssetName {
-    static let expoIntro = "exposition_universelle_1900"
+    static let expoIntroJSON = "exposition_universelle_1900"
+    static let koreaItemJSON = "items"
     static let expoImage = "poster"
     static let flagButtonImage = "flag"
 }
