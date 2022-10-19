@@ -21,12 +21,10 @@ class PosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         jsonDecoding()
         configureViewFromDecodedData()
         configureViewFromImageAsset()
-    }
-    
-    @IBAction func tapEntryButton(_ sender: UIButton) {
     }
     
     func jsonDecoding() {

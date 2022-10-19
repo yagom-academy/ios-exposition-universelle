@@ -15,9 +15,8 @@ class EntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
         
+        tableView.dataSource = self
         jsonDecoding()
     }
     
@@ -40,10 +39,6 @@ class EntryViewController: UIViewController {
         detailEntryViewController.jsonDesc = items[indexPath.row].desc
         detailEntryViewController.jsonImageName = items[indexPath.row].imageName
     }
-}
-
-extension EntryViewController: UITableViewDelegate {
-    
 }
 
 extension EntryViewController: UITableViewDataSource {

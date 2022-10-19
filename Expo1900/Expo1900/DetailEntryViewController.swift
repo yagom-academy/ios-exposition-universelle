@@ -8,7 +8,6 @@
 import UIKit
 
 class DetailEntryViewController: UIViewController {
-    
     var jsonName: String?
     var jsonDesc: String?
     var jsonImageName: String?
@@ -28,7 +27,5 @@ class DetailEntryViewController: UIViewController {
         self.navigationItem.title = jsonName
         detailImageView.image = UIImage(named: jsonImageName)
         detailLabel.text = jsonDesc
-        
     }
-    
 }
