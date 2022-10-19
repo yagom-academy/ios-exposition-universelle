@@ -23,8 +23,9 @@ class KoreanItemViewController: UIViewController {
         }
         self.tableView.reloadData()
         self.tableView.dataSource = self
+        
     }
-
+    
 }
 
 extension KoreanItemViewController: UITableViewDelegate {

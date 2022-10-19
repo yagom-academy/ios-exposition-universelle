@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
         
         leftFlagImage.image = UIImage(named: "flag")
         rightFlagImage.image = UIImage(named: "flag")
+        self.navigationItem.backButtonTitle = "메인"
     }
     
     func updateTitleLabel() {
@@ -54,6 +55,13 @@ class MainViewController: UIViewController {
         title.insert("\n", at: index)
         titleLabel.text = title
         
+    }
+    
+    @IBAction func tappedShowItemsButton(sender: UIButton) {
+        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "koreanItems") as? KoreanItemViewController else { return }
+        
+        nextViewController.title = "한국의 출품작"
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 
 }
