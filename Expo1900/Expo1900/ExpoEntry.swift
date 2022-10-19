@@ -5,13 +5,13 @@
 //  Created by Jeremy, 준호 on 2022/10/18.
 //
 
-struct ExpoEntry: Codable {
+struct ExpoEntry: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String
     var description: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"

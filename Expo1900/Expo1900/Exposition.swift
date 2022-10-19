@@ -5,7 +5,7 @@
 //  Created by Jeremy, 준호 on 2022/10/18.
 //
 
-struct Exposition: Codable {
+struct Exposition: Decodable {
     var title: String
     var visitors: Int
     var location: String
