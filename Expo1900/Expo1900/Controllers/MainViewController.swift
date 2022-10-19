@@ -6,9 +6,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     @IBOutlet private weak var mainStackView: UIStackView!
     private let jsonDecoder = JSONDecoder()
+    private let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
+        return formatter
+    }()
     private var exposition: Exposition? = nil
     
     override func viewDidLoad() {
@@ -25,7 +31,7 @@ class MainViewController: UIViewController {
         return exposition
     }
     
-    func configureView() {
+    private func configureView() {
         let koreanTitleLabel: UILabel = {
             let label = UILabel()
             label.text = exposition?.koreanTitle
@@ -57,7 +63,7 @@ class MainViewController: UIViewController {
         
         let visitorsLabel: UILabel = {
             let label = UILabel()
-            label.text = "방문객 : \(exposition?.visitors ?? 0)"
+            label.text = "방문객 : \(numberFormatter.string(for: exposition?.visitors) ?? "")"
             label.font = UIFont.preferredFont(forTextStyle: .title3)
             
             return label
