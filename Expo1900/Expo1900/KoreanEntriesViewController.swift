@@ -32,6 +32,19 @@ final class KoreanEntriesViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? EntryDetailViewController else {
+            return
+        }
+        
+        guard let row = sender as? Int else {
+            return
+        }
+        
+        destination.entryImage = UIImage(named: koreanEntries[row].imageName)
+        destination.entryDescription = koreanEntries[row].description
+    }
 }
 
 extension KoreanEntriesViewController: UITableViewDataSource {
