@@ -13,11 +13,23 @@ class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func setData() {
+        do {
+            expoData = try dataManager.fetchExpoIntroData()
+        } catch {
+            if let error = error as? DataError {
+                print(error.message)
+            } else {
+                print(DataError.unknownError.message)
+            }
+        }
     }
 
 }
