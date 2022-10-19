@@ -169,7 +169,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2AL-zS-Xer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="137"/>
+            <point key="canvasLocation" x="1906" y="137"/>
+        </scene>
+        <!--Entry Detail View Controller-->
+        <scene sceneID="dg5-sn-t06">
+            <objects>
+                <viewController id="Mlf-es-udk" customClass="EntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MDo-Uk-pkg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akD-Th-Dxt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EhZ-aG-Ijw">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="294.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="byo-c4-rvz">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u46-zs-eSz">
+                                                <rect key="frame" x="0.0" y="128" width="414" height="166.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EhZ-aG-Ijw" firstAttribute="bottom" secondItem="XqG-0B-2eI" secondAttribute="bottom" id="9sg-Vt-QAN"/>
+                                    <constraint firstItem="EhZ-aG-Ijw" firstAttribute="width" secondItem="jhz-QW-ecW" secondAttribute="width" id="NM8-jc-e9l"/>
+                                    <constraint firstItem="EhZ-aG-Ijw" firstAttribute="leading" secondItem="XqG-0B-2eI" secondAttribute="leading" id="Z4f-WZ-wwx"/>
+                                    <constraint firstItem="EhZ-aG-Ijw" firstAttribute="top" secondItem="XqG-0B-2eI" secondAttribute="top" id="abd-N4-mBD"/>
+                                    <constraint firstItem="EhZ-aG-Ijw" firstAttribute="trailing" secondItem="XqG-0B-2eI" secondAttribute="trailing" id="hYg-cr-W7f"/>
+                                    <constraint firstItem="EhZ-aG-Ijw" firstAttribute="height" secondItem="jhz-QW-ecW" secondAttribute="height" priority="1" id="wa7-eE-XnG"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="XqG-0B-2eI"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="jhz-QW-ecW"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LSm-TY-TWQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="akD-Th-Dxt" firstAttribute="top" secondItem="LSm-TY-TWQ" secondAttribute="top" id="6Rj-pa-3fs"/>
+                            <constraint firstItem="akD-Th-Dxt" firstAttribute="leading" secondItem="LSm-TY-TWQ" secondAttribute="leading" id="UUG-P9-RUn"/>
+                            <constraint firstItem="LSm-TY-TWQ" firstAttribute="bottom" secondItem="akD-Th-Dxt" secondAttribute="bottom" id="Xac-1u-mvF"/>
+                            <constraint firstItem="LSm-TY-TWQ" firstAttribute="trailing" secondItem="akD-Th-Dxt" secondAttribute="trailing" id="xU6-2P-c8l"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="enteyDetailTextView" destination="u46-zs-eSz" id="gjO-iC-Ecf"/>
+                        <outlet property="entryImage" destination="byo-c4-rvz" id="w2b-m3-0D3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vhl-8L-0BH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657.971014492754" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ble-xI-TGm">
