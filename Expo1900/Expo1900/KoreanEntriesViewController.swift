@@ -14,6 +14,7 @@ final class KoreanEntriesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        entriesTableView.dataSource = self
         fetchKoreanEntries()
     }
     
@@ -29,5 +30,22 @@ final class KoreanEntriesViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+}
+
+extension KoreanEntriesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return koreanEntries.count
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = entriesTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        content.image = UIImage(named: koreanEntries[indexPath.row].imageName)
+        content.text = koreanEntries[indexPath.row].name
+        content.secondaryText = koreanEntries[indexPath.row].shortDescription
+        cell.contentConfiguration = content
+        return cell
     }
 }
