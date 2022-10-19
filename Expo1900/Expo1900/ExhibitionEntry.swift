@@ -15,6 +15,6 @@ struct ExhibitionEntry: Decodable {
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"
-        case description
+        case description = "desc"
     }
 }
