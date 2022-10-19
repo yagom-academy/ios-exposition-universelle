@@ -34,7 +34,7 @@ final class KoreanEntriesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? EntryDetailViewController else {
+        guard let entryDetailViewController = segue.destination as? EntryDetailViewController else {
             return
         }
         
@@ -42,8 +42,9 @@ final class KoreanEntriesViewController: UIViewController {
             return
         }
         
-        destination.entryImage = UIImage(named: koreanEntries[row].imageName)
-        destination.entryDescription = koreanEntries[row].description
+        entryDetailViewController.entryImage = UIImage(named: koreanEntries[row].imageName)
+        entryDetailViewController.entryDescription = koreanEntries[row].description
+        entryDetailViewController.entryName = koreanEntries[row].name
     }
 }
 
