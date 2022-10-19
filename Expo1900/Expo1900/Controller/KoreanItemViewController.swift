@@ -22,22 +22,32 @@ class KoreanItemViewController: UIViewController {
             print(error)
         }
         self.tableView.reloadData()
-//        self.tableView.dataSource = self
+        self.tableView.dataSource = self
     }
 
 }
 
 extension KoreanItemViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
-//extension KoreanItemViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.items.count
-//    }
-//
-//    // TODO: - customCell 구현 후 작성
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
-//}
+extension KoreanItemViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: ItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? ItemTableViewCell else {
+            return UITableViewCell()
+        }
+
+        
+        cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
+        cell.itemLabel.text = items[indexPath.row].name
+        cell.itemDescription.text = items[indexPath.row].shortDesc
+        
+        return cell
+    }
+}
