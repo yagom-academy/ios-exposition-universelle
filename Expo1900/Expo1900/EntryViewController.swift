@@ -31,6 +31,15 @@ class EntryViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailEntryViewController: DetailEntryViewController = segue.destination as? DetailEntryViewController else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        detailEntryViewController.jsonName = items[indexPath.row].name
+        detailEntryViewController.jsonDesc = items[indexPath.row].desc
+        detailEntryViewController.jsonImageName = items[indexPath.row].imageName
+    }
 }
 
 extension EntryViewController: UITableViewDelegate {
