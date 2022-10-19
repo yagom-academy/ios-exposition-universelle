@@ -42,12 +42,12 @@ extension KoreanItemViewController: UITableViewDataSource {
         guard let cell: ItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
-
         
         cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
         cell.itemLabel.text = items[indexPath.row].name
         cell.itemDescription.text = items[indexPath.row].shortDesc
-        
+        cell.translatesAutoresizingMaskIntoConstraints = true
+        cell.itemDescription.sizeToFit()
         return cell
     }
 }
