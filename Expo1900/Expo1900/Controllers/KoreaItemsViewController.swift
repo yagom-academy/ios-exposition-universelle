@@ -1,5 +1,5 @@
 //
-//  ItemListViewController.swift
+//  KoreaItemsController.swift
 //  Expo1900
 //
 //  Created by tottalE, Kyo on 10/17/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemListViewController: UIViewController {
+class KoreaItemsViewController: UIViewController {
 
     let dataManager: DataManager = DataManager()
     var koreaItems: [KoreaItem] = []

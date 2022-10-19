@@ -66,6 +66,9 @@
                                                         <rect key="frame" x="141.5" y="0.0" width="131" height="128"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xgb-cA-dfv"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5x-ug-plH">
                                                         <rect key="frame" x="282.5" y="0.0" width="131.5" height="128"/>
@@ -113,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="97.767857142857139"/>
         </scene>
-        <!--Item List View Controller-->
+        <!--Korea Items View Controller-->
         <scene sceneID="Oai-9i-Kwo">
             <objects>
-                <viewController id="qQj-Dn-cIb" customClass="ItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="koreaItemsVC" id="qQj-Dn-cIb" customClass="KoreaItemsViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDX-xb-dzi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

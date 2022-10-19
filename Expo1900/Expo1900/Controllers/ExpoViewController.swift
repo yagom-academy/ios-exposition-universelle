@@ -30,6 +30,12 @@ class ExpoViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        guard let koreaItemsVC = storyboard?.instantiateViewController(withIdentifier: Identifier.koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
+        
+        navigationController?.pushViewController(koreaItemsVC, animated: true)
+    }
+    
     func setData() {
         do {
             expoData = try dataManager.fetchExpoIntroData()

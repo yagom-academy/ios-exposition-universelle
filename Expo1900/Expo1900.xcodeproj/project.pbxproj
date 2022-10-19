@@ -13,7 +13,8 @@
 		3CA03C6C28FFBAE200C259C0 /* AssetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03C6B28FFBAE200C259C0 /* AssetName.swift */; };
 		3CA03C6E28FFBC2A00C259C0 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03C6D28FFBC2A00C259C0 /* DataError.swift */; };
 		3CA03C7028FFD35F00C259C0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03C6F28FFD35F00C259C0 /* Constant.swift */; };
-		3CA03C7428FFDD3300C259C0 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03C7328FFDD3300C259C0 /* ItemListViewController.swift */; };
+		3CA03C7428FFDD3300C259C0 /* KoreaItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03C7328FFDD3300C259C0 /* KoreaItemsViewController.swift */; };
+		3CA03C7628FFE17500C259C0 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03C7528FFE17500C259C0 /* Identifier.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoViewController.swift */; };
@@ -29,7 +30,8 @@
 		3CA03C6B28FFBAE200C259C0 /* AssetName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetName.swift; sourceTree = "<group>"; };
 		3CA03C6D28FFBC2A00C259C0 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		3CA03C6F28FFD35F00C259C0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		3CA03C7328FFDD3300C259C0 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		3CA03C7328FFDD3300C259C0 /* KoreaItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaItemsViewController.swift; sourceTree = "<group>"; };
+		3CA03C7528FFE17500C259C0 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				3CA03C6B28FFBAE200C259C0 /* AssetName.swift */,
 				3CA03C6D28FFBC2A00C259C0 /* DataError.swift */,
 				3CA03C6F28FFD35F00C259C0 /* Constant.swift */,
+				3CA03C7528FFE17500C259C0 /* Identifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -75,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
-				3CA03C7328FFDD3300C259C0 /* ItemListViewController.swift */,
+				3CA03C7328FFDD3300C259C0 /* KoreaItemsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,9 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CA03C6E28FFBC2A00C259C0 /* DataError.swift in Sources */,
-				3CA03C7428FFDD3300C259C0 /* ItemListViewController.swift in Sources */,
+				3CA03C7428FFDD3300C259C0 /* KoreaItemsViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
 				3CA03C7028FFD35F00C259C0 /* Constant.swift in Sources */,
+				3CA03C7628FFE17500C259C0 /* Identifier.swift in Sources */,
 				3CA03C6928FFB9CE00C259C0 /* DataManager.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				3C45C3A828FD25CF0060140E /* KoreaItem.swift in Sources */,
