@@ -17,11 +17,11 @@ class DetailEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureViewFromReceivedData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    func configureViewFromReceivedData() {
         guard let jsonImageName = jsonImageName else { return }
         
         self.navigationItem.title = jsonName
