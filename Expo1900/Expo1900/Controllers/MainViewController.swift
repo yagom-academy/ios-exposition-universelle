@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         let koreanTitleLabel: UILabel = {
             let label = UILabel()
             label.text = exposition?.koreanTitle
-            label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+            label.font = UIFont.preferredFont(forTextStyle: .title1)
             
             return label
         }()
@@ -46,10 +46,19 @@ class MainViewController: UIViewController {
         
         mainStackView.addArrangedSubview(englishTitleLabel)
         
+        let posterImageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: "poster")
+            
+            return imageView
+        }()
+        
+        mainStackView.addArrangedSubview(posterImageView)
+        
         let visitorsLabel: UILabel = {
             let label = UILabel()
             label.text = "방문객 : \(exposition?.visitors ?? 0)"
-            label.font = UIFont.preferredFont(forTextStyle: .title2)
+            label.font = UIFont.preferredFont(forTextStyle: .title3)
             
             return label
         }()
@@ -58,8 +67,8 @@ class MainViewController: UIViewController {
         
         let locationLabel: UILabel = {
             let label = UILabel()
-            label.text = exposition?.location
-            label.font = UIFont.preferredFont(forTextStyle: .title2)
+            label.text = "개최지 : \(exposition?.location ?? "")"
+            label.font = UIFont.preferredFont(forTextStyle: .title3)
             
             return label
         }()
@@ -68,8 +77,8 @@ class MainViewController: UIViewController {
         
         let durationLabel: UILabel = {
             let label = UILabel()
-            label.text = exposition?.duration
-            label.font = UIFont.preferredFont(forTextStyle: .title2)
+            label.text = "개최 기간 : \(exposition?.duration ?? "")"
+            label.font = UIFont.preferredFont(forTextStyle: .title3)
             
             return label
         }()
@@ -86,5 +95,15 @@ class MainViewController: UIViewController {
         }()
         
         mainStackView.addArrangedSubview(descriptionLabel)
+        
+        let koreanItemsViewButton: UIButton = {
+            let button = UIButton()
+            button.setTitle("🇰🇷 한국의 출품작 보러가기 🇰🇷", for: .normal)
+            button.setTitleColor(.systemBlue, for: .normal)
+            
+            return button
+        }()
+        
+        mainStackView.addArrangedSubview(koreanItemsViewButton)
     }
 }
