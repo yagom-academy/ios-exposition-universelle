@@ -13,12 +13,12 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: UITextView!
     
-    var expositionUniverselle: ExpositionUniverselle?
+    private var expositionUniverselle: ExpositionUniverselle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchExpoInformation()
-        
+        setTextToDisplay()
     }
     
     private func fetchExpoInformation() {
@@ -28,10 +28,23 @@ final class MainViewController: UIViewController {
         }
         
         do {
-            self.expositionUniverselle = try jsonDecoder.decode(ExpositionUniverselle.self, from: dataAsset.data)
+            self.expositionUniverselle = try jsonDecoder.decode(ExpositionUniverselle.self,
+                                                                from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private func setTextToDisplay() {
+        guard let expositionUniverselle = expositionUniverselle else {
+            return
+        }
+        
+        titleLabel.text = expositionUniverselle.title
+        visitorsLabel.text = "방문객 : \(expositionUniverselle.visitors) 명"
+        locationLabel.text = "개최지 : " + expositionUniverselle.location
+        durationLabel.text = "개최 기간 : " + expositionUniverselle.duration
+        descriptionTextView.text = expositionUniverselle.description
     }
 }
 
