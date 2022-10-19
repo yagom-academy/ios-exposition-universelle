@@ -17,7 +17,7 @@ class EntryViewController: UIViewController {
     
     func jsonDecoding() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "Items") else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
             items = try jsonDecoder.decode([Items].self, from: dataAsset.data)
