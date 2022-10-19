@@ -15,6 +15,7 @@ final class KoreanEntriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         entriesTableView.dataSource = self
+        entriesTableView.delegate = self
         fetchKoreanEntries()
     }
     
@@ -47,5 +48,12 @@ extension KoreanEntriesViewController: UITableViewDataSource {
         content.secondaryText = koreanEntries[indexPath.row].shortDescription
         cell.contentConfiguration = content
         return cell
+    }
+}
+
+extension KoreanEntriesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showEntryDetails", sender: indexPath.row)
     }
 }
