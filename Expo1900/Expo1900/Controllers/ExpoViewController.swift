@@ -58,7 +58,7 @@ class ExpoViewController: UIViewController {
         buttonImage.forEach { button in
             button.image = UIImage(named: AssetName.flagButtonImage)
         }
-        nextButton.titleLabel?.text = Constant.nextButtonTitle
+        nextButton.setTitle(Constant.nextButtonTitle, for: .normal)
     }
 }
 
