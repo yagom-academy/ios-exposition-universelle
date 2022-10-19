@@ -6,18 +6,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var expoInformation: [ExpoInformation] = []
+    var expoInformation: ExpoInformation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let decoder: JSONDecoder = JSONDecoder()
-        guard let asset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-
-        do {
-            expoInformation = try decoder.decode([ExpoInformation].self, from: asset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        guard let expoInformationData = JSONDecoder.decoding(
+            ExpoInformation.self,
+            from: "exposition_universelle_1900"
+        ) else { return }
+        
+        expoInformation = expoInformationData
     }
 }
