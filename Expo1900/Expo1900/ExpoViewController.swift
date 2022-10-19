@@ -45,9 +45,9 @@ class ExpoViewController: UIViewController {
     func setupElementWithData() {
         titleLabel.text = expoData?.title
         mainImage.image = UIImage(named: AssetName.expoImage)
-        visitorLabel.text = expoData?.visitors.description
-        placeLabel.text = expoData?.location
-        timeLabel.text = expoData?.duration
+        visitorLabel.text = expoData?.visitorsDescription
+        placeLabel.text = expoData?.locationDescription
+        timeLabel.text = expoData?.durationDescription
         descriptionLabel.text = expoData?.description
         buttonImage.forEach { button in
             button.image = UIImage(named: AssetName.flagButtonImage)
