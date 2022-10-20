@@ -1,10 +1,10 @@
-//  Expo1900 - ViewController.swift
+//  Expo1900 - ExpositionViewController.swift
 //  Created by inho, LJ
 //  Copyright © yagom academy. All rights reserved.
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpositionViewController: UIViewController {
     
     @IBOutlet weak var expositionTitleLabel: UILabel!
     @IBOutlet weak var expositionImageView: UIImageView!
@@ -15,9 +15,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftFlagImageView: UIImageView!
     @IBOutlet weak var showExhibitButton: UIButton!
     @IBOutlet weak var rightFlagImageView: UIImageView!
+    var exposition: Exposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return
+        }
+        
+        do {
+            self.exposition = try JSONDecoder.jsonDecoder.decode(Exposition.self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
