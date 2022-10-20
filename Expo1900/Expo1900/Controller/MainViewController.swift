@@ -22,11 +22,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            showDataErrorAlert()
+            return
+        }
         
         do {
             self.exposition = try JSONDecoder().decode(Exposition.self, from: dataAsset.data)
         } catch {
+            showDataErrorAlert()
             print(error)
         }
         
@@ -39,13 +43,20 @@ class MainViewController: UIViewController {
     
     func updateTitleLabel() {
         guard var title = exposition?.title,
-              let index = title.firstIndex(of: "(") else { return }
+              let index = title.firstIndex(of: "(") else {
+            titleLabel.text = exposition?.title
+            return
+        }
         
         title.insert("\n", at: index)
         titleLabel.text = title
     }
     
     func updateLabelText() {
+        locationLabel.text = exposition?.location
+        durationLabel.text = exposition?.duration
+        descriptionTextView.text = exposition?.description
+        
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
@@ -53,23 +64,40 @@ class MainViewController: UIViewController {
               let visitorsText = numberFormatter.string(from: Double(exposition.visitors) as NSNumber) else { return }
         
         visitorsLabel.text = visitorsText + " 명"
-        locationLabel.text = exposition.location
-        durationLabel.text = exposition.duration
-        descriptionTextView.text = exposition.description
     }
     
     func updateImage() {
         posterImage.image = UIImage(named: "poster")
-        leftFlagImage.image = UIImage(named: "flag")
-        rightFlagImage.image = UIImage(named: "flag")
+        
+        let flagImage = UIImage(named: "flag")
+        leftFlagImage.image = flagImage
+        rightFlagImage.image = flagImage
     }
     
     @IBAction func tappedShowItemsButton(sender: UIButton) {
         guard let nextViewController =
-                self.storyboard?.instantiateViewController(withIdentifier: "itemList") as? ItemListViewController else { return }
+                self.storyboard?.instantiateViewController(withIdentifier: "itemList") as? ItemListViewController else {
+            showTransitionAlert()
+            return
+        }
         
         nextViewController.title = "한국의 출품작"
         navigationController?.pushViewController(nextViewController, animated: true)
     }
+    
+    func showDataErrorAlert() {
+        let alert = UIAlertController(title: "데이터 로딩 실패",
+                                      message: "데이터를 불러오는데 실패했습니다.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        self.present(alert, animated: true)
+    }
+    
+    func showTransitionAlert() {
+        let alert = UIAlertController(title: "화면 전환 실패",
+                                      message: "다음 페이지로 넘어가는데 실패했습니다.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        self.present(alert, animated: true)
+    }
 }
-
