@@ -170,7 +170,9 @@
                             <constraint firstItem="NVU-gj-lPY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oJx-C3-coB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hOJ-ft-N6O"/>
+                    <navigationItem key="navigationItem" id="hOJ-ft-N6O">
+                        <barButtonItem key="backBarButtonItem" title="메인" id="AcD-1Q-864"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descTextView" destination="A4W-Xr-FYr" id="el8-rk-MUo"/>
                         <outlet property="imageView" destination="dk8-dT-qxm" id="59X-UL-JpJ"/>
@@ -238,7 +240,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x2z-bD-c1e">
-                        <barButtonItem key="backBarButtonItem" title="메인" id="ywL-ue-vhH"/>
+                        <barButtonItem key="backBarButtonItem" title="한국의 출품작" id="ywL-ue-vhH"/>
                     </navigationItem>
                     <connections>
                         <outlet property="exhibitionWorkTableView" destination="zL7-Zp-R0R" id="ZMd-ZF-hV4"/>
