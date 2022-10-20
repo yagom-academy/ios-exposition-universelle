@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF66839A28FE5F0200746CC7 /* Exhibition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF66839928FE5F0200746CC7 /* Exhibition.swift */; };
+		BFC7E044290185A10070EC00 /* ExhibitionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC7E043290185A10070EC00 /* ExhibitionListTableViewCell.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* InformationViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		BF66839928FE5F0200746CC7 /* Exhibition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibition.swift; sourceTree = "<group>"; };
+		BFC7E043290185A10070EC00 /* ExhibitionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionListTableViewCell.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			children = (
 				BF66839928FE5F0200746CC7 /* Exhibition.swift */,
 				D06D751228FE630D001544E6 /* Exposition.swift */,
+				BFC7E043290185A10070EC00 /* ExhibitionListTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* InformationViewController.swift in Sources */,
 				D007972C290177F600F3D070 /* ExhibitionListViewController.swift in Sources */,
+				BFC7E044290185A10070EC00 /* ExhibitionListTableViewCell.swift in Sources */,
 				D007972E2901829900F3D070 /* ExhibitionViewController.swift in Sources */,
 				D06D751328FE630D001544E6 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,

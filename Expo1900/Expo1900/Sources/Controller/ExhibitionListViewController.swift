@@ -19,6 +19,7 @@ class ExhibitionListViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.reloadData()
         
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
@@ -30,20 +31,20 @@ class ExhibitionListViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
-        tableView.reloadData()
     }
     
-    func configureCells(_ item : Exhibition, cell: UITableViewCell) {
-        cell.imageView?.image = UIImage(named: item.imageName)
-        cell.detailTextLabel?.text = item.shortDescription
-        cell.textLabel?.text = item.name
+    func configureCells(_ item : Exhibition, cell: ExhibitionListTableViewCell) {
+        cell.exhibitionImageView.image = UIImage(named: item.imageName)
+        cell.shortDescriptionLabel.text = item.shortDescription
+        cell.nameLabel.text = item.name
     }
 }
 
 extension ExhibitionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        guard let cell: ExhibitionListTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ExhibitionListTableViewCell else {
+            return UITableViewCell()
+        }
         let exhibitionItem: Exhibition = self.items[indexPath.row]
         configureCells(exhibitionItem, cell: cell)
         return cell
