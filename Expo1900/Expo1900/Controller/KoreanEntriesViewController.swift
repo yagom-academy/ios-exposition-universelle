@@ -8,7 +8,7 @@ class KoreanEntriesViewController: UIViewController {
     @IBOutlet weak var koreanEntriesTableView: UITableView!
     
     let cellIdentifier: String = "koreanEntryCell"
-    var koreanEntries: [KoreanEntries] = []
+    var koreanEntries: [KoreanEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +17,22 @@ class KoreanEntriesViewController: UIViewController {
         navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEntryDetail" {
+            guard let entriesDetailViewController = segue.destination
+                    as? EntriesDedatilViewController else { return }
+            guard let indexPath = koreanEntriesTableView.indexPathForSelectedRow else { return }
+            
+            entriesDetailViewController.koreanEntry = koreanEntries[indexPath.row]
+        }
+    }
+    
     func loadKoreanEntries() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
-            self.koreanEntries = try jsonDecoder.decode([KoreanEntries].self, from: dataAsset.data)
+            self.koreanEntries = try jsonDecoder.decode([KoreanEntry].self, from: dataAsset.data)
         } catch {
             return
         }
@@ -40,8 +50,11 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = koreanEntriesTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-        let entry: KoreanEntries = self.koreanEntries[indexPath.row]
+        let cell: UITableViewCell = koreanEntriesTableView.dequeueReusableCell(
+            withIdentifier: self.cellIdentifier,
+            for: indexPath
+        )
+        let entry: KoreanEntry = self.koreanEntries[indexPath.row]
         var content = cell.defaultContentConfiguration()
         
         content.image = UIImage(named: entry.imageName)
