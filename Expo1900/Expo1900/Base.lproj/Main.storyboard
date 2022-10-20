@@ -218,7 +218,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="exhibitionWorkTableView" destination="zL7-Zp-R0R" id="ZMd-ZF-hV4"/>
-                        <segue destination="pR6-Tn-a6R" kind="show" id="QxY-Qe-bQn"/>
+                        <segue destination="pR6-Tn-a6R" kind="show" identifier="detail" id="QxY-Qe-bQn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGZ-zP-bFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -53,6 +53,8 @@ extension ExhibitionWorkListViewController: UITableViewDataSource {
 }
 
 extension ExhibitionWorkListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detail", sender: nil)
+    }
 }
 
