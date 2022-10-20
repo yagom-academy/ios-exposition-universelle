@@ -4,7 +4,7 @@
 
 import UIKit
 
-class KoreanItemViewController: UIViewController {
+class ItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var items: [Item] = []
@@ -14,27 +14,31 @@ class KoreanItemViewController: UIViewController {
         super.viewDidLoad()
 
         self.tableView.delegate = self
-        let jsonDecoder: JSONDecoder = JSONDecoder()
+        
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
+        
         do {
-            self.items = try jsonDecoder.decode([Item].self, from: dataAsset.data)
+            self.items = try JSONDecoder().decode([Item].self, from: dataAsset.data)
         } catch {
             print(error)
         }
+        
         self.tableView.reloadData()
         self.tableView.dataSource = self
         self.navigationItem.backButtonTitle = "한국의 출품작"
     }
 }
 
-extension KoreanItemViewController: UITableViewDelegate {
+extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item: Item = self.items[indexPath.row]
-        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "item") as? ItemViewController else { return }
+        
+        guard let nextViewController =
+                self.storyboard?.instantiateViewController(withIdentifier: "item") as? ItemViewController else { return }
         
         nextViewController.title = item.name
         nextViewController.item = item
@@ -42,19 +46,20 @@ extension KoreanItemViewController: UITableViewDelegate {
     }
 }
 
-extension KoreanItemViewController: UITableViewDataSource {
+extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: ItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? ItemTableViewCell else {
+        guard let cell: ItemTableViewCell =
+                tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? ItemTableViewCell else {
             return UITableViewCell()
         }
         
         cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
         cell.itemLabel.text = items[indexPath.row].name
-        cell.itemDescription.text = items[indexPath.row].shortDesc
+        cell.itemDescription.text = items[indexPath.row].shortDescription
         cell.translatesAutoresizingMaskIntoConstraints = true
         cell.itemDescription.sizeToFit()
         return cell

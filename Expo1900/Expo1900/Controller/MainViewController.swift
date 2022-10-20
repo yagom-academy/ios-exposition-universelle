@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var rightFlagImage: UIImageView!
     
     var exposition: Exposition?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,39 +30,46 @@ class MainViewController: UIViewController {
             print(error)
         }
         
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        guard let exposition = exposition,
-              let visitorsText = numberFormatter.string(from: Double(exposition.visitors) as NSNumber) else { return }
-
         updateTitleLabel()
-        posterImage.image = UIImage(named: "poster")
-        visitorsLabel.text = visitorsText + " 명"
-        locationLabel.text = exposition.location
-        durationLabel.text = exposition.duration
-        descriptionTextView.text = exposition.description
+        updateLabelText()
+        updateImage()
         
-        leftFlagImage.image = UIImage(named: "flag")
-        rightFlagImage.image = UIImage(named: "flag")
         self.navigationItem.backButtonTitle = "메인"
     }
     
     func updateTitleLabel() {
         guard var title = exposition?.title,
-        let index = title.firstIndex(of: "(") else { return }
+              let index = title.firstIndex(of: "(") else { return }
         
         title.insert("\n", at: index)
         titleLabel.text = title
+    }
+    
+    func updateLabelText() {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
+        guard let exposition = exposition,
+              let visitorsText = numberFormatter.string(from: Double(exposition.visitors) as NSNumber) else { return }
+        
+        visitorsLabel.text = visitorsText + " 명"
+        locationLabel.text = exposition.location
+        durationLabel.text = exposition.duration
+        descriptionTextView.text = exposition.description
+    }
+    
+    func updateImage() {
+        posterImage.image = UIImage(named: "poster")
+        leftFlagImage.image = UIImage(named: "flag")
+        rightFlagImage.image = UIImage(named: "flag")
     }
     
     @IBAction func tappedShowItemsButton(sender: UIButton) {
-        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "koreanItems") as? KoreanItemViewController else { return }
+        guard let nextViewController =
+                self.storyboard?.instantiateViewController(withIdentifier: "itemList") as? ItemListViewController else { return }
         
         nextViewController.title = "한국의 출품작"
         navigationController?.pushViewController(nextViewController, animated: true)
     }
-
 }
 

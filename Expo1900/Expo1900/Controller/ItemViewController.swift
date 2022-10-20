@@ -13,11 +13,9 @@ class ItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         guard let item = item else { return }
         
         self.itemImage.image = UIImage(named: item.imageName)
-        self.descriptionTextView.text = item.desc
+        self.descriptionTextView.text = item.itemDescription
     }
-
 }
