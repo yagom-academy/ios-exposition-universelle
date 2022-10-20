@@ -218,6 +218,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="exhibitionWorkTableView" destination="zL7-Zp-R0R" id="ZMd-ZF-hV4"/>
+                        <segue destination="pR6-Tn-a6R" kind="show" id="QxY-Qe-bQn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGZ-zP-bFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -241,6 +242,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEI-cx-jbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.565217391304358" y="89.732142857142847"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TQ8-3z-NgW">
+            <objects>
+                <viewController id="pR6-Tn-a6R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YRU-ZW-aC5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gw3-TD-zYe">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUf-Rf-ub7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21v-Wb-IQN">
+                                                <rect key="frame" x="87" y="71" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QPZ-p6-kja">
+                                                <rect key="frame" x="87" y="271" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BUf-Rf-ub7" firstAttribute="height" secondItem="Gw3-TD-zYe" secondAttribute="height" id="8zY-tN-pa7"/>
+                                    <constraint firstItem="BUf-Rf-ub7" firstAttribute="trailing" secondItem="80G-B4-18k" secondAttribute="trailing" id="MhZ-Gy-FZK"/>
+                                    <constraint firstItem="BUf-Rf-ub7" firstAttribute="leading" secondItem="80G-B4-18k" secondAttribute="leading" id="O8l-Hg-X8L"/>
+                                    <constraint firstItem="BUf-Rf-ub7" firstAttribute="top" secondItem="80G-B4-18k" secondAttribute="top" id="hfB-1U-5u2"/>
+                                    <constraint firstItem="BUf-Rf-ub7" firstAttribute="width" secondItem="Gw3-TD-zYe" secondAttribute="width" id="kiD-TL-cyb"/>
+                                    <constraint firstItem="BUf-Rf-ub7" firstAttribute="bottom" secondItem="80G-B4-18k" secondAttribute="bottom" id="pqg-Su-bV8"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="80G-B4-18k"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Kvj-gh-hTr"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="T8m-Hz-ETZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T8m-Hz-ETZ" firstAttribute="bottom" secondItem="Gw3-TD-zYe" secondAttribute="bottom" id="9At-zc-otq"/>
+                            <constraint firstItem="Gw3-TD-zYe" firstAttribute="top" secondItem="T8m-Hz-ETZ" secondAttribute="top" id="HAR-jh-PVt"/>
+                            <constraint firstItem="Gw3-TD-zYe" firstAttribute="leading" secondItem="T8m-Hz-ETZ" secondAttribute="leading" id="RNN-K3-iIb"/>
+                            <constraint firstItem="T8m-Hz-ETZ" firstAttribute="trailing" secondItem="Gw3-TD-zYe" secondAttribute="trailing" id="W41-Tx-PDg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="O4G-Ul-vmc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywh-mq-zYk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2439.130434782609" y="89.732142857142847"/>
         </scene>
     </scenes>
     <resources>
