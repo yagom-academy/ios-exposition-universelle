@@ -9,6 +9,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var koreaItem: KoreaItem?
+    
     let itemImageView: UIImageView = {
         let itemImageView = UIImageView()
         itemImageView.translatesAutoresizingMaskIntoConstraints = false
