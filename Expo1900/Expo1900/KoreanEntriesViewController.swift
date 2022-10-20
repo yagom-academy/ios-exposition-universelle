@@ -21,7 +21,8 @@ final class KoreanEntriesViewController: UIViewController {
     
     private func fetchKoreanEntries() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+        guard let dataAsset: NSDataAsset = NSDataAsset(
+            name: ExpoConstant.koreanEntriesJSONFileName) else {
             return
         }
         
@@ -55,7 +56,8 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = entriesTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell: UITableViewCell = entriesTableView.dequeueReusableCell(withIdentifier: "cell",
+                                                                         for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(named: koreanEntries[indexPath.row].imageName)
         content.text = koreanEntries[indexPath.row].name

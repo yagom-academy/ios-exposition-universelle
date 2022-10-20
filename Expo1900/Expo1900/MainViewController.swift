@@ -16,7 +16,7 @@ final class MainViewController: UIViewController {
     private var expositionUniverselle: ExpositionUniverselle?
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.backButtonTitle = "메인"
+        self.navigationItem.title = ExpoConstant.mainNavigationTitle
         self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -33,7 +33,8 @@ final class MainViewController: UIViewController {
     
     private func fetchExpoInformation() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let dataAsset: NSDataAsset = NSDataAsset(
+            name: ExpoConstant.Expo1900JSONFileName) else {
             return
         }
         
@@ -50,22 +51,17 @@ final class MainViewController: UIViewController {
             return
         }
         let formattedVisitor: String = changeNumberFormat(
-            number:"\(expositionUniverselle.visitors)"
-        )
+            number:"\(expositionUniverselle.visitors)")
 
-        let vistors: String = "방문객 : \(formattedVisitor) 명"
-        let location: String = "개최지 : " + expositionUniverselle.location
-        let duration: String = "개최 기간 : " + expositionUniverselle.duration
+        let visitors: String = formattedVisitor.expoVisitorInformation
+        let location: String = expositionUniverselle.location.expoLocationImformation
+        let duration: String = expositionUniverselle.duration.expoDurationInformation
         
-        titleLabel.text = """
-                        \(String(expositionUniverselle.title.split(separator: "(").first ?? ""))
-                        (\(String(expositionUniverselle.title.split(separator: "(").last ?? ""))
-                        """
-
-        titleLabel.font = UIFont.systemFont(ofSize: 30)
-        visitorsLabel.attributedText = vistors.createAttributed(target: "방문객")
-        locationLabel.attributedText = location.createAttributed(target: "개최지")
-        durationLabel.attributedText = duration.createAttributed(target: "개최 기간")
+        titleLabel.text = expositionUniverselle.title.applyLineBreak()
+        titleLabel.font = ExpoConstant.largeFont
+        visitorsLabel.attributedText = visitors.createAttributed(target: ExpoConstant.visitor)
+        locationLabel.attributedText = location.createAttributed(target: ExpoConstant.location)
+        durationLabel.attributedText = duration.createAttributed(target: ExpoConstant.duration)
         descriptionTextView.text = expositionUniverselle.description
     }
     
