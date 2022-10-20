@@ -38,11 +38,20 @@ class ExpositionItemsViewController: UIViewController {
 
 extension ExpositionItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return expositionItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "ExpoItemCell", for: indexPath)
+        let expositionItem: ExpositionUniverselleItem = self.expositionItems[indexPath.row]
+        
+        cell.imageView?.image = UIImage(named: expositionItem.imageName)
+        cell.textLabel?.text = expositionItem.name
+        cell.detailTextLabel?.text = expositionItem.shortDescription
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.accessoryType = .disclosureIndicator
+        
+        return cell
     }
 }
 
