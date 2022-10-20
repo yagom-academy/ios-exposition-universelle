@@ -21,6 +21,8 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadMainViewData()
+        assignContentValue()
     }
     
     private func loadMainViewData() {
@@ -35,5 +37,21 @@ final class MainViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private func assignContentValue() {
+        guard let expositionUniverselle: ExpositionUniverselle = expositionUniverselle else {
+            return
+        }
+        
+        titleLabel.text = expositionUniverselle.title
+        posterImageView.image = UIImage(named: "poster")
+        visitorLabel.text = "방문객 : \(expositionUniverselle.visitors)명"
+        locationLabel.text = "개최지 : \(expositionUniverselle.location)"
+        durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
+        descriptionTextView.text = expositionUniverselle.description
+        showKoreanItemListButton.titleLabel?.text = "한국의 출품작 보러가기"
+        leftFlagImageView.image = UIImage(named: "flag")
+        rightFlagImageView.image = UIImage(named: "flag")
     }
 }
