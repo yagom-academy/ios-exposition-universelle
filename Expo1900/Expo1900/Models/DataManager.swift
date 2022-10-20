@@ -7,26 +7,26 @@
 
 import UIKit
 
-struct DataManager {
+struct DataManager<T: Codable> {
     
     let decoder = JSONDecoder()
     
-    func fetchExpoIntroData() throws -> ExpositionIntroduction? {
+    func fetchData(name: String) throws -> T? {
                 
-        guard let assetData = NSDataAsset.init(name: AssetName.expoIntroJSON) else { throw DataError.noneDataError }
+        guard let assetData = NSDataAsset.init(name: name) else { throw DataError.noneDataError }
         
-        guard let introData = try? decoder.decode(ExpositionIntroduction.self, from: assetData.data) else {
+        guard let introData = try? decoder.decode(T.self, from: assetData.data) else {
             throw DataError.decodingError
         }
         
         return introData
     }
     
-    func fetchKoreaItemData() throws -> [KoreaItem] {
+    func fetchDataList(name: String) throws -> [T] {
         
-        guard let assetData = NSDataAsset.init(name: AssetName.koreaItemJSON) else { throw DataError.noneDataError }
+        guard let assetData = NSDataAsset.init(name: name) else { throw DataError.noneDataError }
         
-        guard let koreaItems = try? decoder.decode([KoreaItem].self, from: assetData.data) else {
+        guard let koreaItems = try? decoder.decode([T].self, from: assetData.data) else {
             throw DataError.decodingError
         }
         

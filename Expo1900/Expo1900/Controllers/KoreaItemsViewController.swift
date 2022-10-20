@@ -10,7 +10,7 @@ import UIKit
 class KoreaItemsViewController: UIViewController {
 
     @IBOutlet weak var koreanItemsTable: UITableView!
-    let dataManager: DataManager = DataManager()
+    let dataManager: DataManager = DataManager<KoreaItem>()
     var koreaItems: [KoreaItem] = []
     
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class KoreaItemsViewController: UIViewController {
     
     func setData() {
         do {
-            koreaItems = try dataManager.fetchKoreaItemData()
+            koreaItems = try dataManager.fetchDataList(name: AssetName.koreaItemJSON)
         } catch {
             if let error = error as? DataError {
                 print(error.message)

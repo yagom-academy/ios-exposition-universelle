@@ -18,7 +18,7 @@ class ExpoViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     var expoData: ExpositionIntroduction?
-    let dataManager: DataManager = DataManager()
+    let dataManager: DataManager = DataManager<ExpositionIntroduction>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class ExpoViewController: UIViewController {
     
     func setData() {
         do {
-            expoData = try dataManager.fetchExpoIntroData()
+            expoData = try dataManager.fetchData(name: AssetName.expoIntroJSON)
         } catch {
             if let error = error as? DataError {
                 print(error.message)
@@ -61,4 +61,3 @@ class ExpoViewController: UIViewController {
         nextButton.setTitle(Constant.nextButtonTitle, for: .normal)
     }
 }
-
