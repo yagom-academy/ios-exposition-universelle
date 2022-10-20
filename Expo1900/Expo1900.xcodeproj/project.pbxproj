@@ -67,6 +67,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4194941D29014C910016044C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4194942029014CBB0016044C /* DTO */,
+				E3B485CB28FF90240033EF3C /* Extention */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4194941E29014C9C0016044C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4194941F29014CB30016044C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */,
+				E39B56552900F55900C224DF /* EntryViewController.swift */,
+				E39B565929013F4600C224DF /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4194942029014CBB0016044C /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				41B91B2528FE440900EEBF73 /* ExpoInformation.swift */,
+				E393FC5A28FE44A000492CBA /* Entry.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -88,18 +125,13 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				41B91B2528FE440900EEBF73 /* ExpoInformation.swift */,
-				E393FC5A28FE44A000492CBA /* Entry.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */,
-				E39B56552900F55900C224DF /* EntryViewController.swift */,
-				E39B565929013F4600C224DF /* DetailViewController.swift */,
-				E3B485CB28FF90240033EF3C /* Extention */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				4194941D29014C910016044C /* Model */,
+				4194941F29014CB30016044C /* Controller */,
+				4194941E29014C9C0016044C /* View */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
