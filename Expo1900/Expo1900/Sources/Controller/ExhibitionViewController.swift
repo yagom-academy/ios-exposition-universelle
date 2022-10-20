@@ -8,9 +8,14 @@
 import UIKit
 
 class ExhibitionViewController: UIViewController {
-
+    var exhibition: Exhibition?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        guard let exhibition = exhibition else {
+            return
+        }
+        
+        self.navigationItem.title = exhibition.name
     }
 }

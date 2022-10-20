@@ -38,6 +38,29 @@ class ExhibitionListViewController: UIViewController {
         cell.shortDescriptionLabel.text = item.shortDescription
         cell.nameLabel.text = item.name
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let exhibitionViewController = segue.destination as? ExhibitionViewController else {
+            return
+        }
+        guard let cell: ExhibitionListTableViewCell = sender as? ExhibitionListTableViewCell else {
+            return
+        }
+        guard let text: String = cell.nameLabel.text else {
+            return
+        }
+        
+        exhibitionViewController.exhibition = exhibition(text)
+    }
+    
+    func exhibition(_ name: String) -> Exhibition? {
+        for item in items {
+            if item.name == name {
+                return item
+            }
+        }
+        return nil
+    }
 }
 
 extension ExhibitionListViewController: UITableViewDataSource {

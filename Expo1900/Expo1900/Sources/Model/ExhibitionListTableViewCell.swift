@@ -2,7 +2,7 @@
 //  ExhibitionListTableViewCell.swift
 //  Expo1900
 //
-//  Created by 이준영 on 2022/10/20.
+//  Created by Gundy, Dragon on 2022/10/20.
 //
 
 import UIKit
