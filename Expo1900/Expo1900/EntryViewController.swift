@@ -10,11 +10,19 @@ import UIKit
 class EntryViewController: UIViewController {
     @IBOutlet weak var entryTableView: UITableView!
     let cellIdetifier: String = "entryCell"
+    var entries: [Entry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let entries = JSONDecoder.decode([Entry].self, from: "items") else { return }
+        
+        entryTableView.delegate = self
+        entryTableView.dataSource = self
+        
         navigationController?.navigationBar.isHidden = false
         title = "한국의 출품작"
+        
+        self.entries = entries
     }
 }
 
