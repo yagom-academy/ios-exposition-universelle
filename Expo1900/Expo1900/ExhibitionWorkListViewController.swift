@@ -17,6 +17,7 @@ class ExhibitionWorkListViewController: UIViewController {
         super.viewDidLoad()
         setUpJSONData()
         exhibitionWorkTableView.dataSource = self
+        exhibitionWorkTableView.delegate = self
     }
     
     func setUpJSONData() {
@@ -49,5 +50,9 @@ extension ExhibitionWorkListViewController: UITableViewDataSource {
         
         return cell
     }
+}
+
+extension ExhibitionWorkListViewController: UITableViewDelegate {
+    
 }
 
