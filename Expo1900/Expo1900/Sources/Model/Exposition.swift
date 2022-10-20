@@ -6,11 +6,11 @@
 //
 
 struct Exposition: Codable {
-    private let title: String
-    private let numberOfVisitors: Int
-    private let location: String
-    private let duration: String
-    private let description: String
+    let title: String
+    let numberOfVisitors: Int
+    let location: String
+    let duration: String
+    let description: String
     
     enum CodingKeys: String, CodingKey {
         case title, location, duration, description
