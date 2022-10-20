@@ -25,8 +25,11 @@ final class ExpoMainViewController: UIViewController {
         ) else { return }
         
         expoInformation = expoInformationData
-        setupNavigationBar()
         setupExpoMainView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupNavigationBar()
     }
     
     private func setupNavigationBar() {
@@ -54,5 +57,11 @@ final class ExpoMainViewController: UIViewController {
         flagImages.forEach { flagImage in
             flagImage.image = UIImage(named: "flag")
         }
+    }
+    
+    @IBAction func tapEntryButton(_ sender: UIButton) {
+        guard let entryViewController = storyboard?.instantiateViewController(withIdentifier: "EntryViewController") as? EntryViewController else { return }
+        
+        navigationController?.pushViewController(entryViewController, animated: true)
     }
 }
