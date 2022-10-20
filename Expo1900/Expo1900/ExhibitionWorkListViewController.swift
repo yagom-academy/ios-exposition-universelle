@@ -40,9 +40,11 @@ class ExhibitionWorkListViewController: UIViewController {
             return
         }
         
-        guard let indexPath = exhibitionWorkTableView.indexPathsForSelectedRows else {
+        guard let indexPath = exhibitionWorkTableView.indexPathForSelectedRow else {
             return
         }
+        
+        detailViewController.exhibitionWork = self.exhibitionWork[indexPath.row]
     }
 }
 

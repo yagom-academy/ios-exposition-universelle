@@ -8,14 +8,19 @@
 import UIKit
 
 class DetailWorkViewContorller: UIViewController {
-
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
+    var exhibitionWork: ExhibitionWork?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpDetailData()
     }
 
+    func setUpDetailData() {
+        imageView.image = UIImage(named: exhibitionWork?.imageName ?? "")
+        textView.text = exhibitionWork?.desc ?? ""
+        title = exhibitionWork?.name ?? ""
+    }
 }
