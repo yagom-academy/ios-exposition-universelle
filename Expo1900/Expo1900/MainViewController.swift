@@ -15,10 +15,20 @@ final class MainViewController: UIViewController {
     
     private var expositionUniverselle: ExpositionUniverselle?
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.backButtonTitle = "메인"
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchExpoInformation()
         setTextToDisplay()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func fetchExpoInformation() {
