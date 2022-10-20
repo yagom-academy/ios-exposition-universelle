@@ -12,7 +12,7 @@ extension String {
         return ExpoConstant.visitor + ExpoConstant.colon + self + ExpoConstant.people
     }
     
-    var expoLocationImformation: String {
+    var expoLocationInformation: String {
         return ExpoConstant.location + ExpoConstant.colon + self
     }
     

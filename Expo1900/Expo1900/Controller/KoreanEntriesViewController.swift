@@ -11,7 +11,7 @@ final class KoreanEntriesViewController: UIViewController {
     @IBOutlet private weak var entriesTableView: UITableView!
     
     private var koreanEntries: [ExhibitionEntry] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         entriesTableView.dataSource = self
@@ -28,7 +28,7 @@ final class KoreanEntriesViewController: UIViewController {
         
         do {
             self.koreanEntries = try jsonDecoder.decode([ExhibitionEntry].self,
-                                                                from: dataAsset.data)
+                                                        from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }

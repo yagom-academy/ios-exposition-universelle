@@ -52,9 +52,9 @@ final class MainViewController: UIViewController {
         }
         let formattedVisitor: String = changeNumberFormat(
             number:"\(expositionUniverselle.visitors)")
-
+        
         let visitors: String = formattedVisitor.expoVisitorInformation
-        let location: String = expositionUniverselle.location.expoLocationImformation
+        let location: String = expositionUniverselle.location.expoLocationInformation
         let duration: String = expositionUniverselle.duration.expoDurationInformation
         
         titleLabel.text = expositionUniverselle.title.applyLineBreak()
