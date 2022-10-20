@@ -52,24 +52,10 @@ final class MainViewController: UIViewController {
         let formattedVisitor: String = changeNumberFormat(
             number:"\(expositionUniverselle.visitors)"
         )
-        
-        let fontSize = UIFont.systemFont(ofSize: 20)
-        
+
         let vistors: String = "방문객 : \(formattedVisitor) 명"
         let location: String = "개최지 : " + expositionUniverselle.location
         let duration: String = "개최 기간 : " + expositionUniverselle.duration
-        
-        let vistorsAttributed = NSMutableAttributedString(string: vistors)
-        let locationAttributed = NSMutableAttributedString(string: location)
-        let durationAttributed = NSMutableAttributedString(string: duration)
-        
-        let vistorsRange = (vistors as NSString).range(of: "방문객")
-        let locationRange = (location as NSString).range(of: "개최지")
-        let durationRange = (duration as NSString).range(of: "개최 기간")
-        
-        vistorsAttributed.addAttribute(.font, value: fontSize, range: vistorsRange)
-        locationAttributed.addAttribute(.font, value: fontSize, range: locationRange)
-        durationAttributed.addAttribute(.font, value: fontSize, range: durationRange)
         
         titleLabel.text = """
                         \(String(expositionUniverselle.title.split(separator: "(").first ?? ""))
@@ -77,9 +63,9 @@ final class MainViewController: UIViewController {
                         """
 
         titleLabel.font = UIFont.systemFont(ofSize: 30)
-        visitorsLabel.attributedText = vistorsAttributed
-        locationLabel.attributedText = locationAttributed
-        durationLabel.attributedText = durationAttributed
+        visitorsLabel.attributedText = vistors.createAttributed(target: "방문객")
+        locationLabel.attributedText = location.createAttributed(target: "개최지")
+        durationLabel.attributedText = duration.createAttributed(target: "개최 기간")
         descriptionTextView.text = expositionUniverselle.description
     }
     
