@@ -68,18 +68,42 @@
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* PosterViewController.swift */,
-				FC2684E128FF9B1900A02E7F /* EntryViewController.swift */,
-				D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */,
-				D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */,
-				FCDC20FA28FD48BC009B994E /* Items.swift */,
-				FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				F615F71C290177200022C137 /* Controller */,
+				F615F71E290177310022C137 /* Model */,
+				F615F71D290177290022C137 /* View */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		F615F71C290177200022C137 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* PosterViewController.swift */,
+				FC2684E128FF9B1900A02E7F /* EntryViewController.swift */,
+				D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F615F71D290177290022C137 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */,
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F615F71E290177310022C137 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */,
+				FCDC20FA28FD48BC009B994E /* Items.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
