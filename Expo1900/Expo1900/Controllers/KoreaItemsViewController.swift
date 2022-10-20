@@ -48,7 +48,11 @@ class KoreaItemsViewController: UIViewController {
 }
 
 extension KoreaItemsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension KoreaItemsViewController: UITableViewDataSource {
