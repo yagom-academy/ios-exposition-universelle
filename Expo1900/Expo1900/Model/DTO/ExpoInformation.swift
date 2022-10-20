@@ -6,8 +6,8 @@
 import Foundation
 
 struct ExpoInformation: Codable {
-    let title: String
-    let visitors: Int
+    private let title: String
+    private let visitors: Int
     let location: String
     let duration: String
     let description: String
