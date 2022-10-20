@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9002373429014A2300A3EAE7 /* JSON+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9002373329014A2300A3EAE7 /* JSON+Extension.swift */; };
 		90C6E82528FE51220071FE83 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C6E82428FE51220071FE83 /* Exposition.swift */; };
+		B222546E29019E67001DA9DE /* ExhibitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222546D29019E67001DA9DE /* ExhibitViewController.swift */; };
 		B2778F6628FE56FB00308D9E /* Exhibit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2778F6528FE56FB00308D9E /* Exhibit.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		9002373329014A2300A3EAE7 /* JSON+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON+Extension.swift"; sourceTree = "<group>"; };
 		90C6E82428FE51220071FE83 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		B222546D29019E67001DA9DE /* ExhibitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExhibitViewController.swift; path = Expo1900/Controller/ExhibitViewController.swift; sourceTree = SOURCE_ROOT; };
 		B2778F6528FE56FB00308D9E /* Exhibit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exhibit.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				B222546D29019E67001DA9DE /* ExhibitViewController.swift */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B222546E29019E67001DA9DE /* ExhibitViewController.swift in Sources */,
 				B2778F6628FE56FB00308D9E /* Exhibit.swift in Sources */,
 				9002373429014A2300A3EAE7 /* JSON+Extension.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
