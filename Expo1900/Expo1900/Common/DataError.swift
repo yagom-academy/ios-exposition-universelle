@@ -9,6 +9,7 @@ enum DataError: Error {
     case noneDataError
     case decodingError
     case unknownError
+    case formattingError
     
     var message: String {
         switch self {
@@ -16,6 +17,8 @@ enum DataError: Error {
             return "NoneData Error"
         case .decodingError:
             return "Decoding Error"
+        case .formattingError:
+            return "Formatting Error"
         case .unknownError:
             return "Unknown Error"
         }
