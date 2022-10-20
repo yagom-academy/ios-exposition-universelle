@@ -5,21 +5,25 @@
 import UIKit
 
 class ItemListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     private var items: [Item] = []
     let cellIdentifier: String = "itemCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.delegate = self
         
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+            showDataErrorAlert()
+            return
+        }
         
         do {
             self.items = try JSONDecoder().decode([Item].self, from: dataAsset.data)
         } catch {
+            showDataErrorAlert()
             print(error)
         }
         
@@ -38,7 +42,10 @@ extension ItemListViewController: UITableViewDelegate {
         let item: Item = self.items[indexPath.row]
         
         guard let nextViewController =
-                self.storyboard?.instantiateViewController(withIdentifier: "item") as? ItemViewController else { return }
+                self.storyboard?.instantiateViewController(withIdentifier: "item") as? ItemViewController else {
+            showTransitionAlert()
+            return
+        }
         
         nextViewController.title = item.name
         nextViewController.item = item
@@ -50,7 +57,7 @@ extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: ItemTableViewCell =
                 tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? ItemTableViewCell else {
@@ -62,6 +69,7 @@ extension ItemListViewController: UITableViewDataSource {
         cell.itemDescription.text = items[indexPath.row].shortDescription
         cell.translatesAutoresizingMaskIntoConstraints = true
         cell.itemDescription.sizeToFit()
+        
         return cell
     }
 }

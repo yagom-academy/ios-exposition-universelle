@@ -12,10 +12,13 @@ class ItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.descriptionTextView.text = item?.itemDescription
 
-        guard let item = item else { return }
+        guard let itemImageName = item?.imageName else {
+            self.itemImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
+            return
+        }
         
-        self.itemImage.image = UIImage(named: item.imageName)
-        self.descriptionTextView.text = item.itemDescription
+        self.itemImage.image = UIImage(named: itemImageName)
     }
 }
