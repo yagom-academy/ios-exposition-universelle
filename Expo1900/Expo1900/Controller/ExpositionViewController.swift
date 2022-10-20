@@ -5,7 +5,6 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
-    
     @IBOutlet weak var expositionTitleLabel: UILabel!
     @IBOutlet weak var expositionImageView: UIImageView!
     @IBOutlet weak var expositionVisitorsLabel: UILabel!
@@ -15,12 +14,30 @@ class ExpositionViewController: UIViewController {
     @IBOutlet weak var leftFlagImageView: UIImageView!
     @IBOutlet weak var showExhibitButton: UIButton!
     @IBOutlet weak var rightFlagImageView: UIImageView!
-    var exposition: Exposition?
+    var expositionData: Exposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exposition = JSONDecoder.parse(assetName: "exposition_universelle_1900", to: Exposition.self)
+        expositionData = JSONDecoder.parse(assetName: "exposition_universelle_1900", to: Exposition.self)
+        
+        configureView()
+    }
+    
+    func configureView() {
+        guard let exposition = expositionData else {
+            return
+        }
+        
+        expositionTitleLabel.text = exposition.title
+        expositionImageView.image = exposition.expositionImage
+        expositionVisitorsLabel.text = exposition.visitorInformation
+        expositionLocationLabel.text = exposition.locationInformation
+        expositionDurationLabel.text = exposition.durationInformation
+        expositionDescriptionTextView.text = exposition.description
+        leftFlagImageView.image = exposition.flagImage
+        showExhibitButton.setTitle(exposition.exhibitButtonText, for: .normal)
+        rightFlagImageView.image = exposition.flagImage
     }
 }
 
