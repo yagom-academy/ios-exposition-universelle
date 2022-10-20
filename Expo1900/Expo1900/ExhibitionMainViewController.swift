@@ -42,13 +42,14 @@ class ExhibitionMainViewController: UIViewController {
     }
     
     func setUpPosterData() {
-        titleLabel.text = expositionPoster?.title
+        titleLabel.text = split(of: expositionPoster?.title ?? "")
         imageView.image = UIImage(named: "poster")
         visitorLabel.text = "방문객:"
         visitorDetailLabel.text = "\(formatNumber(number: expositionPoster?.visitors ?? 0)) 명"
         locationLabel.text = "개최지:"
         locationDetailLabel.text = expositionPoster?.location
         termLabel.text = "개최 기간:"
+        termDetailLabel.text = expositionPoster?.duration
         descTextView.text = expositionPoster?.description
         leftFlagImageView.image = UIImage(named: "flag")
         rightFlagImageView.image = UIImage(named: "flag")
@@ -63,6 +64,13 @@ class ExhibitionMainViewController: UIViewController {
         }
         
         return string
+    }
+    
+    func split(of title: String) -> String {
+        var splitTitle = title.components(separatedBy: "(")
+        splitTitle.insert("\n(", at: 1)
+        
+        return splitTitle.joined()
     }
 
 
