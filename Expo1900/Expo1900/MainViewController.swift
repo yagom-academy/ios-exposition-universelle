@@ -71,7 +71,12 @@ final class MainViewController: UIViewController {
         locationAttributed.addAttribute(.font, value: fontSize, range: locationRange)
         durationAttributed.addAttribute(.font, value: fontSize, range: durationRange)
         
-        titleLabel.text = expositionUniverselle.title
+        titleLabel.text = """
+                        \(String(expositionUniverselle.title.split(separator: "(").first ?? ""))
+                        (\(String(expositionUniverselle.title.split(separator: "(").last ?? ""))
+                        """
+
+        titleLabel.font = UIFont.systemFont(ofSize: 30)
         visitorsLabel.attributedText = vistorsAttributed
         locationLabel.attributedText = locationAttributed
         durationLabel.attributedText = durationAttributed
