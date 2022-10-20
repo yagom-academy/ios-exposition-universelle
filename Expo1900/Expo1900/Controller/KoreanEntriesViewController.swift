@@ -12,16 +12,15 @@ class KoreanEntriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         loadKoreanEntries()
         navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEntryDetail" {
-            guard let entriesDetailViewController = segue.destination
-                    as? EntriesDedatilViewController else { return }
-            guard let indexPath = koreanEntriesTableView.indexPathForSelectedRow else { return }
+            guard let entriesDetailViewController = segue.destination as? EntriesDetailViewController,
+                  let indexPath = koreanEntriesTableView.indexPathForSelectedRow else { return }
             
             entriesDetailViewController.koreanEntry = koreanEntries[indexPath.row]
         }
@@ -40,7 +39,7 @@ class KoreanEntriesViewController: UIViewController {
 }
 
 extension KoreanEntriesViewController: UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
