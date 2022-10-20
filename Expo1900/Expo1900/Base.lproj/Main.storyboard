@@ -225,13 +225,52 @@
                     <view key="view" contentMode="scaleToFill" id="5Uq-NN-qXh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q96-QM-M0Q">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rQO-cf-7Kb">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="818"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qsV-N3-4Qd">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sMi-Go-keB">
+                                                <rect key="frame" x="0.0" y="128" width="374" height="690"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="leading" secondItem="vXK-n9-V8V" secondAttribute="leading" id="1d2-40-cGd"/>
+                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="top" secondItem="vXK-n9-V8V" secondAttribute="top" id="CmX-Hw-3hU"/>
+                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="bottom" secondItem="vXK-n9-V8V" secondAttribute="bottom" id="fuY-Mr-klA"/>
+                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="width" secondItem="Cid-2i-H8i" secondAttribute="width" id="igf-a7-Px5"/>
+                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="trailing" secondItem="vXK-n9-V8V" secondAttribute="trailing" id="tqP-P2-vaN"/>
+                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="height" secondItem="Cid-2i-H8i" secondAttribute="height" priority="250" id="vfh-IZ-wiJ"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="vXK-n9-V8V"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Cid-2i-H8i"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Px1-3V-bMQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="q96-QM-M0Q" firstAttribute="top" secondItem="Px1-3V-bMQ" secondAttribute="top" id="0HT-a3-awt"/>
+                            <constraint firstItem="q96-QM-M0Q" firstAttribute="leading" secondItem="5Uq-NN-qXh" secondAttribute="leadingMargin" id="3hK-Vc-2eJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q96-QM-M0Q" secondAttribute="trailing" id="SN8-vn-wie"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="q96-QM-M0Q" secondAttribute="bottom" id="xfR-eL-rXG"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1Z-TH-UFr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2696" y="117"/>
+            <point key="canvasLocation" x="2694.202898550725" y="116.51785714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b7R-Rc-Hbd">
@@ -253,6 +292,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
