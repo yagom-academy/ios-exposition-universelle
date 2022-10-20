@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - ExpositionViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class ExpositionViewController: UIViewController {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImage: UIImageView!
