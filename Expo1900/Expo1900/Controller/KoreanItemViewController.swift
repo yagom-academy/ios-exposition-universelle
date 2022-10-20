@@ -23,14 +23,22 @@ class KoreanItemViewController: UIViewController {
         }
         self.tableView.reloadData()
         self.tableView.dataSource = self
-        
+        self.navigationItem.backButtonTitle = "한국의 출품작"
     }
-    
 }
 
 extension KoreanItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item: Item = self.items[indexPath.row]
+        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "item") as? ItemViewController else { return }
+        
+        nextViewController.title = item.name
+        nextViewController.item = item
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 

@@ -5,7 +5,8 @@
 import UIKit
 
 class ItemViewController: UIViewController {
-
+    var item: Item?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
