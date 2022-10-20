@@ -5,7 +5,7 @@
 //  Created by tottalE, Kyo on 10/17/22.
 //
 
-struct KoreaItem: Codable {
+struct KoreaItem: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String

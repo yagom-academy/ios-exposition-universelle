@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct DataManager<T: Codable> {
+struct DataManager<T: Decodable> {
     
     let decoder = JSONDecoder()
     

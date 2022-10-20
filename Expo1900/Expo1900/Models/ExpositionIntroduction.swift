@@ -6,12 +6,17 @@
 //
 import Foundation
 
-struct ExpositionIntroduction: Codable {
+struct ExpositionIntroduction: Decodable {
     let title: String
     let visitorNumber: Int
     let location: String
     let duration: String
     let description: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title, location, duration, description
+        case visitorNumber = "visitors"
+    }
     
     func formatVisitorNumber() throws -> String {
         let formatter: NumberFormatter = NumberFormatter()
