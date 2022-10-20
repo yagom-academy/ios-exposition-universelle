@@ -9,6 +9,9 @@ import UIKit
 
 class DetailWorkViewContorller: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
