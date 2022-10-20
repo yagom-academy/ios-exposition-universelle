@@ -22,20 +22,10 @@ class PosterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        jsonDecoding()
+        expositionParis = JSONDecoder.decodeData("exposition_universelle_1900", to: ExpositionParis.self)
+        
         configureViewFromDecodedData()
         configureViewFromImageAsset()
-    }
-    
-    func jsonDecoding() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        
-        do {
-            expositionParis = try jsonDecoder.decode(ExpositionParis.self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     func configureViewFromDecodedData() {
