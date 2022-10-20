@@ -44,11 +44,18 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         setData()
         setViews()
         setupScrollView()
         setupContentView()
         setupContentViewElement()
+    }
+    
+    func setNavigationBar() {
+        self.title = koreaItem?.name
+        let appearance = UINavigationBarAppearance()
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     func setData() {
