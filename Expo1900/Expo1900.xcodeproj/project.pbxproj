@@ -49,6 +49,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8649AA5429017CAE00FB6403 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C5F0992290169B700313A02 /* ExpoConstant.swift */,
+				0C4B5EDB28FE393A00FBF808 /* ExhibitionEntry.swift */,
+				8649A9F928FE3C4500FB6403 /* ExpositionUniverselle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8649AA5529017CB900FB6403 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				8649AA4E28FF982000FB6403 /* KoreanEntriesViewController.swift */,
+				0CCCAAEF28FFB75600CC2A07 /* EntryDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8649AA5629017CC800FB6403 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8649AA5729017CDF00FB6403 /* Extensioin */ = {
+			isa = PBXGroup;
+			children = (
+				8649AA522901660D00FB6403 /* String+.swift */,
+			);
+			path = Extensioin;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -68,16 +104,12 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				8649AA5729017CDF00FB6403 /* Extensioin */,
+				8649AA5629017CC800FB6403 /* View */,
+				8649AA5529017CB900FB6403 /* Controller */,
+				8649AA5429017CAE00FB6403 /* Model */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
-				0C5F0992290169B700313A02 /* ExpoConstant.swift */,
-				8649AA522901660D00FB6403 /* String+.swift */,
-				8649AA4E28FF982000FB6403 /* KoreanEntriesViewController.swift */,
-				0CCCAAEF28FFB75600CC2A07 /* EntryDetailViewController.swift */,
-				0C4B5EDB28FE393A00FBF808 /* ExhibitionEntry.swift */,
-				8649A9F928FE3C4500FB6403 /* ExpositionUniverselle.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
