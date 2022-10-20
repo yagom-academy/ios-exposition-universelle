@@ -8,7 +8,7 @@ import UIKit
 final class ExpoMainViewController: UIViewController {
     private var expoInformation: ExpoInformation?
     
-    @IBOutlet weak private var titleLable: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var posterImage: UIImageView!
     @IBOutlet weak private var visitorLabel: UILabel!
     @IBOutlet weak private var localeLabel: UILabel!
@@ -37,13 +37,19 @@ final class ExpoMainViewController: UIViewController {
     private func setupExpoMainView() {
         guard let expoInformation = expoInformation else { return }
         
-        titleLable.text = expoInformation.title
-        titleLable.numberOfLines = 0
+        titleLabel.text = expoInformation.mainTitle
+        titleLabel.numberOfLines = 0
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
+        titleLabel.textAlignment = .center
+        
         posterImage.image = UIImage(named: "poster")
-        visitorLabel.text = "방문객 : \(expoInformation.visitors) 명"
-        localeLabel.text = "개최지 : \(expoInformation.location)"
-        periodLabel.text = "개최 기간 : \(expoInformation.duration)"
+        
+        visitorLabel.text = "\(expoInformation.decimalVisitor) 명"
+        localeLabel.text = expoInformation.location
+        periodLabel.text = expoInformation.duration
+        
         descriptionTextView.text = expoInformation.description
+        descriptionTextView.font = .preferredFont(forTextStyle: .body)
         
         flagImages.forEach { flagImage in
             flagImage.image = UIImage(named: "flag")
