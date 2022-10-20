@@ -49,10 +49,13 @@ final class MainViewController: UIViewController {
         guard let expositionUniverselle = expositionUniverselle else {
             return
         }
+        let formattedVisitor: String = changeNumberFormat(
+            number:"\(expositionUniverselle.visitors)"
+        )
         
         let fontSize = UIFont.systemFont(ofSize: 20)
         
-        let vistors: String = "방문객 : \(expositionUniverselle.visitors) 명"
+        let vistors: String = "방문객 : \(formattedVisitor) 명"
         let location: String = "개최지 : " + expositionUniverselle.location
         let duration: String = "개최 기간 : " + expositionUniverselle.duration
         
@@ -73,6 +76,16 @@ final class MainViewController: UIViewController {
         locationLabel.attributedText = locationAttributed
         durationLabel.attributedText = durationAttributed
         descriptionTextView.text = expositionUniverselle.description
+    }
+    
+    private func changeNumberFormat(number: String) -> String {
+        let formatter: NumberFormatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
+        guard let decimalNumber = Double(number) else {
+            return number
+        }
+        return formatter.string(from: NSNumber(value: decimalNumber))!
     }
 }
 
