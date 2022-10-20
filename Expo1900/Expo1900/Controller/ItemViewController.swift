@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ItemViewController: UIViewController {
+final class ItemViewController: UIViewController {
     var item: Item?
 
     @IBOutlet private weak var itemImage: UIImageView!

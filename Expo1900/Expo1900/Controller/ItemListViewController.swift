@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ItemListViewController: UIViewController {
+final class ItemListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var items: [Item] = []
