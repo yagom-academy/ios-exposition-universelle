@@ -15,6 +15,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D007972C290177F600F3D070 /* ExhibitionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007972B290177F600F3D070 /* ExhibitionListViewController.swift */; };
+		D007972E2901829900F3D070 /* ExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D007972D2901829900F3D070 /* ExhibitionViewController.swift */; };
 		D06D751328FE630D001544E6 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06D751228FE630D001544E6 /* Exposition.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D007972B290177F600F3D070 /* ExhibitionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionListViewController.swift; sourceTree = "<group>"; };
+		D007972D2901829900F3D070 /* ExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionViewController.swift; sourceTree = "<group>"; };
 		D06D751228FE630D001544E6 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* InformationViewController.swift */,
 				D007972B290177F600F3D070 /* ExhibitionListViewController.swift */,
+				D007972D2901829900F3D070 /* ExhibitionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* InformationViewController.swift in Sources */,
 				D007972C290177F600F3D070 /* ExhibitionListViewController.swift in Sources */,
+				D007972E2901829900F3D070 /* ExhibitionViewController.swift in Sources */,
 				D06D751328FE630D001544E6 /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				BF66839A28FE5F0200746CC7 /* Exhibition.swift in Sources */,
