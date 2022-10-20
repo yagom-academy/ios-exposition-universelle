@@ -1,5 +1,5 @@
 //
-//  ExpoEntryViewController.swift
+//  ExpoEntriesViewController.swift
 //  Expo1900
 //
 //  Created by junho lee on 2022/10/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExpoEntryViewController: UIViewController {
+final class ExpoEntriesViewController: UIViewController {
     
     @IBOutlet private weak var ExpoEntryTableView: UITableView!
     
@@ -29,9 +29,20 @@ final class ExpoEntryViewController: UIViewController {
             print(error)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: EntryViewController = segue.destination as? EntryViewController else {
+            return
+        }
+        guard let cell: UITableViewCell = sender as? UITableViewCell else {
+            return
+        }
+        
+        nextViewController.expoEntryName = cell.textLabel?.text
+    }
 }
 
-extension ExpoEntryViewController: UITableViewDataSource {
+extension ExpoEntriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expoEntries.count
@@ -55,6 +66,6 @@ extension ExpoEntryViewController: UITableViewDataSource {
     }
 }
 
-extension ExpoEntryViewController: UITableViewDelegate {
+extension ExpoEntriesViewController: UITableViewDelegate {
     
 }
