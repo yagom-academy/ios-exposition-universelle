@@ -29,6 +29,13 @@ class InformationViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationItem.backButtonTitle = "메인"
+    }
+    
     func configureLables(_ information: Exposition) {
         titleOfExposition.text = adjustTitleText(information.title)
         numberOfVisitors.attributedText = attributedString("방문객 : \(formattedNumber(information.numberOfVisitors)) 명")
