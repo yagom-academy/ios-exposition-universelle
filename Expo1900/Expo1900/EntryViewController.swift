@@ -9,9 +9,7 @@ import UIKit
 
 class EntryViewController: UIViewController {
     @IBOutlet weak var entryTableView: UITableView!
-    let cellIdetifier: String = "entryCell"
     var entries: [Entry] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let entries = JSONDecoder.decode([Entry].self, from: "items") else { return }
@@ -35,7 +33,15 @@ extension EntryViewController: UITableViewDataSource {
         return entries.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = entryTableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        
+        cell.imageView?.image = UIImage(named: entries[indexPath.row].imageName)
+        cell.textLabel?.text = entries[indexPath.row].name
+        cell.detailTextLabel?.text = entries[indexPath.row].shortDescription
+        cell.detailTextLabel?.numberOfLines = 0
+        
+        return cell
     }
 }
