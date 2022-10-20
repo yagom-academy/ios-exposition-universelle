@@ -227,16 +227,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q96-QM-M0Q">
-                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rQO-cf-7Kb">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="818"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rQO-cf-7Kb">
+                                        <rect key="frame" x="0.0" y="15" width="414" height="852"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qsV-N3-4Qd">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="646"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sMi-Go-keB">
-                                                <rect key="frame" x="0.0" y="128" width="374" height="690"/>
+                                                <rect key="frame" x="12" y="656" width="390" height="196"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -244,11 +244,15 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="sMi-Go-keB" firstAttribute="leading" secondItem="rQO-cf-7Kb" secondAttribute="leading" constant="12" id="MIq-zL-m0g"/>
+                                            <constraint firstAttribute="trailing" secondItem="sMi-Go-keB" secondAttribute="trailing" constant="12" id="PfQ-3O-W5W"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rQO-cf-7Kb" firstAttribute="leading" secondItem="vXK-n9-V8V" secondAttribute="leading" id="1d2-40-cGd"/>
-                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="top" secondItem="vXK-n9-V8V" secondAttribute="top" id="CmX-Hw-3hU"/>
+                                    <constraint firstItem="rQO-cf-7Kb" firstAttribute="top" secondItem="vXK-n9-V8V" secondAttribute="top" constant="15" id="CmX-Hw-3hU"/>
                                     <constraint firstItem="rQO-cf-7Kb" firstAttribute="bottom" secondItem="vXK-n9-V8V" secondAttribute="bottom" id="fuY-Mr-klA"/>
                                     <constraint firstItem="rQO-cf-7Kb" firstAttribute="width" secondItem="Cid-2i-H8i" secondAttribute="width" id="igf-a7-Px5"/>
                                     <constraint firstItem="rQO-cf-7Kb" firstAttribute="trailing" secondItem="vXK-n9-V8V" secondAttribute="trailing" id="tqP-P2-vaN"/>
@@ -261,12 +265,16 @@
                         <viewLayoutGuide key="safeArea" id="Px1-3V-bMQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="q96-QM-M0Q" firstAttribute="top" secondItem="Px1-3V-bMQ" secondAttribute="top" id="0HT-a3-awt"/>
-                            <constraint firstItem="q96-QM-M0Q" firstAttribute="leading" secondItem="5Uq-NN-qXh" secondAttribute="leadingMargin" id="3hK-Vc-2eJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q96-QM-M0Q" secondAttribute="trailing" id="SN8-vn-wie"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="q96-QM-M0Q" secondAttribute="bottom" id="xfR-eL-rXG"/>
+                            <constraint firstItem="Px1-3V-bMQ" firstAttribute="trailing" secondItem="q96-QM-M0Q" secondAttribute="trailing" id="DdO-YO-mhZ"/>
+                            <constraint firstItem="q96-QM-M0Q" firstAttribute="leading" secondItem="Px1-3V-bMQ" secondAttribute="leading" id="O84-IW-Hwa"/>
+                            <constraint firstItem="q96-QM-M0Q" firstAttribute="bottom" secondItem="5Uq-NN-qXh" secondAttribute="bottom" id="lXn-et-jQw"/>
+                            <constraint firstItem="q96-QM-M0Q" firstAttribute="top" secondItem="Px1-3V-bMQ" secondAttribute="top" id="wIZ-Dx-fOB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="sMi-Go-keB" id="Yg0-hD-J8L"/>
+                        <outlet property="detailImage" destination="qsV-N3-4Qd" id="a33-b0-aA3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1Z-TH-UFr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
