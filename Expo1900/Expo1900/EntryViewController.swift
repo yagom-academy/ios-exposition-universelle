@@ -36,7 +36,7 @@ extension EntryViewController: UITableViewDelegate {
             withIdentifier: "DetailViewController"
         ) as? DetailViewController else { return }
         
-        detailViewController.entry = entries[indexPath.row]
+        detailViewController.fetchEntryData(from: entries[indexPath.row])
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }

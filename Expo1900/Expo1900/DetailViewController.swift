@@ -9,13 +9,17 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var entry: Entry?
+    private var entry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         buildNavigationBar()
         buildDetailView()
+    }
+    
+    func fetchEntryData(from entry: Entry) {
+        self.entry = entry
     }
     
     private func buildNavigationBar() {
