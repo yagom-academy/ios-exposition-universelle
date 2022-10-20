@@ -16,6 +16,7 @@ class ExhibitionWorkListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpJSONData()
+        exhibitionWorkTableView.dataSource = self
     }
     
     func setUpJSONData() {
@@ -33,4 +34,20 @@ class ExhibitionWorkListViewController: UIViewController {
     }
 }
 
+extension ExhibitionWorkListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exhibitionWork.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = exhibitionWorkTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        let work: ExhibitionWork = self.exhibitionWork[indexPath.row]
+        
+        cell.textLabel?.text = work.name
+        cell.detailTextLabel?.text = work.shortDesc
+        cell.imageView?.image = UIImage(named: work.imageName)
+        
+        return cell
+    }
+}
 
