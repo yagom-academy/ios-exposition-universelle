@@ -20,15 +20,7 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            return
-        }
-        
-        do {
-            self.exposition = try JSONDecoder.jsonDecoder.decode(Exposition.self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        exposition = JSONDecoder.parse(assetName: "exposition_universelle_1900", to: Exposition.self)
     }
 }
 
