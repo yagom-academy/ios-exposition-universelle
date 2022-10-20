@@ -25,30 +25,32 @@ final class ExpoMainViewController: UIViewController {
         ) else { return }
         
         expoInformation = expoInformationData
-        setupExpoMainView()
+        buildExpoMainView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setupNavigationBar()
+        buildNavigationBar()
     }
     
-    private func setupNavigationBar() {
+    private func buildNavigationBar() {
         navigationController?.navigationBar.isHidden = true
         title = "메인"
     }
     
-    private func setupExpoMainView() {
+    private func buildExpoMainView() {
         guard let expoInformation = expoInformation else { return }
         
         titleLabel.text = expoInformation.mainTitle
         titleLabel.numberOfLines = 0
         titleLabel.font = .preferredFont(forTextStyle: .title1)
         titleLabel.textAlignment = .center
-        
+
         posterImage.image = UIImage(named: "poster")
         
         visitorLabel.text = "\(expoInformation.decimalVisitor) 명"
+        
         localeLabel.text = expoInformation.location
+        
         periodLabel.text = expoInformation.duration
         
         descriptionTextView.text = expoInformation.description
@@ -60,7 +62,9 @@ final class ExpoMainViewController: UIViewController {
     }
     
     @IBAction func tapEntryButton(_ sender: UIButton) {
-        guard let entryViewController = storyboard?.instantiateViewController(withIdentifier: "EntryViewController") as? EntryViewController else { return }
+        guard let entryViewController = storyboard?.instantiateViewController(
+            withIdentifier: "EntryViewController"
+        ) as? EntryViewController else { return }
         
         navigationController?.pushViewController(entryViewController, animated: true)
     }

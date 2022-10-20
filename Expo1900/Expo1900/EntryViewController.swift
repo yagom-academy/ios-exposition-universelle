@@ -1,28 +1,30 @@
 //
 //  EntryViewController.swift
-//  Expo1900
-//
-//  Created by Wonbi on 2022/10/20.
-//
+//  Created by sunnyCookie, Wonbi
+// 
 
 import UIKit
 
-class EntryViewController: UIViewController {
+final class EntryViewController: UIViewController {
     @IBOutlet weak var entryTableView: UITableView!
     
-    var entries: [Entry] = []
+    private var entries: [Entry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let entries = JSONDecoder.decode([Entry].self, from: "items") else { return }
         
+        self.entries = entries
+        
         entryTableView.delegate = self
         entryTableView.dataSource = self
         
+        buildNavigationBar()
+    }
+    
+    private func buildNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         title = "한국의 출품작"
-        
-        self.entries = entries
     }
 }
 

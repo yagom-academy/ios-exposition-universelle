@@ -22,4 +22,3 @@ struct ExpoInformation: Codable {
         return numberFormatter.string(for: visitors) ?? ""
     }
 }
-
