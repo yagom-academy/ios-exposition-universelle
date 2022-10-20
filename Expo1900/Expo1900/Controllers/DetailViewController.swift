@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         return textView
     }()
     
-    let contentView: UIStackView = {
+    let stackView: UIStackView = {
         let contentView = UIStackView()
         contentView.axis = .vertical
         contentView.alignment = .center
@@ -67,9 +67,9 @@ class DetailViewController: UIViewController {
     func setViews() {
         view.backgroundColor = .white
         view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.addSubview(itemImageView)
-        contentView.addSubview(textView)
+        scrollView.addSubview(stackView)
+        stackView.addSubview(itemImageView)
+        stackView.addSubview(textView)
     }
     
     func setupScrollView() {
@@ -83,26 +83,26 @@ class DetailViewController: UIViewController {
     
     func setupContentView() {
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
         
-        let contentViewHeight = contentView.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor)
+        let contentViewHeight = stackView.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor)
         contentViewHeight.priority = .defaultLow
         contentViewHeight.isActive = true
     }
     
     func setupContentViewElement() {
         NSLayoutConstraint.activate([
-            itemImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            itemImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            itemImageView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+            itemImageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 20),
             itemImageView.heightAnchor.constraint(equalToConstant: 150),
             textView.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: 10),
-            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            textView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
+            textView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10)
         ])
     }
 }
