@@ -6,13 +6,12 @@
 import UIKit
 
 extension JSONDecoder {
-    static func decoding<T: Decodable>(_ type: T.Type, from asset: String) -> T? {
+    static func decode<T: Decodable>(_ type: T.Type, from asset: String) -> T? {
         let decoder: JSONDecoder = JSONDecoder()
         guard let asset = NSDataAsset(name: asset) else { return nil }
         
         do {
-            let result = try decoder.decode(type, from: asset.data)
-            return result
+            return try decoder.decode(type, from: asset.data)
         } catch {
             print(error.localizedDescription)
             return nil

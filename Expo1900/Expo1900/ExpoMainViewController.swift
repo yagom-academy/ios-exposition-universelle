@@ -19,7 +19,7 @@ class ExpoMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let expoInformationData = JSONDecoder.decoding(
+        guard let expoInformationData = JSONDecoder.decode(
             ExpoInformation.self,
             from: "exposition_universelle_1900"
         ) else { return }

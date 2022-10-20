@@ -10,7 +10,7 @@ import XCTest
 
 class Expo1900Tests: XCTestCase {
     func test_ExpoInformation의디코딩이정상적으로이루어지는지() {
-        let result = JSONDecoder.decoding(
+        let result = JSONDecoder.decode(
             ExpoInformation.self,
             from: "exposition_universelle_1900"
         )
