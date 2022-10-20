@@ -29,17 +29,6 @@ final class ExpoEntriesViewController: UIViewController {
             print(error)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController: EntryViewController = segue.destination as? EntryViewController else {
-            return
-        }
-        guard let cell: UITableViewCell = sender as? UITableViewCell else {
-            return
-        }
-        
-        nextViewController.expoEntryName = cell.textLabel?.text
-    }
 }
 
 extension ExpoEntriesViewController: UITableViewDataSource {
@@ -51,7 +40,6 @@ extension ExpoEntriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = ExpoEntryTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         configureExpoEntryContents(of: cell, with: expoEntries[indexPath.row])
-        
         return cell
     }
     
@@ -68,4 +56,9 @@ extension ExpoEntriesViewController: UITableViewDataSource {
 
 extension ExpoEntriesViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc: EntryViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryViewController") as! EntryViewController
+        vc.send(data: expoEntries[indexPath.row])
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
