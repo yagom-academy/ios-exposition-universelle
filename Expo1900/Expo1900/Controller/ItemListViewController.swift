@@ -34,10 +34,6 @@ class ItemListViewController: UIViewController {
 }
 
 extension ItemListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item: Item = self.items[indexPath.row]
         
@@ -50,6 +46,7 @@ extension ItemListViewController: UITableViewDelegate {
         nextViewController.title = item.name
         nextViewController.item = item
         navigationController?.pushViewController(nextViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
 
@@ -59,16 +56,11 @@ extension ItemListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: ItemTableViewCell =
-                tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? ItemTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
-        cell.itemLabel.text = items[indexPath.row].name
-        cell.itemDescription.text = items[indexPath.row].shortDescription
-        cell.translatesAutoresizingMaskIntoConstraints = true
-        cell.itemDescription.sizeToFit()
+        let cell: UITableViewCell =
+                tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        cell.imageView?.image = UIImage(named: items[indexPath.row].imageName)
+        cell.textLabel?.text = items[indexPath.row].name
+        cell.detailTextLabel?.text = items[indexPath.row].shortDescription
         
         return cell
     }
