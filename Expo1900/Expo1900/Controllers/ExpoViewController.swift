@@ -13,7 +13,7 @@ class ExpoViewController: UIViewController {
     @IBOutlet weak var visitorLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet var buttonImage: [UIImageView]!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -54,7 +54,7 @@ class ExpoViewController: UIViewController {
         visitorLabel.text = expoData?.visitorsDescription
         placeLabel.text = expoData?.locationDescription
         timeLabel.text = expoData?.durationDescription
-        descriptionLabel.text = expoData?.description
+        descriptionTextView.text = expoData?.description
         buttonImage.forEach { button in
             button.image = UIImage(named: AssetName.flagButtonImage)
         }
