@@ -5,16 +5,16 @@
 
 import UIKit
 
-class ExpoMainViewController: UIViewController {
-    var expoInformation: ExpoInformation?
+final class ExpoMainViewController: UIViewController {
+    private var expoInformation: ExpoInformation?
     
-    @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var visitorLabel: UILabel!
-    @IBOutlet weak var localeLabel: UILabel!
-    @IBOutlet weak var periodLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet var flagImages: [UIImageView]!
+    @IBOutlet weak private var titleLable: UILabel!
+    @IBOutlet weak private var posterImage: UIImageView!
+    @IBOutlet weak private var visitorLabel: UILabel!
+    @IBOutlet weak private var localeLabel: UILabel!
+    @IBOutlet weak private var periodLabel: UILabel!
+    @IBOutlet weak private var descriptionTextView: UITextView!
+    @IBOutlet private var flagImages: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,28 @@ class ExpoMainViewController: UIViewController {
         ) else { return }
         
         expoInformation = expoInformationData
+        setupNavigationBar()
+        setupExpoMainView()
     }
     
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = true
+        title = "메인"
+    }
     
-    
-    
+    private func setupExpoMainView() {
+        guard let expoInformation = expoInformation else { return }
+        
+        titleLable.text = expoInformation.title
+        titleLable.numberOfLines = 0
+        posterImage.image = UIImage(named: "poster")
+        visitorLabel.text = "방문객 : \(expoInformation.visitors) 명"
+        localeLabel.text = "개최지 : \(expoInformation.location)"
+        periodLabel.text = "개최 기간 : \(expoInformation.duration)"
+        descriptionTextView.text = expoInformation.description
+        
+        flagImages.forEach { flagImage in
+            flagImage.image = UIImage(named: "flag")
+        }
+    }
 }
