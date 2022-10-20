@@ -51,7 +51,7 @@ class ExpoViewController: UIViewController {
     func setupElementWithData() {
         titleLabel.text = expoData?.title
         mainImage.image = UIImage(named: AssetName.expoImage)
-        visitorLabel.text = expoData?.visitorsDescription
+        visitorLabel.text = expoData?.visitorNumberDescription
         placeLabel.text = expoData?.locationDescription
         timeLabel.text = expoData?.durationDescription
         descriptionTextView.text = expoData?.description

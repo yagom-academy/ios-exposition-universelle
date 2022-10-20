@@ -8,7 +8,7 @@ import Foundation
 
 struct ExpositionIntroduction: Codable {
     let title: String
-    let visitors: Int
+    let visitorNumber: Int
     let location: String
     let duration: String
     let description: String
@@ -16,11 +16,11 @@ struct ExpositionIntroduction: Codable {
     func formatVisitorNumber() throws -> String {
         let formatter: NumberFormatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        guard let formattedVistorNumber = formatter.string(for: visitors) else { throw DataError.formattingError }
+        guard let formattedVistorNumber = formatter.string(for: visitorNumber) else { throw DataError.formattingError }
         return formattedVistorNumber
     }
     
-    var visitorsDescription: String {
+    var visitorNumberDescription: String {
         var formattedVistorNumber: String = ""
         do {
             formattedVistorNumber = try formatVisitorNumber()
