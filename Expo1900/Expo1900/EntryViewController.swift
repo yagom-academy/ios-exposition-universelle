@@ -9,7 +9,9 @@ import UIKit
 
 class EntryViewController: UIViewController {
     @IBOutlet weak var entryTableView: UITableView!
+    
     var entries: [Entry] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let entries = JSONDecoder.decode([Entry].self, from: "items") else { return }
@@ -25,7 +27,17 @@ class EntryViewController: UIViewController {
 }
 
 extension EntryViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let detailViewController = storyboard?.instantiateViewController(
+            withIdentifier: "DetailViewController"
+        ) as? DetailViewController else { return }
+        
+        detailViewController.entry = entries[indexPath.row]
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
 
 extension EntryViewController: UITableViewDataSource {
@@ -33,10 +45,13 @@ extension EntryViewController: UITableViewDataSource {
         return entries.count
     }
     
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = entryTableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         
+        cell.accessoryType = .disclosureIndicator
         cell.imageView?.image = UIImage(named: entries[indexPath.row].imageName)
         cell.textLabel?.text = entries[indexPath.row].name
         cell.detailTextLabel?.text = entries[indexPath.row].shortDescription

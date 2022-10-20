@@ -16,6 +16,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		E393FC5B28FE44A000492CBA /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393FC5A28FE44A000492CBA /* Entry.swift */; };
 		E39B56562900F55900C224DF /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B56552900F55900C224DF /* EntryViewController.swift */; };
+		E39B565A29013F4600C224DF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B565929013F4600C224DF /* DetailViewController.swift */; };
 		E3B485C328FF882B0033EF3C /* Expo1900Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B485C228FF882B0033EF3C /* Expo1900Tests.swift */; };
 		E3B485CA28FF8FD50033EF3C /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B485C928FF8FD50033EF3C /* JSONDecoder+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E393FC5A28FE44A000492CBA /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		E39B56552900F55900C224DF /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		E39B565929013F4600C224DF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E3B485C028FF882B0033EF3C /* Expo1900Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B485C228FF882B0033EF3C /* Expo1900Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900Tests.swift; sourceTree = "<group>"; };
 		E3B485C928FF8FD50033EF3C /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ExpoMainViewController.swift */,
 				E39B56552900F55900C224DF /* EntryViewController.swift */,
+				E39B565929013F4600C224DF /* DetailViewController.swift */,
 				E3B485CB28FF90240033EF3C /* Extention */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				41B91B2628FE440900EEBF73 /* ExpoInformation.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				E39B565A29013F4600C224DF /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
