@@ -13,21 +13,25 @@ class DetailViewController: UIViewController {
     
     let itemImageView: UIImageView = {
         let itemImageView = UIImageView()
+        itemImageView.contentMode = .scaleAspectFit
         itemImageView.translatesAutoresizingMaskIntoConstraints = false
         return itemImageView
     }()
     
     let textView: UITextView = {
         let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 15)
         textView.textColor = UIColor.black
         textView.isScrollEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
-        
         return textView
     }()
     
     let contentView: UIStackView = {
         let contentView = UIStackView()
+        contentView.axis = .vertical
+        contentView.alignment = .center
+        contentView.distribution = .fill
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
@@ -40,10 +44,17 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setData()
         setViews()
         setupScrollView()
         setupContentView()
         setupContentViewElement()
+    }
+    
+    func setData() {
+        guard let item = koreaItem else { return }
+        itemImageView.image = UIImage(named: item.imageName)
+        textView.text = item.description
     }
     
     func setViews() {
@@ -69,7 +80,7 @@ class DetailViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
         
         let contentViewHeight = contentView.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor)
@@ -81,10 +92,8 @@ class DetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             itemImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             itemImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            itemImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            itemImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            itemImageView.bottomAnchor.constraint(equalTo: textView.bottomAnchor, constant: 20),
-            
+            itemImageView.heightAnchor.constraint(equalToConstant: 150),
+            textView.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: 10),
             textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
