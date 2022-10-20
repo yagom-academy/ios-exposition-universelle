@@ -33,6 +33,17 @@ class ExhibitionWorkListViewController: UIViewController {
         }
         self.exhibitionWorkTableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let detailViewController: DetailWorkViewContorller = segue.destination as? DetailWorkViewContorller else {
+            return
+        }
+        
+        guard let indexPath = exhibitionWorkTableView.indexPathsForSelectedRows else {
+            return
+        }
+    }
 }
 
 extension ExhibitionWorkListViewController: UITableViewDataSource {
@@ -57,4 +68,3 @@ extension ExhibitionWorkListViewController: UITableViewDelegate {
         self.performSegue(withIdentifier: "detail", sender: nil)
     }
 }
-
