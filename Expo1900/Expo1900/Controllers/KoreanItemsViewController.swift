@@ -50,5 +50,10 @@ extension KoreanItemsViewController: UITableViewDataSource {
 }
 
 extension KoreanItemsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "ItemDetail", bundle: Bundle.main)
+        let itemDetailViewController = storyboard.instantiateViewController(withIdentifier: "ItemDetailViewControllerID")
+        
+        self.navigationController?.pushViewController(itemDetailViewController, animated: true)
+    }
 }
