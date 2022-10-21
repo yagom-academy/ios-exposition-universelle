@@ -18,6 +18,9 @@ class ExpositionItemDetailViewController: UIViewController {
         
         assignContentValue()
         self.title = item?.name
+        itemDescriptionTextView.isScrollEnabled = false
+        itemDescriptionTextView.isEditable = false
+        itemDescriptionTextView.isSelectable = false
     }
 }
 

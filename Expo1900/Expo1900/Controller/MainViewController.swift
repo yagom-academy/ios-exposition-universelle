@@ -51,6 +51,9 @@ extension MainViewController {
     
     private func setUpInitialSetting() {
         self.title = titleText
+        self.descriptionTextView.isSelectable = false
+        self.descriptionTextView.isScrollEnabled = false
+        self.descriptionTextView.isEditable = false
         showKoreanItemListButton.setTitle(buttonTitleText, for: .normal)
         leftFlagImageView.image = UIImage(named: flagImageIdentifier)
         rightFlagImageView.image = UIImage(named: flagImageIdentifier)
