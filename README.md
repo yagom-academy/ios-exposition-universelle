@@ -40,10 +40,9 @@
 - 한국 박람회 아이템 상세 화면의 `ScrollView` 내 `Decode`된 데이터 배치
 
 ## 💻 실행 화면 
-|Main화면| Expo 화면 |
+|Main 화면| Expo 화면 |
 |------|----|
 |![](https://i.imgur.com/pCDrwOe.gif)|![](https://i.imgur.com/8LZ09GC.gif)|
-
 
 ## 🎯 트러블 슈팅 및 고민
 
@@ -63,5 +62,5 @@
 
     
 ## 📚 참고 링크
-[Swift Language Guide - Protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html)<br>[Swift Language Guide - Extentions](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html)<br>[Swift Language Guide - Error Handling](https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html)<br>[NumberFormatter](https://developer.apple.com/documentation/foundation/numberformatter)<br>[오토레이아웃 정복하기 - 야곰닷넷](https://yagom.net/courses/autolayout/)
+[Swift Language Guide - Error Handling](https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html)<br>[NumberFormatter](https://developer.apple.com/documentation/foundation/numberformatter)<br>[오토레이아웃 정복하기 - 야곰닷넷](https://yagom.net/courses/autolayout/)
 [Easier Scrolling With Layout Guides](https://useyourloaf.com/blog/easier-scrolling-with-layout-guides/)<br>[Filling a Table with Data](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data)<br>[Configuring the Cells for Your Table](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/configuring_the_cells_for_your_table)<br>[JSON](https://ko.wikipedia.org/wiki/JSON)<br>[JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder)
