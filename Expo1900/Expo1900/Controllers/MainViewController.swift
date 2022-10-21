@@ -112,6 +112,7 @@ final class MainViewController: UIViewController {
             button.setTitleColor(.systemBlue, for: .normal)
             
             let action = UIAction { _ in
+                self.navigationController?.isNavigationBarHidden = false
                 self.performSegue(withIdentifier: "koreanItemsSegue", sender: self)
             }
             button.addAction(action, for: .touchUpInside)
