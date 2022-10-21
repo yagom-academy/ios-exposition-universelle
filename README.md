@@ -42,7 +42,7 @@
 ## 💻 실행 화면 
 |Main 화면| Expo 화면 |
 |------|----|
-|![](https://i.imgur.com/pCDrwOe.gif)|![](https://i.imgur.com/8LZ09GC.gif)|
+|![](https://i.imgur.com/pCDrwOe.gif)|![Screen Recording 2022-10-21 at 3 44 41 PM](https://user-images.githubusercontent.com/66786418/197134476-0ee7c273-d265-4cc6-862c-cc584f4429ca.gif)|
 
 ## 🎯 트러블 슈팅 및 고민
 
