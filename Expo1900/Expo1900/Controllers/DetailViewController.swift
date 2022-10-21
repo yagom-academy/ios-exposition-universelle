@@ -51,13 +51,13 @@ final class DetailViewController: UIViewController {
 
 private extension DetailViewController {
     
-    func setUI(){
+    private func setUI(){
         setNavigationBar()
         setData()
         setViews()
     }
     
-    func setupConstraint(){
+    private func setupConstraint(){
         setupScrollView()
         setupStackView()
         setupContentViewElement()
@@ -113,7 +113,8 @@ private extension DetailViewController {
             itemImageView.heightAnchor.constraint(equalToConstant: 150),
             textView.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: 10),
             textView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
-            textView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10)
+            textView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
+            textView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
         ])
     }
 }
