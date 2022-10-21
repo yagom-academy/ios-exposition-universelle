@@ -8,15 +8,14 @@
 import UIKit
 
 class ExhibitionListViewController: UIViewController {
-    let cellIdentifier: String = "cell"
-    var items: [Exhibition] = []
+    private let cellIdentifier: String = "cell"
+    private var itemsOfExposition: [Exhibition] = []
     
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.reloadData()
@@ -27,35 +26,29 @@ class ExhibitionListViewController: UIViewController {
         }
         
         do {
-            items = try jsonDecoder.decode([Exhibition].self, from: dataAsset.data)
+            itemsOfExposition = try jsonDecoder.decode([Exhibition].self, from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }
-    }
-    
-    func configureCells(_ item : Exhibition, cell: ExhibitionListTableViewCell) {
-        cell.exhibitionImageView.image = UIImage(named: item.imageName)
-        cell.shortDescriptionLabel.text = item.shortDescription
-        cell.nameLabel.text = item.name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let exhibitionViewController = segue.destination as? ExhibitionViewController else {
             return
         }
-        guard let cell: ExhibitionListTableViewCell = sender as? ExhibitionListTableViewCell else {
+        guard let cell = sender as? ExhibitionListTableViewCell else {
             return
         }
-        guard let text: String = cell.nameLabel.text else {
+        guard let text = cell.nameLabel.text else {
             return
         }
         
-        exhibitionViewController.exhibition = exhibition(text)
+        exhibitionViewController.exhibition = exhibition(named: text)
     }
     
-    func exhibition(_ name: String) -> Exhibition? {
-        for item in items {
-            if item.name == name {
+    private func exhibition(named: String) -> Exhibition? {
+        for item in itemsOfExposition {
+            if item.name == named {
                 return item
             }
         }
@@ -64,24 +57,30 @@ class ExhibitionListViewController: UIViewController {
 }
 
 extension ExhibitionListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: ExhibitionListTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ExhibitionListTableViewCell else {
-            return UITableViewCell()
-        }
-        let exhibitionItem: Exhibition = self.items[indexPath.row]
-        configureCells(exhibitionItem, cell: cell)
-        return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.itemsOfExposition.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item: Exhibition = self.itemsOfExposition[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ExhibitionListTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        configureCells(item, cell: cell)
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    private func configureCells(_ item : Exhibition, cell: ExhibitionListTableViewCell) {
+        cell.exhibitionImageView.image = UIImage(named: item.imageName)
+        cell.shortDescriptionLabel.text = item.shortDescription
+        cell.nameLabel.text = item.name
+    }
 }
 
-extension ExhibitionListViewController: UITableViewDelegate {
-    
-}
+extension ExhibitionListViewController: UITableViewDelegate {}

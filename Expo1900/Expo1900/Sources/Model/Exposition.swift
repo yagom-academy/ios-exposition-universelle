@@ -31,9 +31,11 @@ struct Exposition: Codable {
     var numberOfVisitors: String {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
+        
         guard let visitors = numberFormatter.string(from: NSNumber(value: visitorsOfJsonData)) else {
             return String(visitorsOfJsonData)
         }
+        
         return "방문객 : \(visitors) 명"
     }
     

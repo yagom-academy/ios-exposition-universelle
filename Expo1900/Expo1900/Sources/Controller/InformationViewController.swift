@@ -7,7 +7,7 @@
 import UIKit
 
 class InformationViewController: UIViewController {
-    var information: Exposition?
+    private var information: Exposition?
     
     @IBOutlet weak var titleOfExposition: UILabel!
     @IBOutlet weak var numberOfVisitors: UILabel!
@@ -25,10 +25,10 @@ class InformationViewController: UIViewController {
         
         do {
             information = try jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
+            configureLables()
         } catch {
             print(error.localizedDescription)
         }
-        configureLables()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,22 +38,30 @@ class InformationViewController: UIViewController {
         self.navigationItem.backButtonTitle = "메인"
     }
     
-    func configureLables() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func configureLables() {
         titleOfExposition.text = information?.title
-        numberOfVisitors.attributedText = attributedString(information?.numberOfVisitors)
-        location.attributedText = attributedString(information?.location)
-        duration.attributedText = attributedString(information?.duration)
+        numberOfVisitors.attributedText = attributedString(of: information?.numberOfVisitors)
+        location.attributedText = attributedString(of: information?.location)
+        duration.attributedText = attributedString(of: information?.duration)
         descriptionOfExposition.text = information?.description
     }
     
-    private func attributedString(_ text: String?) -> NSMutableAttributedString? {
+    private func attributedString(of text: String?) -> NSMutableAttributedString? {
         guard let text = text,
               let leftText = text.split(separator: ":").first else {
             return nil
         }
-        let leftFont: UIFont = UIFont.systemFont(ofSize: 20)
+        let leftTextFont: UIFont = UIFont.systemFont(ofSize: 20)
         let attributedString = NSMutableAttributedString(string: text)
-        attributedString.addAttribute(.font, value: leftFont, range: NSRange(location: 0, length: leftText.count))
+        
+        attributedString.addAttribute(.font, value: leftTextFont, range: NSRange(location: 0, length: leftText.count))
+        
         return attributedString
     }
 }

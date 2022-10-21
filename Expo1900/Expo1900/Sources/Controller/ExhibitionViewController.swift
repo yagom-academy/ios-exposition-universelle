@@ -15,6 +15,7 @@ class ExhibitionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         guard let exhibition = exhibition else {
             return
         }
