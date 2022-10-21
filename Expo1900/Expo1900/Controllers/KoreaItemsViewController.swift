@@ -7,11 +7,11 @@
 
 import UIKit
 
-class KoreaItemsViewController: UIViewController {
+final class KoreaItemsViewController: UIViewController {
 
-    @IBOutlet weak var koreanItemsTable: UITableView!
-    let dataManager: DataManager = DataManager<KoreaItem>()
-    var koreaItems: [KoreaItem] = []
+    @IBOutlet private weak var koreanItemsTable: UITableView!
+    private let dataManager: DataManager = DataManager<KoreaItem>()
+    private var koreaItems: [KoreaItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class KoreaItemsViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    func setData() {
+    private func setData() {
         do {
             koreaItems = try dataManager.fetchDataList(name: AssetName.koreaItemJSON)
         } catch {
@@ -36,12 +36,12 @@ class KoreaItemsViewController: UIViewController {
         }
     }
     
-    func setTableView() {
+    private func setTableView() {
         koreanItemsTable.delegate = self
         koreanItemsTable.dataSource = self
     }
     
-    func setNavigationBar() {
+    private func setNavigationBar() {
         navigationController?.navigationBar.tintColor = .black
         self.title = Constant.koreaItemsNavigationTitle
     }

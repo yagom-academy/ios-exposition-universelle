@@ -13,12 +13,12 @@ struct ExpositionIntroduction: Decodable {
     let duration: String
     let description: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case title, location, duration, description
         case visitorNumber = "visitors"
     }
     
-    func formatVisitorNumber() throws -> String {
+    private func formatVisitorNumber() throws -> String {
         let formatter: NumberFormatter = NumberFormatter()
         formatter.numberStyle = .decimal
         guard let formattedVistorNumber = formatter.string(for: visitorNumber) else { throw DataError.formattingError }

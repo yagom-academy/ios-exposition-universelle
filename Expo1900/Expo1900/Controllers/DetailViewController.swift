@@ -7,18 +7,18 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
     var koreaItem: KoreaItem?
     
-    let itemImageView: UIImageView = {
+    private let itemImageView: UIImageView = {
         let itemImageView = UIImageView()
         itemImageView.contentMode = .scaleAspectFit
         itemImageView.translatesAutoresizingMaskIntoConstraints = false
         return itemImageView
     }()
     
-    let textView: UITextView = {
+    private let textView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 15)
         textView.textColor = UIColor.black
@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         return textView
     }()
     
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let contentView = UIStackView()
         contentView.axis = .vertical
         contentView.alignment = .center
@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
         return contentView
     }()
     
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
@@ -52,19 +52,19 @@ class DetailViewController: UIViewController {
         setupContentViewElement()
     }
     
-    func setNavigationBar() {
+    private func setNavigationBar() {
         self.title = koreaItem?.name
         let appearance = UINavigationBarAppearance()
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
-    func setData() {
+    private func setData() {
         guard let item = koreaItem else { return }
         itemImageView.image = UIImage(named: item.imageName)
         textView.text = item.description
     }
     
-    func setViews() {
+    private func setViews() {
         view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
         stackView.addSubview(textView)
     }
     
-    func setupScrollView() {
+    private func setupScrollView() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -81,7 +81,7 @@ class DetailViewController: UIViewController {
         ])
     }
     
-    func setupContentView() {
+    private func setupContentView() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
@@ -95,7 +95,7 @@ class DetailViewController: UIViewController {
         contentViewHeight.isActive = true
     }
     
-    func setupContentViewElement() {
+    private func setupContentViewElement() {
         NSLayoutConstraint.activate([
             itemImageView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             itemImageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 20),

@@ -6,19 +6,19 @@
 
 import UIKit
 
-class ExpoViewController: UIViewController {
+final class ExpoViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var mainImage: UIImageView!
-    @IBOutlet weak var visitorLabel: UILabel!
-    @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet var buttonImage: [UIImageView]!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var mainImage: UIImageView!
+    @IBOutlet private weak var visitorLabel: UILabel!
+    @IBOutlet private weak var placeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private var buttonImage: [UIImageView]!
+    @IBOutlet private weak var nextButton: UIButton!
     
-    var expoData: ExpositionIntroduction?
-    let dataManager: DataManager = DataManager<ExpositionIntroduction>()
+    private var expoData: ExpositionIntroduction?
+    private let dataManager: DataManager = DataManager<ExpositionIntroduction>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +30,13 @@ class ExpoViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    @IBAction func nextButtonTapped(_ sender: UIButton) {
+    @IBAction private func nextButtonTapped(_ sender: UIButton) {
         guard let koreaItemsVC = storyboard?.instantiateViewController(withIdentifier: Identifier.koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
         
         navigationController?.pushViewController(koreaItemsVC, animated: true)
     }
     
-    func setData() {
+    private func setData() {
         do {
             expoData = try dataManager.fetchData(name: AssetName.expoIntroJSON)
         } catch {
@@ -48,7 +48,7 @@ class ExpoViewController: UIViewController {
         }
     }
     
-    func setupElementWithData() {
+    private func setupElementWithData() {
         titleLabel.text = expoData?.title
         mainImage.image = UIImage(named: AssetName.expoImage)
         visitorLabel.text = expoData?.visitorNumberDescription

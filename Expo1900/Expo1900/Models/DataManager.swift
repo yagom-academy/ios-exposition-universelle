@@ -9,7 +9,7 @@ import UIKit
 
 struct DataManager<T: Decodable> {
     
-    let decoder = JSONDecoder()
+    private let decoder = JSONDecoder()
     
     func fetchData(name: String) throws -> T? {
                 
