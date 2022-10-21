@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class JSONDecodingManager {
+struct JSONDecodingManager {
     private let jsonDecoder: JSONDecoder = JSONDecoder()
 
     func decode<T: Decodable>(dataAsset: String) throws -> T {

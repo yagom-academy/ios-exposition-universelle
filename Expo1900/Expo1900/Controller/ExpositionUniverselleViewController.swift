@@ -1,12 +1,12 @@
 //
-//  Expo1900 - MainViewController.swift
+//  Expo1900 - ExpositionUniverselleViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class ExpositionUniverselleViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -17,6 +17,7 @@ final class MainViewController: UIViewController {
     private let jsonDecodingManager: JSONDecodingManager = JSONDecodingManager()
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = ExpoConstant.mainNavigationTitle
         self.navigationController?.isNavigationBarHidden = true
     }
