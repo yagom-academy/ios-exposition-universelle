@@ -17,17 +17,17 @@ final class EntryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        configureEntryContents(expoEntry: expoEntry)
+        configureEntryViews(expoEntry: expoEntry)
     }
     
-    private func configureEntryContents(expoEntry: ExpoEntry?) {
+    private func configureEntryViews(expoEntry: ExpoEntry?) {
         guard let expoEntry = expoEntry else { return }
         navigationItem.title = expoEntry.name
         imageView.image = UIImage(named: expoEntry.imageName)
         descriptionTextView.text = expoEntry.description
     }
     
-    func send(data: ExpoEntry) {
+    func sendExpoEntry(_ data: ExpoEntry) {
         expoEntry = data
     }
 }

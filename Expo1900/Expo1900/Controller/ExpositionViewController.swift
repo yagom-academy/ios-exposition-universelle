@@ -19,8 +19,9 @@ final class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureExpositionDataFromJSON(name: "exposition_universelle_1900")
-        configureExpositionContents()
+        
+        configureExpositionFromJSON(name: "exposition_universelle_1900")
+        configureExpositionViews(exposition)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,12 +30,12 @@ final class ExpositionViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func configureExpositionDataFromJSON(name: String) {
-        guard let data = JSONDecoder().decodeData(from: name, to: exposition) else { return }
-        exposition = data
+    private func configureExpositionFromJSON(name: String) {
+        guard let exposition = JSONDecoder().decode(from: name, to: exposition) else { return }
+        self.exposition = exposition
     }
     
-    private func configureExpositionContents() {
+    private func configureExpositionViews(_ exposition: Exposition?) {
         titleLabel.text = exposition?.title
         posterImage.image = UIImage(named: "poster")
         visitorsLabel.text = exposition?.visitorsDescription

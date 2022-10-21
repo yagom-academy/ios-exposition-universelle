@@ -16,7 +16,7 @@ struct Exposition: Decodable {
     var visitorsDescription: String {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let formatted: String = numberFormatter.string(from: NSNumber(value: visitors)) ?? ""
-        return formatted + " 명"
+        let visitorsDescription: String = numberFormatter.string(from: NSNumber(value: visitors)) ?? ""
+        return visitorsDescription + " 명"
     }
 }
