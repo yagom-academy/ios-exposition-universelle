@@ -35,7 +35,6 @@ class ExhibitionWorkListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let detailViewController: DetailWorkViewController = segue.destination as? DetailWorkViewController else {
             return
         }
