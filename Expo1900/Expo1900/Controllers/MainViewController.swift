@@ -35,26 +35,27 @@ final class MainViewController: UIViewController {
         return exposition
     }
     
+    private func configureLabel(text: String?, textStyle: UIFont.TextStyle, numberOfLines: Int = 1) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = UIFont.preferredFont(forTextStyle: textStyle)
+        label.numberOfLines = numberOfLines
+        
+        return label
+    }
+    
     private func configureView() {
-        let koreanTitleLabel: UILabel = {
-            let label = UILabel()
-            label.text = exposition?.koreanTitle
-            label.font = UIFont.preferredFont(forTextStyle: .title1)
-            
-            return label
-        }()
-        
-        mainStackView.addArrangedSubview(koreanTitleLabel)
-        
-        let englishTitleLabel: UILabel = {
-            let label = UILabel()
-            label.text = exposition?.englishTitle
-            label.font = UIFont.preferredFont(forTextStyle: .title1)
-            
-            return label
-        }()
-        
-        mainStackView.addArrangedSubview(englishTitleLabel)
+        let koreanTitleLabel: UILabel = configureLabel(text: exposition?.koreanTitle, textStyle: .title1)
+        let englishTitleLabel: UILabel = configureLabel(text: exposition?.englishTitle, textStyle: .title1)
+        let visitorsLabel: UILabel = configureLabel(text: "방문객 : \(numberFormatter.string(for: exposition?.visitors) ?? "")",
+                                                    textStyle: .title3)
+        let locationLabel: UILabel = configureLabel(text: "개최지 : \(exposition?.location ?? "")",
+                                                    textStyle: .title3)
+        let durationLabel: UILabel = configureLabel(text: "개최 기간 : \(exposition?.duration ?? "")",
+                                                    textStyle: .title3)
+        let descriptionLabel: UILabel = configureLabel(text: exposition?.description,
+                                                       textStyle: .body,
+                                                       numberOfLines: 0)
         
         let posterImageView: UIImageView = {
             let imageView = UIImageView()
@@ -63,62 +64,28 @@ final class MainViewController: UIViewController {
             return imageView
         }()
         
-        mainStackView.addArrangedSubview(posterImageView)
-        
-        let visitorsLabel: UILabel = {
-            let label = UILabel()
-            label.text = "방문객 : \(numberFormatter.string(for: exposition?.visitors) ?? "")"
-            label.font = UIFont.preferredFont(forTextStyle: .title3)
-            
-            return label
-        }()
-        
-        mainStackView.addArrangedSubview(visitorsLabel)
-        
-        let locationLabel: UILabel = {
-            let label = UILabel()
-            label.text = "개최지 : \(exposition?.location ?? "")"
-            label.font = UIFont.preferredFont(forTextStyle: .title3)
-            
-            return label
-        }()
-        
-        mainStackView.addArrangedSubview(locationLabel)
-        
-        let durationLabel: UILabel = {
-            let label = UILabel()
-            label.text = "개최 기간 : \(exposition?.duration ?? "")"
-            label.font = UIFont.preferredFont(forTextStyle: .title3)
-            
-            return label
-        }()
-        
-        mainStackView.addArrangedSubview(durationLabel)
-        
-        let descriptionLabel: UILabel = {
-            let label = UILabel()
-            label.text = exposition?.description
-            label.font = UIFont.preferredFont(forTextStyle: .body)
-            label.numberOfLines = 0
-            
-            return label
-        }()
-        
-        mainStackView.addArrangedSubview(descriptionLabel)
-        
         let koreanItemsViewButton: UIButton = {
             let button = UIButton()
-            button.setTitle("🇰🇷 한국의 출품작 보러가기 🇰🇷", for: .normal)
-            button.setTitleColor(.systemBlue, for: .normal)
-            
             let action = UIAction { _ in
                 self.navigationController?.isNavigationBarHidden = false
                 self.performSegue(withIdentifier: "koreanItemsSegue", sender: self)
             }
+            button.setTitle("🇰🇷 한국의 출품작 보러가기 🇰🇷", for: .normal)
+            button.setTitleColor(.systemBlue, for: .normal)
             button.addAction(action, for: .touchUpInside)
             
             return button
         }()
+        
+        mainStackView.addArrangedSubview(koreanTitleLabel)
+        mainStackView.addArrangedSubview(englishTitleLabel)
+        
+        mainStackView.addArrangedSubview(posterImageView)
+        
+        mainStackView.addArrangedSubview(visitorsLabel)
+        mainStackView.addArrangedSubview(locationLabel)
+        mainStackView.addArrangedSubview(durationLabel)
+        mainStackView.addArrangedSubview(descriptionLabel)
         
         mainStackView.addArrangedSubview(koreanItemsViewButton)
     }
