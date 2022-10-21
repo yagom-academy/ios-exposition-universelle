@@ -1,9 +1,6 @@
-//
-//  NameSpace.swift
-//  Expo1900
-//
-//  Created by Ayaan on 2022/10/21.
-//
+//  Expo1900 - NameSpace.swift
+//  Created by Ayaan, Bella on 2022/10/21.
+//  Copyright © yagom academy. All rights reserved.
 
 enum Identifier {
     static let expositionTableViewCell: String = "ExpoItemCell"

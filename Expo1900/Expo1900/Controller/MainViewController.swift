@@ -1,12 +1,11 @@
-//
 //  Expo1900 - ViewController.swift
-//  Created by yagom.
+//  Created by Ayaan, Bella on 2022/10/17.
 //  Copyright © yagom academy. All rights reserved.
-//
 
 import UIKit
 
 final class MainViewController: UIViewController {
+    //MARK: - IBOutlet
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var visitorLabel: UILabel!
@@ -17,14 +16,17 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
     
+    //MARK: - Property
     private var expositionUniverselle: ExpositionUniverselle?
     private let titleText: String = "메인"
     private let posterImageIdentifier: String = "poster"
     private let buttonTitleText: String = "한국의 출품작 보러가기"
     private let flagImageIdentifier: String = "flag"
     
+    //MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadMainViewData()
         setUpInitialSetting()
         assignContentValue()
@@ -32,9 +34,13 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+}
+
+extension MainViewController {
+    //MARK: - Private Method
     private func loadMainViewData() {
         guard let mainViewDataAsset: NSDataAsset = NSDataAsset(name: DataAsset.expositionUniverselleInfomation) else {
             return
@@ -60,6 +66,7 @@ final class MainViewController: UIViewController {
         guard let expositionUniverselle: ExpositionUniverselle = expositionUniverselle else {
             return
         }
+        
         titleLabel.text = expositionUniverselle.title
         posterImageView.image = UIImage(named: posterImageIdentifier)
         visitorLabel.text = "방문객 : \(expositionUniverselle.visitors)명"
