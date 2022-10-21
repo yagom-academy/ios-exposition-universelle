@@ -11,8 +11,14 @@ class ExhibitViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         exhibitTableView.dataSource = self
+        
+        guard let exhibitData = JSONDecoder.parse(assetName: "items", to: [Exhibit].self) else {
+            return
+        }
+        
+        exhibits = exhibitData
     }
 }
 
