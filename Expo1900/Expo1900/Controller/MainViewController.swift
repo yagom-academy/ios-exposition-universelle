@@ -42,14 +42,8 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     //MARK: - Private Method
     private func loadMainViewData() {
-        guard let mainViewDataAsset: NSDataAsset = NSDataAsset(name: DataAsset.expositionUniverselleInfomation) else {
-            return
-        }
-        
-        let decoder: JSONDecoder = JSONDecoder()
-        
         do {
-            self.expositionUniverselle = try decoder.decode(ExpositionUniverselle.self, from: mainViewDataAsset.data)
+            self.expositionUniverselle = try JSONProcessor.process(ExpositionUniverselle.self, dataName: DataAsset.expositionUniverselleInfomation)
         } catch {
             print(error.localizedDescription)
         }

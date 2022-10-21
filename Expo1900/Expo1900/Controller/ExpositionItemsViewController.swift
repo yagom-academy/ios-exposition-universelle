@@ -37,14 +37,8 @@ class ExpositionItemsViewController: UIViewController {
 extension ExpositionItemsViewController {
     //MARK: - Private Method
     private func loadExpositionItems() {
-        guard let expositionItemsAsset: NSDataAsset = NSDataAsset(name: DataAsset.expositionItems) else {
-            return
-        }
-        
-        let decoder: JSONDecoder = JSONDecoder()
-        
         do {
-            self.expositionItems = try decoder.decode([ExpositionUniverselleItem].self, from: expositionItemsAsset.data)
+            self.expositionItems = try JSONProcessor.process([ExpositionUniverselleItem].self, dataName: DataAsset.expositionItems)
         } catch {
             print(error.localizedDescription)
         }
