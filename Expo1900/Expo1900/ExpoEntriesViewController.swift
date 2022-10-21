@@ -16,18 +16,14 @@ final class ExpoEntriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.isNavigationBarHidden = false
         configureExpoEntryDataFromJSON(name: "items")
     }
     
     private func configureExpoEntryDataFromJSON(name: String) {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: name) else { return }
-        
-        do {
-            self.expoEntries = try jsonDecoder.decode([ExpoEntry].self, from: dataAsset.data)
-        } catch {
-            print(error)
+        guard let data =  JSONDecoder().decodeData(from: name, to: expoEntries) else { return
         }
+        expoEntries = data
     }
 }
 

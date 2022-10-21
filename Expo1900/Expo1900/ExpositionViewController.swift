@@ -23,15 +23,15 @@ final class ExpositionViewController: UIViewController {
         configureExpositionContents()
     }
     
-    private func configureExpositionDataFromJSON(name: String) {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: name) else { return }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        do {
-            self.exposition = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
-        } catch {
-            print(error)
-        }
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func configureExpositionDataFromJSON(name: String) {
+        guard let data = JSONDecoder().decodeData(from: name, to: exposition) else { return }
+        exposition = data
     }
     
     private func configureExpositionContents() {
