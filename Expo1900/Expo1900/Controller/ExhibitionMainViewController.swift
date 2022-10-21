@@ -42,10 +42,10 @@ class ExhibitionMainViewController: UIViewController {
     }
     
     func setUpPosterData() {
-        titleLabel.text = split(of: expositionPoster?.title ?? "")
+        titleLabel.text = expositionPoster?.title.replacingOccurrences(of: "(", with: "\n(")
         imageView.image = UIImage(named: "poster")
         visitorLabel.text = "방문객:"
-        visitorDetailLabel.text = "\(formatNumber(number: expositionPoster?.visitors ?? 0)) 명"
+        visitorDetailLabel.text = "\(expositionPoster?.visitors.formatNumber ?? "0") 명"
         locationLabel.text = "개최지:"
         locationDetailLabel.text = expositionPoster?.location
         termLabel.text = "개최 기간:"
@@ -54,25 +54,5 @@ class ExhibitionMainViewController: UIViewController {
         leftFlagImageView.image = UIImage(named: "flag")
         rightFlagImageView.image = UIImage(named: "flag")
     }
-    
-    func formatNumber(number: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
-        guard let string = formatter.string(for: number) else {
-            return "Error in Formatter"
-        }
-        
-        return string
-    }
-    
-    func split(of title: String) -> String {
-        var splitTitle = title.components(separatedBy: "(")
-        splitTitle.insert("\n(", at: 1)
-        
-        return splitTitle.joined()
-    }
-
-
 }
 
