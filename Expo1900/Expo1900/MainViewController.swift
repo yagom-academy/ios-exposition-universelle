@@ -1,8 +1,8 @@
 //
 //  Expo1900 - ViewController.swift
-//  Created by yagom. 
+//  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
-// 
+//
 
 import UIKit
 
@@ -18,6 +18,10 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var rightFlagImageView: UIImageView!
     
     private var expositionUniverselle: ExpositionUniverselle?
+    private let titleText: String = "메인"
+    private let posterImageIdentifier: String = "poster"
+    private let buttonTitleText: String = "한국의 출품작 보러가기"
+    private let flagImageIdentifier: String = "flag"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,7 @@ final class MainViewController: UIViewController {
     }
     
     private func loadMainViewData() {
-        guard let mainViewDataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let mainViewDataAsset: NSDataAsset = NSDataAsset(name: DataAsset.expositionUniverselleInfomation) else {
             return
         }
         
@@ -47,16 +51,16 @@ final class MainViewController: UIViewController {
         guard let expositionUniverselle: ExpositionUniverselle = expositionUniverselle else {
             return
         }
-        self.title = "메인"
+        self.title = titleText
         self.navigationController?.isNavigationBarHidden = true
         titleLabel.text = expositionUniverselle.title
-        posterImageView.image = UIImage(named: "poster")
+        posterImageView.image = UIImage(named: posterImageIdentifier)
         visitorLabel.text = "방문객 : \(expositionUniverselle.visitors)명"
         locationLabel.text = "개최지 : \(expositionUniverselle.location)"
         durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
         descriptionTextView.text = expositionUniverselle.description
-        showKoreanItemListButton.setTitle("한국의 출품작 보러가기", for: .normal)
-        leftFlagImageView.image = UIImage(named: "flag")
-        rightFlagImageView.image = UIImage(named: "flag")
+        showKoreanItemListButton.setTitle(buttonTitleText, for: .normal)
+        leftFlagImageView.image = UIImage(named: flagImageIdentifier)
+        rightFlagImageView.image = UIImage(named: flagImageIdentifier)
     }
 }

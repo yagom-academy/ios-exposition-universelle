@@ -11,6 +11,7 @@ class ExpositionItemsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private var expositionItems: [ExpositionUniverselleItem] = []
+    private let titleText: String = "한국의 출품작"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class ExpositionItemsViewController: UIViewController {
         
         loadExpositionItems()
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "한국의 출품작"
+        self.title = titleText
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,7 +34,7 @@ class ExpositionItemsViewController: UIViewController {
     }
     
     private func loadExpositionItems() {
-        guard let expositionItemsAsset: NSDataAsset = NSDataAsset(name: "items") else {
+        guard let expositionItemsAsset: NSDataAsset = NSDataAsset(name: DataAsset.expositionItems) else {
             return
         }
         
@@ -53,7 +54,7 @@ extension ExpositionItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "ExpoItemCell", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: Identifier.expositionTableViewCell, for: indexPath)
         let expositionItem: ExpositionUniverselleItem = self.expositionItems[indexPath.row]
         
         cell.imageView?.image = UIImage(named: expositionItem.imageName)
@@ -68,6 +69,6 @@ extension ExpositionItemsViewController: UITableViewDataSource {
 
 extension ExpositionItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowItemDetail", sender: expositionItems[indexPath.row])
+        self.performSegue(withIdentifier: Identifier.segueOfShowItemDetail, sender: expositionItems[indexPath.row])
     }
 }
