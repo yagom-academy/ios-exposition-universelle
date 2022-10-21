@@ -9,6 +9,7 @@ import UIKit
 
 final class KoreanEntriesViewController: UIViewController {
     @IBOutlet private weak var entriesTableView: UITableView!
+    private let jsonDecodingManager: JSONDecodingManager = JSONDecodingManager()
     
     private var koreanEntries: [ExhibitionEntry] = []
     
@@ -20,15 +21,9 @@ final class KoreanEntriesViewController: UIViewController {
     }
     
     private func fetchKoreanEntries() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(
-            name: ExpoConstant.koreanEntriesJSONFileName) else {
-            return
-        }
-        
         do {
-            self.koreanEntries = try jsonDecoder.decode([ExhibitionEntry].self,
-                                                        from: dataAsset.data)
+        koreanEntries = try jsonDecodingManager.decode(
+            dataAsset: ExpoConstant.koreanEntriesJSONFileName)
         } catch {
             print(error.localizedDescription)
         }

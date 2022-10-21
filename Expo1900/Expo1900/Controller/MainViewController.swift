@@ -14,6 +14,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var descriptionTextView: UITextView!
     
     private var expositionUniverselle: ExpositionUniverselle?
+    private let jsonDecodingManager: JSONDecodingManager = JSONDecodingManager()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.title = ExpoConstant.mainNavigationTitle
@@ -32,15 +33,9 @@ final class MainViewController: UIViewController {
     }
     
     private func fetchExpoInformation() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(
-            name: ExpoConstant.Expo1900JSONFileName) else {
-            return
-        }
-        
         do {
-            self.expositionUniverselle = try jsonDecoder.decode(ExpositionUniverselle.self,
-                                                                from: dataAsset.data)
+            expositionUniverselle = try jsonDecodingManager.decode(
+                dataAsset: ExpoConstant.Expo1900JSONFileName)
         } catch {
             print(error.localizedDescription)
         }
