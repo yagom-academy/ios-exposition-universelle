@@ -38,8 +38,8 @@ final class ExpositionViewController: UIViewController {
         titleLabel.text = exposition?.title
         posterImage.image = UIImage(named: "poster")
         visitorsLabel.text = exposition?.visitorsDescription
-        locationLabel.text = exposition?.locationDescription
-        durationLabel.text = exposition?.durationDescription
+        locationLabel.text = exposition?.location
+        durationLabel.text = exposition?.duration
         descriptionTextView.text = exposition?.description
     }
     
