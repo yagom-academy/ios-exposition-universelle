@@ -54,9 +54,15 @@ final class MainViewController: UIViewController {
         
         titleLabel.text = expositionUniverselle.title.applyLineBreak()
         titleLabel.font = ExpoConstant.largeFont
-        visitorsLabel.attributedText = visitors.createAttributed(target: ExpoConstant.visitor)
-        locationLabel.attributedText = location.createAttributed(target: ExpoConstant.location)
-        durationLabel.attributedText = duration.createAttributed(target: ExpoConstant.duration)
+        visitorsLabel.attributedText = visitors.createAttributed(target: ExpoConstant.visitor,
+                                                                 key: .font,
+                                                                 value: ExpoConstant.mediumFont)
+        locationLabel.attributedText = location.createAttributed(target: ExpoConstant.location,
+                                                                 key: .font,
+                                                                 value: ExpoConstant.mediumFont)
+        durationLabel.attributedText = duration.createAttributed(target: ExpoConstant.duration,
+                                                                 key: .font,
+                                                                 value: ExpoConstant.mediumFont)
         descriptionTextView.text = expositionUniverselle.description
     }
     
@@ -84,11 +90,10 @@ fileprivate extension String {
         return ExpoConstant.duration + ExpoConstant.colon + self
     }
     
-    func createAttributed(target: String) -> NSAttributedString {
-        let fontSize = ExpoConstant.mediumFont
+    func createAttributed(target: String, key: NSAttributedString.Key, value: Any) -> NSAttributedString {
         let attributed: NSMutableAttributedString = NSMutableAttributedString(string: self)
         let targetRange = (self as NSString).range(of: target)
-        attributed.addAttribute(.font, value: fontSize, range: targetRange)
+        attributed.addAttribute(key, value: value, range: targetRange)
         
         return attributed
     }
