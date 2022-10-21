@@ -70,9 +70,11 @@
 
 
 ## 💻 실행 화면 
-|Main 화면| Expo 화면 |
-|------|----|
-|![](https://i.imgur.com/pCDrwOe.gif)|![Screen Recording 2022-10-21 at 3 44 41 PM](https://user-images.githubusercontent.com/66786418/197134476-0ee7c273-d265-4cc6-862c-cc584f4429ca.gif)|
+
+
+|Main 화면|Expo 화면|
+|:---:|:---:|
+|<img src = "https://i.imgur.com/pCDrwOe.gif" width=50% height=50%> |<img src = "https://user-images.githubusercontent.com/66786418/197134476-0ee7c273-d265-4cc6-862c-cc584f4429ca.gif" width=50% height=50%>|
 
 ## 🎯 트러블 슈팅 및 고민
 
