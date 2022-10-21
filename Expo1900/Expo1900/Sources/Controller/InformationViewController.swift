@@ -7,6 +7,8 @@
 import UIKit
 
 class InformationViewController: UIViewController {
+    var information: Exposition?
+    
     @IBOutlet weak var titleOfExposition: UILabel!
     @IBOutlet weak var numberOfVisitors: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -22,11 +24,11 @@ class InformationViewController: UIViewController {
         }
         
         do {
-            let informationOfExposition: Exposition = try jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
-            configureLables(informationOfExposition)
+            information = try jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
         } catch {
             print(error.localizedDescription)
         }
+        configureLables()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,35 +38,17 @@ class InformationViewController: UIViewController {
         self.navigationItem.backButtonTitle = "메인"
     }
     
-    func configureLables(_ information: Exposition) {
-        titleOfExposition.text = adjustTitleText(information.title)
-        numberOfVisitors.attributedText = attributedString("방문객 : \(formattedNumber(information.numberOfVisitors)) 명")
-        location.attributedText = attributedString("개최지 : \(information.location)")
-        duration.attributedText = attributedString("개최 기간 : \(information.duration)")
-        descriptionOfExposition.text = information.description
+    func configureLables() {
+        titleOfExposition.text = information?.title
+        numberOfVisitors.attributedText = attributedString(information?.numberOfVisitors)
+        location.attributedText = attributedString(information?.location)
+        duration.attributedText = attributedString(information?.duration)
+        descriptionOfExposition.text = information?.description
     }
     
-    func adjustTitleText(_ text: String) -> String {
-        var title: String = text
-        guard let firstLine = title.split(separator: "(").first else {
-            return title
-        }
-        title.removeFirst(firstLine.count)
-        let secondLine: String = title
-        return firstLine + "\n" + secondLine
-    }
-    
-    func formattedNumber(_ number: Int) -> String {
-        let numberFormatter: NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        guard let visitors = numberFormatter.string(from: NSNumber(value: number)) else {
-            return String(number)
-        }
-        return visitors
-    }
-    
-    func attributedString(_ text: String) -> NSMutableAttributedString? {
-        guard let leftText = text.split(separator: ":").first else {
+    private func attributedString(_ text: String?) -> NSMutableAttributedString? {
+        guard let text = text,
+              let leftText = text.split(separator: ":").first else {
             return nil
         }
         let leftFont: UIFont = UIFont.systemFont(ofSize: 20)
