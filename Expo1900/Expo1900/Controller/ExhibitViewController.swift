@@ -12,6 +12,7 @@ class ExhibitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        exhibitTableView.delegate = self
         exhibitTableView.dataSource = self
         navigationItem.title = "한국의 출품작"
         
@@ -43,5 +44,17 @@ extension ExhibitViewController: UITableViewDataSource {
         cell.exhibitImageView.image = exhibit.image
         
         return cell
+    }
+}
+
+extension ExhibitViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nextViewController: ExhibitDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "exhibitDetailViewController") as? ExhibitDetailViewController else {
+            return
+        }
+        
+        nextViewController.exhibitData = exhibits[indexPath.row]
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
