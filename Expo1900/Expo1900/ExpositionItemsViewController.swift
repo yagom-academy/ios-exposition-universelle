@@ -21,6 +21,15 @@ class ExpositionItemsViewController: UIViewController {
         loadExpositionItems()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: ExpositionItemDetailViewController = segue.destination as? ExpositionItemDetailViewController,
+              let item: ExpositionUniverselleItem = sender as? ExpositionUniverselleItem else {
+            return
+        }
+        
+        nextViewController.item = item
+    }
+    
     private func loadExpositionItems() {
         guard let expositionItemsAsset: NSDataAsset = NSDataAsset(name: "items") else {
             return
@@ -55,4 +64,8 @@ extension ExpositionItemsViewController: UITableViewDataSource {
     }
 }
 
-extension ExpositionItemsViewController: UITableViewDelegate { }
+extension ExpositionItemsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowItemDetail", sender: expositionItems[indexPath.row])
+    }
+}
