@@ -5,9 +5,10 @@
 2. [개발환경 및 라이브러리](#-개발환경-및-라이브러리)
 3. [팀원](#-팀원)
 4. [타임라인](#-타임라인)
-5. [실행화면](#-실행-화면)
-6. [트러블 슈팅 및 고민](#-트러블-슈팅-및-고민)
-7. [참고링크](#-참고-링크)
+5. [파일트리](#-파일-트리)
+6. [실행화면](#-실행-화면)
+7. [트러블 슈팅 및 고민](#-트러블-슈팅-및-고민)
+8. [참고링크](#-참고-링크)
 
 
 ## 👋 소개
@@ -38,6 +39,35 @@
 - 한국 박람회 화면의 `TableViewCell` 설정 
 - 한국 박람회 아이템 상세 화면의 `ScrollView` 설정
 - 한국 박람회 아이템 상세 화면의 `ScrollView` 내 `Decode`된 데이터 배치
+
+## 🌲 파일 트리
+
+```
+├── Expo1900
+│   ├── AppDelegate.swift
+│   ├── SceneDelegate.swift
+│   ├── Assets.xcassets
+│   ├── Base.lproj
+│   │   └── LaunchScreen.storyboard
+│   ├── Common
+│   │   ├── AssetName.swift
+│   │   ├── Constant.swift
+│   │   ├── DataError.swift
+│   │   └── Identifier.swift
+│   ├── Controllers
+│   │   ├── DetailViewController.swift
+│   │   ├── ExpoViewController.swift
+│   │   └── KoreaItemsViewController.swift
+│   ├── Info.plist
+│   ├── Models
+│   │   ├── DataManager.swift
+│   │   ├── ExpositionIntroduction.swift
+│   │   └── KoreaItem.swift
+│   └── Views
+│       └── Base.lproj
+│           └── Main.storyboard
+```
+
 
 ## 💻 실행 화면 
 |Main 화면| Expo 화면 |
