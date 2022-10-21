@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nuu-eU-bOG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nuu-eU-bOG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -193,6 +193,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mf4-oK-1kj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1931.8840579710147" y="116.51785714285714"/>
+        </scene>
+        <!--Exhibit Detail View Controller-->
+        <scene sceneID="ORC-ii-qfK">
+            <objects>
+                <viewController id="mFr-PO-XYi" customClass="ExhibitDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="khM-dR-GKl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sb3-oJ-oEJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GNT-mD-2mT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Top-Nf-KPG">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="273"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lpY-R5-AP7">
+                                                <rect key="frame" x="0.0" y="273" width="414" height="545"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GNT-mD-2mT" secondAttribute="trailing" id="9YA-Rb-Gh5"/>
+                                    <constraint firstItem="GNT-mD-2mT" firstAttribute="height" secondItem="XsZ-3A-KOQ" secondAttribute="height" priority="750" id="9mI-rE-maC"/>
+                                    <constraint firstAttribute="bottom" secondItem="GNT-mD-2mT" secondAttribute="bottom" id="CfU-Sr-xQ5"/>
+                                    <constraint firstItem="GNT-mD-2mT" firstAttribute="top" secondItem="Sb3-oJ-oEJ" secondAttribute="top" id="ap5-jS-pbe"/>
+                                    <constraint firstItem="GNT-mD-2mT" firstAttribute="leading" secondItem="Sb3-oJ-oEJ" secondAttribute="leading" id="hpS-fZ-0Gh"/>
+                                    <constraint firstItem="GNT-mD-2mT" firstAttribute="width" secondItem="XsZ-3A-KOQ" secondAttribute="width" id="kfS-pT-BKm"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="wJu-tk-oxz"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="XsZ-3A-KOQ"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YkR-Zw-ayX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YkR-Zw-ayX" firstAttribute="bottom" secondItem="Sb3-oJ-oEJ" secondAttribute="bottom" id="39v-N9-hNm"/>
+                            <constraint firstItem="YkR-Zw-ayX" firstAttribute="trailing" secondItem="Sb3-oJ-oEJ" secondAttribute="trailing" id="BMG-8H-yeL"/>
+                            <constraint firstItem="Sb3-oJ-oEJ" firstAttribute="top" secondItem="YkR-Zw-ayX" secondAttribute="top" id="NCq-aq-nmd"/>
+                            <constraint firstItem="Sb3-oJ-oEJ" firstAttribute="leading" secondItem="YkR-Zw-ayX" secondAttribute="leading" id="hjE-mE-fyL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fP6-1B-NYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2953.6231884057975" y="116.51785714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t7f-jh-1EM">
