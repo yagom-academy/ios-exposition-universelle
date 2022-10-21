@@ -1,10 +1,10 @@
-//  Exposition.swift
+//  ExpositionData.swift
 //  Expo1900
 //  Created by inho, LJ on 2022/10/18.
 
 import UIKit
 
-struct Exposition: Decodable {
+struct ExpositionData: Decodable {
     let title: String
     let visitors: Int
     let location: String

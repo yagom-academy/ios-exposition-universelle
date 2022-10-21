@@ -14,12 +14,12 @@ class ExpositionViewController: UIViewController {
     @IBOutlet weak var leftFlagImageView: UIImageView!
     @IBOutlet weak var showExhibitButton: UIButton!
     @IBOutlet weak var rightFlagImageView: UIImageView!
-    var expositionData: Exposition?
+    var expositionData: ExpositionData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expositionData = JSONDecoder.parse(assetName: "exposition_universelle_1900", to: Exposition.self)
+        expositionData = JSONDecoder.parse(assetName: "exposition_universelle_1900", to: ExpositionData.self)
         configureView()
     }
     

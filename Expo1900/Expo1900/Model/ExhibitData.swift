@@ -1,10 +1,10 @@
-//  Exhibit.swift
+//  ExhibitData.swift
 //  Expo1900
 //  Created by inho, LJ  on 2022/10/18.
 
 import UIKit
 
-struct Exhibit: Decodable {
+struct ExhibitData: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String

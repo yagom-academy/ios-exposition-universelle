@@ -7,7 +7,7 @@ import UIKit
 class ExhibitViewController: UIViewController {
     @IBOutlet weak var exhibitTableView: UITableView!
     let cellIdentifier: String = "exhibitCell"
-    var exhibits: [Exhibit] = []
+    var exhibits: [ExhibitData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,7 @@ class ExhibitViewController: UIViewController {
         exhibitTableView.dataSource = self
         navigationItem.title = "한국의 출품작"
         
-        guard let exhibitData = JSONDecoder.parse(assetName: "items", to: [Exhibit].self) else {
+        guard let exhibitData = JSONDecoder.parse(assetName: "items", to: [ExhibitData].self) else {
             return
         }
         
@@ -37,7 +37,7 @@ extension ExhibitViewController: UITableViewDataSource {
             return cell
         }
         
-        let exhibit: Exhibit = exhibits[indexPath.row]
+        let exhibit: ExhibitData = exhibits[indexPath.row]
         
         cell.exhibitNameLabel.text = exhibit.name
         cell.exhibitShortDescriptionLabel.text = exhibit.shortDescription

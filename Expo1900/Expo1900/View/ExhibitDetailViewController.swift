@@ -7,7 +7,7 @@ import UIKit
 class ExhibitDetailViewController: UIViewController {
     @IBOutlet weak var exhibitImageView: UIImageView!
     @IBOutlet weak var exhibitDescriptionTextView: UITextView!
-    var exhibitData: Exhibit?
+    var exhibitData: ExhibitData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
