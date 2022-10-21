@@ -44,11 +44,22 @@ final class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
+        setupConstraint()
+    }
+}
+
+private extension DetailViewController {
+    
+    func setUI(){
         setNavigationBar()
         setData()
         setViews()
+    }
+    
+    func setupConstraint(){
         setupScrollView()
-        setupContentView()
+        setupStackView()
         setupContentViewElement()
     }
     
@@ -81,7 +92,7 @@ final class DetailViewController: UIViewController {
         ])
     }
     
-    private func setupContentView() {
+    private func setupStackView() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
