@@ -26,11 +26,13 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMainViewData()
+        setUpInitialSetting()
+        assignContentValue()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        assignContentValue()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func loadMainViewData() {
@@ -47,20 +49,22 @@ final class MainViewController: UIViewController {
         }
     }
     
+    private func setUpInitialSetting() {
+        self.title = titleText
+        showKoreanItemListButton.setTitle(buttonTitleText, for: .normal)
+        leftFlagImageView.image = UIImage(named: flagImageIdentifier)
+        rightFlagImageView.image = UIImage(named: flagImageIdentifier)
+    }
+    
     private func assignContentValue() {
         guard let expositionUniverselle: ExpositionUniverselle = expositionUniverselle else {
             return
         }
-        self.title = titleText
-        self.navigationController?.isNavigationBarHidden = true
         titleLabel.text = expositionUniverselle.title
         posterImageView.image = UIImage(named: posterImageIdentifier)
         visitorLabel.text = "방문객 : \(expositionUniverselle.visitors)명"
         locationLabel.text = "개최지 : \(expositionUniverselle.location)"
         durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
         descriptionTextView.text = expositionUniverselle.description
-        showKoreanItemListButton.setTitle(buttonTitleText, for: .normal)
-        leftFlagImageView.image = UIImage(named: flagImageIdentifier)
-        rightFlagImageView.image = UIImage(named: flagImageIdentifier)
     }
 }
