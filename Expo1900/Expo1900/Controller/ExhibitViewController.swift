@@ -13,6 +13,7 @@ class ExhibitViewController: UIViewController {
         super.viewDidLoad()
         
         exhibitTableView.dataSource = self
+        navigationItem.title = "한국의 출품작"
         
         guard let exhibitData = JSONDecoder.parse(assetName: "items", to: [Exhibit].self) else {
             return

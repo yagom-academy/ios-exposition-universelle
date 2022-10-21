@@ -20,8 +20,15 @@ class ExpositionViewController: UIViewController {
         super.viewDidLoad()
         
         expositionData = JSONDecoder.parse(assetName: "exposition_universelle_1900", to: Exposition.self)
-        
         configureView()
+    }
+    
+    @IBAction func showExhibitButtonPressed(_ sender: UIButton) {
+        guard let nextViewController: ExhibitViewController = self.storyboard?.instantiateViewController(withIdentifier: "exhibitViewController") as? ExhibitViewController else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     func configureView() {
