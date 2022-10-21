@@ -58,7 +58,7 @@
 #### Segue를 통한 화면 전환시 데이터 전송.
 - Segue를 이용하여 스토리보드에서 한국의 출품작을 보여주는 TableView의 Cell을 클릭하면, 클릭된 Cell의 해당하는 출품작의 상세 정보를 보여주는 View로 화면전환이 되게 구현하였습니다. `prepare()`메서드를 오버라이드하여 데이터를 전송할때, `sender`로 전달되는 상세 정보를 나타내는 데이터가 cell에는 없기 때문에 상세 정보를 보여주는 View에 올바른 데이터를 전송하지 못하는 문제가 발생하였습니다.
 - TableView Delegate의 메서드인 `tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)`를 사용해 상세 정보를 보고싶은 Cell을 선택하면 선택된 셀의 row에 해당하는 Item을 `performSegue`메서드의 `sender`로 전달해 주어서 해당 문제를 해결하였습니다.
-```swift=
+```swift
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     self.performSegue(withIdentifier: "ShowItemDetail", sender: expositionItems[indexPath.row])
 }
