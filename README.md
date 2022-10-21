@@ -77,9 +77,9 @@ Exposition - exposition_universelle_1900.json
 
  |**메인 화면**|**버튼 클릭시 출품작 화면으로 전환**|
  |:---:|:---:|
- |<img width=300px, src="https://i.imgur.com/STA3wf5.gif">|<img width=300px, src="https://i.imgur.com/Y4dBOaR.gif">|
+ |![](https://i.imgur.com/OTM4FCa.gif)|![](https://user-images.githubusercontent.com/101683977/197129044-fb21afd7-043f-4645-8749-37183246c129.gif)|
  |**한국의 출품작 화면**|**셀 클릭시 품목 상세 화면으로 전환**|
- |<img width=300px, src="https://i.imgur.com/MsvMDp1.png">|<img width=300px, src="https://i.imgur.com/cMXle0H.gif)">|
+ |<img width=320px, src="https://user-images.githubusercontent.com/101683977/197129289-2edc5834-3a72-4132-88e4-e4bfddb0220b.png">|![](https://user-images.githubusercontent.com/101683977/197129414-97514679-8a84-4db7-8be9-f4fcc3c543a9.gif)|
 
 ---
 
