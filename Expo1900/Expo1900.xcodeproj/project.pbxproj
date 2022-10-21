@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1AF7876828FE3E0F0094A911 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7876728FE3E0F0094A911 /* Exposition.swift */; };
+		1AF7878729022ACD0094A911 /* KoreanItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7878629022ACD0094A911 /* KoreanItemsViewController.swift */; };
 		572241D028FE3AA3006E1783 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572241CF28FE3AA3006E1783 /* Item.swift */; };
 		5761D81F28FFBE090041CF77 /* DecodingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5761D81E28FFBE090041CF77 /* DecodingTest.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		1AF7876728FE3E0F0094A911 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		1AF7878629022ACD0094A911 /* KoreanItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanItemsViewController.swift; sourceTree = "<group>"; };
 		572241CF28FE3AA3006E1783 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		5761D81C28FFBE090041CF77 /* ExpositionDecodingTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpositionDecodingTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5761D81E28FFBE090041CF77 /* DecodingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTest.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				1AF7878629022ACD0094A911 /* KoreanItemsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				1AF7878729022ACD0094A911 /* KoreanItemsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

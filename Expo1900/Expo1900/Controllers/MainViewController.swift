@@ -24,6 +24,10 @@ final class MainViewController: UIViewController {
         configureView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     private func decodeExposition(_ file: String) -> Exposition? {
         guard let expositionAsset: NSDataAsset = NSDataAsset(name: file) else { return nil }
         let exposition = try? jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
@@ -106,6 +110,11 @@ final class MainViewController: UIViewController {
             let button = UIButton()
             button.setTitle("🇰🇷 한국의 출품작 보러가기 🇰🇷", for: .normal)
             button.setTitleColor(.systemBlue, for: .normal)
+            
+            let action = UIAction { _ in
+                self.performSegue(withIdentifier: "koreanItemsSegue", sender: self)
+            }
+            button.addAction(action, for: .touchUpInside)
             
             return button
         }()
