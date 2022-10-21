@@ -7,6 +7,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .bold)
@@ -79,8 +86,31 @@ class ViewController: UIViewController {
     
     private func setLayout() {
         let stackView = UIStackView(arrangedSubviews: [leftFlagImageView, entryButton, rightFlagImageView])
-        
+        let safeArea = view.safeAreaLayoutGuide
+
         stackView.alignment = .center
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            
+        ])
         
         let layoutList: [UIView] = [
             titleLabel,
@@ -91,40 +121,39 @@ class ViewController: UIViewController {
             descriptionLabel,
             stackView
         ]
-        let safeArea = view.safeAreaLayoutGuide
         
         layoutList.forEach { element in
             element.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(element)
+            contentView.addSubview(element)
         }
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 16),
-            titleLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             posterImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            posterImageView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            posterImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             visitorsLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 8),
-            visitorsLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
-            visitorsLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            visitorsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            visitorsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             locationLabel.topAnchor.constraint(equalTo: visitorsLabel.bottomAnchor, constant: 8),
-            locationLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
-            locationLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            locationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             durationLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 8),
-            durationLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
-            durationLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            durationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            durationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             descriptionLabel.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             descriptionLabel.bottomAnchor.constraint(equalTo: stackView.topAnchor),
             
-            stackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16)
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
     }
     
