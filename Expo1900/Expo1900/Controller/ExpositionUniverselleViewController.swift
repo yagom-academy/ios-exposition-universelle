@@ -44,6 +44,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private func setTextToDisplay() {
         guard let expositionUniverselle = expositionUniverselle else {
+            descriptionTextView.text = "데이터를 불러오는데 실패했습니다."
             return
         }
         let formattedVisitor: String = changeNumberFormat(
