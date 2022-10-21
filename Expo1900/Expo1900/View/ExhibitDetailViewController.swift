@@ -18,5 +18,6 @@ class ExhibitDetailViewController: UIViewController {
         
         exhibitImageView.image = exhibit.image
         exhibitDescriptionTextView.text = exhibit.description
+        navigationItem.title = exhibit.name
     }
 }
