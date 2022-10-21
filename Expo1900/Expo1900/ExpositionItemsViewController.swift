@@ -19,6 +19,8 @@ class ExpositionItemsViewController: UIViewController {
         tableView.dataSource = self
         
         loadExpositionItems()
+        self.navigationController?.isNavigationBarHidden = false
+        self.title = "한국의 출품작"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

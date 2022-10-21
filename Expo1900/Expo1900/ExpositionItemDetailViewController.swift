@@ -16,6 +16,7 @@ class ExpositionItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assignContentValue()
+        self.title = item?.name
     }
     
     private func assignContentValue() {
