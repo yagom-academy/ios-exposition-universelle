@@ -17,6 +17,12 @@ class MainViewController: UIViewController {
         configureLabels()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     func configureLabels() {
         guard let expositionUniverselle = loadExpositionUniverselle() else { return }
 

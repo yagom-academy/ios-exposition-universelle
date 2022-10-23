@@ -14,6 +14,7 @@ class KoreanEntriesViewController: UIViewController {
         super.viewDidLoad()
         
         loadKoreanEntries()
+        navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
     }
     
