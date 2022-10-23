@@ -15,7 +15,6 @@ final class KoreanEntriesViewController: UIViewController {
         
         loadKoreanEntries()
         navigationController?.isNavigationBarHidden = false
-        navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,8 +33,20 @@ final class KoreanEntriesViewController: UIViewController {
         do {
             self.koreanEntries = try jsonDecoder.decode([KoreanEntry].self, from: dataAsset.data)
         } catch {
+            notifyErrorAlert()
             return
         }
+    }
+    
+    private func notifyErrorAlert() {
+        let alert: UIAlertController = UIAlertController(
+            title: "파일 없음",
+            message: "파일을 읽어올 수 없습니다.",
+            preferredStyle: .alert
+        )
+        let okButton: UIAlertAction = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
 }
 

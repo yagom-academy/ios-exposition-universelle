@@ -21,6 +21,7 @@ final class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
     }
     
     private func configureLabels() {
@@ -41,8 +42,20 @@ final class MainViewController: UIViewController {
             let result = try jsonDecoder.decode(ExpositionUniverselle.self, from: dataAsset.data)
             return result
         } catch {
+            notifyErrorAlert()
             return nil
         }
+    }
+    
+    private func notifyErrorAlert() {
+        let alert: UIAlertController = UIAlertController(
+            title: "파일 없음",
+            message: "파일을 읽어올 수 없습니다.",
+            preferredStyle: .alert
+        )
+        let okButton: UIAlertAction = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
     
     private func changeNumberToDecimalString(input: Int) -> String {
