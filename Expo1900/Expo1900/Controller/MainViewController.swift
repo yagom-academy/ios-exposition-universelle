@@ -3,13 +3,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsCountLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorsCountLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
-    func configureLabels() {
+    private func configureLabels() {
         guard let expositionUniverselle = loadExpositionUniverselle() else { return }
 
         titleLabel.text = expositionUniverselle.title.split(separator: "(").joined(separator: "\n(")
@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
         descriptionTextView.text = expositionUniverselle.description
     }
     
-    func loadExpositionUniverselle() -> ExpositionUniverselle? {
+    private func loadExpositionUniverselle() -> ExpositionUniverselle? {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return nil }
         
@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func changeNumberToDecimalString(input: Int) -> String {
+    private func changeNumberToDecimalString(input: Int) -> String {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         return numberFormatter.string(for: input) ?? ""

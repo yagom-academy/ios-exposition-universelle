@@ -3,12 +3,12 @@
 
 import UIKit
 
-class KoreanEntriesViewController: UIViewController {
+final class KoreanEntriesViewController: UIViewController {
     
-    @IBOutlet weak var koreanEntriesTableView: UITableView!
+    @IBOutlet private weak var koreanEntriesTableView: UITableView!
     
-    let cellIdentifier: String = "koreanEntryCell"
-    var koreanEntries: [KoreanEntry] = []
+    private let cellIdentifier: String = "koreanEntryCell"
+    private var koreanEntries: [KoreanEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class KoreanEntriesViewController: UIViewController {
         }
     }
     
-    func loadKoreanEntries() {
+    private func loadKoreanEntries() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         

@@ -3,10 +3,10 @@
 
 import UIKit
 
-class EntriesDetailViewController: UIViewController {
+final class EntriesDetailViewController: UIViewController {
     
-    @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryDescription: UITextView!
+    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var entryDescription: UITextView!
     
     var koreanEntry: KoreanEntry?
     
@@ -16,7 +16,7 @@ class EntriesDetailViewController: UIViewController {
         configureEntryDetail()
     }
     
-    func configureEntryDetail() {
+    private func configureEntryDetail() {
         self.title = koreanEntry?.name
         self.entryImage.image = UIImage(named: koreanEntry?.imageName ?? "")
         self.entryDescription.text = koreanEntry?.description
