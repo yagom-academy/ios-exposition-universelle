@@ -8,7 +8,7 @@ import UIKit
 
 final class ExpoViewController: UIViewController {
 
-    let koreaItemsVCIdentifier = "koreaItemsVC"
+    private let koreaItemsVCIdentifier = "koreaItemsVC"
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var mainImage: UIImageView!
