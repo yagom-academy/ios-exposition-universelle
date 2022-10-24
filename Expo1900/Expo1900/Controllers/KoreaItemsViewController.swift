@@ -12,7 +12,7 @@ final class KoreaItemsViewController: UIViewController {
     private let cellIdentifier = "itemCell"
     
     @IBOutlet private weak var koreanItemsTable: UITableView!
-    private let dataManager: DataManager = DataManager<KoreaItem>()
+    private let dataManager: DecodeManger = DecodeManger<KoreaItem>()
     private var koreaItems: [KoreaItem] = []
     
     override func viewDidLoad() {

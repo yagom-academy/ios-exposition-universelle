@@ -20,7 +20,7 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var nextButton: UIButton!
     
     private var expoData: ExpositionIntroduction?
-    private let dataManager: DataManager = DataManager<ExpositionIntroduction>()
+    private let dataManager: DecodeManger = DecodeManger<ExpositionIntroduction>()
     
     override func viewDidLoad() {
         super.viewDidLoad()

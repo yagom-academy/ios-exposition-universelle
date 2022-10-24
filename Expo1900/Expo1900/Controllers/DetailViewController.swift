@@ -9,7 +9,7 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     
-    private var koreaItem: KoreaItem?
+    private let koreaItem: KoreaItem?
     
     init(koreaItem: KoreaItem?) {
         self.koreaItem = koreaItem
