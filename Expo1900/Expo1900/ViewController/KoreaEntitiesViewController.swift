@@ -15,6 +15,8 @@ class KoreaEntitiesViewController: UIViewController {
         return tableView
     }()
     
+    var entities: [Entity] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +24,30 @@ class KoreaEntitiesViewController: UIViewController {
         tableView.delegate = self
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 500
         
         view.backgroundColor = .white
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         setLayout()
+        
+        guard let decodedValues = decode() else {
+            return
+        }
+        
+        entities = decodedValues
+        
+    }
+    
+    private func decode() -> [Entity]? {
+        let jsonDecoder = JSONDecoder()
+        let json = NSDataAsset(name: "items")
+        
+        guard let result = try? jsonDecoder.decode([Entity].self, from: json?.data ?? Data()) else {
+            return nil
+        }
+        
+        return result
     }
     
     private func setLayout() {
@@ -55,7 +75,7 @@ extension KoreaEntitiesViewController: UITableViewDelegate {
 
 extension KoreaEntitiesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return entities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,9 +83,7 @@ extension KoreaEntitiesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-//        cell.entityImageView.image = UIImage(named: "buddhism")
-//        cell.titleLabel.text = indexPath.row.description
-//        cell.subTitleLabel.text = "example"
+        cell.setViewData(entity: entities[indexPath.row])
         
         return cell
     }

@@ -17,7 +17,6 @@ class EntityTableCell: UITableViewCell {
     private let titleLabel = InformationLabel(alignment: .left, settingFont: UIFont.systemFont(ofSize: 30))
     private let subTitleLabel = InformationLabel(alignment: .left, settingFont: nil, lines: 0)
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.accessoryType = .disclosureIndicator
@@ -37,25 +36,27 @@ class EntityTableCell: UITableViewCell {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        setUpEntitiyImageViewLayout()
+        setUpEntityImageViewLayout()
         setUpTitleLabelLayout()
         setUpSubTitleLabelLayout()
+        
+        contentView.heightAnchor.constraint(greaterThanOrEqualTo: entityImageView.heightAnchor).isActive = true
+        
     }
     
-    private func setUpEntitiyImageViewLayout() {
+    private func setUpEntityImageViewLayout() {
         NSLayoutConstraint.activate([
-            entityImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             entityImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            entityImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            entityImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            entityImageView.widthAnchor.constraint(equalTo: entityImageView.heightAnchor)
+            entityImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            entityImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
+            entityImageView.heightAnchor.constraint(equalTo: entityImageView.widthAnchor)
         ])
     }
     
     private func setUpTitleLabelLayout() {
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
@@ -63,9 +64,15 @@ class EntityTableCell: UITableViewCell {
     private func setUpSubTitleLabelLayout() {
         NSLayoutConstraint.activate([
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            subTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            subTitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
             subTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            subTitleLabel.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor),
+            subTitleLabel.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor, constant: 8),
         ])
+    }
+    
+    func setViewData(entity: Entity) {
+        titleLabel.text = entity.name
+        subTitleLabel.text = entity.summary
+        entityImageView.image = UIImage(named: entity.imageName)
     }
 }

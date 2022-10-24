@@ -15,7 +15,7 @@
 		18F696CB290277FD004D2630 /* InformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F696CA290277FD004D2630 /* InformationLabel.swift */; };
 		AC68DD1428FE40BE00360146 /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD1328FE40BE00360146 /* ItemTests.swift */; };
 		AC68DD1628FE414500360146 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD1528FE414500360146 /* Exposition.swift */; };
-		AC68DD1928FE4C5F00360146 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD1828FE4C5F00360146 /* Item.swift */; };
+		AC68DD1928FE4C5F00360146 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD1828FE4C5F00360146 /* Entity.swift */; };
 		AC68DD9F29068C5800360146 /* KoreaEntitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD9E29068C5800360146 /* KoreaEntitiesViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -45,7 +45,7 @@
 		18F696CA290277FD004D2630 /* InformationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationLabel.swift; sourceTree = "<group>"; };
 		AC68DD1328FE40BE00360146 /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		AC68DD1528FE414500360146 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
-		AC68DD1828FE4C5F00360146 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AC68DD1828FE4C5F00360146 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		AC68DD9E29068C5800360146 /* KoreaEntitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntitiesViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				AC68DD1528FE414500360146 /* Exposition.swift */,
-				AC68DD1828FE4C5F00360146 /* Item.swift */,
+				AC68DD1828FE4C5F00360146 /* Entity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 				18F696CB290277FD004D2630 /* InformationLabel.swift in Sources */,
 				1841931D290694F300F15EBC /* EntityTableCell.swift in Sources */,
 				18F696C72902729C004D2630 /* FlagButton.swift in Sources */,
-				AC68DD1928FE4C5F00360146 /* Item.swift in Sources */,
+				AC68DD1928FE4C5F00360146 /* Entity.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionPosterViewController.swift in Sources */,
 				18F696C529027285004D2630 /* FlagImageView.swift in Sources */,
 				AC68DD1628FE414500360146 /* Exposition.swift in Sources */,

@@ -9,7 +9,7 @@ import XCTest
 
 final class ItemTests: XCTestCase {
     let jsonName: String = "items"
-    var sut: [Item]!
+    var sut: [Entity]!
     
     override func tearDownWithError() throws {
         try super.tearDownWithError()
@@ -24,7 +24,7 @@ final class ItemTests: XCTestCase {
         
         // when
         do {
-            let decodeValues = try decoder.decode([Item].self, from: jsonData)
+            let decodeValues = try decoder.decode([Entity].self, from: jsonData)
             sut = decodeValues
         } catch {
             sut = nil
