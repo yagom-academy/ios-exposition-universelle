@@ -12,6 +12,8 @@ final class ItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = item?.name
         self.descriptionTextView.text = item?.itemDescription
 
         guard let itemImageName = item?.imageName else {

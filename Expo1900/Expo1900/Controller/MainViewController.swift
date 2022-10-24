@@ -77,11 +77,10 @@ final class MainViewController: UIViewController {
     @IBAction func tappedShowItemsButton(sender: UIButton) {
         guard let nextViewController =
                 self.storyboard?.instantiateViewController(withIdentifier: "itemList") as? ItemListViewController else {
-            showTransitionAlert()
+            showTransitionErrorAlert()
             return
         }
         
-        nextViewController.title = "한국의 출품작"
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

@@ -6,9 +6,9 @@ import UIKit
 
 final class ItemListViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     private var items: [Item] = []
-    let cellIdentifier: String = "itemCell"
+    private let cellIdentifier: String = "itemCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,13 @@ final class ItemListViewController: UIViewController {
             print(error)
         }
         
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
         self.tableView.dataSource = self
+        self.title = "한국의 출품작"
         self.navigationItem.backButtonTitle = "한국의 출품작"
     }
+    
+    
 }
 
 extension ItemListViewController: UITableViewDelegate {
@@ -39,11 +42,11 @@ extension ItemListViewController: UITableViewDelegate {
         
         guard let nextViewController =
                 self.storyboard?.instantiateViewController(withIdentifier: "item") as? ItemViewController else {
-            showTransitionAlert()
+            showTransitionErrorAlert()
             return
         }
         
-        nextViewController.title = item.name
+        
         nextViewController.item = item
         navigationController?.pushViewController(nextViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: false)
