@@ -1,7 +1,7 @@
 //  KoreanEntries.swift
 //  Created by Mangdi, zhilly on 2022/10/17
 
-struct KoreanEntries: Codable {
+struct KoreanEntry: Codable {
     let name: String
     let imageName: String
     let shortDescription: String
