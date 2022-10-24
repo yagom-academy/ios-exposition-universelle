@@ -83,7 +83,8 @@ extension KoreaEntitiesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setViewData(entity: entities[indexPath.row])
+        let entity = entities[indexPath.row]
+        cell.setViewData(entity: entity)
         
         return cell
     }

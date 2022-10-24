@@ -14,8 +14,17 @@ class EntityTableCell: UITableViewCell {
         return imageView
     }()
     
-    private let titleLabel = InformationLabel(alignment: .left, settingFont: UIFont.systemFont(ofSize: 30))
+    private let titleLabel = InformationLabel(alignment: .left, settingFont: UIFont.systemFont(ofSize: 25))
     private let subTitleLabel = InformationLabel(alignment: .left, settingFont: nil, lines: 0)
+    
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subTitleLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .leading
+        
+        return stackView
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,17 +40,15 @@ class EntityTableCell: UITableViewCell {
     }
     
     private func setUpLayout() {
-        [entityImageView, titleLabel, subTitleLabel].forEach {
+        [entityImageView, stackView].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         setUpEntityImageViewLayout()
-        setUpTitleLabelLayout()
-        setUpSubTitleLabelLayout()
+        setUpStackViewLayout()
         
         contentView.heightAnchor.constraint(greaterThanOrEqualTo: entityImageView.heightAnchor).isActive = true
-        
     }
     
     private func setUpEntityImageViewLayout() {
@@ -53,20 +60,13 @@ class EntityTableCell: UITableViewCell {
         ])
     }
     
-    private func setUpTitleLabelLayout() {
+    private func setUpStackViewLayout() {
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor, constant: 8),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        ])
-    }
-    
-    private func setUpSubTitleLabelLayout() {
-        NSLayoutConstraint.activate([
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            subTitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
-            subTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            subTitleLabel.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor, constant: 8),
+            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor),
+            stackView.centerYAnchor.constraint(equalTo: entityImageView.centerYAnchor)
         ])
     }
     
