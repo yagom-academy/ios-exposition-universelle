@@ -12,16 +12,20 @@ class ExhibitDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let exhibit = exhibitData else {
-            return
-        }
-        
-        exhibitImageView.image = exhibit.image
-        exhibitDescriptionTextView.text = exhibit.description
-        navigationItem.title = exhibit.name
+        configureView()
     }
     
     func fetchExhibitData(_ data: ExhibitData?) {
-        self.exhibitData = data
+        exhibitData = data
+    }
+    
+    func configureView() {
+        guard let exhibit = exhibitData else {
+            return
+        }
+
+        navigationItem.title = exhibit.name
+        exhibitImageView.image = exhibit.image
+        exhibitDescriptionTextView.text = exhibit.description
     }
 }

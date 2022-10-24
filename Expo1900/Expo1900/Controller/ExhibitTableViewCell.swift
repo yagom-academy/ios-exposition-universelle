@@ -10,9 +10,9 @@ class ExhibitTableViewCell: UITableViewCell {
     @IBOutlet private weak var exhibitShortDescriptionLabel: UILabel!
     
     func configureCell(with exhibit: ExhibitData) {
-        self.exhibitNameLabel.text = exhibit.name
-        self.exhibitShortDescriptionLabel.text = exhibit.shortDescription
         self.exhibitImageView.image = exhibit.image
+        self.exhibitNameLabel.text = exhibit.name
         self.exhibitNameLabel.font = ExpositionConstant.exhibitCellTitleFont
+        self.exhibitShortDescriptionLabel.text = exhibit.shortDescription
     }
 }

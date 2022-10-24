@@ -19,12 +19,17 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expositionData = JSONDecoder.parse(asset: ExpositionConstant.expositionAssetName, to: ExpositionData.self)
+        expositionData = JSONDecoder.parse(asset: ExpositionConstant.expositionAssetName,
+                                           to: ExpositionData.self)
         configureView()
     }
     
     @IBAction private  func showExhibitButtonPressed(_ sender: UIButton) {
-        guard let nextViewController: ExhibitViewController = self.storyboard?.instantiateViewController(withIdentifier: ExpositionConstant.exhibitViewController) as? ExhibitViewController else {
+        guard let nextViewController: ExhibitViewController =
+                self.storyboard?.instantiateViewController(
+                    withIdentifier: ExpositionConstant.exhibitViewController)
+                as? ExhibitViewController
+        else {
             return
         }
         

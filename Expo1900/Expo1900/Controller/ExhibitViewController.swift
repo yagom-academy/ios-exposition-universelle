@@ -16,7 +16,9 @@ class ExhibitViewController: UIViewController {
         exhibitTableView.dataSource = self
         navigationItem.title = ExpositionConstant.exhibitTitleText
         
-        guard let exhibitData = JSONDecoder.parse(asset: ExpositionConstant.exhibitAssetName, to: [ExhibitData].self) else {
+        guard let exhibitData = JSONDecoder.parse(asset: ExpositionConstant.exhibitAssetName,
+                                                  to: [ExhibitData].self)
+        else {
             return
         }
         
@@ -30,7 +32,10 @@ extension ExhibitViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: ExhibitTableViewCell = exhibitTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ExhibitTableViewCell else {
+        guard let cell: ExhibitTableViewCell =
+                exhibitTableView.dequeueReusableCell(withIdentifier: cellIdentifier,
+                                                     for: indexPath) as? ExhibitTableViewCell
+        else {
             let cell = UITableViewCell()
             cell.textLabel?.text = ExpositionConstant.cellErrorMessage
             
@@ -46,7 +51,11 @@ extension ExhibitViewController: UITableViewDataSource {
 
 extension ExhibitViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextViewController: ExhibitDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: ExpositionConstant.exhibitDetailViewController) as? ExhibitDetailViewController else {
+        guard let nextViewController: ExhibitDetailViewController =
+                self.storyboard?.instantiateViewController(
+                    withIdentifier: ExpositionConstant.exhibitDetailViewController)
+                as? ExhibitDetailViewController
+        else {
             return
         }
         
