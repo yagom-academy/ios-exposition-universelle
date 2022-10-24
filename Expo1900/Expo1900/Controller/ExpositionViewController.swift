@@ -15,13 +15,13 @@ final class ExpositionViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionTextView: UITextView!
     
-    private var exposition: Exposition?
+    private var expositionManager: ExpositionManager = ExpositionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureExpositionFromJSON(name: "exposition_universelle_1900")
-        configureExpositionViews(exposition)
+        expositionManager.configureExpositionFromJSON()
+        configureViewsByManager()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,17 +30,12 @@ final class ExpositionViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func configureExpositionFromJSON(name: String) {
-        guard let exposition = JSONDecoder().decode(from: name, to: exposition) else { return }
-        self.exposition = exposition
-    }
-    
-    private func configureExpositionViews(_ exposition: Exposition?) {
-        titleLabel.text = exposition?.title
-        posterImage.image = UIImage(named: "poster")
-        visitorsLabel.text = exposition?.visitorsDescription
-        locationLabel.text = exposition?.location
-        durationLabel.text = exposition?.duration
-        descriptionTextView.text = exposition?.description
+    private func configureViewsByManager() {
+        titleLabel.text = expositionManager.exposition?.title
+        posterImage.image = expositionManager.posterImage
+        visitorsLabel.text = expositionManager.formattedVisitorsDescription
+        locationLabel.text = expositionManager.exposition?.location
+        durationLabel.text = expositionManager.exposition?.duration
+        descriptionTextView.text = expositionManager.exposition?.description
     }
 }
