@@ -7,8 +7,8 @@ import UIKit
 extension JSONDecoder {
     static let jsonDecoder: JSONDecoder = .init()
     
-    static func parse<T: Decodable>(assetName: String, to dataType: T.Type) -> T? {
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: assetName) else {
+    static func parse<T: Decodable>(asset: String, to dataType: T.Type) -> T? {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: asset) else {
             return nil
         }
         

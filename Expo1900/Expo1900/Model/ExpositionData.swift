@@ -20,10 +20,10 @@ struct ExpositionData: Decodable {
         return "개최 기간 : \(duration)"
     }
     var expositionImage: UIImage? {
-        return UIImage(named: "poster")
+        return UIImage(named: ExpositionConstant.expositionImageName)
     }
     var flagImage: UIImage? {
-        return UIImage(named: "flag")
+        return UIImage(named: ExpositionConstant.flagImageName)
     }
     var exhibitButtonText: String {
         return "한국의 출품작 보러가기"

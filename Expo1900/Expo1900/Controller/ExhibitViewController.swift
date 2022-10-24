@@ -6,7 +6,7 @@ import UIKit
 
 class ExhibitViewController: UIViewController {
     @IBOutlet weak var exhibitTableView: UITableView!
-    let cellIdentifier: String = "exhibitCell"
+    let cellIdentifier: String = ExpositionConstant.exhibitCell
     var exhibits: [ExhibitData] = []
 
     override func viewDidLoad() {
@@ -14,9 +14,9 @@ class ExhibitViewController: UIViewController {
         
         exhibitTableView.delegate = self
         exhibitTableView.dataSource = self
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = ExpositionConstant.exhibitTitleText
         
-        guard let exhibitData = JSONDecoder.parse(assetName: "items", to: [ExhibitData].self) else {
+        guard let exhibitData = JSONDecoder.parse(asset: ExpositionConstant.exhibitAssetName, to: [ExhibitData].self) else {
             return
         }
         
@@ -49,7 +49,7 @@ extension ExhibitViewController: UITableViewDataSource {
 
 extension ExhibitViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextViewController: ExhibitDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "exhibitDetailViewController") as? ExhibitDetailViewController else {
+        guard let nextViewController: ExhibitDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: ExpositionConstant.exhibitDetailViewController) as? ExhibitDetailViewController else {
             return
         }
         
