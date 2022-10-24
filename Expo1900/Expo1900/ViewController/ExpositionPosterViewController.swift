@@ -28,6 +28,10 @@ class ExpositionPosterViewController: UIViewController {
         setLayout()
         contentView.delegate = self
         contentView.setViewData(exposition: exposition)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -45,9 +49,7 @@ class ExpositionPosterViewController: UIViewController {
 
 extension ExpositionPosterViewController: posterContentDelegate {
     func didTappedEntityButton() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .gray
-        vc.navigationController?.setNavigationBarHidden(false, animated: true)
+        let vc = KoreaEntitiesViewController()
         
         navigationController?.pushViewController(vc, animated: true)
     }

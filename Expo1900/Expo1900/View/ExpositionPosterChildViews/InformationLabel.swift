@@ -12,10 +12,10 @@ class InformationLabel: UILabel {
         textAlignment = .center
     }
     
-    init(aligment: NSTextAlignment, settingFont: UIFont?, lines: Int = 1) {
+    init(alignment: NSTextAlignment, settingFont: UIFont?, lines: Int = 1) {
         super.init(frame: .zero)
         
-        textAlignment = aligment
+        textAlignment = alignment
         
         
         if let settingFont {

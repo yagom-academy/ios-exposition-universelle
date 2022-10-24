@@ -51,7 +51,7 @@ class FlagButton: UIView {
         ])
     }
     
-    func setUPButtonAction(action: @escaping () -> ()) {
+    func setUpButtonAction(action: @escaping () -> ()) {
         let presentAction = UIAction { _ in
             action()
         }

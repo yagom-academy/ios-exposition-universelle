@@ -15,11 +15,11 @@ class PosterContentView: UIView {
         let image = UIImageView(image: UIImage(named: "poster"))
         return image
     }()
-    private let titleLabel = InformationLabel(aligment: .center, settingFont: .systemFont(ofSize: 20, weight: .bold), lines: 0)
+    private let titleLabel = InformationLabel(alignment: .center, settingFont: .systemFont(ofSize: 20, weight: .bold), lines: 0)
     private let visitorsLabel = InformationLabel()
     private let locationLabel = InformationLabel()
     private let durationLabel = InformationLabel()
-    private let descriptionLabel = InformationLabel(aligment: .natural, settingFont: nil, lines: 0)
+    private let descriptionLabel = InformationLabel(alignment: .natural, settingFont: nil, lines: 0)
     private let flagButton = FlagButton()
     weak var delegate: posterContentDelegate?
     
@@ -28,7 +28,7 @@ class PosterContentView: UIView {
         
         setLayout()
         
-        flagButton.setUPButtonAction { self.delegate?.didTappedEntityButton() }
+        flagButton.setUpButtonAction { self.delegate?.didTappedEntityButton() }
     }
     
     required init?(coder: NSCoder) {
