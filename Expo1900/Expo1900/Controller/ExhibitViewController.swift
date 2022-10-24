@@ -5,9 +5,9 @@
 import UIKit
 
 class ExhibitViewController: UIViewController {
-    @IBOutlet weak var exhibitTableView: UITableView!
-    let cellIdentifier: String = ExpositionConstant.exhibitCell
-    var exhibits: [ExhibitData] = []
+    @IBOutlet private weak var exhibitTableView: UITableView!
+    private let cellIdentifier: String = ExpositionConstant.exhibitCell
+    private var exhibits: [ExhibitData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +38,7 @@ extension ExhibitViewController: UITableViewDataSource {
         }
         
         let exhibit: ExhibitData = exhibits[indexPath.row]
-        
-        cell.exhibitNameLabel.text = exhibit.name
-        cell.exhibitShortDescriptionLabel.text = exhibit.shortDescription
-        cell.exhibitImageView.image = exhibit.image
-        cell.exhibitNameLabel.font = ExpositionConstant.exhibitCellTitleFont
+        cell.configureCell(with: exhibit)
         
         return cell
     }
@@ -54,7 +50,7 @@ extension ExhibitViewController: UITableViewDelegate {
             return
         }
         
-        nextViewController.exhibitData = exhibits[indexPath.row]
+        nextViewController.fetchExhibitData(exhibits[indexPath.row])
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

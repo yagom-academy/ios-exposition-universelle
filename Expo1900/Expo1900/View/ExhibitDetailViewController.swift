@@ -5,9 +5,9 @@
 import UIKit
 
 class ExhibitDetailViewController: UIViewController {
-    @IBOutlet weak var exhibitImageView: UIImageView!
-    @IBOutlet weak var exhibitDescriptionTextView: UITextView!
-    var exhibitData: ExhibitData?
+    @IBOutlet private weak var exhibitImageView: UIImageView!
+    @IBOutlet private weak var exhibitDescriptionTextView: UITextView!
+    private var exhibitData: ExhibitData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,5 +19,9 @@ class ExhibitDetailViewController: UIViewController {
         exhibitImageView.image = exhibit.image
         exhibitDescriptionTextView.text = exhibit.description
         navigationItem.title = exhibit.name
+    }
+    
+    func fetchExhibitData(_ data: ExhibitData?) {
+        self.exhibitData = data
     }
 }

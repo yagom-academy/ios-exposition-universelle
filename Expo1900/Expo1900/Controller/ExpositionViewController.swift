@@ -5,16 +5,16 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
-    @IBOutlet weak var expositionTitleLabel: UILabel!
-    @IBOutlet weak var expositionImageView: UIImageView!
-    @IBOutlet weak var expositionVisitorsLabel: UILabel!
-    @IBOutlet weak var expositionLocationLabel: UILabel!
-    @IBOutlet weak var expositionDurationLabel: UILabel!
-    @IBOutlet weak var expositionDescriptionTextView: UITextView!
-    @IBOutlet weak var leftFlagImageView: UIImageView!
-    @IBOutlet weak var showExhibitButton: UIButton!
-    @IBOutlet weak var rightFlagImageView: UIImageView!
-    var expositionData: ExpositionData?
+    @IBOutlet private weak var expositionTitleLabel: UILabel!
+    @IBOutlet private weak var expositionImageView: UIImageView!
+    @IBOutlet private weak var expositionVisitorsLabel: UILabel!
+    @IBOutlet private weak var expositionLocationLabel: UILabel!
+    @IBOutlet private weak var expositionDurationLabel: UILabel!
+    @IBOutlet private weak var expositionDescriptionTextView: UITextView!
+    @IBOutlet private weak var leftFlagImageView: UIImageView!
+    @IBOutlet private weak var showExhibitButton: UIButton!
+    @IBOutlet private weak var rightFlagImageView: UIImageView!
+    private var expositionData: ExpositionData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class ExpositionViewController: UIViewController {
         configureView()
     }
     
-    @IBAction func showExhibitButtonPressed(_ sender: UIButton) {
+    @IBAction private  func showExhibitButtonPressed(_ sender: UIButton) {
         guard let nextViewController: ExhibitViewController = self.storyboard?.instantiateViewController(withIdentifier: ExpositionConstant.exhibitViewController) as? ExhibitViewController else {
             return
         }
@@ -31,7 +31,7 @@ class ExpositionViewController: UIViewController {
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
-    func configureView() {
+    private func configureView() {
         guard let exposition = expositionData else {
             return
         }

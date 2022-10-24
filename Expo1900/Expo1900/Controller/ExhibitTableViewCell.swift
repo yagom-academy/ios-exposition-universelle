@@ -5,7 +5,14 @@
 import UIKit
 
 class ExhibitTableViewCell: UITableViewCell {
-    @IBOutlet weak var exhibitImageView: UIImageView!
-    @IBOutlet weak var exhibitNameLabel: UILabel!
-    @IBOutlet weak var exhibitShortDescriptionLabel: UILabel!
+    @IBOutlet private weak var exhibitImageView: UIImageView!
+    @IBOutlet private weak var exhibitNameLabel: UILabel!
+    @IBOutlet private weak var exhibitShortDescriptionLabel: UILabel!
+    
+    func configureCell(with exhibit: ExhibitData) {
+        self.exhibitNameLabel.text = exhibit.name
+        self.exhibitShortDescriptionLabel.text = exhibit.shortDescription
+        self.exhibitImageView.image = exhibit.image
+        self.exhibitNameLabel.font = ExpositionConstant.exhibitCellTitleFont
+    }
 }
