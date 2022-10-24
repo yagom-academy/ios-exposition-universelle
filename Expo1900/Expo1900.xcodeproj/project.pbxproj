@@ -17,6 +17,7 @@
 		AC68DD1628FE414500360146 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD1528FE414500360146 /* Exposition.swift */; };
 		AC68DD1928FE4C5F00360146 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD1828FE4C5F00360146 /* Entity.swift */; };
 		AC68DD9F29068C5800360146 /* KoreaEntitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DD9E29068C5800360146 /* KoreaEntitiesViewController.swift */; };
+		AC68DDA32906ECD300360146 /* EntityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68DDA22906ECD300360146 /* EntityDetailViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionPosterViewController.swift */; };
@@ -47,6 +48,7 @@
 		AC68DD1528FE414500360146 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		AC68DD1828FE4C5F00360146 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		AC68DD9E29068C5800360146 /* KoreaEntitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntitiesViewController.swift; sourceTree = "<group>"; };
+		AC68DDA22906ECD300360146 /* EntityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionPosterViewController.swift */,
 				AC68DD9E29068C5800360146 /* KoreaEntitiesViewController.swift */,
+				AC68DDA22906ECD300360146 /* EntityDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				18F696CB290277FD004D2630 /* InformationLabel.swift in Sources */,
 				1841931D290694F300F15EBC /* EntityTableCell.swift in Sources */,
 				18F696C72902729C004D2630 /* FlagButton.swift in Sources */,
+				AC68DDA32906ECD300360146 /* EntityDetailViewController.swift in Sources */,
 				AC68DD1928FE4C5F00360146 /* Entity.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionPosterViewController.swift in Sources */,
 				18F696C529027285004D2630 /* FlagImageView.swift in Sources */,

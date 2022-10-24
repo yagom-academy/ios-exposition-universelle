@@ -70,7 +70,15 @@ class KoreaEntitiesViewController: UIViewController {
 }
 
 extension KoreaEntitiesViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = EntityDetailViewController()
+        let entity = entities[indexPath.row]
+        
+        vc.setImageView(imageName: entity.imageName)
+        vc.setDescriptionLabel(description: entity.description)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension KoreaEntitiesViewController: UITableViewDataSource {
