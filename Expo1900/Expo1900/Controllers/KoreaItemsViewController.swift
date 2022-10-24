@@ -9,6 +9,8 @@ import UIKit
 
 final class KoreaItemsViewController: UIViewController {
 
+    let cellIdentifier = "itemCell"
+    
     @IBOutlet private weak var koreanItemsTable: UITableView!
     private let dataManager: DataManager = DataManager<KoreaItem>()
     private var koreaItems: [KoreaItem] = []
@@ -61,7 +63,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.cellIdentifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
             let errorCell = UITableViewCell()
             errorCell.textLabel?.text = "Error"
             return errorCell

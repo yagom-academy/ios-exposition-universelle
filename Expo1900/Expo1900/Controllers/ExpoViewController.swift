@@ -8,6 +8,8 @@ import UIKit
 
 final class ExpoViewController: UIViewController {
 
+    let koreaItemsVCIdentifier = "koreaItemsVC"
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var mainImage: UIImageView!
     @IBOutlet private weak var visitorLabel: UILabel!
@@ -31,7 +33,7 @@ final class ExpoViewController: UIViewController {
     }
     
     @IBAction private func nextButtonTapped(_ sender: UIButton) {
-        guard let koreaItemsVC = storyboard?.instantiateViewController(withIdentifier: Identifier.koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
+        guard let koreaItemsVC = storyboard?.instantiateViewController(withIdentifier: koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
         
         navigationController?.pushViewController(koreaItemsVC, animated: true)
     }
