@@ -11,5 +11,3 @@ enum AssetName {
     static let expoImage = "poster"
     static let flagButtonImage = "flag"
 }
-
-
