@@ -54,18 +54,19 @@ class EntityTableCell: UITableViewCell {
     private func setUpEntityImageViewLayout() {
         NSLayoutConstraint.activate([
             entityImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            entityImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            entityImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3),
-            entityImageView.heightAnchor.constraint(equalTo: entityImageView.widthAnchor)
+            entityImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            entityImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            entityImageView.heightAnchor.constraint(equalTo: entityImageView.widthAnchor, constant: 8)
         ])
+        
     }
     
     private func setUpStackViewLayout() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
+            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 20),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor, constant: 8),
             stackView.centerYAnchor.constraint(equalTo: entityImageView.centerYAnchor)
         ])
     }

@@ -15,12 +15,7 @@ class ExpositionPosterViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-    
-    // MARK: - 빼기
-    let contentView: PosterContentView = {
-        let contentView = PosterContentView()
-        return contentView
-    }()
+    let contentView = PosterContentView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +33,7 @@ class ExpositionPosterViewController: UIViewController {
     private func decode() -> Exposition? {
         let jsonDecoder = JSONDecoder()
         let json = NSDataAsset(name: "exposition_universelle_1900")
+        let data = json?.data ?? Data()
         
         guard let result = try? jsonDecoder.decode(Exposition.self, from: json?.data ?? Data()) else {
             return nil
@@ -50,6 +46,7 @@ class ExpositionPosterViewController: UIViewController {
 extension ExpositionPosterViewController: posterContentDelegate {
     func didTappedEntityButton() {
         let vc = KoreaEntitiesViewController()
+        vc.navigationItem.title = "한국의 출품작"
         
         navigationController?.pushViewController(vc, animated: true)
     }

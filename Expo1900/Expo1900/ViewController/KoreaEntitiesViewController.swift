@@ -8,10 +8,12 @@
 import UIKit
 
 class KoreaEntitiesViewController: UIViewController {
-    private let tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(EntityTableCell.self, forCellReuseIdentifier: "EntityTableCell")
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
     }()
     
@@ -19,32 +21,19 @@ class KoreaEntitiesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 500
-        
-        view.backgroundColor = .white
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        
         setLayout()
+        setNavBar()
         
-        guard let decodedValues = decode() else {
-            return
-        }
-        
-        entities = decodedValues
-        
+        entities = decode()
     }
     
-    private func decode() -> [Entity]? {
+    private func decode() -> [Entity] {
         let jsonDecoder = JSONDecoder()
         let json = NSDataAsset(name: "items")
+        let data = json?.data ?? Data()
         
-        guard let result = try? jsonDecoder.decode([Entity].self, from: json?.data ?? Data()) else {
-            return nil
+        guard let result = try? jsonDecoder.decode([Entity].self, from: data) else {
+            return []
         }
         
         return result
@@ -54,6 +43,11 @@ class KoreaEntitiesViewController: UIViewController {
         view.addSubview(tableView)
         
         setTableViewLayout()
+    }
+    
+    private func setNavBar() {
+        view.backgroundColor = .systemBackground
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func setTableViewLayout() {
@@ -76,8 +70,10 @@ extension KoreaEntitiesViewController: UITableViewDelegate {
         
         vc.setImageView(imageName: entity.imageName)
         vc.setDescriptionLabel(description: entity.description)
+        vc.navigationItem.title = entity.name
         
         navigationController?.pushViewController(vc, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

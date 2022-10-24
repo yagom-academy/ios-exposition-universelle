@@ -22,6 +22,8 @@ class InformationLabel: UILabel {
             font = settingFont
         }
         numberOfLines = lines
+        
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     

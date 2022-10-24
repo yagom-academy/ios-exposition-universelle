@@ -8,45 +8,54 @@
 import UIKit
 
 class EntityDetailViewController: UIViewController {
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
     }()
     
-    private let descriptionLabel = InformationLabel(alignment: .natural, settingFont: nil, lines: 0)
+    private let contentView = EntityDetailContentView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        // Do any additional setup after loading the view.
-        setLayout()
+        view.backgroundColor = .systemBackground
+        setUpLayout()
+        setContentView()
     }
+    
 
+    private func setUpLayout() {
+        let safeArea = view.safeAreaLayoutGuide
+        view.addSubview(scrollView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ])
+    }
+    
+    private func setContentView() {
+        scrollView.addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+    }
+    
     func setImageView(imageName: String) {
-        imageView.image = UIImage(named: imageName)
+        contentView.setImageView(imageName: imageName)
     }
     
     func setDescriptionLabel(description: String) {
-        descriptionLabel.text = description
+        contentView.setDescriptionLabel(description: description)
     }
     
-    private func setLayout() {
-        [imageView, descriptionLabel].forEach {
-            view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 150),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
 }
