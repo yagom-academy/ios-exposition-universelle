@@ -55,14 +55,11 @@ extension EntryViewController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "entryCell",
+            for: indexPath) as? EntryTableViewCell else { return UITableViewCell() }
         
-        cell.accessoryType = .disclosureIndicator
-        cell.imageView?.image = UIImage(named: entries[indexPath.row].imageName)
-        cell.textLabel?.text = entries[indexPath.row].name
-        cell.detailTextLabel?.text = entries[indexPath.row].shortDescription
-        cell.detailTextLabel?.numberOfLines = 0
-        
+        cell.buildCell(from: entries[indexPath.row])
         return cell
     }
 }
