@@ -32,7 +32,7 @@ extension ExhibitViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: ExhibitTableViewCell = exhibitTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ExhibitTableViewCell else {
             let cell = UITableViewCell()
-            cell.textLabel?.text = "잘못된 셀"
+            cell.textLabel?.text = ExpositionConstant.cellErrorMessage
             
             return cell
         }
@@ -42,6 +42,7 @@ extension ExhibitViewController: UITableViewDataSource {
         cell.exhibitNameLabel.text = exhibit.name
         cell.exhibitShortDescriptionLabel.text = exhibit.shortDescription
         cell.exhibitImageView.image = exhibit.image
+        cell.exhibitNameLabel.font = ExpositionConstant.exhibitCellTitleFont
         
         return cell
     }

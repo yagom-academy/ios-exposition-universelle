@@ -14,9 +14,9 @@ enum ExpositionConstant {
     
     static let exhibitViewController: String = "exhibitViewController"
     static let exhibitDetailViewController: String = "exhibitDetailViewController"
+
     static let exhibitTitleText: String = "한국의 출품작"
+    static let cellErrorMessage: String = "잘못된 셀"
     
     static let exhibitCellTitleFont: UIFont = .preferredFont(forTextStyle: .title1)
 }
-
-
