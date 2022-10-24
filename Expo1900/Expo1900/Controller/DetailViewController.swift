@@ -9,7 +9,16 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    private var entry: Entry?
+    private let entry: Entry
+    
+    init?(entry: Entry, coder: NSCoder) {
+        self.entry = entry
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,19 +26,13 @@ final class DetailViewController: UIViewController {
         buildNavigationBar()
         buildDetailView()
     }
-    
-    func fetchEntryData(from entry: Entry) {
-        self.entry = entry
-    }
-    
+
     private func buildNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        title = entry?.name
+        title = entry.name
     }
     
     private func buildDetailView() {
-        guard let entry = entry else { return }
-
         detailImage.image = UIImage(named: entry.imageName)
         descriptionTextView.text = entry.description
     }

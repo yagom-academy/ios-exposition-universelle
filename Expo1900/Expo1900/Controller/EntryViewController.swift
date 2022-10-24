@@ -8,13 +8,17 @@ import UIKit
 final class EntryViewController: UIViewController {
     @IBOutlet weak var entryTableView: UITableView!
     
-    private var entries: [Entry] = []
+    private let entries: [Entry]
+    
+    required init?(coder: NSCoder) {
+        guard let entries = JSONDecoder.decode([Entry].self, from: "items") else { return nil }
+        self.entries = entries
+        
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let entries = JSONDecoder.decode([Entry].self, from: "items") else { return }
-        
-        self.entries = entries
         
         entryTableView.delegate = self
         entryTableView.dataSource = self
@@ -33,10 +37,10 @@ extension EntryViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         guard let detailViewController = storyboard?.instantiateViewController(
-            withIdentifier: "DetailViewController"
-        ) as? DetailViewController else { return }
-        
-        detailViewController.fetchEntryData(from: entries[indexPath.row])
+            identifier: "DetailViewController",
+            creator: { coder in
+                return DetailViewController(entry: self.entries[indexPath.row], coder: coder)
+            }) else { return }
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }
