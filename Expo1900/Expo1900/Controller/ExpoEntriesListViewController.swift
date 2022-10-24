@@ -1,5 +1,5 @@
 //
-//  ExpoEntriesViewController.swift
+//  ExpoEntriesListViewController.swift
 //  Expo1900
 //
 //  Created by junho lee on 2022/10/20.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class ExpoEntriesViewController: UIViewController {
+final class ExpoEntriesListViewController: UIViewController {
     
-    @IBOutlet private weak var ExpoEntriesTableView: UITableView!
+    @IBOutlet private weak var expoEntriesListTableView: UITableView!
     
     var expoEntries: [ExpoEntry] = []
     
@@ -26,14 +26,14 @@ final class ExpoEntriesViewController: UIViewController {
     }
 }
 
-extension ExpoEntriesViewController: UITableViewDataSource {
+extension ExpoEntriesListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expoEntries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = ExpoEntriesTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell: UITableViewCell = expoEntriesListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         configureExpoEntry(of: cell, with: expoEntries[indexPath.row])
         return cell
     }
@@ -49,11 +49,11 @@ extension ExpoEntriesViewController: UITableViewDataSource {
     }
 }
 
-extension ExpoEntriesViewController: UITableViewDelegate {
+extension ExpoEntriesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let entryViewController: EntryViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryViewController") as? EntryViewController  else { return }
-        entryViewController.sendExpoEntry(expoEntries[indexPath.row])
-        self.navigationController?.pushViewController(entryViewController, animated: true)
+        guard let entryDetailViewController: EntryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryViewController") as? EntryDetailViewController  else { return }
+        entryDetailViewController.sendExpoEntry(expoEntries[indexPath.row])
+        self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }

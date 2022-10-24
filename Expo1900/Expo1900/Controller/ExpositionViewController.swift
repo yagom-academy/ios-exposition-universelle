@@ -43,6 +43,4 @@ final class ExpositionViewController: UIViewController {
         durationLabel.text = exposition?.duration
         descriptionTextView.text = exposition?.description
     }
-    
 }
-

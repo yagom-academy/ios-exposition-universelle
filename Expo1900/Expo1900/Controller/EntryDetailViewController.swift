@@ -1,5 +1,5 @@
 //
-//  EntryViewController.swift
+//  EntryDetailViewController.swift
 //  Expo1900
 //
 //  Created by junho lee on 2022/10/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EntryViewController: UIViewController {
+final class EntryDetailViewController: UIViewController {
     
     @IBOutlet private weak var descriptionTextView: UITextView!
     @IBOutlet private weak var imageView: UIImageView!
