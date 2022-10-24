@@ -1,8 +1,7 @@
+//  posterContentDelegate.swift
+//  posterContentDelegate
 //
-//  PosterContentView.swift
-//  Expo1900
-//
-//  Copyright (c) 2022 Minii All rights reserved.
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import UIKit
 
@@ -12,7 +11,7 @@ protocol posterContentDelegate: AnyObject {
 
 class PosterContentView: UIView {
     let posterImageView: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "poster"))
+        let image = UIImageView(image: UIImage(named: Constant.posterImageName))
         return image
     }()
     private let titleLabel = InformationLabel(alignment: .center, settingFont: .systemFont(ofSize: 20, weight: .bold), lines: 0)

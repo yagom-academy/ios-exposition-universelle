@@ -1,18 +1,17 @@
-//
 //  FlagButton.swift
-//  Expo1900
+//  FlagButton
 //
-//  Copyright (c) 2022 Minii All rights reserved.
-        
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
+
 import UIKit
 
 class FlagButton: UIView {
-    let leftImageView = FlagImageView(image: UIImage(named: "flag"))
-    let rightImageView = FlagImageView(image: UIImage(named: "flag"))
+    let leftImageView = FlagImageView(image: UIImage(named: Constant.koreanFlag))
+    let rightImageView = FlagImageView(image: UIImage(named: Constant.koreanFlag))
     let entityButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.systemBlue, for: .normal)
-        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitle(Constant.entityButtonTitle, for: .normal)
         return button
     }()
     

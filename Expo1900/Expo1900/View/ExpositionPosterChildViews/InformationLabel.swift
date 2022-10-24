@@ -1,8 +1,7 @@
-//
 //  InformationLabel.swift
-//  Expo1900
+//  InformationLabel
 //
-//  Copyright (c) 2022 Minii All rights reserved.
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import UIKit
 

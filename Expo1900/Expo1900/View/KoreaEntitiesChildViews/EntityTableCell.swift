@@ -1,13 +1,14 @@
 //
 //  EntityTableCell.swift
-//  Expo1900
+//  EntityTableCell
 //
-//  Copyright (c) 2022 Minii All rights reserved.
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
         
-
 import UIKit
 
 class EntityTableCell: UITableViewCell {
+    static let identifier = "EntityTableCell"
+    
     private let entityImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit

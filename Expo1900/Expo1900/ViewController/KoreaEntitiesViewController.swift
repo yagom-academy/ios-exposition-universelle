@@ -1,9 +1,7 @@
+//  KoreaEntitiesViewController.swift
+//  KoreaEntitiesViewController
 //
-//  ViewController.swift
-//  Expo1900
-//
-//  Created by 이정민 on 2022/10/24.
-//
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import UIKit
 
@@ -11,7 +9,7 @@ class KoreaEntitiesViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(EntityTableCell.self, forCellReuseIdentifier: "EntityTableCell")
+        tableView.register(EntityTableCell.self, forCellReuseIdentifier: EntityTableCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -29,7 +27,7 @@ class KoreaEntitiesViewController: UIViewController {
     
     private func decode() -> [Entity] {
         let jsonDecoder = JSONDecoder()
-        let json = NSDataAsset(name: "items")
+        let json = NSDataAsset(name: Constant.entitiesFileName)
         let data = json?.data ?? Data()
         
         guard let result = try? jsonDecoder.decode([Entity].self, from: data) else {
@@ -83,7 +81,7 @@ extension KoreaEntitiesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntityTableCell") as? EntityTableCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EntityTableCell.identifier) as? EntityTableCell else {
             return UITableViewCell()
         }
         

@@ -1,9 +1,7 @@
+//  EntityDetailViewController.swift
+//  EntityDetailViewController
 //
-//  EntitiyDetailViewController.swift
-//  Expo1900
-//
-//  Created by 이정민 on 2022/10/25.
-//
+//  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
 import UIKit
 

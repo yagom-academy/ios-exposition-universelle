@@ -32,7 +32,7 @@ class ExpositionPosterViewController: UIViewController {
     
     private func decode() -> Exposition? {
         let jsonDecoder = JSONDecoder()
-        let json = NSDataAsset(name: "exposition_universelle_1900")
+        let json = NSDataAsset(name: Constant.expoFileName)
         let data = json?.data ?? Data()
         
         guard let result = try? jsonDecoder.decode(Exposition.self, from: json?.data ?? Data()) else {
@@ -46,7 +46,7 @@ class ExpositionPosterViewController: UIViewController {
 extension ExpositionPosterViewController: posterContentDelegate {
     func didTappedEntityButton() {
         let vc = KoreaEntitiesViewController()
-        vc.navigationItem.title = "한국의 출품작"
+        vc.navigationItem.title = Constant.koreanEntityNavTitle
         
         navigationController?.pushViewController(vc, animated: true)
     }

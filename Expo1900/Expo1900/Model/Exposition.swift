@@ -19,15 +19,15 @@ struct Exposition: Decodable {
     var visitorsData: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        let formattedNumber = formatter.string(for: visitors) ?? "0"
-        return "방문객 : \(formattedNumber) 명"
+        let formattedNumber = formatter.string(for: visitors) ?? Constant.zero
+        return Constant.visitorsPrefix + formattedNumber + Constant.visitorsUnit
     }
     
     var locationData: String {
-        return "개최지 : \(location)"
+        return Constant.locationPrefix + location
     }
     
     var durationData: String {
-        return "개최기간 : \(duration)"
+        return Constant.durationPrefix + duration
     }
 }
