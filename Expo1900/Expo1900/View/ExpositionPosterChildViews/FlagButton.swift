@@ -50,5 +50,12 @@ class FlagButton: UIView {
             rightImageView.leadingAnchor.constraint(equalTo: entityButton.trailingAnchor)
         ])
     }
+    
+    func setUPButtonAction(action: @escaping () -> ()) {
+        let presentAction = UIAction { _ in
+            action()
+        }
+        entityButton.addAction(presentAction, for: .touchUpInside)
+    }
 }
 

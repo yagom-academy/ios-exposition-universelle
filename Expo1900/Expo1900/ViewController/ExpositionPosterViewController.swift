@@ -17,13 +17,18 @@ class ExpositionPosterViewController: UIViewController {
     }()
     
     // MARK: - 빼기
-    let contentView = PosterContentView()
+    let contentView: PosterContentView = {
+        let contentView = PosterContentView()
+        return contentView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         exposition = decode()
         setLayout()
+        contentView.delegate = self
         contentView.setViewData(exposition: exposition)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     private func decode() -> Exposition? {
@@ -35,6 +40,16 @@ class ExpositionPosterViewController: UIViewController {
         }
         
         return result
+    }
+}
+
+extension ExpositionPosterViewController: posterContentDelegate {
+    func didTappedEntityButton() {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .gray
+        vc.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

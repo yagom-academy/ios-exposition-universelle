@@ -6,22 +6,29 @@
 
 import UIKit
 
+protocol posterContentDelegate: AnyObject {
+    func didTappedEntityButton()
+}
+
 class PosterContentView: UIView {
     let posterImageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "poster"))
         return image
     }()
-    let titleLabel = InformationLabel(aligment: .center, settingFont: .systemFont(ofSize: 20, weight: .bold), lines: 0)
-    let visitorsLabel = InformationLabel()
-    let locationLabel = InformationLabel()
-    let durationLabel = InformationLabel()
-    let descriptionLabel = InformationLabel(aligment: .natural, settingFont: nil, lines: 0)
-    let flagButton = FlagButton()
+    private let titleLabel = InformationLabel(aligment: .center, settingFont: .systemFont(ofSize: 20, weight: .bold), lines: 0)
+    private let visitorsLabel = InformationLabel()
+    private let locationLabel = InformationLabel()
+    private let durationLabel = InformationLabel()
+    private let descriptionLabel = InformationLabel(aligment: .natural, settingFont: nil, lines: 0)
+    private let flagButton = FlagButton()
+    weak var delegate: posterContentDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setLayout()
+        
+        flagButton.setUPButtonAction { self.delegate?.didTappedEntityButton() }
     }
     
     required init?(coder: NSCoder) {
