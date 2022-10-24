@@ -14,8 +14,17 @@ final class EntryDetailViewController: UIViewController {
     
     private var expoEntry: ExpoEntry?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    init?(coder: NSCoder, entry: ExpoEntry) {
+        super.init(coder: coder)
+        self.expoEntry = entry
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         configureEntryViews(expoEntry: expoEntry)
     }

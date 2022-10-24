@@ -48,9 +48,10 @@ extension ExpoEntriesListViewController: UITableViewDataSource {
 extension ExpoEntriesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let entryDetailViewController: EntryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryViewController") as? EntryDetailViewController,
-              let expoEntry = expoEntriesManager.expoEntries?[indexPath.row] else { return }
-        entryDetailViewController.sendExpoEntry(expoEntry)
+        guard let expoEntry = expoEntriesManager.expoEntries?[indexPath.row] else { return }
+        guard let entryDetailViewController: EntryDetailViewController = self.storyboard?.instantiateViewController(identifier: "EntryViewController", creator: { (coder) -> EntryDetailViewController? in
+            return EntryDetailViewController(coder: coder, entry: expoEntry)
+        }) as? EntryDetailViewController else { return }
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
