@@ -11,6 +11,7 @@ class KoreaEntitiesViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(EntityTableCell.self, forCellReuseIdentifier: "EntityTableCell")
         return tableView
     }()
     
@@ -19,6 +20,9 @@ class KoreaEntitiesViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
         
         view.backgroundColor = .white
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -55,8 +59,14 @@ extension KoreaEntitiesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "\(indexPath.row)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntityTableCell") as? EntityTableCell else {
+            return UITableViewCell()
+        }
+        
+//        cell.entityImageView.image = UIImage(named: "buddhism")
+//        cell.titleLabel.text = indexPath.row.description
+//        cell.subTitleLabel.text = "example"
+        
         return cell
     }
 }
