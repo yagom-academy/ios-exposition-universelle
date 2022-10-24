@@ -79,9 +79,9 @@
 		EB0F8D3029026DA800E2FCAE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EB728D47290688E90001F1E8 /* Extension */,
 				DF37FD9B28FE3D9000FD8D00 /* Exposition.swift */,
 				EB71ABFE28FE3ABE001AE1B1 /* ExpoEntry.swift */,
-				DF96F01B290237B8001B182A /* JSONDecoder+decode.swift */,
 				DF7B326B290630B400740242 /* ExpositionManager.swift */,
 			);
 			path = Model;
@@ -107,6 +107,14 @@
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EB728D47290688E90001F1E8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DF96F01B290237B8001B182A /* JSONDecoder+decode.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
