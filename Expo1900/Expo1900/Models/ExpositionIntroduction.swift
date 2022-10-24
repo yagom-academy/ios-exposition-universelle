@@ -36,12 +36,12 @@ struct ExpositionIntroduction: Decodable {
                 print(DataError.unknownError.message)
             }
         }
-        return "방문객 : \(formattedVistorNumber) 명"
+        return String(format: "방문객 : %@ 명", formattedVistorNumber)
     }
     var locationDescription: String {
-        return "개최지 : \(self.location)"
+        return String(format: "개최지 : %@", self.location)
     }
     var durationDescription: String {
-        return "개최 기간 : \(self.duration)"
+        return String(format: "개최 기간 : %@", self.duration)
     }
 }
