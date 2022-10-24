@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ExpositionViewController: UIViewController {
+final class ExpositionViewController: UIViewController {
     @IBOutlet private weak var expositionTitleLabel: UILabel!
     @IBOutlet private weak var expositionImageView: UIImageView!
     @IBOutlet private weak var expositionVisitorsLabel: UILabel!
@@ -52,4 +52,3 @@ class ExpositionViewController: UIViewController {
         rightFlagImageView.image = exposition.flagImage
     }
 }
-

@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ExhibitDetailViewController: UIViewController {
+final class ExhibitDetailViewController: UIViewController {
     @IBOutlet private weak var exhibitImageView: UIImageView!
     @IBOutlet private weak var exhibitDescriptionTextView: UITextView!
     private var exhibitData: ExhibitData?

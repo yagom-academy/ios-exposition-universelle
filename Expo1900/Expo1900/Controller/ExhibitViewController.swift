@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ExhibitViewController: UIViewController {
+final class ExhibitViewController: UIViewController {
     @IBOutlet private weak var exhibitTableView: UITableView!
     private let cellIdentifier: String = ExpositionConstant.exhibitCell
     private var exhibits: [ExhibitData] = []
