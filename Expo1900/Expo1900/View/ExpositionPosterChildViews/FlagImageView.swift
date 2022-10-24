@@ -5,7 +5,7 @@
 
 import UIKit
 
-class FlagImageView: UIImageView {
+final class FlagImageView: UIImageView {
     override init(image: UIImage?) {
         super.init(image: image)
         
@@ -17,7 +17,10 @@ class FlagImageView: UIImageView {
         
         setContentLayout()
     }
-    
+}
+
+// MARK: - Layout 설정
+private extension FlagImageView {
     func setContentLayout() {
         contentMode = .scaleAspectFit
         

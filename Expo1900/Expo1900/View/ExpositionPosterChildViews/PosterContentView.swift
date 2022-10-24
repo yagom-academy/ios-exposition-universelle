@@ -9,7 +9,7 @@ protocol posterContentDelegate: AnyObject {
     func didTappedEntityButton()
 }
 
-class PosterContentView: UIView {
+final class PosterContentView: UIView {
     let posterImageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: Constant.posterImageName))
         return image
@@ -46,8 +46,8 @@ class PosterContentView: UIView {
 }
 
 // MARK: - layout 설정
-extension PosterContentView {
-    private func setLayout() {
+private extension PosterContentView {
+    func setLayout() {
         translatesAutoresizingMaskIntoConstraints = false
         setContentsChildView()
         
@@ -60,7 +60,7 @@ extension PosterContentView {
         setFlagButtonLayout()
     }
     
-    private func setContentsChildView() {
+    func setContentsChildView() {
         let layoutList: [UIView] = [
             titleLabel,
             posterImageView,
@@ -77,21 +77,21 @@ extension PosterContentView {
         }
     }
     
-    private func setTitleLabelLayout() {
+    func setTitleLabelLayout() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
     
-    private func setPosterImageViewLayout() {
+    func setPosterImageViewLayout() {
         NSLayoutConstraint.activate([
             posterImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             posterImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
     
-    private func setVisitorsLabelLayout() {
+    func setVisitorsLabelLayout() {
         NSLayoutConstraint.activate([
             visitorsLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 8),
             visitorsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -99,7 +99,7 @@ extension PosterContentView {
         ])
     }
     
-    private func setLocationLabelLayout() {
+    func setLocationLabelLayout() {
         NSLayoutConstraint.activate([
             locationLabel.topAnchor.constraint(equalTo: visitorsLabel.bottomAnchor, constant: 8),
             locationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -107,7 +107,7 @@ extension PosterContentView {
         ])
     }
     
-    private func setDurationLabelLayout() {
+    func setDurationLabelLayout() {
         NSLayoutConstraint.activate([
             durationLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 8),
             durationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -115,7 +115,7 @@ extension PosterContentView {
         ])
     }
     
-    private func setDescriptionLabelLayout() {
+    func setDescriptionLabelLayout() {
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -124,7 +124,7 @@ extension PosterContentView {
         ])
     }
     
-    private func setFlagButtonLayout() {
+    func setFlagButtonLayout() {
         NSLayoutConstraint.activate([
             flagButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             flagButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

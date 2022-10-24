@@ -5,9 +5,9 @@
 
 import UIKit
 
-class FlagButton: UIView {
-    let leftImageView = FlagImageView(image: UIImage(named: Constant.koreanFlag))
-    let rightImageView = FlagImageView(image: UIImage(named: Constant.koreanFlag))
+final class FlagButton: UIView {
+    let leftImageView = FlagImageView(image: UIImage(named: Constant.koreanFlagImageName))
+    let rightImageView = FlagImageView(image: UIImage(named: Constant.koreanFlagImageName))
     let entityButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.systemBlue, for: .normal)
@@ -26,7 +26,20 @@ class FlagButton: UIView {
         
         setContentLayout()
     }
-    
+}
+
+// MARK: - UserInterAction 관련 메서드
+extension FlagButton {
+    func setUpButtonAction(action: @escaping () -> ()) {
+        let presentAction = UIAction { _ in
+            action()
+        }
+        entityButton.addAction(presentAction, for: .touchUpInside)
+    }
+}
+
+// MARK: - Layout 설정
+private extension FlagButton {
     private func setContentLayout() {
         [
             leftImageView,
@@ -49,12 +62,4 @@ class FlagButton: UIView {
             rightImageView.leadingAnchor.constraint(equalTo: entityButton.trailingAnchor)
         ])
     }
-    
-    func setUpButtonAction(action: @escaping () -> ()) {
-        let presentAction = UIAction { _ in
-            action()
-        }
-        entityButton.addAction(presentAction, for: .touchUpInside)
-    }
 }
-

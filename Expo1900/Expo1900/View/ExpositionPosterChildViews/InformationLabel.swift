@@ -5,7 +5,7 @@
 
 import UIKit
 
-class InformationLabel: UILabel {
+final class InformationLabel: UILabel {
     init() {
         super.init(frame: .zero)
         textAlignment = .center

@@ -6,7 +6,7 @@
         
 import UIKit
 
-class EntityTableCell: UITableViewCell {
+final class EntityTableCell: UITableViewCell {
     static let identifier = "EntityTableCell"
     
     private let entityImageView: UIImageView = {
@@ -18,13 +18,13 @@ class EntityTableCell: UITableViewCell {
     private let titleLabel = InformationLabel(alignment: .left, settingFont: UIFont.systemFont(ofSize: 25))
     private let subTitleLabel = InformationLabel(alignment: .left, settingFont: nil, lines: 0)
     
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, subTitleLabel])
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .leading
+    private lazy var explainStackView: UIStackView = {
+        let explainStackView = UIStackView(arrangedSubviews: [titleLabel, subTitleLabel])
+        explainStackView.axis = .vertical
+        explainStackView.distribution = .fill
+        explainStackView.alignment = .leading
         
-        return stackView
+        return explainStackView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -40,8 +40,16 @@ class EntityTableCell: UITableViewCell {
         setUpLayout()
     }
     
-    private func setUpLayout() {
-        [entityImageView, stackView].forEach {
+    func setViewData(entity: Entity) {
+        titleLabel.text = entity.name
+        subTitleLabel.text = entity.summary
+        entityImageView.image = UIImage(named: entity.imageName)
+    }
+}
+
+private extension EntityTableCell {
+    func setUpLayout() {
+        [entityImageView, explainStackView].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -52,7 +60,7 @@ class EntityTableCell: UITableViewCell {
         contentView.heightAnchor.constraint(greaterThanOrEqualTo: entityImageView.heightAnchor).isActive = true
     }
     
-    private func setUpEntityImageViewLayout() {
+    func setUpEntityImageViewLayout() {
         NSLayoutConstraint.activate([
             entityImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             entityImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -62,19 +70,13 @@ class EntityTableCell: UITableViewCell {
         
     }
     
-    private func setUpStackViewLayout() {
+    func setUpStackViewLayout() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 20),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor, constant: 8),
-            stackView.centerYAnchor.constraint(equalTo: entityImageView.centerYAnchor)
+            explainStackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 20),
+            explainStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20),
+            explainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            explainStackView.leadingAnchor.constraint(equalTo: entityImageView.trailingAnchor, constant: 8),
+            explainStackView.centerYAnchor.constraint(equalTo: entityImageView.centerYAnchor)
         ])
-    }
-    
-    func setViewData(entity: Entity) {
-        titleLabel.text = entity.name
-        subTitleLabel.text = entity.summary
-        entityImageView.image = UIImage(named: entity.imageName)
     }
 }

@@ -10,6 +10,8 @@
 		180C5DAD28FE38B90014FF2E /* ExpositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C5DAC28FE38B90014FF2E /* ExpositionTests.swift */; };
 		1841931D290694F300F15EBC /* EntityTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841931C290694F300F15EBC /* EntityTableCell.swift */; };
 		18D6D2812906F94C00BB38CE /* EntityDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6D2802906F94C00BB38CE /* EntityDetailContentView.swift */; };
+		18D6D2832907076F00BB38CE /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6D2822907076F00BB38CE /* DecodingError.swift */; };
+		18D6D2862907079900BB38CE /* JsonDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6D2852907079900BB38CE /* JsonDecoder+.swift */; };
 		18F696C529027285004D2630 /* FlagImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F696C429027285004D2630 /* FlagImageView.swift */; };
 		18F696C72902729C004D2630 /* FlagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F696C62902729C004D2630 /* FlagButton.swift */; };
 		18F696C9290272E3004D2630 /* PosterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F696C8290272E3004D2630 /* PosterContentView.swift */; };
@@ -43,6 +45,8 @@
 		180C5DAC28FE38B90014FF2E /* ExpositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTests.swift; sourceTree = "<group>"; };
 		1841931C290694F300F15EBC /* EntityTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityTableCell.swift; sourceTree = "<group>"; };
 		18D6D2802906F94C00BB38CE /* EntityDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDetailContentView.swift; sourceTree = "<group>"; };
+		18D6D2822907076F00BB38CE /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
+		18D6D2852907079900BB38CE /* JsonDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JsonDecoder+.swift"; sourceTree = "<group>"; };
 		18F696C429027285004D2630 /* FlagImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImageView.swift; sourceTree = "<group>"; };
 		18F696C62902729C004D2630 /* FlagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagButton.swift; sourceTree = "<group>"; };
 		18F696C8290272E3004D2630 /* PosterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,14 @@
 			path = EntityDetailChildViews;
 			sourceTree = "<group>";
 		};
+		18D6D2842907079000BB38CE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18D6D2852907079900BB38CE /* JsonDecoder+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		18F696C329027240004D2630 /* ExpositionPosterChildViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +135,7 @@
 				AC68DD1528FE414500360146 /* Exposition.swift */,
 				AC68DD1828FE4C5F00360146 /* Entity.swift */,
 				AC68DDA62906FEA200360146 /* Constant.swift */,
+				18D6D2822907076F00BB38CE /* DecodingError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +194,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				18D6D2842907079000BB38CE /* Extension */,
 				AC68DD1128FE396800360146 /* Source */,
 				AC68DD1028FE392B00360146 /* View */,
 				AC68DD0F28FE391E00360146 /* ViewController */,
@@ -307,6 +321,8 @@
 				AC68DD1928FE4C5F00360146 /* Entity.swift in Sources */,
 				AC68DDA72906FEA200360146 /* Constant.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionPosterViewController.swift in Sources */,
+				18D6D2832907076F00BB38CE /* DecodingError.swift in Sources */,
+				18D6D2862907079900BB38CE /* JsonDecoder+.swift in Sources */,
 				18F696C529027285004D2630 /* FlagImageView.swift in Sources */,
 				AC68DD1628FE414500360146 /* Exposition.swift in Sources */,
 				18F696C9290272E3004D2630 /* PosterContentView.swift in Sources */,

@@ -5,7 +5,7 @@
 
 import UIKit
 
-class EntityDetailViewController: UIViewController {
+final class EntityDetailViewController: UIViewController {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -23,8 +23,18 @@ class EntityDetailViewController: UIViewController {
         setContentView()
     }
     
+    func setImageView(imageName: String) {
+        contentView.setImageView(imageName: imageName)
+    }
+    
+    func setDescriptionLabel(description: String) {
+        contentView.setDescriptionLabel(description: description)
+    }
+}
 
-    private func setUpLayout() {
+// MARK: - Layout 설정
+private extension EntityDetailViewController {
+    func setUpLayout() {
         let safeArea = view.safeAreaLayoutGuide
         view.addSubview(scrollView)
         
@@ -36,7 +46,7 @@ class EntityDetailViewController: UIViewController {
         ])
     }
     
-    private func setContentView() {
+    func setContentView() {
         scrollView.addSubview(contentView)
         
         NSLayoutConstraint.activate([
@@ -47,13 +57,4 @@ class EntityDetailViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
-    
-    func setImageView(imageName: String) {
-        contentView.setImageView(imageName: imageName)
-    }
-    
-    func setDescriptionLabel(description: String) {
-        contentView.setDescriptionLabel(description: description)
-    }
-    
 }

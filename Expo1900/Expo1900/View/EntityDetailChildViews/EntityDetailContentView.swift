@@ -5,7 +5,7 @@
 
 import UIKit
 
-class EntityDetailContentView: UIView {
+final class EntityDetailContentView: UIView {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -23,14 +23,28 @@ class EntityDetailContentView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+}
 
-    private func setChildContentViewLayout() {
+// MARK: - View Update 관련 메서드
+extension EntityDetailContentView {
+    func setImageView(imageName: String) {
+        imageView.image = UIImage(named: imageName)
+    }
+    
+    func setDescriptionLabel(description: String) {
+        descriptionLabel.text = description
+    }
+}
+
+// MARK: - Layout 설정
+private extension EntityDetailContentView {
+    func setChildContentViewLayout() {
         translatesAutoresizingMaskIntoConstraints = false
         setImageViewLayout()
         setDescriptionLayout()
     }
     
-    private func setImageViewLayout() {
+    func setImageViewLayout() {
         addSubview(imageView)
         
         NSLayoutConstraint.activate([
@@ -42,7 +56,7 @@ class EntityDetailContentView: UIView {
         ])
     }
     
-    private func setDescriptionLayout() {
+    func setDescriptionLayout() {
         addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
@@ -53,11 +67,4 @@ class EntityDetailContentView: UIView {
         ])
     }
     
-    func setImageView(imageName: String) {
-        imageView.image = UIImage(named: imageName)
-    }
-    
-    func setDescriptionLabel(description: String) {
-        descriptionLabel.text = description
-    }
 }

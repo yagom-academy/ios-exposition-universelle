@@ -6,22 +6,27 @@
 
 import UIKit
 
-class ExpositionPosterViewController: UIViewController {
-    var exposition: Exposition?
+final class ExpositionPosterViewController: UIViewController {
+    private var exposition: Exposition?
     
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-    let contentView = PosterContentView()
+    
+    private lazy var contentView: PosterContentView = {
+        let contentView = PosterContentView()
+        contentView.delegate = self
+        return contentView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        exposition = decode()
+        
         setLayout()
-        contentView.delegate = self
+        setExposition()
         contentView.setViewData(exposition: exposition)
     }
     
@@ -29,20 +34,9 @@ class ExpositionPosterViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
-    private func decode() -> Exposition? {
-        let jsonDecoder = JSONDecoder()
-        let json = NSDataAsset(name: Constant.expoFileName)
-        let data = json?.data ?? Data()
-        
-        guard let result = try? jsonDecoder.decode(Exposition.self, from: json?.data ?? Data()) else {
-            return nil
-        }
-        
-        return result
-    }
 }
 
+// MARK: - posterContentDelegate
 extension ExpositionPosterViewController: posterContentDelegate {
     func didTappedEntityButton() {
         let vc = KoreaEntitiesViewController()
@@ -52,14 +46,28 @@ extension ExpositionPosterViewController: posterContentDelegate {
     }
 }
 
+// MARK: - Data 관련 메서드
+private extension ExpositionPosterViewController {
+    func setExposition() {
+        do {
+            let jsonDecoder = JSONDecoder()
+            let decodeValue: Exposition = try jsonDecoder.decode(fileName: Constant.expoFileName)
+            exposition = decodeValue
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
 //MARK: - layout 설정
-extension ExpositionPosterViewController {
-    private func setLayout() {
+private extension ExpositionPosterViewController {
+    func setLayout() {
+        navigationController?.navigationBar.topItem?.title = Constant.mainName
         setScrollView()
         setContentView()
     }
     
-    private func setScrollView() {
+    func setScrollView() {
         let safeArea = view.safeAreaLayoutGuide
         view.addSubview(scrollView)
         
@@ -71,7 +79,7 @@ extension ExpositionPosterViewController {
         ])
     }
     
-    private func setContentView() {
+    func setContentView() {
         scrollView.addSubview(contentView)
         
         NSLayoutConstraint.activate([

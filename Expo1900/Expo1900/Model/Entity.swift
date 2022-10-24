@@ -1,6 +1,6 @@
 //
-//  Item.swift
-//  Item
+//  Entity.swift
+//  Entity
 //
 //  Copyright (c) 2022 제이푸시, Minii All rights reserved.
 
