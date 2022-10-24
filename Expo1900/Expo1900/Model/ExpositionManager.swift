@@ -4,11 +4,11 @@
 //
 //  Created by Jeremy, 준호 on 2022/10/24.
 //
+
 import Foundation.NSNumberFormatter
 import UIKit
 
 struct ExpositionManager {
-    
     private(set) var exposition: Exposition?
     private let assetName: String = "exposition_universelle_1900"
     private let imageName: String = "poster"
