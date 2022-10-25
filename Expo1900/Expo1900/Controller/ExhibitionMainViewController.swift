@@ -45,7 +45,13 @@ class ExhibitionMainViewController: UIViewController {
         titleLabel.text = expositionPoster?.title.replacingOccurrences(of: "(", with: "\n(")
         imageView.image = UIImage(named: "poster")
         visitorLabel.text = "방문객:"
-        visitorDetailLabel.text = "\(expositionPoster?.visitors.formatNumber ?? "0") 명"
+
+        do {
+            visitorDetailLabel.text = "\(try expositionPoster?.visitors.formatNumber ?? "0") 명"
+        } catch {
+            visitorDetailLabel.text = "확인 불가"
+        }
+        
         locationLabel.text = "개최지:"
         locationDetailLabel.text = expositionPoster?.location
         termLabel.text = "개최 기간:"

@@ -8,13 +8,19 @@ import Foundation
 
 extension Int {
     var formatNumber: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
-        guard let string = formatter.string(for: self) else {
-            return "Error in Formatter"
+        get throws {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            
+            guard let string = formatter.string(for: self) else {
+                throw IntError.formatterError
+            }
+            
+            return string
         }
-        
-        return string
+    }
+    
+    enum IntError: Error {
+        case formatterError
     }
 }
