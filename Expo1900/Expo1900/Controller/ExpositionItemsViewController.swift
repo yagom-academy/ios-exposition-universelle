@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ExpositionItemsViewController: UIViewController {
+final class ExpositionItemsViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
     
@@ -25,6 +25,7 @@ class ExpositionItemsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         guard let nextViewController: ExpositionItemDetailViewController = segue.destination as? ExpositionItemDetailViewController,
               let item: ExpositionUniverselleItem = sender as? ExpositionUniverselleItem else {
             return

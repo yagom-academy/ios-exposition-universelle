@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ExpositionItemDetailViewController: UIViewController {
+final class ExpositionItemDetailViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var itemDescriptionTextView: UITextView!
