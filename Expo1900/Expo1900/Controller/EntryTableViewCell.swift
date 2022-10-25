@@ -21,7 +21,16 @@ class EntryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        configureAttribute()
+    }
+    
+    func configureAttribute() {
+        titleLabel.font = .preferredFont(forTextStyle: .title2)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.numberOfLines = 0
+        
+        descriptLabel.adjustsFontForContentSizeCategory = true
+        descriptLabel.font = .preferredFont(forTextStyle: .subheadline)
         descriptLabel.numberOfLines = 0
-        titleLabel.font = .preferredFont(forTextStyle: .title1)
     }
 }
