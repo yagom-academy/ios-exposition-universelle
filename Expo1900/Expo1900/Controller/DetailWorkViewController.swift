@@ -19,8 +19,14 @@ class DetailWorkViewController: UIViewController {
     }
 
     func setUpDetailData() {
-        imageView.image = UIImage(named: exhibitionWork?.imageName ?? "")
-        textView.text = exhibitionWork?.desc ?? ""
-        title = exhibitionWork?.name ?? ""
+        if let imageName = exhibitionWork?.imageName,
+            let assetImage = UIImage(named: imageName) {
+            imageView.image = assetImage
+        } else {
+            imageView.image = UIImage(systemName: "xmark.seal")
+        }
+        
+        textView.text = exhibitionWork?.desc ?? "설명 없음"
+        title = exhibitionWork?.name ?? "제목 없음"
     }
 }
