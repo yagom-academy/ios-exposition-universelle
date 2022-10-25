@@ -20,8 +20,21 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        changeSupportAllOrientation(to: false)
         navigationController?.isNavigationBarHidden = true
         navigationController?.navigationBar.topItem?.backButtonTitle = "메인"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        changeSupportAllOrientation(to: true)
+    }
+    
+    private func changeSupportAllOrientation(to option: Bool) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.isSupportAllOrientation = option
+        }
     }
     
     private func configureLabels() {
