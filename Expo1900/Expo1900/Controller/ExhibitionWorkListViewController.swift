@@ -35,11 +35,8 @@ class ExhibitionWorkListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailViewController: DetailWorkViewController = segue.destination as? DetailWorkViewController else {
-            return
-        }
-        
-        guard let indexPath = exhibitionWorkTableView.indexPathForSelectedRow else {
+        guard let indexPath = exhibitionWorkTableView.indexPathForSelectedRow,
+              let detailViewController: DetailWorkViewController = segue.destination as? DetailWorkViewController else {
             return
         }
         
