@@ -2,6 +2,13 @@
 
 struct Exposition: Decodable {
     let title: String
+    let visitors: Int
+    let location: String
+    let duration: String
+    let description: String
+}
+
+extension Exposition {
     var koreanTitle: String {
         guard let firstBracketIndex = title.firstIndex(of: "(") else { return "" }
         return String(title[..<firstBracketIndex])
@@ -10,8 +17,4 @@ struct Exposition: Decodable {
         guard let firstBracketIndex = title.firstIndex(of: "(") else { return "" }
         return String(title[firstBracketIndex...])
     }
-    let visitors: Int
-    let location: String
-    let duration: String
-    let description: String
 }
