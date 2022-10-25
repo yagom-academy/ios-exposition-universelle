@@ -31,7 +31,11 @@ class PosterViewController: UIViewController {
     func configureViewFromDecodedData() {
         if let bindedTitle = expositionParis?.title, let bindedVisitors = expositionParis?.visitors {
             titleLabel.text = splitParagraph(of: bindedTitle)
-            visitorsLabel.text = "\(formatNumber(num: bindedVisitors)) 명"
+            do {
+                visitorsLabel.text = "\(try formatNumber(num: bindedVisitors)) 명"
+            } catch {
+                print("emptyError")
+            }
             locationLabel.text = expositionParis?.location
             durationLabel.text = expositionParis?.duration
             descriptionLabel.text = expositionParis?.description
@@ -51,12 +55,12 @@ class PosterViewController: UIViewController {
         return separatedTexts.joined()
     }
     
-    func formatNumber(num: Int) -> String {
+    func formatNumber(num: Int) throws -> String {
         let dataformatter = NumberFormatter()
         dataformatter.numberStyle = .decimal
         
         guard let result = dataformatter.string(for: num) else {
-            return "Formatter Error"
+            throw FormatterError.emptyError
         }
         
         return result
