@@ -31,9 +31,9 @@ struct ExpositionIntroduction: Decodable {
             formattedVistorNumber = try formatVisitorNumber()
         } catch {
             if let error = error as? DataError {
-                print(error.message)
+                print(error.localizedDescription)
             } else {
-                print(DataError.unknownError.message)
+                print(DataError.unknownError.localizedDescription)
             }
         }
         return String(format: "방문객 : %@ 명", formattedVistorNumber)

@@ -43,9 +43,9 @@ final class ExpoViewController: UIViewController {
             expoData = try dataManager.fetchData(name: AssetName.expoIntroJSON)
         } catch {
             if let error = error as? DataError {
-                print(error.message)
+                print(error.localizedDescription)
             } else {
-                print(DataError.unknownError.message)
+                print(DataError.unknownError.localizedDescription)
             }
         }
     }

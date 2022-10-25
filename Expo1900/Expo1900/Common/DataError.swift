@@ -5,13 +5,17 @@
 //  Created by Kyo, tottalE on 2022/10/19.
 //
 
+import Foundation
+
 enum DataError: Error {
     case noneDataError
     case decodingError
     case unknownError
     case formattingError
-    
-    var message: String {
+}
+
+extension DataError: LocalizedError {
+    public var errorDescription: String? {
         switch self {
         case .noneDataError:
             return "NoneData Error"

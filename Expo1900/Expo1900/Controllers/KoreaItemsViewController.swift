@@ -31,9 +31,9 @@ final class KoreaItemsViewController: UIViewController {
             koreaItems = try dataManager.fetchDataList(name: AssetName.koreaItemJSON)
         } catch {
             if let error = error as? DataError {
-                print(error.message)
+                print(error.localizedDescription)
             } else {
-                print(DataError.unknownError.message)
+                print(DataError.unknownError.localizedDescription)
             }
         }
     }
