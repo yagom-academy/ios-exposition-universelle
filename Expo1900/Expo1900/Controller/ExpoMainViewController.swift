@@ -25,6 +25,7 @@ final class ExpoMainViewController: UIViewController {
         ) else { return }
         
         expoInformation = expoInformationData
+        configureAttribute()
         buildExpoMainView()
     }
     
@@ -37,24 +38,42 @@ final class ExpoMainViewController: UIViewController {
         title = "메인"
     }
     
+    private func configureAttribute() {
+        titleLabel.numberOfLines = 0
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.textAlignment = .center
+        titleLabel.lineBreakMode = .byWordWrapping
+        
+        visitorLabel.numberOfLines = 0
+        visitorLabel.font = .preferredFont(forTextStyle: .title3)
+        visitorLabel.adjustsFontForContentSizeCategory = true
+        visitorLabel.lineBreakMode = .byWordWrapping
+        
+        localeLabel.numberOfLines = 0
+        localeLabel.font = .preferredFont(forTextStyle: .title3)
+        localeLabel.adjustsFontForContentSizeCategory = true
+        localeLabel.lineBreakMode = .byWordWrapping
+        
+        periodLabel.numberOfLines = 0
+        periodLabel.font = .preferredFont(forTextStyle: .title3)
+        periodLabel.adjustsFontForContentSizeCategory = true
+        periodLabel.lineBreakMode = .byWordWrapping
+        
+        descriptionTextView.font = .preferredFont(forTextStyle: .body)
+        descriptionTextView.adjustsFontForContentSizeCategory = true
+        descriptionTextView.textContainer.lineBreakMode = .byWordWrapping
+    }
+    
     private func buildExpoMainView() {
         guard let expoInformation = expoInformation else { return }
         
         titleLabel.text = expoInformation.mainTitle
-        titleLabel.numberOfLines = 0
-        titleLabel.font = .preferredFont(forTextStyle: .title1)
-        titleLabel.textAlignment = .center
-
         posterImage.image = UIImage(named: "poster")
-        
         visitorLabel.text = "\(expoInformation.decimalVisitor) 명"
-        
         localeLabel.text = expoInformation.location
-        
         periodLabel.text = expoInformation.duration
-        
         descriptionTextView.text = expoInformation.description
-        descriptionTextView.font = .preferredFont(forTextStyle: .body)
         
         flagImages.forEach { flagImage in
             flagImage.image = UIImage(named: "flag")
