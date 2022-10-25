@@ -57,6 +57,7 @@ final class ExpoViewController: UIViewController {
         placeLabel.text = expoData?.locationDescription
         timeLabel.text = expoData?.durationDescription
         descriptionTextView.text = expoData?.description
+        descriptionTextView.isEditable = false
         buttonImage.forEach { button in
             button.image = UIImage(named: AssetName.flagButtonImage)
         }

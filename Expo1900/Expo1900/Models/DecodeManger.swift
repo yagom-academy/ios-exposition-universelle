@@ -15,21 +15,21 @@ struct DecodeManger<T: Decodable> {
                 
         guard let assetData = NSDataAsset.init(name: name) else { throw DataError.noneDataError }
         
-        guard let introData = try? decoder.decode(T.self, from: assetData.data) else {
+        guard let itemData = try? decoder.decode(T.self, from: assetData.data) else {
             throw DataError.decodingError
         }
         
-        return introData
+        return itemData
     }
     
     func fetchDataList(name: String) throws -> [T] {
         
         guard let assetData = NSDataAsset.init(name: name) else { throw DataError.noneDataError }
         
-        guard let koreaItems = try? decoder.decode([T].self, from: assetData.data) else {
+        guard let itemDatas = try? decoder.decode([T].self, from: assetData.data) else {
             throw DataError.decodingError
         }
         
-        return koreaItems
+        return itemDatas
     }
 }
