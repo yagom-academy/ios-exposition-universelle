@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exposition = decodeExposition("exposition_universelle_1900")
+        exposition = Converter.decode("exposition_universelle_1900")
         configureView()
     }
     

@@ -14,17 +14,10 @@ final class KoreanItemsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        items = decodeItems("items")
+        
+        items = Converter.decode("items")
         self.koreanItemsTableView.delegate = self
         self.koreanItemsTableView.dataSource = self
-    }
-    
-    private func decodeItems(_ file: String) -> [Item]? {
-        guard let itemsAsset: NSDataAsset = NSDataAsset(name: file) else { return nil }
-        let items = try? Converter.jsonDecoder.decode([Item].self, from: itemsAsset.data)
-        
-        return items
     }
 }
 
