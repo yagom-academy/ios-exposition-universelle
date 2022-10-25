@@ -32,6 +32,7 @@ final class DetailViewController: UIViewController {
     private func buildNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         title = entry.name
+        navigationController?.navigationBar.topItem?.backButtonTitle = "출품작"
     }
     
     private func buildDetailView() {
