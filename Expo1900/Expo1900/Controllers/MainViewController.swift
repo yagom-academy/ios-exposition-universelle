@@ -8,13 +8,6 @@ import UIKit
 
 final class MainViewController: UIViewController {
     @IBOutlet private weak var stackView: UIStackView!
-    private let jsonDecoder = JSONDecoder()
-    private let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
-        return formatter
-    }()
     private var exposition: Exposition? = nil
     
     override func viewDidLoad() {
@@ -30,7 +23,7 @@ final class MainViewController: UIViewController {
     
     private func decodeExposition(_ file: String) -> Exposition? {
         guard let expositionAsset: NSDataAsset = NSDataAsset(name: file) else { return nil }
-        let exposition = try? jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
+        let exposition = try? Converter.jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
         
         return exposition
     }
@@ -47,7 +40,7 @@ final class MainViewController: UIViewController {
     private func configureView() {
         let koreanTitleLabel: UILabel = configureLabel(text: exposition?.koreanTitle, textStyle: .title1)
         let englishTitleLabel: UILabel = configureLabel(text: exposition?.englishTitle, textStyle: .title1)
-        let visitorsLabel: UILabel = configureLabel(text: "방문객 : \(numberFormatter.string(for: exposition?.visitors) ?? "")",
+        let visitorsLabel: UILabel = configureLabel(text: "방문객 : \(Converter.numberFormatter.string(for: exposition?.visitors) ?? "")",
                                                     textStyle: .title3)
         let locationLabel: UILabel = configureLabel(text: "개최지 : \(exposition?.location ?? "")",
                                                     textStyle: .title3)

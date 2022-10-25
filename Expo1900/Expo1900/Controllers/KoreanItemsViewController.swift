@@ -10,7 +10,6 @@ import UIKit
 class KoreanItemsViewController: UIViewController {
     @IBOutlet private weak var koreanItemsTableView: UITableView!
     private let cellIdentifier: String = "itemCell"
-    private let jsonDecoder: JSONDecoder = JSONDecoder()
     private var items: [Item]?
     
     override func viewDidLoad() {
@@ -23,7 +22,7 @@ class KoreanItemsViewController: UIViewController {
     
     private func decodeItems(_ file: String) -> [Item]? {
         guard let itemsAsset: NSDataAsset = NSDataAsset(name: file) else { return nil }
-        let items = try? jsonDecoder.decode([Item].self, from: itemsAsset.data)
+        let items = try? Converter.jsonDecoder.decode([Item].self, from: itemsAsset.data)
         
         return items
     }
