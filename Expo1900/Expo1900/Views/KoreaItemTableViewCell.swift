@@ -11,6 +11,15 @@ class KoreaItemTableViewCell: UITableViewCell {
     
     static let cellIdentifier = "itemCell"
     
+    private enum Constant {
+        static let mainImageViewleadingConstraint: CGFloat = 20
+        static let mainImageViewWidth: CGFloat = 100
+        static let stackViewTopConstraint: CGFloat = 20
+        static let stackViewBottomConstraint: CGFloat = -20
+        static let stackViewLeadingConstraint: CGFloat = 10
+        static let stackViewTrailingConstraint: CGFloat = -10
+    }
+    
     public let mainImageView: UIImageView = {
         let itemImageView = UIImageView()
         itemImageView.contentMode = .scaleAspectFit
@@ -67,15 +76,15 @@ extension KoreaItemTableViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             mainImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            mainImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            mainImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constant.mainImageViewleadingConstraint),
             
-            mainImageView.widthAnchor.constraint(equalToConstant: 100),
-            mainImageView.heightAnchor.constraint(equalToConstant: 100),
+            mainImageView.widthAnchor.constraint(equalToConstant: Constant.mainImageViewWidth),
+            mainImageView.heightAnchor.constraint(equalTo: mainImageView.widthAnchor),
             
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constant.stackViewTopConstraint),
+            stackView.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: Constant.stackViewLeadingConstraint),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constant.stackViewTrailingConstraint),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Constant.stackViewBottomConstraint),
         ])
     }
 }
