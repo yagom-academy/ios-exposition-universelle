@@ -55,12 +55,8 @@ extension ExpositionItemsViewController: UITableViewDataSource {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: Identifier.expositionTableViewCell, for: indexPath)
         let expositionItem: ExpositionUniverselleItem = self.expositionItems[indexPath.row]
         
-        cell.imageView?.image = UIImage(named: expositionItem.imageName)
-        cell.textLabel?.text = expositionItem.name
-        cell.detailTextLabel?.text = expositionItem.shortDescription
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.accessoryType = .disclosureIndicator
-        
+        cell.configure(for: expositionItem)
+       
         return cell
     }
 }
