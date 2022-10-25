@@ -19,7 +19,7 @@ final class ExpositionItemsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        loadExpositionItems()
+        fetchExpositionItems()
         self.navigationController?.isNavigationBarHidden = false
         self.title = titleText
     }
@@ -37,12 +37,11 @@ final class ExpositionItemsViewController: UIViewController {
 
 extension ExpositionItemsViewController {
     //MARK: - Private Method
-    private func loadExpositionItems() {
-        do {
-            self.expositionItems = try JSONProcessor.process([ExpositionUniverselleItem].self, dataName: DataAsset.expositionItems)
-        } catch {
-            print(error.localizedDescription)
+    private func fetchExpositionItems() {
+        guard let parsedData = JSONParser.parseJSON([ExpositionUniverselleItem].self, from: DataAsset.expositionItems) else {
+            return
         }
+        expositionItems = parsedData
     }
 }
 

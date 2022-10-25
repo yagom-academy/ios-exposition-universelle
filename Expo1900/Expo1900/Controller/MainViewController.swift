@@ -27,7 +27,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadMainViewData()
+        fetchExpositionInformation()
         setUpInitialSetting()
         assignContentValue()
     }
@@ -41,12 +41,11 @@ final class MainViewController: UIViewController {
 
 extension MainViewController {
     //MARK: - Private Method
-    private func loadMainViewData() {
-        do {
-            self.expositionUniverselle = try JSONProcessor.process(ExpositionUniverselle.self, dataName: DataAsset.expositionUniverselleInfomation)
-        } catch {
-            print(error.localizedDescription)
+    private func fetchExpositionInformation() {
+        guard let parsedData = JSONParser.parseJSON(ExpositionUniverselle.self, from: DataAsset.expositionUniverselleInfomation) else {
+            return
         }
+        expositionUniverselle = parsedData
     }
     
     private func setUpInitialSetting() {
