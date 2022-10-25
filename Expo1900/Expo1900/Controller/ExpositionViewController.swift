@@ -19,8 +19,15 @@ final class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expositionData = JSONDecoder.parse(asset: ExpositionConstant.expositionAssetName,
-                                           to: ExpositionData.self)
+        do {
+            expositionData = try JSONDecoder.parse(asset: ExpositionConstant.expositionAssetName,
+                                               to: ExpositionData.self)
+        } catch ExpositionError.invalidAsset {
+            print(ExpositionError.invalidAsset.rawValue)
+        } catch {
+            print(error.localizedDescription)
+        }
+
         configureView()
     }
     

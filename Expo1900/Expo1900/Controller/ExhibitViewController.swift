@@ -15,14 +15,15 @@ final class ExhibitViewController: UIViewController {
         exhibitTableView.delegate = self
         exhibitTableView.dataSource = self
         navigationItem.title = ExpositionConstant.exhibitTitleText
-        
-        guard let exhibitData = JSONDecoder.parse(asset: ExpositionConstant.exhibitAssetName,
-                                                  to: [ExhibitData].self)
-        else {
-            return
+
+        do {
+            exhibits = try JSONDecoder.parse(asset: ExpositionConstant.exhibitAssetName,
+                                                          to: [ExhibitData].self)
+        } catch ExpositionError.invalidAsset {
+            print(ExpositionError.invalidAsset.rawValue)
+        } catch {
+            print(error.localizedDescription)
         }
-        
-        exhibits = exhibitData
     }
 }
 
