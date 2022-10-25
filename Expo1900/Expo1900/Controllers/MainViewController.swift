@@ -7,7 +7,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    @IBOutlet private weak var mainStackView: UIStackView!
+    @IBOutlet private weak var stackView: UIStackView!
     private let jsonDecoder = JSONDecoder()
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -77,16 +77,16 @@ final class MainViewController: UIViewController {
             return button
         }()
         
-        mainStackView.addArrangedSubview(koreanTitleLabel)
-        mainStackView.addArrangedSubview(englishTitleLabel)
+        stackView.addArrangedSubview(koreanTitleLabel)
+        stackView.addArrangedSubview(englishTitleLabel)
         
-        mainStackView.addArrangedSubview(posterImageView)
+        stackView.addArrangedSubview(posterImageView)
         
-        mainStackView.addArrangedSubview(visitorsLabel)
-        mainStackView.addArrangedSubview(locationLabel)
-        mainStackView.addArrangedSubview(durationLabel)
-        mainStackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(visitorsLabel)
+        stackView.addArrangedSubview(locationLabel)
+        stackView.addArrangedSubview(durationLabel)
+        stackView.addArrangedSubview(descriptionLabel)
         
-        mainStackView.addArrangedSubview(koreanItemsViewButton)
+        stackView.addArrangedSubview(koreanItemsViewButton)
     }
 }
