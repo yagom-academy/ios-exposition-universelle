@@ -16,20 +16,8 @@ class ExhibitionListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.reloadData()
-        
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        do {
-            itemsOfExposition = try jsonDecoder.decode([Exhibition].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        tableViewInit()
+        decodeDataAsset(name: "items")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,6 +32,23 @@ class ExhibitionListViewController: UIViewController {
         }
         
         exhibitionViewController.exhibition = exhibition(named: text)
+    }
+    
+    private func tableViewInit() {
+        self.tableView.dataSource = self
+    }
+    
+    private func decodeDataAsset(name: String) {
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: name) else {
+            return
+        }
+        
+        do {
+            itemsOfExposition = try jsonDecoder.decode([Exhibition].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     private func exhibition(named: String) -> Exhibition? {
@@ -67,7 +72,7 @@ extension ExhibitionListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        configureCells(item, cell: cell)
+        configureCell(item, cell: cell)
         
         return cell
     }
@@ -76,11 +81,9 @@ extension ExhibitionListViewController: UITableViewDataSource {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private func configureCells(_ item : Exhibition, cell: ExhibitionListTableViewCell) {
+    private func configureCell(_ item : Exhibition, cell: ExhibitionListTableViewCell) {
         cell.exhibitionImageView.image = UIImage(named: item.imageName)
         cell.shortDescriptionLabel.text = item.shortDescription
         cell.nameLabel.text = item.name
     }
 }
-
-extension ExhibitionListViewController: UITableViewDelegate {}
