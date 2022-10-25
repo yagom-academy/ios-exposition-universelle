@@ -8,7 +8,7 @@ import UIKit
 
 final class MainViewController: UIViewController {
     @IBOutlet private weak var stackView: UIStackView!
-    private var exposition: Exposition? = nil
+    private var exposition: Exposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreanItemsViewController: UIViewController {
+final class KoreanItemsViewController: UIViewController {
     @IBOutlet private weak var koreanItemsTableView: UITableView!
     private let cellIdentifier: String = "itemCell"
     private var items: [Item]?
