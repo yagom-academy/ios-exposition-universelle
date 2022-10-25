@@ -1,8 +1,8 @@
 //
-//  MyCustomCell.swift
+//  ExpoEntry.swift
 //  Expo1900
 //
-//  Created by 유제민 on 2022/10/24.
+//  Created by Jeremy, 준호 on 2022/10/24.
 //
 
 import UIKit

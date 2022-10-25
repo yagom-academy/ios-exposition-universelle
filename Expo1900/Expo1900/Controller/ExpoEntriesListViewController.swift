@@ -2,7 +2,7 @@
 //  ExpoEntriesListViewController.swift
 //  Expo1900
 //
-//  Created by junho lee on 2022/10/20.
+//  Created by Jeremy, 준호 on 2022/10/20.
 //
 
 import UIKit
@@ -10,13 +10,12 @@ import UIKit
 final class ExpoEntriesListViewController: UIViewController {
     
     @IBOutlet private weak var expoEntriesListTableView: UITableView!
-    
-    private var expoEntriesManager: ExpoEntriesManager = ExpoEntriesManager()
-    
+    private var manager: ExpoEntriesManager = ExpoEntriesManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expoEntriesManager.configureExpoEntriesFromJSON()
+        manager.configureExpoEntriesFromJSON()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,13 +28,13 @@ final class ExpoEntriesListViewController: UIViewController {
 extension ExpoEntriesListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expoEntriesManager.entriesCount
+        return manager.entriesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: ExpoEntryCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ExpoEntryCell,
-              let expoEntry = expoEntriesManager.expoEntries?[indexPath.row] else { return ExpoEntryCell() }
-        let image: UIImage? = expoEntriesManager.expoEntryImage(index: indexPath.row)
+              let expoEntry = manager.expoEntries?[indexPath.row] else { return ExpoEntryCell() }
+        let image: UIImage? = manager.expoEntryImage(index: indexPath.row)
         cell.configureContentsView(image: image, name: expoEntry.name, shortDescription: expoEntry.shortDescription)
         return cell
     }
@@ -48,9 +47,12 @@ extension ExpoEntriesListViewController: UITableViewDataSource {
 extension ExpoEntriesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let expoEntry = expoEntriesManager.expoEntries?[indexPath.row] else { return }
+        guard let expoEntry = manager.expoEntries?[indexPath.row] else { return }
+        let entryData: (UIImage?, String, String) = (manager.expoEntryImage(index: indexPath.row),
+                                                    expoEntry.name,
+                                                    expoEntry.description)
         guard let entryDetailViewController: EntryDetailViewController = self.storyboard?.instantiateViewController(identifier: "EntryViewController", creator: { (coder) -> EntryDetailViewController? in
-            return EntryDetailViewController(coder: coder, entry: expoEntry)
+            return EntryDetailViewController(coder: coder, entry: entryData)
         }) as? EntryDetailViewController else { return }
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }

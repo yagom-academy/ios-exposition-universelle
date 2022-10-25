@@ -16,7 +16,7 @@
 		DF37FD9C28FE3D9000FD8D00 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37FD9B28FE3D9000FD8D00 /* Exposition.swift */; };
 		DF7B326C290630B400740242 /* ExpositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B326B290630B400740242 /* ExpositionManager.swift */; };
 		DF7B326E290689EA00740242 /* ExpoEntriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B326D290689EA00740242 /* ExpoEntriesManager.swift */; };
-		DF7B327229069DC300740242 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B327129069DC300740242 /* MyCustomCell.swift */; };
+		DF7B327229069DC300740242 /* ExpoEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B327129069DC300740242 /* ExpoEntryCell.swift */; };
 		DF96F01C290237B8001B182A /* JSONDecoder+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96F01B290237B8001B182A /* JSONDecoder+decode.swift */; };
 		EB0F8D2D29015BB700E2FCAE /* ExpoEntriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F8D2C29015BB700E2FCAE /* ExpoEntriesListViewController.swift */; };
 		EB0F8D2F2901769500E2FCAE /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F8D2E2901769500E2FCAE /* EntryDetailViewController.swift */; };
@@ -35,7 +35,7 @@
 		DF37FD9B28FE3D9000FD8D00 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		DF7B326B290630B400740242 /* ExpositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionManager.swift; sourceTree = "<group>"; };
 		DF7B326D290689EA00740242 /* ExpoEntriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntriesManager.swift; sourceTree = "<group>"; };
-		DF7B327129069DC300740242 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
+		DF7B327129069DC300740242 /* ExpoEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntryCell.swift; sourceTree = "<group>"; };
 		DF96F01B290237B8001B182A /* JSONDecoder+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+decode.swift"; sourceTree = "<group>"; };
 		EB0F8D2C29015BB700E2FCAE /* ExpoEntriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntriesListViewController.swift; sourceTree = "<group>"; };
 		EB0F8D2E2901769500E2FCAE /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
 				EB0F8D2C29015BB700E2FCAE /* ExpoEntriesListViewController.swift */,
 				EB0F8D2E2901769500E2FCAE /* EntryDetailViewController.swift */,
-				DF7B327129069DC300740242 /* MyCustomCell.swift */,
+				DF7B327129069DC300740242 /* ExpoEntryCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 				EB71ABFF28FE3ABF001AE1B1 /* ExpoEntry.swift in Sources */,
 				EB0F8D2D29015BB700E2FCAE /* ExpoEntriesListViewController.swift in Sources */,
 				DF7B326E290689EA00740242 /* ExpoEntriesManager.swift in Sources */,
-				DF7B327229069DC300740242 /* MyCustomCell.swift in Sources */,
+				DF7B327229069DC300740242 /* ExpoEntryCell.swift in Sources */,
 				DF37FD9C28FE3D9000FD8D00 /* Exposition.swift in Sources */,
 				DF7B326C290630B400740242 /* ExpositionManager.swift in Sources */,
 				EB0F8D2F2901769500E2FCAE /* EntryDetailViewController.swift in Sources */,
