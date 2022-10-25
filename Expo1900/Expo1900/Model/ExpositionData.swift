@@ -11,7 +11,11 @@ struct ExpositionData: Decodable {
     let duration: String
     let description: String
     var visitorInformation: String {
-        return "방문객 : \(visitors) 명"
+        guard let convertedVisitors = NumberFormatter.decimalFormatter.string(for: visitors) else {
+            return String(visitors)
+        }
+        
+        return "방문객 : \(convertedVisitors) 명"
     }
     var locationInformation: String {
         return "개최지 : \(location)"
