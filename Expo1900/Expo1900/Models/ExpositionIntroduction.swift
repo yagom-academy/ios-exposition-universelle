@@ -18,25 +18,8 @@ struct ExpositionIntroduction: Decodable {
         case visitorNumber = "visitors"
     }
     
-    private func formatVisitorNumber() throws -> String {
-        let formatter: NumberFormatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        guard let formattedVistorNumber = formatter.string(for: visitorNumber) else { throw DataError.formattingError }
-        return formattedVistorNumber
-    }
-    
     var visitorNumberDescription: String {
-        var formattedVistorNumber: String = ""
-        do {
-            formattedVistorNumber = try formatVisitorNumber()
-        } catch {
-            if let error = error as? DataError {
-                print(error.localizedDescription)
-            } else {
-                print(DataError.unknownError.localizedDescription)
-            }
-        }
-        return String(format: "방문객 : %@ 명", formattedVistorNumber)
+        return String(format: "방문객 : %@ 명", self.visitorNumber.formattedWithSeparator)
     }
     var locationDescription: String {
         return String(format: "개최지 : %@", self.location)
