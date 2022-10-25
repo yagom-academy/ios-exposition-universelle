@@ -8,8 +8,6 @@
 import UIKit
 
 final class KoreaItemsViewController: UIViewController {
-
-    private let cellIdentifier = "itemCell"
     
     @IBOutlet private weak var koreanItemsTable: UITableView!
     private let dataManager: DecodeManger = DecodeManger<KoreaItem>()
@@ -75,26 +73,15 @@ extension KoreaItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaItemTableViewCell.cellIdentifier) as? KoreaItemTableViewCell else {
             let errorCell = UITableViewCell()
             errorCell.textLabel?.text = "Error"
             return errorCell
         }
         
-        var content = cell.defaultContentConfiguration()
-        
-        content.text = koreaItems[indexPath.row].name
-        content.textProperties.font = UIFont.systemFont(ofSize: 30)
-        
-        content.secondaryText = koreaItems[indexPath.row].shortDescription
-        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 15)
-        
-        content.image = UIImage(named: koreaItems[indexPath.row].imageName)
-        content.imageProperties.maximumSize = CGSize(width: 80, height: 80)
-        content.imageProperties.reservedLayoutSize = CGSize(width: 80, height: 80)
-        content.imageToTextPadding = CGFloat(10)
-        
-        cell.contentConfiguration = content
+        cell.mainImageView.image = UIImage(named: koreaItems[indexPath.row].imageName)
+        cell.titleLabel.text = koreaItems[indexPath.row].name
+        cell.discriptionLabel.text = koreaItems[indexPath.row].shortDescription
 
         return cell
     }
