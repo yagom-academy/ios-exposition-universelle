@@ -9,6 +9,14 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     
+    private enum Constant {
+        static let imageViewTopConstraint: CGFloat = 20
+        static let imageViewHeight: CGFloat = 150
+        static let textViewTopConstraint: CGFloat = 10
+        static let textViewLeadingConstraint: CGFloat = 10
+        static let textViewTrailingConstraint: CGFloat = -10
+    }
+    
     private let koreaItem: KoreaItem?
     
     init(koreaItem: KoreaItem?) {
@@ -119,11 +127,11 @@ private extension DetailViewController {
     private func setupContentViewElement() {
         NSLayoutConstraint.activate([
             itemImageView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            itemImageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 20),
-            itemImageView.heightAnchor.constraint(equalToConstant: 150),
-            textView.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: 10),
-            textView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
-            textView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
+            itemImageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: Constant.imageViewTopConstraint),
+            itemImageView.heightAnchor.constraint(equalToConstant: Constant.imageViewHeight),
+            textView.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: Constant.textViewTopConstraint),
+            textView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Constant.textViewLeadingConstraint),
+            textView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: Constant.textViewTrailingConstraint),
             textView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
         ])
     }
