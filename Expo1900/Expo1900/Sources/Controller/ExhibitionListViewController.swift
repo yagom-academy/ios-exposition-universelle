@@ -35,16 +35,11 @@ class ExhibitionListViewController: UIViewController {
     }
     
     private func decodeDataAsset(name: String) {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: name) else {
+        guard let itemsOfExposition = JSONDecoder.decodeAsset(name: name, to: [Exhibition].self) else {
             return
         }
         
-        do {
-            itemsOfExposition = try jsonDecoder.decode([Exhibition].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        self.itemsOfExposition = itemsOfExposition
     }
     
     private func exhibition(named: String) -> Exhibition? {

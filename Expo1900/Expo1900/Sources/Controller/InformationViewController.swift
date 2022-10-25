@@ -18,30 +18,33 @@ class InformationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let expositionAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            return
-        }
-        
-        do {
-            information = try jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
-            configureLables()
-        } catch {
-            print(error.localizedDescription)
-        }
+        decodeDataAsset(name: "exposition_universelle_1900")
+        configureLables()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationItem.backButtonTitle = "메인"
+        configureLables()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func configureNavigationBar() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationItem.backButtonTitle = "메인"
+    }
+    
+    private func decodeDataAsset(name: String) {
+        guard let information = JSONDecoder.decodeAsset(name: name, to: Exposition.self) else {
+            return
+        }
+        
+        self.information = information
     }
     
     private func configureLables() {
