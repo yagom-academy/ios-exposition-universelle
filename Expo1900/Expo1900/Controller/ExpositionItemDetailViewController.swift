@@ -22,9 +22,7 @@ final class ExpositionItemDetailViewController: UIViewController {
         itemDescriptionTextView.isEditable = false
         itemDescriptionTextView.isSelectable = false
     }
-}
 
-extension ExpositionItemDetailViewController {
     //MARK: - Private Method
     private func assignContentValue() {
         guard let item = item else {

@@ -37,9 +37,7 @@ final class MainViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
     }
-}
 
-extension MainViewController {
     //MARK: - Private Method
     private func fetchExpositionInformation() {
         guard let parsedData = JSONParser.parsed(to: ExpositionUniverselle.self) else {

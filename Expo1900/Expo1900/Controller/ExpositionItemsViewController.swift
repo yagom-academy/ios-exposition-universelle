@@ -33,9 +33,7 @@ final class ExpositionItemsViewController: UIViewController {
         
         nextViewController.item = item
     }
-}
 
-extension ExpositionItemsViewController {
     //MARK: - Private Method
     private func fetchExpositionItems() {
         guard let parsedData = JSONParser.parsed(to: [ExpositionUniverselleItem].self) else {
