@@ -7,7 +7,7 @@ import UIKit
 final class ExpositionItemDetailViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet private weak var itemImageView: UIImageView!
-    @IBOutlet private weak var itemDescriptionTextView: UITextView!
+    @IBOutlet private weak var itemDescriptionLabel: UILabel!
     
     //MARK: - Property
     var item: ExpositionUniverselleItem?
@@ -16,11 +16,9 @@ final class ExpositionItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        itemDescriptionLabel.numberOfLines = 0
         assignContentValue()
         self.title = item?.name
-        itemDescriptionTextView.isScrollEnabled = false
-        itemDescriptionTextView.isEditable = false
-        itemDescriptionTextView.isSelectable = false
     }
 
     //MARK: - Private Method
@@ -30,7 +28,6 @@ final class ExpositionItemDetailViewController: UIViewController {
         }
         
         itemImageView.image = UIImage(named: item.imageName)
-        itemDescriptionTextView.text = item.description
-        itemDescriptionTextView.isScrollEnabled = false
+        itemDescriptionLabel.text = item.description
     }
 }

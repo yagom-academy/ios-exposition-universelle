@@ -11,7 +11,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var visitorLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var showKoreanItemListButton: UIButton!
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
@@ -48,9 +48,7 @@ final class MainViewController: UIViewController {
     
     private func setUpInitialSetting() {
         self.title = titleText
-        self.descriptionTextView.isSelectable = false
-        self.descriptionTextView.isScrollEnabled = false
-        self.descriptionTextView.isEditable = false
+        descriptionLabel.numberOfLines = 0
         showKoreanItemListButton.setTitle(buttonTitleText, for: .normal)
         leftFlagImageView.image = UIImage(named: flagImageIdentifier)
         rightFlagImageView.image = UIImage(named: flagImageIdentifier)
@@ -66,6 +64,6 @@ final class MainViewController: UIViewController {
         visitorLabel.text = "방문객 : \(expositionUniverselle.visitors)명"
         locationLabel.text = "개최지 : \(expositionUniverselle.location)"
         durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
-        descriptionTextView.text = expositionUniverselle.description
+        descriptionLabel.text = expositionUniverselle.description
     }
 }
