@@ -43,10 +43,12 @@ final class ExpoViewController: UIViewController {
             expoData = try dataManager.fetchData(name: AssetName.expoIntroJSON)
         } catch {
             if let error = error as? DataError {
+                popErrorAlert(error: error)
                 #if DEBUG
                 NSLog(error.localizedDescription)
                 #endif
             } else {
+                popErrorAlert(error: DataError.unknownError)
                 #if DEBUG
                 NSLog(error.localizedDescription)
                 #endif
@@ -66,5 +68,12 @@ final class ExpoViewController: UIViewController {
             button.image = UIImage(named: AssetName.flagButtonImage)
         }
         nextButton.setTitle(Constant.nextButtonTitle, for: .normal)
+    }
+    
+    private func popErrorAlert(error: DataError) {
+        let alert = UIAlertController(title: error.localizedDescription, message: error.failureReason, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(confirm)
+        present(alert, animated: true, completion: nil)
     }
 }

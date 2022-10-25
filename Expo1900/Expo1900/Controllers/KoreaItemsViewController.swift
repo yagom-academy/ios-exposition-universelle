@@ -31,10 +31,12 @@ final class KoreaItemsViewController: UIViewController {
             koreaItems = try dataManager.fetchDataList(name: AssetName.koreaItemJSON)
         } catch {
             if let error = error as? DataError {
+                popErrorAlert(error: error)
                 #if DEBUG
                 NSLog(error.localizedDescription)
                 #endif
             } else {
+                popErrorAlert(error: DataError.unknownError)
                 #if DEBUG
                 NSLog(DataError.unknownError.localizedDescription)
                 #endif
@@ -50,6 +52,13 @@ final class KoreaItemsViewController: UIViewController {
     private func setNavigationBar() {
         navigationController?.navigationBar.tintColor = .black
         self.title = Constant.koreaItemsNavigationTitle
+    }
+    
+    private func popErrorAlert(error: DataError) {
+        let alert = UIAlertController(title: error.localizedDescription, message: error.failureReason, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(confirm)
+        present(alert, animated: true, completion: nil)
     }
 }
 
