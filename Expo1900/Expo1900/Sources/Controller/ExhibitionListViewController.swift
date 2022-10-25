@@ -10,13 +10,13 @@ import UIKit
 class ExhibitionListViewController: UIViewController {
     private var itemsOfExposition: [Exhibition] = []
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableViewInit()
-        decodeDataAsset(name: "items")
+        decodeDataAsset(name: Constant.exhibitionListAssetName)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,7 +31,8 @@ class ExhibitionListViewController: UIViewController {
     }
     
     private func tableViewInit() {
-        self.tableView.dataSource = self
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func decodeDataAsset(name: String) {
@@ -54,11 +55,11 @@ class ExhibitionListViewController: UIViewController {
 
 extension ExhibitionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.itemsOfExposition.count
+        return itemsOfExposition.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item: Exhibition = self.itemsOfExposition[indexPath.row]
+        let item: Exhibition = itemsOfExposition[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionListTableViewCell.identifier, for: indexPath) as? ExhibitionListTableViewCell else {
             return UITableViewCell()
         }
@@ -69,7 +70,7 @@ extension ExhibitionListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     private func configureCell(_ item : Exhibition, cell: ExhibitionListTableViewCell) {
@@ -78,3 +79,5 @@ extension ExhibitionListViewController: UITableViewDataSource {
         cell.nameLabel.text = item.name
     }
 }
+
+extension ExhibitionListViewController: UITableViewDelegate {}

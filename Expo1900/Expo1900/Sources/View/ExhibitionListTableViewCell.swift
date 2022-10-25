@@ -12,10 +12,10 @@ class ExhibitionListTableViewCell: UITableViewCell {
     @IBOutlet weak var shortDescriptionLabel: UILabel!
     @IBOutlet weak var exhibitionImageView: UIImageView!
     
-    static let identifier: String = "cell"
+    static let identifier: String = Constant.cellIdentifier
     var text: String {
         guard let text = nameLabel.text else {
-            return ""
+            return Constant.emptyText
         }
         return text
     }

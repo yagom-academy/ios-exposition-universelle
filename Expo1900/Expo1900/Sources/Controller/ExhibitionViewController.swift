@@ -24,8 +24,8 @@ class ExhibitionViewController: UIViewController {
             return
         }
         
-        self.navigationItem.title = exhibition.name
-        self.exhibitionImageView.image = UIImage(named: exhibition.imageName)
-        self.exhibitionDescriptionLabel.text = exhibition.description
+        navigationItem.title = exhibition.name
+        exhibitionImageView.image = UIImage(named: exhibition.imageName)
+        exhibitionDescriptionLabel.text = exhibition.description
     }
 }

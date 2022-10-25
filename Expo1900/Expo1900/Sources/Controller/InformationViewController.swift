@@ -9,34 +9,34 @@ import UIKit
 class InformationViewController: UIViewController {
     private var information: Exposition?
     
-    @IBOutlet weak var titleOfExposition: UILabel!
-    @IBOutlet weak var numberOfVisitors: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var duration: UILabel!
-    @IBOutlet weak var descriptionOfExposition: UILabel!
+    @IBOutlet weak private var titleOfExposition: UILabel!
+    @IBOutlet weak private var numberOfVisitors: UILabel!
+    @IBOutlet weak private var location: UILabel!
+    @IBOutlet weak private var duration: UILabel!
+    @IBOutlet weak private var descriptionOfExposition: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        decodeDataAsset(name: "exposition_universelle_1900")
-        configureLables()
+        decodeDataAsset(name: Constant.expositionAssetName)
+        configureLabels()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        configureLables()
+        configureNavigationBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func configureNavigationBar() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationItem.backButtonTitle = "메인"
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationItem.backButtonTitle = Constant.mainBackButtonTitle
     }
     
     private func decodeDataAsset(name: String) {
@@ -47,7 +47,7 @@ class InformationViewController: UIViewController {
         self.information = information
     }
     
-    private func configureLables() {
+    private func configureLabels() {
         titleOfExposition.text = information?.title
         numberOfVisitors.attributedText = attributedString(of: information?.numberOfVisitors)
         location.attributedText = attributedString(of: information?.location)
@@ -57,7 +57,7 @@ class InformationViewController: UIViewController {
     
     private func attributedString(of text: String?) -> NSMutableAttributedString? {
         guard let text = text,
-              let leftText = text.split(separator: ":").first else {
+              let leftText = text.split(separator: Constant.colon).first else {
             return nil
         }
         let leftTextFont: UIFont = UIFont.systemFont(ofSize: 20)
