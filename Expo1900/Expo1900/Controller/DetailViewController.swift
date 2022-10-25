@@ -25,6 +25,8 @@ final class DetailViewController: UIViewController {
         
         buildNavigationBar()
         buildDetailView()
+        configureAttribute()
+        configureImageViewConstraints()
     }
 
     private func buildNavigationBar() {
@@ -35,5 +37,24 @@ final class DetailViewController: UIViewController {
     private func buildDetailView() {
         detailImage.image = UIImage(named: entry.imageName)
         descriptionTextView.text = entry.description
+    }
+    
+    private func configureAttribute() {
+        descriptionTextView.font = .preferredFont(forTextStyle: .body)
+        descriptionTextView.adjustsFontForContentSizeCategory = true
+    }
+    
+    private func configureImageViewConstraints() {
+        guard let image = detailImage.image else { return }
+        
+        detailImage.translatesAutoresizingMaskIntoConstraints = false
+        detailImage.widthAnchor.constraint(
+            equalTo: view.widthAnchor,
+            multiplier: 0.6
+        ).isActive = true
+        detailImage.heightAnchor.constraint(
+            equalTo: detailImage.widthAnchor,
+             multiplier: image.size.height / image.size.width
+        ).isActive = true
     }
 }
