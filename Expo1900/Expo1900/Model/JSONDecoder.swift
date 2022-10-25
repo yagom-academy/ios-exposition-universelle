@@ -2,7 +2,7 @@
 //  JSONDecoder.swift
 //  Expo1900
 //
-//  Created by 서현웅 on 2022/10/20.
+//  Created by baem,woong on 2022/10/20.
 //
 
 import UIKit

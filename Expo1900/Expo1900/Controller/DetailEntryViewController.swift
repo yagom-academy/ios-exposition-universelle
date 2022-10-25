@@ -22,10 +22,10 @@ class DetailEntryViewController: UIViewController {
     }
     
     func configureViewFromReceivedData() {
-        guard let jsonImageName = jsonImageName else { return }
-        
-        self.navigationItem.title = jsonName
-        detailImageView.image = UIImage(named: jsonImageName)
-        detailLabel.text = jsonDesc
+        if let jsonImageName = jsonImageName {
+            self.navigationItem.title = jsonName
+            detailImageView.image = UIImage(named: jsonImageName)
+            detailLabel.text = jsonDesc
+        }
     }
 }
