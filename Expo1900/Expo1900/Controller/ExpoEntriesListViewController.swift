@@ -35,7 +35,9 @@ extension ExpoEntriesListViewController: UITableViewDataSource {
         guard let cell: ExpoEntryCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ExpoEntryCell,
               let expoEntry = manager.expoEntries?[indexPath.row] else { return ExpoEntryCell() }
         let image: UIImage? = manager.expoEntryImage(index: indexPath.row)
-        cell.configureContentsView(image: image, name: expoEntry.name, shortDescription: expoEntry.shortDescription)
+        cell.configureContentsView(image: image,
+                                   name: expoEntry.name,
+                                   shortDescription: expoEntry.shortDescription)
         return cell
     }
     
