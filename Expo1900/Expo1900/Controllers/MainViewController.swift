@@ -8,6 +8,15 @@ import UIKit
 
 final class MainViewController: UIViewController {
     @IBOutlet private weak var stackView: UIStackView!
+    
+    private weak var koreanTitleLabel: UILabel!
+    private weak var englishTitleLabel: UILabel!
+    private weak var locationLabel: UILabel!
+    private weak var durationLabel: UILabel!
+    private weak var visitorsLabel: UILabel!
+    private weak var descriptionLabel: UILabel!
+    private weak var posterImageView: UIImageView!
+    private weak var koreanItemsViewButton: UIButton!
     private var exposition: Exposition?
     
     override func viewDidLoad() {
@@ -21,13 +30,6 @@ final class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func decodeExposition(_ file: String) -> Exposition? {
-        guard let expositionAsset: NSDataAsset = NSDataAsset(name: file) else { return nil }
-        let exposition = try? Converter.jsonDecoder.decode(Exposition.self, from: expositionAsset.data)
-        
-        return exposition
-    }
-    
     private func configureLabel(text: String?, textStyle: UIFont.TextStyle, numberOfLines: Int = 1) -> UILabel {
         let label = UILabel()
         label.text = text
@@ -37,27 +39,24 @@ final class MainViewController: UIViewController {
         return label
     }
     
-    private func configureView() {
-        let koreanTitleLabel: UILabel = configureLabel(text: exposition?.koreanTitle, textStyle: .title1)
-        let englishTitleLabel: UILabel = configureLabel(text: exposition?.englishTitle, textStyle: .title1)
-        let visitorsLabel: UILabel = configureLabel(text: "방문객 : \(Converter.numberFormatter.string(for: exposition?.visitors) ?? "")",
-                                                    textStyle: .title3)
-        let locationLabel: UILabel = configureLabel(text: "개최지 : \(exposition?.location ?? "")",
-                                                    textStyle: .title3)
-        let durationLabel: UILabel = configureLabel(text: "개최 기간 : \(exposition?.duration ?? "")",
-                                                    textStyle: .title3)
-        let descriptionLabel: UILabel = configureLabel(text: exposition?.description,
-                                                       textStyle: .body,
-                                                       numberOfLines: 0)
-        
-        let posterImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "poster")
-            
-            return imageView
-        }()
-        
-        let koreanItemsViewButton: UIButton = {
+    private func configureLabels() {
+        koreanTitleLabel = configureLabel(text:exposition?.koreanTitle,
+                                          textStyle: .title1)
+        englishTitleLabel = configureLabel(text: exposition?.englishTitle,
+                                           textStyle: .title1)
+        visitorsLabel = configureLabel(text: "방문객 : \(Converter.numberFormatter.string(for: exposition?.visitors) ?? "")",
+                                       textStyle: .title3)
+        locationLabel = configureLabel(text: "개최지 : \(exposition?.location ?? "")",
+                                       textStyle: .title3)
+        durationLabel = configureLabel(text: "개최 기간 : \(exposition?.duration ?? "")",
+                                       textStyle: .title3)
+        descriptionLabel = configureLabel(text: exposition?.description,
+                                          textStyle: .body,
+                                          numberOfLines: 0)
+    }
+    
+    private func configureButton() {
+        koreanItemsViewButton = {
             let button = UIButton()
             let action = UIAction { _ in
                 self.navigationController?.isNavigationBarHidden = false
@@ -69,7 +68,9 @@ final class MainViewController: UIViewController {
             
             return button
         }()
-        
+    }
+    
+    func addSubviews() {
         stackView.addArrangedSubview(koreanTitleLabel)
         stackView.addArrangedSubview(englishTitleLabel)
         
@@ -81,5 +82,12 @@ final class MainViewController: UIViewController {
         stackView.addArrangedSubview(descriptionLabel)
         
         stackView.addArrangedSubview(koreanItemsViewButton)
+    }
+    
+    private func configureView() {
+        configureLabels()
+        posterImageView.image = UIImage(named: "poster")
+        configureButton()
+        addSubviews()
     }
 }
