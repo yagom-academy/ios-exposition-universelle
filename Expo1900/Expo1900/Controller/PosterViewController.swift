@@ -29,14 +29,13 @@ class PosterViewController: UIViewController {
     }
     
     func configureViewFromDecodedData() {
-        guard let bindedTitle = expositionParis?.title else { return }
-        guard let bindedVisitors = expositionParis?.visitors else { return }
-        
-        titleLabel.text = splitParagraph(of: bindedTitle)
-        visitorsLabel.text = "\(formatNumber(num: bindedVisitors)) 명"
-        locationLabel.text = expositionParis?.location
-        durationLabel.text = expositionParis?.duration
-        descriptionLabel.text = expositionParis?.description
+        if let bindedTitle = expositionParis?.title, let bindedVisitors = expositionParis?.visitors {
+            titleLabel.text = splitParagraph(of: bindedTitle)
+            visitorsLabel.text = "\(formatNumber(num: bindedVisitors)) 명"
+            locationLabel.text = expositionParis?.location
+            durationLabel.text = expositionParis?.duration
+            descriptionLabel.text = expositionParis?.description
+        }
     }
     
     func configureViewFromImageAsset() {
