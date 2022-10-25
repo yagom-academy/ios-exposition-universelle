@@ -8,7 +8,6 @@
 import UIKit
 
 class ExhibitionListViewController: UIViewController {
-    private let cellIdentifier: String = "cell"
     private var itemsOfExposition: [Exhibition] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,11 +26,8 @@ class ExhibitionListViewController: UIViewController {
         guard let cell = sender as? ExhibitionListTableViewCell else {
             return
         }
-        guard let text = cell.nameLabel.text else {
-            return
-        }
         
-        exhibitionViewController.exhibition = exhibition(named: text)
+        exhibitionViewController.exhibition = exhibition(named: cell.text)
     }
     
     private func tableViewInit() {
@@ -68,7 +64,7 @@ extension ExhibitionListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item: Exhibition = self.itemsOfExposition[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ExhibitionListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionListTableViewCell.identifier, for: indexPath) as? ExhibitionListTableViewCell else {
             return UITableViewCell()
         }
         

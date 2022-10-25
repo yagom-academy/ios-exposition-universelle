@@ -11,4 +11,12 @@ class ExhibitionListTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var shortDescriptionLabel: UILabel!
     @IBOutlet weak var exhibitionImageView: UIImageView!
+    
+    static let identifier: String = "cell"
+    var text: String {
+        guard let text = nameLabel.text else {
+            return ""
+        }
+        return text
+    }
 }
