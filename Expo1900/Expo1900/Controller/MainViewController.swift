@@ -42,7 +42,7 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     //MARK: - Private Method
     private func fetchExpositionInformation() {
-        guard let parsedData = JSONParser.parseJSON(ExpositionUniverselle.self, from: DataAsset.expositionUniverselleInfomation) else {
+        guard let parsedData = JSONParser.parsed(to: ExpositionUniverselle.self) else {
             return
         }
         expositionUniverselle = parsedData

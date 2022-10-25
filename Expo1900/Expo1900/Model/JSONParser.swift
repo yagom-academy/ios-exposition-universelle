@@ -4,12 +4,13 @@
 
 import UIKit
 
-struct JSONParser {
-    private init() {}
-    static func parseJSON<T>(_ dataType: T.Type, from dataName: String) -> T? where T: Decodable {
-        guard let dataAsset: NSDataAsset = fetchDataAsset(from: dataName) else {
+enum JSONParser {
+    static func parsed<T>(to dataType: T.Type) -> T? where T: Decodable {
+        guard let dataName: String = fetchDataName(for: dataType),
+              let dataAsset: NSDataAsset = fetchDataAsset(from: dataName) else {
             return nil
         }
+        
         let decoder: JSONDecoder = JSONDecoder()
         
         do {
@@ -21,5 +22,16 @@ struct JSONParser {
     
     private static func fetchDataAsset(from dataName: String) -> NSDataAsset? {
         return NSDataAsset(name: dataName)
+    }
+    
+    private static func fetchDataName<T>(for dataType: T.Type) -> String? {
+        switch dataType {
+        case is ExpositionUniverselle.Type:
+            return DataAsset.expositionUniverselleInfomation
+        case is Array<ExpositionUniverselleItem>.Type:
+            return DataAsset.expositionItems
+        default:
+            return nil
+        }
     }
 }
