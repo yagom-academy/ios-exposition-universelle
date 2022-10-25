@@ -11,12 +11,11 @@ final class EntryDetailViewController: UIViewController {
     
     @IBOutlet private weak var descriptionTextView: UITextView!
     @IBOutlet private weak var imageView: UIImageView!
-    typealias ExpoEntryData = (image: UIImage?, name: String, description: String)
-    private var expoEntry: ExpoEntryData?
+    private var expoEntryData: ExpoEntryData?
     
-    init?(coder: NSCoder, entry: ExpoEntryData?) {
+    init?(coder: NSCoder, expoEntryData: ExpoEntryData) {
         super.init(coder: coder)
-        self.expoEntry = entry
+        self.expoEntryData = expoEntryData
     }
 
     required init?(coder: NSCoder) {
@@ -26,14 +25,13 @@ final class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureEntryViews(expoEntry: expoEntry)
+        configureEntryViews(expoEntryData: expoEntryData)
     }
     
-    private func configureEntryViews(expoEntry: ExpoEntryData?) {
-        guard let expoEntry = expoEntry else { return }
-        navigationItem.title = expoEntry.name
-        imageView.image = expoEntry.image
-        descriptionTextView.text = expoEntry.description
+    private func configureEntryViews(expoEntryData: ExpoEntryData?) {
+        navigationItem.title = expoEntryData?.name
+        imageView.image = expoEntryData?.image
+        descriptionTextView.text = expoEntryData?.description
     }
 }
 

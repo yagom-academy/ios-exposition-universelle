@@ -11,7 +11,7 @@ final class ExpoEntriesListViewController: UIViewController {
     
     @IBOutlet private weak var expoEntriesListTableView: UITableView!
     private var manager: ExpoEntriesManager = ExpoEntriesManager()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,11 +48,11 @@ extension ExpoEntriesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let expoEntry = manager.expoEntries?[indexPath.row] else { return }
-        let entryData: (UIImage?, String, String) = (manager.expoEntryImage(index: indexPath.row),
-                                                    expoEntry.name,
-                                                    expoEntry.description)
-        guard let entryDetailViewController: EntryDetailViewController = self.storyboard?.instantiateViewController(identifier: "EntryViewController", creator: { (coder) -> EntryDetailViewController? in
-            return EntryDetailViewController(coder: coder, entry: entryData)
+        let expoEntryData: ExpoEntryData = (manager.expoEntryImage(index: indexPath.row),
+                                            expoEntry.name,
+                                            expoEntry.description)
+        guard let entryDetailViewController: EntryDetailViewController = self.storyboard?.instantiateViewController(identifier: "EntryDetailViewController", creator: { (coder) -> EntryDetailViewController? in
+            return EntryDetailViewController(coder: coder, expoEntryData: expoEntryData)
         }) as? EntryDetailViewController else { return }
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }

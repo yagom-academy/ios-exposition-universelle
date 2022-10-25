@@ -2,11 +2,10 @@
 //  ExpoEntriesManager.swift
 //  Expo1900
 //
-//  Created by 유제민 on 2022/10/24.
+//  Created by Jeremy, 준호 on 2022/10/24.
 //
 
-import Foundation
-import UIKit
+import UIKit.NSDataAsset
 
 struct ExpoEntriesManager {
     private(set) var expoEntries: [ExpoEntry]?

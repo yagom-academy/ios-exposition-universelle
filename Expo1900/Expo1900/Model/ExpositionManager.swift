@@ -5,8 +5,7 @@
 //  Created by Jeremy, 준호 on 2022/10/24.
 //
 
-import Foundation.NSNumberFormatter
-import UIKit
+import UIKit.NSDataAsset
 
 struct ExpositionManager {
     private(set) var exposition: Exposition?
