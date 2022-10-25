@@ -10,16 +10,14 @@ import UIKit
 class EntryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    let customCell = "entryTableViewCell"
     var items: [Items]?
-    
+    let a = Namespace.customCell
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         
         items = JSONDecoder.decodeData("items", to: [Items].self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,7 +37,7 @@ extension EntryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: customCell, for: indexPath) as? EntryTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Namespace.customCell, for: indexPath) as? EntryTableViewCell else { return UITableViewCell() }
         
         guard let items = items else { return UITableViewCell() }
         
