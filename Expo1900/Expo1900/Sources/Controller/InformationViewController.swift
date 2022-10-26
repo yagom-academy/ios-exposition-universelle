@@ -25,18 +25,28 @@ class InformationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        configureNavigationBar()
+        configureNavigationBar(hidden: true)
+        setOrientation(direction: .portrait)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        configureNavigationBar(hidden: false)
     }
     
-    private func configureNavigationBar() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationItem.backButtonTitle = Constant.mainBackButtonTitle
+    private func setOrientation(direction: UIInterfaceOrientation) {
+        UIDevice.current.setValue(direction.rawValue, forKey: "orientation")
+        OrientationMaskController.attemptRotationToDeviceOrientation()
+    }
+    
+    private func configureNavigationBar(hidden: Bool) {
+        if hidden {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+            navigationItem.backButtonTitle = Constant.mainBackButtonTitle
+        } else {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
     
     private func decodeDataAsset(name: String) {
@@ -49,6 +59,7 @@ class InformationViewController: UIViewController {
     
     private func configureLabels() {
         titleOfExposition.text = information?.title
+        titleOfExposition.adjustsFontSizeToFitWidth = true
         numberOfVisitors.attributedText = attributedString(of: information?.numberOfVisitors)
         location.attributedText = attributedString(of: information?.location)
         duration.attributedText = attributedString(of: information?.duration)
