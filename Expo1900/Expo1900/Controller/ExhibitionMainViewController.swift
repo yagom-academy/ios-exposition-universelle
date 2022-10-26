@@ -108,6 +108,16 @@ class ExhibitionMainViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     @objc func tappedButton(_ sender: UIButton) {
         let exhibitionWorkListViewController = ExhibitionWorkListViewController()
         self.present(exhibitionWorkListViewController, animated: true, completion: nil)
