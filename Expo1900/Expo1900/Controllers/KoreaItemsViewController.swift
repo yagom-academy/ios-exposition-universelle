@@ -9,6 +9,10 @@ import UIKit
 
 final class KoreaItemsViewController: UIViewController {
     
+    enum Constant {
+        static let koreaItemsNavigationTitle = "한국의 출품작"
+    }
+
     @IBOutlet private weak var koreanItemsTable: UITableView!
     private let dataManager: DecodeManger = DecodeManger<KoreaItem>()
     private var koreaItems: [KoreaItem] = []
