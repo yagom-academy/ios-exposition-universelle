@@ -51,14 +51,17 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = entriesTableView.dequeueReusableCell(withIdentifier: "cell",
-                                                                         for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.image = UIImage(named: koreanEntries[indexPath.row].imageName)
-        content.text = koreanEntries[indexPath.row].name
-        content.secondaryText = koreanEntries[indexPath.row].shortDescription
-        cell.contentConfiguration = content
-        return cell
+        guard let entryCell: EntryTableViewCell = entriesTableView.dequeueReusableCell(
+            withIdentifier: "cell",
+            for: indexPath) as? EntryTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        entryCell.entryImageView.image = UIImage(named: koreanEntries[indexPath.row].imageName)
+        entryCell.entryTitleLabel.text = koreanEntries[indexPath.row].name
+        entryCell.enrtyShortDescriptionLabel.text = koreanEntries[indexPath.row].shortDescription
+        
+        return entryCell
     }
 }
 
