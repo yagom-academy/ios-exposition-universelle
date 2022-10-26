@@ -12,7 +12,8 @@ final class KoreanEntriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        koreanEntriesTableView.register(UINib(nibName: "KoreanEntryTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+
         loadKoreanEntries()
         navigationController?.isNavigationBarHidden = false
     }
@@ -57,18 +58,18 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = koreanEntriesTableView.dequeueReusableCell(
+        let customCell: KoreanEntryTableViewCell = koreanEntriesTableView.dequeueReusableCell(
             withIdentifier: self.cellIdentifier,
             for: indexPath
-        )
-        let entry: KoreanEntry = self.koreanEntries[indexPath.row]
-        var content = cell.defaultContentConfiguration()
+        ) as? KoreanEntryTableViewCell ?? KoreanEntryTableViewCell()
         
-        content.image = UIImage(named: entry.imageName)
-        content.text = entry.name
-        content.secondaryText = entry.shortDescription
-        cell.contentConfiguration = content
-        return cell
+        let entry: KoreanEntry = self.koreanEntries[indexPath.row]
+        
+        customCell.entryImage.image = UIImage(named: entry.imageName)
+        customCell.entryTitleLabel.text = entry.name
+        customCell.entryShortDescription.text = entry.shortDescription
+        
+        return customCell
     }
 }
 
