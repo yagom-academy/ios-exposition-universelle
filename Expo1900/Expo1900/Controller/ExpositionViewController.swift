@@ -8,6 +8,10 @@ import UIKit
 
 final class ExpositionViewController: UIViewController {
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
