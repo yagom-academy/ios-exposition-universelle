@@ -37,9 +37,9 @@ final class ExpoViewController: UIViewController {
     }
     
     @IBAction private func nextButtonTapped(_ sender: UIButton) {
-        guard let koreaItemsVC = storyboard?.instantiateViewController(withIdentifier: koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
+        guard let koreaItemsViewController = storyboard?.instantiateViewController(withIdentifier: koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
         
-        navigationController?.pushViewController(koreaItemsVC, animated: true)
+        navigationController?.pushViewController(koreaItemsViewController, animated: true)
     }
     
     private func setData() {

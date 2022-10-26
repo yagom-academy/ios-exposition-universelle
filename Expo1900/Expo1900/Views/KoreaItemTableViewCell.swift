@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaItemTableViewCell: UITableViewCell {
+final class KoreaItemTableViewCell: UITableViewCell {
     
     static let cellIdentifier = "itemCell"
     
