@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0470DB61290785060044EF1A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470DB60290785050044EF1A /* TableViewCell.swift */; };
 		0480992F28FE38D4007BC1D5 /* ExpositionUniverselleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480992E28FE38D4007BC1D5 /* ExpositionUniverselleItem.swift */; };
 		04BD7A8629016882009CEB8D /* ExpositionItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD7A8529016882009CEB8D /* ExpositionItemsViewController.swift */; };
 		04BD7A88290174CB009CEB8D /* ExpositionItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD7A87290174CB009CEB8D /* ExpositionItemDetailViewController.swift */; };
@@ -18,12 +17,12 @@
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
+		D3676C50290952CB003CE49F /* ExpositionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3676C4F290952CB003CE49F /* ExpositionItemCell.swift */; };
 		D3710F2C29027E23004517A9 /* NameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3710F2B29027E23004517A9 /* NameSpace.swift */; };
 		D37252D428FE36C000183A2C /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37252D328FE36C000183A2C /* ExpositionUniverselle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0470DB60290785050044EF1A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0480992E28FE38D4007BC1D5 /* ExpositionUniverselleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselleItem.swift; sourceTree = "<group>"; };
 		04BD7A8529016882009CEB8D /* ExpositionItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemsViewController.swift; sourceTree = "<group>"; };
 		04BD7A87290174CB009CEB8D /* ExpositionItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemDetailViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3676C4F290952CB003CE49F /* ExpositionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemCell.swift; sourceTree = "<group>"; };
 		D3710F2B29027E23004517A9 /* NameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameSpace.swift; sourceTree = "<group>"; };
 		D37252D328FE36C000183A2C /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				0470DB60290785050044EF1A /* TableViewCell.swift */,
+				D3676C4F290952CB003CE49F /* ExpositionItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,12 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3676C50290952CB003CE49F /* ExpositionItemCell.swift in Sources */,
 				04BD7A88290174CB009CEB8D /* ExpositionItemDetailViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				04BD7A8629016882009CEB8D /* ExpositionItemsViewController.swift in Sources */,
 				04DC460B290287CF0051D947 /* JSONParser.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
-				0470DB61290785060044EF1A /* TableViewCell.swift in Sources */,
 				D37252D428FE36C000183A2C /* ExpositionUniverselle.swift in Sources */,
 				0480992F28FE38D4007BC1D5 /* ExpositionUniverselleItem.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,

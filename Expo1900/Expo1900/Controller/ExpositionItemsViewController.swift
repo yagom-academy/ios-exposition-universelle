@@ -50,7 +50,9 @@ extension ExpositionItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: Identifier.expositionTableViewCell, for: indexPath)
+        guard let cell: ExpositionItemCell = tableView.dequeueReusableCell(withIdentifier: Identifier.expositionTableViewCell, for: indexPath) as? ExpositionItemCell else {
+            return UITableViewCell()
+        }
         let expositionItem: ExpositionUniverselleItem = self.expositionItems[indexPath.row]
         
         cell.configure(for: expositionItem)
