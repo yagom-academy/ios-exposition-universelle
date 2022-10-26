@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* PosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* PosterViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
-		D21CE8AF28FD468900309D21 /* ExpositionParis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21CE8AE28FD468900309D21 /* ExpositionParis.swift */; };
+		D2BE1BF72907D846005DB6D9 /* FormatterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE1BF62907D846005DB6D9 /* FormatterError.swift */; };
+		D2CE73402901782F00B2EEF7 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE733F2901782F00B2EEF7 /* JSONDecoder.swift */; };
+		D2D9B52B28FF9DF9004FE198 /* ExpositionParis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */; };
+		D2D9B52D28FFBF90004FE198 /* DetailEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */; };
+		F6B179902907CB72005B8C5A /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1798F2907CB72005B8C5A /* Namespace.swift */; };
+		FC2684E228FF9B1900A02E7F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2684E128FF9B1900A02E7F /* EntryViewController.swift */; };
+		FC2684E428FFA85C00A02E7F /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */; };
 		FCDC20FB28FD48BC009B994E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDC20FA28FD48BC009B994E /* Items.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,12 +27,18 @@
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* PosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D21CE8AE28FD468900309D21 /* ExpositionParis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionParis.swift; sourceTree = "<group>"; };
+		D2BE1BF62907D846005DB6D9 /* FormatterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterError.swift; sourceTree = "<group>"; };
+		D2CE733F2901782F00B2EEF7 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpositionParis.swift; sourceTree = "<group>"; };
+		D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntryViewController.swift; sourceTree = "<group>"; };
+		F6B1798F2907CB72005B8C5A /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
+		FC2684E128FF9B1900A02E7F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		FCDC20FA28FD48BC009B994E /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,15 +74,45 @@
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				D21CE8AE28FD468900309D21 /* ExpositionParis.swift */,
-				FCDC20FA28FD48BC009B994E /* Items.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				F615F71C290177200022C137 /* Controller */,
+				F615F71E290177310022C137 /* Model */,
+				F615F71D290177290022C137 /* View */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		F615F71C290177200022C137 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* PosterViewController.swift */,
+				FC2684E128FF9B1900A02E7F /* EntryViewController.swift */,
+				D2D9B52C28FFBF90004FE198 /* DetailEntryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F615F71D290177290022C137 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC2684E328FFA85C00A02E7F /* EntryTableViewCell.swift */,
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F615F71E290177310022C137 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6B1798F2907CB72005B8C5A /* Namespace.swift */,
+				D2D9B52A28FF9DF9004FE198 /* ExpositionParis.swift */,
+				FCDC20FA28FD48BC009B994E /* Items.swift */,
+				D2CE733F2901782F00B2EEF7 /* JSONDecoder.swift */,
+				D2BE1BF62907D846005DB6D9 /* FormatterError.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* PosterViewController.swift in Sources */,
 				FCDC20FB28FD48BC009B994E /* Items.swift in Sources */,
-				D21CE8AF28FD468900309D21 /* ExpositionParis.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				F6B179902907CB72005B8C5A /* Namespace.swift in Sources */,
+				D2CE73402901782F00B2EEF7 /* JSONDecoder.swift in Sources */,
+				FC2684E428FFA85C00A02E7F /* EntryTableViewCell.swift in Sources */,
+				D2D9B52B28FF9DF9004FE198 /* ExpositionParis.swift in Sources */,
+				FC2684E228FF9B1900A02E7F /* EntryViewController.swift in Sources */,
+				D2BE1BF72907D846005DB6D9 /* FormatterError.swift in Sources */,
+				D2D9B52D28FFBF90004FE198 /* DetailEntryViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
