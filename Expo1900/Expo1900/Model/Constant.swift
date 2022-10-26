@@ -18,8 +18,7 @@ enum Constant {
     static let entityButtonTitle = "한국의 출품작 보러가기"
     static let posterImageName = "poster"
     
-    static let visitorsPrefix = "방문객 : "
-    static let visitorsUnit = "명"
+    static let visitorsText = "방문객 : %@ 명"
     
     static let locationPrefix = "개최지 : "
     static let durationPrefix = "개최기간 : "

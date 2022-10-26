@@ -29,7 +29,7 @@ struct Exposition: Decodable {
         formatter.numberStyle = .decimal
         let formattedNumber = formatter.string(for: originVisitors) ?? Constant.zero
         
-        return Constant.visitorsPrefix + formattedNumber + Constant.visitorsUnit
+        return String(format: Constant.visitorsText, formattedNumber)
     }
     
     var location: String {
