@@ -29,14 +29,10 @@ final class KoreaEntitiesViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension KoreaEntitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = EntityDetailViewController()
         let entity = entities[indexPath.row]
+        let destinationViewController = EntityDetailViewController(entity: entity)
         
-        vc.setImageView(imageName: entity.imageName)
-        vc.setDescriptionLabel(description: entity.description)
-        vc.navigationItem.title = entity.name
-        
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(destinationViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

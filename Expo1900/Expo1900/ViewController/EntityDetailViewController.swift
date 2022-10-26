@@ -15,6 +15,17 @@ final class EntityDetailViewController: UIViewController {
     
     private let contentView = EntityDetailContentView()
     
+    init(entity: Entity) {
+        super.init(nibName: nil, bundle: nil)
+        setImageView(imageName: entity.imageName)
+        setDescriptionLabel(description: entity.description)
+        navigationItem.title = entity.name
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,7 +33,10 @@ final class EntityDetailViewController: UIViewController {
         setUpLayout()
         setContentView()
     }
-    
+}
+
+// MARK: - View Update 관련 메서드
+private extension EntityDetailViewController {
     func setImageView(imageName: String) {
         contentView.setImageView(imageName: imageName)
     }
