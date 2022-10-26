@@ -9,7 +9,7 @@ import UIKit
 
 final class KoreaItemTableViewCell: UITableViewCell {
     
-    static let cellIdentifier = "itemCell"
+    static let cellIdentifier = String.init(describing: KoreaItemTableViewCell.self)
     
     private enum Constant {
         static let mainImageViewleadingConstraint: CGFloat = 20

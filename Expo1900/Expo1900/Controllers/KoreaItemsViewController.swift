@@ -9,6 +9,8 @@ import UIKit
 
 final class KoreaItemsViewController: UIViewController {
     
+    static let koreaItemsVCIdentifier = String.init(describing: KoreaItemsViewController.self)
+    
     enum Constant {
         static let koreaItemsNavigationTitle = "한국의 출품작"
     }

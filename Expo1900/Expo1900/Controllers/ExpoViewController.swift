@@ -12,8 +12,6 @@ final class ExpoViewController: UIViewController {
         static let nextButtonTitle = "한국의 출품작 보러가기"
     }
     
-    private let koreaItemsVCIdentifier = "koreaItemsVC"
-    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var mainImage: UIImageView!
     @IBOutlet private weak var visitorLabel: UILabel!
@@ -37,7 +35,7 @@ final class ExpoViewController: UIViewController {
     }
     
     @IBAction private func nextButtonTapped(_ sender: UIButton) {
-        guard let koreaItemsViewController = storyboard?.instantiateViewController(withIdentifier: koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
+        guard let koreaItemsViewController = storyboard?.instantiateViewController(withIdentifier: KoreaItemsViewController.koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
         
         navigationController?.pushViewController(koreaItemsViewController, animated: true)
     }
