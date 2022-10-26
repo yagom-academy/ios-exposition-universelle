@@ -37,10 +37,10 @@ final class PosterContentView: UIView {
     }
     
     func setViewData(exposition: Exposition?) {
-        titleLabel.text = exposition?.titleData
-        visitorsLabel.text = exposition?.visitorsData
-        locationLabel.text = exposition?.locationData
-        durationLabel.text = exposition?.durationData
+        titleLabel.text = exposition?.title
+        visitorsLabel.text = exposition?.visitors
+        locationLabel.text = exposition?.location
+        durationLabel.text = exposition?.duration
         descriptionLabel.text = exposition?.description
     }
 }

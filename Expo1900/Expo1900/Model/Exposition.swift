@@ -6,28 +6,37 @@
 import Foundation
 
 struct Exposition: Decodable {
-    let title: String
-    let visitors: Int
-    let location: String
-    let duration: String
+    private let originTitle: String
+    private let originVisitors: Int
+    private let originLocation: String
+    private let originDuration: String
     let description: String
     
-    var titleData: String {
-        return title.replacingOccurrences(of: "(", with: "\n(")
+    enum CodingKeys: String, CodingKey {
+        case originTitle = "title"
+        case originVisitors = "visitors"
+        case originLocation = "location"
+        case originDuration = "duration"
+        case description
     }
     
-    var visitorsData: String {
+    var title: String {
+        return originTitle.replacingOccurrences(of: "(", with: "\n(")
+    }
+    
+    var visitors: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        let formattedNumber = formatter.string(for: visitors) ?? Constant.zero
+        let formattedNumber = formatter.string(for: originVisitors) ?? Constant.zero
+        
         return Constant.visitorsPrefix + formattedNumber + Constant.visitorsUnit
     }
     
-    var locationData: String {
-        return Constant.locationPrefix + location
+    var location: String {
+        return Constant.locationPrefix + originLocation
     }
     
-    var durationData: String {
-        return Constant.durationPrefix + duration
+    var duration: String {
+        return Constant.durationPrefix + originDuration
     }
 }
