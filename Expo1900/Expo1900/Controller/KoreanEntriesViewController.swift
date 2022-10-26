@@ -12,19 +12,13 @@ final class KoreanEntriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        koreanEntriesTableView.register(UINib(nibName: "KoreanEntryTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        koreanEntriesTableView.register(
+            UINib(nibName: "KoreanEntryTableViewCell", bundle: nil),
+            forCellReuseIdentifier: cellIdentifier
+        )
 
         loadKoreanEntries()
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showEntryDetail" {
-            guard let entriesDetailViewController = segue.destination as? EntriesDetailViewController,
-                  let indexPath = koreanEntriesTableView.indexPathForSelectedRow else { return }
-            
-            entriesDetailViewController.koreanEntry = koreanEntries[indexPath.row]
-        }
     }
     
     private func loadKoreanEntries() {
@@ -75,4 +69,12 @@ extension KoreanEntriesViewController: UITableViewDataSource {
 
 extension KoreanEntriesViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entriesDetailViewController =
+        storyboard?.instantiateViewController(withIdentifier: "entriesDetailViewController") as?
+        EntriesDetailViewController ?? EntriesDetailViewController()
+        
+        entriesDetailViewController.koreanEntry = koreanEntries[indexPath.row]
+        show(entriesDetailViewController, sender: nil)
+    }
 }
