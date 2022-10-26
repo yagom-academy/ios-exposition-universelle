@@ -6,7 +6,6 @@
 //
 
 enum Constant {
-    static let cellIdentifier: String = "cell"
     static let emptyText: String = ""
     static let expositionAssetName: String = "exposition_universelle_1900"
     static let mainBackButtonTitle: String = "메인"
