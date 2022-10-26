@@ -27,14 +27,13 @@ extension KoreanItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = koreanItemsTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        guard let cell: ItemCell = koreanItemsTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ItemCell else {
+            return UITableViewCell()
+        }
         
-        cell.accessoryType = .disclosureIndicator
-        cell.imageView?.image = UIImage(named: items?[indexPath.row].imageName ?? "")
-        cell.textLabel?.text = items?[indexPath.row].name
-        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
-        cell.detailTextLabel?.text = items?[indexPath.row].shortDesc
-        cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        cell.itemImageView?.image = UIImage(named: items?[indexPath.row].imageName ?? "")
+        cell.titleLabel?.text = items?[indexPath.row].name
+        cell.subtitleLabel?.text = items?[indexPath.row].shortDesc
         
         return cell
     }
