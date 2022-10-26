@@ -21,8 +21,6 @@ class InformationViewController: UIViewController {
         
         decodeDataAsset(name: Constant.expositionAssetName)
         configureLabels()
-        
-        showExhibitionListViewButton.titleLabel?.textAlignment = .center
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +66,7 @@ class InformationViewController: UIViewController {
         location.attributedText = attributedString(of: information?.location)
         duration.attributedText = attributedString(of: information?.duration)
         descriptionOfExposition.text = information?.description
+        showExhibitionListViewButton.titleLabel?.textAlignment = .center
     }
     
     private func configureAdjustFont() {
