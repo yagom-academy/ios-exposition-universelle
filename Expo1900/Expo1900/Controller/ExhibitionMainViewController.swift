@@ -88,6 +88,7 @@ class ExhibitionMainViewController: UIViewController {
     }()
     
     var expositionPoster: ExpositionPoster?
+    private let delegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,11 +112,13 @@ class ExhibitionMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        delegate.changeOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.isNavigationBarHidden = false
+        delegate.changeOrientation = true
     }
     
     @objc func tappedButton(_ sender: UIButton) {
