@@ -9,7 +9,7 @@ import UIKit
 
 final class EntryDetailViewController: UIViewController {
     @IBOutlet private weak var entryImageView: UIImageView!
-    @IBOutlet private weak var entryDetailTextView: UITextView!
+    @IBOutlet private weak var entryDetailLabel: UILabel!
     
     var entryImage: UIImage?
     var entryDescription: String?
@@ -23,6 +23,6 @@ final class EntryDetailViewController: UIViewController {
     
     private func setViewToDisplay() {
         entryImageView.image = entryImage
-        entryDetailTextView.text = entryDescription
+        entryDetailLabel.text = entryDescription
     }
 }

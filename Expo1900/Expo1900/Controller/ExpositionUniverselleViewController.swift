@@ -11,7 +11,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     private var expositionUniverselle: ExpositionUniverselle?
     private let jsonDecodingManager: JSONDecodingManager = JSONDecodingManager()
@@ -51,7 +51,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private func setTextToDisplay() {
         guard let expositionUniverselle = expositionUniverselle else {
-            descriptionTextView.text = "데이터를 불러오는데 실패했습니다."
+            descriptionLabel.text = "데이터를 불러오는데 실패했습니다."
             return
         }
         let formattedVisitor: String = changeNumberFormat(
@@ -72,7 +72,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         durationLabel.attributedText = duration.createAttributed(target: ExpoConstant.duration,
                                                                  key: .font,
                                                                  value: ExpoConstant.mediumFont)
-        descriptionTextView.text = expositionUniverselle.description
+        descriptionLabel.text = expositionUniverselle.description
     }
     
     private func changeNumberFormat(number: String) -> String {
