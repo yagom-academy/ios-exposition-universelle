@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExhibitionListViewController: UIViewController {
+final class ExhibitionListViewController: UIViewController {
     private var itemsOfExposition: [Exhibition] = []
     
     @IBOutlet weak private var tableView: UITableView!
@@ -66,8 +66,11 @@ extension ExhibitionListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item: Exhibition = itemsOfExposition[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionListTableViewCell.identifier, for: indexPath) as? ExhibitionListTableViewCell else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellIdentifier, for: indexPath) as? ExhibitionListTableViewCell else {
+            let cell = ExhibitionListTableViewCell()
+            cell.identifier = Constant.cellIdentifier
+            
+            return cell
         }
         
         configureCell(item, cell: cell)

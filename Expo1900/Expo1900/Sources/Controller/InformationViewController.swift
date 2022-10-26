@@ -6,7 +6,7 @@
 
 import UIKit
 
-class InformationViewController: UIViewController {
+final class InformationViewController: UIViewController {
     private var information: Exposition?
     
     @IBOutlet weak private var titleOfExposition: UILabel!

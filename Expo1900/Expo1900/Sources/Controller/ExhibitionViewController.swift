@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExhibitionViewController: UIViewController {
+final class ExhibitionViewController: UIViewController {
     var exhibition: Exhibition?
     
     @IBOutlet weak var exhibitionImageView: UIImageView!

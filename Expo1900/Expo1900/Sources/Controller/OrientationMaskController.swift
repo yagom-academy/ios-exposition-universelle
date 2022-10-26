@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrientationMaskController: UINavigationController {
+final class OrientationMaskController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         guard topViewController as? InformationViewController != nil else {
             return .all
