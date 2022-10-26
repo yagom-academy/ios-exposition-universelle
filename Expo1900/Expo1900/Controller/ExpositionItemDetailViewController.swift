@@ -7,7 +7,7 @@ import UIKit
 final class ExpositionItemDetailViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet private weak var itemImageView: UIImageView!
-    @IBOutlet private weak var itemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemDescriptionLabel: DescriptionLabel!
     
     //MARK: - Property
     var item: ExpositionUniverselleItem?
@@ -18,8 +18,6 @@ final class ExpositionItemDetailViewController: UIViewController {
         
         assignContentValue()
         self.title = item?.name
-        
-        itemDescriptionLabel.setUpAccessibility(fontStyle: .body)
     }
 
     //MARK: - Private Method

@@ -6,12 +6,12 @@ import UIKit
 
 final class MainViewController: UIViewController {
     //MARK: - IBOutlet
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: TitleLabel!
     @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var visitorLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var visitorLabel: BodyLabel!
+    @IBOutlet private weak var locationLabel: BodyLabel!
+    @IBOutlet private weak var durationLabel: BodyLabel!
+    @IBOutlet private weak var descriptionLabel: DescriptionLabel!
     @IBOutlet private weak var showKoreanItemListButton: UIButton!
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
@@ -29,7 +29,6 @@ final class MainViewController: UIViewController {
         
         fetchExpositionInformation()
         setUpInitialSetting()
-        setUpLabel()
         assignContentValue()
     }
     
@@ -54,29 +53,29 @@ final class MainViewController: UIViewController {
         rightFlagImageView.image = UIImage(named: flagImageIdentifier)
     }
     
-    private func setUpLabel() {
-        titleLabel.setUpAccessibility(fontStyle: .title1)
-        titleLabel.textAlignment = .center
-        visitorLabel.setUpAccessibility(fontStyle: .title3)
-        visitorLabel.textAlignment = .center
-        locationLabel.setUpAccessibility(fontStyle: .title3)
-        locationLabel.textAlignment = .center
-        durationLabel.setUpAccessibility(fontStyle: .title3)
-        durationLabel.textAlignment = .center
-        descriptionLabel.setUpAccessibility(fontStyle: .body)
-        descriptionLabel.textAlignment = .center
-    }
-    
     private func assignContentValue() {
         guard let expositionUniverselle: ExpositionUniverselle = expositionUniverselle else {
             return
         }
-        
-        titleLabel.text = expositionUniverselle.title
+        setUpTitleLabel(text: expositionUniverselle.title)
         posterImageView.image = UIImage(named: posterImageIdentifier)
-        visitorLabel.text = "방문객 : \(expositionUniverselle.visitors)명"
-        locationLabel.text = "개최지 : \(expositionUniverselle.location)"
-        durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
+        setUpText(of: visitorLabel, text: "방문객 : \(expositionUniverselle.visitors)명")
+        setUpText(of: locationLabel, text: "개최지 : \(expositionUniverselle.location)")
+        setUpText(of: durationLabel, text: "개최 기간 : \(expositionUniverselle.duration)")
         descriptionLabel.text = expositionUniverselle.description
+    }
+    
+    private func setUpText(of label: UILabel, text: String) {
+        label.text = text
+        label.setUpAttributedText()
+    }
+    
+    private func setUpTitleLabel(text: String) {
+        titleLabel.text = text
+        
+        guard let index = titleLabel.text?.firstIndex(of: "(") else {
+            return
+        }
+        titleLabel.text?.insert("\n", at: index)
     }
 }

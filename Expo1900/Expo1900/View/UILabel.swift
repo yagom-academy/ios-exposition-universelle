@@ -12,5 +12,21 @@ extension UILabel {
         self.font = .preferredFont(forTextStyle: fontStyle)
         self.adjustsFontForContentSizeCategory = true
         self.numberOfLines = 0
+        self.lineBreakMode = .byWordWrapping
+    }
+    
+    func setUpAttributedText() {
+        guard let text: String = self.text else {
+            return
+        }
+        let range = NSRange(location: 0,
+                            length: text.prefix(while: {$0 != ":"}).count)
+        let attributeString = NSMutableAttributedString(string: text)
+        
+        attributeString.addAttribute(.font,
+                                     value: UIFont.preferredFont(forTextStyle: .title2),
+                                     range: range)
+        
+        self.attributedText = attributeString
     }
 }
