@@ -51,11 +51,13 @@ class ExhibitionMainViewController: UIViewController {
         return posterImage
     }()
     
-    let descTextView: UILabel = {
-        let textView = UILabel()
+    let descTextView: UITextView = {
+        let textView = UITextView()
 
-        textView.numberOfLines = 0
+        textView.isEditable = false
+        textView.isScrollEnabled = false
         textView.textAlignment = .left
+        textView.font = .systemFont(ofSize: 18)
         
         return textView
     }()

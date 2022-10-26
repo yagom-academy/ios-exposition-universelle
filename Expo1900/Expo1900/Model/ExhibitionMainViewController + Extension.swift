@@ -11,14 +11,15 @@ extension ExhibitionMainViewController {
     func setUI() {
         guard let expoInformation = expositionPoster else { return }
 
+        self.setStackViewSubviews()
         self.setTitleText(of: expoInformation)
         self.setVisitorsLabel(of: expoInformation)
         self.setLocationLabel(of: expoInformation)
         self.setDurationLabel(of: expoInformation)
-        self.setDescriptionLabel(of: expoInformation)
+        self.setDescriptionTextView(of: expoInformation)
         self.setStackView()
         self.setButtonStackView()
-        self.setStackViewSubviews()
+        
         self.setDelegates()
         self.setConstraints()
     }
@@ -66,7 +67,7 @@ extension ExhibitionMainViewController {
             visitorDetail = "확인 불가"
         }
         
-        self.visitorLabel.text = "개최 기간 : " + visitorDetail  + "명"
+        self.visitorLabel.text = "개최 기간 : " + visitorDetail
     }
 
     private func setLocationLabel(of expoInformation: ExpositionPoster) {
@@ -77,7 +78,7 @@ extension ExhibitionMainViewController {
         self.termLabel.text = "개최 기간 : " + expoInformation.duration
     }
 
-    private func setDescriptionLabel(of expoInformation: ExpositionPoster) {
+    private func setDescriptionTextView(of expoInformation: ExpositionPoster) {
         self.descTextView.text = expoInformation.description
     }
     
