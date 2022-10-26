@@ -59,7 +59,7 @@ final class MainViewController: UIViewController {
         }
         setUpTitleLabel(text: expositionUniverselle.title)
         posterImageView.image = UIImage(named: posterImageIdentifier)
-        setUpText(of: visitorLabel, text: "방문객 : \(expositionUniverselle.visitors)명")
+        setUpVisitorLabel(visitor: expositionUniverselle.visitors)
         setUpText(of: locationLabel, text: "개최지 : \(expositionUniverselle.location)")
         setUpText(of: durationLabel, text: "개최 기간 : \(expositionUniverselle.duration)")
         descriptionLabel.text = expositionUniverselle.description
@@ -77,5 +77,13 @@ final class MainViewController: UIViewController {
             return
         }
         titleLabel.text?.insert("\n", at: index)
+    }
+    
+    private func setUpVisitorLabel(visitor: Int) {
+        let decimalNumberFormatter: DecimalNumberFormatter = DecimalNumberFormatter()
+        guard let formattedResult = decimalNumberFormatter.formattedNumber(visitor) else {
+            return
+        }
+        setUpText(of: visitorLabel, text: "방문객 : \(formattedResult)명")
     }
 }
