@@ -25,6 +25,9 @@ final class ExpositionUniverselleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = ExpoConstant.mainNavigationTitle
+        let orientation = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
         self.navigationController?.isNavigationBarHidden = true
     }
     
