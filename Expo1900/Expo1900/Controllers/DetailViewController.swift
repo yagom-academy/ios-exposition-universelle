@@ -38,8 +38,9 @@ final class DetailViewController: UIViewController {
     
     private let textView: UITextView = {
         let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 15)
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.textColor = UIColor.black
+        textView.adjustsFontForContentSizeCategory = true
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false

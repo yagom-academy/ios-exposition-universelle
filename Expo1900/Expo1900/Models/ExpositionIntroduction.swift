@@ -18,6 +18,10 @@ struct ExpositionIntroduction: Decodable {
         case visitorNumber = "visitors"
     }
     
+    var titleDescription: String {
+        return self.title.replacingOccurrences(of: "(", with: "\n(")
+    }
+    
     var visitorNumberDescription: String {
         return String(format: "방문객 : %@ 명", self.visitorNumber.formattedWithSeparator)
     }

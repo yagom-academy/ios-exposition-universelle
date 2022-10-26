@@ -59,7 +59,7 @@ final class ExpoViewController: UIViewController {
     }
     
     private func setupElementWithData() {
-        titleLabel.text = expoData?.title
+        titleLabel.text = expoData?.titleDescription
         mainImage.image = UIImage(named: AssetName.expoImage)
         visitorLabel.text = expoData?.visitorNumberDescription
         placeLabel.text = expoData?.locationDescription
