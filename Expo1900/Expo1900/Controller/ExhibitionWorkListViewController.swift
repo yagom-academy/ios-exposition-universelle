@@ -11,7 +11,6 @@ class ExhibitionWorkListViewController: UIViewController {
     
     let exhibitionWorkTableView: UITableView = UITableView()
     
-    let cellIdentifier: String = "cell"
     var exhibitionWork: [ExhibitionWork] = []
     
     override func viewDidLoad() {
@@ -23,7 +22,7 @@ class ExhibitionWorkListViewController: UIViewController {
     }
     
     func setUpTableView() {
-        self.exhibitionWorkTableView.register(TableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.exhibitionWorkTableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.cellIdentifier)
         self.view.addSubview(self.exhibitionWorkTableView)
         
         self.exhibitionWorkTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,12 +69,12 @@ extension ExhibitionWorkListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = exhibitionWorkTableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        let cell = exhibitionWorkTableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier, for: indexPath) as! TableViewCell
         let work: ExhibitionWork = self.exhibitionWork[indexPath.row]
         
-        cell.textLabel?.text = work.name
-        cell.detailTextLabel?.text = work.shortDesc
-        cell.imageView?.image = UIImage(named: work.imageName)
+        cell.titleLabel.text = work.name
+        cell.detailLabel.text = work.shortDesc
+        cell.workImageView.image = UIImage(named: work.imageName)
         
         return cell
     }

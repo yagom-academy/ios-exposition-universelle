@@ -38,10 +38,8 @@ class DetailWorkViewController: UIViewController {
         super.viewDidLoad()
         
         setUpDetailData()
-        
         setScrollViewConstraints()
         setContentViewConstraints()
-        
         setStackViewConstraints()
         setStackViewSubViews()
     }
@@ -68,7 +66,7 @@ class DetailWorkViewController: UIViewController {
                                      contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)])
     }
     
-    func setStackViewSubViews() {
+    private func setStackViewSubViews() {
         [imageView, textView].forEach { self.stackView.addArrangedSubview($0) }
     }
     
