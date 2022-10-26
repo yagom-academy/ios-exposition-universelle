@@ -8,23 +8,43 @@
 import UIKit
 
 class ExhibitionWorkListViewController: UIViewController {
-    @IBOutlet weak var exhibitionWorkTableView: UITableView!
+    
+    let exhibitionWorkTableView: UITableView = UITableView()
     
     let cellIdentifier: String = "cell"
     var exhibitionWork: [ExhibitionWork] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpTableView()
         setUpJSONData()
         exhibitionWorkTableView.dataSource = self
         exhibitionWorkTableView.delegate = self
     }
     
+    func setUpTableView() {
+        self.exhibitionWorkTableView.register(TableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.view.addSubview(self.exhibitionWorkTableView)
+        
+        self.exhibitionWorkTableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addConstraint(NSLayoutConstraint(item: self.exhibitionWorkTableView,
+                                                   attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
+                                                   multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: self.exhibitionWorkTableView,
+                                                   attribute: .bottom, relatedBy: .equal, toItem: self.view,
+                                                   attribute: .bottom, multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: self.exhibitionWorkTableView,
+                                                   attribute: .leading, relatedBy: .equal, toItem: self.view,
+                                                   attribute: .leading, multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: self.exhibitionWorkTableView,
+                                                   attribute: .trailing, relatedBy: .equal, toItem: self.view,
+                                                   attribute: .trailing, multiplier: 1.0, constant: 0))
+    }
+    
     func setUpJSONData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
-            return
-        }
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
             exhibitionWork = try jsonDecoder.decode([ExhibitionWork].self, from: dataAsset.data)
