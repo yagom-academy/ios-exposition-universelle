@@ -15,6 +15,12 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private var expositionUniverselle: ExpositionUniverselle?
     private let jsonDecodingManager: JSONDecodingManager = JSONDecodingManager()
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        guard let topViewController = navigationController?.topViewController as? ExpositionUniverselleViewController else {
+            return .all
+        }
+        return .portrait
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,6 +32,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         super.viewDidLoad()
         fetchExpoInformation()
         setTextToDisplay()
+        navigationController?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -76,6 +83,12 @@ final class ExpositionUniverselleViewController: UIViewController {
             return number
         }
         return formatter.string(from: NSNumber(value: decimalNumber))!
+    }
+}
+
+extension ExpositionUniverselleViewController: UINavigationControllerDelegate {
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return self.supportedInterfaceOrientations
     }
 }
 
