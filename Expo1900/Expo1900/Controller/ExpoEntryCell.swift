@@ -9,9 +9,13 @@ import UIKit
 
 class ExpoEntryCell: UITableViewCell {
     
+    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var cellText: UILabel!
+    @IBOutlet weak var cellDetailText: UILabel!
+    
     func configureContentsView(image: UIImage?, name: String, shortDescription: String) {
-        self.imageView?.image = image
-        self.textLabel?.text = name
-        self.detailTextLabel?.text = shortDescription
+        self.cellImage?.image = image
+        self.cellText?.text = name
+        self.cellDetailText?.text = shortDescription
     }
 }

@@ -20,7 +20,7 @@ final class ExpoEntriesListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.navigationController?.isNavigationBarHidden = false
     }
 }
@@ -38,11 +38,8 @@ extension ExpoEntriesListViewController: UITableViewDataSource {
         cell.configureContentsView(image: image,
                                    name: expoEntry.name,
                                    shortDescription: expoEntry.shortDescription)
+        
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
     }
 }
 
