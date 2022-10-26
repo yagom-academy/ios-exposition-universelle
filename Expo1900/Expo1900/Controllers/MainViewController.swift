@@ -9,14 +9,14 @@ import UIKit
 final class MainViewController: UIViewController {
     @IBOutlet private weak var stackView: UIStackView!
     
-    private weak var koreanTitleLabel: UILabel!
-    private weak var englishTitleLabel: UILabel!
-    private weak var locationLabel: UILabel!
-    private weak var durationLabel: UILabel!
-    private weak var visitorsLabel: UILabel!
-    private weak var descriptionLabel: UILabel!
-    private weak var posterImageView: UIImageView!
-    private weak var koreanItemsViewButton: UIButton!
+    private var koreanTitleLabel: UILabel!
+    private var englishTitleLabel: UILabel!
+    private var locationLabel: UILabel!
+    private var durationLabel: UILabel!
+    private var visitorsLabel: UILabel!
+    private var descriptionLabel: UILabel!
+    private var posterImageView: UIImageView!
+    private var koreanItemsViewButton: UIButton!
     private var exposition: Exposition?
     
     override func viewDidLoad() {
@@ -86,7 +86,7 @@ final class MainViewController: UIViewController {
     
     private func configureView() {
         configureLabels()
-        posterImageView.image = UIImage(named: "poster")
+        posterImageView = UIImageView(image: UIImage(named: "poster"))
         configureButton()
         addSubviews()
     }
