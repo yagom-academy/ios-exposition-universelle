@@ -14,12 +14,15 @@ class InformationViewController: UIViewController {
     @IBOutlet weak private var location: UILabel!
     @IBOutlet weak private var duration: UILabel!
     @IBOutlet weak private var descriptionOfExposition: UILabel!
-
+    @IBOutlet weak var showExhibitionListViewButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         decodeDataAsset(name: Constant.expositionAssetName)
         configureLabels()
+        
+        showExhibitionListViewButton.titleLabel?.textAlignment = .center
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,12 +61,21 @@ class InformationViewController: UIViewController {
     }
     
     private func configureLabels() {
+        configureAdjustFont()
+        
         titleOfExposition.text = information?.title
-        titleOfExposition.adjustsFontSizeToFitWidth = true
         numberOfVisitors.attributedText = attributedString(of: information?.numberOfVisitors)
         location.attributedText = attributedString(of: information?.location)
         duration.attributedText = attributedString(of: information?.duration)
         descriptionOfExposition.text = information?.description
+    }
+    
+    private func configureAdjustFont() {
+        titleOfExposition.adjustsFontForContentSizeCategory = true
+        numberOfVisitors.adjustsFontForContentSizeCategory = true
+        location.adjustsFontForContentSizeCategory = true
+        duration.adjustsFontForContentSizeCategory = true
+        descriptionOfExposition.adjustsFontForContentSizeCategory = true
     }
     
     private func attributedString(of text: String?) -> NSMutableAttributedString? {
@@ -71,8 +83,11 @@ class InformationViewController: UIViewController {
               let leftText = text.split(separator: Constant.colon).first else {
             return nil
         }
-        let leftTextFont: UIFont = UIFont.systemFont(ofSize: 20)
+        let textFont = UIFont.preferredFont(forTextStyle: .body)
+        let leftTextFont = UIFont.preferredFont(forTextStyle: .title3)
         let attributedString = NSMutableAttributedString(string: text)
+        
+        attributedString.addAttribute(.font, value: textFont, range: NSRange(location: 0, length: text.count))
         
         attributedString.addAttribute(.font, value: leftTextFont, range: NSRange(location: 0, length: leftText.count))
         
