@@ -61,17 +61,26 @@ final class ExpositionUniverselleViewController: UIViewController {
         let location: String = expositionUniverselle.location.expoLocationInformation
         let duration: String = expositionUniverselle.duration.expoDurationInformation
         
+        
         titleLabel.text = expositionUniverselle.title.applyLineBreak()
-        titleLabel.font = ExpoConstant.largeFont
-        visitorsLabel.attributedText = visitors.createAttributed(target: ExpoConstant.visitor,
-                                                                 key: .font,
-                                                                 value: ExpoConstant.mediumFont)
-        locationLabel.attributedText = location.createAttributed(target: ExpoConstant.location,
-                                                                 key: .font,
-                                                                 value: ExpoConstant.mediumFont)
-        durationLabel.attributedText = duration.createAttributed(target: ExpoConstant.duration,
-                                                                 key: .font,
-                                                                 value: ExpoConstant.mediumFont)
+        visitorsLabel.attributedText = visitors.createAttributed(
+            target: [ExpoConstant.visitor, ExpoConstant.colon + formattedVisitor + ExpoConstant.people],
+            key: .font,
+            value: [ExpoConstant.largeFont,
+                    ExpoConstant.mediumFont])
+        
+        locationLabel.attributedText = location.createAttributed(
+            target: [ExpoConstant.location, ExpoConstant.colon + expositionUniverselle.location],
+            key: .font,
+            value: [ExpoConstant.largeFont,
+                    ExpoConstant.mediumFont])
+        
+        durationLabel.attributedText = duration.createAttributed(
+            target: [ExpoConstant.duration, ExpoConstant.colon + expositionUniverselle.duration],
+            key: .font,
+            value: [ExpoConstant.largeFont,
+                    ExpoConstant.mediumFont])
+        
         descriptionLabel.text = expositionUniverselle.description
     }
     
@@ -105,10 +114,12 @@ fileprivate extension String {
         return ExpoConstant.duration + ExpoConstant.colon + self
     }
     
-    func createAttributed(target: String, key: NSAttributedString.Key, value: Any) -> NSAttributedString {
+    func createAttributed(target: [String], key: NSAttributedString.Key, value: [Any]) -> NSAttributedString {
         let attributed: NSMutableAttributedString = NSMutableAttributedString(string: self)
-        let targetRange = (self as NSString).range(of: target)
-        attributed.addAttribute(key, value: value, range: targetRange)
+        zip(target, value).forEach { (target, value) in
+            let targetRange = (self as NSString).range(of: target)
+            attributed.addAttribute(key, value: value, range: targetRange)
+        }
         
         return attributed
     }

@@ -18,6 +18,6 @@ enum ExpoConstant {
     static let blank: String.SubSequence = ""
     static let leftBracket: Character = "("
     static let people: String = "명"
-    static let mediumFont: UIFont = UIFont.systemFont(ofSize: 20)
-    static let largeFont: UIFont = UIFont.systemFont(ofSize: 30)
+    static let mediumFont: UIFont = UIFont.preferredFont(forTextStyle: .body)
+    static let largeFont: UIFont = UIFont.preferredFont(forTextStyle: .title2)
 }

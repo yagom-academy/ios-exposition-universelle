@@ -2,12 +2,12 @@
 //  EntryTableViewCell.swift
 //  Expo1900
 //
-//  Created by 이태영 on 2022/10/26.
+//  Created by Hamo, Mene on 2022/10/26.
 //
 
 import UIKit
 
-class EntryTableViewCell: UITableViewCell {
+final class EntryTableViewCell: UITableViewCell {
     let entryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -33,7 +33,7 @@ class EntryTableViewCell: UITableViewCell {
         return label
     }()
     
-    let entryStackView: UIStackView = {
+    private let entryStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 8
@@ -52,7 +52,7 @@ class EntryTableViewCell: UITableViewCell {
         configureLayout()
     }
     
-    func configureLayout() {
+    private func configureLayout() {
         NSLayoutConstraint.activate([
             entryImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 8),
             entryImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8),
