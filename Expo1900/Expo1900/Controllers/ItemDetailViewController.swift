@@ -24,6 +24,5 @@ final class ItemDetailViewController: UIViewController {
         itemImageView.image = UIImage(named: selectedItem?.imageName ?? "flag")
         itemImageView.contentMode = .scaleAspectFit
         itemDescLabel.text = selectedItem?.desc
-        itemDescLabel.numberOfLines = 0
     }
 }

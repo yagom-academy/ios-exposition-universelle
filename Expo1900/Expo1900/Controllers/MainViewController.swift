@@ -30,11 +30,12 @@ final class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func configureLabel(text: String?, textStyle: UIFont.TextStyle, numberOfLines: Int = 1) -> UILabel {
+    private func configureLabel(text: String?, textStyle: UIFont.TextStyle, numberOfLines: Int = 0) -> UILabel {
         let label = UILabel()
         label.text = text
         label.font = UIFont.preferredFont(forTextStyle: textStyle)
         label.numberOfLines = numberOfLines
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }
@@ -65,6 +66,9 @@ final class MainViewController: UIViewController {
             button.setTitle("🇰🇷 한국의 출품작 보러가기 🇰🇷", for: .normal)
             button.setTitleColor(.systemBlue, for: .normal)
             button.addAction(action, for: .touchUpInside)
+            button.titleLabel?.numberOfLines = 0
+            button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            button.titleLabel?.adjustsFontForContentSizeCategory = true
             
             return button
         }()
@@ -87,6 +91,7 @@ final class MainViewController: UIViewController {
     private func configureView() {
         configureLabels()
         posterImageView = UIImageView(image: UIImage(named: "poster"))
+        posterImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         configureButton()
         addSubviews()
     }
