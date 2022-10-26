@@ -59,16 +59,16 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UbJ-hn-YyW">
-                                                <rect key="frame" x="20" y="478.5" width="374" height="383.5"/>
+                                                <rect key="frame" x="10" y="478.5" width="394" height="383.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OJT-aw-lzn">
-                                                        <rect key="frame" x="0.0" y="166" width="51" height="51.5"/>
+                                                        <rect key="frame" x="0.0" y="164.5" width="54" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="OJT-aw-lzn" secondAttribute="height" multiplier="1:1" id="NeD-NN-btv"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="100" horizontalCompressionResistancePriority="900" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FF-tS-thy">
-                                                        <rect key="frame" x="56" y="176.5" width="262" height="31"/>
+                                                        <rect key="frame" x="59" y="176.5" width="276" height="31"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Button">
                                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
@@ -78,7 +78,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5x-ug-plH">
-                                                        <rect key="frame" x="323" y="166" width="51" height="51.5"/>
+                                                        <rect key="frame" x="340" y="164.5" width="54" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="p5x-ug-plH" secondAttribute="height" multiplier="1:1" id="5gg-bG-cDb"/>
                                                         </constraints>
@@ -94,14 +94,14 @@
                                             <constraint firstAttribute="bottom" secondItem="UbJ-hn-YyW" secondAttribute="bottom" id="6O4-sh-aSF"/>
                                             <constraint firstItem="pqo-vN-GHY" firstAttribute="leading" secondItem="tVH-QD-Kpo" secondAttribute="leading" constant="10" id="7dN-m2-aJs"/>
                                             <constraint firstAttribute="trailing" secondItem="pqo-vN-GHY" secondAttribute="trailing" constant="10" id="7hM-47-HZc"/>
-                                            <constraint firstItem="UbJ-hn-YyW" firstAttribute="leading" secondItem="tVH-QD-Kpo" secondAttribute="leading" constant="20" id="ALH-Wc-iZL"/>
+                                            <constraint firstItem="UbJ-hn-YyW" firstAttribute="leading" secondItem="tVH-QD-Kpo" secondAttribute="leading" constant="10" id="ALH-Wc-iZL"/>
                                             <constraint firstItem="tse-PA-CkA" firstAttribute="centerX" secondItem="tVH-QD-Kpo" secondAttribute="centerX" id="DFL-cd-J0w"/>
                                             <constraint firstItem="MsQ-iM-aJM" firstAttribute="centerX" secondItem="tVH-QD-Kpo" secondAttribute="centerX" id="G2O-bF-LwF"/>
                                             <constraint firstItem="Gxj-Ej-gbI" firstAttribute="centerX" secondItem="tVH-QD-Kpo" secondAttribute="centerX" id="ao8-e4-GqG"/>
                                             <constraint firstAttribute="trailing" secondItem="MsQ-iM-aJM" secondAttribute="trailing" constant="20" id="dZW-CX-IWt"/>
                                             <constraint firstItem="ruC-q1-WKz" firstAttribute="centerX" secondItem="tVH-QD-Kpo" secondAttribute="centerX" id="jhQ-vd-Vla"/>
                                             <constraint firstItem="MsQ-iM-aJM" firstAttribute="leading" secondItem="tVH-QD-Kpo" secondAttribute="leading" constant="20" id="kHQ-rD-Xn0"/>
-                                            <constraint firstAttribute="trailing" secondItem="UbJ-hn-YyW" secondAttribute="trailing" constant="20" id="oqG-Ox-rGu"/>
+                                            <constraint firstAttribute="trailing" secondItem="UbJ-hn-YyW" secondAttribute="trailing" constant="10" id="oqG-Ox-rGu"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>

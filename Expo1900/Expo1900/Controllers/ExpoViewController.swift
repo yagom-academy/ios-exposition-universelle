@@ -10,6 +10,7 @@ final class ExpoViewController: UIViewController {
 
     enum Constant {
         static let nextButtonTitle = "한국의 출품작 보러가기"
+        static let navigationBackButtonTitle = "메인"
     }
     
     @IBOutlet private weak var titleLabel: UILabel!
@@ -27,6 +28,7 @@ final class ExpoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setData()
+        setupNavigationBar()
         setupElementWithData()
     }
 
@@ -38,6 +40,12 @@ final class ExpoViewController: UIViewController {
         guard let koreaItemsViewController = storyboard?.instantiateViewController(withIdentifier: KoreaItemsViewController.koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
         
         navigationController?.pushViewController(koreaItemsViewController, animated: true)
+    }
+    
+    private func setupNavigationBar() {
+        let backItem = UIBarButtonItem()
+        backItem.title = Constant.navigationBackButtonTitle
+        navigationItem.backBarButtonItem = backItem
     }
     
     private func setData() {
