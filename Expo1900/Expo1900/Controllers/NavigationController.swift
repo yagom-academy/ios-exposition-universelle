@@ -9,10 +9,6 @@ import UIKit
 
 class NavigationController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        guard let _ = self.topViewController as? MainViewController else {
-            return .all
-        }
-        
-        return .portrait
+        return self.topViewController as? MainViewController != nil ? .portrait : .all
     }
 }
