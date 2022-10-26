@@ -16,9 +16,10 @@ final class ExpositionItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        itemDescriptionLabel.numberOfLines = 0
         assignContentValue()
         self.title = item?.name
+        
+        itemDescriptionLabel.setUpAccessibility(fontStyle: .body)
     }
 
     //MARK: - Private Method

@@ -17,20 +17,16 @@ class ExpositionItemCell: UITableViewCell {
     var titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.adjustsFontForContentSizeCategory = true
+        label.setUpAccessibility(fontStyle: .title2)
         label.textColor = .black
-        label.numberOfLines = 0
         return label
     }()
     
     var shortDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .callout)
-        label.adjustsFontForContentSizeCategory = true
+        label.setUpAccessibility(fontStyle: .callout)
         label.textColor = .black
-        label.numberOfLines = 0
         return label
     }()
     

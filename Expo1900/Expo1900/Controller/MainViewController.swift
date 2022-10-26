@@ -29,6 +29,7 @@ final class MainViewController: UIViewController {
         
         fetchExpositionInformation()
         setUpInitialSetting()
+        setUpLabel()
         assignContentValue()
     }
     
@@ -48,10 +49,22 @@ final class MainViewController: UIViewController {
     
     private func setUpInitialSetting() {
         self.title = titleText
-        descriptionLabel.numberOfLines = 0
         showKoreanItemListButton.setTitle(buttonTitleText, for: .normal)
         leftFlagImageView.image = UIImage(named: flagImageIdentifier)
         rightFlagImageView.image = UIImage(named: flagImageIdentifier)
+    }
+    
+    private func setUpLabel() {
+        titleLabel.setUpAccessibility(fontStyle: .title1)
+        titleLabel.textAlignment = .center
+        visitorLabel.setUpAccessibility(fontStyle: .title3)
+        visitorLabel.textAlignment = .center
+        locationLabel.setUpAccessibility(fontStyle: .title3)
+        locationLabel.textAlignment = .center
+        durationLabel.setUpAccessibility(fontStyle: .title3)
+        durationLabel.textAlignment = .center
+        descriptionLabel.setUpAccessibility(fontStyle: .body)
+        descriptionLabel.textAlignment = .center
     }
     
     private func assignContentValue() {
