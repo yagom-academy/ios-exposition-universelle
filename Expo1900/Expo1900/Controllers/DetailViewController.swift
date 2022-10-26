@@ -68,7 +68,7 @@ final class DetailViewController: UIViewController {
     }
 }
 
-private extension DetailViewController {
+extension DetailViewController {
     
     private func setUI(){
         setNavigationBar()
