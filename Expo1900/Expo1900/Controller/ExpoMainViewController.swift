@@ -30,7 +30,23 @@ final class ExpoMainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         buildNavigationBar()
+        
+        let portrait = UIInterfaceOrientation.portrait.rawValue
+        let orientation = UIDevice.current.orientation.rawValue 
+        UIDevice.current.setValue(portrait, forKey: "orientation")
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+        
+        UIDevice().endGeneratingDeviceOrientationNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let orientation = UIDevice.current.orientation.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
     }
     
     private func buildNavigationBar() {

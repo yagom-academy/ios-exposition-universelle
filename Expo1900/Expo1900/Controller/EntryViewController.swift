@@ -17,6 +17,14 @@ final class EntryViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let orientation = UIDevice.current.orientation.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
