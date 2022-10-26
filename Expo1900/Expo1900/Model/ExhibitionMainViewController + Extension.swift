@@ -67,15 +67,33 @@ extension ExhibitionMainViewController {
             visitorDetail = "확인 불가"
         }
         
-        self.visitorLabel.text = "개최 기간 : " + visitorDetail
+        self.visitorLabel.text = "방문객 : " + visitorDetail
+
+        let fullText = visitorLabel.text ?? ""
+        let attribtuedString = NSMutableAttributedString(string: fullText)
+        let range = (fullText as NSString).range(of: "방문객 : ")
+        attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
+        visitorLabel.attributedText = attribtuedString
     }
 
     private func setLocationLabel(of expoInformation: ExpositionPoster) {
         self.locationLabel.text = "개최지 : " + expoInformation.location
+        
+        let fullText = locationLabel.text ?? ""
+        let attribtuedString = NSMutableAttributedString(string: fullText)
+        let range = (fullText as NSString).range(of: "개최지 : ")
+        attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
+        locationLabel.attributedText = attribtuedString
     }
 
     private func setDurationLabel(of expoInformation: ExpositionPoster) {
         self.termLabel.text = "개최 기간 : " + expoInformation.duration
+        
+        let fullText = termLabel.text ?? ""
+        let attribtuedString = NSMutableAttributedString(string: fullText)
+        let range = (fullText as NSString).range(of: "개최 기간 : ")
+        attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
+        termLabel.attributedText = attribtuedString
     }
 
     private func setDescriptionTextView(of expoInformation: ExpositionPoster) {
