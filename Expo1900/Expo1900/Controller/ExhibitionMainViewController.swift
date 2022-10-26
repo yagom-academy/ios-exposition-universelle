@@ -7,25 +7,90 @@
 import UIKit
 
 class ExhibitionMainViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var visitorLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var termLabel: UILabel!
-    @IBOutlet weak var visitorDetailLabel: UILabel!
-    @IBOutlet weak var locationDetailLabel: UILabel!
-    @IBOutlet weak var termDetailLabel: UILabel!
-    @IBOutlet weak var descTextView: UITextView!
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     
-    @IBOutlet weak var leftFlagImageView: UIImageView!
-    @IBOutlet weak var rightFlagImageView: UIImageView!
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.spacing = 10
+        
+        return stackView
+    }()
+    
+    let buttonStackView: UIStackView = {
+        let buttonStackView = UIStackView()
+        
+        buttonStackView.spacing = 10
+        buttonStackView.axis = .horizontal
+        
+        return buttonStackView
+    }()
+    
+    let titleLabel: UILabel = {
+        let title = UILabel()
+        
+        title.numberOfLines = 0
+        title.textAlignment = .center
+        
+        return title
+    }()
+    
+    let visitorLabel = UILabel()
+    let locationLabel = UILabel()
+    let termLabel = UILabel()
+    
+    let imageView: UIImageView = {
+        let posterImage = UIImageView()
+        
+        posterImage.image = UIImage(named: "poster")
+        
+        return posterImage
+    }()
+    
+    let descTextView: UILabel = {
+        let textView = UILabel()
+
+        textView.numberOfLines = 0
+        textView.textAlignment = .left
+        
+        return textView
+    }()
+    
+    let leftFlagImageView: UIImageView = {
+        let leftImage = UIImageView()
+        
+        leftImage.image = UIImage(named: "flag")
+        
+        return leftImage
+    }()
+    
+    let rightFlagImageView: UIImageView = {
+        let rightImage = UIImageView()
+        
+        rightImage.image = UIImage(named: "flag")
+        
+        return rightImage
+    }()
+    
+    let button: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        
+        return button
+    }()
     
     var expositionPoster: ExpositionPoster?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpJSONMainData()
-        setUpPosterData()
+        self.setUI()
     }
     
     func setUpJSONMainData() {
@@ -41,24 +106,9 @@ class ExhibitionMainViewController: UIViewController {
         }
     }
     
-    func setUpPosterData() {
-        titleLabel.text = expositionPoster?.title.replacingOccurrences(of: "(", with: "\n(")
-        imageView.image = UIImage(named: "poster")
-        visitorLabel.text = "방문객:"
-
-        do {
-            visitorDetailLabel.text = "\(try expositionPoster?.visitors.formatNumber ?? "0") 명"
-        } catch {
-            visitorDetailLabel.text = "확인 불가"
-        }
-        
-        locationLabel.text = "개최지:"
-        locationDetailLabel.text = expositionPoster?.location
-        termLabel.text = "개최 기간:"
-        termDetailLabel.text = expositionPoster?.duration
-        descTextView.text = expositionPoster?.description
-        leftFlagImageView.image = UIImage(named: "flag")
-        rightFlagImageView.image = UIImage(named: "flag")
+    @objc func tappedButton(_ sender: UIButton) {
+        let exhibitionWorkListViewController = ExhibitionWorkListViewController()
+        self.present(exhibitionWorkListViewController, animated: true, completion: nil)
     }
 }
 
