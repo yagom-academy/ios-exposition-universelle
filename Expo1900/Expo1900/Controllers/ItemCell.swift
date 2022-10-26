@@ -2,7 +2,7 @@
 //  ItemCell.swift
 //  Expo1900
 //
-//  Created by 노유빈 on 2022/10/26.
+//  Created by Rhovin, Aejong on 2022/10/26.
 //
 
 import UIKit
