@@ -85,6 +85,7 @@ private extension DetailViewController {
     private func setNavigationBar() {
         self.title = koreaItem?.name
         let appearance = UINavigationBarAppearance()
+        navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
