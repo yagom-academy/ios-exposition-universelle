@@ -20,4 +20,8 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "확인", style: .default))
         self.present(alert, animated: true)
     }
+    
+    func printErrorLog(_ fileName: String = #file, _ line: Int = #line , _ funcName: String = #function) {
+        print("Error at: file: \(fileName), line: \(line), func: \(funcName)")
+    }
 }

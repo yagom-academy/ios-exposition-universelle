@@ -31,7 +31,7 @@ final class MainViewController: UIViewController {
             self.exposition = try JSONDecoder().decode(Exposition.self, from: dataAsset.data)
         } catch {
             showDataErrorAlert()
-            print(error)
+            printErrorLog()
         }
         
         updateTitleLabel()

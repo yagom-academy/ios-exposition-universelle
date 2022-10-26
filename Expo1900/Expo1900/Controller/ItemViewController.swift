@@ -18,6 +18,7 @@ final class ItemViewController: UIViewController {
 
         guard let itemImageName = item?.imageName else {
             self.itemImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
+            printErrorLog()
             return
         }
         

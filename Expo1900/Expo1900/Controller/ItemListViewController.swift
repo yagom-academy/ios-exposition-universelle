@@ -24,7 +24,7 @@ final class ItemListViewController: UIViewController {
             self.items = try JSONDecoder().decode([Item].self, from: dataAsset.data)
         } catch {
             showDataErrorAlert()
-            print(error)
+            printErrorLog()
         }
         
         self.tableView.dataSource = self
