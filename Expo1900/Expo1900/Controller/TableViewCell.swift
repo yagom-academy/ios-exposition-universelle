@@ -14,9 +14,7 @@ class TableViewCell: UITableViewCell {
         let stackView = UIStackView()
         
         stackView.axis = .vertical
-        stackView.distribution = .equalCentering
-        stackView.alignment = .top
-        stackView.spacing = 8
+        stackView.spacing = 5
         
         return stackView
     }()
@@ -62,15 +60,17 @@ class TableViewCell: UITableViewCell {
     
     private func setStackViewSubView() {
         [titleLabel, detailLabel].forEach { stackView.addArrangedSubview($0) }
+        accessoryType = .disclosureIndicator
     }
     
     private func setStackViewConstraints() {
         self.contentView.addSubview(stackView)
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+        self.stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 8),
         self.stackView.leadingAnchor.constraint(equalTo: workImageView.trailingAnchor, constant: 20),
         self.stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-        self.stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        self.stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8),
         self.stackView.centerYAnchor.constraint(equalTo: workImageView.centerYAnchor)
         ])
     }
@@ -78,10 +78,16 @@ class TableViewCell: UITableViewCell {
     private func setWorkImageViewConstraints() {
         self.contentView.addSubview(workImageView)
         self.workImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.workImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor,
+                                                constant: 8).isActive = true
+        self.workImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor,
+                                                   constant: -8).isActive = true
         self.workImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                     constant: 10).isActive = true
         self.workImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.3).isActive = true
         self.workImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        self.workImageView.widthAnchor.constraint(equalTo: workImageView.heightAnchor).isActive = true
+
     }
     
     required init?(coder: NSCoder) {
