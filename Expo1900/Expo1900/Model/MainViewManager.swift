@@ -1,11 +1,7 @@
-//
-//  MainViewManager.swift
-//  Expo1900
-//
-//  Created by hy on 2022/10/27.
-//
+//  Expo1900 - MainViewManager.swift
+//  Created by Ayaan, Bella on 2022/10/27.
+//  Copyright © yagom academy. All rights reserved.
 
-import Foundation
 import UIKit.UIImage
 
 struct MainViewManager {

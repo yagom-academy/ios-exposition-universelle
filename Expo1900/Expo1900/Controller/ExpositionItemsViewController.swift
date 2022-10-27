@@ -13,7 +13,6 @@ final class ExpositionItemsViewController: UIViewController {
         return .all
     }
     private var expositionItems: [ExpositionUniverselleItem] = []
-    private let titleText: String = "한국의 출품작"
     
     //MARK: - Override Method
     override func viewDidLoad() {
@@ -24,7 +23,7 @@ final class ExpositionItemsViewController: UIViewController {
         
         fetchExpositionItems()
         self.navigationController?.isNavigationBarHidden = false
-        self.title = titleText
+        self.title = NavigationTitle.ExpositionItemView
     }
     
     override func viewWillAppear(_ animated: Bool) {

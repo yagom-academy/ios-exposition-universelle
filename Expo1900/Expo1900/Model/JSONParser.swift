@@ -2,7 +2,7 @@
 //  Created by Ayaan, Bella on 2022/10/21.
 //  Copyright © yagom academy. All rights reserved.
 
-import UIKit
+import UIKit.NSDataAsset
 
 enum JSONParser {
     static func parsed<T>(to dataType: T.Type) -> T? where T: Decodable {
