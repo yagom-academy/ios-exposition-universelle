@@ -36,15 +36,15 @@ final class DetailViewController: UIViewController {
         return itemImageView
     }()
     
-    private let textView: UITextView = {
-        let textView = UITextView()
-        textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.textColor = UIColor.black
-        textView.adjustsFontForContentSizeCategory = true
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
+    private let descriptionLabel: UILabel = {
+        let textLabel = UILabel()
+        textLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        textLabel.textColor = UIColor.black
+        textLabel.numberOfLines = 0
+        textLabel.lineBreakMode = .byWordWrapping
+        textLabel.adjustsFontForContentSizeCategory = true
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        return textLabel
     }()
     
     private let stackView: UIStackView = {
@@ -94,7 +94,7 @@ extension DetailViewController {
     private func setData() {
         guard let item = koreaItem else { return }
         itemImageView.image = UIImage(named: item.imageName)
-        textView.text = item.description
+        descriptionLabel.text = item.description
     }
     
     private func setViews() {
@@ -102,7 +102,7 @@ extension DetailViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         stackView.addSubview(itemImageView)
-        stackView.addSubview(textView)
+        stackView.addSubview(descriptionLabel)
     }
     
     private func setupScrollView() {
@@ -133,10 +133,10 @@ extension DetailViewController {
             itemImageView.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             itemImageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: Constant.imageViewTopConstraint),
             itemImageView.heightAnchor.constraint(equalToConstant: Constant.imageViewHeight),
-            textView.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: Constant.textViewTopConstraint),
-            textView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Constant.textViewLeadingConstraint),
-            textView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: Constant.textViewTrailingConstraint),
-            textView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
+            descriptionLabel.topAnchor.constraint(equalTo: itemImageView.bottomAnchor, constant: Constant.textViewTopConstraint),
+            descriptionLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: Constant.textViewLeadingConstraint),
+            descriptionLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: Constant.textViewTrailingConstraint),
+            descriptionLabel.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
         ])
     }
 }
