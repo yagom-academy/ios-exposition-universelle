@@ -19,7 +19,7 @@ final class ExpositionItemDetailViewController: UIViewController {
         assignContentValue()
         self.title = item?.name
     }
-
+    
     //MARK: - Private Method
     private func assignContentValue() {
         guard let item = item else {

@@ -37,12 +37,13 @@ final class MainViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
     }
-
+    
     //MARK: - Private Method
     private func fetchExpositionInformation() {
         guard let parsedData = JSONParser.parsed(to: ExpositionUniverselle.self) else {
             return
         }
+        
         expositionUniverselle = parsedData
     }
     
@@ -57,6 +58,7 @@ final class MainViewController: UIViewController {
         guard let expositionUniverselle: ExpositionUniverselle = expositionUniverselle else {
             return
         }
+        
         setUpTitleLabel(text: expositionUniverselle.title)
         posterImageView.image = UIImage(named: posterImageIdentifier)
         setUpVisitorLabel(visitor: expositionUniverselle.visitors)
@@ -76,6 +78,7 @@ final class MainViewController: UIViewController {
         guard let index = titleLabel.text?.firstIndex(of: "(") else {
             return
         }
+        
         titleLabel.text?.insert("\n", at: index)
     }
     
@@ -84,6 +87,7 @@ final class MainViewController: UIViewController {
         guard let formattedResult = decimalNumberFormatter.formattedNumber(visitor) else {
             return
         }
+        
         setUpText(of: visitorLabel, text: "방문객 : \(formattedResult)명")
     }
 }

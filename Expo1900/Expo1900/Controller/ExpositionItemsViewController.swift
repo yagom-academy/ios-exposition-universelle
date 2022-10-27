@@ -15,7 +15,7 @@ final class ExpositionItemsViewController: UIViewController {
     //MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -26,11 +26,13 @@ final class ExpositionItemsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         ExpositionNavigationController.attemptRotationToDeviceOrientation()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        
         guard let nextViewController: ExpositionItemDetailViewController = segue.destination as? ExpositionItemDetailViewController,
               let item: ExpositionUniverselleItem = sender as? ExpositionUniverselleItem else {
             return
@@ -38,12 +40,13 @@ final class ExpositionItemsViewController: UIViewController {
         
         nextViewController.item = item
     }
-
+    
     //MARK: - Private Method
     private func fetchExpositionItems() {
         guard let parsedData = JSONParser.parsed(to: [ExpositionUniverselleItem].self) else {
             return
         }
+        
         expositionItems = parsedData
     }
 }
@@ -61,7 +64,7 @@ extension ExpositionItemsViewController: UITableViewDataSource {
         let expositionItem: ExpositionUniverselleItem = self.expositionItems[indexPath.row]
         
         cell.configure(for: expositionItem)
-       
+        
         return cell
     }
 }

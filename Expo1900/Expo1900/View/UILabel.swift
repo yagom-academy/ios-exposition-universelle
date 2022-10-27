@@ -1,14 +1,12 @@
-//
-//  UILabel.swift
-//  Expo1900
-//
-//  Created by hy on 2022/10/26.
-//
+//  Expo1900 - UILabel.swift
+//  Created by Ayaan, Bella on 2022/10/26.
+//  Copyright © yagom academy. All rights reserved.
+
 
 import UIKit
 
 extension UILabel {
-    func setUpAccessibility(fontStyle: UIFont.TextStyle) {
+    func setUpDynamicType(fontStyle: UIFont.TextStyle) {
         self.font = .preferredFont(forTextStyle: fontStyle)
         self.adjustsFontForContentSizeCategory = true
         self.numberOfLines = 0

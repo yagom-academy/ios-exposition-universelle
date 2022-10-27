@@ -1,42 +1,47 @@
-//
-//  ExpositionItemCell.swift
-//  Expo1900
-//
-//  Created by Ayaan on 2022/10/26.
-//
+//  Expo1900 - ExpositionItemCell.swift
+//  Created by Ayaan, Bella on 2022/10/26.
+//  Copyright © yagom academy. All rights reserved.
 
 import UIKit
 
 class ExpositionItemCell: UITableViewCell {
     var itemImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         return imageView
     }()
     
     var titleLabel: UILabel = {
         let label: UILabel = UILabel()
+        
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setUpAccessibility(fontStyle: .title2)
+        label.setUpDynamicType(fontStyle: .title2)
         label.textColor = .black
+        
         return label
     }()
     
     var shortDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
+        
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.setUpAccessibility(fontStyle: .callout)
+        label.setUpDynamicType(fontStyle: .callout)
         label.textColor = .black
+        
         return label
     }()
     
     let verticalStackView: UIStackView = {
         let stackView: UIStackView = UIStackView()
+        
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fill
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         return stackView
     }()
     
@@ -63,7 +68,7 @@ class ExpositionItemCell: UITableViewCell {
         verticalStackView.addArrangedSubview(shortDescriptionLabel)
         
         contentView.addSubview(verticalStackView)
-
+        
         NSLayoutConstraint.activate([
             verticalStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 20),
             verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
