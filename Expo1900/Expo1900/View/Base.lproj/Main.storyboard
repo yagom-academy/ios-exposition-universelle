@@ -22,34 +22,10 @@
                     <navigationItem key="navigationItem" id="hOJ-ft-N6O">
                         <barButtonItem key="backBarButtonItem" title="메인" id="AcD-1Q-864"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="lSA-0j-Zq3" kind="show" identifier="tableViewPush" id="Uih-20-TZy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="790" y="90"/>
-        </scene>
-        <!--Exhibition Work List View Controller-->
-        <scene sceneID="hbk-Qz-dVx">
-            <objects>
-                <viewController id="lSA-0j-Zq3" customClass="ExhibitionWorkListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RNO-Bs-BH1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="7Z8-up-Cda"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="x2z-bD-c1e">
-                        <barButtonItem key="backBarButtonItem" title="한국의 출품작" id="ywL-ue-vhH"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="pR6-Tn-a6R" kind="show" identifier="detail" id="QxY-Qe-bQn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bGZ-zP-bFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1578" y="90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OyP-96-ynf">
@@ -67,23 +43,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEI-cx-jbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69.565217391304358" y="89.732142857142847"/>
-        </scene>
-        <!--Detail Work View Controller-->
-        <scene sceneID="TQ8-3z-NgW">
-            <objects>
-                <viewController id="pR6-Tn-a6R" customClass="DetailWorkViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YRU-ZW-aC5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="T8m-Hz-ETZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="O4G-Ul-vmc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ywh-mq-zYk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2390" y="90"/>
+            <point key="canvasLocation" x="-138" y="90"/>
         </scene>
     </scenes>
     <resources>

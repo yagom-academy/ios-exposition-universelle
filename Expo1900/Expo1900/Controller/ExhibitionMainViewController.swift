@@ -122,7 +122,11 @@ class ExhibitionMainViewController: UIViewController {
     }
     
     @objc func tappedButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "tableViewPush", sender: self)
+        let exhibitionWorkListVC = ExhibitionWorkListViewController()
+        
+        self.navigationController?.pushViewController(exhibitionWorkListVC, animated: true)
     }
+    
+    
 }
 

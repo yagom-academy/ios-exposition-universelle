@@ -35,6 +35,7 @@ final class DetailWorkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         
         setUpDetailData()
         setScrollViewConstraints()

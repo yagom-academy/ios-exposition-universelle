@@ -52,15 +52,6 @@ class ExhibitionWorkListViewController: UIViewController {
         }
         self.exhibitionWorkTableView.reloadData()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = exhibitionWorkTableView.indexPathForSelectedRow,
-              let detailViewController: DetailWorkViewController = segue.destination as? DetailWorkViewController else {
-            return
-        }
-        
-        detailViewController.exhibitionWork = self.exhibitionWork[indexPath.row]
-    }
 }
 
 extension ExhibitionWorkListViewController: UITableViewDataSource {
@@ -82,6 +73,10 @@ extension ExhibitionWorkListViewController: UITableViewDataSource {
 
 extension ExhibitionWorkListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detail", sender: nil)
+        let detailWorkVC = DetailWorkViewController()
+        
+        detailWorkVC.exhibitionWork = self.exhibitionWork[indexPath.row]
+        
+        self.navigationController?.pushViewController(detailWorkVC, animated: true)
     }
 }
