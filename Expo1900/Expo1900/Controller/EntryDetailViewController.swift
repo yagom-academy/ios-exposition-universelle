@@ -15,6 +15,7 @@ final class EntryDetailViewController: UIViewController {
     
     init?(coder: NSCoder, expoEntryData: ExpoEntryData) {
         super.init(coder: coder)
+        
         self.expoEntryData = expoEntryData
     }
 
