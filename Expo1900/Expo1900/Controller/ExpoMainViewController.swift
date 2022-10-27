@@ -54,12 +54,17 @@ final class ExpoMainViewController: UIViewController {
         UIDevice.current.setValue(orientation, forKey: "orientation")
     }
     
-    private func buildNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
-        title = "메인"
+    @IBAction func tapEntryButton(_ sender: UIButton) {
+        guard let entryViewController = storyboard?.instantiateViewController(
+            withIdentifier: "EntryViewController"
+        ) as? EntryViewController else { return }
+        
+        navigationController?.pushViewController(entryViewController, animated: true)
     }
+}
     
-    private func configureAttribute() {
+private extension ExpoMainViewController {
+    func configureAttribute() {
         titleLabel.numberOfLines = 0
         titleLabel.font = .preferredFont(forTextStyle: .title1)
         titleLabel.adjustsFontForContentSizeCategory = true
@@ -86,7 +91,7 @@ final class ExpoMainViewController: UIViewController {
         descriptionTextView.textContainer.lineBreakMode = .byWordWrapping
     }
     
-    private func buildExpoMainView() {
+    func buildExpoMainView() {
         titleLabel.text = expoInformation.mainTitle
         posterImage.image = UIImage(named: "poster")
         visitorLabel.text = "\(expoInformation.decimalVisitor) 명"
@@ -98,11 +103,8 @@ final class ExpoMainViewController: UIViewController {
         }
     }
     
-    @IBAction func tapEntryButton(_ sender: UIButton) {
-        guard let entryViewController = storyboard?.instantiateViewController(
-            withIdentifier: "EntryViewController"
-        ) as? EntryViewController else { return }
-        
-        navigationController?.pushViewController(entryViewController, animated: true)
+    func buildNavigationBar() {
+        navigationController?.navigationBar.isHidden = true
+        title = "메인"
     }
 }

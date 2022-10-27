@@ -18,14 +18,6 @@ final class EntryViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let orientation = UIDevice.current.orientation.rawValue
-        
-        UIDevice.current.setValue(orientation, forKey: "orientation")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +27,17 @@ final class EntryViewController: UIViewController {
         buildNavigationBar()
     }
     
-    private func buildNavigationBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let orientation = UIDevice.current.orientation.rawValue
+        
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+    }
+}
+
+private extension EntryViewController {
+    func buildNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         title = "한국의 출품작"
     }

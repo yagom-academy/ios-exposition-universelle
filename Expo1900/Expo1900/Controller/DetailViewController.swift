@@ -29,24 +29,26 @@ final class DetailViewController: UIViewController {
         configureAttribute()
         configureImageViewConstraints()
     }
-    
-    private func buildNavigationBar() {
+}
+
+private extension DetailViewController {
+    func buildNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         title = entry.name
         navigationController?.navigationBar.topItem?.backButtonTitle = "출품작"
     }
     
-    private func buildDetailView() {
+    func buildDetailView() {
         detailImage.image = UIImage(named: entry.imageName)
         descriptionTextView.text = entry.description
     }
     
-    private func configureAttribute() {
+    func configureAttribute() {
         descriptionTextView.font = .preferredFont(forTextStyle: .body)
         descriptionTextView.adjustsFontForContentSizeCategory = true
     }
     
-    private func configureImageViewConstraints() {
+    func configureImageViewConstraints() {
         guard let image = detailImage.image else { return }
         
         detailImage.translatesAutoresizingMaskIntoConstraints = false
