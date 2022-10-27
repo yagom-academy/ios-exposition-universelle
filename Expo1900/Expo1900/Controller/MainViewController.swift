@@ -16,6 +16,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var descriptionTextView: UITextView!
     @IBOutlet private weak var leftFlagImage: UIImageView!
     @IBOutlet private weak var rightFlagImage: UIImageView!
+    @IBOutlet private var infoLabels: [UILabel]!
     
     var exposition: Exposition?
     
@@ -38,6 +39,8 @@ final class MainViewController: UIViewController {
         updateLabelText()
         updateImage()
         
+        infoLabels.forEach { $0.setDynamicType() }
+        descriptionTextView.setDynamicType()
         self.navigationItem.backButtonTitle = "메인"
     }
     

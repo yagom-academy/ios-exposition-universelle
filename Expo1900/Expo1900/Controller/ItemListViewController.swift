@@ -59,7 +59,7 @@ extension ItemListViewController: UITableViewDataSource {
         tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! ItemListTableViewCell
         cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
         cell.title.text = items[indexPath.row].name
-        cell.subTitle.text = items[indexPath.row].shortDescription
+        cell.subtitle.text = items[indexPath.row].shortDescription
         
         return cell
     }
