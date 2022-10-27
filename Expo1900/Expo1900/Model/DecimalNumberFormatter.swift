@@ -4,7 +4,7 @@
 
 import Foundation
 
-class DecimalNumberFormatter: NumberFormatter {
+final class DecimalNumberFormatter: NumberFormatter {
     override init() {
         super.init()
         

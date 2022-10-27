@@ -4,8 +4,8 @@
 
 import UIKit
 
-class ExpositionItemCell: UITableViewCell {
-    var itemImageView: UIImageView = {
+final class ExpositionItemCell: UITableViewCell {
+    private let itemImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -13,7 +13,7 @@ class ExpositionItemCell: UITableViewCell {
         return imageView
     }()
     
-    var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +23,7 @@ class ExpositionItemCell: UITableViewCell {
         return label
     }()
     
-    var shortDescriptionLabel: UILabel = {
+    private let shortDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,7 @@ class ExpositionItemCell: UITableViewCell {
         return label
     }()
     
-    let verticalStackView: UIStackView = {
+    private let verticalStackView: UIStackView = {
         let stackView: UIStackView = UIStackView()
         
         stackView.axis = .vertical
