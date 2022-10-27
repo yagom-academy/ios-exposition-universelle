@@ -14,6 +14,7 @@ final class ItemListViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
             showDataErrorAlert()
@@ -27,7 +28,6 @@ final class ItemListViewController: UIViewController {
             printErrorLog()
         }
         
-        self.tableView.dataSource = self
         self.title = "한국의 출품작"
         self.navigationItem.backButtonTitle = "한국의 출품작"
     }
