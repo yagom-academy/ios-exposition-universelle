@@ -20,7 +20,7 @@ final class ExpositionUniverselleViewController: UIViewController {
             return .all
         }
         return .portrait
-    }
+}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
