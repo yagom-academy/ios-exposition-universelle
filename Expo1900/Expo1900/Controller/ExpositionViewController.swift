@@ -57,18 +57,18 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureView() {
-        guard let exposition = expositionData else {
+        guard let expositionData = expositionData else {
             return
         }
         
-        expositionTitleLabel.text = exposition.title
-        expositionImageView.image = exposition.expositionImage
-        expositionVisitorsLabel.text = exposition.visitorInformation
-        expositionLocationLabel.text = exposition.locationInformation
-        expositionDurationLabel.text = exposition.durationInformation
-        expositionDescriptionTextView.text = exposition.description
-        leftFlagImageView.image = exposition.flagImage
-        showExhibitButton.setTitle(exposition.exhibitButtonText, for: .normal)
-        rightFlagImageView.image = exposition.flagImage
+        expositionTitleLabel.text = expositionData.title
+        expositionImageView.image = expositionData.expositionImage
+        expositionVisitorsLabel.text = expositionData.visitorInformation
+        expositionLocationLabel.text = expositionData.locationInformation
+        expositionDurationLabel.text = expositionData.durationInformation
+        expositionDescriptionTextView.text = expositionData.description
+        leftFlagImageView.image = expositionData.flagImage
+        showExhibitButton.setTitle(expositionData.exhibitButtonText, for: .normal)
+        rightFlagImageView.image = expositionData.flagImage
     }
 }
