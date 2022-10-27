@@ -74,7 +74,9 @@ final class DetailWorkViewController: UIViewController {
     }
     
     private func setImageViewConstraints() {
-        self.imageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
+        NSLayoutConstraint.activate([
+            self.imageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3)
+        ])
         self.imageView.contentMode = .scaleAspectFit
     }
     
