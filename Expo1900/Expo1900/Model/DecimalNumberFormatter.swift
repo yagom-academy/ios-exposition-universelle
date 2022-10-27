@@ -14,7 +14,10 @@ final class DecimalNumberFormatter: NumberFormatter {
         super.init(coder: coder)
     }
     
-    func formattedNumber(_ number: Int) -> String? {
+    func formattedNumber(_ number: String) -> String? {
+        guard let number = Int(number) else {
+            return nil
+        }
         return self.string(from: NSNumber(value: number))
     }
 }
