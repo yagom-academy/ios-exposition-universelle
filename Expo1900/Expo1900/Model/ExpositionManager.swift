@@ -16,6 +16,10 @@ struct ExpositionManager {
         return UIImage(named: imageName)
     }
     
+    var titleLineBreak: String {
+        return exposition?.title.replacingOccurrences(of: "(", with: "\n(") ?? ""
+    }
+    
     var formattedVisitorsDescription: String? {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal

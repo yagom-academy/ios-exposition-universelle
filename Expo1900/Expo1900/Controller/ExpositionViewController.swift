@@ -35,7 +35,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureViewsByManager() {
-        titleLabel.text = expositionManager.exposition?.title
+        titleLabel.text = expositionManager.titleLineBreak
         posterImage.image = expositionManager.posterImage
         visitorsLabel.text = expositionManager.formattedVisitorsDescription
         locationLabel.text = expositionManager.exposition?.location
