@@ -19,9 +19,15 @@ extension UILabel {
         guard let text: String = self.text else {
             return
         }
+        
+        let colon: Character = ":"
         let range = NSRange(location: 0,
-                            length: text.prefix(while: {$0 != ":"}).count)
+                            length: text.prefix(while: {$0 != colon}).count)
         let attributeString = NSMutableAttributedString(string: text)
+        
+        attributeString.addAttribute(.font,
+                                     value: UIFont.preferredFont(forTextStyle: .body),
+                                     range: NSRange(location: 0, length: text.count))
         
         attributeString.addAttribute(.font,
                                      value: UIFont.preferredFont(forTextStyle: .title2),
