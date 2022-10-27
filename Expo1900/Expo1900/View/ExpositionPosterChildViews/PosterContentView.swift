@@ -10,15 +10,15 @@ protocol posterContentDelegate: AnyObject {
 }
 
 final class PosterContentView: UIView {
-    let posterImageView: UIImageView = {
+    private let posterImageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: Constant.posterImageName))
         return image
     }()
-    private let titleLabel = InformationLabel(alignment: .center, settingFont: .systemFont(ofSize: 20, weight: .bold), lines: 0)
-    private let visitorsLabel = InformationLabel()
-    private let locationLabel = InformationLabel()
-    private let durationLabel = InformationLabel()
-    private let descriptionLabel = InformationLabel(alignment: .natural, settingFont: nil, lines: 0)
+    private let titleLabel = InformationLabel(alignment: .center, settingFont: UIFont.preferredFont(forTextStyle: .title1), lines: 0)
+    private let visitorsLabel = InformationLabel(alignment: .center)
+    private let locationLabel = InformationLabel(alignment: .center)
+    private let durationLabel = InformationLabel(alignment: .center)
+    private let descriptionLabel = InformationLabel(alignment: .natural)
     private let flagButton = FlagButton()
     weak var delegate: posterContentDelegate?
     
@@ -26,14 +26,17 @@ final class PosterContentView: UIView {
         super.init(frame: frame)
         
         setLayout()
+        addFlagButtonAction()
         
-        flagButton.setUpButtonAction { self.delegate?.didTappedEntityButton() }
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         setLayout()
+    }
+    
+    private func addFlagButtonAction() {
+        flagButton.addTarget(self, action: #selector(didTappedEntityButton), for: .touchUpInside)
     }
     
     func setViewData(exposition: Exposition?) {
@@ -42,6 +45,13 @@ final class PosterContentView: UIView {
         locationLabel.text = exposition?.location
         durationLabel.text = exposition?.duration
         descriptionLabel.text = exposition?.description
+    }
+}
+
+// MARK: - Objc Method
+private extension PosterContentView {
+    @objc func didTappedEntityButton() {
+        delegate?.didTappedEntityButton()
     }
 }
 
@@ -81,6 +91,8 @@ private extension PosterContentView {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.leadingAnchor.constraint(lessThanOrEqualTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
     
@@ -94,8 +106,10 @@ private extension PosterContentView {
     func setVisitorsLabelLayout() {
         NSLayoutConstraint.activate([
             visitorsLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 8),
-            visitorsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            visitorsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            visitorsLabel.leadingAnchor.constraint(lessThanOrEqualTo: leadingAnchor,
+                                                   constant: 16),
+            visitorsLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -16),
+            visitorsLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     
@@ -126,9 +140,10 @@ private extension PosterContentView {
     
     func setFlagButtonLayout() {
         NSLayoutConstraint.activate([
-            flagButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            flagButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            flagButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            flagButton.leadingAnchor.constraint(lessThanOrEqualTo: descriptionLabel.leadingAnchor),
+            flagButton.trailingAnchor.constraint(lessThanOrEqualTo: descriptionLabel.trailingAnchor),
+            flagButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            flagButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }

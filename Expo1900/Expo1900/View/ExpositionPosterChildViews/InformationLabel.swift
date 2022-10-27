@@ -11,17 +11,20 @@ final class InformationLabel: UILabel {
         textAlignment = .center
     }
     
-    init(alignment: NSTextAlignment, settingFont: UIFont?, lines: Int = 1) {
+    init(
+        alignment: NSTextAlignment,
+        settingFont: UIFont = UIFont.preferredFont(forTextStyle: .body),
+        lines: Int = 0
+    ) {
         super.init(frame: .zero)
         
         textAlignment = alignment
         
         
-        if let settingFont {
-            font = settingFont
-        }
+        font = settingFont
         numberOfLines = lines
         
+        adjustsFontForContentSizeCategory = true
         translatesAutoresizingMaskIntoConstraints = false
     }
     

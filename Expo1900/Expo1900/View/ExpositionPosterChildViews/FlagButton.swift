@@ -5,28 +5,54 @@
 
 import UIKit
 
-final class FlagButton: UIView {
+class FlagButton: UIButton {
     let leftImageView = FlagImageView(image: UIImage(named: Constant.koreanFlagImageName))
     let rightImageView = FlagImageView(image: UIImage(named: Constant.koreanFlagImageName))
-    let entityButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.setTitle(Constant.entityButtonTitle, for: .normal)
-        return button
-    }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: .zero)
         
-        setContentLayout()
+        titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.adjustsFontForContentSizeCategory = true
+        titleLabel?.textAlignment = .center
+        
+        setTitle(Constant.entityButtonTitle, for: .normal)
+        setTitleColor(.systemBlue, for: .normal)
+        
+        setUpLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        setContentLayout()
+        setUpLayout()
+    }
+    
+    func setUpLayout() {
+        [leftImageView,rightImageView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            addSubview($0)
+        }
+        
+        guard let titleLabel else {
+            return
+        }
+        
+        NSLayoutConstraint.activate([
+            leftImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            leftImageView.topAnchor.constraint(equalTo: topAnchor),
+            leftImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            leftImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            
+            rightImageView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            rightImageView.topAnchor.constraint(equalTo: topAnchor),
+            rightImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            rightImageView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
 }
+
 
 // MARK: - UserInterAction 관련 메서드
 extension FlagButton {
@@ -34,32 +60,6 @@ extension FlagButton {
         let presentAction = UIAction { _ in
             action()
         }
-        entityButton.addAction(presentAction, for: .touchUpInside)
-    }
-}
-
-// MARK: - Layout 설정
-private extension FlagButton {
-    private func setContentLayout() {
-        [
-            leftImageView,
-            entityButton,
-            rightImageView,
-        ].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            addSubview($0)
-        }
-        
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalTo: leftImageView.heightAnchor),
-            entityButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            entityButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            leftImageView.centerYAnchor.constraint(equalTo: entityButton.centerYAnchor),
-            leftImageView.trailingAnchor.constraint(equalTo: entityButton.leadingAnchor),
-            
-            rightImageView.centerYAnchor.constraint(equalTo: entityButton.centerYAnchor),
-            rightImageView.leadingAnchor.constraint(equalTo: entityButton.trailingAnchor)
-        ])
+        addAction(presentAction, for: .touchUpInside)
     }
 }

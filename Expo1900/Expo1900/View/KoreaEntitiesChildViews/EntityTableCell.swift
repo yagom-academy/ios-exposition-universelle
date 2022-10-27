@@ -15,8 +15,8 @@ final class EntityTableCell: UITableViewCell {
         return imageView
     }()
     
-    private let titleLabel = InformationLabel(alignment: .left, settingFont: UIFont.systemFont(ofSize: 25))
-    private let subTitleLabel = InformationLabel(alignment: .left, settingFont: nil, lines: 0)
+    private let titleLabel = InformationLabel(alignment: .left, settingFont: UIFont.preferredFont(forTextStyle: .title1))
+    private let subTitleLabel = InformationLabel(alignment: .left)
     
     private lazy var explainStackView: UIStackView = {
         let explainStackView = UIStackView(arrangedSubviews: [titleLabel, subTitleLabel])

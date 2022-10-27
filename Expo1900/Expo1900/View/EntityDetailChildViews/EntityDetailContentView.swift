@@ -13,7 +13,7 @@ final class EntityDetailContentView: UIView {
         return imageView
     }()
     
-    private let descriptionLabel = InformationLabel(alignment: .natural, settingFont: nil, lines: 0)
+    private let descriptionLabel = InformationLabel(alignment: .natural)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
