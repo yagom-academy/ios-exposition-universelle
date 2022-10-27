@@ -6,7 +6,7 @@
 import UIKit
 
 final class ExpoMainViewController: UIViewController {
-    private var expoInformation: ExpoInformation?
+    private let expoInformation: ExpoInformation
     
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var posterImage: UIImageView!
@@ -16,15 +16,20 @@ final class ExpoMainViewController: UIViewController {
     @IBOutlet weak private var descriptionTextView: UITextView!
     @IBOutlet private var flagImages: [UIImageView]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    required init?(coder: NSCoder) {
         guard let expoInformationData = JSONDecoder.decode(
             ExpoInformation.self,
             from: "exposition_universelle_1900"
-        ) else { return }
+        ) else { return nil }
         
         expoInformation = expoInformationData
+        
+        super.init(coder: coder)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         configureAttribute()
         buildExpoMainView()
     }
@@ -82,8 +87,6 @@ final class ExpoMainViewController: UIViewController {
     }
     
     private func buildExpoMainView() {
-        guard let expoInformation = expoInformation else { return }
-        
         titleLabel.text = expoInformation.mainTitle
         posterImage.image = UIImage(named: "poster")
         visitorLabel.text = "\(expoInformation.decimalVisitor) 명"
