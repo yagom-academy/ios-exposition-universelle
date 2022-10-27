@@ -83,7 +83,8 @@ class ExhibitionMainViewController: UIViewController {
         
         button.setTitle(NameSpace.showingKoreanWorks, for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
-        
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
         return button
     }()
     
@@ -126,7 +127,4 @@ class ExhibitionMainViewController: UIViewController {
         
         self.navigationController?.pushViewController(exhibitionWorkListVC, animated: true)
     }
-    
-    
 }
-
