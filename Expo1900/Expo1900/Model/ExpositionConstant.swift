@@ -19,4 +19,7 @@ enum ExpositionConstant {
     static let cellErrorMessage: String = "잘못된 셀"
     
     static let exhibitCellTitleFont: UIFont = .preferredFont(forTextStyle: .title1)
+    
+    static let alertTitle: String = "오류"
+    static let alertActionTitle: String = "OK"
 }
