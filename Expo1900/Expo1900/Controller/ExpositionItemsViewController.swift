@@ -9,6 +9,9 @@ final class ExpositionItemsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     //MARK: - Property
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
     private var expositionItems: [ExpositionUniverselleItem] = []
     private let titleText: String = "한국의 출품작"
     

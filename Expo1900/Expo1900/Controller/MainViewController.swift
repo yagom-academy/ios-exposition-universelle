@@ -17,6 +17,9 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var rightFlagImageView: UIImageView!
     
     //MARK: - Property
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
     private var expositionUniverselle: ExpositionUniverselle?
     private let titleText: String = "메인"
     private let posterImageIdentifier: String = "poster"

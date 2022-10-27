@@ -6,10 +6,10 @@ import UIKit
 
 class ExpositionNavigationController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if self.topViewController is MainViewController {
-            return [.portrait]
-        } else {
-            return [.all]
+        guard let `topViewController` = self.topViewController else {
+            return .all
         }
+        
+        return `topViewController`.supportedInterfaceOrientations
     }
 }

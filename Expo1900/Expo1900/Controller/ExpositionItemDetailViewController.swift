@@ -10,6 +10,9 @@ final class ExpositionItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemDescriptionLabel: DescriptionLabel!
     
     //MARK: - Property
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
     var item: ExpositionUniverselleItem?
     
     //MARK: - Override Method
