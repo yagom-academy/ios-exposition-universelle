@@ -22,8 +22,8 @@ final class KoreanEntriesViewController: UIViewController {
     
     private func fetchKoreanEntries() {
         do {
-        koreanEntries = try jsonDecodingManager.decode(
-            dataAsset: ExpoConstant.koreanEntriesJSONFileName)
+            koreanEntries = try jsonDecodingManager.decode(
+                dataAsset: ExpoConstant.koreanEntriesJSONFileName)
         } catch {
             print(error.localizedDescription)
         }
@@ -69,5 +69,6 @@ extension KoreanEntriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showEntryDetails", sender: indexPath.row)
+        entriesTableView.deselectRow(at: indexPath, animated: true)
     }
 }

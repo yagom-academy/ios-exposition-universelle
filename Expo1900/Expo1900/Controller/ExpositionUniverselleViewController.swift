@@ -16,11 +16,11 @@ final class ExpositionUniverselleViewController: UIViewController {
     private var expositionUniverselle: ExpositionUniverselle?
     private let jsonDecodingManager: JSONDecodingManager = JSONDecodingManager()
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        guard let topViewController = navigationController?.topViewController as? ExpositionUniverselleViewController else {
-            return .all
+        if navigationController?.topViewController is ExpositionUniverselleViewController {
+            return .portrait
         }
-        return .portrait
-}
+        return .all
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -57,6 +57,7 @@ final class ExpositionUniverselleViewController: UIViewController {
             descriptionLabel.text = "데이터를 불러오는데 실패했습니다."
             return
         }
+        
         let formattedVisitor: String = changeNumberFormat(
             number:"\(expositionUniverselle.visitors)")
         
@@ -94,6 +95,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         guard let decimalNumber = Double(number) else {
             return number
         }
+        
         return formatter.string(from: NSNumber(value: decimalNumber))!
     }
 }
