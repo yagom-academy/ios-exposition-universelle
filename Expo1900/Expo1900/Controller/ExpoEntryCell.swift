@@ -19,6 +19,7 @@ class ExpoEntryCell: UITableViewCell {
         
         entryImageView = UIImageView()
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
+        entryImageView.contentMode = .scaleAspectFit
         self.contentView.addSubview(entryImageView)
         
         entryNameLabel = UILabel()
@@ -44,11 +45,13 @@ class ExpoEntryCell: UITableViewCell {
         NSLayoutConstraint.activate([
             entryImageView.widthAnchor.constraint(equalTo: entryImageView.heightAnchor),
             entryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15.0),
+            entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            entryImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 10),
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: entryImageView.bottomAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
-            stackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8.0),
+            stackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8),
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10)
         ])
     }
