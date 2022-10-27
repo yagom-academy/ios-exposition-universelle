@@ -53,7 +53,7 @@ extension ExhibitionMainViewController {
     }
 
     private func setTitleText(of expoInformation: ExpositionPoster) {
-        let headTitle = expoInformation.title.split(separator: "(")
+        let headTitle = expoInformation.title.split(separator: NameSpace.spaceStandard)
 
         self.titleLabel.text = headTitle[0] + "\n(\(headTitle[1])"
     }
@@ -62,36 +62,36 @@ extension ExhibitionMainViewController {
         let visitorDetail: String
         
         do {
-            visitorDetail = "\(try expositionPoster?.visitors.formatNumber ?? "0") 명"
+            visitorDetail = try expositionPoster?.visitors.formatNumber ?? NameSpace.zero
         } catch {
-            visitorDetail = "확인 불가"
+            visitorDetail = NameSpace.noneError
         }
         
-        self.visitorLabel.text = "방문객 : " + visitorDetail
+        self.visitorLabel.text = NameSpace.visitors + visitorDetail + NameSpace.numberOfPeople
 
-        let fullText = visitorLabel.text ?? ""
+        let fullText = visitorLabel.text ?? NameSpace.blank
         let attribtuedString = NSMutableAttributedString(string: fullText)
-        let range = (fullText as NSString).range(of: "방문객 : ")
+        let range = (fullText as NSString).range(of: NameSpace.visitors)
         attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
         visitorLabel.attributedText = attribtuedString
     }
 
     private func setLocationLabel(of expoInformation: ExpositionPoster) {
-        self.locationLabel.text = "개최지 : " + expoInformation.location
+        self.locationLabel.text = NameSpace.location + expoInformation.location
         
-        let fullText = locationLabel.text ?? ""
+        let fullText = locationLabel.text ?? NameSpace.blank
         let attribtuedString = NSMutableAttributedString(string: fullText)
-        let range = (fullText as NSString).range(of: "개최지 : ")
+        let range = (fullText as NSString).range(of: NameSpace.location)
         attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
         locationLabel.attributedText = attribtuedString
     }
 
     private func setDurationLabel(of expoInformation: ExpositionPoster) {
-        self.termLabel.text = "개최 기간 : " + expoInformation.duration
+        self.termLabel.text = NameSpace.term + expoInformation.duration
         
-        let fullText = termLabel.text ?? ""
+        let fullText = termLabel.text ?? NameSpace.blank
         let attribtuedString = NSMutableAttributedString(string: fullText)
-        let range = (fullText as NSString).range(of: "개최 기간 : ")
+        let range = (fullText as NSString).range(of: NameSpace.term)
         attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
         termLabel.attributedText = attribtuedString
     }

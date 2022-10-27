@@ -2,13 +2,13 @@
 //  TableViewCell.swift
 //  Expo1900
 //
-//  Created by leewonseok on 2022/10/26.
+//  Created by Som, Stone, Aaron on 2022/10/26.
 //
 
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    static let cellIdentifier: String = "cell"
+    static let cellIdentifier: String = NameSpace.cellID
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()

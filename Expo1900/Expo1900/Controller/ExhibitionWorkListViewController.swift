@@ -43,7 +43,7 @@ class ExhibitionWorkListViewController: UIViewController {
     func setUpJSONData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: NameSpace.itemKeys) else { return }
         
         do {
             exhibitionWork = try jsonDecoder.decode([ExhibitionWork].self, from: dataAsset.data)

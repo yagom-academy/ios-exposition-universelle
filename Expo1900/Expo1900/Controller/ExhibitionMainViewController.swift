@@ -46,7 +46,7 @@ class ExhibitionMainViewController: UIViewController {
     let imageView: UIImageView = {
         let posterImage = UIImageView()
         
-        posterImage.image = UIImage(named: "poster")
+        posterImage.image = UIImage(named: NameSpace.poster)
         
         return posterImage
     }()
@@ -65,7 +65,7 @@ class ExhibitionMainViewController: UIViewController {
     let leftFlagImageView: UIImageView = {
         let leftImage = UIImageView()
         
-        leftImage.image = UIImage(named: "flag")
+        leftImage.image = UIImage(named: NameSpace.flag)
         
         return leftImage
     }()
@@ -73,7 +73,7 @@ class ExhibitionMainViewController: UIViewController {
     let rightFlagImageView: UIImageView = {
         let rightImage = UIImageView()
         
-        rightImage.image = UIImage(named: "flag")
+        rightImage.image = UIImage(named: NameSpace.flag)
         
         return rightImage
     }()
@@ -81,7 +81,7 @@ class ExhibitionMainViewController: UIViewController {
     let button: UIButton = {
         let button = UIButton()
         
-        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitle(NameSpace.showingKoreanWorks, for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         
         return button
@@ -98,14 +98,14 @@ class ExhibitionMainViewController: UIViewController {
     
     func setUpJSONMainData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: NameSpace.expoUniverselleKeys) else {
             return
         }
         
         do {
             expositionPoster = try jsonDecoder.decode(ExpositionPoster.self, from: dataAsset.data)
         } catch {
-            print("Error: \(error.localizedDescription)")
+            print(NameSpace.errorState + error.localizedDescription)
         }
     }
     

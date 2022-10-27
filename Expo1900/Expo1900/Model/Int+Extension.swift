@@ -2,7 +2,7 @@
 //  Int+Extension.swift
 //  Expo1900
 //
-//  Created by leewonseok on 2022/10/21.
+//  Created by Som, Stone, Aaron on 2022/10/21.
 //
 import Foundation
 

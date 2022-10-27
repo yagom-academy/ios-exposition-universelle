@@ -52,7 +52,7 @@ final class DetailWorkViewController: UIViewController {
             imageView.image = assetImage
 
         } else {
-            imageView.image = UIImage(systemName: "xmark.seal")
+            imageView.image = UIImage(systemName: NameSpace.xMark)
         }
         
         textView.text = exhibitionWork?.desc ?? "설명 없음"
