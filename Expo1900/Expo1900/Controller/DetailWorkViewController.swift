@@ -4,10 +4,9 @@
 //
 //  Created by Som, Stone, Aaron on 2022/10/20.
 //
-
 import UIKit
 
-class DetailWorkViewController: UIViewController {
+final class DetailWorkViewController: UIViewController {
     private lazy var imageView = UIImageView()
     
     private lazy var textView: UITextView = {
@@ -21,16 +20,16 @@ class DetailWorkViewController: UIViewController {
         return textView
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 20
         return stackView
     }()
         
-    lazy var scrollView = UIScrollView()
+    private lazy var scrollView = UIScrollView()
     
-    let contentView = UIView()
+    private lazy var contentView = UIView()
     
     var exhibitionWork: ExhibitionWork?
     
@@ -42,12 +41,15 @@ class DetailWorkViewController: UIViewController {
         setContentViewConstraints()
         setStackViewConstraints()
         setStackViewSubViews()
+        setImageViewConstraints()
     }
 
-    func setUpDetailData() {
+    private func setUpDetailData() {
+
         if let imageName = exhibitionWork?.imageName,
             let assetImage = UIImage(named: imageName) {
             imageView.image = assetImage
+
         } else {
             imageView.image = UIImage(systemName: "xmark.seal")
         }
@@ -68,6 +70,11 @@ class DetailWorkViewController: UIViewController {
     
     private func setStackViewSubViews() {
         [imageView, textView].forEach { self.stackView.addArrangedSubview($0) }
+    }
+    
+    private func setImageViewConstraints() {
+        self.imageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
+        self.imageView.contentMode = .scaleAspectFit
     }
     
     private func setStackViewConstraints() {
