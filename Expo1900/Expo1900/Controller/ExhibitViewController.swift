@@ -15,15 +15,29 @@ final class ExhibitViewController: UIViewController {
         exhibitTableView.delegate = self
         exhibitTableView.dataSource = self
         navigationItem.title = ExpositionConstant.exhibitTitleText
-
+        
+        fetchExhibitsData()
+    }
+    
+    func fetchExhibitsData() {
         do {
             exhibits = try JSONDecoder.parse(asset: ExpositionConstant.exhibitAssetName,
                                                           to: [ExhibitData].self)
         } catch ExpositionError.invalidAsset {
-            print(ExpositionError.invalidAsset.rawValue)
+            showAlert(message: ExpositionError.invalidAsset.rawValue)
         } catch {
-            print(error.localizedDescription)
+            showAlert(message: error.localizedDescription)
         }
+    }
+    
+    func showAlert(message: String) {
+        let alert: UIAlertController = UIAlertController(title: ExpositionConstant.alertTitle,
+                                                         message: message,
+                                                         preferredStyle: .alert)
+        let okAction: UIAlertAction = UIAlertAction(title: ExpositionConstant.alertActionTitle,
+                                                    style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 

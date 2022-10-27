@@ -38,7 +38,8 @@ final class ExpositionViewController: UIViewController {
         let alert: UIAlertController = UIAlertController(title: ExpositionConstant.alertTitle,
                                                          message: message,
                                                          preferredStyle: .alert)
-        let okAction: UIAlertAction = UIAlertAction(title: ExpositionConstant.alertActionTitle, style: .default)
+        let okAction: UIAlertAction = UIAlertAction(title: ExpositionConstant.alertActionTitle,
+                                                    style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
