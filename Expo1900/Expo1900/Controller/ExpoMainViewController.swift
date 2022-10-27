@@ -97,7 +97,7 @@ private extension ExpoMainViewController {
         visitorLabel.text = "\(expoInformation.decimalVisitor) 명"
         localeLabel.text = expoInformation.location
         periodLabel.text = expoInformation.duration
-        descriptionTextView.text = expoInformation.description
+        descriptionTextView.attributedText = expoInformation.description.applyHangulAttribute()
         flagImages.forEach { flagImage in
             flagImage.image = UIImage(named: "flag")
         }

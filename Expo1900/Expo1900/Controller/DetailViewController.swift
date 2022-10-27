@@ -40,7 +40,7 @@ private extension DetailViewController {
     
     func buildDetailView() {
         detailImage.image = UIImage(named: entry.imageName)
-        descriptionTextView.text = entry.description
+        descriptionTextView.attributedText = entry.description.applyHangulAttribute()
     }
     
     func configureAttribute() {
