@@ -10,6 +10,7 @@
 		262B78752901574600EEF0A7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B78742901574600EEF0A7 /* UIViewController+.swift */; };
 		262E2D1D28FFC061000488F0 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E2D1C28FFC061000488F0 /* ItemListViewController.swift */; };
 		262E2D1F28FFC071000488F0 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E2D1E28FFC071000488F0 /* ItemViewController.swift */; };
+		262F7690290A86DE0034481C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F768F290A86DE0034481C /* ContainerViewController.swift */; };
 		2656BD6028FE394300D5279D /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656BD5F28FE394300D5279D /* Exposition.swift */; };
 		2659D4B52906280100C32443 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2659D4B42906280100C32443 /* ItemListTableViewCell.swift */; };
 		69FA275F28FE363700906766 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FA275E28FE363700906766 /* Item.swift */; };
@@ -25,6 +26,7 @@
 		262B78742901574600EEF0A7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		262E2D1C28FFC061000488F0 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		262E2D1E28FFC071000488F0 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		262F768F290A86DE0034481C /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		2656BD5F28FE394300D5279D /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		2659D4B42906280100C32443 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		69FA275E28FE363700906766 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 		262E2D1B28FFC011000488F0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				262F768F290A86DE0034481C /* ContainerViewController.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				262E2D1C28FFC061000488F0 /* ItemListViewController.swift */,
 				2659D4B42906280100C32443 /* ItemListTableViewCell.swift */,
@@ -197,6 +200,7 @@
 			files = (
 				262E2D1F28FFC071000488F0 /* ItemViewController.swift in Sources */,
 				69FA275F28FE363700906766 /* Item.swift in Sources */,
+				262F7690290A86DE0034481C /* ContainerViewController.swift in Sources */,
 				2656BD6028FE394300D5279D /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				262B78752901574600EEF0A7 /* UIViewController+.swift in Sources */,

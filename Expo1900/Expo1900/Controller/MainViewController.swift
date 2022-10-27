@@ -83,4 +83,8 @@ final class MainViewController: UIViewController {
         
         navigationController?.pushViewController(nextViewController, animated: true)
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
 }
