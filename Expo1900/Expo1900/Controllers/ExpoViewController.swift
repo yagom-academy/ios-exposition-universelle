@@ -18,7 +18,7 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var visitorLabel: UILabel!
     @IBOutlet private weak var placeLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private var buttonImage: [UIImageView]!
     @IBOutlet private weak var nextButton: UIButton!
     
@@ -72,8 +72,9 @@ final class ExpoViewController: UIViewController {
         visitorLabel.text = expoData?.visitorNumberDescription
         placeLabel.text = expoData?.locationDescription
         timeLabel.text = expoData?.durationDescription
-        descriptionTextView.text = expoData?.description
-        descriptionTextView.isEditable = false
+        descriptionLabel.text = expoData?.description
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
         buttonImage.forEach { button in
             button.image = UIImage(named: AssetName.flagButtonImage)
         }
