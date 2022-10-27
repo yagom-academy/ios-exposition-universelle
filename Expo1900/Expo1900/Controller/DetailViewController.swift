@@ -13,6 +13,7 @@ final class DetailViewController: UIViewController {
     
     init?(entry: Entry, coder: NSCoder) {
         self.entry = entry
+        
         super.init(coder: coder)
     }
     
@@ -28,7 +29,7 @@ final class DetailViewController: UIViewController {
         configureAttribute()
         configureImageViewConstraints()
     }
-
+    
     private func buildNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         title = entry.name
@@ -55,7 +56,7 @@ final class DetailViewController: UIViewController {
         ).isActive = true
         detailImage.heightAnchor.constraint(
             equalTo: detailImage.widthAnchor,
-             multiplier: image.size.height / image.size.width
+            multiplier: image.size.height / image.size.width
         ).isActive = true
     }
 }

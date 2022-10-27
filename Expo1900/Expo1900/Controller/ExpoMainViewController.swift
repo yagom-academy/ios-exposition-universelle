@@ -40,17 +40,17 @@ final class ExpoMainViewController: UIViewController {
         buildNavigationBar()
         
         let portrait = UIInterfaceOrientation.portrait.rawValue
-        let orientation = UIDevice.current.orientation.rawValue 
+        let orientation = UIDevice.current.orientation.rawValue
+        
         UIDevice.current.setValue(portrait, forKey: "orientation")
         UIDevice.current.setValue(orientation, forKey: "orientation")
-        
-        UIDevice().endGeneratingDeviceOrientationNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         let orientation = UIDevice.current.orientation.rawValue
+        
         UIDevice.current.setValue(orientation, forKey: "orientation")
     }
     
@@ -93,7 +93,6 @@ final class ExpoMainViewController: UIViewController {
         localeLabel.text = expoInformation.location
         periodLabel.text = expoInformation.duration
         descriptionTextView.text = expoInformation.description
-        
         flagImages.forEach { flagImage in
             flagImage.image = UIImage(named: "flag")
         }

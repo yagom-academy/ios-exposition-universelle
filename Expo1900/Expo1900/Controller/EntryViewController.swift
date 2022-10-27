@@ -12,6 +12,7 @@ final class EntryViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         guard let entries = JSONDecoder.decode([Entry].self, from: "items") else { return nil }
+        
         self.entries = entries
         
         super.init(coder: coder)
@@ -21,8 +22,8 @@ final class EntryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         let orientation = UIDevice.current.orientation.rawValue
+        
         UIDevice.current.setValue(orientation, forKey: "orientation")
-        UINavigationController.attemptRotationToDeviceOrientation()
     }
     
     override func viewDidLoad() {
@@ -68,6 +69,7 @@ extension EntryViewController: UITableViewDataSource {
             for: indexPath) as? EntryTableViewCell else { return UITableViewCell() }
         
         cell.buildCell(from: entries[indexPath.row])
+        
         return cell
     }
 }

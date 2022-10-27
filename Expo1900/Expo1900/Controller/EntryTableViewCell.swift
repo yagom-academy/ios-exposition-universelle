@@ -11,7 +11,7 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet weak var entryimageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptLabel: UILabel!
-
+    
     func buildCell(from entry: Entry) {
         entryimageView.image = UIImage(named: entry.imageName)
         titleLabel.text = entry.name
