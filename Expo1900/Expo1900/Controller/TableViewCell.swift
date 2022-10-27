@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell {
     static let cellIdentifier: String = NameSpace.cellID
     
     lazy var stackView: UIStackView = {
@@ -19,7 +19,7 @@ class TableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let workImageView: UIImageView = {
+    lazy var workImageView: UIImageView = {
         let imageView = UIImageView()
         
         imageView.contentMode = .scaleAspectFit
@@ -28,7 +28,7 @@ class TableViewCell: UITableViewCell {
         return imageView
     }()
     
-    let titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         
         label.font = UIFont.preferredFont(forTextStyle: .title2)
@@ -37,7 +37,7 @@ class TableViewCell: UITableViewCell {
         return label
     }()
     
-    let detailLabel: UILabel = {
+    lazy var detailLabel: UILabel = {
         let detailLabel = UILabel()
         
         detailLabel.numberOfLines = 0

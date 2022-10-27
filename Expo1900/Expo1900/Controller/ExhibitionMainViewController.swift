@@ -6,11 +6,11 @@
 
 import UIKit
 
-class ExhibitionMainViewController: UIViewController {
-    let scrollView = UIScrollView()
-    let contentView = UIView()
+final class ExhibitionMainViewController: UIViewController {
+    lazy var scrollView = UIScrollView()
+    lazy var contentView = UIView()
     
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         
         stackView.axis = .vertical
@@ -21,7 +21,7 @@ class ExhibitionMainViewController: UIViewController {
         return stackView
     }()
     
-    let buttonStackView: UIStackView = {
+    lazy var buttonStackView: UIStackView = {
         let buttonStackView = UIStackView()
         
         buttonStackView.spacing = 10
@@ -30,7 +30,7 @@ class ExhibitionMainViewController: UIViewController {
         return buttonStackView
     }()
     
-    let titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         
         label.numberOfLines = 0
@@ -41,11 +41,11 @@ class ExhibitionMainViewController: UIViewController {
         return label
     }()
     
-    let visitorLabel = UILabel()
-    let locationLabel = UILabel()
-    let termLabel = UILabel()
+    lazy var visitorLabel = UILabel()
+    lazy var locationLabel = UILabel()
+    lazy var termLabel = UILabel()
     
-    let imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let posterImage = UIImageView()
         
         posterImage.image = UIImage(named: NameSpace.poster)
@@ -54,7 +54,7 @@ class ExhibitionMainViewController: UIViewController {
         return posterImage
     }()
     
-    let descTextView: UITextView = {
+    lazy var descTextView: UITextView = {
         let textView = UITextView()
 
         textView.isEditable = false
@@ -66,7 +66,7 @@ class ExhibitionMainViewController: UIViewController {
         return textView
     }()
     
-    let leftFlagImageView: UIImageView = {
+    lazy var leftFlagImageView: UIImageView = {
         let leftImage = UIImageView()
         
         leftImage.image = UIImage(named: NameSpace.flag)
@@ -74,7 +74,7 @@ class ExhibitionMainViewController: UIViewController {
         return leftImage
     }()
     
-    let rightFlagImageView: UIImageView = {
+    lazy var rightFlagImageView: UIImageView = {
         let rightImage = UIImageView()
         
         rightImage.image = UIImage(named: NameSpace.flag)
@@ -82,7 +82,7 @@ class ExhibitionMainViewController: UIViewController {
         return rightImage
     }()
     
-    let button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton()
         
         button.setTitle(NameSpace.showingKoreanWorks, for: .normal)

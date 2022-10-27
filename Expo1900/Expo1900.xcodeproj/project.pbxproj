@@ -15,6 +15,8 @@
 		AE2202212900E32500D41133 /* ExhibitionWorkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2202202900E32500D41133 /* ExhibitionWorkListViewController.swift */; };
 		AEDC06B029091CBD00FF682C /* ExhibitionMainViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC06AF29091CBD00FF682C /* ExhibitionMainViewController + Extension.swift */; };
 		AEDC89A3290A28620013D92B /* NameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC89A2290A28620013D92B /* NameSpace.swift */; };
+		AEDC89A5290A70930013D92B /* DetailWorkViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC89A4290A70930013D92B /* DetailWorkViewController + Extension.swift */; };
+		AEDC89A7290A71910013D92B /* ExhibitionWorkListViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC89A6290A71910013D92B /* ExhibitionWorkListViewController + Extension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExhibitionMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExhibitionMainViewController.swift */; };
@@ -32,6 +34,8 @@
 		AE2202202900E32500D41133 /* ExhibitionWorkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionWorkListViewController.swift; sourceTree = "<group>"; };
 		AEDC06AF29091CBD00FF682C /* ExhibitionMainViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExhibitionMainViewController + Extension.swift"; sourceTree = "<group>"; };
 		AEDC89A2290A28620013D92B /* NameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpace.swift; sourceTree = "<group>"; };
+		AEDC89A4290A70930013D92B /* DetailWorkViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailWorkViewController + Extension.swift"; sourceTree = "<group>"; };
+		AEDC89A6290A71910013D92B /* ExhibitionWorkListViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExhibitionWorkListViewController + Extension.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,8 +63,7 @@
 				AE210B3328FDAF92002EED7E /* ExhibitionWork.swift */,
 				5485D4A828FDB1AD00EA48E1 /* ExpositionPoster.swift */,
 				AEDC89A2290A28620013D92B /* NameSpace.swift */,
-				54BCB6172902309B00449B8D /* Int+Extension.swift */,
-				AEDC06AF29091CBD00FF682C /* ExhibitionMainViewController + Extension.swift */,
+				AEDC89A8290A72AA0013D92B /* Extension */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -82,6 +85,17 @@
 				540ECB63290953B60068D662 /* TableViewCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		AEDC89A8290A72AA0013D92B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				54BCB6172902309B00449B8D /* Int+Extension.swift */,
+				AEDC06AF29091CBD00FF682C /* ExhibitionMainViewController + Extension.swift */,
+				AEDC89A4290A70930013D92B /* DetailWorkViewController + Extension.swift */,
+				AEDC89A6290A71910013D92B /* ExhibitionWorkListViewController + Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -191,8 +205,10 @@
 				AE210B3428FDAF92002EED7E /* ExhibitionWork.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				540ECB64290953B60068D662 /* TableViewCell.swift in Sources */,
+				AEDC89A5290A70930013D92B /* DetailWorkViewController + Extension.swift in Sources */,
 				AEDC89A3290A28620013D92B /* NameSpace.swift in Sources */,
 				5485D4A928FDB1AD00EA48E1 /* ExpositionPoster.swift in Sources */,
+				AEDC89A7290A71910013D92B /* ExhibitionWorkListViewController + Extension.swift in Sources */,
 				AE2202212900E32500D41133 /* ExhibitionWorkListViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				AEDC06B029091CBD00FF682C /* ExhibitionMainViewController + Extension.swift in Sources */,
