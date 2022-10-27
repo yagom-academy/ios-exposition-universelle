@@ -31,12 +31,14 @@ class ExhibitionMainViewController: UIViewController {
     }()
     
     let titleLabel: UILabel = {
-        let title = UILabel()
+        let label = UILabel()
         
-        title.numberOfLines = 0
-        title.textAlignment = .center
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         
-        return title
+        return label
     }()
     
     let visitorLabel = UILabel()
@@ -47,6 +49,7 @@ class ExhibitionMainViewController: UIViewController {
         let posterImage = UIImageView()
         
         posterImage.image = UIImage(named: NameSpace.poster)
+        posterImage.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
         return posterImage
     }()
@@ -57,7 +60,8 @@ class ExhibitionMainViewController: UIViewController {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.textAlignment = .left
-        textView.font = .systemFont(ofSize: 18)
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
+        textView.adjustsFontForContentSizeCategory = true
         
         return textView
     }()
@@ -85,6 +89,9 @@ class ExhibitionMainViewController: UIViewController {
         button.setTitleColor(.systemBlue, for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        
         return button
     }()
     

@@ -23,6 +23,7 @@ class TableViewCell: UITableViewCell {
         let imageView = UIImageView()
         
         imageView.contentMode = .scaleAspectFit
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
         return imageView
     }()
@@ -30,7 +31,8 @@ class TableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
@@ -39,6 +41,8 @@ class TableViewCell: UITableViewCell {
         let detailLabel = UILabel()
         
         detailLabel.numberOfLines = 0
+        detailLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        detailLabel.adjustsFontForContentSizeCategory = true
         
         return detailLabel
     }()

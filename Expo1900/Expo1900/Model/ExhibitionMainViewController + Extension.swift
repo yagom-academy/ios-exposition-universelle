@@ -74,6 +74,9 @@ extension ExhibitionMainViewController {
         let range = (fullText as NSString).range(of: NameSpace.visitors)
         attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
         visitorLabel.attributedText = attribtuedString
+        
+        visitorLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        visitorLabel.adjustsFontForContentSizeCategory = true
     }
 
     private func setLocationLabel(of expoInformation: ExpositionPoster) {
@@ -84,6 +87,9 @@ extension ExhibitionMainViewController {
         let range = (fullText as NSString).range(of: NameSpace.location)
         attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
         locationLabel.attributedText = attribtuedString
+        
+        locationLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        locationLabel.adjustsFontForContentSizeCategory = true
     }
 
     private func setDurationLabel(of expoInformation: ExpositionPoster) {
@@ -94,6 +100,9 @@ extension ExhibitionMainViewController {
         let range = (fullText as NSString).range(of: NameSpace.term)
         attribtuedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: range)
         termLabel.attributedText = attribtuedString
+        
+        termLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        termLabel.adjustsFontForContentSizeCategory = true
     }
 
     private func setDescriptionTextView(of expoInformation: ExpositionPoster) {

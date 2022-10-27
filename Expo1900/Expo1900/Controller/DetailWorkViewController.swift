@@ -7,7 +7,13 @@
 import UIKit
 
 final class DetailWorkViewController: UIViewController {
-    private lazy var imageView = UIImageView()
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        
+        return imageView
+    }()
     
     private lazy var textView: UITextView = {
         let textView = UITextView()
@@ -15,7 +21,8 @@ final class DetailWorkViewController: UIViewController {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.textAlignment = .left
-        textView.font = .systemFont(ofSize: 18)
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
+        textView.adjustsFontForContentSizeCategory = true
         
         return textView
     }()
