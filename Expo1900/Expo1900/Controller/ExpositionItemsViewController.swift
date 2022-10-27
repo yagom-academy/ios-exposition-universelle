@@ -24,6 +24,11 @@ final class ExpositionItemsViewController: UIViewController {
         self.title = titleText
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ExpositionNavigationController.attemptRotationToDeviceOrientation()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let nextViewController: ExpositionItemDetailViewController = segue.destination as? ExpositionItemDetailViewController,
