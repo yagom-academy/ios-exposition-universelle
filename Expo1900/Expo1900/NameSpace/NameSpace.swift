@@ -11,3 +11,7 @@ enum DataAsset {
     static let expositionUniverselleInfomation: String = "exposition_universelle_1900"
     static let expositionItems: String = "items"
 }
+
+enum NavigationTitle {
+    static let ExpositionItemView: String = "한국의 출품작"
+}

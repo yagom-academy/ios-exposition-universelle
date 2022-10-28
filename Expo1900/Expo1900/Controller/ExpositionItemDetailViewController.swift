@@ -7,20 +7,22 @@ import UIKit
 final class ExpositionItemDetailViewController: UIViewController {
     //MARK: - IBOutlet
     @IBOutlet private weak var itemImageView: UIImageView!
-    @IBOutlet private weak var itemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemDescriptionLabel: DescriptionLabel!
     
     //MARK: - Property
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
     var item: ExpositionUniverselleItem?
     
     //MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        itemDescriptionLabel.numberOfLines = 0
         assignContentValue()
         self.title = item?.name
     }
-
+    
     //MARK: - Private Method
     private func assignContentValue() {
         guard let item = item else {

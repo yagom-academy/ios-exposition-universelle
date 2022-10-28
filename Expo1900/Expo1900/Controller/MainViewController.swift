@@ -6,30 +6,29 @@ import UIKit
 
 final class MainViewController: UIViewController {
     //MARK: - IBOutlet
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: TitleLabel!
     @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var visitorLabel: UILabel!
-    @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var visitorLabel: BodyLabel!
+    @IBOutlet private weak var locationLabel: BodyLabel!
+    @IBOutlet private weak var durationLabel: BodyLabel!
+    @IBOutlet private weak var descriptionLabel: DescriptionLabel!
     @IBOutlet private weak var showKoreanItemListButton: UIButton!
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
     
     //MARK: - Property
-    private var expositionUniverselle: ExpositionUniverselle?
-    private let titleText: String = "메인"
-    private let posterImageIdentifier: String = "poster"
-    private let buttonTitleText: String = "한국의 출품작 보러가기"
-    private let flagImageIdentifier: String = "flag"
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    private let mainViewManager: MainViewManager = MainViewManager()
     
     //MARK: - Override Method
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchExpositionInformation()
+
         setUpInitialSetting()
         assignContentValue()
+        assignAttributedText()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,33 +36,28 @@ final class MainViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
     }
-
+    
     //MARK: - Private Method
-    private func fetchExpositionInformation() {
-        guard let parsedData = JSONParser.parsed(to: ExpositionUniverselle.self) else {
-            return
-        }
-        expositionUniverselle = parsedData
-    }
     
     private func setUpInitialSetting() {
-        self.title = titleText
-        descriptionLabel.numberOfLines = 0
-        showKoreanItemListButton.setTitle(buttonTitleText, for: .normal)
-        leftFlagImageView.image = UIImage(named: flagImageIdentifier)
-        rightFlagImageView.image = UIImage(named: flagImageIdentifier)
+        self.title = mainViewManager.title
+        showKoreanItemListButton.setTitle(mainViewManager.buttonTitle, for: .normal)
+        leftFlagImageView.image = mainViewManager.fetchFlagImage()
+        rightFlagImageView.image = mainViewManager.fetchFlagImage()
     }
     
     private func assignContentValue() {
-        guard let expositionUniverselle: ExpositionUniverselle = expositionUniverselle else {
-            return
-        }
-        
-        titleLabel.text = expositionUniverselle.title
-        posterImageView.image = UIImage(named: posterImageIdentifier)
-        visitorLabel.text = "방문객 : \(expositionUniverselle.visitors)명"
-        locationLabel.text = "개최지 : \(expositionUniverselle.location)"
-        durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
-        descriptionLabel.text = expositionUniverselle.description
+        posterImageView.image = mainViewManager.fetchPosterImage()
+        titleLabel.text = mainViewManager.expositionTitle
+        visitorLabel.text = mainViewManager.expositionVisitors
+        locationLabel.text = mainViewManager.expositionLocation
+        durationLabel.text = mainViewManager.expositionDuration
+        descriptionLabel.text = mainViewManager.expositionDescription
+    }
+    
+    private func assignAttributedText() {
+        visitorLabel.setUpAttributedText()
+        locationLabel.setUpAttributedText()
+        durationLabel.setUpAttributedText()
     }
 }
