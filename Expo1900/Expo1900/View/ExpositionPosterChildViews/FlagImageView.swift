@@ -13,9 +13,7 @@ final class FlagImageView: UIImageView {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        setContentLayout()
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

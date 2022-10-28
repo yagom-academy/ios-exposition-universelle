@@ -30,8 +30,6 @@ final class InformationLabel: UILabel {
     
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        textAlignment = .center
+        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -29,10 +29,9 @@ final class PosterContentView: UIView {
         addFlagButtonAction()
         
     }
+    
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        setLayout()
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func addFlagButtonAction() {

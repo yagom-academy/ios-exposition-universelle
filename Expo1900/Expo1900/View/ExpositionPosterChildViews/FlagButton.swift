@@ -24,9 +24,7 @@ final class FlagButton: UIButton {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        setUpLayout()
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setUpLayout() {
