@@ -10,8 +10,8 @@ import UIKit
 final class ExhibitionViewController: UIViewController {
     var exhibition: Exhibition?
     
-    @IBOutlet weak var exhibitionImageView: UIImageView!
-    @IBOutlet weak var exhibitionDescriptionLabel: UILabel!
+    @IBOutlet private weak var exhibitionImageView: UIImageView!
+    @IBOutlet private weak var exhibitionDescriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

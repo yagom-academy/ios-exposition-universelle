@@ -9,12 +9,12 @@ import UIKit
 final class InformationViewController: UIViewController {
     private var information: Exposition?
     
-    @IBOutlet weak private var titleOfExposition: UILabel!
-    @IBOutlet weak private var numberOfVisitors: UILabel!
-    @IBOutlet weak private var location: UILabel!
-    @IBOutlet weak private var duration: UILabel!
-    @IBOutlet weak private var descriptionOfExposition: UILabel!
-    @IBOutlet weak var showExhibitionListViewButton: UIButton!
+    @IBOutlet private weak var titleOfExposition: UILabel!
+    @IBOutlet private weak var numberOfVisitors: UILabel!
+    @IBOutlet private weak var location: UILabel!
+    @IBOutlet private weak var duration: UILabel!
+    @IBOutlet private weak var descriptionOfExposition: UILabel!
+    @IBOutlet private weak var showExhibitionListViewButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

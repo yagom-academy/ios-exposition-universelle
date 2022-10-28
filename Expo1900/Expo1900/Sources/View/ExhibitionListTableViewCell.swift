@@ -8,15 +8,21 @@
 import UIKit
 
 final class ExhibitionListTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var shortDescriptionLabel: UILabel!
-    @IBOutlet weak var exhibitionImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var shortDescriptionLabel: UILabel!
+    @IBOutlet private weak var exhibitionImageView: UIImageView!
 
-    static let identifier: String = "cell"
+    static let identifier: String = "ExhibitionListTableViewCell"
     var text: String {
         guard let text = nameLabel.text else {
             return Constant.emptyText
         }
         return text
+    }
+    
+    func configure(_ item : Exhibition) {
+        exhibitionImageView.image = UIImage(named: item.imageName)
+        shortDescriptionLabel.text = item.shortDescription
+        nameLabel.text = item.name
     }
 }

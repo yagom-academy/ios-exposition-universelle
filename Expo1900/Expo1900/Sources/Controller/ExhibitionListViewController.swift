@@ -10,7 +10,7 @@ import UIKit
 final class ExhibitionListViewController: UIViewController {
     private var itemsOfExposition: [Exhibition] = []
     
-    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +51,6 @@ final class ExhibitionListViewController: UIViewController {
         }
         return nil
     }
-    
-    private func configureCell(_ item : Exhibition, cell: ExhibitionListTableViewCell) {
-        cell.exhibitionImageView.image = UIImage(named: item.imageName)
-        cell.shortDescriptionLabel.text = item.shortDescription
-        cell.nameLabel.text = item.name
-    }
 }
 
 extension ExhibitionListViewController: UITableViewDataSource {
@@ -72,7 +66,7 @@ extension ExhibitionListViewController: UITableViewDataSource {
             return cell
         }
         
-        configureCell(item, cell: cell)
+        cell.configure(item)
         
         return cell
     }
