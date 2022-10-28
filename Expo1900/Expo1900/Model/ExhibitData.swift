@@ -1,12 +1,17 @@
-//  Exhibit.swift
+//  ExhibitData.swift
 //  Expo1900
 //  Created by inho, LJ  on 2022/10/18.
 
-struct Exhibit: Decodable {
+import UIKit
+
+struct ExhibitData: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
     let description: String
+    var image: UIImage? {
+        return UIImage(named: imageName)
+    }
     
     enum CodingKeys: String, CodingKey {
         case name
