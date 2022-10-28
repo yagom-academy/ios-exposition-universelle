@@ -71,7 +71,7 @@ extension KoreanEntriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         guard let entryDetailViewController = storyboard?.instantiateViewController(
-            identifier: "EntryViewController",
+            identifier: EntryTableViewCell.reuseIdentifier,
             creator: { coder in
                 return EntryDetailViewController(entryInformation: self.koreanEntries[indexPath.row],
                                                  coder: coder)
