@@ -60,6 +60,9 @@ UITableView, UIScrollView와 JSON 데이터를 활용한 만국 박람회 소개
 <br>
 
 ## 4. 시각화된 프로젝트 구조
+### 클래스 다이어그램
+![universelleUML](https://user-images.githubusercontent.com/49121469/198496550-c04c4036-3ccd-4825-b8d8-0e97bcfcf7d8.png)
+
 ### File Tree
 
 ```bash
