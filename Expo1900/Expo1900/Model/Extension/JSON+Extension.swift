@@ -7,11 +7,15 @@ import UIKit
 extension JSONDecoder {
     static let jsonDecoder: JSONDecoder = .init()
     
-    static func parse<T: Decodable>(asset: String, to dataType: T.Type) throws -> T {
+    static func parse<T: Decodable>(asset: String, to dataType: T.Type) -> T? {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: asset) else {
-            throw ExpositionError.invalidAsset
+            return nil
         }
         
-        return try jsonDecoder.decode(T.self, from: dataAsset.data)
+        do {
+            return try jsonDecoder.decode(dataType, from: dataAsset.data)
+        } catch {
+            return nil
+        }
     }
 }

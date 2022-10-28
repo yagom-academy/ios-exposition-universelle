@@ -14,34 +14,28 @@ final class ExpositionViewController: UIViewController {
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var showExhibitButton: UIButton!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
-    private var expositionData: ExpositionData?
+    private var expositionData: ExpositionData {
+        didSet {
+            configureView()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        guard let expositionInformation = JSONDecoder.parse(
+            asset: ExpositionConstant.expositionAssetName,
+            to: ExpositionData.self
+        ) else {
+            return nil
+        }
+        
+        expositionData = expositionInformation
+        
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchExpositionData()
-    }
-    
-    func fetchExpositionData() {
-        do {
-            expositionData = try JSONDecoder.parse(asset: ExpositionConstant.expositionAssetName,
-                                                   to: ExpositionData.self)
-            configureView()
-        } catch ExpositionError.invalidAsset {
-            showAlert(message: ExpositionError.invalidAsset.rawValue)
-        } catch {
-            showAlert(message: error.localizedDescription)
-        }
-    }
-    
-    func showAlert(message: String) {
-        let alert: UIAlertController = UIAlertController(title: ExpositionConstant.alertTitle,
-                                                         message: message,
-                                                         preferredStyle: .alert)
-        let okAction: UIAlertAction = UIAlertAction(title: ExpositionConstant.alertActionTitle,
-                                                    style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
     
     @IBAction private  func showExhibitButtonPressed(_ sender: UIButton) {
@@ -57,10 +51,6 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureView() {
-        guard let expositionData = expositionData else {
-            return
-        }
-        
         expositionTitleLabel.text = expositionData.title
         expositionImageView.image = expositionData.expositionImage
         expositionVisitorsLabel.text = expositionData.visitorInformation
