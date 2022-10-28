@@ -43,9 +43,13 @@ extension KoreanEntriesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        entryCell.entryImageView.image = UIImage(named: koreanEntries[indexPath.row].imageName)
-        entryCell.entryTitleLabel.text = koreanEntries[indexPath.row].name
-        entryCell.enrtyShortDescriptionLabel.text = koreanEntries[indexPath.row].shortDescription
+        guard let koreanEntry = koreanEntries[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        entryCell.entryImageView.image = UIImage(named: koreanEntry.imageName)
+        entryCell.entryTitleLabel.text = koreanEntry.name
+        entryCell.entryShortDescriptionLabel.text = koreanEntry.shortDescription
         
         return entryCell
     }
@@ -58,12 +62,18 @@ extension KoreanEntriesViewController: UITableViewDelegate {
             identifier: "EntryViewController",
             creator: { coder in
                 return EntryDetailViewController(entryInformation: self.koreanEntries[indexPath.row],
-                                                coder: coder)
+                                                 coder: coder)
             }) else {
             return
         }
         
         navigationController?.pushViewController(entryDetailViewController, animated: true)
         entriesTableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension Collection {
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }

@@ -28,7 +28,7 @@ final class EntryTableViewCell: UITableViewCell {
         return label
     }()
     
-    let enrtyShortDescriptionLabel: UILabel = {
+    let entryShortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.preferredFont(forTextStyle: .body)
@@ -50,7 +50,7 @@ final class EntryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         entryStackView.addArrangedSubview(entryTitleLabel)
-        entryStackView.addArrangedSubview(enrtyShortDescriptionLabel)
+        entryStackView.addArrangedSubview(entryShortDescriptionLabel)
         contentView.addSubview(entryImageView)
         contentView.addSubview(entryStackView)
         configureLayout()
