@@ -52,7 +52,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         }
     }
     
-    private func setTextToDisplay() {
+    private func setupUI() {
         guard let expositionUniverselle = expositionUniverselle else {
             descriptionLabel.text = "데이터를 불러오는데 실패했습니다."
             return
@@ -67,27 +67,21 @@ final class ExpositionUniverselleViewController: UIViewController {
         
         
         titleLabel.text = expositionUniverselle.title.applyLineBreak()
-        visitorsLabel.attributedText = visitors.createAttributed(
-            target: [ExpoConstant.visitor, ExpoConstant.colon + formattedVisitor + ExpoConstant.people],
-            key: .font,
-            value: [ExpoConstant.largeFont,
-                    ExpoConstant.mediumFont])
-        
-        locationLabel.attributedText = location.createAttributed(
-            target: [ExpoConstant.location, ExpoConstant.colon + expositionUniverselle.location],
-            key: .font,
-            value: [ExpoConstant.largeFont,
-                    ExpoConstant.mediumFont])
-        
-        durationLabel.attributedText = duration.createAttributed(
-            target: [ExpoConstant.duration, ExpoConstant.colon + expositionUniverselle.duration],
-            key: .font,
-            value: [ExpoConstant.largeFont,
-                    ExpoConstant.mediumFont])
-        
+        visitorsLabel.attributedText = visitors.makeLabelString(
+            prefix: ExpoConstant.visitor,
+            text: ExpoConstant.colon + formattedVisitor + ExpoConstant.people
+        )
+        locationLabel.attributedText = location.makeLabelString(
+            prefix: ExpoConstant.location,
+            text: ExpoConstant.colon + expositionUniverselle.location
+        )
+        durationLabel.attributedText = duration.makeLabelString(
+            prefix: ExpoConstant.duration,
+            text: ExpoConstant.colon + expositionUniverselle.duration
+        )
         descriptionLabel.text = expositionUniverselle.description
     }
-    
+        
     private func changeNumberFormat(number: String) -> String {
         let formatter: NumberFormatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -117,6 +111,10 @@ fileprivate extension String {
     
     var expoDurationInformation: String {
         return ExpoConstant.duration + ExpoConstant.colon + self
+    }
+    
+    func makeLabelString(prefix: String, text: String) -> NSAttributedString {
+        return createAttributed(target: [prefix, text], key: .font, value: [ExpoConstant.largeFont, ExpoConstant.mediumFont])
     }
     
     func createAttributed(target: [String], key: NSAttributedString.Key, value: [Any]) -> NSAttributedString {
