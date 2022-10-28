@@ -5,7 +5,7 @@
 
 import UIKit
 
-class FlagButton: UIButton {
+final class FlagButton: UIButton {
     let leftImageView = FlagImageView(image: UIImage(named: Constant.koreanFlagImageName))
     let rightImageView = FlagImageView(image: UIImage(named: Constant.koreanFlagImageName))
     

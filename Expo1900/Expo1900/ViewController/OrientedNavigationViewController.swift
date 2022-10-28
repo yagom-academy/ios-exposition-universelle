@@ -6,7 +6,7 @@
 
 import UIKit
 
-class OrientedNavigationViewController: UINavigationController {
+final class OrientedNavigationViewController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         guard let _ = topViewController as? ExpositionPosterViewController else {
             return .all
