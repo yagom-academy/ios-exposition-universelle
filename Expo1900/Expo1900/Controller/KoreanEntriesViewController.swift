@@ -28,20 +28,6 @@ final class KoreanEntriesViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let entryDetailViewController = segue.destination as? EntryDetailViewController else {
-            return
-        }
-        
-        guard let row = sender as? Int else {
-            return
-        }
-        
-        entryDetailViewController.entryImage = UIImage(named: koreanEntries[row].imageName)
-        entryDetailViewController.entryDescription = koreanEntries[row].description
-        entryDetailViewController.entryName = koreanEntries[row].name
-    }
 }
 
 extension KoreanEntriesViewController: UITableViewDataSource {
@@ -68,7 +54,16 @@ extension KoreanEntriesViewController: UITableViewDataSource {
 extension KoreanEntriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showEntryDetails", sender: indexPath.row)
+        guard let entryDetailViewController = storyboard?.instantiateViewController(
+            identifier: "EntryViewController",
+            creator: { coder in
+                return EntryDetailViewController(entryInformation: self.koreanEntries[indexPath.row],
+                                                coder: coder)
+            }) else {
+            return
+        }
+        
+        navigationController?.pushViewController(entryDetailViewController, animated: true)
         entriesTableView.deselectRow(at: indexPath, animated: true)
     }
 }

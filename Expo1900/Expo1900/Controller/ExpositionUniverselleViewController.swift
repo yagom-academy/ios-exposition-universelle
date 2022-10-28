@@ -34,7 +34,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchExpoInformation()
-        setTextToDisplay()
+        setupUI()
         navigationController?.delegate = self
     }
     
