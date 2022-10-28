@@ -239,7 +239,9 @@ imageView와 Label들을 stackView로 설정하여 가로,세로로 보여지는
 ## 📱 실행 화면
 | 네비게이션 이동   |  가로 / 세로 모드        | 다이나믹 타입   | 
 | :------------------: | :--------------: | :--------------:  |
-| ![](https://i.imgur.com/IA0sjhx.gif) | ![](https://i.imgur.com/hW0KjFC.gif) |     ![](https://i.imgur.com/EyklbqE.gif) |
+| ![](https://i.imgur.com/IA0sjhx.gif) | ![가로모드 테스트](https://user-images.githubusercontent.com/73284068/198534965-dd10dc16-1aa1-429d-a65a-677417cafaba.gif) |    ![다이나믹타입 테스트](https://user-images.githubusercontent.com/73284068/198534983-3b28e844-0f04-4bf6-b2af-d9934d07726a.gif)
+ |
+
 
 ## ❓ 트러블 슈팅 & 어려웠던 점
 
@@ -308,6 +310,7 @@ self.navigationController?.pushViewController(itemDetailViewController, animated
 ---
 
 ## 📖 참고 링크
+
 [UITableView](https://developer.apple.com/documentation/uikit/uitableview)
 [Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
 [Filling a Table with Data](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data)
