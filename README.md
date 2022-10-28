@@ -7,7 +7,7 @@
 3. [구현 내용](#-구현-내용)
 4. [타임라인](#-타임라인)
 5. [실행 화면](#-실행-화면)
-6. [트러블 슈팅 & 어려웠던 점](#-트러블-슈팅-&-어려웠던-점)
+6. [트러블 슈팅 & 어려웠던 점](#-트러블-슈팅--어려웠던-점)
 7. [참고 링크](#-참고-링크)
 
 ## 🌱 소개
@@ -240,7 +240,7 @@ imageView와 Label들을 stackView로 설정하여 가로,세로로 보여지는
 | 네비게이션 이동   |  가로 / 세로 모드        | 다이나믹 타입   | 
 | :------------------: | :--------------: | :--------------:  |
 | ![](https://i.imgur.com/IA0sjhx.gif) | ![가로모드 테스트](https://user-images.githubusercontent.com/73284068/198534965-dd10dc16-1aa1-429d-a65a-677417cafaba.gif) |    ![다이나믹타입 테스트](https://user-images.githubusercontent.com/73284068/198534983-3b28e844-0f04-4bf6-b2af-d9934d07726a.gif)
- |
+ 
 
 
 ## ❓ 트러블 슈팅 & 어려웠던 점
@@ -311,19 +311,18 @@ self.navigationController?.pushViewController(itemDetailViewController, animated
 
 ## 📖 참고 링크
 
-[UITableView](https://developer.apple.com/documentation/uikit/uitableview)
-[Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
-[Filling a Table with Data](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data)
-[Configuring the Cells for Your Table](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/configuring_the_cells_for_your_table)
-[JSON](https://ko.wikipedia.org/wiki/JSON)
+[UITableView](https://developer.apple.com/documentation/uikit/uitableview) <br>
+[Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views) <br>
+[Filling a Table with Data](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data) <br>
+[Configuring the Cells for Your Table](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/configuring_the_cells_for_your_table) <br>
+[JSON](https://ko.wikipedia.org/wiki/JSON) <br>
 [JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder)
-- [Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types)
-- [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
+<br> - [Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types)
+<br> - [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
+[LLDB 정복하기](https://yagom.net/courses/start-lldb/) <br>
+[Swift Language Guide - Protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html) <br>
+[Swift Language Guide - Extentions](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html) <br>
+[Swift Language Guide - Closures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) <br>
+[NumberFormatter](https://developer.apple.com/documentation/foundation/numberformatter) <br>
 
-[LLDB 정복하기](https://yagom.net/courses/start-lldb/)
-[Swift Language Guide - Protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html)
-[Swift Language Guide - Extentions](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html)
-[Swift Language Guide - Closures](https://docs.swift.org/swift-book/LanguageGuide/Closures.html)
-[NumberFormatter](https://developer.apple.com/documentation/foundation/numberformatter)
-
-[🔝 맨 위로 이동하기](# -만국박람회- )
+[🔝 맨 위로 이동하기](#-만국박람회-)
