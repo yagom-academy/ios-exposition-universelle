@@ -7,7 +7,20 @@ import UIKit
 final class ExhibitViewController: UIViewController {
     @IBOutlet private weak var exhibitTableView: UITableView!
     private let cellIdentifier: String = ExpositionConstant.exhibitCell
-    private var exhibits: [ExhibitData] = []
+    private let exhibits: [ExhibitData]
+    
+    required init?(coder: NSCoder) {
+        guard let exhibitInformation = JSONDecoder.parse(
+            asset: ExpositionConstant.exhibitAssetName,
+            to: [ExhibitData].self
+        ) else {
+            return nil
+        }
+        
+        exhibits = exhibitInformation
+        
+        super.init(coder: coder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,29 +28,6 @@ final class ExhibitViewController: UIViewController {
         exhibitTableView.delegate = self
         exhibitTableView.dataSource = self
         navigationItem.title = ExpositionConstant.exhibitTitleText
-        
-        fetchExhibitsData()
-    }
-    
-    func fetchExhibitsData() {
-        do {
-            exhibits = try JSONDecoder.parse(asset: ExpositionConstant.exhibitAssetName,
-                                                          to: [ExhibitData].self)
-        } catch ExpositionError.invalidAsset {
-            showAlert(message: ExpositionError.invalidAsset.rawValue)
-        } catch {
-            showAlert(message: error.localizedDescription)
-        }
-    }
-    
-    func showAlert(message: String) {
-        let alert: UIAlertController = UIAlertController(title: ExpositionConstant.alertTitle,
-                                                         message: message,
-                                                         preferredStyle: .alert)
-        let okAction: UIAlertAction = UIAlertAction(title: ExpositionConstant.alertActionTitle,
-                                                    style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
 }
 
@@ -68,8 +58,8 @@ extension ExhibitViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let nextViewController: ExhibitDetailViewController =
                 self.storyboard?.instantiateViewController(
-                    withIdentifier: ExpositionConstant.exhibitDetailViewController)
-                as? ExhibitDetailViewController
+                    withIdentifier: ExpositionConstant.exhibitDetailViewController
+                ) as? ExhibitDetailViewController
         else {
             return
         }

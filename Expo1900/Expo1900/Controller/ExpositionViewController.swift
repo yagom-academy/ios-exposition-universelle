@@ -14,11 +14,7 @@ final class ExpositionViewController: UIViewController {
     @IBOutlet private weak var leftFlagImageView: UIImageView!
     @IBOutlet private weak var showExhibitButton: UIButton!
     @IBOutlet private weak var rightFlagImageView: UIImageView!
-    private var expositionData: ExpositionData {
-        didSet {
-            configureView()
-        }
-    }
+    private let expositionData: ExpositionData
     
     required init?(coder: NSCoder) {
         guard let expositionInformation = JSONDecoder.parse(
@@ -35,14 +31,15 @@ final class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configureView()
     }
     
     @IBAction private  func showExhibitButtonPressed(_ sender: UIButton) {
         guard let nextViewController: ExhibitViewController =
                 self.storyboard?.instantiateViewController(
-                    withIdentifier: ExpositionConstant.exhibitViewController)
-                as? ExhibitViewController
+                    withIdentifier: ExpositionConstant.exhibitViewController
+                ) as? ExhibitViewController
         else {
             return
         }
