@@ -25,8 +25,20 @@ final class KoreanEntriesViewController: UIViewController {
             koreanEntries = try jsonDecodingManager.decode(
                 dataAsset: ExpoConstant.koreanEntriesJSONFileName)
         } catch {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
+            showErrorAlert()
         }
+    }
+    
+    private func showErrorAlert() {
+        let errorAlert = UIAlertController(
+            title: "데이터를 불러오는데 실패했습니다.",
+            message: nil,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        errorAlert.addAction(okAction)
+        present(errorAlert, animated: true)
     }
 }
 
