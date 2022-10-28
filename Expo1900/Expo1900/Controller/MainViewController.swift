@@ -18,6 +18,10 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var rightFlagImage: UIImageView!
     @IBOutlet private var infoLabels: [UILabel]!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
+    
     var exposition: Exposition?
     
     override func viewDidLoad() {
@@ -79,10 +83,6 @@ final class MainViewController: UIViewController {
         rightFlagImage.image = flagImage
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return [.portrait]
-    }
-    
     private func setAccessibilityLabels() {
         titleLabel.accessibilityLabel = "파리 만국박람회 1900"
         
@@ -129,3 +129,5 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
+
+
