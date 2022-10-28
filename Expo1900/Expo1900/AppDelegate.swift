@@ -2,14 +2,11 @@
 //  Expo1900 - AppDelegate.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
-// 
 
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

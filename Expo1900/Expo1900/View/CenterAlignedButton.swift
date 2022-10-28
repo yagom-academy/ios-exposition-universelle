@@ -1,10 +1,10 @@
 //
-//  CenterAlignmentButton.swift
+//  CenterAlignedButton.swift
 //  Expo1900
-//
+
 import UIKit
 
-class CenterAlignmentButton: UIButton {
+class CenterAlignedButton: UIButton {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         

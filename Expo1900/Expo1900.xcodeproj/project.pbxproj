@@ -11,12 +11,11 @@
 		262E2D1D28FFC061000488F0 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E2D1C28FFC061000488F0 /* ItemListViewController.swift */; };
 		262E2D1F28FFC071000488F0 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E2D1E28FFC071000488F0 /* ItemViewController.swift */; };
 		262F7690290A86DE0034481C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F768F290A86DE0034481C /* ContainerViewController.swift */; };
-		262F7692290A9F1A0034481C /* CenterAlignmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F7691290A9F1A0034481C /* CenterAlignmentButton.swift */; };
+		262F7692290A9F1A0034481C /* CenterAlignedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F7691290A9F1A0034481C /* CenterAlignedButton.swift */; };
 		2656BD6028FE394300D5279D /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656BD5F28FE394300D5279D /* Exposition.swift */; };
 		2659D4B52906280100C32443 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2659D4B42906280100C32443 /* ItemListTableViewCell.swift */; };
 		6990D078290A9794000939D2 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D077290A9794000939D2 /* UILabel+.swift */; };
 		6990D07A290A98D5000939D2 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D079290A98D5000939D2 /* UITextView+.swift */; };
-		6990D07C290ABD91000939D2 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D07B290ABD91000939D2 /* DateFormatter+.swift */; };
 		69FA275F28FE363700906766 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FA275E28FE363700906766 /* Item.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -31,12 +30,11 @@
 		262E2D1C28FFC061000488F0 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		262E2D1E28FFC071000488F0 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		262F768F290A86DE0034481C /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		262F7691290A9F1A0034481C /* CenterAlignmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterAlignmentButton.swift; sourceTree = "<group>"; };
+		262F7691290A9F1A0034481C /* CenterAlignedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterAlignedButton.swift; sourceTree = "<group>"; };
 		2656BD5F28FE394300D5279D /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		2659D4B42906280100C32443 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		6990D077290A9794000939D2 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		6990D079290A98D5000939D2 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
-		6990D07B290ABD91000939D2 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		69FA275E28FE363700906766 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 				262B78742901574600EEF0A7 /* UIViewController+.swift */,
 				6990D077290A9794000939D2 /* UILabel+.swift */,
 				6990D079290A98D5000939D2 /* UITextView+.swift */,
-				6990D07B290ABD91000939D2 /* DateFormatter+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -94,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				262F7691290A9F1A0034481C /* CenterAlignmentButton.swift */,
+				262F7691290A9F1A0034481C /* CenterAlignedButton.swift */,
 				2659D4B42906280100C32443 /* ItemListTableViewCell.swift */,
 			);
 			path = View;
@@ -219,8 +216,7 @@
 				262B78752901574600EEF0A7 /* UIViewController+.swift in Sources */,
 				2659D4B52906280100C32443 /* ItemListTableViewCell.swift in Sources */,
 				262E2D1D28FFC061000488F0 /* ItemListViewController.swift in Sources */,
-				262F7692290A9F1A0034481C /* CenterAlignmentButton.swift in Sources */,
-				6990D07C290ABD91000939D2 /* DateFormatter+.swift in Sources */,
+				262F7692290A9F1A0034481C /* CenterAlignedButton.swift in Sources */,
 				6990D078290A9794000939D2 /* UILabel+.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
