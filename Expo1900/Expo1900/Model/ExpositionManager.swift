@@ -7,13 +7,13 @@
 
 import UIKit.NSDataAsset
 
-struct ExpositionManager {
-    private(set) var exposition: Exposition?
+struct ExpositionManager: Manager {
     private let assetName: String = "exposition_universelle_1900"
-    private let imageName: String = "poster"
+    private(set) var exposition: Exposition?
+    private(set) var posterImage: UIImage?
     
-    var posterImage: UIImage? {
-        return UIImage(named: imageName)
+    var titleLineBreak: String {
+        return exposition?.title.replacingOccurrences(of: "(", with: "\n(") ?? ""
     }
     
     var formattedVisitorsDescription: String? {
@@ -24,8 +24,8 @@ struct ExpositionManager {
         return visitorsDescription + " 명"
     }
     
-    mutating func configureExpositionFromJSON() {
-        guard let exposition = JSONDecoder().decode(from: assetName, to: exposition) else { return }
-        self.exposition = exposition
+    init() {
+        self.posterImage = makeImage(name: "poster")
+        self.exposition = configureFromJson(assetName: assetName, type: exposition)
     }
 }

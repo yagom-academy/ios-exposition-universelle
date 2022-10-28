@@ -14,12 +14,16 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		DF37FD9C28FE3D9000FD8D00 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF37FD9B28FE3D9000FD8D00 /* Exposition.swift */; };
+		DF51F492290B655200F67F91 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF51F491290B655200F67F91 /* Decoder.swift */; };
+		DF51F494290B656700F67F91 /* ImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF51F493290B656700F67F91 /* ImageMaker.swift */; };
+		DF51F496290B65F600F67F91 /* CustomTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF51F495290B65F600F67F91 /* CustomTypes.swift */; };
 		DF7B326C290630B400740242 /* ExpositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B326B290630B400740242 /* ExpositionManager.swift */; };
 		DF7B326E290689EA00740242 /* ExpoEntriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B326D290689EA00740242 /* ExpoEntriesManager.swift */; };
 		DF7B327229069DC300740242 /* ExpoEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7B327129069DC300740242 /* ExpoEntryCell.swift */; };
 		DF96F01C290237B8001B182A /* JSONDecoder+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96F01B290237B8001B182A /* JSONDecoder+decode.swift */; };
 		EB0F8D2D29015BB700E2FCAE /* ExpoEntriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F8D2C29015BB700E2FCAE /* ExpoEntriesListViewController.swift */; };
 		EB0F8D2F2901769500E2FCAE /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F8D2E2901769500E2FCAE /* EntryDetailViewController.swift */; };
+		EB3DB3522908D3E500110E5F /* ExpositionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DB3512908D3E500110E5F /* ExpositionNavigationController.swift */; };
 		EB71ABFF28FE3ABF001AE1B1 /* ExpoEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71ABFE28FE3ABE001AE1B1 /* ExpoEntry.swift */; };
 		EBCF7EE62907813C00996BB3 /* ExpoEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF7EE52907813C00996BB3 /* ExpoEntryData.swift */; };
 /* End PBXBuildFile section */
@@ -34,12 +38,16 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF37FD9B28FE3D9000FD8D00 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		DF51F491290B655200F67F91 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		DF51F493290B656700F67F91 /* ImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMaker.swift; sourceTree = "<group>"; };
+		DF51F495290B65F600F67F91 /* CustomTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTypes.swift; sourceTree = "<group>"; };
 		DF7B326B290630B400740242 /* ExpositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionManager.swift; sourceTree = "<group>"; };
 		DF7B326D290689EA00740242 /* ExpoEntriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntriesManager.swift; sourceTree = "<group>"; };
 		DF7B327129069DC300740242 /* ExpoEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntryCell.swift; sourceTree = "<group>"; };
 		DF96F01B290237B8001B182A /* JSONDecoder+decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+decode.swift"; sourceTree = "<group>"; };
 		EB0F8D2C29015BB700E2FCAE /* ExpoEntriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntriesListViewController.swift; sourceTree = "<group>"; };
 		EB0F8D2E2901769500E2FCAE /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		EB3DB3512908D3E500110E5F /* ExpositionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionNavigationController.swift; sourceTree = "<group>"; };
 		EB71ABFE28FE3ABE001AE1B1 /* ExpoEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntry.swift; sourceTree = "<group>"; };
 		EBCF7EE52907813C00996BB3 /* ExpoEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,10 +90,21 @@
 			path = Expo1900;
 			sourceTree = "<group>";
 		};
+		DF51F490290B653400F67F91 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DF51F491290B655200F67F91 /* Decoder.swift */,
+				DF51F493290B656700F67F91 /* ImageMaker.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		EB0F8D3029026DA800E2FCAE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DF51F490290B653400F67F91 /* Protocols */,
 				EB728D47290688E90001F1E8 /* Extension */,
+				DF51F495290B65F600F67F91 /* CustomTypes.swift */,
 				DF37FD9B28FE3D9000FD8D00 /* Exposition.swift */,
 				EB71ABFE28FE3ABE001AE1B1 /* ExpoEntry.swift */,
 				DF7B326B290630B400740242 /* ExpositionManager.swift */,
@@ -100,6 +119,7 @@
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				EB3DB3512908D3E500110E5F /* ExpositionNavigationController.swift */,
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
 				EB0F8D2C29015BB700E2FCAE /* ExpoEntriesListViewController.swift */,
 				EB0F8D2E2901769500E2FCAE /* EntryDetailViewController.swift */,
@@ -200,14 +220,18 @@
 				EB0F8D2D29015BB700E2FCAE /* ExpoEntriesListViewController.swift in Sources */,
 				DF7B326E290689EA00740242 /* ExpoEntriesManager.swift in Sources */,
 				DF7B327229069DC300740242 /* ExpoEntryCell.swift in Sources */,
+				DF51F492290B655200F67F91 /* Decoder.swift in Sources */,
 				DF37FD9C28FE3D9000FD8D00 /* Exposition.swift in Sources */,
 				DF7B326C290630B400740242 /* ExpositionManager.swift in Sources */,
 				EBCF7EE62907813C00996BB3 /* ExpoEntryData.swift in Sources */,
 				EB0F8D2F2901769500E2FCAE /* EntryDetailViewController.swift in Sources */,
 				DF96F01C290237B8001B182A /* JSONDecoder+decode.swift in Sources */,
+				DF51F494290B656700F67F91 /* ImageMaker.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
+				DF51F496290B65F600F67F91 /* CustomTypes.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				EB3DB3522908D3E500110E5F /* ExpositionNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

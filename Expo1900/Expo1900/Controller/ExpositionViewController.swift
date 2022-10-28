@@ -8,6 +8,10 @@ import UIKit
 
 final class ExpositionViewController: UIViewController {
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var posterImage: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -20,7 +24,6 @@ final class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expositionManager.configureExpositionFromJSON()
         configureViewsByManager()
     }
     
@@ -31,7 +34,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureViewsByManager() {
-        titleLabel.text = expositionManager.exposition?.title
+        titleLabel.text = expositionManager.titleLineBreak
         posterImage.image = expositionManager.posterImage
         visitorsLabel.text = expositionManager.formattedVisitorsDescription
         locationLabel.text = expositionManager.exposition?.location
