@@ -8,6 +8,10 @@
 import UIKit
 
 final class EntryTableViewCell: UITableViewCell {
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+    
     let entryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit

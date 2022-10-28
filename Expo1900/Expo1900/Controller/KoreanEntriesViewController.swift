@@ -52,7 +52,7 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let entryCell: EntryTableViewCell = entriesTableView.dequeueReusableCell(
-            withIdentifier: "cell",
+            withIdentifier: EntryTableViewCell.reuseIdentifier,
             for: indexPath) as? EntryTableViewCell else {
             return UITableViewCell()
         }
