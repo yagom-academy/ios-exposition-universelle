@@ -85,7 +85,7 @@
 
 | 첫번째 화면 portrait 고정 및 상세화면 가로 지원|
 |:---:|
-|![](https://i.imgur.com/O9fM7ua.gif)|
+|<img src = "https://i.imgur.com/O9fM7ua.gif" width=68% height=68%>|
 
 ## 🎯 트러블 슈팅 및 고민
 
