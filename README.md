@@ -19,7 +19,7 @@
 | <center> Jeremy | <center> 준호 |
 | -------- | ---------|
 | <a href="https://ibb.co/K6tWhrT"><img src="https://i.imgur.com/RbVTB47.jpg" border="0" width="200"></a>  | <img src="https://user-images.githubusercontent.com/88357373/197145292-c806a131-bd9d-47ca-8b2a-8842f748f63f.png" width="200"/>
-  | <center>[*@yjjem*](https://github.com/yjjem)</center> |[<center>[*@junho15*](https://github.com/junho15) </center> |
+  | <center>[*@yjjem*](https://github.com/yjjem)</center> |<center>[*@junho15*](https://github.com/junho15) </center> |
 ---
 
 # 🏞 구현 내용
