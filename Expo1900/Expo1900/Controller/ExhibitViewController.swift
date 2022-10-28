@@ -56,16 +56,17 @@ extension ExhibitViewController: UITableViewDataSource {
 
 extension ExhibitViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let exhibitData: ExhibitData = exhibits[indexPath.row]
         guard let nextViewController: ExhibitDetailViewController =
                 self.storyboard?.instantiateViewController(
-                    withIdentifier: ExpositionConstant.exhibitDetailViewController
-                ) as? ExhibitDetailViewController
-        else {
+                    identifier: ExpositionConstant.exhibitDetailViewController,
+                    creator: { coder in
+                        return ExhibitDetailViewController(exhibitData: exhibitData, coder: coder)
+                    }
+        ) else {
             return
         }
-        
-        nextViewController.fetchExhibitData(exhibits[indexPath.row])
-        
+
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

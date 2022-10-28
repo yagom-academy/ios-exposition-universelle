@@ -7,25 +7,26 @@ import UIKit
 final class ExhibitDetailViewController: UIViewController {
     @IBOutlet private weak var exhibitImageView: UIImageView!
     @IBOutlet private weak var exhibitDescriptionTextView: UITextView!
-    private var exhibitData: ExhibitData?
-
+    private let exhibitData: ExhibitData
+    
+    required init?(exhibitData: ExhibitData, coder: NSCoder) {
+        self.exhibitData = exhibitData
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        return nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureView()
     }
-    
-    func fetchExhibitData(_ data: ExhibitData?) {
-        exhibitData = data
-    }
-    
-    func configureView() {
-        guard let exhibit = exhibitData else {
-            return
-        }
 
-        navigationItem.title = exhibit.name
-        exhibitImageView.image = exhibit.image
-        exhibitDescriptionTextView.text = exhibit.description
+    func configureView() {
+        navigationItem.title = exhibitData.name
+        exhibitImageView.image = exhibitData.image
+        exhibitDescriptionTextView.text = exhibitData.description
     }
 }
