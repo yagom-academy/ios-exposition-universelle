@@ -81,7 +81,7 @@
 ## 💻 실행 화면 
 |Main 화면|Expo 화면|Dynamic Type 적용|
 |:---:|:---:|:---:|
-|<img src = "https://i.imgur.com/pCDrwOe.gif" > |<img src = "https://user-images.githubusercontent.com/66786418/197134476-0ee7c273-d265-4cc6-862c-cc584f4429ca.gif" >|<img src = "https://i.imgur.com/CaMqqIq.gif" width=68% height=68%>|
+|<img src = "https://i.imgur.com/pCDrwOe.gif" > |<img src = "https://user-images.githubusercontent.com/66786418/197134476-0ee7c273-d265-4cc6-862c-cc584f4429ca.gif" >|<img src = "https://user-images.githubusercontent.com/66786418/198507030-2f5ae8c3-a8d5-46a1-a50a-cef22da789a6.gif" width=68% height=68%>|
 
 | 첫번째 화면 portrait 고정 및 상세화면 가로 지원|
 |:---:|
