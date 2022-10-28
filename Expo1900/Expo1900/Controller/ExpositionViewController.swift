@@ -24,7 +24,6 @@ final class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expositionManager.configureExpositionFromJSON()
         configureViewsByManager()
     }
     

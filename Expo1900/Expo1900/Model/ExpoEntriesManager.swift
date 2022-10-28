@@ -7,7 +7,7 @@
 
 import UIKit.NSDataAsset
 
-struct ExpoEntriesManager {
+struct ExpoEntriesManager: Manager {
     private(set) var expoEntries: [ExpoEntry]?
     private let assetName: String = "items"
     
@@ -16,13 +16,7 @@ struct ExpoEntriesManager {
         return itemCount
     }
     
-    mutating func configureExpoEntriesFromJSON() {
-        guard let expoEntries = JSONDecoder().decode(from: assetName, to: expoEntries) else { return }
-        self.expoEntries = expoEntries
-    }
-    
-    func expoEntryImage(index: Int) -> UIImage? {
-        guard let imageName = expoEntries?[index].imageName else { return nil }
-        return UIImage(named: imageName)
+    init() {
+        self.expoEntries = configureFromJson(assetName: assetName, type: expoEntries)
     }
 }

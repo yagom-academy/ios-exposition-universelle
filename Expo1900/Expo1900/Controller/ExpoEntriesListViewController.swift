@@ -12,12 +12,6 @@ final class ExpoEntriesListViewController: UIViewController {
     @IBOutlet private weak var expoEntriesListTableView: UITableView!
     private var manager: ExpoEntriesManager = ExpoEntriesManager()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        manager.configureExpoEntriesFromJSON()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -34,7 +28,7 @@ extension ExpoEntriesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: ExpoEntryCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ExpoEntryCell,
               let expoEntry = manager.expoEntries?[indexPath.row] else { return ExpoEntryCell() }
-        let image: UIImage? = manager.expoEntryImage(index: indexPath.row)
+        let image: UIImage? = manager.makeImage(name: expoEntry.imageName)
         cell.configureContentsView(image: image,
                                    name: expoEntry.name,
                                    shortDescription: expoEntry.shortDescription)
@@ -47,7 +41,7 @@ extension ExpoEntriesListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let expoEntry = manager.expoEntries?[indexPath.row] else { return }
-        let expoEntryData: ExpoEntryData = (manager.expoEntryImage(index: indexPath.row),
+        let expoEntryData: ExpoEntryData = (manager.makeImage(name: expoEntry.imageName),
                                             expoEntry.name,
                                             expoEntry.description)
         guard let entryDetailViewController: EntryDetailViewController = self.storyboard?.instantiateViewController(identifier: "EntryDetailViewController", creator: { (coder) -> EntryDetailViewController? in
