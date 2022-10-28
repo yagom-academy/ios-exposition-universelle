@@ -46,5 +46,6 @@ extension KoreanItemsViewController: UITableViewDelegate {
         itemDetailViewController.selectedItem = items?[indexPath.row]
         
         self.navigationController?.pushViewController(itemDetailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
