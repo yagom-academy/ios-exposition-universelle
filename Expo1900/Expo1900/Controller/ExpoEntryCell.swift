@@ -7,48 +7,63 @@
 
 import UIKit
 
-class ExpoEntryCell: UITableViewCell {
+final class ExpoEntryCell: UITableViewCell {
     
-    private var entryImageView: UIImageView!
-    private var stackView: UIStackView!
-    private var entryNameLabel: UILabel!
-    private var entryShortDescriptionLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        entryImageView = UIImageView()
+    private let entryImageView: UIImageView = {
+        let entryImageView = UIImageView()
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
         entryImageView.contentMode = .scaleAspectFit
-        self.contentView.addSubview(entryImageView)
-        
-        entryNameLabel = UILabel()
+        return entryImageView
+    }()
+    private let entryNameLabel: UILabel = {
+        let entryNameLabel = UILabel()
         entryNameLabel.translatesAutoresizingMaskIntoConstraints = false
         entryNameLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         entryNameLabel.adjustsFontForContentSizeCategory = true
         entryNameLabel.numberOfLines = 0
-        
-        entryShortDescriptionLabel = UILabel()
+        return entryNameLabel
+    }()
+    private let entryShortDescriptionLabel: UILabel = {
+        let entryShortDescriptionLabel = UILabel()
         entryShortDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         entryShortDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .callout)
         entryShortDescriptionLabel.adjustsFontForContentSizeCategory = true
         entryShortDescriptionLabel.numberOfLines = 0
-        
-        stackView = UIStackView(arrangedSubviews: [entryNameLabel, entryShortDescriptionLabel])
+        return entryShortDescriptionLabel
+    }()
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [entryNameLabel, entryShortDescriptionLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.contentMode = .scaleAspectFit
         stackView.axis = .vertical
-        self.contentView.addSubview(stackView)
+        return stackView
+    }()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
+        self.contentView.addSubview(entryImageView)
+        self.contentView.addSubview(stackView)
+
+        activateEntryImageViewConstraint()
+        activateStackViewConstraint()
+    }
+    
+    private func activateEntryImageViewConstraint() {
         NSLayoutConstraint.activate([
             entryImageView.widthAnchor.constraint(equalTo: entryImageView.heightAnchor),
             entryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
             entryImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 10),
-            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: entryImageView.bottomAnchor, constant: 10),
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: entryImageView.bottomAnchor, constant: 10)
+        ])
+    }
+    
+    private func activateStackViewConstraint() {
+        NSLayoutConstraint.activate([
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
             stackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8),

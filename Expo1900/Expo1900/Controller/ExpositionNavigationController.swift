@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionNavigationController: UINavigationController {
+final class ExpositionNavigationController: UINavigationController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         guard let supportedInterfaceOrientations = self.topViewController?.supportedInterfaceOrientations else {
