@@ -10,7 +10,25 @@
 
 ## 🌱 소개
 
+|Gundy|Dragon|
+|:-:|:-:|
+|![unknown](https://user-images.githubusercontent.com/102534252/198510047-1635662c-9d1a-46f7-9f29-9a4a27937a49.png)|![미모티콘(따봉)](https://user-images.githubusercontent.com/102534252/198509910-9474c624-f712-42c1-a577-d28a6c7a6ab3.png)|
+
 `Gundy`와 `Dragon`의 iOS 만국박람회 프로젝트입니다.
+
+테마는 1900년도에 실제로 프랑스에서 진행된 Exposition universelle de 1900의 한국 전시입니다.
+아래 나열된 기술들을 적용하여 프로젝트를 진행하였습니다.
+
+- **핵심적으로 다뤄본 기술**
+    - 테이블뷰
+    - JSONDecoder
+    - 화면간 데이터 전달(Segue)
+    - AttributedString
+    - 화면 Orientation 설정
+    - AutoLayout
+    - Dynamic Type
+    - Navigation Bar
+    - NameSpace
 
 ## 📆 타임라인
 
@@ -63,8 +81,58 @@
     - 네이밍 수정
     - 은닉화
 </details>
+<details>
+<summary>STEP 2 Feedback 반영</summary>
+    
+221025
+- InformationViewController
+    - JSONDecoder 관련 코드 간략화
+- ExhibitionListViewController
+    - 테이블뷰 관련 메서드 분리
+    - 메서드 네이밍 복수형 수정
+    - cellIdentifier 프로퍼티 삭제
+    - prepare 메서드 구현부 수정
+    - JSONDecoder 관련 코드 간략화
+    - 메서드 선언부 위치 수정
+- ExhibitionListTableViewCell
+    - cellIdentifier 프로퍼티 추가
+    - initializer를 통해 cellIdentifier 할당
+    - nameLabel의 text를 반환하는 연산 프로퍼티 text 추가
+- ExhibitionViewController
+    - 메서드 분리
+- JSONDecoder + Extension
+    - 데이터에셋의 name과 변환할 타입을 받아 디코딩을 수행하는 타입 메서드 decodeAsset 구현
+- 기타
+    - 각 타입별 프로퍼티 및 메서드 은닉화
+    - 컨벤션 정리
+    - namespace 역할을 하는 Constant 타입 생성
+</details>
+<details>
+<summary>STEP 3</summary>
 
+221026
+- StoryBoard
+    - 첫 번째 화면(InformationViewController) 요구사항 구현
+    - 두 번째 화면(ExhibitionListViewController) 요구사항 구현
+    - 세 번째 화면(ExhibitionViewController) 요구사항 구현
+    - 요구사항에 맞게 화면이 보이는 위치를 디바이스 맨 아래부분까지로 제약 수정
+    - 각종 레이블 및 버튼에 DynamicType 적용
+- 기타
+    - 최종 구현이 완료된 클래스에 final 키워드 적용
+</details>
+<details>
+<summary>STEP 3 Feedback 반영</summary>
+    
+221028
+- 은닉화
+    - `@IBOutlet private weak var`로 컨벤션 수정
+    - 프로퍼티 은닉화할 수 있도록 메서드 캡슐화
+- identifier
+    - 보다 구체적인 identifier를 사용하기 위해 cell의 타입 이름 "ExhibitionListTableViewCell" 사용
+</details>
+    
 ## 👀 시각화된 프로젝트 구조
+
 ```
 [Expo1900]
  ├── Info.plist
@@ -75,14 +143,17 @@
  │   ├── Model
  │   │   ├── Exhibition.swift
  │   │   ├── Exposition.swift
- │   │   └── ExhibitionListTableViewCell.swift
+ │   │   ├── JSONDecodeExtension.swift
+ │   │   └── Constant.swift
  │   ├── View
- │   │   └── Base.lproj
- │   │        └── Main.storyboard
+ │   │   ├── Base.lproj
+ │   │   │   └── Main.storyboard
+ │   │   └── ExhibitionListTableViewCell.swift
  │   └── Controller
  │       ├── InformationViewController.swift
  │       ├── ExhibitionListViewController.swift
- │       └── ExhibitionViewController.swift
+ │       ├── ExhibitionViewController.swift
+ │       └── OrientationMaskController.swift
  └── Resource
      ├── Assets.xcassets
      │   ├── AppIcon.appiconset
@@ -96,33 +167,35 @@
          └── LaunchScreen.storyboard
 ```
 
-
 ## 💻 실행 화면
-- STEP3 완료 후 추가할 예정
 
-
+|![1번 화면](https://user-images.githubusercontent.com/106914201/198513986-097c605b-d6bc-48ee-ba7f-a0d0fceafb23.gif)|![2번 화면](https://user-images.githubusercontent.com/106914201/198514023-9c825bc4-b729-40ba-b847-9b96453c72aa.gif)|
+|:-:|:-:|
+|첫번째 화면 : 회전시켜도 세로 유지 되는 것|첫번째 화면 : 가로화면에서 1번화면으로 돌아오면 세로로 돌아가는 것|
+|![3번 화면](https://user-images.githubusercontent.com/106914201/198514574-fd32a50c-6391-4cc4-87d8-ae34bda46719.gif)|![4번 화면](https://user-images.githubusercontent.com/106914201/198515341-63685e57-676d-4b39-9630-b2417f4a735f.gif)|
+|두번째 화면 : 세로화면 스크롤|두번째 화면 : 가로화면 스크롤|
+|![5번 화면](https://user-images.githubusercontent.com/106914201/198515378-e3b0130d-aac4-419d-90cb-5352992e9ddb.gif)|![6번 화면](https://user-images.githubusercontent.com/106914201/198516021-46211553-0da5-4ff7-805d-d7e486c26e60.gif)|
+|세번째 화면 : 세로화면 스크롤|세번째 화면 : 가로화면 스크롤|
+|![7번 화면](https://user-images.githubusercontent.com/106914201/198517956-4b5a79f2-1475-496c-b552-a0b9908c682a.gif)|![8번 화면](https://user-images.githubusercontent.com/106914201/198517025-e37ade11-1a8a-466e-a7cb-9757918d4763.gif)|
+|전체화면 전환(세로고정)|다이나믹 타입(세로고정)|
 
 ## ❓ 트러블 슈팅
 
-
-<details>
-<summary>테이블뷰 셀</summary>
-    
-두 번째 화면(출품작 리스트 테이블뷰)에서 사용할 프로토타입 셀에서 필요한 것은 좌측의 이미지, 타이틀, 간단한 설명의 두 레이블이라고 생각했습니다. 이는 subtitle 스타일의 셀과 유사하다고 생각해 처음에는 기본 셀의 subtitle을 사용하였습니다. 그런데 액세서리뷰를 설정하는 순간부터 스크롤이 튀는 버그가 있고, 일정한 이미지 사이즈를 맞추는 것이 적절한 것 같아 커스텀 셀을 사용하는 것으로 변경하였습니다.
-</details>
-    
-<details>
-<summary>매직리터럴 vs 네임스페이스</summary>
-
-`InformationViewController`파일에 작성된 코드 중 `"exposition_universelle_1900"`,`"메인"`와 같이 매직리터럴 사용하는 방식에서 휴먼에러 방지를 위해 enum을 사용하여 namespace 설정을 해야하나 고민해봤으나, 재사용되는 것이 아니기에 STEP2는 매직리터럴을 사용하였습니다.
-</details>
-
-<details>
-<summary>크기가 다른 문자열</summary>
-    
-첫 화면의 방문객 수, 개최지, 개최기간 등은 콜론(:)을 기준으로 왼쪽과 오른쪽의 폰트 사이즈가 다릅니다. 해당 사항을 가장 쉽게 구현하는 것은 StackView에 Label을 두 개 넣는 것이라고 생각했는데, attributedLabel을 사용하면 단일 레이블로도 같은 결과를 낼 수 있었습니다. 더 직관적이고 간단한 방법으로 작업하기 위해 attributedLabel을 사용하기로 결정하였습니다.
-</details>
-
+- #### 테이블뷰 셀
+    두 번째 화면(출품작 리스트 테이블뷰)에서 사용할 프로토타입 셀에서 필요한 것은 좌측의 이미지, 타이틀, 간단한 설명의 두 레이블이라고 생각했습니다. 이는 subtitle 스타일의 셀과 유사하다고 생각해 처음에는 기본 셀의 subtitle을 사용하였습니다. 그런데 액세서리뷰를 설정하는 순간부터 스크롤이 튀는 버그가 있고, 일정한 이미지 사이즈를 맞추는 것이 적절한 것 같아 커스텀 셀을 사용하는 것으로 변경하였습니다.
+- #### 매직리터럴 vs 네임스페이스
+    `InformationViewController`파일에 작성된 코드 중 `"exposition_universelle_1900"`,`"메인"`와 같이 매직리터럴 사용하는 방식에서 휴먼에러 방지를 위해 enum을 사용하여 namespace 설정을 해야하나 고민해봤으나, 재사용되는 것이 아니기에 STEP2는 매직리터럴을 사용하였습니다.
+- #### 크기가 다른 문자열
+    첫 화면의 방문객 수, 개최지, 개최기간 등은 콜론(:)을 기준으로 왼쪽과 오른쪽의 폰트 사이즈가 다릅니다. 해당 사항을 가장 쉽게 구현하는 것은 StackView에 Label을 두 개 넣는 것이라고 생각했는데, attributedLabel을 사용하면 단일 레이블로도 같은 결과를 낼 수 있었습니다. 더 직관적이고 간단한 방법으로 작업하기 위해 attributedLabel을 사용하기로 결정하였습니다.
+- #### View vs StackView
+    오토레이아웃을 적용하면서 stackView가 제약 잡는 데에 더 까다로운 부분들이 있어서 view가 더 편한 것은 아닌가? 하는 생각이 들었습니다. 이 부분은 경험이 더 축적되야 판단이 설 수 있는 문제로 인지하였습니다. 추후에 View와 StackView를 어떤 경우에 사용해줘야 하는지에 대한 판단의 기준을 알게되면 추가로 내용 첨부하겠습니다.
+    > 피드백 받은 의견 : StackView가 아무래도 꽤 편하게 레이아웃을 잡게 해주는 친구라고 저는 생각하는데🤔 뭐 이것도 개인마다 다르지않을까 싶네요ㅎㅎ
+    > 저는 그래서 StackView를 사용할 수 있는 레이아웃이면 그렇게 하고, StackView로는 안되는 뷰들은 오토레이아웃을 딱딱 잡는것 같아요!!
+    > 이건 정말 정답이 없고 스타일 차이라고 생각합니다:)
+    > 둘다 가능한 상황이면 더 선호하는 방법을 택하거나! 성능 같은것들도 한번 고려해볼 수 있겠죠~? 근데 지금 같은 뷰에서는 성능 같은건 딱히 고민해볼 필요가 없을것 같아요! (시간되실때 StackView 성능 한번 검색 해보세용)
+- #### AutoLayout
+    원하는대로 배치가 이루어지지 않아 많이 고생한 부분입니다. 이번에 오토레이아웃을 경험해보면서 느낀점은 개발자 성향에 따라 오토레이아웃 방법이 다양하게 나올 수 있다는 것이였습니다. 그러하여, 뷰를 구성할때 기본적으로 오토레이아웃을 잡아주는 부분들은 통일된 방법이 있는지 궁금해져서 추후에 추가 학습을 통해 알게된 정보가 있다면 내용 첨부하겠습니다.
+    > 피드백 받은 의견 : 기본적인 개념들만 충실히 알고 있는 상태로 연습을 하다보면 패턴?들이 보이게 될겁니다! 너무 규칙화된 방법을 외우려고하면 나중에 복잡한 오토레이아웃을 다뤄야될때 오히려 발목을 잡힐 수도 있을것 같아요!
         
 ## 🔗 참고 링크
 
@@ -134,6 +207,9 @@
     - [JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder)
         - [Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types)
         - [Encoding and Decoding Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
+- WWDC
+    - [Accessibility Inspector (WWDC 2019)](https://developer.apple.com/videos/play/wwdc2019/257/)
+    - [Writing Great Accessibility Labels (WWDC 2019)](https://developer.apple.com/videos/play/wwdc2019/254/)
 - 위키백과
     - [JSON](https://ko.wikipedia.org/wiki/JSON)
 - 야곰닷넷
