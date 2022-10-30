@@ -9,14 +9,11 @@ class KoreanEntryTableViewCell: UITableViewCell {
     @IBOutlet weak var entryTitleLabel: UILabel!
     @IBOutlet weak var entryShortDescription: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    let cellIdentifier: String = "koreanEntryCell"
+    
+    func configureCell(imageName: String, entryName: String, description: String) {
+        entryImage.image = UIImage(named: imageName)
+        entryTitleLabel.text = entryName
+        entryShortDescription.text = description
     }
 }

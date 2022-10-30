@@ -7,7 +7,7 @@ final class KoreanEntriesViewController: UIViewController {
     
     @IBOutlet private weak var koreanEntriesTableView: UITableView!
     
-    private let cellIdentifier: String = "koreanEntryCell"
+    private let cellIdentifier = KoreanEntryTableViewCell().cellIdentifier
     private var koreanEntries: [KoreanEntry] = []
     
     override func viewDidLoad() {
@@ -59,9 +59,11 @@ extension KoreanEntriesViewController: UITableViewDataSource {
         
         let entry: KoreanEntry = self.koreanEntries[indexPath.row]
         
-        customCell.entryImage.image = UIImage(named: entry.imageName)
-        customCell.entryTitleLabel.text = entry.name
-        customCell.entryShortDescription.text = entry.shortDescription
+        customCell.configureCell(
+            imageName: entry.imageName,
+            entryName: entry.name,
+            description: entry.shortDescription
+        )
         
         return customCell
     }
