@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
 
-        if let navigationController = application.windows[0].rootViewController as? UINavigationController {
+        if let navigationController = application.windows.first?.rootViewController as? UINavigationController {
 
             if navigationController.visibleViewController is ExpoViewController {
                 return UIInterfaceOrientationMask.portrait
