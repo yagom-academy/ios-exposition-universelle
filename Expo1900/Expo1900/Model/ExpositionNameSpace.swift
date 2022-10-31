@@ -5,7 +5,7 @@
 //  Created by Som, Stone, Aaron on 2022/10/27.
 //
 
-enum NameSpace {
+enum ExpositionNameSpace {
     static let poster = "poster"
     static let flag = "flag"
     static let showingKoreanWorks = "한국의 출품작 보러가기"
