@@ -33,12 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var changeOrientation: Bool = true
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        
-        if !changeOrientation {
-            return [.portrait]
-        } else {
-            return [.all]
-        }
+        return changeOrientation ? [.all] : [.portrait]
     }
 }
 
