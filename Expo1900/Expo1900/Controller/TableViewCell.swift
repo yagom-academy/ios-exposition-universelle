@@ -8,7 +8,7 @@
 import UIKit
 
 final class TableViewCell: UITableViewCell {
-    static let cellIdentifier: String = NameSpace.cellID
+    static let cellIdentifier: String = ExpositionNameSpace.cellID
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
