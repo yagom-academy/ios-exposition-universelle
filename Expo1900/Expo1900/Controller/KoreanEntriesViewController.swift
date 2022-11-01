@@ -7,23 +7,18 @@ final class KoreanEntriesViewController: UIViewController {
     
     @IBOutlet private weak var koreanEntriesTableView: UITableView!
     
-    private let cellIdentifier: String = "koreanEntryCell"
+    private let cellIdentifier = KoreanEntryTableViewCell().cellIdentifier
     private var koreanEntries: [KoreanEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        koreanEntriesTableView.register(
+            UINib(nibName: "KoreanEntryTableViewCell", bundle: nil),
+            forCellReuseIdentifier: cellIdentifier
+        )
+
         loadKoreanEntries()
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showEntryDetail" {
-            guard let entriesDetailViewController = segue.destination as? EntriesDetailViewController,
-                  let indexPath = koreanEntriesTableView.indexPathForSelectedRow else { return }
-            
-            entriesDetailViewController.koreanEntry = koreanEntries[indexPath.row]
-        }
     }
     
     private func loadKoreanEntries() {
@@ -57,21 +52,31 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = koreanEntriesTableView.dequeueReusableCell(
+        let customCell: KoreanEntryTableViewCell = koreanEntriesTableView.dequeueReusableCell(
             withIdentifier: self.cellIdentifier,
             for: indexPath
-        )
-        let entry: KoreanEntry = self.koreanEntries[indexPath.row]
-        var content = cell.defaultContentConfiguration()
+        ) as? KoreanEntryTableViewCell ?? KoreanEntryTableViewCell()
         
-        content.image = UIImage(named: entry.imageName)
-        content.text = entry.name
-        content.secondaryText = entry.shortDescription
-        cell.contentConfiguration = content
-        return cell
+        let entry: KoreanEntry = self.koreanEntries[indexPath.row]
+        
+        customCell.configureCell(
+            imageName: entry.imageName,
+            entryName: entry.name,
+            description: entry.shortDescription
+        )
+        
+        return customCell
     }
 }
 
 extension KoreanEntriesViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entriesDetailViewController =
+        storyboard?.instantiateViewController(withIdentifier: "entriesDetailViewController") as?
+        EntriesDetailViewController ?? EntriesDetailViewController()
+        
+        entriesDetailViewController.koreanEntry = koreanEntries[indexPath.row]
+        show(entriesDetailViewController, sender: nil)
+    }
 }
