@@ -11,21 +11,31 @@ final class ExpositionUniverselleViewController: UIViewController {
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     private var expositionUniverselle: ExpositionUniverselle?
     private let jsonDecodingManager: JSONDecodingManager = JSONDecodingManager()
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if navigationController?.topViewController is ExpositionUniverselleViewController {
+            return .portrait
+        }
+        return .all
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = ExpoConstant.mainNavigationTitle
+        let orientation = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(orientation, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
         self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchExpoInformation()
-        setTextToDisplay()
+        setupUI()
+        navigationController?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,15 +48,28 @@ final class ExpositionUniverselleViewController: UIViewController {
             expositionUniverselle = try jsonDecodingManager.decode(
                 dataAsset: ExpoConstant.Expo1900JSONFileName)
         } catch {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
+            showErrorAlert()
         }
     }
     
-    private func setTextToDisplay() {
+    private func showErrorAlert() {
+        let errorAlert = UIAlertController(
+            title: "데이터를 불러오는데 실패했습니다.",
+            message: nil,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        errorAlert.addAction(okAction)
+        present(errorAlert, animated: true)
+    }
+    
+    private func setupUI() {
         guard let expositionUniverselle = expositionUniverselle else {
-            descriptionTextView.text = "데이터를 불러오는데 실패했습니다."
+            descriptionLabel.text = "데이터를 불러오는데 실패했습니다."
             return
         }
+        
         let formattedVisitor: String = changeNumberFormat(
             number:"\(expositionUniverselle.visitors)")
         
@@ -54,20 +77,23 @@ final class ExpositionUniverselleViewController: UIViewController {
         let location: String = expositionUniverselle.location.expoLocationInformation
         let duration: String = expositionUniverselle.duration.expoDurationInformation
         
+        
         titleLabel.text = expositionUniverselle.title.applyLineBreak()
-        titleLabel.font = ExpoConstant.largeFont
-        visitorsLabel.attributedText = visitors.createAttributed(target: ExpoConstant.visitor,
-                                                                 key: .font,
-                                                                 value: ExpoConstant.mediumFont)
-        locationLabel.attributedText = location.createAttributed(target: ExpoConstant.location,
-                                                                 key: .font,
-                                                                 value: ExpoConstant.mediumFont)
-        durationLabel.attributedText = duration.createAttributed(target: ExpoConstant.duration,
-                                                                 key: .font,
-                                                                 value: ExpoConstant.mediumFont)
-        descriptionTextView.text = expositionUniverselle.description
+        visitorsLabel.attributedText = visitors.makeLabelString(
+            prefix: ExpoConstant.visitor,
+            text: ExpoConstant.colon + formattedVisitor + ExpoConstant.people
+        )
+        locationLabel.attributedText = location.makeLabelString(
+            prefix: ExpoConstant.location,
+            text: ExpoConstant.colon + expositionUniverselle.location
+        )
+        durationLabel.attributedText = duration.makeLabelString(
+            prefix: ExpoConstant.duration,
+            text: ExpoConstant.colon + expositionUniverselle.duration
+        )
+        descriptionLabel.text = expositionUniverselle.description
     }
-    
+        
     private func changeNumberFormat(number: String) -> String {
         let formatter: NumberFormatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -75,7 +101,14 @@ final class ExpositionUniverselleViewController: UIViewController {
         guard let decimalNumber = Double(number) else {
             return number
         }
+        
         return formatter.string(from: NSNumber(value: decimalNumber))!
+    }
+}
+
+extension ExpositionUniverselleViewController: UINavigationControllerDelegate {
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return self.supportedInterfaceOrientations
     }
 }
 
@@ -92,10 +125,16 @@ fileprivate extension String {
         return ExpoConstant.duration + ExpoConstant.colon + self
     }
     
-    func createAttributed(target: String, key: NSAttributedString.Key, value: Any) -> NSAttributedString {
+    func makeLabelString(prefix: String, text: String) -> NSAttributedString {
+        return createAttributed(target: [prefix, text], key: .font, value: [ExpoConstant.largeFont, ExpoConstant.mediumFont])
+    }
+    
+    func createAttributed(target: [String], key: NSAttributedString.Key, value: [Any]) -> NSAttributedString {
         let attributed: NSMutableAttributedString = NSMutableAttributedString(string: self)
-        let targetRange = (self as NSString).range(of: target)
-        attributed.addAttribute(key, value: value, range: targetRange)
+        zip(target, value).forEach { (target, value) in
+            let targetRange = (self as NSString).range(of: target)
+            attributed.addAttribute(key, value: value, range: targetRange)
+        }
         
         return attributed
     }

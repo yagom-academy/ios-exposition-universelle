@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1270432908DEC9004CBCD2 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1270422908DEC9004CBCD2 /* EntryTableViewCell.swift */; };
 		0C2C8B4929022BDB00E7BAED /* JSONDecodingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2C8B4829022BDB00E7BAED /* JSONDecodingManager.swift */; };
 		0C2C8B4B29022C2800E7BAED /* ExpoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2C8B4A29022C2800E7BAED /* ExpoError.swift */; };
 		0C4B5EDC28FE393A00FBF808 /* ExhibitionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4B5EDB28FE393A00FBF808 /* ExhibitionEntry.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C1270422908DEC9004CBCD2 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		0C2C8B4829022BDB00E7BAED /* JSONDecodingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecodingManager.swift; sourceTree = "<group>"; };
 		0C2C8B4A29022C2800E7BAED /* ExpoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoError.swift; sourceTree = "<group>"; };
 		0C4B5EDB28FE393A00FBF808 /* ExhibitionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionEntry.swift; sourceTree = "<group>"; };
@@ -77,15 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				0C1270422908DEC9004CBCD2 /* EntryTableViewCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		8649AA5729017CDF00FB6403 /* Extensioin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensioin;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -107,7 +103,6 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				8649AA5729017CDF00FB6403 /* Extensioin */,
 				8649AA5629017CC800FB6403 /* View */,
 				8649AA5529017CB900FB6403 /* Controller */,
 				8649AA5429017CAE00FB6403 /* Model */,
@@ -200,6 +195,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				0CCCAAF028FFB75600CC2A07 /* EntryDetailViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				0C1270432908DEC9004CBCD2 /* EntryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

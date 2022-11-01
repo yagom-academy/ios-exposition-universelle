@@ -22,25 +22,23 @@ final class KoreanEntriesViewController: UIViewController {
     
     private func fetchKoreanEntries() {
         do {
-        koreanEntries = try jsonDecodingManager.decode(
-            dataAsset: ExpoConstant.koreanEntriesJSONFileName)
+            koreanEntries = try jsonDecodingManager.decode(
+                dataAsset: ExpoConstant.koreanEntriesJSONFileName)
         } catch {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
+            showErrorAlert()
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let entryDetailViewController = segue.destination as? EntryDetailViewController else {
-            return
-        }
-        
-        guard let row = sender as? Int else {
-            return
-        }
-        
-        entryDetailViewController.entryImage = UIImage(named: koreanEntries[row].imageName)
-        entryDetailViewController.entryDescription = koreanEntries[row].description
-        entryDetailViewController.entryName = koreanEntries[row].name
+    private func showErrorAlert() {
+        let errorAlert = UIAlertController(
+            title: "데이터를 불러오는데 실패했습니다.",
+            message: nil,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        errorAlert.addAction(okAction)
+        present(errorAlert, animated: true)
     }
 }
 
@@ -51,20 +49,43 @@ extension KoreanEntriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = entriesTableView.dequeueReusableCell(withIdentifier: "cell",
-                                                                         for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.image = UIImage(named: koreanEntries[indexPath.row].imageName)
-        content.text = koreanEntries[indexPath.row].name
-        content.secondaryText = koreanEntries[indexPath.row].shortDescription
-        cell.contentConfiguration = content
-        return cell
+        guard let entryCell: EntryTableViewCell = entriesTableView.dequeueReusableCell(
+            withIdentifier: EntryTableViewCell.reuseIdentifier,
+            for: indexPath) as? EntryTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        guard let koreanEntry = koreanEntries[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
+        
+        entryCell.entryImageView.image = UIImage(named: koreanEntry.imageName)
+        entryCell.entryTitleLabel.text = koreanEntry.name
+        entryCell.entryShortDescriptionLabel.text = koreanEntry.shortDescription
+        
+        return entryCell
     }
 }
 
 extension KoreanEntriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showEntryDetails", sender: indexPath.row)
+        guard let entryDetailViewController = storyboard?.instantiateViewController(
+            identifier: "EntryViewController",
+            creator: { coder in
+                return EntryDetailViewController(entryInformation: self.koreanEntries[indexPath.row],
+                                                 coder: coder)
+            }) else {
+            return
+        }
+        
+        navigationController?.pushViewController(entryDetailViewController, animated: true)
+        entriesTableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension Collection {
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }

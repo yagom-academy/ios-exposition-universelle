@@ -9,7 +9,7 @@ import UIKit
 
 struct JSONDecodingManager {
     private let jsonDecoder: JSONDecoder = JSONDecoder()
-
+    
     func decode<T: Decodable>(dataAsset: String) throws -> T {
         guard let dataAsset: NSDataAsset = NSDataAsset(
             name: dataAsset) else {
@@ -21,5 +21,3 @@ struct JSONDecodingManager {
         return data
     }
 }
-
-
