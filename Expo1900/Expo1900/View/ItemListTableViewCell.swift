@@ -20,4 +20,10 @@ class ItemListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func updateViews(imageName: String, title: String, subtitle: String) {
+        self.itemImage.image = UIImage(named: imageName)
+        self.title.text = title
+        self.subtitle.text = subtitle
+    }
 }

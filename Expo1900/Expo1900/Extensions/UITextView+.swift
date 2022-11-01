@@ -5,8 +5,8 @@
 import UIKit
 
 extension UITextView {
-    func setDynamicType() {
-        self.font = UIFont.preferredFont(forTextStyle: .body)
+    func setDynamicType(with font: UIFont) {
+        self.font = font
         self.adjustsFontForContentSizeCategory = true
     }
 }

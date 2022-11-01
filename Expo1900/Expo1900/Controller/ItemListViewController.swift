@@ -60,9 +60,11 @@ extension ItemListViewController: UITableViewDataSource {
             for: indexPath
         ) as? ItemListTableViewCell else { return UITableViewCell() }
         
-        cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
-        cell.title.text = items[indexPath.row].name
-        cell.subtitle.text = items[indexPath.row].shortDescription
+        cell.updateViews(
+            imageName: items[indexPath.row].imageName,
+            title: items[indexPath.row].name,
+            subtitle: items[indexPath.row].shortDescription
+        )
         
         return cell
     }

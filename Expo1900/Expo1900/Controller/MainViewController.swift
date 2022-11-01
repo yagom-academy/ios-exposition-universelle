@@ -44,7 +44,7 @@ final class MainViewController: UIViewController {
         updateImage()
         
         infoLabels.forEach { $0.setDynamicType() }
-        descriptionTextView.setDynamicType()
+        descriptionTextView.setDynamicType(with: UIFont.preferredFont(forTextStyle: .body))
         setAccessibilityLabels()
         
         self.navigationItem.backButtonTitle = "메인"
