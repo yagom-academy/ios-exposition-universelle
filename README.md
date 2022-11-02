@@ -3,7 +3,7 @@
 
 ## 📑 프로젝트 소개
 - JSON 데이터를 디코딩해 모델 타입을 구현하고, 만국박람회 애플리케이션을 제작하는 프로젝트 입니다.
-- Table View, JSON 데이터 디코딩, LLDB 개념을 기반으로 진행되었습니다.
+- Table View, JSON 데이터 디코딩, 접근성(Accessibility), Dynamic Type 개념을 기반으로 진행되었습니다.
 
 <img height = 21px, src = "https://img.shields.io/badge/swift-5.6-green">
 
@@ -26,7 +26,7 @@
 ---
 
 ## 🔖 1. UML
-<img width = 800px, src = "https://i.imgur.com/0ay80KG.png">
+<img width = 1000px, src = "https://i.imgur.com/6V6netG.png">
 
 
 ---
@@ -50,12 +50,29 @@
   - 테이블 뷰의 셀 타입 변경 (커스텀 셀에 -> 기본 제공되는 `subtitle` 타입)
   - `MainVC`, `ItemVC` 스크롤 뷰 추가 및 오토레이아웃 제약 수정
   - 네이밍, 컨벤션 수정
+  - STEP2 PR
 
 - **2022.10.21**
   - UML 수정
   - 접근 제어 레벨 수정
   - STEP2 README.md</b> 작성
 
+- **2022.10.24**
+  - `itemListVC` TableView를 CustomCell로 리팩토링
+
+- **2022.10.26**
+  - 에러 로그 출력 메서드 생성
+
+- **2022.10.27**
+  - 요구사항에 따라 메인 화면은 세로 방향 고정되도록 구현
+  - Accessibility 설정
+    - UI 요소별 적절한 `accessibilityLabel` 설정
+    - Dynamic types 적용
+  - STEP3 PR
+
+- **2022.10.28**
+  - UML 수정
+  - STEP3 README.md</b> 작성
 ---
 
 ## 💻 3. 기능 설명(실행 화면)
@@ -80,6 +97,21 @@ Exposition - exposition_universelle_1900.json
  |![](https://i.imgur.com/OTM4FCa.gif)|![](https://user-images.githubusercontent.com/101683977/197129044-fb21afd7-043f-4645-8749-37183246c129.gif)|
  |**한국의 출품작 화면**|**셀 클릭시 품목 상세 화면으로 전환**|
  |<img width=320px, src="https://user-images.githubusercontent.com/101683977/197129289-2edc5834-3a72-4132-88e4-e4bfddb0220b.png">|![](https://user-images.githubusercontent.com/101683977/197129414-97514679-8a84-4db7-8be9-f4fcc3c543a9.gif)|
+
+### [STEP 3]
+- 다양한 아이폰 기기에 적용 가능한 오토레이아웃을 구현하였습니다.
+- Accessibility 설정을 위해 `accessibilityLabel`과 Dynamic Type을 적용하였습니다. 
+
+ |**메인 화면**|**출품작 화면**|**품목 상세 화면**|
+ |:---:|:---:|:---:|
+ |<img width=300px, src="https://i.imgur.com/oDGUvrH.png">|<img width=300px, src="https://i.imgur.com/BZ8A7o5.png">|<img width=300px, src="https://i.imgur.com/zNOBOEa.png">|
+
+- **Dynamic Type 적용**
+
+ |**메인 화면**|**출품작 화면**|**품목 상세 화면**|
+ |:---:|:---:|:---:|
+ |<img width=300px, src="https://i.imgur.com/bnQBTSc.png">|<img width=300px, src="https://i.imgur.com/vQevSgi.png">|<img width=300px, src="https://i.imgur.com/N4H6RES.png">|
+
 
 ---
 
@@ -122,10 +154,93 @@ extension KoreanItemViewController: UITableViewDataSource {
 
 ---
 
+#### 👻 문제 2
+테이블 뷰에서 아래 → 위로 빠르게 스크롤 할 때 틱틱거리면서 스크롤이 제대로 되지 않는 문제
+
+#### 🔫 문제 2 해결
+기본 셀을 사용할 시 나타나는 문제로 추정되며, 커스텀 셀을 구현해주니 해결되었습니다.
+(uitableviewcell default cell issue, bug, tick 등으로 구글링해 보았지만 관련된 게시물을 찾지 못함)
+
+---
+
+### [STEP3]
+#### 👻 문제 1
+요구사항에 따라 하나의 화면(`MainVC`)만 세로 화면으로 고정하고, 나머지는 가로/세로 화면을 모두 지원하도록 설정해야하는 문제
+
+#### 🔫 문제 1 해결
+ViewController의 인스턴스 프로퍼티로 VC가 지원하는 인터페이스 방향을 지정할 수 있는 `supportedInterfaceOrientations` 를 override 하여 해결하였습니다.
+```swift
+class MainViewController: UIViewController {
+    
+    ...
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
+}
+```
+
+---
+
+#### 👻 문제 2
+UILabel에 여러 줄의 텍스트가 있을 때 `adjustsFontSizeToFitWidth` 적용하기
+
+#### 🔫 문제 2 해결
+`numberOfLines`의 값이 0이면 안되고, `lineBreakMode`가 `TruncateTail` 이어야 합니다. (출처: [StackOverflow](https://stackoverflow.com/questions/24636879/why-does-this-break-uilabel-adjustsfontsizetofitwidth))
+
+- 예시: 사용자가 글씨 크기를 키웠을 때, 제목 레이블은 줄 수가 1줄로 제한되어 있어서 `adjustsFontSizeToFitWidth`가 적용되어 글씨 크기가 줄어든 상태.
+반면, shortDescription의 경우 줄 수가 제한되어 있지 않기 때문에(`numberOfLines=0`), `adjustsFontSizeToFitWidth`가 적용되지 않아 shortDescription의 폰트 크기가 더 커진 화면.
+<img width=200px, src="https://i.imgur.com/4BciOW8.png">
+- 제목 레이블의 폰트 크기가 shortDescription 레이블의 폰트 크기보다 크게 유지하기 위해 제목 레이블을 `numberOfLines = 0`, `lineBreakMode = .truncateTail`로 수정한 화면.
+<img width=200px, src="https://i.imgur.com/kB3khC9.png">
+
+---
+
+#### 👻 문제 3
+`DateFomatter`를 사용해 String 타입의 날짜를 Date 타입으로 parsing할 때, String 타입의 날짜값과 Date 타입의 날짜값이 상이한 문제
+
+- 예시: "1990. 04. 14" 문자열을 매개변수로 주었는데, 결과값으로 나온 Date는 `1990.04.13`
+```swift
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy. MM. dd"
+    formatter.dateStyle = .short
+    return formatter
+}()
+
+let str = "1900. 04. 14"
+let date: Date = dateFormatter.date(from: str)!
+print(date)
+```
+- 출력값: 
+![](https://i.imgur.com/kMD5LMJ.png)
+
+#### 🔫 문제 3 해결
+- `init?(secondsFromGMT seconds: Int)` 이니셜라이저의 매개변수로 GMT와 현재 기기에 설정된 위치(=한국표준시)의 시차를 `timezone`이라는 변수로 전달해주어 `dateFormatter`의 time zone을 설정하고, `locale`에 `"ko_kr"`을 전달해 올바른 날짜 형식을 반환받을 수 있도록 하였습니다.
+
+```swift
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy. MM. dd"
+    formatter.locale = Locale(identifier: "ko_kr")
+    formatter.timeZone = TimeZone(secondsFromGMT: timezone)
+    formatter.dateStyle = .short
+    return formatter
+}()
+
+let str = "1900. 04. 14"
+let date: Date = dateFormatter.date(from: str)!
+print(date)
+```
+- 출력값: 
+![](https://i.imgur.com/cFgu1ZO.png)
+
+---
+
 ## 🤷‍♀️ 5. 고민한 점
 
 ### 1. `MainVC` 메서드 역할 분리
-최대한 관계 있는 역할을 가진 메서드끼리 묶어서 역할 분리를 해 보려고 노력했습니다. `viewDidLoad()` 메서드에서 아래의 메서드들을 별도의 함수로 분리해주었습니다.
+최대한 관계 있는 역할을 가진 메서드끼리 묶어서 역할 분리를 하였습니다. `viewDidLoad()` 메서드에서 아래의 메서드들을 별도의 함수로 분리해주었습니다.
 - 제목 레이블을 업데이트 하는 함수 `updateTitleLabel()`
 - 제목을 제외한 모든 레이블 텍스트를 업데이트 하는 함수 `updateLabelText()`
 - 모든 이미지 뷰를 업데이트 하는 함수 `updateImage()`
@@ -142,9 +257,37 @@ extension KoreanItemViewController: UITableViewDataSource {
 - 화면 전환에 실패한 경우 `showTransitionErrorAlert()`
 - 이미지 디코딩에 실패한 경우 SFSymbol 이미지를 표시
 
+### 3. DateFormatter 구현 방식
+`MainVC`에서 개최 기간을 voiceover가 읽어줄 때 자연스럽게 읽어줄 수 있도록 하기 위해 레이블의 날짜 값을 파싱해야 했습니다. 파싱할 때 사용할 DateFormatter를 아래의 3가지 중 어떤 방법으로 구현할지 고민했습니다.
+  - extension을 만들어서 `static let`으로 DateFormatter의 프로퍼티를 정의해 사용하는 방법
+  - DateFormatter의 하위 클래스를 정의해, VC 내에서 해당 클래스의 인스턴스를 활용하는 방법
+  - 기존과 같이 VC 메서드 내에서 DateFormatter의 인스턴스를 지역변수로 정의해 사용하는 방법
+ 
+처음에는 1번 방법을 활용하려고 했지만, 날짜를 파싱해야 하는 부분이 `MainVC`의 `durationLabel.accessibilityLabel` 밖에 없기 때문에 3번 방법을 활용했습니다.
+
+
+### 4. 에러 로그 구현
+`print(error)`로 단순하게 에러 로그를 출력하는 형태에서, 에러가 발생한 정확한 지점을 알려주기 위한 에러 로그를 다음과 같이 구현하였습니다. [참고 링크](https://jinsangjin.tistory.com/103)
+
+```swift
+func printErrorLog(_ fileName: String = #file, _ line: Int = #line , _ funcName: String = #function) {
+    print("Error at: file: \(fileName), line: \(line), func: \(funcName)")
+}
+```
+
+에러 로그 출력 예시
+![에러 로그 출력 예시](https://i.imgur.com/x58jmYT.png)
+
+
 ---
 
 ## 📎 6. 참고 링크
 - [UML: 클래스 다이어그램과 소스코드 매핑](https://www.nextree.co.kr/p6753/)
 - [UITableView - Apple Developer](https://developer.apple.com/documentation/uikit/uitableview)
 - [Table views - Apple Developer](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
+- [야곰닷넷 - 오토레이아웃 정복하기](https://yagom.net/courses/autolayout/)
+- [Accessibility Inspector (WWDC 2019)](https://developer.apple.com/videos/play/wwdc2019/257/)
+- [Writing Great Accessibility Labels (WWDC 2019)
+](https://developer.apple.com/videos/play/wwdc2019/254/)
+- [Apple Developer Documentation - supportedInterfaceOrientations](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621435-supportedinterfaceorientations)
+- [DateFormatter - Apple Developer](https://developer.apple.com/documentation/foundation/dateformatter)

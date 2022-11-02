@@ -16,6 +16,11 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var descriptionTextView: UITextView!
     @IBOutlet private weak var leftFlagImage: UIImageView!
     @IBOutlet private weak var rightFlagImage: UIImageView!
+    @IBOutlet private var infoLabels: [UILabel]!
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
     
     var exposition: Exposition?
     
@@ -38,10 +43,14 @@ final class MainViewController: UIViewController {
         updateLabelText()
         updateImage()
         
+        infoLabels.forEach { $0.setDynamicType() }
+        descriptionTextView.setDynamicType(with: UIFont.preferredFont(forTextStyle: .body))
+        setAccessibilityLabels()
+        
         self.navigationItem.backButtonTitle = "메인"
     }
     
-    func updateTitleLabel() {
+    private func updateTitleLabel() {
         guard var title = exposition?.title,
               let index = title.firstIndex(of: "(") else {
             titleLabel.text = exposition?.title
@@ -52,7 +61,7 @@ final class MainViewController: UIViewController {
         titleLabel.text = title
     }
     
-    func updateLabelText() {
+    private func updateLabelText() {
         locationLabel.text = exposition?.location
         durationLabel.text = exposition?.duration
         descriptionTextView.text = exposition?.description
@@ -66,12 +75,48 @@ final class MainViewController: UIViewController {
         visitorsLabel.text = visitorsText + " 명"
     }
     
-    func updateImage() {
+    private func updateImage() {
         posterImage.image = UIImage(named: "poster")
         
         let flagImage = UIImage(named: "flag")
         leftFlagImage.image = flagImage
         rightFlagImage.image = flagImage
+    }
+    
+    private func setAccessibilityLabels() {
+        titleLabel.accessibilityLabel = "파리 만국박람회 1900"
+        
+        let parsedDates: [String] = parseDates()
+        durationLabel.accessibilityLabel = "\(parsedDates[0])부터 \(parsedDates[1])까지"
+    }
+    
+    private func parseDates() -> [String] {
+        guard let duration = exposition?.duration else { return [] }
+        let splitDates: [String] = duration
+            .split(separator: "-", omittingEmptySubsequences: true)
+            .map { String($0) }
+        
+        let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy. MM. dd"
+            formatter.locale = Locale(identifier: "ko_kr")
+            formatter.timeZone = TimeZone(secondsFromGMT: timezone)
+            return formatter
+        }()
+        
+        let dateToStringFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy년 MM월 dd일"
+            return formatter
+        }()
+
+        var parsedDates: [String] = []
+        splitDates.forEach {
+            guard let date = dateFormatter.date(from: $0) else { return }
+            parsedDates.append(dateToStringFormatter.string(from: date))
+        }
+        
+        return parsedDates
     }
     
     @IBAction func tappedShowItemsButton(sender: UIButton) {
@@ -84,3 +129,5 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
+
+

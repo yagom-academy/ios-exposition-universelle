@@ -23,5 +23,6 @@ final class ItemViewController: UIViewController {
         }
         
         self.itemImage.image = UIImage(named: itemImageName)
+        descriptionTextView.setDynamicType(with: UIFont.preferredFont(forTextStyle: .body))
     }
 }

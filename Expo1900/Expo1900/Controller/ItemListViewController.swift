@@ -14,6 +14,7 @@ final class ItemListViewController: UIViewController {
         super.viewDidLoad()
         
         self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
             showDataErrorAlert()
@@ -27,7 +28,6 @@ final class ItemListViewController: UIViewController {
             printErrorLog()
         }
         
-        self.tableView.dataSource = self
         self.title = "한국의 출품작"
         self.navigationItem.backButtonTitle = "한국의 출품작"
     }
@@ -55,11 +55,16 @@ extension ItemListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =
-        tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! ItemListTableViewCell
-        cell.itemImage.image = UIImage(named: items[indexPath.row].imageName)
-        cell.title.text = items[indexPath.row].name
-        cell.subTitle.text = items[indexPath.row].shortDescription
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: self.cellIdentifier,
+            for: indexPath
+        ) as? ItemListTableViewCell else { return UITableViewCell() }
+        
+        cell.updateViews(
+            imageName: items[indexPath.row].imageName,
+            title: items[indexPath.row].name,
+            subtitle: items[indexPath.row].shortDescription
+        )
         
         return cell
     }
