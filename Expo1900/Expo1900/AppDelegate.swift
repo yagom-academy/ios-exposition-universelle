@@ -30,6 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
 
+        if let navigationController = application.windows.first?.rootViewController as? UINavigationController {
+
+            if navigationController.visibleViewController is ExpoViewController {
+                return UIInterfaceOrientationMask.portrait
+            }
+            else {
+                return UIInterfaceOrientationMask.all
+            }
+        }
+        
+        return UIInterfaceOrientationMask.portrait
+    }
 }
 

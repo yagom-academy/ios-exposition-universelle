@@ -29,6 +29,7 @@ final class KoreaItemTableViewCell: UITableViewCell {
     
     public let titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

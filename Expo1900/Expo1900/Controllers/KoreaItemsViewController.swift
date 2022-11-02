@@ -13,6 +13,7 @@ final class KoreaItemsViewController: UIViewController {
     
     enum Constant {
         static let koreaItemsNavigationTitle = "한국의 출품작"
+        static let navigationBackButtonTitle = "출품작"
     }
 
     @IBOutlet private weak var koreanItemsTable: UITableView!
@@ -22,7 +23,7 @@ final class KoreaItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setData()
-        setNavigationBar()
+        setupNavigationBar()
         setTableView()
     }
     
@@ -53,7 +54,10 @@ final class KoreaItemsViewController: UIViewController {
         koreanItemsTable.dataSource = self
     }
     
-    private func setNavigationBar() {
+    private func setupNavigationBar() {
+        let backItem = UIBarButtonItem()
+        backItem.title = Constant.navigationBackButtonTitle
+        navigationItem.backBarButtonItem = backItem
         navigationController?.navigationBar.tintColor = .black
         self.title = Constant.koreaItemsNavigationTitle
     }

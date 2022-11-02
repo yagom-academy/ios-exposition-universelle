@@ -10,6 +10,7 @@ final class ExpoViewController: UIViewController {
 
     enum Constant {
         static let nextButtonTitle = "한국의 출품작 보러가기"
+        static let navigationBackButtonTitle = "메인"
     }
     
     @IBOutlet private weak var titleLabel: UILabel!
@@ -17,7 +18,7 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var visitorLabel: UILabel!
     @IBOutlet private weak var placeLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private var buttonImage: [UIImageView]!
     @IBOutlet private weak var nextButton: UIButton!
     
@@ -27,6 +28,7 @@ final class ExpoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setData()
+        setupNavigationBar()
         setupElementWithData()
     }
 
@@ -38,6 +40,12 @@ final class ExpoViewController: UIViewController {
         guard let koreaItemsViewController = storyboard?.instantiateViewController(withIdentifier: KoreaItemsViewController.koreaItemsVCIdentifier) as? KoreaItemsViewController else { return }
         
         navigationController?.pushViewController(koreaItemsViewController, animated: true)
+    }
+    
+    private func setupNavigationBar() {
+        let backItem = UIBarButtonItem()
+        backItem.title = Constant.navigationBackButtonTitle
+        navigationItem.backBarButtonItem = backItem
     }
     
     private func setData() {
@@ -59,13 +67,14 @@ final class ExpoViewController: UIViewController {
     }
     
     private func setupElementWithData() {
-        titleLabel.text = expoData?.title
+        titleLabel.text = expoData?.titleDescription
         mainImage.image = UIImage(named: AssetName.expoImage)
         visitorLabel.text = expoData?.visitorNumberDescription
         placeLabel.text = expoData?.locationDescription
         timeLabel.text = expoData?.durationDescription
-        descriptionTextView.text = expoData?.description
-        descriptionTextView.isEditable = false
+        descriptionLabel.text = expoData?.description
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
         buttonImage.forEach { button in
             button.image = UIImage(named: AssetName.flagButtonImage)
         }
