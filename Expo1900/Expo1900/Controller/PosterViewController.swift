@@ -7,6 +7,7 @@
 import UIKit
 
 class PosterViewController: UIViewController {
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     var expositionParis: ExpositionParis?
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,6 +19,14 @@ class PosterViewController: UIViewController {
     
     @IBOutlet weak var leftFlagImageView: UIImageView!
     @IBOutlet weak var rightFlagImageView: UIImageView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        appDelegate?.shouldSupportAllOrientation = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        appDelegate?.shouldSupportAllOrientation = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

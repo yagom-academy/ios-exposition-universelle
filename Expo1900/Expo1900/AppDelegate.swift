@@ -9,6 +9,16 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var shouldSupportAllOrientation = true
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if shouldSupportAllOrientation == true {
+            return UIInterfaceOrientationMask.all
+        }
+        
+        return UIInterfaceOrientationMask.portrait
+        
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
