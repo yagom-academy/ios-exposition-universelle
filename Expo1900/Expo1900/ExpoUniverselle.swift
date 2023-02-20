@@ -5,7 +5,7 @@
 //  Created by 리지, Rowan on 2023/02/20.
 //
 
-struct MainPoster {
+struct ExpoUniverselle {
     let title: String
     let visitors: Int
     let location: String
