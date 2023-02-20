@@ -11,7 +11,7 @@ struct Item: Decodable {
     let shortDesc: String
     let desc: String
     
-    enum CoadingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name, desc
         case imageName = "image_name"
         case shortDesc = "short_desc"
