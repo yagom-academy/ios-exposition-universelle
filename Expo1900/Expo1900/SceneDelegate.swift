@@ -1,6 +1,6 @@
 //
 //  Expo1900 - SceneDelegate.swift
-//  Created by yagom. 
+//  Created by kaki, brody.
 //  Copyright © yagom academy. All rights reserved.
 // 
 
