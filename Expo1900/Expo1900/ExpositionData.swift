@@ -1,24 +1,18 @@
-//
-//  ExpositionData.swift
-//  Expo1900
-//
-//  Created by Goat,vetto on 2023/02/20.
-//
+//  Expo1900 - ExpositionData.swift
+//  created by Goat, vetto on 2023/02/20
 
 import Foundation
 
-struct mainExpo: Decodable {
-    let title: String
-    let visitors: Int
-    let location: String
-    let duration: String
+struct ExpositionData: Decodable {
+    let name: String
+    let imageName: String
+    let shortDescription: String
     let description: String
     
     private enum CodingKeys: String, CodingKey {
-        case title
-        case visitors
-        case location
-        case duration
-        case description
+        case name
+        case imageName = "image_name"
+        case shortDescription = "short_desc"
+        case description = "desc"
     }
 }
