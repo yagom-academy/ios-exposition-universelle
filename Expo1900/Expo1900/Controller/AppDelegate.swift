@@ -1,6 +1,6 @@
 //
 //  Expo1900 - AppDelegate.swift
-//  Created by yagom. 
+//  Created by 혜모리, Andrew on 2023/02/20.
 //  Copyright © yagom academy. All rights reserved.
 // 
 

@@ -5,9 +5,7 @@
 //  Created by 혜모리, Andrew on 2023/02/20.
 //
 
-import Foundation
-
-struct ExpositionInfo {
+struct ExpositionInfo: Decodable {
     let title: String
     let visitors: Int
     let location: String
