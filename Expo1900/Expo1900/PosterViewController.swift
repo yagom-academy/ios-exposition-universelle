@@ -13,7 +13,7 @@ final class PosterViewController: UIViewController {
         return decoder.decodeExposition()
     }()
     
-    private var stackView = UIStackView()
+    private let stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ final class PosterViewController: UIViewController {
         setStackView()
         setTitleLabel()
         setImageView()
+        setInformationLabel()
     }
     
     func setStackView() {
@@ -31,8 +32,8 @@ final class PosterViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.alignment = .fill
+        stackView.spacing = 11
+        stackView.alignment = .center
         stackView.distribution = .fill
     }
     
@@ -65,6 +66,41 @@ final class PosterViewController: UIViewController {
         stackView.addArrangedSubview(imageView)
     }
     
+    func setInformationLabel() {
+        guard let visitors = exposition?.visitors,
+              let location = exposition?.location,
+              let duration = exposition?.duration else { return }
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let formattedVisitor = numberFormatter.string(for: visitors) else { return }
+        
+        let visitorsStackView = makeSubStackView(subTitle: "방문객", contents: formattedVisitor + " 명")
+        let locationStackView = makeSubStackView(subTitle: "개최지", contents: location)
+        let durationStackView = makeSubStackView(subTitle: "개최 기간", contents: duration)
+        
+        stackView.addArrangedSubview(visitorsStackView)
+        stackView.addArrangedSubview(locationStackView)
+        stackView.addArrangedSubview(durationStackView)
+    }
+    
+    func makeSubStackView(subTitle: String, contents: String) -> UIStackView {
+        let subStackView = UIStackView()
+        
+        let subTitleLabel = UILabel()
+        subTitleLabel.text = subTitle
+        subTitleLabel.font = .systemFont(ofSize: 22)
+        
+        let contentsLabel = UILabel()
+        contentsLabel.text = " : " + contents
+        
+        subStackView.axis = .horizontal
+        subStackView.addArrangedSubview(subTitleLabel)
+        subStackView.addArrangedSubview(contentsLabel)
+        
+        return subStackView
+    }
 }
 
 
