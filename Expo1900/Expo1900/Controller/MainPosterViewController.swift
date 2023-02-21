@@ -40,6 +40,7 @@ final class MainPosterViewController: UIViewController {
         configureMainPosterImage()
         configureContentLabel()
         configureTextView()
+        configureFooterButton()
     }
     
     private func configureScrollView() {
@@ -105,6 +106,31 @@ final class MainPosterViewController: UIViewController {
         textView.isSelectable = false
         
         self.stackView.addArrangedSubview(textView)
+    }
+    
+    private func configureFooterButton() {
+        let stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 8
+        
+        let button = UIButton(type: .system)
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        
+        let leftImage = UIImageView(image: UIImage(named: "flag"))
+        let height = leftImage.frame.height / 15
+        let width = leftImage.frame.width / 15
+        leftImage.widthAnchor.constraint(equalToConstant: width).isActive = true
+        leftImage.heightAnchor.constraint(equalToConstant: height).isActive = true
+        
+        let rightImage = UIImageView(image: UIImage(named: "flag"))
+        rightImage.widthAnchor.constraint(equalToConstant: width).isActive = true
+        rightImage.heightAnchor.constraint(equalToConstant: height).isActive = true
+        
+        stackView.addArrangedSubview(leftImage)
+        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(rightImage)
+        self.stackView.addArrangedSubview(stackView)
     }
     
     private func configureStackView() {
