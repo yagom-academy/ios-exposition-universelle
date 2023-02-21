@@ -21,8 +21,14 @@ final class ParisExpositionUniverselleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "메인"
         loadExpositionData()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func loadExpositionData() {
