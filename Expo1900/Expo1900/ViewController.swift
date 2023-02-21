@@ -7,8 +7,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    
     @IBOutlet weak var mainTitle: UILabel!
     @IBOutlet weak var visitors: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -25,16 +23,20 @@ class ViewController: UIViewController {
         do {
             exposition = try jsonDecoder.decode(MainExposition.self, from: jsonData.data)
         } catch {
-            print("catch")
+            return
         }
-        print(exposition)
         
+        guard let title = exposition?.title else { return }
+        guard let expositionVisitor = exposition?.visitors else { return }
+        guard let expositionLocation = exposition?.location else { return }
+        guard let expositionPeriod = exposition?.duration else { return }
+        guard let expositionText = exposition?.description else { return }
         
-        mainTitle.text = exposition?.title
-        visitors.text = exposition?.visitors.description
-        location.text = exposition?.location
-        openPeriod.text = exposition?.duration
-        textLabel.text = exposition?.description
+        mainTitle.text = title
+        visitors.text = "방문객 : \(expositionVisitor)"
+        location.text = "개최지 : \(expositionLocation)"
+        openPeriod.text = "개최 기간 : \(expositionPeriod)"
+        textLabel.text = expositionText
     }
 
 
