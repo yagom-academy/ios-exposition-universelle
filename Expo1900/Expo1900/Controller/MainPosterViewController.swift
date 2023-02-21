@@ -14,6 +14,7 @@ final class MainPosterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
         decodeJson()
         configureViews()
     }
@@ -56,9 +57,12 @@ extension MainPosterViewController {
     }
     
     private func configureTitleLabel() {
-        let label = UILabel()
+        guard var titleText = self.mainPoster?.title,
+              let index = titleText.firstIndex(of: "(") else { return }
         
-        label.text = self.mainPoster?.title
+        let label = UILabel()
+        titleText.insert("\n", at: index)
+        label.text = titleText
         label.font = .preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
         label.numberOfLines = 2

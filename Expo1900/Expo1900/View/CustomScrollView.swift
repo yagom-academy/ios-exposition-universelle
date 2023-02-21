@@ -9,7 +9,7 @@ import UIKit
 
 class CustomScrollView: UIScrollView {
 
-    private let stackView = {
+    let stackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         
@@ -48,6 +48,9 @@ class CustomScrollView: UIScrollView {
             
             self.stackView.widthAnchor.constraint(equalTo: scrollFrameGuide.widthAnchor)
         ])
+        
+        self.stackView.layoutMargins = UIEdgeInsets(top: 20, left: 10, bottom: 0, right: 10)
+        self.stackView.isLayoutMarginsRelativeArrangement = true
     }
     
     func addArrangeSubView(view: UIView) {
