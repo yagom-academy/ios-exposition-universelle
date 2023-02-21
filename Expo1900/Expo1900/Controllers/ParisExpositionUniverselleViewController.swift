@@ -39,14 +39,12 @@ final class ParisExpositionUniverselleViewController: UIViewController {
     }
     
     private func setupUI() {
-        guard let expositionData = expositionData else { return }
-        
-        expositionTitle.text = expositionData.title
+        expositionTitle.text = expositionData?.title
         expositionPoster.image = UIImage(named: "poster")
-        expositionVisitors.text = "\(expositionData.visitors)"
-        expositionLocation.text = expositionData.location
-        expositionDuration.text = expositionData.duration
-        expositionDescription.text = expositionData.description
+        expositionVisitors.text = expositionData?.displayedVisitors
+        expositionLocation.text = expositionData?.displayedLocation
+        expositionDuration.text = expositionData?.displayedDuration
+        expositionDescription.text = expositionData?.description
         flagImage1.image = UIImage(named: "flag")
         flagImage2.image = UIImage(named: "flag")
     }
