@@ -18,9 +18,17 @@ final class PosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScrollView()
+        setStackView()
+        setTitleLabel()
+        setImageView()
+        setInformationLabel()
+        setDescriptionLabel()
+        setChangeSceneButton()
+    }
+    
+    func setScrollView() {
         view.addSubview(scrollView)
-        
-        scrollView.addSubview(stackView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -29,17 +37,10 @@ final class PosterViewController: UIViewController {
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        scrollView.addSubview(stackView)
-          
-        setStackView()
-        setTitleLabel()
-        setImageView()
-        setInformationLabel()
-        setDescriptionLabel()
     }
     
     func setStackView() {
+        scrollView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -70,17 +71,13 @@ final class PosterViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = .systemFont(ofSize: 26)
         
+        //titleLabel.layoutMargins = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         stackView.addArrangedSubview(titleLabel)
         
     }
     
     func setImageView() {
-        let imageView = UIImageView()
-        imageView.center = view.center
-        imageView.contentMode = .scaleAspectFit
-        
-        let image = UIImage(named: "poster")
-        imageView.image = image
+        let imageView = makeImageView(fileName: "poster")
         
         stackView.addArrangedSubview(imageView)
     }
@@ -130,6 +127,43 @@ final class PosterViewController: UIViewController {
         descriptionLabel.textAlignment = .left
         
         stackView.addArrangedSubview(descriptionLabel)
+    }
+    
+    func setChangeSceneButton() {
+        let button = UIButton()
+  
+        let text = NSAttributedString(string: "한국의 출품작 보러가기")
+        
+        button.setAttributedTitle(text, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        
+        let leftImageView = makeImageView(fileName: "flag")
+        let rightImageView = makeImageView(fileName: "flag")
+        
+        let subStackView = UIStackView()
+        subStackView.axis = .horizontal
+        subStackView.distribution = .equalCentering
+        subStackView.alignment = .fill
+        
+        
+        subStackView.addArrangedSubview(leftImageView)
+        subStackView.addArrangedSubview(button)
+        subStackView.addArrangedSubview(rightImageView)
+
+        subStackView.backgroundColor = .blue
+        
+        stackView.addArrangedSubview(subStackView)
+    }
+    
+    func makeImageView(fileName: String) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.center = view.center
+        imageView.contentMode = .scaleAspectFit
+        
+        let image = UIImage(named: fileName)
+        imageView.image = image
+        
+        return imageView
     }
 }
 
