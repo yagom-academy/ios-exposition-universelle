@@ -55,12 +55,46 @@ extension KoreaItemsViewController: UITableViewDataSource {
         
         let item = expositionItems[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        content.image = UIImage(named: item.imageName)
+        let image = UIImage(named: item.imageName)
+        content.image = squreImage(at: image)
+        content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
+        content.imageToTextPadding = CGFloat(40)
         content.text = item.name
         content.secondaryText = item.shortDescription
         cell.contentConfiguration = content
         
         return cell
+    }
+    
+    private func squreImage(at image: UIImage?, length: CGFloat = 60) -> UIImage? {
+        guard let image = image else { return image }
+        
+        let originWidth: CGFloat = image.size.width
+        let originHeigth: CGFloat = image.size.height
+        var resizedWidth: CGFloat = length
+        var resizedHeight: CGFloat = length
+        
+        UIGraphicsBeginImageContext(CGSize(width: length, height: length))
+        UIColor.clear.set()
+        UIRectFill(CGRect(x: 0.0, y: 0.0, width: length, height: length))
+        
+        let sizeRatio = length / max(originWidth, originHeigth)
+        if originWidth > originHeigth {
+            resizedWidth = length
+            resizedHeight = originHeigth * sizeRatio
+        } else {
+            resizedWidth = originWidth * sizeRatio
+            resizedHeight = length
+        }
+        
+        image.draw(in: CGRect(x: length / 2 - resizedWidth / 2,
+                              y: length / 2 - resizedHeight / 2,
+                              width: resizedWidth,
+                              height: resizedHeight))
+        
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resizedImage
     }
 }
 
