@@ -5,7 +5,7 @@
 //  Created by 리지, Rowan on 2023/02/20.
 //
 
-struct ExpoUniverselle {
+struct ExpoUniverselle: Decodable {
     let title: String
     let visitors: Int
     let location: String
