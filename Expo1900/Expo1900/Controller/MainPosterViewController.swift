@@ -38,6 +38,7 @@ final class MainPosterViewController: UIViewController {
         
         configureTitleLabel()
         configureMainPosterImage()
+        configureContentLabel()
     }
     
     private func configureScrollView() {
@@ -71,6 +72,26 @@ final class MainPosterViewController: UIViewController {
         imageView.image = image
         
         self.stackView.addArrangedSubview(imageView)
+    }
+    
+    private func configureContentLabel() {
+        let label = UILabel()
+        let text = "방문객 : 48,130,300 명"
+        label.textColor = .black
+        label.numberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        let fontSize = UIFont.preferredFont(forTextStyle: .title3)
+        let attributedText = NSMutableAttributedString(string: text)
+        
+        guard let index = text.firstIndex(of: ":") else { return }
+        
+        let substring = String(text.prefix(upTo: index))
+        
+        attributedText.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: substring))
+        label.attributedText = attributedText
+        
+        self.stackView.addArrangedSubview(label)
     }
     
     private func configureStackView() {
