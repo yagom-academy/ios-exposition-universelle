@@ -22,14 +22,15 @@ final class PosterViewController: UIViewController {
         setTitleLabel()
         setImageView()
         setInformationLabel()
+        setDescriptionLabel()
     }
     
     func setStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12).isActive = true
         
         stackView.axis = .vertical
         stackView.spacing = 11
@@ -100,6 +101,17 @@ final class PosterViewController: UIViewController {
         subStackView.addArrangedSubview(contentsLabel)
         
         return subStackView
+    }
+    
+    func setDescriptionLabel() {
+        guard let description = exposition?.description else { return }
+        
+        let descriptionLabel = UILabel()
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = description
+        descriptionLabel.textAlignment = .left
+        
+        stackView.addArrangedSubview(descriptionLabel)
     }
 }
 
