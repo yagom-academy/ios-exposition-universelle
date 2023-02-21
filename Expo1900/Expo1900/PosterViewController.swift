@@ -14,24 +14,37 @@ final class PosterViewController: UIViewController {
     }()
     
     private let stackView = UIStackView()
+    private let scrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(stackView)
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(stackView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
         setStackView()
         setTitleLabel()
         setImageView()
         setInformationLabel()
         setDescriptionLabel()
+        
+//        stackView.widthAnchor.con
+
     }
     
     func setStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12).isActive = true
-        
+
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12).isActive = true
+//        stackView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         stackView.axis = .vertical
         stackView.spacing = 11
         stackView.alignment = .center
