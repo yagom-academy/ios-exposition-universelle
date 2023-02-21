@@ -135,22 +135,22 @@ final class PosterViewController: UIViewController {
         let text = NSAttributedString(string: "한국의 출품작 보러가기")
         
         button.setAttributedTitle(text, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.titleLabel?.font = .systemFont(ofSize: 16)
+        button.titleLabel?.textColor = .systemBlue
         
         let leftImageView = makeImageView(fileName: "flag")
         let rightImageView = makeImageView(fileName: "flag")
-        
+        leftImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        rightImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+
         let subStackView = UIStackView()
         subStackView.axis = .horizontal
         subStackView.distribution = .equalCentering
-        subStackView.alignment = .fill
-        
+        subStackView.alignment = .center
         
         subStackView.addArrangedSubview(leftImageView)
         subStackView.addArrangedSubview(button)
         subStackView.addArrangedSubview(rightImageView)
-
-        subStackView.backgroundColor = .blue
         
         stackView.addArrangedSubview(subStackView)
     }
