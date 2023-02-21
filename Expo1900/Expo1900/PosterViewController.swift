@@ -71,7 +71,6 @@ final class PosterViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = .systemFont(ofSize: 26)
         
-        //titleLabel.layoutMargins = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         stackView.addArrangedSubview(titleLabel)
         
     }
