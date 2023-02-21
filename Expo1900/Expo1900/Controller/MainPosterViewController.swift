@@ -8,49 +8,29 @@ import UIKit
 
 final class MainPosterViewController: UIViewController {
 
-    private let stackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        
-        stack.axis = .vertical
-        stack.spacing = 8
-        stack.alignment = .center
-        stack.distribution = .equalSpacing
-        
-        return stack
-    }()
-    
-    private let scrollView = {
-        let scroll = UIScrollView()
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.backgroundColor = .white
-        scroll.showsVerticalScrollIndicator = false
-        
-        return scroll
-    }()
+    private let customScrollView = CustomScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-        configureStackView()
         configureScrollView()
         
         configureTitleLabel()
         configureMainPosterImage()
         configureContentLabel()
         configureTextView()
-        configureFooterButton()
+        configureFooter()
     }
     
     private func configureScrollView() {
-        self.view.addSubview(scrollView)
+        self.view.addSubview(customScrollView)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            customScrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            customScrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            customScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            customScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
     
@@ -65,7 +45,7 @@ final class MainPosterViewController: UIViewController {
         label.textAlignment = .center
         label.numberOfLines = 2
 
-        self.stackView.addArrangedSubview(label)
+        self.customScrollView.addArrangeSubView(view: label)
     }
     
     private func configureMainPosterImage() {
@@ -74,7 +54,7 @@ final class MainPosterViewController: UIViewController {
         
         imageView.image = image
         
-        self.stackView.addArrangedSubview(imageView)
+        self.customScrollView.addArrangeSubView(view: imageView)
     }
     
     private func configureContentLabel() {
@@ -93,7 +73,7 @@ final class MainPosterViewController: UIViewController {
         attributedText.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: substring))
         label.attributedText = attributedText
         
-        self.stackView.addArrangedSubview(label)
+        self.customScrollView.addArrangeSubView(view: label)
     }
     
     private func configureTextView() {
@@ -105,10 +85,10 @@ final class MainPosterViewController: UIViewController {
         textView.isEditable = false
         textView.isSelectable = false
         
-        self.stackView.addArrangedSubview(textView)
+        self.customScrollView.addArrangeSubView(view: textView)
     }
     
-    private func configureFooterButton() {
+    private func configureFooter() {
         let stackView = UIStackView()
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
@@ -130,24 +110,8 @@ final class MainPosterViewController: UIViewController {
         stackView.addArrangedSubview(leftImage)
         stackView.addArrangedSubview(button)
         stackView.addArrangedSubview(rightImage)
-        self.stackView.addArrangedSubview(stackView)
-    }
-    
-    private func configureStackView() {
-        self.scrollView.addSubview(stackView)
         
-        let scrollContentGuide = self.scrollView.contentLayoutGuide
-        let scrollFrameGuide = self.scrollView.frameLayoutGuide
-        
-        NSLayoutConstraint.activate([
-            self.stackView.topAnchor.constraint(equalTo: scrollContentGuide.topAnchor),
-            self.stackView.leadingAnchor.constraint(equalTo: scrollContentGuide.leadingAnchor),
-            self.stackView.trailingAnchor.constraint(equalTo: scrollContentGuide.trailingAnchor),
-            self.stackView.bottomAnchor.constraint(equalTo: scrollContentGuide.bottomAnchor),
-            
-            self.stackView.widthAnchor.constraint(equalTo: scrollFrameGuide.widthAnchor)
-        ])
+        self.customScrollView.addArrangeSubView(view: stackView)
     }
-
 }
 
