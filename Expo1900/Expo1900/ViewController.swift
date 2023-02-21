@@ -8,6 +8,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var mainTitle: UILabel!
+    @IBOutlet weak var visitors: UILabel!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var openPeriod: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var exposition: MainExposition?
@@ -21,6 +28,13 @@ class ViewController: UIViewController {
             print("catch")
         }
         print(exposition)
+        
+        
+        mainTitle.text = exposition?.title
+        visitors.text = exposition?.visitors.description
+        location.text = exposition?.location
+        openPeriod.text = exposition?.duration
+        textLabel.text = exposition?.description
     }
 
 
