@@ -1,5 +1,5 @@
 //
-//  MainExprosition.swift
+//  MainExposition.swift
 //  Expo1900
 //
 //  Created by Goat, vetto on 2023/02/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct mainExposition: Decodable {
+struct MainExposition: Decodable {
     let title: String
     let visitors: Int
     let location: String
