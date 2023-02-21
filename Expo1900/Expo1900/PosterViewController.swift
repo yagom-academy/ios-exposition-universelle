@@ -20,29 +20,64 @@ final class PosterViewController: UIViewController {
         
         view.addSubview(stackView)
         setTitleLabel()
+        setImageView()
     }
+    
+    func setStackView() {
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+    }
+    
     
     func setTitleLabel() {
         guard var title = exposition?.title else { return }
-        
+
         if let index = title.range(of: "(")?.lowerBound {
             title.insert(contentsOf: "\n", at: index)
         }
-        
+
         let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.numberOfLines = 0
-                
+
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        stackView.addSubview(titleLabel)
-        
+        stackView.addArrangedSubview(titleLabel)
+
         titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         titleLabel.textAlignment = .center
         titleLabel.font = .systemFont(ofSize: 26)
     }
     
+    func setImageView() {
+
+        // UIImageView 생성
+        let imageView = UIImageView()
+        imageView.center = view.center
+        imageView.contentMode = .scaleAspectFit
+        
+        // Assets에서 이미지 불러오기
+        let image = UIImage(named: "poster")
+        
+        // UIImageView에 이미지 설정하기
+        imageView.image = image
+        
+ 
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(imageView)
+
+        //imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+
+    }
+    
 }
+
+
+
 
 // MARK: Canvas
 import SwiftUI
