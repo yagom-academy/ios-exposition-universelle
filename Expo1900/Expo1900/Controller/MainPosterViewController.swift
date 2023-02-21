@@ -7,18 +7,39 @@
 import UIKit
 
 final class MainPosterViewController: UIViewController {
-
+    
+    private var mainPoster: MainPoster? = nil
     private let customScrollView = CustomScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         
+        decodeJson()
+        configureViews()
+    }
+    
+    private func decodeJson() {
+        let jsonDecoder = JSONDecoder()
+        guard let data = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        
+        do {
+            mainPoster = try jsonDecoder.decode(MainPoster.self, from: data.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
+// MARK: - View
+extension MainPosterViewController {
+    
+    private func configureViews() {
         configureScrollView()
-        
         configureTitleLabel()
         configureMainPosterImage()
-        configureContentLabel()
+        configureContentLabel(self.mainPoster?.visitorsText)
+        configureContentLabel(self.mainPoster?.locationText)
+        configureContentLabel(self.mainPoster?.durationText)
         configureTextView()
         configureFooter()
     }
@@ -37,10 +58,7 @@ final class MainPosterViewController: UIViewController {
     private func configureTitleLabel() {
         let label = UILabel()
         
-        label.text = """
-        파리 만국박람회 1900
-        (L'Exposition de Paris 1900)
-        """
+        label.text = self.mainPoster?.title
         label.font = .preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
         label.numberOfLines = 2
@@ -57,9 +75,9 @@ final class MainPosterViewController: UIViewController {
         self.customScrollView.addArrangeSubView(view: imageView)
     }
     
-    private func configureContentLabel() {
+    private func configureContentLabel(_ labelText: String?) {
         let label = UILabel()
-        let text = "방문객 : 48,130,300 명"
+        guard let text = labelText else { return }
         
         label.numberOfLines = 1
         
@@ -80,7 +98,7 @@ final class MainPosterViewController: UIViewController {
         let textView = UITextView()
         
         textView.font = .preferredFont(forTextStyle: .body)
-        textView.text = "dsfadsf"
+        textView.text = self.mainPoster?.description
         textView.isScrollEnabled = false
         textView.isEditable = false
         textView.isSelectable = false
@@ -114,4 +132,3 @@ final class MainPosterViewController: UIViewController {
         self.customScrollView.addArrangeSubView(view: stackView)
     }
 }
-
