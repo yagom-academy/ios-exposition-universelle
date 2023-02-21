@@ -12,6 +12,16 @@ struct ExpositionUniverselle: Decodable {
     let duration: String
     let description: String
     
+    var displayedTitle: String {
+        var displayedTitle = title
+        guard let index = displayedTitle.firstIndex(of: "(") else {
+            return displayedTitle
+        }
+        
+        displayedTitle.insert("\n", at: index)
+        return displayedTitle
+    }
+    
     var displayedVisitors: String {
         return "방문객 : \(self.visitors.convertToDecimal()) 명"
     }
@@ -19,6 +29,6 @@ struct ExpositionUniverselle: Decodable {
         return "개최지 : " + self.location
     }
     var displayedDuration: String {
-        return "개최 기간: " + self.duration
+        return "개최 기간 : " + self.duration
     }
 }

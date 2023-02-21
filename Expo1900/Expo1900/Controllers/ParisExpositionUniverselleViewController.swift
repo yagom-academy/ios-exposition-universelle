@@ -39,14 +39,28 @@ final class ParisExpositionUniverselleViewController: UIViewController {
     }
     
     private func setupUI() {
-        expositionTitle.text = expositionData?.title
+        guard let expositionData = expositionData else { return }
+        
+        expositionTitle.text = expositionData.displayedTitle
         expositionPoster.image = UIImage(named: "poster")
-        expositionVisitors.text = expositionData?.displayedVisitors
-        expositionLocation.text = expositionData?.displayedLocation
-        expositionDuration.text = expositionData?.displayedDuration
-        expositionDescription.text = expositionData?.description
+        expositionVisitors.attributedText = changeFont(expositionData.displayedVisitors)
+        expositionLocation.attributedText = changeFont(expositionData.displayedLocation)
+        expositionDuration.attributedText = changeFont(expositionData.displayedDuration)
+        expositionDescription.text = expositionData.description
         flagImage1.image = UIImage(named: "flag")
         flagImage2.image = UIImage(named: "flag")
+    }
+    
+    private func changeFont(_ text: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: text)
+        
+        guard let index = text.firstIndex(of: ":") else { return attributedString }
+        
+        let range = String(text[index...])
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15), range: (text as NSString).range(of: range))
+        
+        return attributedString
+    
     }
 }
 
