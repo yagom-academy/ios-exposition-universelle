@@ -1,5 +1,5 @@
 //
-//  MainBrochure.swift
+//  ExpoUniverselle.swift
 //  Expo1900
 //
 //  Created by 리지, Rowan on 2023/02/20.
