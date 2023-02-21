@@ -6,13 +6,14 @@
 
 import UIKit
 
-class MainPosterViewController: UIViewController {
+final class MainPosterViewController: UIViewController {
 
     private let stackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         
         stack.axis = .vertical
+        stack.spacing = 8
         stack.alignment = .center
         stack.distribution = .equalSpacing
         
@@ -35,12 +36,11 @@ class MainPosterViewController: UIViewController {
         configureStackView()
         configureScrollView()
         
-        for _ in 0..<15 {
-            configureTitleLabel()
-        }
+        configureTitleLabel()
+        configureMainPosterImage()
     }
     
-    func configureScrollView() {
+    private func configureScrollView() {
         self.view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
@@ -51,7 +51,7 @@ class MainPosterViewController: UIViewController {
         ])
     }
     
-    func configureTitleLabel() {
+    private func configureTitleLabel() {
         let label = UILabel()
         label.text = """
         파리 만국박람회 1900
@@ -65,7 +65,15 @@ class MainPosterViewController: UIViewController {
         self.stackView.addArrangedSubview(label)
     }
     
-    func configureStackView() {
+    private func configureMainPosterImage() {
+        guard let image = UIImage(named: "poster") else { return }
+        let imageView = UIImageView()
+        imageView.image = image
+        
+        self.stackView.addArrangedSubview(imageView)
+    }
+    
+    private func configureStackView() {
         self.scrollView.addSubview(stackView)
         
         let scrollContentGuide = self.scrollView.contentLayoutGuide
