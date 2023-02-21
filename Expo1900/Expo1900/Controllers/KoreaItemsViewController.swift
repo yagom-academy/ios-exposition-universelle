@@ -57,10 +57,11 @@ extension KoreaItemsViewController: UITableViewDataSource {
         var content = cell.defaultContentConfiguration()
         let image = UIImage(named: item.imageName)
         content.image = squreImage(at: image)
-        content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
-        content.imageToTextPadding = CGFloat(40)
+        content.imageToTextPadding = CGFloat(5)
         content.text = item.name
         content.secondaryText = item.shortDescription
+        content.textProperties.font = .preferredFont(forTextStyle: .title1)
+        content.secondaryTextProperties.font = .preferredFont(forTextStyle: .body)
         cell.contentConfiguration = content
         
         return cell
