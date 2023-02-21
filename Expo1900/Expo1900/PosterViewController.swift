@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class PosterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
