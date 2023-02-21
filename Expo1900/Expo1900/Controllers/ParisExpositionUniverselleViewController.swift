@@ -33,9 +33,7 @@ final class ParisExpositionUniverselleViewController: UIViewController {
     
     private func loadExpositionData() {
         let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            return
-        }
+        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         
         do {
             expositionData = try jsonDecoder.decode(ExpositionUniverselle.self, from: dataAsset.data)

@@ -155,10 +155,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mSc-wZ-9pe"/>
+                    <connections>
+                        <outlet property="tableView" destination="gcM-vM-tet" id="aJD-WY-SPZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0L4-gN-471" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890.8396946564885" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="1866" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yi3-mL-JZ5">
@@ -168,6 +171,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ho3-j1-7NE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -176,7 +180,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kza-Sp-EEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="117" y="-35"/>
         </scene>
     </scenes>
     <resources>
