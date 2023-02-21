@@ -8,24 +8,46 @@ import UIKit
 
 class MainPosterViewController: UIViewController {
 
-    private let stackView = UIStackView()
-    private let scrollView = UIScrollView()
+    private let stackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.distribution = .equalSpacing
+        
+        return stack
+    }()
+    
+    private let scrollView = {
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.backgroundColor = .white
+        scroll.showsVerticalScrollIndicator = false
+        
+        return scroll
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        configureTitleLabel()
+        
+        configureStackView()
+        configureScrollView()
+        
+        for _ in 0..<15 {
+            configureTitleLabel()
+        }
     }
     
     func configureScrollView() {
         self.view.addSubview(scrollView)
-        self.scrollView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: self.view.bottomAnchor)
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
     
@@ -35,11 +57,28 @@ class MainPosterViewController: UIViewController {
         파리 만국박람회 1900
         (L'Exposition de Paris 1900)
         """
-        label.font = .preferredFont(forTextStyle: .largeTitle)
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(label)
+        self.stackView.addArrangedSubview(label)
+    }
+    
+    func configureStackView() {
+        self.scrollView.addSubview(stackView)
+        
+        let scrollContentGuide = self.scrollView.contentLayoutGuide
+        let scrollFrameGuide = self.scrollView.frameLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            self.stackView.topAnchor.constraint(equalTo: scrollContentGuide.topAnchor),
+            self.stackView.leadingAnchor.constraint(equalTo: scrollContentGuide.leadingAnchor),
+            self.stackView.trailingAnchor.constraint(equalTo: scrollContentGuide.trailingAnchor),
+            self.stackView.bottomAnchor.constraint(equalTo: scrollContentGuide.bottomAnchor),
+            
+            self.stackView.widthAnchor.constraint(equalTo: scrollFrameGuide.widthAnchor)
+        ])
     }
 
 }
