@@ -1,11 +1,11 @@
 //
-//  ParisExpo.swift
+//  Item.swift
 //  Expo1900
 //
 //  Created by Rowan, 리지 on 2023/02/20.
 //
 
-struct Items: Decodable {
+struct Item: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
