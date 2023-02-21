@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         textLabel.text = expositionText
     }
 
-
+    @IBAction func moveToListViewController(_ sender: UIButton) {
+    }
+    
 }
 
