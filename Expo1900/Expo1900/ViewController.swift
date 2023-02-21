@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var exposition: MainExposition?
         let jsonDecoder = JSONDecoder()
         
@@ -38,8 +39,17 @@ class ViewController: UIViewController {
         openPeriod.text = "개최 기간 : \(expositionPeriod)"
         textLabel.text = expositionText
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    
 
     @IBAction func moveToListViewController(_ sender: UIButton) {
+        guard let expoListVC = self.storyboard?.instantiateViewController(withIdentifier: "ExpositionListViewController") as? ExpositionListViewController else { return }
+
+        self.navigationController?.pushViewController(expoListVC , animated: true)
     }
     
 }
