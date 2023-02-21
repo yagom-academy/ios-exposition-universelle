@@ -8,11 +8,15 @@ import UIKit
 
 final class PosterViewController: UIViewController {
 
+    private let exposition: Exposition? = {
+        let decoder = Decoder()
+        return decoder.decodeExposition()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
+    }
 
 }
 
