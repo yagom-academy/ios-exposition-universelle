@@ -8,11 +8,22 @@ import UIKit
 
 final class ViewController: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var visitorsLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var pushSecondViewButton: UIButton!
+    @IBOutlet var flagImage: [UIImageView]!
+    @IBOutlet weak var posterImageView: UIImageView!
+    
     var exposition: Exposition = Exposition(title: "", visitors: 0, location: "", duration: "", description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        decodeData()
+        setUpView()
     }
 }
 
@@ -27,4 +38,17 @@ private extension ViewController {
             print(error.localizedDescription)
         }
     }
+    
+    func setUpView() {
+        titleLabel.text = exposition.title
+        visitorsLabel.text = exposition.visitors.description
+        locationLabel.text = exposition.location
+        durationLabel.text = exposition.duration
+        descriptionLabel.text = exposition.description
+        descriptionLabel.numberOfLines = 0
+        posterImageView.image = UIImage(named: "poster")
+        flagImage.forEach { $0.image = UIImage(named: "flag") }
+    }
+    
+    
 }
