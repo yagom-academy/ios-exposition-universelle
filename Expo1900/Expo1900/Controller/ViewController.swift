@@ -25,9 +25,7 @@ final class ViewController: UIViewController {
         decodeData()
         setUpView()
     }
-}
-
-private extension ViewController {
+    
     func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
@@ -49,6 +47,4 @@ private extension ViewController {
         posterImageView.image = UIImage(named: "poster")
         flagImage.forEach { $0.image = UIImage(named: "flag") }
     }
-    
-    
 }

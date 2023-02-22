@@ -185,10 +185,10 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gd6-hS-mAg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Gd6-hS-mAg" customClass="ListTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="80.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gd6-hS-mAg" id="cwJ-Gw-X5l">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gd6-hS-mAg" id="cwJ-Gw-X5l" customClass="ListTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="80.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -223,6 +223,11 @@
                                                 <constraint firstItem="ykK-5o-57O" firstAttribute="leading" secondItem="otc-vY-wWD" secondAttribute="trailing" constant="10" id="YQF-ja-BL0"/>
                                                 <constraint firstItem="k5l-bN-w63" firstAttribute="leading" secondItem="otc-vY-wWD" secondAttribute="trailing" constant="10" id="Ybh-9y-8fs"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="expoImageView" destination="otc-vY-wWD" id="aFK-ce-TK5"/>
+                                                <outlet property="expoShortDescriptionLabel" destination="ykK-5o-57O" id="Ido-zc-8bM"/>
+                                                <outlet property="expoTitleLabel" destination="k5l-bN-w63" id="FdM-2P-PBq"/>
+                                            </connections>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -238,6 +243,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZkH-Nx-oJx"/>
+                    <connections>
+                        <outlet property="listTableView" destination="tEB-4d-YQb" id="SbE-hl-rYB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zG2-wO-eVb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
