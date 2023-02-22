@@ -22,6 +22,7 @@ final class MainPosterViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
+        self.navigationItem.title = "메인"
     }
     
     private func decodeJson() {

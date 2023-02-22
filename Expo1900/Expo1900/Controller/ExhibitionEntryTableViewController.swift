@@ -11,12 +11,17 @@ class ExhibitionEntryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
+        configureNavigationBar()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    private func configureNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.title = "한국의 출품작"
     }
 
     // MARK: - Table view data source
