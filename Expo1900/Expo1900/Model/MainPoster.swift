@@ -17,8 +17,8 @@ struct MainPoster: Decodable {
     var visitorsText: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        guard let formattedText = numberFormatter.string(for: self.visitors) else {
-            return "방문객 : \(self.visitors)명"
+        guard let formattedText = numberFormatter.string(for: self.numberOfVisitors) else {
+            return "방문객 : \(self.numberOfVisitors)명"
         }
         
         return "방문객 : \(formattedText)명"
