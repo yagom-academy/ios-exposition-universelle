@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2648708329A34894001EDDCE /* MainPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648708229A34894001EDDCE /* MainPoster.swift */; };
 		26BF385E29A5B62800C4A893 /* ExhibitionEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BF385D29A5B62800C4A893 /* ExhibitionEntryTableViewController.swift */; };
+		26D6AD8429A5E0F7001BB4A4 /* ExhibitionEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D6AD8329A5E0F7001BB4A4 /* ExhibitionEntryCell.swift */; };
 		4AA40ED029A34DCB00ECC723 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40ECF29A34DCB00ECC723 /* ExhibitionItem.swift */; };
 		4AA40ED629A4A9F500ECC723 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA40ED529A4A9F500ECC723 /* CustomScrollView.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		2648708229A34894001EDDCE /* MainPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPoster.swift; sourceTree = "<group>"; };
 		26BF385D29A5B62800C4A893 /* ExhibitionEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionEntryTableViewController.swift; sourceTree = "<group>"; };
+		26D6AD8329A5E0F7001BB4A4 /* ExhibitionEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionEntryCell.swift; sourceTree = "<group>"; };
 		4AA40ECF29A34DCB00ECC723 /* ExhibitionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
 		4AA40ED529A4A9F500ECC723 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA40ED529A4A9F500ECC723 /* CustomScrollView.swift */,
+				26D6AD8329A5E0F7001BB4A4 /* ExhibitionEntryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* MainPosterViewController.swift in Sources */,
+				26D6AD8429A5E0F7001BB4A4 /* ExhibitionEntryCell.swift in Sources */,
 				2648708329A34894001EDDCE /* MainPoster.swift in Sources */,
 				4AA40ED629A4A9F500ECC723 /* CustomScrollView.swift in Sources */,
 				26BF385E29A5B62800C4A893 /* ExhibitionEntryTableViewController.swift in Sources */,
