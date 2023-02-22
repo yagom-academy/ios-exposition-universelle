@@ -7,7 +7,7 @@
 import UIKit
 
 final class PosterViewController: UIViewController {
-
+    // MARK: - Property
     private let exposition: Exposition? = {
         let decoder = Decoder()
         return decoder.decodeExposition()
@@ -15,6 +15,8 @@ final class PosterViewController: UIViewController {
     
     private let stackView = UIStackView()
     private let scrollView = UIScrollView()
+    
+    // MARK: - View State Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,9 @@ final class PosterViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    func setScrollView() {
+    // MARK: - Instance Method
+    
+    private func setScrollView() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -46,7 +50,7 @@ final class PosterViewController: UIViewController {
         ])
     }
     
-    func setStackView() {
+    private func setStackView() {
         scrollView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -64,7 +68,7 @@ final class PosterViewController: UIViewController {
         stackView.distribution = .fill
     }
     
-    func setTitleLabel() {
+    private func setTitleLabel() {
         guard var title = exposition?.title else { return }
 
         if let index = title.range(of: "(")?.lowerBound {
@@ -82,12 +86,12 @@ final class PosterViewController: UIViewController {
         
     }
     
-    func setImageView() {
+    private func setImageView() {
         let imageView = makeImageView(fileName: "poster")
         stackView.addArrangedSubview(imageView)
     }
     
-    func setInformationLabel() {
+    private func setInformationLabel() {
         guard let visitors = exposition?.accumulatedVisitor,
               let location = exposition?.location,
               let duration = exposition?.duration else { return }
@@ -106,7 +110,7 @@ final class PosterViewController: UIViewController {
         stackView.addArrangedSubview(durationStackView)
     }
     
-    func makeSubStackView(subTitle: String, contents: String) -> UIStackView {
+    private func makeSubStackView(subTitle: String, contents: String) -> UIStackView {
         let subStackView = UIStackView()
         
         let subTitleLabel = UILabel()
@@ -123,7 +127,7 @@ final class PosterViewController: UIViewController {
         return subStackView
     }
     
-    func setDescriptionLabel() {
+    private func setDescriptionLabel() {
         guard let description = exposition?.description else { return }
         
         let descriptionLabel = UILabel()
@@ -134,7 +138,7 @@ final class PosterViewController: UIViewController {
         stackView.addArrangedSubview(descriptionLabel)
     }
     
-    func setChangeSceneButton() {
+    private func setChangeSceneButton() {
         let button = UIButton()
   
         let text = NSAttributedString(string: "한국의 출품작 보러가기")
@@ -161,7 +165,7 @@ final class PosterViewController: UIViewController {
         stackView.addArrangedSubview(subStackView)
     }
     
-    func makeImageView(fileName: String) -> UIImageView {
+    private func makeImageView(fileName: String) -> UIImageView {
         let imageView = UIImageView()
         imageView.center = view.center
         imageView.contentMode = .scaleAspectFit
@@ -172,7 +176,7 @@ final class PosterViewController: UIViewController {
         return imageView
     }
     
-    @objc func changeScene() {
+    @objc private func changeScene() {
         let exhibitItemView = ExhibitItemViewController()
         self.navigationController?.pushViewController(exhibitItemView, animated: true)
     }
@@ -183,7 +187,7 @@ final class PosterViewController: UIViewController {
 
 // MARK: - Canvas
 import SwiftUI
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
+struct PosterViewControllerRepresentable: UIViewControllerRepresentable {
     typealias UIViewControllerType = PosterViewController
     
     func makeUIViewController(context: Context) -> PosterViewController {
@@ -194,8 +198,8 @@ struct ViewControllerRepresentable: UIViewControllerRepresentable {
     }
 }
 @available(iOS 13.0.0, *)
-struct ViewPreview: PreviewProvider {
+struct PosterViewPreview: PreviewProvider {
     static var previews: some View {
-        ViewControllerRepresentable()
+        PosterViewControllerRepresentable()
     }
 }
