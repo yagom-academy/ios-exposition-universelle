@@ -33,7 +33,7 @@ final class ParisExpositionUniverselleViewController: UIViewController {
     
     private func loadExpositionData() {
         let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        guard let dataAsset = NSDataAsset(name: AssetName.exposition) else { return }
         
         do {
             expositionData = try jsonDecoder.decode(ExpositionUniverselle.self, from: dataAsset.data)
@@ -46,25 +46,23 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         guard let expositionData = expositionData else { return }
         
         expositionTitle.text = expositionData.displayedTitle
-        expositionPoster.image = UIImage(named: "poster")
+        expositionPoster.image = UIImage(named: AssetName.poster)
         expositionVisitors.attributedText = changeFont(expositionData.displayedVisitors)
         expositionLocation.attributedText = changeFont(expositionData.displayedLocation)
         expositionDuration.attributedText = changeFont(expositionData.displayedDuration)
         expositionDescription.text = expositionData.description
-        flagImage1.image = UIImage(named: "flag")
-        flagImage2.image = UIImage(named: "flag")
+        flagImage1.image = UIImage(named: AssetName.flag)
+        flagImage2.image = UIImage(named: AssetName.flag)
     }
     
     private func changeFont(_ text: String) -> NSMutableAttributedString {
         let attributedString = NSMutableAttributedString(string: text)
-        
         guard let index = text.firstIndex(of: ":") else { return attributedString }
         
         let range = String(text[index...])
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15), range: (text as NSString).range(of: range))
         
         return attributedString
-    
     }
 }
 

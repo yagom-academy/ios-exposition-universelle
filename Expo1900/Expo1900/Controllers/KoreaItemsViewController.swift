@@ -7,18 +7,19 @@
 
 import UIKit
 
-class KoreaItemsViewController: UIViewController {
+final class KoreaItemsViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    let cellIdentifier: String = "cell"
-    var expositionItems: [ExpositionUniverselleItem] = []
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private let cellIdentifier: String = "cell"
+    private var expositionItems: [ExpositionUniverselleItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavigation()
         setupTableView()
         loadExpositionItemsData()
-        
     }
     
     private func setupNavigation() {
@@ -33,7 +34,7 @@ class KoreaItemsViewController: UIViewController {
     
     private func loadExpositionItemsData() {
         let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "items") else { return }
+        guard let dataAsset = NSDataAsset(name: AssetName.items) else { return }
         
         do {
             expositionItems = try jsonDecoder.decode([ExpositionUniverselleItem].self, from: dataAsset.data)
@@ -56,6 +57,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
         let item = expositionItems[indexPath.row]
         var content = cell.defaultContentConfiguration()
         let image = UIImage(named: item.imageName)
+        
         content.image = squreImage(at: image)
         content.imageToTextPadding = CGFloat(5)
         content.text = item.name
@@ -95,6 +97,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
         
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
         return resizedImage
     }
 }
@@ -107,16 +110,9 @@ extension KoreaItemsViewController: UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell {
-            let i = self.tableView.indexPath(for: cell)!.row
-            let vc = segue.destination as! ItemDetailViewController
-            vc.itemData = expositionItems[i]
-            
+            let indexPathRow = self.tableView.indexPath(for: cell)!.row
+            let itemDetailVC = segue.destination as! ItemDetailViewController
+            itemDetailVC.itemData = expositionItems[indexPathRow]
         }
-        
-        
-//        let itemDetailVC = segue.destination as! ItemDetailViewController
-//        let indexPath = sender as! IndexPath
-//        itemDetailVC.itemData = expositionItems[indexPath.row]
     }
-    
 }
