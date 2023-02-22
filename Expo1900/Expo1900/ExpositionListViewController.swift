@@ -14,7 +14,6 @@ class ExpositionListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let jsonDecoder = JSONDecoder()
         
         guard let jsonData: NSDataAsset = NSDataAsset(name: "items") else { return }
@@ -54,5 +53,11 @@ extension ExpositionListViewController: UITableViewDataSource {
         listCell.shortDescription.text = expositionList[indexPath.row].shortDescription
         listCell.expositionImage.image = UIImage(named: expositionList[indexPath.row].imageName)
         return listCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+
+        self.navigationController?.pushViewController(detailVC , animated: true)
     }
 }
