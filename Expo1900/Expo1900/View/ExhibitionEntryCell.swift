@@ -22,7 +22,7 @@ class ExhibitionEntryCell: UITableViewCell {
     var titleLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .title2)
+        label.font = .preferredFont(forTextStyle: .title1)
         
         return label
     }()
@@ -30,7 +30,7 @@ class ExhibitionEntryCell: UITableViewCell {
     var contentLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .title3)
+        label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
         
         return label
@@ -39,9 +39,9 @@ class ExhibitionEntryCell: UITableViewCell {
     private let stackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.alignment = .fill
-        stack.distribution = .equalSpacing
-        stack.spacing = 0
+        stack.alignment = .center
+        stack.distribution = .fill
+        stack.spacing = 8
         
         return stack
     }()
@@ -53,7 +53,6 @@ class ExhibitionEntryCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.translatesAutoresizingMaskIntoConstraints = false
         self.accessoryType = .disclosureIndicator
         configureStackView()
         configureExhibitionImage()
@@ -66,11 +65,10 @@ class ExhibitionEntryCell: UITableViewCell {
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            stackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100),
             stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
             stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
         ])
     }
     
@@ -78,8 +76,8 @@ class ExhibitionEntryCell: UITableViewCell {
         self.stackView.addArrangedSubview(exhibitionImage)
         
         NSLayoutConstraint.activate([
-            exhibitionImage.widthAnchor.constraint(equalToConstant: 60),
-            exhibitionImage.heightAnchor.constraint(equalToConstant: 60)
+            exhibitionImage.widthAnchor.constraint(equalToConstant: 70),
+            exhibitionImage.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     
@@ -87,7 +85,7 @@ class ExhibitionEntryCell: UITableViewCell {
         let innerStackView = UIStackView()
         innerStackView.translatesAutoresizingMaskIntoConstraints = false
         innerStackView.axis = .vertical
-        innerStackView.alignment = .fill
+        innerStackView.alignment = .leading
         innerStackView.distribution = .fill
         innerStackView.spacing = 0
         
