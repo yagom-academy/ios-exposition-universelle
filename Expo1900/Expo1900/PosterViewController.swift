@@ -136,6 +136,7 @@ final class PosterViewController: UIViewController {
         button.setAttributedTitle(text, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16)
         button.titleLabel?.textColor = .systemBlue
+        button.addTarget(self, action: #selector(temp(sender:)), for: .touchUpInside)
         
         let leftImageView = makeImageView(fileName: "flag")
         let rightImageView = makeImageView(fileName: "flag")
@@ -163,6 +164,10 @@ final class PosterViewController: UIViewController {
         imageView.image = image
         
         return imageView
+    }
+    
+    @objc func temp(sender: UIButton) {
+        print("touchButton")
     }
 }
 
