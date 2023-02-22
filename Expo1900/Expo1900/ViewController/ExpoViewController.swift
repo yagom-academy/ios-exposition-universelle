@@ -19,6 +19,7 @@ final class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "메인"
         decodeExpoData()
         setMainScene()
     }
