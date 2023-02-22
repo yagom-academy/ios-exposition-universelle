@@ -42,7 +42,10 @@ extension ItemEntryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(
+            withIdentifier: "cell", for: indexPath
+        )
+        
         setContents(of: cell, at: indexPath)
         
         return cell
@@ -82,7 +85,14 @@ extension ItemEntryViewController: UITableViewDataSource {
 // MARK: Delegate
 extension ItemEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "descriptionViewController") else { return }
+        guard let nextViewController = self
+            .storyboard?
+            .instantiateViewController(
+                withIdentifier:"descriptionViewController"
+            ) as? DescriptionViewController else { return }
+        
+        nextViewController.addItem(items[indexPath.row])
+        
         self.navigationController?.pushViewController(nextViewController, animated: true)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
