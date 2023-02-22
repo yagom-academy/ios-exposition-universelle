@@ -50,9 +50,9 @@ extension ExpositionListViewController: UITableViewDataSource {
         
         let listCell: ListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
         
-        listCell.maintitle.text = expositionList[indexPath.row].name
+        listCell.mainTitle.text = expositionList[indexPath.row].name
         listCell.shortDescription.text = expositionList[indexPath.row].shortDescription
-        
+        listCell.expositionImage.image = UIImage(named: expositionList[indexPath.row].imageName)
         return listCell
     }
 }

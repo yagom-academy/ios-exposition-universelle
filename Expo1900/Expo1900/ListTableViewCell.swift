@@ -7,7 +7,7 @@ class ListTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var expositionImage: UIImageView!
-    @IBOutlet weak var maintitle: UILabel!
+    @IBOutlet weak var mainTitle: UILabel!
     @IBOutlet weak var shortDescription: UILabel!
     
     override func awakeFromNib() {
