@@ -8,25 +8,27 @@
 import UIKit
 
 class ExhibitItemCell: UITableViewCell {
-    private let stackView = UIStackView()
     static let reuseIdentifier = "ExhibitItemCell"
+    private let stackView = UIStackView()
+    private let itemImageView = UIImageView()
+    private let subStackView = UIStackView()
+    private let titleLabel = UILabel()
+    private let subTitleLabel = UILabel()
+    
 
     
-//    override func awakeFromNib() {
-//    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    func setProperty(imageName: String?, title: String?, subTitle: String?) {
-
+    
+    init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+   
         self.addSubview(stackView)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        print("test")
+
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -36,33 +38,36 @@ class ExhibitItemCell: UITableViewCell {
 
         setStackView()
         
-        let imageView = UIImageView()
-        imageView.center = self.center
-        imageView.contentMode = .scaleAspectFit
+        itemImageView.center = self.center
+        itemImageView.contentMode = .scaleAspectFit
+        itemImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         
-        let image = UIImage(named: imageName!)
-        imageView.image = image
-        
-        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        let subStackView = UIStackView()
         subStackView.axis = .vertical
         subStackView.distribution = .fill
         subStackView.alignment = .fill
         
-        let titleLabel = UILabel()
-        titleLabel.text = title
         titleLabel.font = .systemFont(ofSize: 18)
-        
-        let subTitleLabel = UILabel()
-        subTitleLabel.text = subTitle
         subTitleLabel.font = .systemFont(ofSize: 13)
         
         subStackView.addArrangedSubview(titleLabel)
         subStackView.addArrangedSubview(subTitleLabel)
         
-        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(itemImageView)
         stackView.addArrangedSubview(subStackView)
+     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+    func setProperty(imageName: String?, title: String?, subTitle: String?) {
+        let image = UIImage(named: imageName!)
+        
+        itemImageView.image = image
+        titleLabel.text = title
+        subTitleLabel.text = subTitle
     }
     
     func setStackView() {

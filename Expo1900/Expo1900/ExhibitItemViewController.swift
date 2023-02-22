@@ -67,9 +67,9 @@ extension ExhibitItemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ExhibitItemCell = tableView.dequeueReusableCell(withIdentifier: ExhibitItemCell.reuseIdentifier, for: indexPath) as! ExhibitItemCell
         
-        let imageName = exhibitItems?[0].imageName
-        let title = exhibitItems?[0].name
-        let subTitle = exhibitItems?[0].shortDescription
+        let imageName = exhibitItems?[indexPath.row].imageName
+        let title = exhibitItems?[indexPath.row].name
+        let subTitle = exhibitItems?[indexPath.row].shortDescription
         
         cell.setProperty(imageName: imageName, title: title, subTitle: subTitle)
         
