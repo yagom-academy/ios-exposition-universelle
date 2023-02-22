@@ -1,6 +1,6 @@
 //
-//  Expo1900 - ViewController.swift
-//  Created by yagom. 
+//  Expo1900 - ExpoViewController.swift
+//  Created by 리지, Rowan.
 //  Copyright © yagom academy. All rights reserved.
 // 
 
