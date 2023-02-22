@@ -21,7 +21,6 @@ class SecondViewController: UIViewController {
             .navigationBar
             .topItem?
             .backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
-
     }
     
     func decodeData() {
@@ -63,5 +62,9 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
         cell.expoImageName = self.expoItems[indexPath.row].imageName
         
         return cell
+    }
+    
+    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
