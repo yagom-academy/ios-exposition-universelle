@@ -18,6 +18,8 @@ final class PosterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "메인"
+   
         setScrollView()
         setStackView()
         setTitleLabel()
@@ -25,6 +27,11 @@ final class PosterViewController: UIViewController {
         setInformationLabel()
         setDescriptionLabel()
         setChangeSceneButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setScrollView() {
@@ -77,12 +84,11 @@ final class PosterViewController: UIViewController {
     
     func setImageView() {
         let imageView = makeImageView(fileName: "poster")
-        
         stackView.addArrangedSubview(imageView)
     }
     
     func setInformationLabel() {
-        guard let visitors = exposition?.visitors,
+        guard let visitors = exposition?.accumulatedVisitor,
               let location = exposition?.location,
               let duration = exposition?.duration else { return }
         
@@ -136,7 +142,7 @@ final class PosterViewController: UIViewController {
         button.setAttributedTitle(text, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16)
         button.titleLabel?.textColor = .systemBlue
-        button.addTarget(self, action: #selector(temp(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(changeScene), for: .touchUpInside)
         
         let leftImageView = makeImageView(fileName: "flag")
         let rightImageView = makeImageView(fileName: "flag")
@@ -166,8 +172,9 @@ final class PosterViewController: UIViewController {
         return imageView
     }
     
-    @objc func temp(sender: UIButton) {
-        print("touchButton")
+    @objc func changeScene() {
+        let exhibitItemView = ExhibitItemViewController()
+        self.navigationController?.pushViewController(exhibitItemView, animated: true)
     }
 }
 
