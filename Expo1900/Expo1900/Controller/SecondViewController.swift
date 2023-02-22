@@ -40,8 +40,10 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = listTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell else { return UITableViewCell()}
+//        guard let cell = listTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell else { return UITableViewCell()}
 
+        guard let cell = listTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
+        
         cell.expoTitleLabel.text = self.expoItems[indexPath.row].name
         cell.expoShortDescriptionLabel.text = self.expoItems[indexPath.row].shortDescription
         cell.expoShortDescriptionLabel.numberOfLines = 0

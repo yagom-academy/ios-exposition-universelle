@@ -8,7 +8,8 @@
 import UIKit
 
 final class ListTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var expoImageView: UIImageView!
     @IBOutlet weak var expoTitleLabel: UILabel!
     @IBOutlet weak var expoShortDescriptionLabel: UILabel!
-    @IBOutlet weak var expoImageView: UIImageView!
 }
