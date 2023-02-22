@@ -55,7 +55,7 @@ extension ItemEntryViewController: UITableViewDataSource {
     
     private func setContents(of cell: UITableViewCell, at indexPath: IndexPath) {
         guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
-        let resizedItemImage = resizeImage(image: itemImage, newWidth: 70)
+        let resizedItemImage = resizeImage(image: itemImage, length: 70)
         
         cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
         
@@ -69,15 +69,26 @@ extension ItemEntryViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
     }
     
-    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
+    private func resizeImage(image: UIImage, length: CGFloat) -> UIImage? {
+        let longSide = max(image.size.width, image.size.height)
+        let scale = length / longSide
+        var newHeight: CGFloat
+        var newWidth: CGFloat
         
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
-        image.draw(in: CGRectMake(0, 0, newWidth, newHeight))
+        if longSide == image.size.width {
+            newWidth = length
+            newHeight = image.size.height * scale
+        } else {
+            newWidth = image.size.width * scale
+            newHeight = length
+        }
         
+        UIGraphicsBeginImageContext(CGSizeMake(length, length))
+        image.draw(in: CGRectMake((length - newWidth) / 2,
+                                  (length - newHeight) / 2,
+                                  newWidth,
+                                  newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        
         UIGraphicsEndImageContext()
         
         return newImage
