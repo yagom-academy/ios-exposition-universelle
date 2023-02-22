@@ -6,5 +6,25 @@
 
 import UIKit
 
-class ViewController: UIViewController { }
+final class ViewController: UIViewController {
+    
+    var exposition: Exposition = Exposition(title: "", visitors: 0, location: "", duration: "", description: "")
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+}
 
+private extension ViewController {
+    func decodeData() {
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        
+        do {
+            self.exposition = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
