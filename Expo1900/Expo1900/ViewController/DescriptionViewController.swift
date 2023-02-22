@@ -9,7 +9,7 @@ import UIKit
 
 final class DescriptionViewController: UIViewController {
     private var item: Item?
-    
+  
     @IBOutlet weak var DescriptionScrollView: UIScrollView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
@@ -17,6 +17,7 @@ final class DescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setImageView()
+        setLabel()
     }
     
     func addItem(_ item: Item) {
@@ -27,6 +28,11 @@ final class DescriptionViewController: UIViewController {
         guard let item = self.item,
               let itemImage = UIImage(named: item.imageName) else { return }
         self.itemImage.image = itemImage
+    }
+    
+    private func setLabel() {
+        guard let item = self.item else { return }
+        self.descriptionLabel.text = item.description
     }
     
 }
