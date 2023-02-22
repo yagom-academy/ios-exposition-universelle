@@ -2,14 +2,14 @@
 //  CustomScrollView.swift
 //  Expo1900
 //
-//  Created by Harry on 2023/02/21.
+//  Created by Harry, 레옹아범 on 2023/02/21.
 //
 
 import UIKit
 
 class CustomScrollView: UIScrollView {
 
-    let stackView = {
+    private let stackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         

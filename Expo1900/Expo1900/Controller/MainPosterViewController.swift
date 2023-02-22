@@ -1,8 +1,9 @@
 //
-//  Expo1900 - ViewController.swift
-//  Created by Harry, 레옹아범.
-//  Copyright © yagom academy. All rights reserved.
-// 
+//  MainPosterViewController.swift
+//  Expo1900
+//
+//  Created by Harry, 레옹아범 on 2023/02/22.
+//
 
 import UIKit
 
@@ -143,7 +144,7 @@ extension MainPosterViewController {
         self.customScrollView.addArrangeSubView(view: stackView)
     }
     
-    @objc func tapExhibitionEntryButton() {
+    @objc private func tapExhibitionEntryButton() {
         self.navigationController?.pushViewController(ExhibitionEntryTableViewController(), animated: true)
     }
 }

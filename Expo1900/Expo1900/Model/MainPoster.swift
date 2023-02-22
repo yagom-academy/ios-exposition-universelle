@@ -9,9 +9,9 @@ import UIKit
 
 struct MainPoster: Decodable {
     let title: String
-    let numberOfVisitors: Int
-    let location: String
-    let duration: String
+    private let numberOfVisitors: Int
+    private let location: String
+    private let duration: String
     let description: String
     
     var visitorsText: String {

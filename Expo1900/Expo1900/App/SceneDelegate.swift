@@ -1,6 +1,6 @@
 //
 //  Expo1900 - SceneDelegate.swift
-//  Created by yagom. 
+//  Created by Harry, 레옹아범.
 //  Copyright © yagom academy. All rights reserved.
 // 
 

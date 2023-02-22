@@ -9,7 +9,7 @@ import UIKit
 
 struct ExhibitionItem: Decodable {
     let name: String
-    let imageName: String
+    private let imageName: String
     let shortDescription: String
     let description: String
     

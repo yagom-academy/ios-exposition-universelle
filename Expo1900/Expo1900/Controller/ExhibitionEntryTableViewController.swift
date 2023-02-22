@@ -1,5 +1,5 @@
 //
-//  ExhibitionTableViewController.swift
+//  ExhibitionEntryTableViewController.swift
 //  Expo1900
 //
 //  Created by Harry, 레옹아범 on 2023/02/22.
@@ -9,7 +9,7 @@ import UIKit
 
 final class ExhibitionEntryTableViewController: UITableViewController {
 
-    var exhibitionItems: [ExhibitionItem] = []
+    private var exhibitionItems: [ExhibitionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

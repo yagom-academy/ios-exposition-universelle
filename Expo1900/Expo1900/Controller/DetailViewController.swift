@@ -2,7 +2,7 @@
 //  DetailViewController.swift
 //  Expo1900
 //
-//  Created by Harry on 2023/02/22.
+//  Created by Harry, 레옹아범 on 2023/02/22.
 //
 
 import UIKit
@@ -24,9 +24,27 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = self.exhibitionItem.name
+        configureViews()
+    }
+}
+
+//MARK: - View
+extension DetailViewController {
+    private func configureViews() {
         configureScrollView()
         configureImageView()
         configureTextView()
+    }
+    
+    private func configureScrollView() {
+        self.view.addSubview(self.scrollView)
+        
+        NSLayoutConstraint.activate([
+            self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
     
     private func configureImageView() {
@@ -44,22 +62,11 @@ final class DetailViewController: UIViewController {
         let textView = UITextView()
         
         textView.font = .preferredFont(forTextStyle: .body)
-        textView.text = exhibitionItem.description
+        textView.text = self.exhibitionItem.description
         textView.isScrollEnabled = false
         textView.isEditable = false
         textView.isSelectable = false
         
         self.scrollView.addArrangeSubView(view: textView)
-    }
-    
-    private func configureScrollView() {
-        self.view.addSubview(self.scrollView)
-        
-        NSLayoutConstraint.activate([
-            self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
     }
 }

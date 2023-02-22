@@ -2,7 +2,7 @@
 //  ExhibitionEntryCell.swift
 //  Expo1900
 //
-//  Created by 강민수 on 2023/02/22.
+//  Created by Harry, 레옹아범 on 2023/02/22.
 //
 
 import UIKit
@@ -59,7 +59,7 @@ class ExhibitionEntryCell: UITableViewCell {
         configureLabels()
     }
     
-    func configureStackView() {
+    private func configureStackView() {
         self.contentView.addSubview(stackView)
         
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,7 @@ class ExhibitionEntryCell: UITableViewCell {
         ])
     }
     
-    func configureExhibitionImage() {
+    private func configureExhibitionImage() {
         self.stackView.addArrangedSubview(exhibitionImage)
         
         NSLayoutConstraint.activate([
@@ -81,7 +81,7 @@ class ExhibitionEntryCell: UITableViewCell {
         ])
     }
     
-    func configureLabels() {
+    private func configureLabels() {
         let innerStackView = UIStackView()
         innerStackView.translatesAutoresizingMaskIntoConstraints = false
         innerStackView.axis = .vertical
