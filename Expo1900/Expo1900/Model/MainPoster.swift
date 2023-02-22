@@ -31,4 +31,9 @@ struct MainPoster: Decodable {
     var durationText: String {
         return "개최 기간 : \(self.duration)"
     }
+    
+    enum CodingKeys: String, CodingKey {
+        case title, location, duration, description
+        case numberOfVisitors = "visitors"
+    }
 }
