@@ -3,17 +3,22 @@
 
 import UIKit
 
-class ListCellTableViewCell: UITableViewCell {
+class ListTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var expositionImage: UIImageView!
+    @IBOutlet weak var maintitle: UILabel!
+    @IBOutlet weak var shortDescription: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+       
     }
 
 }
