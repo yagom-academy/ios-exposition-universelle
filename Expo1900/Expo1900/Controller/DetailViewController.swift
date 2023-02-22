@@ -26,12 +26,30 @@ final class DetailViewController: UIViewController {
         self.navigationItem.title = self.exhibitionItem.name
         configureScrollView()
         configureImageView()
+        configureTextView()
     }
     
-    func configureImageView() {
+    private func configureImageView() {
         let imageView = UIImageView(image: self.exhibitionItem.image)
+        imageView.contentMode = .scaleAspectFit
+        
+        NSLayoutConstraint.activate([
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: self.view.frame.height / 4)
+        ])
         
         self.scrollView.addArrangeSubView(view: imageView)
+    }
+    
+    private func configureTextView() {
+        let textView = UITextView()
+        
+        textView.font = .preferredFont(forTextStyle: .body)
+        textView.text = exhibitionItem.description
+        textView.isScrollEnabled = false
+        textView.isEditable = false
+        textView.isSelectable = false
+        
+        self.scrollView.addArrangeSubView(view: textView)
     }
     
     private func configureScrollView() {
