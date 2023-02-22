@@ -11,8 +11,14 @@ final class ItemEntryViewController: UITableViewController {
     private var items: [Item] = []
     
     override func viewDidLoad() {
-        self.navigationController?.isNavigationBarHidden = false
+        setNavigationBar()
         decodeItemsData()
+        
+    }
+    
+    private func setNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = "한국의 출품작"
     }
     
     private func decodeItemsData() {
@@ -32,23 +38,29 @@ final class ItemEntryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        setContents(of: cell, at: indexPath)
+        
+        return cell
+    }
+    
+    private func setContents(of cell: UITableViewCell, at indexPath: IndexPath) {
+        
         cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
         
         cell.detailTextLabel?.lineBreakMode = .byWordWrapping
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18)
         
-        let itemImage = UIImage(named: items[indexPath.row].imageName)
-        let resizedItemImage = resizeImage(image: itemImage!, newWidth: 70)
+        guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
+        let resizedItemImage = resizeImage(image: itemImage, newWidth: 70)
         
         cell.textLabel?.text = items[indexPath.row].name
         cell.detailTextLabel?.text = items[indexPath.row].shortDescription
         cell.imageView?.image = resizedItemImage
         
-        return cell
     }
     
-    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
