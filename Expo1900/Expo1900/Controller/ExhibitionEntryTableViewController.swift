@@ -9,7 +9,7 @@ import UIKit
 
 class ExhibitionEntryTableViewController: UITableViewController {
 
-    var exhibitionItem: [ExhibitionItem] = []
+    var exhibitionItems: [ExhibitionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class ExhibitionEntryTableViewController: UITableViewController {
         guard let data = NSDataAsset(name: "items") else { return }
         
         do {
-            exhibitionItem = try jsonDecoder.decode([ExhibitionItem].self, from: data.data)
+            exhibitionItems = try jsonDecoder.decode([ExhibitionItem].self, from: data.data)
         } catch {
             print(error.localizedDescription)
         }
@@ -44,7 +44,7 @@ extension ExhibitionEntryTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.exhibitionItem.count
+        return self.exhibitionItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,12 +52,21 @@ extension ExhibitionEntryTableViewController {
             return UITableViewCell()
         }
         
-        let data = exhibitionItem[indexPath.row]
+        let data = exhibitionItems[indexPath.row]
         
         cell.exhibitionImage.image = data.image
         cell.titleLabel.text = data.name
         cell.contentLabel.text = data.shortDescription
         
         return cell
+    }
+}
+
+// MARK: - Table view delegate
+extension ExhibitionEntryTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController(exhibitionItem: exhibitionItems[indexPath.row])
+        
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
