@@ -23,6 +23,10 @@ final class ExpoViewController: UIViewController {
         setMainScene()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     private func decodeExpoData() {
         let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
@@ -83,8 +87,9 @@ final class ExpoViewController: UIViewController {
         label.attributedText = attributedString
     }
     
-//    private func setButton() {
-//        goButton.
-//    }
+    @IBAction func touchUpGoButton(_ sender: UIButton) {
+        guard let itemEntryViewController = self.storyboard?.instantiateViewController(withIdentifier: "ItemEntryViewController") else { return }
+        self.navigationController?.pushViewController(itemEntryViewController, animated: true)
+    }
 }
 
