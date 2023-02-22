@@ -16,6 +16,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		FB3D954029A3403C000153CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D953F29A3403C000153CF /* Item.swift */; };
+		FB3D956229A5DF60000153CF /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D956129A5DF60000153CF /* DescriptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB3D953F29A3403C000153CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FB3D956129A5DF60000153CF /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
 				AD87E81B29A5AA390021E1C9 /* ItemEntryViewController.swift */,
+				FB3D956129A5DF60000153CF /* DescriptionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC7AE0329A341B1001DD9F4 /* ExpoUniverselle.swift in Sources */,
+				FB3D956229A5DF60000153CF /* DescriptionViewController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
 				AD87E81C29A5AA390021E1C9 /* ItemEntryViewController.swift in Sources */,
 				FB3D954029A3403C000153CF /* Item.swift in Sources */,

@@ -35,7 +35,7 @@ final class ItemEntryViewController: UIViewController {
     }
 }
 
-// -MARK: DataSource
+// MARK: DataSource
 extension ItemEntryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -76,5 +76,14 @@ extension ItemEntryViewController: UITableViewDataSource {
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+}
+
+// MARK: Delegate
+extension ItemEntryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "descriptionViewController") else { return }
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
