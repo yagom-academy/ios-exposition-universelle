@@ -43,7 +43,7 @@ final class ExhibitItemViewController: UIViewController {
     
     func setTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UINib(nibName: "ExhibitItemCell", bundle: nil), forCellReuseIdentifier: "ExhibitItemCell")
+        tableView.register(ExhibitItemCell.self, forCellReuseIdentifier: ExhibitItemCell.reuseIdentifier)
         
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),

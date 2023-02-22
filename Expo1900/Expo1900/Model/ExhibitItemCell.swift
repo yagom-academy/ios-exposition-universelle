@@ -12,20 +12,8 @@ class ExhibitItemCell: UITableViewCell {
     static let reuseIdentifier = "ExhibitItemCell"
 
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            //stackView.widthAnchor.constraint(equalTo: self.widthAnchor)
-        ])
-        
-        setStackView()
-    }
+//    override func awakeFromNib() {
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -34,6 +22,20 @@ class ExhibitItemCell: UITableViewCell {
     }
     
     func setProperty(imageName: String?, title: String?, subTitle: String?) {
+
+        self.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        print("test")
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: self.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        ])
+
+        setStackView()
+        
         let imageView = UIImageView()
         imageView.center = self.center
         imageView.contentMode = .scaleAspectFit
