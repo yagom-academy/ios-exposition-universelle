@@ -190,6 +190,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dCc-zP-1r5"/>
+                    <connections>
+                        <outlet property="tableView" destination="USR-5f-sNP" id="MmU-m6-0zC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLh-RW-v6O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
