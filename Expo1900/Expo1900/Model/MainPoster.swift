@@ -9,13 +9,13 @@ import UIKit
 
 struct MainPoster: Decodable {
     let title: String
-    let visitors: Int
+    let numberOfVisitors: Int
     let location: String
     let duration: String
     let description: String
     
-    var visitorsText: String {
-        return "방문객 : \(self.visitors)명"
+    var numberOfVisitorsText: String {
+        return "방문객 : \(self.numberOfVisitors)명"
     }
     
     var locationText: String {
