@@ -2,7 +2,7 @@
 //  SecondViewController.swift
 //  Expo1900
 //
-//  Created by kimseongjun on 2023/02/22.
+//  Created by 세홍, 송준, 무리 on 2023/02/22.
 //
 
 import UIKit
@@ -16,8 +16,8 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listTableView.dataSource = self
-        
         decodeData()
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
         
     }
     
