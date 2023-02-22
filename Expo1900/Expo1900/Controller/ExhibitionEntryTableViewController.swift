@@ -13,6 +13,9 @@ class ExhibitionEntryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.register(ExhibitionEntryCell.self, forCellReuseIdentifier: ExhibitionEntryCell.identifier)
+        
         configureNavigationBar()
         decodeJson()
     }
@@ -32,18 +35,29 @@ class ExhibitionEntryTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
     }
+}
 
-    // MARK: - Table view data source
-
+// MARK: - Table view data source
+extension ExhibitionEntryTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.exhibitionItem.count
     }
-
-
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionEntryCell.identifier, for: indexPath) as? ExhibitionEntryCell else {
+            return UITableViewCell()
+        }
+        
+        let data = exhibitionItem[indexPath.row]
+        
+        cell.exhibitionImage.image = data.image
+        cell.titleLabel.text = data.name
+        cell.contentLabel.text = data.shortDescription
+        
+        return cell
+    }
 }

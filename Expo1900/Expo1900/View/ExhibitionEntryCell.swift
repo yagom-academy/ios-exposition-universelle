@@ -9,6 +9,8 @@ import UIKit
 
 class ExhibitionEntryCell: UITableViewCell {
     
+    static let identifier = "ExhibitionEntryCell"
+    
     var exhibitionImage = {
         let imageView = UIImageView()
         
