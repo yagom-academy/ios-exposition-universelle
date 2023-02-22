@@ -7,8 +7,9 @@
 
 import UIKit
 
-final class ItemEntryViewController: UIViewController {
+final class ItemEntryViewController: UIViewController, ContentsDataSource {
     private var items: [Item] = []
+    var selectedItem: Item?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -92,7 +93,8 @@ extension ItemEntryViewController: UITableViewDelegate {
                 withIdentifier:"descriptionViewController"
             ) as? DescriptionViewController else { return }
         
-        nextViewController.addItem(items[indexPath.row])
+        self.selectedItem = items[indexPath.row]
+        nextViewController.dataSource = self
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
         nextViewController.navigationItem.title = items[indexPath.row].name

@@ -8,8 +8,8 @@
 import UIKit
 
 final class DescriptionViewController: UIViewController {
-    private var item: Item?
-  
+    var dataSource: ContentsDataSource?
+    
     @IBOutlet weak var DescriptionScrollView: UIScrollView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
@@ -20,19 +20,18 @@ final class DescriptionViewController: UIViewController {
         setLabel()
     }
     
-    func addItem(_ item: Item) {
-        self.item = item
-    }
-    
     private func setImageView() {
-        guard let item = self.item,
+        guard let item = dataSource?.selectedItem,
               let itemImage = UIImage(named: item.imageName) else { return }
         self.itemImage.image = itemImage
     }
     
     private func setLabel() {
-        guard let item = self.item else { return }
+        guard let item = dataSource?.selectedItem else { return }
         self.descriptionLabel.text = item.description
     }
-    
+}
+
+protocol ContentsDataSource {
+    var selectedItem: Item? { get set }
 }
