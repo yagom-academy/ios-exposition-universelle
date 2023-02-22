@@ -101,4 +101,12 @@ extension KoreaItemsViewController: UITableViewDataSource {
 
 extension KoreaItemsViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
+    
 }
