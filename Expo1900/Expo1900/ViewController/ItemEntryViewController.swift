@@ -14,6 +14,7 @@ final class ItemEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         setNavigationBar()
         decodeItemsData()
     }
@@ -94,6 +95,7 @@ extension ItemEntryViewController: UITableViewDelegate {
         nextViewController.addItem(items[indexPath.row])
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
+        nextViewController.navigationItem.title = items[indexPath.row].name
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
