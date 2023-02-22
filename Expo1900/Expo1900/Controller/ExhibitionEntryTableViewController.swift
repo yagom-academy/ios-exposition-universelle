@@ -2,16 +2,16 @@
 //  ExhibitionTableViewController.swift
 //  Expo1900
 //
-//  Created by 강민수 on 2023/02/22.
+//  Created by Harry, 레옹아범 on 2023/02/22.
 //
 
 import UIKit
 
-class ExhibitionTableViewController: UITableViewController {
+class ExhibitionEntryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.isHidden = false
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

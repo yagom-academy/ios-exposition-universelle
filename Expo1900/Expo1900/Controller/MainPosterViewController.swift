@@ -14,9 +14,14 @@ final class MainPosterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
         decodeJson()
         configureViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func decodeJson() {
@@ -118,6 +123,7 @@ extension MainPosterViewController {
         
         let button = UIButton(type: .system)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.addTarget(self, action: #selector(tapExhibitionEntryButton), for: .touchUpInside)
         
         let leftImage = UIImageView(image: UIImage(named: "flag"))
         let height = leftImage.frame.height / 15
@@ -134,5 +140,9 @@ extension MainPosterViewController {
         stackView.addArrangedSubview(rightImage)
         
         self.customScrollView.addArrangeSubView(view: stackView)
+    }
+    
+    @objc func tapExhibitionEntryButton() {
+        self.navigationController?.pushViewController(ExhibitionEntryTableViewController(), animated: true)
     }
 }
