@@ -7,9 +7,10 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
     private let exhibitionItem: ExhibitionItem
+    private let scrollView = CustomScrollView()
     
     init(exhibitionItem: ExhibitionItem) {
         self.exhibitionItem = exhibitionItem
@@ -22,19 +23,25 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = self.exhibitionItem.name
+        configureScrollView()
+        configureImageView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureImageView() {
+        let imageView = UIImageView(image: self.exhibitionItem.image)
+        
+        self.scrollView.addArrangeSubView(view: imageView)
     }
-    */
-
+    
+    private func configureScrollView() {
+        self.view.addSubview(self.scrollView)
+        
+        NSLayoutConstraint.activate([
+            self.scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+    }
 }

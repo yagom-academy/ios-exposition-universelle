@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExhibitionEntryTableViewController: UITableViewController {
+final class ExhibitionEntryTableViewController: UITableViewController {
 
     var exhibitionItems: [ExhibitionItem] = []
     
