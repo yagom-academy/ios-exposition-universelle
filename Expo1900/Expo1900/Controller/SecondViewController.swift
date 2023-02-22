@@ -8,7 +8,7 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
+    
     @IBOutlet weak var listTableView: UITableView!
     
     var expoItems: [ExpoItem] = []
@@ -17,8 +17,11 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         listTableView.dataSource = self
         decodeData()
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
-        
+        self.navigationController?
+            .navigationBar
+            .topItem?
+            .backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+
     }
     
     func decodeData() {
@@ -32,6 +35,16 @@ class SecondViewController: UIViewController {
         }
         self.listTableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController else { return }
+        
+        guard let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
+        nextViewController.expoItemName = cell.expoTitleLabel.text
+        nextViewController.expoItemDescription = cell.expoDescription
+        nextViewController.expoItemImage = cell.expoImageName
+    }
+    
 }
 
 extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
@@ -40,14 +53,14 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = listTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell else { return UITableViewCell()}
-
         guard let cell = listTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         
         cell.expoTitleLabel.text = self.expoItems[indexPath.row].name
         cell.expoShortDescriptionLabel.text = self.expoItems[indexPath.row].shortDescription
         cell.expoShortDescriptionLabel.numberOfLines = 0
         cell.expoImageView.image = UIImage(named: self.expoItems[indexPath.row].imageName)
+        cell.expoDescription = self.expoItems[indexPath.row].description
+        cell.expoImageName = self.expoItems[indexPath.row].imageName
         
         return cell
     }
