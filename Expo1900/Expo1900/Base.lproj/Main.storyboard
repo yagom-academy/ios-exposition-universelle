@@ -240,7 +240,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWa-Rt-SqZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="619"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="196.33333333333334"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9oh-6v-Bmu">
                                                 <rect key="frame" x="86.666666666666686" y="14" width="220" height="140"/>
@@ -249,8 +249,8 @@
                                                     <constraint firstAttribute="height" constant="140" id="g3h-WU-YOE"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FU8-sa-9ST">
-                                                <rect key="frame" x="12" y="166" width="369" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FU8-sa-9ST">
+                                                <rect key="frame" x="12" y="166" width="369" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -261,8 +261,8 @@
                                             <constraint firstItem="9oh-6v-Bmu" firstAttribute="top" secondItem="SWa-Rt-SqZ" secondAttribute="top" constant="14" id="7Jd-dn-zsL"/>
                                             <constraint firstItem="FU8-sa-9ST" firstAttribute="top" secondItem="9oh-6v-Bmu" secondAttribute="bottom" constant="12" id="7QP-r9-zW5"/>
                                             <constraint firstAttribute="trailing" secondItem="FU8-sa-9ST" secondAttribute="trailing" constant="12" id="HtG-Xd-6Bf"/>
+                                            <constraint firstAttribute="bottom" secondItem="FU8-sa-9ST" secondAttribute="bottom" constant="10" id="Mb1-Yk-qDg"/>
                                             <constraint firstItem="FU8-sa-9ST" firstAttribute="leading" secondItem="SWa-Rt-SqZ" secondAttribute="leading" constant="12" id="THG-Y6-1Q8"/>
-                                            <constraint firstAttribute="height" constant="619" id="a6t-FO-uXt"/>
                                             <constraint firstItem="9oh-6v-Bmu" firstAttribute="centerX" secondItem="SWa-Rt-SqZ" secondAttribute="centerX" id="vSo-Uw-XKT"/>
                                         </constraints>
                                     </view>
@@ -288,8 +288,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="expositionDescription" destination="FU8-sa-9ST" id="6dt-89-9xs"/>
-                        <outlet property="itemImage" destination="9oh-6v-Bmu" id="31X-W1-6MF"/>
+                        <outlet property="itemDescription" destination="FU8-sa-9ST" id="IbO-uB-uOn"/>
+                        <outlet property="itemImage" destination="9oh-6v-Bmu" id="vI5-Nq-F7f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdu-nz-CNQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

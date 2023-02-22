@@ -32,12 +32,16 @@ class ExpositionListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
-    
-
 }
 
 extension ExpositionListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listTableView.deselectRow(at: indexPath, animated: true)
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        detailVC.imageString = expositionList[indexPath.row].imageName
+        detailVC.fullDescription = expositionList[indexPath.row].description
+        self.navigationController?.pushViewController(detailVC , animated: true)
+    }
 }
 
 extension ExpositionListViewController: UITableViewDataSource {
@@ -55,9 +59,4 @@ extension ExpositionListViewController: UITableViewDataSource {
         return listCell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
-
-        self.navigationController?.pushViewController(detailVC , animated: true)
-    }
 }

@@ -43,14 +43,11 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
-    
 
     @IBAction func moveToListViewController(_ sender: UIButton) {
         guard let expoListVC = self.storyboard?.instantiateViewController(withIdentifier: "ExpositionListViewController") as? ExpositionListViewController else { return }
 
         self.navigationController?.pushViewController(expoListVC , animated: true)
     }
-    
 }
 
