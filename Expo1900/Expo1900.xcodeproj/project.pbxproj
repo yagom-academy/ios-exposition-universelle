@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58129EFB29A3505D00877E6D /* MainExposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58129EFA29A3505D00877E6D /* MainExposition.swift */; };
 		58ECC74629A52B5E0038DE85 /* ExpositionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */; };
+		9886AA2129A5A79F00A0547E /* ListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9886AA2029A5A79F00A0547E /* ListCellTableViewCell.swift */; };
 		989BD53529A39CB700F4E1B7 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		58129EFA29A3505D00877E6D /* MainExposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainExposition.swift; sourceTree = "<group>"; };
 		58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionListViewController.swift; sourceTree = "<group>"; };
+		9886AA2029A5A79F00A0547E /* ListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellTableViewCell.swift; sourceTree = "<group>"; };
 		989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
+				9886AA2029A5A79F00A0547E /* ListCellTableViewCell.swift */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				9886AA2129A5A79F00A0547E /* ListCellTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				58ECC74629A52B5E0038DE85 /* ExpositionListViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,

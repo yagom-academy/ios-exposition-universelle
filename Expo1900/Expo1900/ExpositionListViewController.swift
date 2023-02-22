@@ -9,6 +9,7 @@ import UIKit
 
 class ExpositionListViewController: UIViewController {
 
+    @IBOutlet weak var listTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,4 +19,18 @@ class ExpositionListViewController: UIViewController {
     }
     
 
+}
+
+extension ExpositionListViewController: UITableViewDelegate {
+    
+}
+
+extension ExpositionListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 }
