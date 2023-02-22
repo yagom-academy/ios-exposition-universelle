@@ -56,19 +56,25 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NnT-H9-F62">
-                                                <rect key="frame" x="20" y="315.33333333333331" width="353" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NnT-H9-F62">
+                                                <rect key="frame" x="28" y="315.33333333333331" width="337" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="rQt-TA-Yqx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="117.66666666666667" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="U28-XO-NlY"/>
+                                                        </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-de-mjI">
-                                                        <rect key="frame" x="117.66666666666666" y="0.0" width="117.66666666666666" height="50"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGg-de-mjI">
+                                                        <rect key="frame" x="60" y="8" width="217" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Oj9-eg-5Wm">
-                                                        <rect key="frame" x="235.33333333333334" y="0.0" width="117.66666666666666" height="50"/>
+                                                        <rect key="frame" x="277" y="0.0" width="60" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="2bu-Cl-weP"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -82,21 +88,21 @@
                                             <constraint firstItem="7qN-Hg-b0n" firstAttribute="centerX" secondItem="3g0-y9-iKk" secondAttribute="centerX" id="Ga8-xB-SkO"/>
                                             <constraint firstItem="Lg7-uZ-j3v" firstAttribute="centerX" secondItem="3g0-y9-iKk" secondAttribute="centerX" id="HvE-w8-HQi"/>
                                             <constraint firstItem="sEH-Ui-AgH" firstAttribute="centerX" secondItem="3g0-y9-iKk" secondAttribute="centerX" id="IWI-Pp-gpr"/>
-                                            <constraint firstItem="NnT-H9-F62" firstAttribute="leading" secondItem="3g0-y9-iKk" secondAttribute="leading" constant="20" id="Lhn-lm-n9j"/>
                                             <constraint firstAttribute="trailing" secondItem="KY1-z0-bEJ" secondAttribute="trailing" constant="77" id="Nw4-oN-SZ2"/>
                                             <constraint firstItem="Lg7-uZ-j3v" firstAttribute="leading" secondItem="7qN-Hg-b0n" secondAttribute="leading" id="P9s-LR-5Q5"/>
                                             <constraint firstItem="Lg7-uZ-j3v" firstAttribute="top" secondItem="sEH-Ui-AgH" secondAttribute="bottom" constant="10" id="Pc6-S1-2n4"/>
                                             <constraint firstItem="NnT-H9-F62" firstAttribute="centerX" secondItem="3g0-y9-iKk" secondAttribute="centerX" id="PyQ-90-nsK"/>
-                                            <constraint firstAttribute="trailing" secondItem="NnT-H9-F62" secondAttribute="trailing" constant="20" id="WqO-iu-eeh"/>
                                             <constraint firstItem="7qN-Hg-b0n" firstAttribute="top" secondItem="3g0-y9-iKk" secondAttribute="top" constant="30" id="Y5g-Di-Cz4"/>
                                             <constraint firstItem="KY1-z0-bEJ" firstAttribute="leading" secondItem="3g0-y9-iKk" secondAttribute="leading" constant="76" id="ZgI-yJ-Fh8"/>
                                             <constraint firstItem="sEH-Ui-AgH" firstAttribute="leading" secondItem="7qN-Hg-b0n" secondAttribute="leading" id="abN-3d-7PQ"/>
                                             <constraint firstAttribute="bottom" secondItem="NnT-H9-F62" secondAttribute="bottom" constant="10" id="aja-GX-C28"/>
                                             <constraint firstItem="sEH-Ui-AgH" firstAttribute="top" secondItem="bnJ-BI-xvg" secondAttribute="bottom" constant="10" id="b93-U1-4Bo"/>
                                             <constraint firstItem="bnJ-BI-xvg" firstAttribute="leading" secondItem="7qN-Hg-b0n" secondAttribute="leading" id="eGi-1x-VsB"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="NnT-H9-F62" secondAttribute="trailing" constant="20" id="edF-9S-djs"/>
                                             <constraint firstItem="bnJ-BI-xvg" firstAttribute="top" secondItem="KY1-z0-bEJ" secondAttribute="bottom" constant="10" id="iSb-j9-Ll0"/>
                                             <constraint firstItem="KY1-z0-bEJ" firstAttribute="top" secondItem="7qN-Hg-b0n" secondAttribute="bottom" constant="20" id="k9f-Lm-VP4"/>
                                             <constraint firstItem="7qN-Hg-b0n" firstAttribute="leading" secondItem="3g0-y9-iKk" secondAttribute="leading" constant="10" id="mMk-cY-hXW"/>
+                                            <constraint firstItem="NnT-H9-F62" firstAttribute="leading" secondItem="3g0-y9-iKk" secondAttribute="leadingMargin" constant="20" id="q3f-pB-Iff"/>
                                             <constraint firstItem="3u4-nM-V6p" firstAttribute="leading" secondItem="7qN-Hg-b0n" secondAttribute="leading" id="uYs-IO-eyZ"/>
                                             <constraint firstItem="bnJ-BI-xvg" firstAttribute="centerX" secondItem="3g0-y9-iKk" secondAttribute="centerX" id="vxu-tc-PK9"/>
                                             <constraint firstItem="3u4-nM-V6p" firstAttribute="centerX" secondItem="3g0-y9-iKk" secondAttribute="centerX" id="xik-KX-xXf"/>

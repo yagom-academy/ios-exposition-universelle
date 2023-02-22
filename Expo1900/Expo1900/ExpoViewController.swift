@@ -82,5 +82,9 @@ final class ExpoViewController: UIViewController {
         attributedString.addAttribute(.font, value: fontSize, range: range)
         label.attributedText = attributedString
     }
+    
+//    private func setButton() {
+//        goButton.
+//    }
 }
 
