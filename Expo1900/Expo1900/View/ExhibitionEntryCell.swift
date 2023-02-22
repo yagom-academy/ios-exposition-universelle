@@ -47,6 +47,8 @@ class ExhibitionEntryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         configureStackView()
+        configureExhibitionImage()
+        configureLabels()
     }
     
     func configureStackView() {
@@ -58,5 +60,22 @@ class ExhibitionEntryCell: UITableViewCell {
             stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
         ])
+    }
+    
+    func configureExhibitionImage() {
+        self.stackView.addArrangedSubview(exhibitionImage)
+    }
+    
+    func configureLabels() {
+        let innerStackView = UIStackView()
+        innerStackView.axis = .vertical
+        innerStackView.alignment = .fill
+        innerStackView.distribution = .equalSpacing
+        innerStackView.spacing = 5
+        
+        innerStackView.addArrangedSubview(titleLabel)
+        innerStackView.addArrangedSubview(contentLabel)
+        
+        stackView.addArrangedSubview(innerStackView)
     }
 }
