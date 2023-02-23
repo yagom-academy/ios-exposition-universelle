@@ -42,22 +42,11 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         
         expositionTitle.text = expositionData.displayedTitle
         expositionPoster.image = UIImage(named: AssetName.poster)
-        expositionVisitors.attributedText = changeFont(expositionData.displayedVisitors)
-        expositionLocation.attributedText = changeFont(expositionData.displayedLocation)
-        expositionDuration.attributedText = changeFont(expositionData.displayedDuration)
+        expositionVisitors.attributedText = expositionData.displayedVisitors.attributedString
+        expositionLocation.attributedText = expositionData.displayedLocation.attributedString
+        expositionDuration.attributedText = expositionData.displayedDuration.attributedString
         expositionDescription.text = expositionData.description
         flagImage1.image = UIImage(named: AssetName.flag)
         flagImage2.image = UIImage(named: AssetName.flag)
     }
-    
-    private func changeFont(_ text: String) -> NSMutableAttributedString {
-        let attributedString = NSMutableAttributedString(string: text)
-        guard let index = text.firstIndex(of: ":") else { return attributedString }
-        
-        let range = String(text[index...])
-        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15), range: (text as NSString).range(of: range))
-        
-        return attributedString
-    }
 }
-
