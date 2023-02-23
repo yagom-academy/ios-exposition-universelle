@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - MainViewController.swift
 //  Created by 세홍, 송준, 무리
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -18,7 +18,11 @@ final class ViewController: UIViewController {
     @IBOutlet var flagImage: [UIImageView]!
     @IBOutlet weak var posterImageView: UIImageView!
     
-    var exposition: Exposition = Exposition(title: "", visitors: 0, location: "", duration: "", description: "")
+    private var exposition: Exposition = Exposition(title: "",
+                                                    visitors: 0,
+                                                    location: "",
+                                                    duration: "",
+                                                    description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,7 @@ final class ViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    func decodeData() {
+    private func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         
@@ -45,7 +49,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    func setUpView() {
+    private func setUpView() {
         titleLabel.text = exposition.titleLabelText
         visitorsLabel.text = exposition.visitorLabelText
         locationLabel.text = exposition.locationLabelText

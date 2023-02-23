@@ -17,7 +17,6 @@ struct Exposition: Decodable {
     var titleLabelText: String {
         return title.replacingOccurrences(of: "(", with: "\n(")
     }
-    
     var visitorLabelText: String {
         return "방문객 : \(visitors.setDecimal()) 명"
     }
@@ -27,7 +26,6 @@ struct Exposition: Decodable {
     var durationLabelText: String {
         return "개최 기간 : \(duration)"
     }
-    
     
     enum CodingKeys: CodingKey {
         case title

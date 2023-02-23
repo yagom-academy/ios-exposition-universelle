@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+final class SecondViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
@@ -20,10 +20,13 @@ class SecondViewController: UIViewController {
         self.navigationController?
             .navigationBar
             .topItem?
-            .backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+            .backBarButtonItem = UIBarButtonItem(title: "메인",
+                                                 style: .plain,
+                                                 target: self,
+                                                 action: nil)
     }
     
-    func decodeData() {
+    private func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
@@ -62,9 +65,5 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
         cell.expoImageName = self.expoItems[indexPath.row].imageName
         
         return cell
-    }
-    
-    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
 }

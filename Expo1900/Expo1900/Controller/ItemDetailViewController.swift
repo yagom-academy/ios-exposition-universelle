@@ -7,12 +7,15 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController {
+final class ItemDetailViewController: UIViewController {
 
     @IBOutlet weak var expoDescriptionLabel: UILabel!
     @IBOutlet weak var expoImageView: UIImageView!
     
-    var expoItem: ExpoItem = ExpoItem(name: "", imageName: "", shortDescription: "", description: "")
+    private var expoItem: ExpoItem = ExpoItem(name: "",
+                                              imageName: "",
+                                              shortDescription: "",
+                                              description: "")
     
     var expoItemName: String?
     var expoItemImage: String?
@@ -20,11 +23,10 @@ class ItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpView()
     }
     
-    func setUpView() {
+    private func setUpView() {
         self.title = expoItemName
         self.expoDescriptionLabel.text = expoItemDescription
         self.expoDescriptionLabel.numberOfLines = 0
