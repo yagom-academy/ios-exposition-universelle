@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIImage {
+    
     func squareImage(length: CGFloat = 65) -> UIImage? {
         let originWidth: CGFloat = self.size.width
         let originHeight: CGFloat = self.size.height

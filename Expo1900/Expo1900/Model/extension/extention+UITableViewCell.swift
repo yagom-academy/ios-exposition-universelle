@@ -8,6 +8,7 @@
 import UIKit
 
 extension UITableViewCell {
+    
     static let reuseIdentifier = "cell"
     
     func setCellContents(_ indexPath: IndexPath) {

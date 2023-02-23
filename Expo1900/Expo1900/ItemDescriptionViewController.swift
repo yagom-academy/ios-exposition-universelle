@@ -8,11 +8,13 @@
 import UIKit
 
 class ItemDescriptionViewController: UIViewController {
+    
+    // MARK: - Property
     private let stackView = UIStackView()
     private let scrollView = UIScrollView()
-    
     private let item: ExhibitItem?
     
+    // MARK: - Init Method
     init(_ indexPath: IndexPath) {
         item = ExhibitItem.items?[indexPath.row]
         
@@ -23,6 +25,7 @@ class ItemDescriptionViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeView()
@@ -32,6 +35,7 @@ class ItemDescriptionViewController: UIViewController {
         setDescriptionLabel()
     }
     
+    // MARK: - Instance Method
     private func initializeView() {
         view.backgroundColor = .white
         self.title = item?.name
@@ -64,8 +68,7 @@ class ItemDescriptionViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.spacing = 10
-
+        stackView.spacing = 12
     }
     
     private func setImageView() {
@@ -93,6 +96,3 @@ class ItemDescriptionViewController: UIViewController {
         stackView.addArrangedSubview(descriptionLabel)
     }
 }
-
-
-

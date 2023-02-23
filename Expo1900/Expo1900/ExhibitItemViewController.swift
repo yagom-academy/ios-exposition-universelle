@@ -28,7 +28,6 @@ final class ExhibitItemViewController: UIViewController {
     }
     
     // MARK: - Instance Method
-    
     private func initializeView() {
         view.backgroundColor = .white
         self.title = "한국의 출품작"
@@ -46,9 +45,7 @@ final class ExhibitItemViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
 }
-
 
 // MARK: - Extension TableView
 extension ExhibitItemViewController: UITableViewDataSource {
@@ -71,24 +68,5 @@ extension ExhibitItemViewController: UITableViewDelegate {
         let itemDescriptionView = ItemDescriptionViewController(indexPath)
         
         self.navigationController?.pushViewController(itemDescriptionView, animated: true)
-    }
-}
-
-// MARK: - Canvas
-import SwiftUI
-struct ExhibitItemViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ExhibitItemViewController
-    
-    func makeUIViewController(context: Context) -> ExhibitItemViewController {
-            return ExhibitItemViewController()
-        }
-
-    func updateUIViewController(_ uiViewController: ExhibitItemViewController, context: Context) {
-    }
-}
-@available(iOS 13.0.0, *)
-struct ExhibitItemViewPreview: PreviewProvider {
-    static var previews: some View {
-        ExhibitItemViewControllerRepresentable()
     }
 }

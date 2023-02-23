@@ -7,6 +7,7 @@
 import UIKit
 
 final class PosterViewController: UIViewController {
+    
     // MARK: - Property
     private let exposition: Exposition? = {
         let decoder = Decoder()
@@ -17,7 +18,6 @@ final class PosterViewController: UIViewController {
     private let scrollView = UIScrollView()
     
     // MARK: - View State Method
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "메인"
@@ -37,7 +37,6 @@ final class PosterViewController: UIViewController {
     }
     
     // MARK: - Instance Method
-    
     private func setScrollView() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +62,7 @@ final class PosterViewController: UIViewController {
         ])
         
         stackView.axis = .vertical
-        stackView.spacing = 11
+        stackView.spacing = 12
         stackView.alignment = .center
         stackView.distribution = .fill
     }
@@ -178,27 +177,5 @@ final class PosterViewController: UIViewController {
     @objc private func changeScene() {
         let exhibitItemView = ExhibitItemViewController()
         self.navigationController?.pushViewController(exhibitItemView, animated: true)
-    }
-}
-
-
-
-
-// MARK: - Canvas
-import SwiftUI
-struct PosterViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = PosterViewController
-    
-    func makeUIViewController(context: Context) -> PosterViewController {
-            return PosterViewController()
-        }
-
-    func updateUIViewController(_ uiViewController: PosterViewController, context: Context) {
-    }
-}
-@available(iOS 13.0.0, *)
-struct PosterViewPreview: PreviewProvider {
-    static var previews: some View {
-        PosterViewControllerRepresentable()
     }
 }

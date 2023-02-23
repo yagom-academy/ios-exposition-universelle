@@ -6,6 +6,7 @@
 //
 
 struct ExhibitItem: Decodable {
+    
     static let items: [ExhibitItem]? = {
         let decoder = Decoder()
         return decoder.decodeExhibitItem()
