@@ -39,9 +39,9 @@ final class ViewController: UIViewController {
     
     func setUpView() {
         titleLabel.text = exposition.title
-        visitorsLabel.text = exposition.visitors.setDecimal()
-        locationLabel.text = exposition.location
-        durationLabel.text = exposition.duration
+        visitorsLabel.text = exposition.visitorLabelText
+        locationLabel.text = exposition.locationLabelText
+        durationLabel.text = exposition.durationLabelText
         descriptionLabel.text = exposition.description
         descriptionLabel.numberOfLines = 0
         posterImageView.image = UIImage(named: "poster")

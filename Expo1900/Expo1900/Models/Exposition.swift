@@ -14,6 +14,17 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
+    var visitorLabelText: String {
+        return "방문객 : \(visitors.setDecimal()) 명"
+    }
+    var locationLabelText: String {
+        return "개최지 : \(location)"
+    }
+    var durationLabelText: String {
+        return "개최 기간 : \(duration)"
+    }
+    
+    
     enum CodingKeys: CodingKey {
         case title
         case visitors
@@ -22,3 +33,5 @@ struct Exposition: Decodable {
         case description
     }
 }
+
+
