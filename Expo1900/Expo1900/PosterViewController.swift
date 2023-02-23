@@ -83,7 +83,6 @@ final class PosterViewController: UIViewController {
         titleLabel.font = .systemFont(ofSize: 26)
         
         stackView.addArrangedSubview(titleLabel)
-        
     }
     
     private func setImageView() {

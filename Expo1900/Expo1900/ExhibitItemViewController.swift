@@ -68,12 +68,11 @@ extension ExhibitItemViewController: UITableViewDataSource {
 
 extension ExhibitItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let itemDescriptionView = ItemDescriptionViewController()
+        let itemDescriptionView = ItemDescriptionViewController(indexPath)
         
         self.navigationController?.pushViewController(itemDescriptionView, animated: true)
     }
 }
-
 
 // MARK: - Canvas
 import SwiftUI
