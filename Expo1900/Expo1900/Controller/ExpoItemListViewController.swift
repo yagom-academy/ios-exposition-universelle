@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ExpoItemListViewController.swift
 //  Expo1900
 //
 //  Created by 세홍, 송준, 무리 on 2023/02/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SecondViewController: UIViewController {
+final class ExpoItemListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
@@ -49,7 +49,7 @@ final class SecondViewController: UIViewController {
     
 }
 
-extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
+extension ExpoItemListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.expoItems.count
     }
