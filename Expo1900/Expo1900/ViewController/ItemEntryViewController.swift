@@ -56,16 +56,19 @@ extension ItemEntryViewController: UITableViewDataSource {
     private func setContents(of cell: UITableViewCell, at indexPath: IndexPath) {
         guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
         let resizedItemImage = resizeImage(image: itemImage, length: 70)
+        var customConfiguration = cell.defaultContentConfiguration()
         
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 25)
+        customConfiguration.text = items[indexPath.row].name
+        customConfiguration.textProperties.font = UIFont.systemFont(ofSize: 25)
         
-        cell.detailTextLabel?.lineBreakMode = .byWordWrapping
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18)
+        customConfiguration.secondaryText = items[indexPath.row].shortDescription
+        customConfiguration.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
+        customConfiguration.secondaryTextProperties.numberOfLines = 0
+        customConfiguration.secondaryTextProperties.lineBreakMode = .byWordWrapping
         
-        cell.imageView?.image = resizedItemImage
-        cell.textLabel?.text = items[indexPath.row].name
-        cell.detailTextLabel?.text = items[indexPath.row].shortDescription
+        customConfiguration.image = resizedItemImage
+        
+        cell.contentConfiguration = customConfiguration
         cell.accessoryType = .disclosureIndicator
     }
     
