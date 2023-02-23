@@ -8,8 +8,8 @@
 import UIKit
 
 final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
-    static var reuseIdentifier: String = "cell"
-
+    var reuseIdentifier: String = "cell"
+    
     @IBOutlet private weak var tableView: UITableView!
     
     private var expositionItems: [ExpositionUniverselleItem] = []
@@ -51,7 +51,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = expositionItems[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaItemsViewController.reuseIdentifier),
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier),
                 let image = UIImage(named: item.imageName)  else {
             return UITableViewCell()
         }

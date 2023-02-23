@@ -6,6 +6,6 @@
 //
 
 protocol ReuseIdentifying {
-    static var reuseIdentifier: String { get }
+    var reuseIdentifier: String { get }
 }
 
