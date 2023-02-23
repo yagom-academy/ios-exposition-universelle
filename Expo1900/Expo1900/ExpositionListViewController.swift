@@ -26,7 +26,7 @@ class ExpositionListViewController: UIViewController {
     
     private func getJsonData() {
         let jsonDecoder = JSONDecoder()
-        guard let jsonData: NSDataAsset = NSDataAsset(name: "items") else { return }
+        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.items) else { return }
         
         do {
             expositionList = try jsonDecoder.decode([ExpositionItem].self, from: jsonData.data)
@@ -39,13 +39,13 @@ class ExpositionListViewController: UIViewController {
 extension ExpositionListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         listTableView.deselectRow(at: indexPath, animated: true)
-        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.detailViewController) as? DetailViewController else { return }
         
         detailVC.imageString = expositionList[indexPath.row].imageName
         detailVC.fullDescription = expositionList[indexPath.row].description
         detailVC.navigationItem.title = expositionList[indexPath.row].name
         
-        let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: DetailViewController.self, action: nil)
+        let backBarButtonItem = UIBarButtonItem(title: Title.itemsOfKorea, style: .plain, target: DetailViewController.self, action: nil)
         
         self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(detailVC , animated: true)
@@ -59,7 +59,7 @@ extension ExpositionListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let listCell: ListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
+        let listCell: ListTableViewCell = tableView.dequeueReusableCell(withIdentifier: Identifier.listTableViewCell, for: indexPath) as! ListTableViewCell
         
         listCell.mainTitle.text = expositionList[indexPath.row].name
         listCell.shortDescription.text = expositionList[indexPath.row].shortDescription
