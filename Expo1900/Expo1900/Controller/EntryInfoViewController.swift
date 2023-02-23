@@ -25,16 +25,14 @@ class EntryInfoViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var posterImageView = {
+    private lazy var entryImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: entry.imageName)
         return imageView
     }()
     
-    private lazy var descriptionLabel = {
+    private lazy var entryDescriptionLabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = entry.description
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -42,7 +40,7 @@ class EntryInfoViewController: UIViewController {
     }()
         
     private lazy var mainStackView = {
-        let stackView = UIStackView(arrangedSubviews: [posterImageView, descriptionLabel])
+        let stackView = UIStackView(arrangedSubviews: [entryImageView, entryDescriptionLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -58,7 +56,7 @@ class EntryInfoViewController: UIViewController {
     
     private func configureUI() {
         navigationItem.title = entry.name
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
         
@@ -72,8 +70,6 @@ class EntryInfoViewController: UIViewController {
             mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-
         ])
     }
-    
 }

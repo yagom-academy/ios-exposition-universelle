@@ -20,7 +20,6 @@ final class EntryTableViewController: UITableViewController {
     
     private func decodeEntryInfo() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
@@ -36,23 +35,23 @@ final class EntryTableViewController: UITableViewController {
         return self.entryList.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CustomTableViewCell else { fatalError("Failed to load a CustomTableViewCell from the table.") }
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
+                                                       for: indexPath) as? CustomTableViewCell
+        else { fatalError("Failed to load a CustomTableViewCell from the table.") }
         let entry: Entry = self.entryList[indexPath.row]
         
-        cell.configureEntryList(image: entry.imageName, name: entry.name, shortDescription: entry.shortDescription)
+        cell.configureEntryList(image: entry.imageName,
+                                name: entry.name,
+                                shortDescription: entry.shortDescription)
         return cell
     }
     
+    // MARK: - Table view delegate
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let entry: Entry = self.entryList[indexPath.row]
         let entryInfoViewController = EntryInfoViewController(entry: entryList[indexPath.row])
         navigationController?.pushViewController(entryInfoViewController, animated: true)
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
 }

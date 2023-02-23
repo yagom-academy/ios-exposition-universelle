@@ -2,7 +2,7 @@
 //  CustomTableViewCell.swift
 //  Expo1900
 //
-//  Created by Hyejeong Jeong on 2023/02/23.
+//  Created by 혜모리, Andrew on 2023/02/23.
 //
 
 import UIKit
@@ -57,11 +57,15 @@ final class CustomTableViewCell: UITableViewCell {
             entryImageView.widthAnchor.constraint(equalToConstant: 80),
             entryImageView.heightAnchor.constraint(equalToConstant: 60),
             
-            entryNameLabel.topAnchor.constraint(equalTo: entryImageView.topAnchor, constant: 8),
-            entryNameLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor, constant: 8),
+            entryNameLabel.topAnchor.constraint(equalTo: entryImageView.topAnchor,
+                                                constant: 8),
+            entryNameLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor,
+                                                 constant: 8),
             
-            entryShortDescriptionLabel.topAnchor.constraint(equalTo: entryNameLabel.bottomAnchor, constant: 8),
-            entryShortDescriptionLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor, constant: 8),
+            entryShortDescriptionLabel.topAnchor.constraint(equalTo: entryNameLabel.bottomAnchor,
+                                                            constant: 8),
+            entryShortDescriptionLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor,
+                                                             constant: 8),
             entryShortDescriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
         ])
     }

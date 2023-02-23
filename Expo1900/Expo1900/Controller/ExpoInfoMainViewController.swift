@@ -17,7 +17,6 @@ final class ExpoInfoMainViewController: UIViewController {
     
     private lazy var titleLabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 25)
         label.text = expoAssets?.title
         label.numberOfLines = 0
@@ -28,49 +27,40 @@ final class ExpoInfoMainViewController: UIViewController {
     
     private let posterImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "poster")
         return imageView
     }()
     
     private lazy var numberOfVisitorsLabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyFormatter()) 명"
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
         return label
     }()
     
     private lazy var locationLabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "개최지 : \(self.expoAssets?.location ?? "")"
         return label
     }()
     
     private lazy var durationLabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "개최 기간 : \(self.expoAssets?.duration ?? "")"
         return label
     }()
     
     private lazy var descriptionLabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = self.expoAssets?.description
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
     }()
     
-    private let nextViewButton = {
+    private lazy var nextViewButton = {
         let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.addTarget(self, action: #selector(didTapMoveToEntryTableVC) , for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapMoveToEntryTableVC), for: .touchUpInside)
         return button
     }()
     
@@ -91,15 +81,26 @@ final class ExpoInfoMainViewController: UIViewController {
     }()
     
     private lazy var buttonStackView = {
-        let stackView = UIStackView(arrangedSubviews: [leftFlagImageView, nextViewButton, rightFlagImageView])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        let stackView = UIStackView(arrangedSubviews: [
+            leftFlagImageView,
+            nextViewButton,
+            rightFlagImageView
+        ])
         stackView.axis = .horizontal
         stackView.spacing = 20
         return stackView
     }()
     
     private lazy var mainStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel,posterImageView, numberOfVisitorsLabel, locationLabel, durationLabel, descriptionLabel, buttonStackView])
+        let stackView = UIStackView(arrangedSubviews: [
+            titleLabel,
+            posterImageView,
+            numberOfVisitorsLabel,
+            locationLabel,
+            durationLabel,
+            descriptionLabel,
+            buttonStackView
+        ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -112,6 +113,7 @@ final class ExpoInfoMainViewController: UIViewController {
         super.viewDidLoad()
         decodeExpoInfo()
         configureUI()
+        navigationItem.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,7 +128,8 @@ final class ExpoInfoMainViewController: UIViewController {
     
     private func decodeExpoInfo() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900")
+        else { return }
 
         do {
             self.expoAssets = try jsonDecoder.decode(ExpositionInfo.self, from: dataAsset.data)
@@ -136,8 +139,7 @@ final class ExpoInfoMainViewController: UIViewController {
     }
     
     private func configureUI() {
-        navigationItem.title = "메인"
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
         
@@ -151,7 +153,6 @@ final class ExpoInfoMainViewController: UIViewController {
             mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-
         ])
     }
     
@@ -159,4 +160,3 @@ final class ExpoInfoMainViewController: UIViewController {
         navigationController?.pushViewController(EntryTableViewController(), animated: true)
     }
 }
-
