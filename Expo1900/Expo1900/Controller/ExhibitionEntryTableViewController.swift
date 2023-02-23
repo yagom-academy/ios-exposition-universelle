@@ -51,12 +51,8 @@ extension ExhibitionEntryTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionEntryCell.identifier, for: indexPath) as? ExhibitionEntryCell else {
             return UITableViewCell()
         }
-        
-        let data = exhibitionItems[indexPath.row]
-        
-        cell.exhibitionImage.image = data.image
-        cell.titleLabel.text = data.name
-        cell.contentLabel.text = data.shortDescription
+
+        cell.data = exhibitionItems[indexPath.row]
         
         return cell
     }

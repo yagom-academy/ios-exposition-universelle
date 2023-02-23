@@ -11,6 +11,14 @@ class ExhibitionEntryCell: UITableViewCell {
     
     static let identifier = "ExhibitionEntryCell"
     
+    var data: ExhibitionItem? {
+        didSet {
+            self.exhibitionImage.image = data?.image
+            self.titleLabel.text = data?.name
+            self.contentLabel.text = data?.shortDescription
+        }
+    }
+    
     var exhibitionImage = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
