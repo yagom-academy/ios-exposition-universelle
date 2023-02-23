@@ -70,13 +70,14 @@ class ExhibitItemCell: UITableViewCell {
         stackView.addArrangedSubview(itemImageView)
         stackView.addArrangedSubview(subStackView)
     }
-    
-    func setProperty(imageName: String?, title: String?, subTitle: String?) {
-        let image = UIImage(named: imageName!)
+
+    func setCellByIndexPath(_ indexPath: IndexPath) {
+        guard let item = ExhibitItem.items?[indexPath.row] else { return }
+        let image = UIImage(named: item.imageName)
         
         itemImageView.image = image
-        titleLabel.text = title
-        subTitleLabel.text = subTitle
+        titleLabel.text = item.name
+        subTitleLabel.text = item.shortDescription
     }
     
     func setStackView() {
@@ -84,7 +85,4 @@ class ExhibitItemCell: UITableViewCell {
         stackView.alignment = .fill
         stackView.distribution = .fill
     }
-    
-    
-
 }

@@ -60,18 +60,14 @@ final class ExhibitItemViewController: UIViewController {
 // MARK: - Extension TableView
 extension ExhibitItemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let rowCount = exhibitItems?.count else { return 0 }
+        guard let rowCount = ExhibitItem.items?.count else { return 0 }
         return rowCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ExhibitItemCell = tableView.dequeueReusableCell(withIdentifier: ExhibitItemCell.reuseIdentifier, for: indexPath) as! ExhibitItemCell
         
-        let imageName = exhibitItems?[indexPath.row].imageName
-        let title = exhibitItems?[indexPath.row].name
-        let subTitle = exhibitItems?[indexPath.row].shortDescription
-        
-        cell.setProperty(imageName: imageName, title: title, subTitle: subTitle)
+        cell.setCellByIndexPath(indexPath)
         
         return cell
     }
