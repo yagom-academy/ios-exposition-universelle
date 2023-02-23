@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class KoreaItemsViewController: UIViewController {
+final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
+    static var reuseIdentifier: String = "cell"
 
     @IBOutlet private weak var tableView: UITableView!
     
-    private let cellIdentifier: String = "cell"
     private var expositionItems: [ExpositionUniverselleItem] = []
     
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = expositionItems[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier),
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaItemsViewController.reuseIdentifier),
                 let image = UIImage(named: item.imageName)  else {
             return UITableViewCell()
         }
