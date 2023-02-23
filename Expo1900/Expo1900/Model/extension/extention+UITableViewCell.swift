@@ -18,16 +18,12 @@ extension UITableViewCell {
         var content = self.defaultContentConfiguration()
 
         content.text = item.name
-        content.textProperties.font = UIFont.systemFont(ofSize: 22) // 폰트 사이즈
+        content.textProperties.font = UIFont.systemFont(ofSize: 22)
         content.secondaryText = item.shortDescription
         content.secondaryTextProperties.font = UIFont.systemFont(ofSize: 16)
         content.image = image
-        content.imageProperties.maximumSize = CGSize(width: 80, height: 80)
         
         self.contentConfiguration = content
         self.accessoryType = .disclosureIndicator
     }
-    
-
-    
 }

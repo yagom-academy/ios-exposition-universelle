@@ -2,7 +2,7 @@
 //  extension+UIImage.swift
 //  Expo1900
 //
-//  Created by 김성준 on 2023/02/23.
+//  Created by kokkilE, rilla on 2023/02/23.
 //
 
 import UIKit

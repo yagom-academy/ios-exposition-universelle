@@ -11,6 +11,7 @@
 		08C59A6C29A5CE9600896C0F /* ExhibitItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C59A6B29A5CE9600896C0F /* ExhibitItemViewController.swift */; };
 		08C59A6E29A5EF9500896C0F /* extention+UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C59A6D29A5EF9500896C0F /* extention+UITableViewCell.swift */; };
 		08D8C15729A457D500F05F5F /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8C15629A457D500F05F5F /* Decoder.swift */; };
+		AA37EC3A29A7342B00C78643 /* ItemDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37EC3929A7342B00C78643 /* ItemDescriptionViewController.swift */; };
 		AA4BA5CE29A34AB5007CA1B0 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BA5CD29A34AB5007CA1B0 /* Exposition.swift */; };
 		AA4BA5D029A34B34007CA1B0 /* ExhibitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4BA5CF29A34B34007CA1B0 /* ExhibitItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		08C59A6B29A5CE9600896C0F /* ExhibitItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitItemViewController.swift; sourceTree = "<group>"; };
 		08C59A6D29A5EF9500896C0F /* extention+UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extention+UITableViewCell.swift"; sourceTree = "<group>"; };
 		08D8C15629A457D500F05F5F /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		AA37EC3929A7342B00C78643 /* ItemDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDescriptionViewController.swift; sourceTree = "<group>"; };
 		AA4BA5CD29A34AB5007CA1B0 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		AA4BA5CF29A34B34007CA1B0 /* ExhibitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* PosterViewController.swift */,
 				08C59A6B29A5CE9600896C0F /* ExhibitItemViewController.swift */,
+				AA37EC3929A7342B00C78643 /* ItemDescriptionViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA37EC3A29A7342B00C78643 /* ItemDescriptionViewController.swift in Sources */,
 				AA4BA5D029A34B34007CA1B0 /* ExhibitItem.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* PosterViewController.swift in Sources */,
 				AA4BA5CE29A34AB5007CA1B0 /* Exposition.swift in Sources */,

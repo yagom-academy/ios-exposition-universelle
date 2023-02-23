@@ -67,7 +67,11 @@ extension ExhibitItemViewController: UITableViewDataSource {
 }
 
 extension ExhibitItemViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let itemDescriptionView = ItemDescriptionViewController()
+        
+        self.navigationController?.pushViewController(itemDescriptionView, animated: true)
+    }
 }
 
 
