@@ -35,18 +35,6 @@ final class Decoder {
             return nil
         }
     }
-    
-//    func decodeImage() ->  {
-//        guard let dataAsset: NSDataAsset = NSDataAsset(name: "poster") else { return }
-//        
-//        do {
-//            let image: Image = try decoder.decode(Image.self, from: dataAsset.data)
-//            return image
-//        } catch {
-//            return nil
-//        }
-//    }
-//    
 }
 
 

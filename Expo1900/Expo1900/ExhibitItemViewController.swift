@@ -10,13 +10,7 @@ import UIKit
 final class ExhibitItemViewController: UIViewController {
     
     // MARK: -  Property
-    private var exhibitItems: [ExhibitItem]? = {
-        let decoder = Decoder()
-        return decoder.decodeExhibitItem()
-    }()
-    
     private let tableView = UITableView()
-    
     
     // MARK: - View State Method
     override func viewDidLoad() {
@@ -43,7 +37,7 @@ final class ExhibitItemViewController: UIViewController {
     
     func setTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ExhibitItemCell.self, forCellReuseIdentifier: ExhibitItemCell.reuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
@@ -65,9 +59,9 @@ extension ExhibitItemViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ExhibitItemCell = tableView.dequeueReusableCell(withIdentifier: ExhibitItemCell.reuseIdentifier, for: indexPath) as! ExhibitItemCell
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier, for: indexPath)
         
-        cell.setCellByIndexPath(indexPath)
+        cell.setCellContents(indexPath)
         
         return cell
     }
