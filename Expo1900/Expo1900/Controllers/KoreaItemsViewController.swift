@@ -18,8 +18,14 @@ final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
         super.viewDidLoad()
         
         setupNavigation()
-        setupTableView()
-        loadExpositionItemsData()
+        let result = JSONDecoder().loadJSONData(name: AssetName.items, type: [ExpositionUniverselleItem].self)
+        switch result {
+        case .success(let items):
+            expositionItems = items
+            setupTableView()
+        case .failure(_):
+            showFailAlert()
+        }
     }
     
     private func setupNavigation() {
@@ -30,17 +36,6 @@ final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-    private func loadExpositionItemsData() {
-        let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: AssetName.items) else { return }
-        
-        do {
-            expositionItems = try jsonDecoder.decode([ExpositionUniverselleItem].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
 }
 

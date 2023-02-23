@@ -23,23 +23,18 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "메인"
-        loadExpositionData()
-        setupUI()
+        let result = JSONDecoder().loadJSONData(name: AssetName.exposition, type: ExpositionUniverselle.self)
+        switch result {
+        case .success(let item):
+            expositionData = item
+            setupUI()
+        case .failure(_):
+            showFailAlert()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    private func loadExpositionData() {
-        let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: AssetName.exposition) else { return }
-        
-        do {
-            expositionData = try jsonDecoder.decode(ExpositionUniverselle.self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     private func setupUI() {
