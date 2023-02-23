@@ -55,6 +55,7 @@ final class MainViewController: UIViewController {
     @IBAction func moveToListViewController(_ sender: UIButton) {
         guard let expoListVC = self.storyboard?.instantiateViewController(withIdentifier: "ExpositionListViewController") as? ExpositionListViewController else { return }
         
+        expoListVC.navigationItem.title = "한국의 출품작"
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: ExpositionListViewController.self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(expoListVC , animated: true)

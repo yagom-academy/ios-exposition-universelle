@@ -8,15 +8,24 @@
 import UIKit
 
 class ExpositionListViewController: UIViewController {
-    var expositionList: [ExpositionItem] = []
     
     @IBOutlet weak var listTableView: UITableView!
+    
+    var expositionList: [ExpositionItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "한국의 출품작"
-        
+        getJsonData()
+
+        listTableView.delegate = self
+        listTableView.dataSource = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func getJsonData() {
         let jsonDecoder = JSONDecoder()
-        
         guard let jsonData: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
@@ -24,14 +33,6 @@ class ExpositionListViewController: UIViewController {
         } catch {
             return
         }
-        print(expositionList)
-        listTableView.delegate = self
-        listTableView.dataSource = self
-        
-    
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
     }
 }
 
@@ -39,10 +40,13 @@ extension ExpositionListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         listTableView.deselectRow(at: indexPath, animated: true)
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        
         detailVC.imageString = expositionList[indexPath.row].imageName
         detailVC.fullDescription = expositionList[indexPath.row].description
         detailVC.navigationItem.title = expositionList[indexPath.row].name
+        
         let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: DetailViewController.self, action: nil)
+        
         self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(detailVC , animated: true)
     }
