@@ -80,7 +80,7 @@ final class PosterViewController: UIViewController {
         titleLabel.text = title
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-        titleLabel.font = .systemFont(ofSize: 26)
+        titleLabel.font = .systemFont(ofSize: FontSize.title)
         
         stackView.addArrangedSubview(titleLabel)
     }
@@ -114,7 +114,7 @@ final class PosterViewController: UIViewController {
         
         let subTitleLabel = UILabel()
         subTitleLabel.text = subTitle
-        subTitleLabel.font = .systemFont(ofSize: 22)
+        subTitleLabel.font = .systemFont(ofSize: FontSize.subTitle)
         
         let contentsLabel = UILabel()
         contentsLabel.text = " : " + contents
@@ -143,7 +143,7 @@ final class PosterViewController: UIViewController {
         let text = NSAttributedString(string: "한국의 출품작 보러가기")
         
         button.setAttributedTitle(text, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 16)
+        button.titleLabel?.font = .systemFont(ofSize: FontSize.content)
         button.titleLabel?.textColor = .systemBlue
         button.addTarget(self, action: #selector(changeScene), for: .touchUpInside)
         
