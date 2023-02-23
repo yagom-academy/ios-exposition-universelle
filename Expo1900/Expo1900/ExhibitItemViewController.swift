@@ -40,13 +40,12 @@ final class ExhibitItemViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
     
 }
 
@@ -65,8 +64,6 @@ extension ExhibitItemViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 extension ExhibitItemViewController: UITableViewDelegate {
