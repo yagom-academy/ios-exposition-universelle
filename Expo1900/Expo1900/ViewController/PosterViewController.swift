@@ -20,8 +20,20 @@ final class PosterViewController: UIViewController {
     // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initializeView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    // MARK: - Instance Method
+    private func initializeView() {
+        view.backgroundColor = .white
         self.title = "메인"
-   
+        
         setScrollView()
         setStackView()
         setTitleLabel()
@@ -31,12 +43,6 @@ final class PosterViewController: UIViewController {
         setChangeSceneButton()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    // MARK: - Instance Method
     private func setScrollView() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false

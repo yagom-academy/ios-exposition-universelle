@@ -62,6 +62,35 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
+		088F73F429A752BD0046128D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		088F73F529A752CF0046128D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* PosterViewController.swift */,
+				08C59A6B29A5CE9600896C0F /* ExhibitItemViewController.swift */,
+				AA37EC3929A7342B00C78643 /* ItemDescriptionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		088F73F629A753800046128D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4C22589F404005FB0FD /* Info.plist */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		AA4BA5CA29A349E8007CA1B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,16 +122,11 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				AA4BA5CA29A349E8007CA1B0 /* Model */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* PosterViewController.swift */,
-				08C59A6B29A5CE9600896C0F /* ExhibitItemViewController.swift */,
-				AA37EC3929A7342B00C78643 /* ItemDescriptionViewController.swift */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
-				C79FF4C22589F404005FB0FD /* Info.plist */,
+				088F73F629A753800046128D /* Resource */,
+				088F73F429A752BD0046128D /* Application */,
+				AA4BA5CA29A349E8007CA1B0 /* Model */,
+				088F73F529A752CF0046128D /* ViewController */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -335,7 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,7 +377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

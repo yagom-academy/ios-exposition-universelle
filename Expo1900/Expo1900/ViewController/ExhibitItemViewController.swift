@@ -15,10 +15,8 @@ final class ExhibitItemViewController: UIViewController {
     // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        
         initializeView()
-        setTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,9 +27,14 @@ final class ExhibitItemViewController: UIViewController {
     
     // MARK: - Instance Method
     private func initializeView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         view.backgroundColor = .white
         self.title = "한국의 출품작"
         view.addSubview(tableView)
+        
+        setTableView()
     }
     
     func setTableView() {

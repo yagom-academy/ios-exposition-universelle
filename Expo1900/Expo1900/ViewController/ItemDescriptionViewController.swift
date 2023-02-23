@@ -28,17 +28,19 @@ class ItemDescriptionViewController: UIViewController {
     // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initializeView()
-        setScrollView()
-        setStackView()
-        setImageView()
-        setDescriptionLabel()
     }
     
     // MARK: - Instance Method
     private func initializeView() {
         view.backgroundColor = .white
         self.title = item?.name
+        
+        setScrollView()
+        setStackView()
+        setImageView()
+        setDescriptionLabel()
     }
     
     private func setScrollView() {
