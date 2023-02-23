@@ -39,7 +39,7 @@ final class ViewController: UIViewController {
     
     func setUpView() {
         titleLabel.text = exposition.title
-        visitorsLabel.text = exposition.visitors.description
+        visitorsLabel.text = exposition.visitors.setDecimal()
         locationLabel.text = exposition.location
         durationLabel.text = exposition.duration
         descriptionLabel.text = exposition.description
