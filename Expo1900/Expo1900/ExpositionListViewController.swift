@@ -13,6 +13,7 @@ class ExpositionListViewController: UIViewController {
     @IBOutlet weak var listTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "한국의 출품작"
         
         let jsonDecoder = JSONDecoder()
         
@@ -40,6 +41,9 @@ extension ExpositionListViewController: UITableViewDelegate {
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
         detailVC.imageString = expositionList[indexPath.row].imageName
         detailVC.fullDescription = expositionList[indexPath.row].description
+        detailVC.navigationItem.title = expositionList[indexPath.row].name
+        let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: DetailViewController.self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(detailVC , animated: true)
     }
 }
