@@ -12,11 +12,6 @@ final class ItemDetailViewController: UIViewController {
     @IBOutlet weak var expoDescriptionLabel: UILabel!
     @IBOutlet weak var expoImageView: UIImageView!
     
-    private var expoItem: ExpoItem = ExpoItem(name: "",
-                                              imageName: "",
-                                              shortDescription: "",
-                                              description: "")
-    
     var expoItemName: String?
     var expoItemImage: String?
     var expoItemDescription: String?
