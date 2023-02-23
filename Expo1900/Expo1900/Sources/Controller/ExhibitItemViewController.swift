@@ -9,7 +9,19 @@ import UIKit
 
 class ExhibitItemViewController: UIViewController {
     
+    var prepareTitle: String = ""
+    var prepareImage: String = ""
+    var prepareDescription: String = ""
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = prepareTitle
+
+        descriptionLabel.text = prepareDescription
+        imageView.image = UIImage(named: prepareImage)
     }
 }

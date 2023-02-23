@@ -14,9 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backButtonTitle = "메인"
+
         let decoder = JSONDecoder()
         guard let expositionUniverselle = NSDataAsset(name: "exposition_universelle_1900") else { return }
         
@@ -29,11 +30,13 @@ class ViewController: UIViewController {
         descriptionLabel.text = decodedExpositionUniverselle.description
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
     
     @IBAction func itemButtonTapped(_ sender: UIButton) {
         guard let itemVC = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemViewController else { return }
         self.navigationController?.pushViewController(itemVC, animated: true)
     }
-    
-    
 }

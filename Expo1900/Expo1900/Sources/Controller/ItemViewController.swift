@@ -8,21 +8,30 @@
 import UIKit
 
 class ItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var exhibitItems: [ExhibitItem] = []
     
     @IBOutlet var tableView: UITableView!
-    var exhibitItems: [ExhibitItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        let decoder = JSONDecoder()
-        guard let items = NSDataAsset(name: "items") else { return }
-
-        guard let decodedItems = try? decoder.decode([ExhibitItem].self, from: items.data) else { return }
-        exhibitItems = decodedItems
+        
+        exhibitItems = decodeJson()!
         
         self.tableView.reloadData()
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = "한국의 출품작"
+    }
+    
+    func decodeJson() -> [ExhibitItem]? {
+        let decoder = JSONDecoder()
+        guard let items = NSDataAsset(name: "items") else { return nil }
+
+        guard let decodedItems = try? decoder.decode([ExhibitItem].self, from: items.data) else { return nil }
+        
+        return decodedItems
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,8 +58,16 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let exhibitItemVC = self.storyboard?.instantiateViewController(withIdentifier: "exhibitItemViewController") as? ExhibitItemViewController else { return }
-        self.navigationController?.pushViewController(exhibitItemVC, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "itemDetailView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemDetailView" {
+            guard let destination = segue.destination as? ExhibitItemViewController,
+                  let selectedIndex = self.tableView.indexPathForSelectedRow?.row else { return }
+            destination.prepareTitle = exhibitItems[selectedIndex].name
+            destination.prepareImage = exhibitItems[selectedIndex].imageName
+            destination.prepareDescription = exhibitItems[selectedIndex].description
+        }
     }
 }
