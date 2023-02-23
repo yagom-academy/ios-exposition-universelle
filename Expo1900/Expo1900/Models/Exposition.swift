@@ -26,14 +26,4 @@ struct Exposition: Decodable {
     var durationLabelText: String {
         return "개최 기간 : \(duration)"
     }
-    
-    enum CodingKeys: CodingKey {
-        case title
-        case visitors
-        case location
-        case duration
-        case description
-    }
 }
-
-
