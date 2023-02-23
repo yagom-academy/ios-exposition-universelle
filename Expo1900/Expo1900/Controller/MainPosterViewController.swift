@@ -33,7 +33,8 @@ final class MainPosterViewController: UIViewController {
         do {
             mainPoster = try jsonDecoder.decode(MainPoster.self, from: data.data)
         } catch {
-            print(error.localizedDescription)
+            let alert = AlertManager.decodingFailureAlert(error: .decodingError)
+            present(alert, animated: false)
         }
     }
 }

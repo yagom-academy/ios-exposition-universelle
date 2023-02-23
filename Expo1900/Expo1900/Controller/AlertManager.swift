@@ -7,9 +7,16 @@
 
 import UIKit
 
-class AlertManager {
+enum AlertManager {
     
-    func decodingFailureAlert(error: AlertError) {
+    static func decodingFailureAlert(error: AlertError) -> UIAlertController {
+        let alertController = UIAlertController(title: nil,
+                                                message: error.message,
+                                                preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(action)
+        
+        return alertController
     }
-    
 }

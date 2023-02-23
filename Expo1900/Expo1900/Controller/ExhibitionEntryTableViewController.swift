@@ -32,7 +32,8 @@ final class ExhibitionEntryTableViewController: UITableViewController {
         do {
             exhibitionItems = try jsonDecoder.decode([ExhibitionItem].self, from: data.data)
         } catch {
-            print(error.localizedDescription)
+            let alert = AlertManager.decodingFailureAlert(error: .decodingError)
+            present(alert, animated: false)
         }
     }
 }
