@@ -46,7 +46,7 @@ final class ViewController: UIViewController {
     }
     
     func setUpView() {
-        titleLabel.text = exposition.title
+        titleLabel.text = exposition.titleLabelText
         visitorsLabel.text = exposition.visitorLabelText
         locationLabel.text = exposition.locationLabelText
         durationLabel.text = exposition.durationLabelText

@@ -14,6 +14,10 @@ struct Exposition: Decodable {
     let duration: String
     let description: String
     
+    var titleLabelText: String {
+        return title.replacingOccurrences(of: "(", with: "\n(")
+    }
+    
     var visitorLabelText: String {
         return "방문객 : \(visitors.setDecimal()) 명"
     }
