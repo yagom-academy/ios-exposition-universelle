@@ -1,22 +1,32 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - MainViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var mainTitle: UILabel!
-    @IBOutlet weak var visitors: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var openPeriod: UILabel!
+final class MainViewController: UIViewController {
+    @IBOutlet weak var mainTitleLabel: UILabel!
+    @IBOutlet weak var visitorsLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
+    
+    var exposition: MainExposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var exposition: MainExposition?
+        getJsonData()
+        setupLabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func getJsonData() {
         let jsonDecoder = JSONDecoder()
         
         guard let jsonData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
@@ -26,22 +36,20 @@ class ViewController: UIViewController {
         } catch {
             return
         }
-        
+    }
+    
+    private func setupLabel() {
         guard let title = exposition?.title else { return }
         guard let expositionVisitor = exposition?.visitors else { return }
         guard let expositionLocation = exposition?.location else { return }
         guard let expositionPeriod = exposition?.duration else { return }
         guard let expositionText = exposition?.description else { return }
         
-        mainTitle.text = title
-        visitors.text = "방문객 : \(expositionVisitor)"
-        location.text = "개최지 : \(expositionLocation)"
-        openPeriod.text = "개최 기간 : \(expositionPeriod)"
+        mainTitleLabel.text = title
+        visitorsLabel.text = "방문객 : \(expositionVisitor)"
+        locationLabel.text = "개최지 : \(expositionLocation)"
+        durationLabel.text = "개최 기간 : \(expositionPeriod)"
         textLabel.text = expositionText
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
     }
 
     @IBAction func moveToListViewController(_ sender: UIButton) {
@@ -49,7 +57,6 @@ class ViewController: UIViewController {
         
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: ExpositionListViewController.self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
-
         self.navigationController?.pushViewController(expoListVC , animated: true)
     }
 }
