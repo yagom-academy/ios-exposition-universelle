@@ -47,4 +47,10 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return self.view.bounds.height / 6
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let exhibitItemVC = self.storyboard?.instantiateViewController(withIdentifier: "exhibitItemViewController") as? ExhibitItemViewController else { return }
+        self.navigationController?.pushViewController(exhibitItemVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
