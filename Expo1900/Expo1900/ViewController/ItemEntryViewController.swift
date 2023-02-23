@@ -22,12 +22,12 @@ final class ItemEntryViewController: UIViewController, ContentsDataSource {
     
     private func setNavigationBar() {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = NavigationBarTitle.koreanItems
     }
     
     private func decodeItemsData() {
         let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "items") else { return }
+        guard let dataAsset = NSDataAsset(name: AssetName.items) else { return }
         
         do {
             self.items = try jsonDecoder.decode([Item].self, from: dataAsset.data)
@@ -45,7 +45,7 @@ extension ItemEntryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(
-            withIdentifier: "cell", for: indexPath
+            withIdentifier: Identifier.cell, for: indexPath
         )
         
         setContents(of: cell, at: indexPath)
@@ -90,7 +90,7 @@ extension ItemEntryViewController: UITableViewDataSource {
                                   newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
+    
         return newImage
     }
 }
@@ -101,7 +101,7 @@ extension ItemEntryViewController: UITableViewDelegate {
         guard let nextViewController = self
             .storyboard?
             .instantiateViewController(
-                withIdentifier:"descriptionViewController"
+                withIdentifier: Identifier.descriptionViewController
             ) as? DescriptionViewController else { return }
         
         self.selectedItem = items[indexPath.row]

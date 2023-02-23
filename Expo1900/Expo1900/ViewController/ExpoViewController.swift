@@ -8,7 +8,7 @@ import UIKit
 
 final class ExpoViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorLabel: UILabel!
+    @IBOutlet weak var numberOfVisitorLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -19,7 +19,7 @@ final class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "메인"
+        self.navigationItem.title = NavigationBarTitle.main
         decodeExpoData()
         setMainScene()
     }
@@ -30,7 +30,7 @@ final class ExpoViewController: UIViewController {
     
     private func decodeExpoData() {
         let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        guard let dataAsset = NSDataAsset(name: AssetName.expo) else { return }
         
         do {
             self.expoUniverselle = try jsonDecoder.decode(ExpoUniverselle.self, from: dataAsset.data)
@@ -47,21 +47,21 @@ final class ExpoViewController: UIViewController {
     }
     
     private func setImages() {
-        guard let poster = UIImage(named: "poster"),
-              let flag = UIImage(named: "flag") else { return }
+        guard let poster = UIImage(named: AssetName.poster),
+              let flag = UIImage(named: AssetName.flag) else { return }
         
         self.posterImage.image = poster
         self.flags.forEach { $0.image = flag }
     }
     
     private func setLabels(from expoData: ExpoUniverselle) {
-        guard let decimalVisitors = convertToDecimal(from: expoData.visitors) else { return }
+        guard let decimalVisitors = convertToDecimal(from: expoData.numberOfVisitors) else { return }
         
-        visitorLabel.text = "방문객 : \(decimalVisitors) 명"
+        numberOfVisitorLabel.text = "방문객 : \(decimalVisitors) 명"
         locationLabel.text = "개최지 : \(expoData.location)"
         durationLabel.text = "개최 기간 : \(expoData.duration)"
         
-        convertTextSize(of: visitorLabel, range: NSMakeRange(0, 3))
+        convertTextSize(of: numberOfVisitorLabel, range: NSMakeRange(0, 3))
         convertTextSize(of: locationLabel, range: NSMakeRange(0, 3))
         convertTextSize(of: durationLabel, range: NSMakeRange(0, 5))
         
@@ -89,8 +89,10 @@ final class ExpoViewController: UIViewController {
     }
     
     @IBAction func touchUpGoButton(_ sender: UIButton) {
-        guard let itemEntryViewController = self.storyboard?.instantiateViewController(withIdentifier: "ItemEntryViewController") else { return }
-        self.navigationController?.pushViewController(itemEntryViewController, animated: true)
+        guard let nextViewController = self.storyboard?.instantiateViewController(
+            withIdentifier: Identifier.itemEntryViewController
+        ) else { return }
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 
