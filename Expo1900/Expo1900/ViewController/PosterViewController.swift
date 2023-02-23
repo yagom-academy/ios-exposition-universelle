@@ -22,6 +22,7 @@ final class PosterViewController: UIViewController {
         super.viewDidLoad()
         
         initializeView()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

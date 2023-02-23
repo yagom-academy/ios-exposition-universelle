@@ -24,5 +24,3 @@ struct ExhibitItem: Decodable {
         case description = "desc"
     }
 }
-
-
