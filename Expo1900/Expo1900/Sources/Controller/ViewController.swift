@@ -28,4 +28,12 @@ class ViewController: UIViewController {
         durationLabel.text = "개최 기간 : \(decodedExpositionUniverselle.duration)"
         descriptionLabel.text = decodedExpositionUniverselle.description
     }
+    
+    
+    @IBAction func itemButtonTapped(_ sender: UIButton) {
+        guard let itemVC = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemViewController else { return }
+        self.navigationController?.pushViewController(itemVC, animated: true)
+    }
+    
+    
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="USE-vT-dad">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -66,6 +66,9 @@
                                                         <rect key="frame" x="91.666666666666686" y="0.0" width="180" height="42.666666666666664"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <connections>
+                                                            <action selector="itemButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p70-9v-WVY"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="OHa-hT-5HH">
                                                         <rect key="frame" x="284.33333333333331" y="0.0" width="78.666666666666686" height="42.666666666666664"/>
@@ -98,6 +101,7 @@
                             <constraint firstItem="Wvf-sm-yc3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="vLi-Q4-olY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="6vN-m2-OOP"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="1a6-ST-gB3" id="Xa5-U9-XF7"/>
                         <outlet property="durationLabel" destination="FJ5-T8-uhA" id="KIv-ac-Lvr"/>
@@ -108,7 +112,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1057.2519083969464" y="-2.1126760563380285"/>
+        </scene>
+        <!--Item View Controller-->
+        <scene sceneID="059-my-VlR">
+            <objects>
+                <viewController storyboardIdentifier="itemViewController" id="XXz-M8-msU" customClass="ItemViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EfZ-o4-Lj6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="m0J-9a-ard"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="oXu-t0-XFD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="noW-cc-uMk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3263.3587786259541" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hMO-IJ-D5r">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJx-EJ-JIU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="USE-vT-dad" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="HSR-Lw-BQP">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WzM-k5-RZL"/>
+                    </connections>
+                </navigationController>
+            </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bYe-Zf-hsy">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pK6-tx-J3P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jCC-j4-nku" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L2f-vt-vtI">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XXz-M8-msU" kind="relationship" relationship="rootViewController" id="qZT-FJ-tYx"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="2336.6412213740459" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
