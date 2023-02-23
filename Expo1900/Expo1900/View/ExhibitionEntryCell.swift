@@ -67,6 +67,12 @@ class ExhibitionEntryCell: UITableViewCell {
         configureLabels()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.data = nil
+    }
+    
     private func configureStackView() {
         self.contentView.addSubview(stackView)
         
