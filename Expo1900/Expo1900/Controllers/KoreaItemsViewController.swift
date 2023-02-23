@@ -72,13 +72,13 @@ extension KoreaItemsViewController: UITableViewDataSource {
 extension KoreaItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? UITableViewCell {
-            let indexPathRow = self.tableView.indexPath(for: cell)!.row
-            let itemDetailVC = segue.destination as! ItemDetailViewController
-            itemDetailVC.itemData = expositionItems[indexPathRow]
+        
+        if let itemDetailVC = storyboard?.instantiateViewController(identifier: "ItemDetailViewController", creator: { creator in
+            let item = self.expositionItems[indexPath.row]
+            let viewController = ItemDetailViewController(item: item, coder: creator)
+            return viewController
+        }) {
+            self.navigationController?.pushViewController(itemDetailVC, animated: true)
         }
     }
 }

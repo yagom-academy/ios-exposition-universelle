@@ -11,7 +11,7 @@ final class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemImage: UIImageView!
     @IBOutlet private weak var itemDescription: UILabel!
     
-    var itemData: ExpositionUniverselleItem?
+    var item: ExpositionUniverselleItem
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +19,18 @@ final class ItemDetailViewController: UIViewController {
         setupUI()
     }
     
+    init?(item: ExpositionUniverselleItem, coder: NSCoder) {
+        self.item = item
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupUI() {
-        guard let itemData = itemData else { return }
-        
-        self.title = itemData.name
-        itemImage.image = UIImage(named: itemData.imageName)
-        itemDescription.text = itemData.description
+        self.title = item.name
+        itemImage.image = UIImage(named: item.imageName)
+        itemDescription.text = item.description
     }
 }
