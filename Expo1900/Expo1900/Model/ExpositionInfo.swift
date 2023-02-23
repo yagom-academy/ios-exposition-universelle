@@ -7,8 +7,16 @@
 
 struct ExpositionInfo: Decodable {
     let title: String
-    let visitors: Int
+    let numberOfVisitors: Int
     let location: String
     let duration: String
     let description: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case numberOfVisitors = "visitors"
+        case location
+        case duration
+        case description
+    }
 }
