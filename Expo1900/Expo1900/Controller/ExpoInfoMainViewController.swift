@@ -6,8 +6,8 @@
 
 import UIKit
 
-class ExpoInfoMainViewController: UIViewController {
-    var expoAssets: ExpositionInfo?
+final class ExpoInfoMainViewController: UIViewController {
+    private var expoAssets: ExpositionInfo?
     
     private let scrollView = {
         let scrollView = UIScrollView()
@@ -43,27 +43,91 @@ class ExpoInfoMainViewController: UIViewController {
         return label
     }()
     
-    private lazy var stackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, posterImageView, numberOfVisitorsLabel])
+    private lazy var locationLabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "개최지 : \(self.expoAssets?.location ?? "")"
+        return label
+    }()
+    
+    private lazy var durationLabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "개최 기간 : \(self.expoAssets?.duration ?? "")"
+        return label
+    }()
+    
+    private lazy var descriptionLabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = self.expoAssets?.description
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
+    private let nextViewButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.addTarget(self, action: #selector(didTapMoveToEntryTableVC) , for: .touchUpInside)
+        return button
+    }()
+    
+    private let leftFlagImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag")
+        imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        return imageView
+    }()
+    
+    private let rightFlagImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag")
+        imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        return imageView
+    }()
+    
+    private lazy var buttonStackView = {
+        let stackView = UIStackView(arrangedSubviews: [leftFlagImageView, nextViewButton, rightFlagImageView])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 20
+        return stackView
+    }()
+    
+    private lazy var mainStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel,posterImageView, numberOfVisitorsLabel, locationLabel, durationLabel, descriptionLabel, buttonStackView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.spacing = 16
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         decodeExpoInfo()
         configureUI()
     }
     
-    func decodeExpoInfo() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    private func decodeExpoInfo() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        
+
         do {
             self.expoAssets = try jsonDecoder.decode(ExpositionInfo.self, from: dataAsset.data)
         } catch {
@@ -72,8 +136,10 @@ class ExpoInfoMainViewController: UIViewController {
     }
     
     private func configureUI() {
+        navigationItem.title = "메인"
+        view.backgroundColor = .white
         view.addSubview(scrollView)
-        scrollView.addSubview(stackView)
+        scrollView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -81,12 +147,16 @@ class ExpoInfoMainViewController: UIViewController {
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            stackView.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor),
-            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
         ])
+    }
+    
+    @objc private func didTapMoveToEntryTableVC() {
+        navigationController?.pushViewController(EntryTableViewController(), animated: true)
     }
 }
 
