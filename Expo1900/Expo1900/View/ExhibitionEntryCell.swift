@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExhibitionEntryCell: UITableViewCell {
+final class ExhibitionEntryCell: UITableViewCell {
     
     static let identifier = "ExhibitionEntryCell"
     
@@ -19,7 +19,7 @@ class ExhibitionEntryCell: UITableViewCell {
         }
     }
     
-    var exhibitionImage = {
+    private var exhibitionImage = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -27,7 +27,7 @@ class ExhibitionEntryCell: UITableViewCell {
         return imageView
     }()
     
-    var titleLabel = {
+    private var titleLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .title1)
@@ -35,7 +35,7 @@ class ExhibitionEntryCell: UITableViewCell {
         return label
     }()
     
-    var contentLabel = {
+    private var contentLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .body)
