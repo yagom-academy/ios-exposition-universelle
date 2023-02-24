@@ -18,6 +18,7 @@ final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
         super.viewDidLoad()
         
         setupNavigation()
+        registerXib()
         let result = JSONDecoder().loadJSONData(name: AssetName.items, type: [ExpositionUniverselleItem].self)
         switch result {
         case .success(let items):
@@ -26,6 +27,11 @@ final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
         case .failure(_):
             showFailAlert()
         }
+    }
+    
+    private func registerXib() {
+        let nibName = UINib(nibName: "ExpositionTableViewCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: reuseIdentifier)
     }
     
     private func setupNavigation() {
@@ -46,19 +52,13 @@ extension KoreaItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = expositionItems[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier),
-                let image = UIImage(named: item.imageName)  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? ExpositionTableViewCell else {
             return UITableViewCell()
         }
         
-        var content = cell.defaultContentConfiguration()
-        content.image = image.squareImage()
-        content.imageToTextPadding = CGFloat(5)
-        content.text = item.name
-        content.secondaryText = item.shortDescription
-        content.textProperties.font = .preferredFont(forTextStyle: .title1)
-        content.secondaryTextProperties.font = .preferredFont(forTextStyle: .body)
-        cell.contentConfiguration = content
+        cell.itemImageView.image = UIImage(named: item.imageName)
+        cell.itemTitleLabel.text = item.name
+        cell.itemSubtitleLabel.text = item.shortDescription
         
         return cell
     }
@@ -75,5 +75,9 @@ extension KoreaItemsViewController: UITableViewDelegate {
         }) {
             self.navigationController?.pushViewController(itemDetailVC, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
