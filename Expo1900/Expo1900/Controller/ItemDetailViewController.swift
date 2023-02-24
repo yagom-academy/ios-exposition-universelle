@@ -22,11 +22,11 @@ final class ItemDetailViewController: UIViewController {
     }
     
     private func setUpView() {
-        self.title = expoItemName
-        self.expoDescriptionLabel.text = expoItemDescription
-        self.expoDescriptionLabel.numberOfLines = 0
+        title = expoItemName
+        expoDescriptionLabel.text = expoItemDescription
+        expoDescriptionLabel.numberOfLines = 0
         if let expoItemImage = expoItemImage {
-            self.expoImageView.image = UIImage(named: expoItemImage)
+            expoImageView.image = UIImage(named: expoItemImage)
         }
     }
 }
