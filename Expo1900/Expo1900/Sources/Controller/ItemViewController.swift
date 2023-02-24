@@ -17,7 +17,7 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        exhibitItems = decodeJson()!
+        exhibitItems = decodeJson()
         
         self.tableView.reloadData()
         
@@ -25,11 +25,12 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.title = "한국의 출품작"
     }
     
-    func decodeJson() -> [ExhibitItem]? {
+    func decodeJson() -> [ExhibitItem] {
+        let emptyArray: [ExhibitItem] = []
         let decoder = JSONDecoder()
-        guard let items = NSDataAsset(name: "items") else { return nil }
+        guard let items = NSDataAsset(name: "items") else { return emptyArray }
 
-        guard let decodedItems = try? decoder.decode([ExhibitItem].self, from: items.data) else { return nil }
+        guard let decodedItems = try? decoder.decode([ExhibitItem].self, from: items.data) else { return emptyArray }
         
         return decodedItems
     }
