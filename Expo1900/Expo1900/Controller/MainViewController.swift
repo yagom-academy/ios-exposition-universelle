@@ -37,13 +37,15 @@ final class MainViewController: UIViewController {
     }
     
     private func setUpView() {
-        titleLabel.text = decodedExposition.exposition.titleLabelText
-        visitorsLabel.text = decodedExposition.exposition.visitorLabelText
-        locationLabel.text = decodedExposition.exposition.locationLabelText
-        durationLabel.text = decodedExposition.exposition.durationLabelText
+        titleLabel.text = decodedExposition.exposition.title.replacingOccurrences(of: NameSpace.bracket, with: NameSpace.enterBracket)
+        visitorsLabel.text = NameSpace.visitor + decodedExposition.exposition.visitors.convertDecimal() + NameSpace.person
+        locationLabel.text = NameSpace.location + decodedExposition.exposition.location
+        durationLabel.text = NameSpace.duration + decodedExposition.exposition.duration
         descriptionLabel.text = decodedExposition.exposition.description
         descriptionLabel.numberOfLines = 0
         posterImageView.image = UIImage(named: "poster")
         flagImage.forEach { $0.image = UIImage(named: "flag") }
     }
 }
+
+
