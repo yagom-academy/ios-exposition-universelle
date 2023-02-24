@@ -11,7 +11,7 @@ final class ItemEntryViewController: UIViewController, ContentsDataSource {
     private var items: [Item] = []
     var selectedItem: Item?
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         self.tableView.dataSource = self

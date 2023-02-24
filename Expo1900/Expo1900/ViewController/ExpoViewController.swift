@@ -7,14 +7,14 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var numberOfVisitorLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet var flags: [UIImageView]!
-    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var numberOfVisitorLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var posterImage: UIImageView!
+    @IBOutlet private var flags: [UIImageView]!
+    @IBOutlet private weak var goButton: UIButton!
     private var expoUniverselle: ExpoUniverselle?
     
     override func viewDidLoad() {
@@ -88,7 +88,7 @@ final class ExpoViewController: UIViewController {
         label.attributedText = attributedString
     }
     
-    @IBAction func touchUpGoButton(_ sender: UIButton) {
+    @IBAction private func touchUpGoButton(_ sender: UIButton) {
         guard let nextViewController = self.storyboard?.instantiateViewController(
             withIdentifier: Identifier.itemEntryViewController
         ) else { return }

@@ -10,9 +10,9 @@ import UIKit
 final class DescriptionViewController: UIViewController {
     var dataSource: ContentsDataSource?
     
-    @IBOutlet weak var DescriptionScrollView: UIScrollView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet private weak var DescriptionScrollView: UIScrollView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var itemImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
