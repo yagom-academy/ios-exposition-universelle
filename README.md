@@ -89,7 +89,7 @@ Expo1900
 
 ## 6. 트러블 슈팅
 
-### DTO에서 연산프로퍼티 사용
+### 1️⃣ DTO에서 연산프로퍼티 사용
 
 ```swift
 struct MainPoster: Decodable {
@@ -124,13 +124,13 @@ struct ExhibitionItem: Decodable {
 
 <br>
 
-### 중복되는 View 재사용하기
+### 2️⃣ 중복되는 View 재사용하기
 - 첫번째 MainPoster뷰컨트롤러와, Detail뷰컨트롤러는 스크롤뷰를 사용함으로 이 부분이 중복되어 `CustomScrollView`를 만들어 해당 뷰를 재사용하도록 만들었습니다.
 - 테이블뷰에서 사용되는 재사용 셀을 StackView와 Label 들을 사용하여 커스텀 클래스로 만들어 주었습니다.
 
 <br>
 
-### 뷰컨트롤러의 지정 이니셜라이져 정의
+### 3️⃣ 뷰컨트롤러의 지정 이니셜라이져 정의
 ``` swift
 final class DetailViewController: UIViewController {
 
@@ -147,7 +147,7 @@ final class DetailViewController: UIViewController {
 
 <br>
 
-### ScrollView의 components가 Dynamic Type이 되지 않던 문제 해결
+### 4️⃣ ScrollView의 components가 Dynamic Type이 되지 않던 문제 해결
 * ScrollView내의 TextView 혹은 Label이 시스템 폰트 크기를 변화시켰을 때 같이 변화하지 않던 문제가 있었습니다.
 * TextView와 Label의 폰트 모두 .preferredFont()메소드를 통해 폰트를 가지고 있었기 때문에 `adjustsFontForContentSizeCategory`를 통해 디바이스의 폰트 사이즈가 커질 경우 앱의 폰트크기도 같이 변하게끔 만들었습니다.
 
@@ -158,7 +158,7 @@ label.adjustsFontForContentSizeCategory = true
 
 <br>
 
-### 하나의 Label에 서로 다른 FontSize 주기
+### 5️⃣ 하나의 Label에 서로 다른 FontSize 주기
 ```swift
 let fontSize = UIFont.preferredFont(forTextStyle: .title3)
 let attributedText = NSMutableAttributedString(string: text)
