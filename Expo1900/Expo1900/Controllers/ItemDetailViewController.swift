@@ -29,7 +29,7 @@ final class ItemDetailViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.title = item.name
+        self.navigationItem.title = item.name
         itemImage.image = UIImage(named: item.imageName)
         itemDescription.text = item.description
     }

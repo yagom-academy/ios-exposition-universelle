@@ -22,7 +22,7 @@ final class ParisExpositionUniverselleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "메인"
+        self.navigationItem.title = "메인"
         let result = JSONDecoder().loadJSONData(name: AssetName.exposition, type: ExpositionUniverselle.self)
         switch result {
         case .success(let item):
@@ -42,7 +42,7 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         
         expositionTitle.text = expositionData.displayedTitle
         expositionPoster.image = UIImage(named: AssetName.poster)
-        expositionVisitors.attributedText = expositionData.displayedVisitors.attributedString
+        expositionVisitors.attributedText = expositionData.displayedNumberOfVisitor.attributedString
         expositionLocation.attributedText = expositionData.displayedLocation.attributedString
         expositionDuration.attributedText = expositionData.displayedDuration.attributedString
         expositionDescription.text = expositionData.description

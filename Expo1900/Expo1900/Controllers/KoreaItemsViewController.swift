@@ -35,7 +35,7 @@ final class KoreaItemsViewController: UIViewController {
     
     private func setupNavigation() {
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "한국의 출품작"
+        self.navigationItem.title = "한국의 출품작"
     }
     
     private func setupTableView() {
