@@ -74,7 +74,8 @@ extension MainPosterViewController {
         label.font = .preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
         label.numberOfLines = 2
-
+        label.adjustsFontForContentSizeCategory = true
+        
         self.customScrollView.addArrangeSubView(view: label)
     }
     
@@ -102,6 +103,7 @@ extension MainPosterViewController {
         
         attributedText.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: substring))
         label.attributedText = attributedText
+        label.adjustsFontForContentSizeCategory = true
         
         self.customScrollView.addArrangeSubView(view: label)
     }
@@ -114,6 +116,7 @@ extension MainPosterViewController {
         textView.isScrollEnabled = false
         textView.isEditable = false
         textView.isSelectable = false
+        textView.adjustsFontForContentSizeCategory = true
         
         self.customScrollView.addArrangeSubView(view: textView)
     }

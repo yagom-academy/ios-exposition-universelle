@@ -66,6 +66,7 @@ extension DetailViewController {
         textView.isScrollEnabled = false
         textView.isEditable = false
         textView.isSelectable = false
+        textView.adjustsFontForContentSizeCategory = true
         
         self.scrollView.addArrangeSubView(view: textView)
     }
