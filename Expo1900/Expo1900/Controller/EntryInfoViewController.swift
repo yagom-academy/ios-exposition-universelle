@@ -7,8 +7,8 @@
 
 import UIKit
 
-class EntryInfoViewController: UIViewController {
-    var entry: Entry
+final class EntryInfoViewController: UIViewController {
+    let entry: Entry
     
     init(entry: Entry) {
         self.entry = entry
