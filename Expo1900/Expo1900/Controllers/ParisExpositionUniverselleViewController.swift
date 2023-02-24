@@ -23,12 +23,10 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "메인"
-        let result = JSONDecoder().loadJSONData(name: AssetName.exposition, type: ExpositionUniverselle.self)
-        switch result {
-        case .success(let item):
-            expositionData = item
+        do {
+            expositionData = try JSONDecoder().loadJSONData(name: AssetName.exposition, type: ExpositionUniverselle.self)
             setupUI()
-        case .failure(_):
+        } catch {
             showFailAlert()
         }
     }

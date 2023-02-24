@@ -8,17 +8,17 @@
 import UIKit
 
 extension JSONDecoder {
-    func loadJSONData<T>(name: String, type: T.Type) -> Result<T, Error> where T : Decodable {
+    func loadJSONData<T: Decodable>(name: String, type: T.Type) throws -> T {
         guard let dataAsset = NSDataAsset(name: name) else {
-            return .failure(DataAssetError.invalidFileName)
+            throw DataAssetError.invalidFileName
         }
         
         do {
             let data = try self.decode(type, from: dataAsset.data)
             
-            return .success(data)
+            return data
         } catch {
-            return .failure(error)
+            throw error
         }
     }
 }

@@ -18,12 +18,10 @@ final class KoreaItemsViewController: UIViewController {
         
         setupNavigation()
         registerXib()
-        let result = JSONDecoder().loadJSONData(name: AssetName.items, type: [ExpositionUniverselleItem].self)
-        switch result {
-        case .success(let items):
-            expositionItems = items
+        do {
+            expositionItems = try JSONDecoder().loadJSONData(name: AssetName.items, type: [ExpositionUniverselleItem].self)
             setupTableView()
-        case .failure(_):
+        } catch {
             showFailAlert()
         }
     }
