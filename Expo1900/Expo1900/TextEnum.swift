@@ -13,7 +13,7 @@ enum Title {
 }
 //
 enum JsonFile {
-    static let mainExposion = "exposition_universelle_1900"
+    static let mainExposition = "exposition_universelle_1900"
     static let items = "items"
 }
 

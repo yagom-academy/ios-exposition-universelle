@@ -11,7 +11,7 @@ class ExpositionListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
-    var expositionList: [ExpositionItem] = []
+    private var expositionList: [ExpositionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

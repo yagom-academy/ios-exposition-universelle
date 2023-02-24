@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
-    var exposition: MainExposition?
+    private var exposition: MainExposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,11 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    //*
+    
     private func getJsonData() {
         let jsonDecoder = JSONDecoder()
-        //*
-        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.mainExposion) else { return }
+        
+        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.mainExposition) else { return }
         
         do {
             exposition = try jsonDecoder.decode(MainExposition.self, from: jsonData.data)
