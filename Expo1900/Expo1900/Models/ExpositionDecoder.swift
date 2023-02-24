@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ExpositionDecoder {
+struct ExpositionDecoder {
     
     var exposition: Exposition = Exposition(title: "", visitors: 0, location: "", duration: "", description: "")
     
-    func decodeData() {
+    mutating func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
         

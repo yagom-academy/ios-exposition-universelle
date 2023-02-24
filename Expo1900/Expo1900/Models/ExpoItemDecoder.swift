@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ExpoItemDecoder {
+struct ExpoItemDecoder {
     var expoItems: [ExpoItem] = []
     
-    func decodeData() {
+    mutating func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
