@@ -18,15 +18,11 @@ final class MainViewController: UIViewController {
     @IBOutlet private var flagImage: [UIImageView]!
     @IBOutlet weak private var posterImageView: UIImageView!
     
-    private var exposition: Exposition = Exposition(title: "",
-                                                    visitors: 0,
-                                                    location: "",
-                                                    duration: "",
-                                                    description: "")
+    var decodedExposition: ExpositionDecoder = ExpositionDecoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decodeData()
+        decodedExposition.decodeData()
         setUpView()
     }
     
@@ -38,23 +34,12 @@ final class MainViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    private func decodeData() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        
-        do {
-            exposition = try jsonDecoder.decode(Exposition.self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
     private func setUpView() {
-        titleLabel.text = exposition.titleLabelText
-        visitorsLabel.text = exposition.visitorLabelText
-        locationLabel.text = exposition.locationLabelText
-        durationLabel.text = exposition.durationLabelText
-        descriptionLabel.text = exposition.description
+        titleLabel.text = decodedExposition.exposition.titleLabelText
+        visitorsLabel.text = decodedExposition.exposition.visitorLabelText
+        locationLabel.text = decodedExposition.exposition.locationLabelText
+        durationLabel.text = decodedExposition.exposition.durationLabelText
+        descriptionLabel.text = decodedExposition.exposition.description
         descriptionLabel.numberOfLines = 0
         posterImageView.image = UIImage(named: "poster")
         flagImage.forEach { $0.image = UIImage(named: "flag") }

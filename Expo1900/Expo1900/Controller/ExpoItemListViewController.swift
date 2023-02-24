@@ -11,25 +11,14 @@ final class ExpoItemListViewController: UIViewController {
     
     @IBOutlet weak private var listTableView: UITableView!
     
-    var expoItems: [ExpoItem] = []
+    var decodedExpoItem: ExpoItemDecoder = ExpoItemDecoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        listTableView.dataSource = self
-        decodeData()
-        setNavigationBar()
-    }
-    
-    private func decodeData() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
-        
-        do {
-            expoItems = try jsonDecoder.decode([ExpoItem].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        decodedExpoItem.decodeData()
         listTableView.reloadData()
+        listTableView.dataSource = self
+        setNavigationBar()
     }
     
     private func setNavigationBar() {
@@ -54,18 +43,18 @@ final class ExpoItemListViewController: UIViewController {
 
 extension ExpoItemListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expoItems.count
+        return decodedExpoItem.expoItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = listTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         
-        cell.expoTitleLabel.text = expoItems[indexPath.row].name
-        cell.expoShortDescriptionLabel.text = expoItems[indexPath.row].shortDescription
+        cell.expoTitleLabel.text = decodedExpoItem.expoItems[indexPath.row].name
+        cell.expoShortDescriptionLabel.text = decodedExpoItem.expoItems[indexPath.row].shortDescription
         cell.expoShortDescriptionLabel.numberOfLines = 0
-        cell.expoImageView.image = UIImage(named: expoItems[indexPath.row].imageName)
-        cell.expoDescription = expoItems[indexPath.row].description
-        cell.expoImageName = expoItems[indexPath.row].imageName
+        cell.expoImageView.image = UIImage(named: decodedExpoItem.expoItems[indexPath.row].imageName)
+        cell.expoDescription = decodedExpoItem.expoItems[indexPath.row].description
+        cell.expoImageName = decodedExpoItem.expoItems[indexPath.row].imageName
         
         return cell
     }
