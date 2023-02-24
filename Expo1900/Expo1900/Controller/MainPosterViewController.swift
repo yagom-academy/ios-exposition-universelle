@@ -62,6 +62,7 @@ extension MainPosterViewController {
             customScrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             customScrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
+        customScrollView.contentInset.top = 100
     }
     
     private func configureTitleLabel() {

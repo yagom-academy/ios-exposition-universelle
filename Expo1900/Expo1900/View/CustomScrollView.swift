@@ -42,11 +42,9 @@ class CustomScrollView: UIScrollView {
         
         NSLayoutConstraint.activate([
             self.stackView.topAnchor.constraint(equalTo: scrollContentGuide.topAnchor),
-            self.stackView.leadingAnchor.constraint(equalTo: scrollContentGuide.leadingAnchor),
-            self.stackView.trailingAnchor.constraint(equalTo: scrollContentGuide.trailingAnchor),
+            self.stackView.leadingAnchor.constraint(equalTo: scrollFrameGuide.leadingAnchor),
+            self.stackView.trailingAnchor.constraint(equalTo: scrollFrameGuide.trailingAnchor),
             self.stackView.bottomAnchor.constraint(equalTo: scrollContentGuide.bottomAnchor),
-            
-            self.stackView.widthAnchor.constraint(equalTo: scrollFrameGuide.widthAnchor)
         ])
         
         self.stackView.layoutMargins = UIEdgeInsets(top: 20, left: 10, bottom: 0, right: 10)
