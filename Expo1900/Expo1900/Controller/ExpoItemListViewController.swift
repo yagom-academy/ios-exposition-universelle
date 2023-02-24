@@ -32,9 +32,9 @@ final class ExpoItemListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController else { return }
-        
-        guard let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
+        guard let nextViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController,
+        let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
+            
         nextViewController.expoItemName = cell.expoTitleLabel.text
         nextViewController.expoItemDescription = cell.expoDescription
         nextViewController.expoItemImage = cell.expoImageName
