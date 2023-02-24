@@ -8,10 +8,19 @@
 import UIKit
 
 final class ListTableViewCell: UITableViewCell {
-    var expoDescription: String = ""
-    var expoImageName: String = ""
+    private(set) var expoDescription: String = ""
+    private(set) var expoImageName: String = ""
     
-    @IBOutlet weak var expoImageView: UIImageView!
-    @IBOutlet weak var expoTitleLabel: UILabel!
-    @IBOutlet weak var expoShortDescriptionLabel: UILabel!
+    @IBOutlet weak private(set) var expoImageView: UIImageView!
+    @IBOutlet weak private(set) var expoTitleLabel: UILabel!
+    @IBOutlet weak private(set) var expoShortDescriptionLabel: UILabel!
+    
+    func configureCellData(expoItem: ExpoItem) {
+        expoTitleLabel.text = expoItem.name
+        expoShortDescriptionLabel.text = expoItem.shortDescription
+        expoShortDescriptionLabel.numberOfLines = 0
+        expoImageView.image = UIImage(named: expoItem.imageName)
+        expoDescription = expoItem.description
+        expoImageName = expoItem.imageName
+    }
 }

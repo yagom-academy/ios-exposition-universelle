@@ -52,13 +52,7 @@ extension ExpoItemListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = listTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
-        
-        cell.expoTitleLabel.text = decodedExpoItem.expoItems[indexPath.row].name
-        cell.expoShortDescriptionLabel.text = decodedExpoItem.expoItems[indexPath.row].shortDescription
-        cell.expoShortDescriptionLabel.numberOfLines = 0
-        cell.expoImageView.image = UIImage(named: decodedExpoItem.expoItems[indexPath.row].imageName)
-        cell.expoDescription = decodedExpoItem.expoItems[indexPath.row].description
-        cell.expoImageName = decodedExpoItem.expoItems[indexPath.row].imageName
+        cell.configureCellData(expoItem: decodedExpoItem.expoItems[indexPath.row])
         
         return cell
     }
