@@ -9,7 +9,7 @@ import UIKit
 
 final class ExpoItemListViewController: UIViewController {
     
-    @IBOutlet weak var listTableView: UITableView!
+    @IBOutlet weak private var listTableView: UITableView!
     
     var expoItems: [ExpoItem] = []
     

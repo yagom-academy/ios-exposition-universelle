@@ -8,15 +8,15 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var scrollview: UIScrollView!
-    @IBOutlet weak var pushSecondViewButton: UIButton!
-    @IBOutlet var flagImage: [UIImageView]!
-    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var visitorsLabel: UILabel!
+    @IBOutlet weak private var locationLabel: UILabel!
+    @IBOutlet weak private var durationLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var scrollview: UIScrollView!
+    @IBOutlet weak private var pushSecondViewButton: UIButton!
+    @IBOutlet private var flagImage: [UIImageView]!
+    @IBOutlet weak private var posterImageView: UIImageView!
     
     private var exposition: Exposition = Exposition(title: "",
                                                     visitors: 0,

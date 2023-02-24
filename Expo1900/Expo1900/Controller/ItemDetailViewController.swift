@@ -9,8 +9,8 @@ import UIKit
 
 final class ItemDetailViewController: UIViewController {
 
-    @IBOutlet weak var expoDescriptionLabel: UILabel!
-    @IBOutlet weak var expoImageView: UIImageView!
+    @IBOutlet weak private var expoDescriptionLabel: UILabel!
+    @IBOutlet weak private var expoImageView: UIImageView!
     
     var expoItemName: String?
     var expoItemImage: String?
