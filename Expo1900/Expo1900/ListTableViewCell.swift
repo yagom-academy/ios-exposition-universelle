@@ -3,7 +3,7 @@
 
 import UIKit
 
-class ListTableViewCell: UITableViewCell {
+final class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var expositionImage: UIImageView!
     @IBOutlet weak var mainTitle: UILabel!
     @IBOutlet weak var shortDescription: UILabel!

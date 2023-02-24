@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionListViewController: UIViewController {
+final class ExpositionListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     

@@ -7,16 +7,17 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemDescription: UILabel!
     
-    var imageString: String = ""
-    var fullDescription: String = ""
+    var imageString: String?
+    var fullDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let imageString = imageString, let fullDescription = fullDescription else { return }
         itemImage.image = UIImage(named: imageString)
         itemDescription.text = fullDescription
     }
