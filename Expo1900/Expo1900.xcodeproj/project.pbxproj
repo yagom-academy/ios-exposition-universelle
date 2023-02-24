@@ -49,6 +49,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5803D4CB29A85C7000193029 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */,
+				58D5B14329A5D3A000472958 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5803D4CC29A85C8200193029 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				9886AA2029A5A79F00A0547E /* ListTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5803D4CD29A85C8D00193029 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5803D4C929A7303900193029 /* TextEnum.swift */,
+				58129EFA29A3505D00877E6D /* MainExposition.swift */,
+				989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5803D4CE29A85CB500193029 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5803D4CF29A85CCA00193029 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -68,18 +115,11 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
-				58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */,
-				58D5B14329A5D3A000472958 /* DetailViewController.swift */,
-				9886AA2029A5A79F00A0547E /* ListTableViewCell.swift */,
-				5803D4C929A7303900193029 /* TextEnum.swift */,
-				58129EFA29A3505D00877E6D /* MainExposition.swift */,
-				989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				5803D4CE29A85CB500193029 /* App */,
+				5803D4CB29A85C7000193029 /* Controller */,
+				5803D4CC29A85C8200193029 /* View */,
+				5803D4CD29A85C8D00193029 /* Model */,
+				5803D4CF29A85CCA00193029 /* Resources */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
