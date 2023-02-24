@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExhibitItemViewController: UIViewController {
+final class ExhibitItemViewController: UIViewController {
     var prepareTitle: String = ""
     var prepareImage: String = ""
     var prepareDescription: String = ""

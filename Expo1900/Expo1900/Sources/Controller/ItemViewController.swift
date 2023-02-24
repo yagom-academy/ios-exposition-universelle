@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var exhibitItems: [ExhibitItem] = []
+final class ItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    private var exhibitItems: [ExhibitItem] = []
     
     @IBOutlet var tableView: UITableView!
     
@@ -22,7 +22,7 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.title = "한국의 출품작"
     }
     
-    func decodeJson() -> [ExhibitItem] {
+    private func decodeJson() -> [ExhibitItem] {
         let emptyArray: [ExhibitItem] = []
         let decoder = JSONDecoder()
         

@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorNumberLabel: UILabel!
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    func decodeJson() -> ExpositionUniverselle {
+    private func decodeJson() -> ExpositionUniverselle {
         let decoder = JSONDecoder()
         let emptydata: ExpositionUniverselle = .init(title: "", visitorNumber: 0, location: "", duration: "", description: "")
         
