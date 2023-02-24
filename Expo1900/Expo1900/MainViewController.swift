@@ -18,7 +18,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getJsonData()
+        fetchExpositionData()
         setupLabel()
     }
     
@@ -26,7 +26,7 @@ final class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func getJsonData() {
+    private func fetchExpositionData() {
         let jsonDecoder = JSONDecoder()
         
         guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.mainExposition) else { return }

@@ -15,7 +15,7 @@ class ExpositionListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getJsonData()
+        fetchExpositionData()
 
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -24,7 +24,7 @@ class ExpositionListViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    private func getJsonData() {
+    private func fetchExpositionData() {
         let jsonDecoder = JSONDecoder()
         guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.items) else { return }
         
