@@ -34,6 +34,18 @@ class ExpositionListViewController: UIViewController {
             return
         }
     }
+    
+    private func setupListCell(listCell: ListTableViewCell, indexPath: IndexPath) {
+        listCell.mainTitle.text = expositionList[indexPath.row].name
+        listCell.shortDescription.text = expositionList[indexPath.row].shortDescription
+        listCell.expositionImage.image = UIImage(named: expositionList[indexPath.row].imageName)
+    }
+    
+    private func setupDetailViewController(detailViewController: DetailViewController, indexPath: IndexPath) {
+        detailViewController.imageString = expositionList[indexPath.row].imageName
+        detailViewController.fullDescription = expositionList[indexPath.row].description
+        detailViewController.navigationItem.title = expositionList[indexPath.row].name
+    }
 }
 
 extension ExpositionListViewController: UITableViewDelegate {
@@ -41,9 +53,7 @@ extension ExpositionListViewController: UITableViewDelegate {
         listTableView.deselectRow(at: indexPath, animated: true)
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.detailViewController) as? DetailViewController else { return }
         
-        detailVC.imageString = expositionList[indexPath.row].imageName
-        detailVC.fullDescription = expositionList[indexPath.row].description
-        detailVC.navigationItem.title = expositionList[indexPath.row].name
+        setupDetailViewController(detailViewController: detailVC, indexPath: indexPath)
         
         let backBarButtonItem = UIBarButtonItem(title: Title.itemsOfKorea, style: .plain, target: DetailViewController.self, action: nil)
         
@@ -58,13 +68,9 @@ extension ExpositionListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let listCell: ListTableViewCell = tableView.dequeueReusableCell(withIdentifier: Identifier.listTableViewCell, for: indexPath) as! ListTableViewCell
         
-        listCell.mainTitle.text = expositionList[indexPath.row].name
-        listCell.shortDescription.text = expositionList[indexPath.row].shortDescription
-        listCell.expositionImage.image = UIImage(named: expositionList[indexPath.row].imageName)
+        setupListCell(listCell: listCell, indexPath: indexPath)
         return listCell
     }
-    
 }
