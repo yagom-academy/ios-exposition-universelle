@@ -37,9 +37,9 @@ final class ExpositionListViewController: UIViewController {
     }
     
     private func setupListCell(listCell: ListTableViewCell, indexPath: IndexPath) {
-        listCell.mainTitle.text = expositionList[indexPath.row].name
-        listCell.shortDescription.text = expositionList[indexPath.row].shortDescription
-        listCell.expositionImage.image = UIImage(named: expositionList[indexPath.row].imageName)
+        listCell.mainTitleLabel.text = expositionList[indexPath.row].name
+        listCell.shortDescriptionLabel.text = expositionList[indexPath.row].shortDescription
+        listCell.expositionImageView.image = UIImage(named: expositionList[indexPath.row].imageName)
     }
     
     private func setupDetailViewController(detailViewController: DetailViewController, indexPath: IndexPath) {

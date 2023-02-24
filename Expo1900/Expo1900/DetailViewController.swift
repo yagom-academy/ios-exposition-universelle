@@ -8,8 +8,8 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemDescription: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemDescriptionLabel: UILabel!
     
     var imageString: String?
     var fullDescription: String?
@@ -18,8 +18,8 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         guard let imageString = imageString, let fullDescription = fullDescription else { return }
-        itemImage.image = UIImage(named: imageString)
-        itemDescription.text = fullDescription
+        itemImageView.image = UIImage(named: imageString)
+        itemDescriptionLabel.text = fullDescription
     }
     
     override func viewWillAppear(_ animated: Bool) {

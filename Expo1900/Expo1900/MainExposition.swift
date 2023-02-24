@@ -9,14 +9,14 @@ import Foundation
 
 struct MainExposition: Decodable {
     let title: String
-    let visitors: Int
+    let visitor: Int
     let location: String
     let duration: String
     let description: String
     
     private enum CodingKeys: String, CodingKey {
         case title
-        case visitors
+        case visitor = "visitors"
         case location
         case duration
         case description

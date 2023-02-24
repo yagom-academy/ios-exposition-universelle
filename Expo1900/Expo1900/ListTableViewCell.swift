@@ -4,9 +4,9 @@
 import UIKit
 
 final class ListTableViewCell: UITableViewCell {
-    @IBOutlet weak var expositionImage: UIImageView!
-    @IBOutlet weak var mainTitle: UILabel!
-    @IBOutlet weak var shortDescription: UILabel!
+    @IBOutlet weak var expositionImageView: UIImageView!
+    @IBOutlet weak var mainTitleLabel: UILabel!
+    @IBOutlet weak var shortDescriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
