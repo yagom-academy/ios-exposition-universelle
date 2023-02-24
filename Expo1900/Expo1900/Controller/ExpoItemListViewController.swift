@@ -32,10 +32,10 @@ final class ExpoItemListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController,
+        guard let itemDetailViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController,
               let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
         
-        setUpView(viewController: nextViewController, of: cell)
+        setUpView(viewController: itemDetailViewController, of: cell)
     }
     
     private func setUpView(viewController: ItemDetailViewController, of cell: ListTableViewCell) {
