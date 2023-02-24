@@ -55,7 +55,7 @@ extension ItemEntryViewController: UITableViewDataSource {
     
     private func setContents(of cell: UITableViewCell, at indexPath: IndexPath) {
         guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
-        let resizedItemImage = resizeImage(image: itemImage, length: 70)
+        let resizedItemImage = resize(itemImage, length: 70)
         var customConfiguration = cell.defaultContentConfiguration()
         
         customConfiguration.text = items[indexPath.row].name
@@ -72,7 +72,7 @@ extension ItemEntryViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
     }
     
-    private func resizeImage(image: UIImage, length: CGFloat) -> UIImage? {
+    private func resize(_ image: UIImage, length: CGFloat) -> UIImage? {
         let longSide = max(image.size.width, image.size.height)
         let scale = length / longSide
         var newHeight: CGFloat
