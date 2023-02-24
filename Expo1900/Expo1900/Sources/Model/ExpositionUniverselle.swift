@@ -8,11 +8,11 @@
 import Foundation
 
 struct ExpositionUniverselle: Decodable {
-    var title: String
-    var visitorNumber: Int
-    var location: String
-    var duration: String
-    var description: String
+    let title: String
+    let visitorNumber: Int
+    let location: String
+    let duration: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
         case title

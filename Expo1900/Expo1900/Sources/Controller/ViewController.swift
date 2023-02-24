@@ -17,17 +17,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backButtonTitle = "메인"
-
-        let decoder = JSONDecoder()
-        guard let expositionUniverselle = NSDataAsset(name: "exposition_universelle_1900") else { return }
         
-        guard let decodedExpositionUniverselle = try? decoder.decode(ExpositionUniverselle.self, from: expositionUniverselle.data) else { return }
+        let expositionUniverselle = decodeJson()
         
-        titleLabel.text = decodedExpositionUniverselle.title
-        visitorNumberLabel.text = "방문객 : \(decodedExpositionUniverselle.visitorNumber) 명"
-        locationLabel.text = "개최지 : \(decodedExpositionUniverselle.location)"
-        durationLabel.text = "개최 기간 : \(decodedExpositionUniverselle.duration)"
-        descriptionLabel.text = decodedExpositionUniverselle.description
+        titleLabel.text = expositionUniverselle.title
+        visitorNumberLabel.text = "방문객 : \(expositionUniverselle.visitorNumber) 명"
+        locationLabel.text = "개최지 : \(expositionUniverselle.location)"
+        durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
+        descriptionLabel.text = expositionUniverselle.description
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,8 +32,20 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    func decodeJson() -> ExpositionUniverselle {
+        let decoder = JSONDecoder()
+        let emptydata: ExpositionUniverselle = .init(title: "", visitorNumber: 0, location: "", duration: "", description: "")
+        
+        guard let expositionUniverselle = NSDataAsset(name: "exposition_universelle_1900") else { return emptydata }
+        
+        guard let decodedExpositionUniverselle = try? decoder.decode(ExpositionUniverselle.self, from: expositionUniverselle.data) else { return emptydata }
+        
+        return decodedExpositionUniverselle
+    }
+    
     @IBAction func itemButtonTapped(_ sender: UIButton) {
         guard let itemVC = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemViewController else { return }
+        
         self.navigationController?.pushViewController(itemVC, animated: true)
     }
 }

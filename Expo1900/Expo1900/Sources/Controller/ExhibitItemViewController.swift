@@ -8,7 +8,6 @@
 import UIKit
 
 class ExhibitItemViewController: UIViewController {
-    
     var prepareTitle: String = ""
     var prepareImage: String = ""
     var prepareDescription: String = ""
@@ -18,9 +17,7 @@ class ExhibitItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.title = prepareTitle
-
         descriptionLabel.text = prepareDescription
         imageView.image = UIImage(named: prepareImage)
     }
