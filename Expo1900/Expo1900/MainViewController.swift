@@ -25,10 +25,10 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
+    //*
     private func getJsonData() {
         let jsonDecoder = JSONDecoder()
-        
+        //*
         guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.mainExposion) else { return }
         
         do {
@@ -39,17 +39,13 @@ final class MainViewController: UIViewController {
     }
     
     private func setupLabel() {
-        guard let title = exposition?.title else { return }
-        guard let expositionVisitor = exposition?.visitors else { return }
-        guard let expositionLocation = exposition?.location else { return }
-        guard let expositionPeriod = exposition?.duration else { return }
-        guard let expositionText = exposition?.description else { return }
+        guard let exposition = exposition else { return }
         
-        mainTitleLabel.text = title
-        visitorsLabel.text = "방문객 : \(expositionVisitor)"
-        locationLabel.text = "개최지 : \(expositionLocation)"
-        durationLabel.text = "개최 기간 : \(expositionPeriod)"
-        textLabel.text = expositionText
+        mainTitleLabel.text = exposition.title
+        visitorsLabel.text = "방문객 : \(exposition.visitors)"
+        locationLabel.text = "개최지 : \(exposition.location)"
+        durationLabel.text = "개최 기간 : \(exposition.location)"
+        textLabel.text = exposition.description
     }
 
     @IBAction func moveToListViewController(_ sender: UIButton) {
