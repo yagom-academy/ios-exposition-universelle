@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
-    var reuseIdentifier: String = "cell"
+final class KoreaItemsViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -31,7 +30,7 @@ final class KoreaItemsViewController: UIViewController, ReuseIdentifying {
     
     private func registerXib() {
         let nibName = UINib(nibName: "ExpositionTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: reuseIdentifier)
+        tableView.register(nibName, forCellReuseIdentifier: ExpositionTableViewCell.reuseIdentifier)
     }
     
     private func setupNavigation() {
@@ -52,7 +51,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = expositionItems[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as? ExpositionTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpositionTableViewCell.reuseIdentifier) as? ExpositionTableViewCell else {
             return UITableViewCell()
         }
         
