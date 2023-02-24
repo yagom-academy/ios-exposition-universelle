@@ -45,7 +45,7 @@ final class ExpoItemListViewController: UIViewController {
     }
 }
 
-extension ExpoItemListViewController: UITableViewDataSource, UITableViewDelegate {
+extension ExpoItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return decodedExpoItem.expoItems.count
     }

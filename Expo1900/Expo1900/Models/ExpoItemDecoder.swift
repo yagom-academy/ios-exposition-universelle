@@ -8,7 +8,7 @@
 import UIKit
 
 struct ExpoItemDecoder {
-    var expoItems: [ExpoItem] = []
+    private(set) var expoItems: [ExpoItem] = []
     
     mutating func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()

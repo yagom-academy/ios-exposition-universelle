@@ -9,7 +9,7 @@ import UIKit
 
 struct ExpositionDecoder {
     
-    var exposition: Exposition = Exposition(title: "", visitors: 0, location: "", duration: "", description: "")
+    private(set) var exposition: Exposition = Exposition(title: "", visitors: 0, location: "", duration: "", description: "")
     
     mutating func decodeData() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
