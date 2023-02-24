@@ -1,7 +1,7 @@
 //
 //  Expo1900 - AppDelegate.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
+//  Created by goat, vetto. 
+//  Copyright © goat, vetto. All rights reserved.
 // 
 
 import UIKit

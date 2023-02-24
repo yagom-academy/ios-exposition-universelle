@@ -1,7 +1,7 @@
 //
 //  Expo1900 - MainViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
+//  Created by goat, vetto. 
+//  Copyright © goat, vetto. All rights reserved.
 // 
 
 import UIKit
@@ -23,6 +23,7 @@ final class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
     
