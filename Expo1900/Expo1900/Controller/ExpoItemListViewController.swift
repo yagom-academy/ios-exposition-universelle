@@ -17,13 +17,7 @@ final class ExpoItemListViewController: UIViewController {
         super.viewDidLoad()
         listTableView.dataSource = self
         decodeData()
-        navigationController?
-            .navigationBar
-            .topItem?
-            .backBarButtonItem = UIBarButtonItem(title: "메인",
-                                                 style: .plain,
-                                                 target: self,
-                                                 action: nil)
+        setNavigationBar()
     }
     
     private func decodeData() {
@@ -36,6 +30,16 @@ final class ExpoItemListViewController: UIViewController {
             print(error.localizedDescription)
         }
         listTableView.reloadData()
+    }
+    
+    private func setNavigationBar() {
+        navigationController?
+            .navigationBar
+            .topItem?
+            .backBarButtonItem = UIBarButtonItem(title: "메인",
+                                                 style: .plain,
+                                                 target: self,
+                                                 action: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
