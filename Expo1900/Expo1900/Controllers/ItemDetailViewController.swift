@@ -11,7 +11,7 @@ final class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var itemImage: UIImageView!
     @IBOutlet private weak var itemDescription: UILabel!
     
-    let item: ExpositionUniverselleItem
+    private let item: ExpositionUniverselleItem
 
     override func viewDidLoad() {
         super.viewDidLoad()
