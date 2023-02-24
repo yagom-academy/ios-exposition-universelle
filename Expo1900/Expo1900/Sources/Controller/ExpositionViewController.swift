@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
-//  Created by Christy, Rhode. 
+//  Expo1900 - ExpositionViewController.swift
+//  Created by Christy, Rhode.
 //  Copyright © yagom academy. All rights reserved.
-// 
+//
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class ExpositionViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorNumberLabel: UILabel!

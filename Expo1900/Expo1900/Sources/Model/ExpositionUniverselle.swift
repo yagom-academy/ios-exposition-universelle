@@ -1,8 +1,7 @@
 //
-//  ExpositionUniverselle.swift
-//  Expo1900
-//
-//  Created by Christy, Rhode on 2023/02/20.
+//  Expo1900 - ExpositionUniverselle.swift
+//  Created by Christy, Rhode.
+//  Copyright © yagom academy. All rights reserved.
 //
 
 import Foundation

@@ -1,8 +1,7 @@
 //
-//  ExhibitItemViewController.swift
-//  Expo1900
-//
-//  Created by Rhode, Christy Lee on 2023/02/23.
+//  Expo1900 - ExhibitItemViewController.swift
+//  Created by Christy, Rhode.
+//  Copyright © yagom academy. All rights reserved.
 //
 
 import UIKit

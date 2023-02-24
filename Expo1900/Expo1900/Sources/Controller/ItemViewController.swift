@@ -1,8 +1,7 @@
 //
-//  ItemViewController.swift
-//  Expo1900
-//
-//  Created by Rhode, Christy on 2023/02/23.
+//  Expo1900 - ItemViewController.swift
+//  Created by Christy, Rhode.
+//  Copyright © yagom academy. All rights reserved.
 //
 
 import UIKit
