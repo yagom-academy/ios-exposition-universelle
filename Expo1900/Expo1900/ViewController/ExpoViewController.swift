@@ -35,14 +35,9 @@ final class ExpoViewController: UIViewController {
     }
     
     private func decodeExpoData() {
-        let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: AssetName.expo) else { return }
-        
-        do {
-            self.expoUniverselle = try jsonDecoder.decode(ExpoUniverselle.self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        self.expoUniverselle = DecodeManager.decodeData(
+            of: AssetName.expo, type: ExpoUniverselle.self
+        ) ?? nil
     }
     
     private func setMainScene() {
@@ -61,7 +56,9 @@ final class ExpoViewController: UIViewController {
     }
     
     private func setLabels(from expoData: ExpoUniverselle) {
-        guard let decimalVisitors = convertToDecimal(from: expoData.numberOfVisitors) else { return }
+        guard let decimalVisitors = convertToDecimal(
+            from: expoData.numberOfVisitors
+        ) else { return }
         
         numberOfVisitorLabel.text = "방문객 : \(decimalVisitors) 명"
         locationLabel.text = "개최지 : \(expoData.location)"

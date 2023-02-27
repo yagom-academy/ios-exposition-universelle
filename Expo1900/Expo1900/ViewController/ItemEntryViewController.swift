@@ -26,15 +26,9 @@ final class ItemEntryViewController: UIViewController {
     }
     
     private func decodeItemsData() {
-        let jsonDecoder = JSONDecoder()
         let assetName = "items"
-        guard let dataAsset = NSDataAsset(name: assetName) else { return }
         
-        do {
-            self.items = try jsonDecoder.decode([Item].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        self.items = DecodeManager.decodeData(of: assetName, type: [Item].self) ?? []
     }
     
     private enum Identifier {
@@ -79,17 +73,15 @@ extension ItemEntryViewController: UITableViewDataSource {
 // MARK: Delegate
 extension ItemEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextViewController = self
-            .storyboard?
-            .instantiateViewController(
-                identifier: Identifier.descriptionViewController,
-                creator: { creator in
-                    let item = self.items[indexPath.row]
-                    let nextViewController = DescriptionViewController(item: item, coder: creator)
-                    
-                    return nextViewController
-                }
-            ) else { return }
+        guard let nextViewController = self.storyboard?.instantiateViewController(
+            identifier: Identifier.descriptionViewController,
+            creator: { creator in
+                let item = self.items[indexPath.row]
+                let nextViewController = DescriptionViewController(item: item, coder: creator)
+                
+                return nextViewController
+            }
+        ) else { return }
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
         self.tableView.deselectRow(at: indexPath, animated: true)

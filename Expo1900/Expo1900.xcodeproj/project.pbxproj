@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD87E81C29A5AA390021E1C9 /* ItemEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87E81B29A5AA390021E1C9 /* ItemEntryViewController.swift */; };
+		AD8CCCE229ACADDD0007B301 /* DecodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8CCCE129ACADDD0007B301 /* DecodeManager.swift */; };
 		ADC7AE0329A341B1001DD9F4 /* ExpoUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7AE0229A341B1001DD9F4 /* ExpoUniverselle.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		AD87E81B29A5AA390021E1C9 /* ItemEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntryViewController.swift; sourceTree = "<group>"; };
+		AD8CCCE129ACADDD0007B301 /* DecodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeManager.swift; sourceTree = "<group>"; };
 		ADC7AE0229A341B1001DD9F4 /* ExpoUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoUniverselle.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
 				AD87E81B29A5AA390021E1C9 /* ItemEntryViewController.swift */,
 				FB3D956129A5DF60000153CF /* DescriptionViewController.swift */,
+				AD8CCCE129ACADDD0007B301 /* DecodeManager.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				FB3D954029A3403C000153CF /* Item.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				AD8CCCE229ACADDD0007B301 /* DecodeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
