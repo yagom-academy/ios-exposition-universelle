@@ -27,8 +27,8 @@ final class KoreaItemsViewController: UIViewController {
     }
     
     private func registerXib() {
-        let nibName = UINib(nibName: "ExpositionTableViewCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: ExpositionTableViewCell.reuseIdentifier)
+        let nibName = UINib(nibName: ExpositionTableViewCell.identifier, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: ExpositionTableViewCell.identifier)
     }
     
     private func setupNavigation() {
@@ -49,7 +49,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = expositionItems[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpositionTableViewCell.reuseIdentifier) as? ExpositionTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpositionTableViewCell.identifier) as? ExpositionTableViewCell else {
             return UITableViewCell()
         }
         
@@ -65,7 +65,7 @@ extension KoreaItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let itemDetailVC = storyboard?.instantiateViewController(identifier: "ItemDetailViewController", creator: { creator in
+        if let itemDetailVC = storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier, creator: { creator in
             let item = self.expositionItems[indexPath.row]
             let viewController = ItemDetailViewController(item: item, coder: creator)
             return viewController

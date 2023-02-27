@@ -13,4 +13,3 @@ final class ExpositionTableViewCell: UITableViewCell {
     @IBOutlet weak var itemSubtitleLabel: UILabel!
 }
 
-extension ExpositionTableViewCell: ReuseIdentifying { }

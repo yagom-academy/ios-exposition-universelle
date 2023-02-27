@@ -4,13 +4,18 @@
 //
 //  Created by kaki, brody on 2023/02/23.
 //
+import UIKit
 
-protocol ReuseIdentifying {
-    static var reuseIdentifier: String { get }
+protocol Identifying {
+    static var identifier: String { get }
 }
 
-extension ReuseIdentifying {
-    static var reuseIdentifier: String {
+extension Identifying {
+    static var identifier: String {
         return String(describing: self)
     }
 }
+
+extension UITableViewCell: Identifying { }
+
+extension UIViewController: Identifying { }
