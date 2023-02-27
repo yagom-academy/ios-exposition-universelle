@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		712220B029A73BDA002090EB /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712220AF29A73BDA002090EB /* EntryTableViewController.swift */; };
+		713BD72829AC9662002BFDD6 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713BD72729AC9662002BFDD6 /* UILabel+extension.swift */; };
 		71BE244B29A7509E0055E05C /* EntryInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE244A29A7509E0055E05C /* EntryInfoViewController.swift */; };
 		71E69DD529A34A1E0013507E /* ExpositionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E69DD429A34A1E0013507E /* ExpositionInfo.swift */; };
 		BF3B4D3F29A34BD2002B4973 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3B4D3E29A34BD2002B4973 /* Entry.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		712220AF29A73BDA002090EB /* EntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
+		713BD72729AC9662002BFDD6 /* UILabel+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 		71BE244A29A7509E0055E05C /* EntryInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryInfoViewController.swift; sourceTree = "<group>"; };
 		71E69DD429A34A1E0013507E /* ExpositionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInfo.swift; sourceTree = "<group>"; };
 		BF3B4D3E29A34BD2002B4973 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				71E69DD429A34A1E0013507E /* ExpositionInfo.swift */,
 				BF3B4D3E29A34BD2002B4973 /* Entry.swift */,
 				BFAE46BA29A7297A00FB3118 /* String+extension.swift */,
+				713BD72729AC9662002BFDD6 /* UILabel+extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713BD72829AC9662002BFDD6 /* UILabel+extension.swift in Sources */,
 				BF3B4D3F29A34BD2002B4973 /* Entry.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoInfoMainViewController.swift in Sources */,
 				BFAE46BD29A7443600FB3118 /* CustomTableViewCell.swift in Sources */,

@@ -126,8 +126,11 @@ final class ExpoInfoMainViewController: UIViewController {
         navigationItem.title = "메인"
         titleLabel.text = expoAssets?.title
         numberOfVisitorsLabel.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyNumberFormatter()) 명"
+        numberOfVisitorsLabel.applyFont(targetString: "방문객")
         locationLabel.text = "개최지 : \(self.expoAssets?.location ?? "")"
+        locationLabel.applyFont(targetString: "개최지")
         durationLabel.text = "개최 기간 : \(self.expoAssets?.duration ?? "")"
+        durationLabel.applyFont(targetString: "개최 기간")
         descriptionLabel.text = self.expoAssets?.description
         nextViewButton.addTarget(self, action: #selector(didTapMoveToEntryTableVC), for: .touchUpInside)
     }
