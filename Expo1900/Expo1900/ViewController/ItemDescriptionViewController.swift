@@ -17,8 +17,8 @@ class ItemDescriptionViewController: UIViewController {
     
     
     // MARK: - Init Method
-    init(_ indexPath: IndexPath) {
-        item = ExhibitItem.items?[indexPath.row]
+    init(_ exhibitItem: ExhibitItem?) {
+        item = exhibitItem
         
         super.init(nibName: nil, bundle: nil)
     }

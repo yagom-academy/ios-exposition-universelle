@@ -48,6 +48,7 @@ final class ExhibitItemViewController: UIViewController {
 extension ExhibitItemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let rowCount = ExhibitItem.items?.count else { return 0 }
+        
         return rowCount
     }
     
@@ -63,7 +64,9 @@ extension ExhibitItemViewController: UITableViewDataSource {
 extension ExhibitItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let itemDescriptionView = ItemDescriptionViewController(indexPath)
+        
+        let exhibitItem = ExhibitItem.items?[indexPath.row]
+        let itemDescriptionView = ItemDescriptionViewController(exhibitItem)
         
         self.navigationController?.pushViewController(itemDescriptionView, animated: true)
     }
