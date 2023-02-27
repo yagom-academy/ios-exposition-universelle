@@ -33,7 +33,8 @@ final class CustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureUI()
+        configureLayout()
+        self.accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -46,11 +47,10 @@ final class CustomTableViewCell: UITableViewCell {
         self.entryShortDescriptionLabel.text = shortDescription
     }
     
-    private func configureUI() {
+    private func configureLayout() {
         addSubview(entryImageView)
         addSubview(entryNameLabel)
         addSubview(entryShortDescriptionLabel)
-        self.accessoryType = .disclosureIndicator
         
         NSLayoutConstraint.activate([
             entryImageView.topAnchor.constraint(equalTo: self.topAnchor),

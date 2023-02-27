@@ -125,7 +125,7 @@ final class ExpoInfoMainViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "메인"
         titleLabel.text = expoAssets?.title
-        numberOfVisitorsLabel.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyFormatter()) 명"
+        numberOfVisitorsLabel.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyNumberFormatter()) 명"
         locationLabel.text = "개최지 : \(self.expoAssets?.location ?? "")"
         durationLabel.text = "개최 기간 : \(self.expoAssets?.duration ?? "")"
         descriptionLabel.text = self.expoAssets?.description

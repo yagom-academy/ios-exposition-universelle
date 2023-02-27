@@ -15,7 +15,7 @@ extension String {
         return numberFormatter
     }
     
-    func applyFormatter() -> String {
+    func applyNumberFormatter() -> String {
         guard let value = numberFormatter.string(for: Int(self)) else {
             return "0"
         }
