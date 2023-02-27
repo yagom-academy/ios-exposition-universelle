@@ -16,9 +16,13 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         exhibitItems = decodeJson()
-        tableView.reloadData()
-        navigationController?.isNavigationBarHidden = false
         navigationItem.title = NameSpace.itemViewTitle
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func decodeJson() -> [ExhibitItem] {
@@ -30,10 +34,6 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let decodedItems: [ExhibitItem] = try? decoder.decode([ExhibitItem].self, from: items.data) else { return emptyArray }
         
         return decodedItems
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
