@@ -60,13 +60,13 @@ final class ExpoViewController: UIViewController {
             from: expoData.numberOfVisitors
         ) else { return }
         
-        numberOfVisitorLabel.text = "방문객 : \(decimalVisitors) 명"
-        locationLabel.text = "개최지 : \(expoData.location)"
-        durationLabel.text = "개최 기간 : \(expoData.duration)"
+        self.numberOfVisitorLabel.text = "방문객 : \(decimalVisitors) 명"
+        self.locationLabel.text = "개최지 : \(expoData.location)"
+        self.durationLabel.text = "개최 기간 : \(expoData.duration)"
         
-        convertTextSize(of: numberOfVisitorLabel, range: NSMakeRange(0, 3))
-        convertTextSize(of: locationLabel, range: NSMakeRange(0, 3))
-        convertTextSize(of: durationLabel, range: NSMakeRange(0, 5))
+        convertTextSize(of: self.numberOfVisitorLabel, range: NSMakeRange(0, 3))
+        convertTextSize(of: self.locationLabel, range: NSMakeRange(0, 3))
+        convertTextSize(of: self.durationLabel, range: NSMakeRange(0, 5))
         
         self.titleLabel.text = expoData.title
         self.descriptionLabel.text = expoData.description
