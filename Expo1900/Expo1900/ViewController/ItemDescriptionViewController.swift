@@ -10,9 +10,11 @@ import UIKit
 class ItemDescriptionViewController: UIViewController {
     
     // MARK: - Property
+    private let item: ExhibitItem?
+    
     private let stackView = UIStackView()
     private let scrollView = UIScrollView()
-    private let item: ExhibitItem?
+    
     
     // MARK: - Init Method
     init(_ indexPath: IndexPath) {
