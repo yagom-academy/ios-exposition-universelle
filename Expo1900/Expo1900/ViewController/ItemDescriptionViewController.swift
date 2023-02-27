@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemDescriptionViewController: UIViewController {
+final class ItemDescriptionViewController: UIViewController {
     
     // MARK: - Property
     private let item: ExhibitItem?
