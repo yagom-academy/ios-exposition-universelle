@@ -90,10 +90,7 @@ final class PosterViewController: UIViewController {
               let location = exposition?.location,
               let duration = exposition?.duration else { return }
         
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        guard let formattedVisitor = numberFormatter.string(for: visitors) else { return }
+        guard let formattedVisitor = formatVisitor(visitors) else { return }
         
         let visitorsStackView = makeSubStackView(subTitle: "방문객", contents: formattedVisitor + " 명")
         let locationStackView = makeSubStackView(subTitle: "개최지", contents: location)
@@ -102,6 +99,14 @@ final class PosterViewController: UIViewController {
         stackView.addArrangedSubview(visitorsStackView)
         stackView.addArrangedSubview(locationStackView)
         stackView.addArrangedSubview(durationStackView)
+    }
+    
+    private func formatVisitor(_ visitors: Int) -> String? {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let formattedVisitor = numberFormatter.string(for: visitors)
+        
+        return formattedVisitor
     }
     
     private func makeSubStackView(subTitle: String, contents: String) -> UIStackView {
