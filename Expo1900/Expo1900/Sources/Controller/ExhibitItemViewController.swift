@@ -11,8 +11,8 @@ final class ExhibitItemViewController: UIViewController {
     var prepareImage: String = NameSpace.emptyString
     var prepareDescription: String = NameSpace.emptyString
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

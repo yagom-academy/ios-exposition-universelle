@@ -6,10 +6,10 @@
 
 import UIKit
 
-final class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class ItemsViewController: UIViewController {
     private var exhibitItems: [ExhibitItem] = []
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,19 @@ final class ItemsViewController: UIViewController, UITableViewDelegate, UITableV
         return decodedItems
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemDetailView" {
+            guard let exhibitItemView: ExhibitItemViewController = segue.destination as? ExhibitItemViewController,
+                  let selectedIndex: Int = tableView.indexPathForSelectedRow?.row else { return }
+            
+            exhibitItemView.prepareTitle = exhibitItems[selectedIndex].name
+            exhibitItemView.prepareImage = exhibitItems[selectedIndex].imageName
+            exhibitItemView.prepareDescription = exhibitItems[selectedIndex].description
+        }
+    }
+}
+
+extension ItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exhibitItems.count
     }
@@ -48,7 +61,9 @@ final class ItemsViewController: UIViewController, UITableViewDelegate, UITableV
         
         return cell
     }
-    
+}
+
+extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.bounds.height / 6
     }
@@ -56,16 +71,5 @@ final class ItemsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "itemDetailView", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "itemDetailView" {
-            guard let exhibitItemView: ExhibitItemViewController = segue.destination as? ExhibitItemViewController,
-                  let selectedIndex: Int = tableView.indexPathForSelectedRow?.row else { return }
-            
-            exhibitItemView.prepareTitle = exhibitItems[selectedIndex].name
-            exhibitItemView.prepareImage = exhibitItems[selectedIndex].imageName
-            exhibitItemView.prepareDescription = exhibitItems[selectedIndex].description
-        }
     }
 }
