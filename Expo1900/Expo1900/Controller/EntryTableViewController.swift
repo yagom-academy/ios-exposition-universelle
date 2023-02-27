@@ -9,12 +9,11 @@ import UIKit
 
 final class EntryTableViewController: UITableViewController {
     private var entryList: [Entry] = []
-    private let cellIdentifier: String = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeEntryInfo()
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
         navigationItem.title = "한국의 출품작"
     }
     
@@ -28,16 +27,17 @@ final class EntryTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
     }
-    
-    // MARK: - Table view data source
+}
 
+// MARK: - Table view data source
+extension EntryTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.entryList.count
     }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier,
                                                        for: indexPath) as? CustomTableViewCell
         else { fatalError("Failed to load a CustomTableViewCell from the table.") }
         let entry: Entry = self.entryList[indexPath.row]
@@ -47,9 +47,10 @@ final class EntryTableViewController: UITableViewController {
                                 shortDescription: entry.shortDescription)
         return cell
     }
-    
-    // MARK: - Table view delegate
-    
+}
+
+// MARK: - Table view delegate
+extension EntryTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entryInfoViewController = EntryInfoViewController(entry: entryList[indexPath.row])
         navigationController?.pushViewController(entryInfoViewController, animated: true)

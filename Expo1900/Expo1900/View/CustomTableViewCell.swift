@@ -8,6 +8,8 @@
 import UIKit
 
 final class CustomTableViewCell: UITableViewCell {
+    static let identifier: String = "cell"
+    
     private let entryImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
