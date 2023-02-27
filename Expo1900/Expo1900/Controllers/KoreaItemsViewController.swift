@@ -48,12 +48,12 @@ extension KoreaItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = expositionItems[safe: indexPath.row]
+        let expositionItem = expositionItems[safe: indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpositionTableViewCell.identifier) as? ExpositionTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.configure(imageName: item?.imageName, title: item?.name, subtitle: item?.shortDescription)
+        cell.configure(item: expositionItem)
         
         return cell
     }

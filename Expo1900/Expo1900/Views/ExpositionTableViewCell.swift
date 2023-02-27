@@ -12,12 +12,12 @@ final class ExpositionTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemTitleLabel: UILabel!
     @IBOutlet private weak var itemSubtitleLabel: UILabel!
     
-    func configure(imageName: String?, title: String?, subtitle: String?) {
-        guard let imageName = imageName else { return }
+    func configure(item: ExpositionUniverselleItem?) {
+        guard let item = item else { return }
         
-        itemImageView.image = UIImage(named: imageName)
-        itemTitleLabel.text = title
-        itemSubtitleLabel.text = subtitle
+        itemImageView.image = UIImage(named: item.imageName)
+        itemTitleLabel.text = item.name
+        itemSubtitleLabel.text = item.shortDescription
     }
 }
 
