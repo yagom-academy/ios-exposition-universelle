@@ -17,7 +17,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D00E7AA929A36E2900893E3B /* ExhibitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E7AA829A36E2900893E3B /* ExhibitItem.swift */; };
-		D05EDCB729A719B900C70443 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDCB629A719B900C70443 /* ItemViewController.swift */; };
+		D05EDCB729A719B900C70443 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDCB629A719B900C70443 /* ItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D00E7AA829A36E2900893E3B /* ExhibitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitItem.swift; sourceTree = "<group>"; };
-		D05EDCB629A719B900C70443 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		D05EDCB629A719B900C70443 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
-				D05EDCB629A719B900C70443 /* ItemViewController.swift */,
+				D05EDCB629A719B900C70443 /* ItemsViewController.swift */,
 				7F26CAE429A77B41000FD91E /* ExhibitItemViewController.swift */,
 			);
 			path = Controller;
@@ -198,7 +198,7 @@
 				7F26CAE529A77B41000FD91E /* ExhibitItemViewController.swift in Sources */,
 				7F66A0D429A391D5002A9A6E /* ExpositionUniverselle.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
-				D05EDCB729A719B900C70443 /* ItemViewController.swift in Sources */,
+				D05EDCB729A719B900C70443 /* ItemsViewController.swift in Sources */,
 				7FA6175E29AC913400BC26B2 /* NameSpace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

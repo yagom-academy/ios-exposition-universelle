@@ -39,18 +39,18 @@ final class ExpositionViewController: UIViewController {
     
     private func decodeJson() -> ExpositionUniverselle {
         let decoder: JSONDecoder = JSONDecoder()
-        let emptydata: ExpositionUniverselle = .init(title: NameSpace.emptyString, visitorCount: Int.zero, location: NameSpace.emptyString, duration: NameSpace.emptyString, description: NameSpace.emptyString)
+        let emptyData: ExpositionUniverselle = .init(title: NameSpace.emptyString, visitorCount: Int.zero, location: NameSpace.emptyString, duration: NameSpace.emptyString, description: NameSpace.emptyString)
         
-        guard let expositionUniverselle: NSDataAsset  = NSDataAsset(name: "exposition_universelle_1900") else { return emptydata }
+        guard let expositionUniverselle: NSDataAsset  = NSDataAsset(name: "exposition_universelle_1900") else { return emptyData }
         
-        guard let decodedExpositionUniverselle: ExpositionUniverselle = try? decoder.decode(ExpositionUniverselle.self, from: expositionUniverselle.data) else { return emptydata }
+        guard let decodedExpositionUniverselle: ExpositionUniverselle = try? decoder.decode(ExpositionUniverselle.self, from: expositionUniverselle.data) else { return emptyData }
         
         return decodedExpositionUniverselle
     }
     
-    @IBAction func itemButtonTapped(_ sender: UIButton) {
-        guard let itemVC: ItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemViewController else { return }
+    @IBAction func touchUpInsideItemButton(_ sender: UIButton) {
+        guard let itemsView: ItemsViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemsViewController else { return }
         
-        navigationController?.pushViewController(itemVC, animated: true)
+        navigationController?.pushViewController(itemsView, animated: true)
     }
 }

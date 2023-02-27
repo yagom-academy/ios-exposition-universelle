@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ItemViewController.swift
+//  Expo1900 - ItemsViewController.swift
 //  Created by Christy, Rhode.
 //  Copyright © yagom academy. All rights reserved.
 //
 
 import UIKit
 
-final class ItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class ItemsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var exhibitItems: [ExhibitItem] = []
     
     @IBOutlet var tableView: UITableView!
@@ -17,7 +17,6 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         exhibitItems = decodeJson()
         navigationItem.title = NameSpace.itemViewTitle
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +50,7 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return view.bounds.height / 6
+        return view.bounds.height / 6
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -61,12 +60,12 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemDetailView" {
-            guard let destination: ExhibitItemViewController = segue.destination as? ExhibitItemViewController,
+            guard let exhibitItemView: ExhibitItemViewController = segue.destination as? ExhibitItemViewController,
                   let selectedIndex: Int = tableView.indexPathForSelectedRow?.row else { return }
             
-            destination.prepareTitle = exhibitItems[selectedIndex].name
-            destination.prepareImage = exhibitItems[selectedIndex].imageName
-            destination.prepareDescription = exhibitItems[selectedIndex].description
+            exhibitItemView.prepareTitle = exhibitItems[selectedIndex].name
+            exhibitItemView.prepareImage = exhibitItems[selectedIndex].imageName
+            exhibitItemView.prepareDescription = exhibitItems[selectedIndex].description
         }
     }
 }
