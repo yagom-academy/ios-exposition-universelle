@@ -18,7 +18,7 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
         exhibitItems = decodeJson()
         tableView.reloadData()
         navigationController?.isNavigationBarHidden = false
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = NameSpace.itemViewTitle
     }
     
     private func decodeJson() -> [ExhibitItem] {

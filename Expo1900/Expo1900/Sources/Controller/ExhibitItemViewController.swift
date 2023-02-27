@@ -7,9 +7,9 @@
 import UIKit
 
 final class ExhibitItemViewController: UIViewController {
-    var prepareTitle: String = ""
-    var prepareImage: String = ""
-    var prepareDescription: String = ""
+    var prepareTitle: String = NameSpace.emptyString
+    var prepareImage: String = NameSpace.emptyString
+    var prepareDescription: String = NameSpace.emptyString
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!

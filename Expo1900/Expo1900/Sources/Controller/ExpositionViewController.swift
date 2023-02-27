@@ -9,21 +9,22 @@ import UIKit
 final class ExpositionViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var visitorNumberLabel: UILabel!
+    @IBOutlet weak var visitorCountLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backButtonTitle = "메인"
+        navigationItem.title = NameSpace.homeViewTitle
         
         let expositionUniverselle = decodeJson()
         
         titleLabel.text = expositionUniverselle.title
-        visitorNumberLabel.text = "방문객 : \(expositionUniverselle.visitorNumber) 명"
-        locationLabel.text = "개최지 : \(expositionUniverselle.location)"
-        durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
+        visitorCountLabel.text = NameSpace.leftVisitorCountString
+        + String(expositionUniverselle.visitorCount) + NameSpace.rightVisitorCountString
+        locationLabel.text = NameSpace.leftLocationString + expositionUniverselle.location
+        durationLabel.text = NameSpace.leftDurationString + expositionUniverselle.duration
         descriptionLabel.text = expositionUniverselle.description
     }
     
@@ -34,7 +35,7 @@ final class ExpositionViewController: UIViewController {
     
     private func decodeJson() -> ExpositionUniverselle {
         let decoder: JSONDecoder = JSONDecoder()
-        let emptydata: ExpositionUniverselle = .init(title: "", visitorNumber: 0, location: "", duration: "", description: "")
+        let emptydata: ExpositionUniverselle = .init(title: NameSpace.emptyString, visitorCount: Int.zero, location: NameSpace.emptyString, duration: NameSpace.emptyString, description: NameSpace.emptyString)
         
         guard let expositionUniverselle: NSDataAsset  = NSDataAsset(name: "exposition_universelle_1900") else { return emptydata }
         

@@ -8,14 +8,14 @@ import Foundation
 
 struct ExpositionUniverselle: Decodable {
     let title: String
-    let visitorNumber: Int
+    let visitorCount: Int
     let location: String
     let duration: String
     let description: String
     
     private enum CodingKeys: String, CodingKey {
         case title
-        case visitorNumber = "visitors"
+        case visitorCount = "visitors"
         case location
         case duration
         case description
