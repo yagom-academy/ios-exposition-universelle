@@ -21,19 +21,26 @@ final class ItemEntryViewController: UIViewController, ContentsDataSource {
     }
     
     private func setNavigationBar() {
+        let navigationBarTitle = "한국의 출품작"
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = NavigationBarTitle.koreanItems
+        self.navigationItem.title = navigationBarTitle
     }
     
     private func decodeItemsData() {
         let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: AssetName.items) else { return }
+        let assetName = "items"
+        guard let dataAsset = NSDataAsset(name: assetName) else { return }
         
         do {
             self.items = try jsonDecoder.decode([Item].self, from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private enum Identifier {
+        static let cell = "cell"
+        static let descriptionViewController = "descriptionViewController"
     }
 }
 
@@ -93,7 +100,7 @@ extension ItemEntryViewController: UITableViewDataSource {
                                   newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-    
+        
         return newImage
     }
 }

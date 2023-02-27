@@ -19,7 +19,7 @@ final class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = NavigationBarTitle.main
+        setNavigationBar()
         decodeExpoData()
         setMainScene()
     }
@@ -27,6 +27,11 @@ final class ExpoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func setNavigationBar() {
+        let navigationBarTitle = "메인"
+        self.navigationItem.title = navigationBarTitle
     }
     
     private func decodeExpoData() {
@@ -90,10 +95,17 @@ final class ExpoViewController: UIViewController {
     }
     
     @IBAction private func touchUpGoButton(_ sender: UIButton) {
+        let identifier = "ItemEntryViewController"
         guard let nextViewController = self.storyboard?.instantiateViewController(
-            withIdentifier: Identifier.itemEntryViewController
+            withIdentifier: identifier
         ) else { return }
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    private enum AssetName {
+        static let expo = "exposition_universelle_1900"
+        static let poster = "poster"
+        static let flag = "flag"
     }
 }
 
