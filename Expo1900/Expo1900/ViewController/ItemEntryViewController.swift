@@ -7,9 +7,8 @@
 
 import UIKit
 
-final class ItemEntryViewController: UIViewController, ContentsDataSource {
+final class ItemEntryViewController: UIViewController {
     private var items: [Item] = []
-    var selectedItem: Item?
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -111,14 +110,16 @@ extension ItemEntryViewController: UITableViewDelegate {
         guard let nextViewController = self
             .storyboard?
             .instantiateViewController(
-                withIdentifier: Identifier.descriptionViewController
-            ) as? DescriptionViewController else { return }
-        
-        self.selectedItem = items[indexPath.row]
-        nextViewController.dataSource = self
+                identifier: Identifier.descriptionViewController,
+                creator: { creator in
+                    let item = self.items[indexPath.row]
+                    let nextViewController = DescriptionViewController(item: item, coder: creator)
+                    
+                    return nextViewController
+                }
+            ) else { return }
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
-        nextViewController.navigationItem.title = items[indexPath.row].name
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }

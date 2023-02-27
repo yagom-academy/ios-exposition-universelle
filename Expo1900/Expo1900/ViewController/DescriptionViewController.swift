@@ -8,7 +8,7 @@
 import UIKit
 
 final class DescriptionViewController: UIViewController {
-    var dataSource: ContentsDataSource?
+    private var item: Item
     
     @IBOutlet private weak var DescriptionScrollView: UIScrollView!
     @IBOutlet private weak var descriptionLabel: UILabel!
@@ -18,20 +18,28 @@ final class DescriptionViewController: UIViewController {
         super.viewDidLoad()
         setImageView()
         setLabel()
+        setNavigationBar()
+    }
+    
+    private func setNavigationBar() {
+        self.navigationItem.title = item.name
     }
     
     private func setImageView() {
-        guard let item = dataSource?.selectedItem,
-              let itemImage = UIImage(named: item.imageName) else { return }
+        guard let itemImage = UIImage(named: item.imageName) else { return }
         self.itemImage.image = itemImage
     }
     
     private func setLabel() {
-        guard let item = dataSource?.selectedItem else { return }
         self.descriptionLabel.text = item.description
     }
-}
-
-protocol ContentsDataSource {
-    var selectedItem: Item? { get set }
+    
+    init?(item: Item, coder: NSCoder) {
+        self.item = item
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
