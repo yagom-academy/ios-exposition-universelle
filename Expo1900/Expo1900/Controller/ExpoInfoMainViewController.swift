@@ -77,8 +77,8 @@ final class ExpoInfoMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeExpoInfo()
+        configureLayout()
         configureUI()
-        navigationItem.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,9 +103,8 @@ final class ExpoInfoMainViewController: UIViewController {
         }
     }
     
-    private func configureUI() {
+    private func configureLayout() {
         let mainStackView = createMainStackView(subStackView: createButtonStackView())
-        view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
         
@@ -120,7 +119,11 @@ final class ExpoInfoMainViewController: UIViewController {
             mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
-        
+    }
+    
+    private func configureUI() {
+        view.backgroundColor = .systemBackground
+        navigationItem.title = "메인"
         titleLabel.text = expoAssets?.title
         numberOfVisitorsLabel.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyFormatter()) 명"
         locationLabel.text = "개최지 : \(self.expoAssets?.location ?? "")"

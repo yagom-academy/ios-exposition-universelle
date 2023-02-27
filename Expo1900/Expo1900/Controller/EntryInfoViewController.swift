@@ -39,16 +39,12 @@ final class EntryInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLayout()
         configureUI()
     }
     
-    private func configureUI() {
+    private func configureLayout() {
         let mainStackView = createMainStackView()
-        navigationItem.title = entry.name
-        entryImageView.image = UIImage(named: entry.imageName)
-        entryDescriptionLabel.text = entry.description
-        
-        view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
         
@@ -63,6 +59,13 @@ final class EntryInfoViewController: UIViewController {
             mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
+    }
+    
+    private func configureUI() {
+        view.backgroundColor = .systemBackground
+        navigationItem.title = entry.name
+        entryImageView.image = UIImage(named: entry.imageName)
+        entryDescriptionLabel.text = entry.description
     }
     
     private func createMainStackView() -> UIStackView {
