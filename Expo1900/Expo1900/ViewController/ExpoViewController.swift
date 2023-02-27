@@ -12,8 +12,8 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var posterImage: UIImageView!
-    @IBOutlet private var flags: [UIImageView]!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private var flagImageViews: [UIImageView]!
     @IBOutlet private weak var goButton: UIButton!
     private var expoUniverselle: ExpoUniverselle?
     
@@ -56,8 +56,8 @@ final class ExpoViewController: UIViewController {
         guard let poster = UIImage(named: AssetName.poster),
               let flag = UIImage(named: AssetName.flag) else { return }
         
-        self.posterImage.image = poster
-        self.flags.forEach { $0.image = flag }
+        self.posterImageView.image = poster
+        self.flagImageViews.forEach { $0.image = flag }
     }
     
     private func setLabels(from expoData: ExpoUniverselle) {
