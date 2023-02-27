@@ -16,7 +16,7 @@ final class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backButtonTitle = "메인"
+        navigationItem.backButtonTitle = "메인"
         
         let expositionUniverselle = decodeJson()
         
@@ -29,7 +29,7 @@ final class ExpositionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func decodeJson() -> ExpositionUniverselle {
@@ -46,6 +46,6 @@ final class ExpositionViewController: UIViewController {
     @IBAction func itemButtonTapped(_ sender: UIButton) {
         guard let itemVC: ItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemViewController else { return }
         
-        self.navigationController?.pushViewController(itemVC, animated: true)
+        navigationController?.pushViewController(itemVC, animated: true)
     }
 }

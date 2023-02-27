@@ -16,9 +16,9 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         exhibitItems = decodeJson()
-        self.tableView.reloadData()
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "한국의 출품작"
+        tableView.reloadData()
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "한국의 출품작"
     }
     
     private func decodeJson() -> [ExhibitItem] {
@@ -42,7 +42,7 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let exhibitItem: ExhibitItem = self.exhibitItems[indexPath.row]
+        let exhibitItem: ExhibitItem = exhibitItems[indexPath.row]
         cell.textLabel?.text = exhibitItem.name
         cell.detailTextLabel?.text = exhibitItem.shortDescription
         cell.imageView?.image = UIImage(named: exhibitItem.imageName)
@@ -51,7 +51,7 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return self.view.bounds.height / 6
+            return view.bounds.height / 6
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,7 +62,7 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemDetailView" {
             guard let destination: ExhibitItemViewController = segue.destination as? ExhibitItemViewController,
-                  let selectedIndex: Int = self.tableView.indexPathForSelectedRow?.row else { return }
+                  let selectedIndex: Int = tableView.indexPathForSelectedRow?.row else { return }
             
             destination.prepareTitle = exhibitItems[selectedIndex].name
             destination.prepareImage = exhibitItems[selectedIndex].imageName

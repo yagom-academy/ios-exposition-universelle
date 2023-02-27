@@ -16,7 +16,7 @@ final class ExhibitItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = prepareTitle
+        navigationItem.title = prepareTitle
         descriptionLabel.text = prepareDescription
         imageView.image = UIImage(named: prepareImage)
     }
