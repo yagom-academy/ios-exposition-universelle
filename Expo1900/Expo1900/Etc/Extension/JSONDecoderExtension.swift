@@ -13,12 +13,6 @@ extension JSONDecoder {
             throw DataAssetError.invalidFileName
         }
         
-        do {
-            let data = try self.decode(type, from: dataAsset.data)
-            
-            return data
-        } catch {
-            throw error
-        }
+        return try self.decode(type, from: dataAsset.data)
     }
 }

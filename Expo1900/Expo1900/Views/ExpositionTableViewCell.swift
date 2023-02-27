@@ -8,8 +8,14 @@
 import UIKit
 
 final class ExpositionTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemTitleLabel: UILabel!
-    @IBOutlet weak var itemSubtitleLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemTitleLabel: UILabel!
+    @IBOutlet private weak var itemSubtitleLabel: UILabel!
+    
+    func configure(imageName: String, title: String, subtitle: String) {
+        itemImageView.image = UIImage(named: imageName)
+        itemTitleLabel.text = title
+        itemSubtitleLabel.text = subtitle
+    }
 }
 

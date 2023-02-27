@@ -53,9 +53,7 @@ extension KoreaItemsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.itemImageView.image = UIImage(named: item.imageName)
-        cell.itemTitleLabel.text = item.name
-        cell.itemSubtitleLabel.text = item.shortDescription
+        cell.configure(imageName: item.imageName, title: item.name, subtitle: item.shortDescription)
         
         return cell
     }
