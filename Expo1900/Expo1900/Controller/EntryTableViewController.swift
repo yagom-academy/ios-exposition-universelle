@@ -14,7 +14,7 @@ final class EntryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeEntryInfo()
-        self.tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         navigationItem.title = "한국의 출품작"
     }
     

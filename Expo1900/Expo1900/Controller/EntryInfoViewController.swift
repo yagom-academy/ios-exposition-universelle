@@ -25,28 +25,16 @@ final class EntryInfoViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var entryImageView = {
+    private let entryImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: entry.imageName)
         return imageView
     }()
     
-    private lazy var entryDescriptionLabel = {
+    private let entryDescriptionLabel = {
         let label = UILabel()
-        label.text = entry.description
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
-    }()
-        
-    private lazy var mainStackView = {
-        let stackView = UIStackView(arrangedSubviews: [entryImageView, entryDescriptionLabel])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 16
-        stackView.distribution = .equalSpacing
-        return stackView
     }()
     
     override func viewDidLoad() {
@@ -55,7 +43,11 @@ final class EntryInfoViewController: UIViewController {
     }
     
     private func configureUI() {
+        let mainStackView = createMainStackView()
         navigationItem.title = entry.name
+        entryImageView.image = UIImage(named: entry.imageName)
+        entryDescriptionLabel.text = entry.description
+        
         view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
@@ -71,5 +63,18 @@ final class EntryInfoViewController: UIViewController {
             mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
+    }
+    
+    private func createMainStackView() -> UIStackView {
+        let mainStackView = {
+            let stackView = UIStackView(arrangedSubviews: [entryImageView, entryDescriptionLabel])
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .vertical
+            stackView.alignment = .center
+            stackView.spacing = 16
+            stackView.distribution = .equalSpacing
+            return stackView
+        }()
+        return mainStackView
     }
 }

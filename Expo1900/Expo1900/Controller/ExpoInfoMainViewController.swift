@@ -15,10 +15,9 @@ final class ExpoInfoMainViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var titleLabel = {
+    private let titleLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 25)
-        label.text = expoAssets?.title
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
@@ -31,36 +30,31 @@ final class ExpoInfoMainViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var numberOfVisitorsLabel = {
+    private let numberOfVisitorsLabel = {
         let label = UILabel()
-        label.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyFormatter()) 명"
+        return label
+    }()
+
+    private let locationLabel = {
+        let label = UILabel()
         return label
     }()
     
-    private lazy var locationLabel = {
+    private let durationLabel = {
         let label = UILabel()
-        label.text = "개최지 : \(self.expoAssets?.location ?? "")"
         return label
     }()
-    
-    private lazy var durationLabel = {
+
+    private let descriptionLabel = {
         let label = UILabel()
-        label.text = "개최 기간 : \(self.expoAssets?.duration ?? "")"
-        return label
-    }()
-    
-    private lazy var descriptionLabel = {
-        let label = UILabel()
-        label.text = self.expoAssets?.description
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
     }()
     
-    private lazy var nextViewButton = {
+    private let nextViewButton = {
         let button = UIButton(type: .system)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.addTarget(self, action: #selector(didTapMoveToEntryTableVC), for: .touchUpInside)
         return button
     }()
     
@@ -78,35 +72,6 @@ final class ExpoInfoMainViewController: UIViewController {
         imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return imageView
-    }()
-    
-    private lazy var buttonStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            leftFlagImageView,
-            nextViewButton,
-            rightFlagImageView
-        ])
-        stackView.axis = .horizontal
-        stackView.spacing = 20
-        return stackView
-    }()
-    
-    private lazy var mainStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            titleLabel,
-            posterImageView,
-            numberOfVisitorsLabel,
-            locationLabel,
-            durationLabel,
-            descriptionLabel,
-            buttonStackView
-        ])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 16
-        stackView.distribution = .equalSpacing
-        return stackView
     }()
     
     override func viewDidLoad() {
@@ -139,6 +104,7 @@ final class ExpoInfoMainViewController: UIViewController {
     }
     
     private func configureUI() {
+        let mainStackView = createMainStackView(subStackView: createButtonStackView())
         view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
@@ -154,6 +120,46 @@ final class ExpoInfoMainViewController: UIViewController {
             mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
+        
+        titleLabel.text = expoAssets?.title
+        numberOfVisitorsLabel.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyFormatter()) 명"
+        locationLabel.text = "개최지 : \(self.expoAssets?.location ?? "")"
+        durationLabel.text = "개최 기간 : \(self.expoAssets?.duration ?? "")"
+        descriptionLabel.text = self.expoAssets?.description
+        nextViewButton.addTarget(self, action: #selector(didTapMoveToEntryTableVC), for: .touchUpInside)
+    }
+    
+    private func createButtonStackView() -> UIStackView {
+        let buttonStackView = {
+            let stackView = UIStackView(arrangedSubviews: [leftFlagImageView,
+                                                           nextViewButton,
+                                                           rightFlagImageView])
+            stackView.axis = .horizontal
+            stackView.spacing = 20
+            return stackView
+        }()
+        return buttonStackView
+    }
+    
+    private func createMainStackView(subStackView: UIStackView) -> UIStackView {
+        let mainStackView = {
+            let stackView = UIStackView(arrangedSubviews: [
+                titleLabel,
+                posterImageView,
+                numberOfVisitorsLabel,
+                locationLabel,
+                durationLabel,
+                descriptionLabel,
+                subStackView
+            ])
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .vertical
+            stackView.alignment = .center
+            stackView.spacing = 16
+            stackView.distribution = .equalSpacing
+            return stackView
+        }()
+        return mainStackView
     }
     
     @objc private func didTapMoveToEntryTableVC() {
