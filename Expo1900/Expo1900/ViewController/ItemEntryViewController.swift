@@ -38,7 +38,7 @@ final class ItemEntryViewController: UIViewController {
     }
     
     private enum Identifier {
-        static let cell = "cell"
+        static let cell = "customCell"
         static let descriptionViewController = "descriptionViewController"
     }
 }
@@ -50,57 +50,29 @@ extension ItemEntryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Identifier.cell, for: indexPath
-        )
+        ) as? CustomTableViewCell else { return UITableViewCell() }
         
         setContents(of: cell, at: indexPath)
         
         return cell
     }
     
-    private func setContents(of cell: UITableViewCell, at indexPath: IndexPath) {
+    private func setContents(of cell: CustomTableViewCell, at indexPath: IndexPath) {
         guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
-        let resizedItemImage = resize(itemImage, length: 70)
-        var customConfiguration = cell.defaultContentConfiguration()
         
-        customConfiguration.text = items[indexPath.row].name
-        customConfiguration.textProperties.font = UIFont.systemFont(ofSize: 25)
+        cell.itemNameLabel.text = items[indexPath.row].name
+        cell.itemNameLabel.font = UIFont.systemFont(ofSize: 25)
         
-        customConfiguration.secondaryText = items[indexPath.row].shortDescription
-        customConfiguration.secondaryTextProperties.font = UIFont.systemFont(ofSize: 18)
-        customConfiguration.secondaryTextProperties.numberOfLines = 0
-        customConfiguration.secondaryTextProperties.lineBreakMode = .byWordWrapping
+        cell.shortDescriptionLabel.text = items[indexPath.row].shortDescription
+        cell.shortDescriptionLabel.font = UIFont.systemFont(ofSize: 18)
+        cell.shortDescriptionLabel.numberOfLines = 0
+        cell.shortDescriptionLabel.lineBreakMode = .byWordWrapping
         
-        customConfiguration.image = resizedItemImage
+        cell.itemImageView.image = itemImage
         
-        cell.contentConfiguration = customConfiguration
         cell.accessoryType = .disclosureIndicator
-    }
-    
-    private func resize(_ image: UIImage, length: CGFloat) -> UIImage? {
-        let longSide = max(image.size.width, image.size.height)
-        let scale = length / longSide
-        var newHeight: CGFloat
-        var newWidth: CGFloat
-        
-        if longSide == image.size.width {
-            newWidth = length
-            newHeight = image.size.height * scale
-        } else {
-            newWidth = image.size.width * scale
-            newHeight = length
-        }
-        
-        UIGraphicsBeginImageContext(CGSizeMake(length, length))
-        image.draw(in: CGRectMake((length - newWidth) / 2,
-                                  (length - newHeight) / 2,
-                                  newWidth,
-                                  newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
     }
 }
 

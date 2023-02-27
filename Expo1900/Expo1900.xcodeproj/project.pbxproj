@@ -17,6 +17,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		FB3D954029A3403C000153CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D953F29A3403C000153CF /* Item.swift */; };
 		FB3D956229A5DF60000153CF /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D956129A5DF60000153CF /* DescriptionViewController.swift */; };
+		FB3D95D329AC806E000153CF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D95D229AC806E000153CF /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB3D953F29A3403C000153CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FB3D956129A5DF60000153CF /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		FB3D95D229AC806E000153CF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		AD87E81829A5A5960021E1C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB3D95D229AC806E000153CF /* CustomTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			files = (
 				ADC7AE0329A341B1001DD9F4 /* ExpoUniverselle.swift in Sources */,
 				FB3D956229A5DF60000153CF /* DescriptionViewController.swift in Sources */,
+				FB3D95D329AC806E000153CF /* CustomTableViewCell.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
 				AD87E81C29A5AA390021E1C9 /* ItemEntryViewController.swift in Sources */,
 				FB3D954029A3403C000153CF /* Item.swift in Sources */,
