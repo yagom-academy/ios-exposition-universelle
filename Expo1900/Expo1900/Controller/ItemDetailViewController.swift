@@ -8,13 +8,13 @@
 import UIKit
 
 final class ItemDetailViewController: UIViewController {
-
+    
     @IBOutlet weak private var expoDescriptionLabel: UILabel!
     @IBOutlet weak private var expoImageView: UIImageView!
     
-    var expoItemName: String?
-    var expoItemImage: String?
-    var expoItemDescription: String?
+    private var expoItemName: String?
+    private var expoItemImage: String?
+    private var expoItemDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,5 +28,11 @@ final class ItemDetailViewController: UIViewController {
         if let expoItemImage = expoItemImage {
             expoImageView.image = UIImage(named: expoItemImage)
         }
+    }
+    
+    func receiveData(from cell: ListTableViewCell) {
+        expoItemName = cell.expoTitleLabel.text
+        expoItemDescription = cell.expoDescription
+        expoItemImage = cell.expoImageName
     }
 }
