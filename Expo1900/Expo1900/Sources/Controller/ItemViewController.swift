@@ -23,11 +23,11 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
     
     private func decodeJson() -> [ExhibitItem] {
         let emptyArray: [ExhibitItem] = []
-        let decoder = JSONDecoder()
+        let decoder: JSONDecoder = JSONDecoder()
         
-        guard let items = NSDataAsset(name: "items") else { return emptyArray }
+        guard let items: NSDataAsset = NSDataAsset(name: "items") else { return emptyArray }
 
-        guard let decodedItems = try? decoder.decode([ExhibitItem].self, from: items.data) else { return emptyArray }
+        guard let decodedItems: [ExhibitItem] = try? decoder.decode([ExhibitItem].self, from: items.data) else { return emptyArray }
         
         return decodedItems
     }
@@ -61,8 +61,8 @@ final class ItemViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemDetailView" {
-            guard let destination = segue.destination as? ExhibitItemViewController,
-                  let selectedIndex = self.tableView.indexPathForSelectedRow?.row else { return }
+            guard let destination: ExhibitItemViewController = segue.destination as? ExhibitItemViewController,
+                  let selectedIndex: Int = self.tableView.indexPathForSelectedRow?.row else { return }
             
             destination.prepareTitle = exhibitItems[selectedIndex].name
             destination.prepareImage = exhibitItems[selectedIndex].imageName

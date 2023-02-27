@@ -33,18 +33,18 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func decodeJson() -> ExpositionUniverselle {
-        let decoder = JSONDecoder()
+        let decoder: JSONDecoder = JSONDecoder()
         let emptydata: ExpositionUniverselle = .init(title: "", visitorNumber: 0, location: "", duration: "", description: "")
         
-        guard let expositionUniverselle = NSDataAsset(name: "exposition_universelle_1900") else { return emptydata }
+        guard let expositionUniverselle: NSDataAsset  = NSDataAsset(name: "exposition_universelle_1900") else { return emptydata }
         
-        guard let decodedExpositionUniverselle = try? decoder.decode(ExpositionUniverselle.self, from: expositionUniverselle.data) else { return emptydata }
+        guard let decodedExpositionUniverselle: ExpositionUniverselle = try? decoder.decode(ExpositionUniverselle.self, from: expositionUniverselle.data) else { return emptydata }
         
         return decodedExpositionUniverselle
     }
     
     @IBAction func itemButtonTapped(_ sender: UIButton) {
-        guard let itemVC = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemViewController else { return }
+        guard let itemVC: ItemViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemViewController else { return }
         
         self.navigationController?.pushViewController(itemVC, animated: true)
     }
