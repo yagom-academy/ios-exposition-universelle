@@ -31,11 +31,11 @@ final class ItemDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeView()
+        setInitialView()
     }
     
     // MARK: - Instance Method
-    private func initializeView() {
+    private func setInitialView() {
         view.backgroundColor = .white
         self.title = item?.name
         

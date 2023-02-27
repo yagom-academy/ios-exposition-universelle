@@ -16,7 +16,7 @@ final class ExhibitItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeView()
+        setInitialView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +26,7 @@ final class ExhibitItemViewController: UIViewController {
     }
     
     // MARK: - Instance Method
-    private func initializeView() {
+    private func setInitialView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         

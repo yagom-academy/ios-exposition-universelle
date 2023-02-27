@@ -21,7 +21,7 @@ final class PosterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initializeView()
+        setInitialView()
 
     }
     
@@ -32,7 +32,7 @@ final class PosterViewController: UIViewController {
     }
     
     // MARK: - Instance Method
-    private func initializeView() {
+    private func setInitialView() {
         view.backgroundColor = .white
         self.title = "메인"
         
