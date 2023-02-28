@@ -7,7 +7,6 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false

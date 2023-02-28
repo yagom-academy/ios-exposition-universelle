@@ -8,7 +8,6 @@
 import UIKit
 
 final class ExpoItemListViewController: UIViewController {
-    
     private lazy var listTableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -39,13 +38,6 @@ final class ExpoItemListViewController: UIViewController {
                                                  style: .plain,
                                                  target: self,
                                                  action: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let itemDetailViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController,
-              let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
-        
-//        itemDetailViewController.receiveData(from: cell)
     }
     
     private func setupLayout() {

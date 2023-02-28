@@ -26,7 +26,6 @@ final class ItemDetailViewController: UIViewController {
         return stackView
     }()
     
-    
     private var expoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -64,7 +63,6 @@ final class ItemDetailViewController: UIViewController {
     }
     
     private func setupLayout() {
-        
         view.addSubview(scrollView)
     
         NSLayoutConstraint.activate([
@@ -87,21 +85,6 @@ final class ItemDetailViewController: UIViewController {
         
         contentStackView.addArrangedSubview(expoImageView)
         contentStackView.addArrangedSubview(expoDescriptionLabel)
-        
-        
-        
-//        NSLayoutConstraint.activate([
-//            expoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-//            expoImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-//            expoImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-//
-//            expoDescriptionLabel.topAnchor.constraint(equalTo: expoImageView.bottomAnchor, constant: 10),
-//            expoDescriptionLabel.leadingAnchor.constraint(equalTo: expoImageView.leadingAnchor, constant: 10),
-//            expoDescriptionLabel.trailingAnchor.constraint(equalTo: expoImageView.trailingAnchor, constant: -10),
-//            //expoDescriptionLabel.bottomAnchor.constraint(equalTo: <#T##NSLayoutAnchor<NSLayoutYAxisAnchor>#>)
-//        ])
-        
-        
     }
     
     func receiveData(from cell: ExpoItem) {

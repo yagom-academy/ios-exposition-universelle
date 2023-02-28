@@ -8,7 +8,6 @@
 import UIKit
 
 struct ExpositionDecoder {
-    
     private(set) var exposition: Exposition = Exposition(title: "", visitors: 0, location: "", duration: "", description: "")
 
     mutating func decodeData() {

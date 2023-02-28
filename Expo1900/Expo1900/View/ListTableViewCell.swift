@@ -22,7 +22,6 @@ final class ListTableViewCell: UITableViewCell {
     private(set) var expoTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 26)
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
