@@ -16,14 +16,17 @@ final class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = NameSpace.homeViewTitle
-        
+        configureTitle()
         configureLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        hideNavigationBar()
+    }
+    
+    private func configureTitle() {
+        navigationItem.title = NameSpace.homeViewTitle
     }
     
     private func configureLabel() {
@@ -35,6 +38,10 @@ final class ExpositionViewController: UIViewController {
         locationLabel.text = NameSpace.leftLocationString + expositionUniverselle.location
         durationLabel.text = NameSpace.leftDurationString + expositionUniverselle.duration
         descriptionLabel.text = expositionUniverselle.description
+    }
+    
+    private func hideNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func touchUpInsideItemButton(_ sender: UIButton) {

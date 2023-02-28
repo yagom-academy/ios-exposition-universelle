@@ -7,20 +7,31 @@
 import UIKit
 
 final class ItemListViewController: UIViewController {
-    private var exhibitItems: [ExhibitItem] = []
+    private var exhibitItems: [ExhibitItem] = decodingJson().decodeItemsJson()
     
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        exhibitItems = decodingJson().decodeItemsJson()
-        navigationItem.title = NameSpace.itemViewTitle
+        configureTableView()
+        configureTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideNavigationBar()
+    }
+    
+    private func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    private func configureTitle() {
+        navigationItem.title = NameSpace.itemViewTitle
+    }
+    
+    private func hideNavigationBar() {
         navigationController?.isNavigationBarHidden = false
     }
 }
@@ -42,7 +53,7 @@ extension ItemListViewController: UITableViewDataSource {
 
 extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.bounds.height / 6
+        return view.bounds.height / 8
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
