@@ -15,6 +15,26 @@ final class MainViewController: UIViewController {
         return scrollView
     }()
     
+    private var contentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 10
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }()
+    
+    private var buttonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 25)
@@ -76,7 +96,6 @@ final class MainViewController: UIViewController {
     private var flagImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
     
@@ -84,10 +103,10 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        decodedExposition.decodeData()
         view.backgroundColor = .white
         setupSubView()
         setUpView()
-        decodedExposition.decodeData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +121,9 @@ final class MainViewController: UIViewController {
     
     private func setupSubView() {
         view.addSubview(scrollView)
+        scrollView.addSubview(contentStackView)
+        scrollView.addSubview(buttonStackView)
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -109,49 +131,33 @@ final class MainViewController: UIViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        scrollView.addSubview(titleLabel)
-        scrollView.addSubview(posterImageView)
-        scrollView.addSubview(visitorsLabel)
-        scrollView.addSubview(locationLabel)
-        scrollView.addSubview(durationLabel)
-        scrollView.addSubview(descriptionLabel)
-        scrollView.addSubview(pushExpoItemListViewButton)
-        scrollView.addSubview(flagImage)
+        contentStackView.addArrangedSubview(titleLabel)
+        contentStackView.addArrangedSubview(posterImageView)
+        contentStackView.addArrangedSubview(visitorsLabel)
+        contentStackView.addArrangedSubview(locationLabel)
+        contentStackView.addArrangedSubview(durationLabel)
+        contentStackView.addArrangedSubview(descriptionLabel)
+        //contentStackView.addArrangedSubview(buttonStackView)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -10),
-            titleLabel.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -20),
+            contentStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 10),
+            contentStackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 10),
+            contentStackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
             
-            posterImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            posterImageView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            posterImageView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            
-            visitorsLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10),
-            visitorsLabel.leadingAnchor.constraint(equalTo: posterImageView.leadingAnchor),
-            visitorsLabel.trailingAnchor.constraint(equalTo: posterImageView.trailingAnchor),
-            
-            locationLabel.topAnchor.constraint(equalTo: visitorsLabel.bottomAnchor, constant: 10),
-            locationLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            locationLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            
-            durationLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10),
-            durationLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            durationLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 10),
-            descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            
-            pushExpoItemListViewButton.topAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: 10),
-            pushExpoItemListViewButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            pushExpoItemListViewButton.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            pushExpoItemListViewButton.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-            pushExpoItemListViewButton.heightAnchor.constraint(equalToConstant: 30),
-            
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -15),
         ])
         
+        buttonStackView.addArrangedSubview(flagImage)
+        buttonStackView.addArrangedSubview(pushExpoItemListViewButton)
+        buttonStackView.addArrangedSubview(flagImage)
+        
+        NSLayoutConstraint.activate([
+            buttonStackView.topAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: 10),
+            buttonStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            buttonStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            buttonStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
     }
     
     private func setUpView() {
@@ -162,6 +168,7 @@ final class MainViewController: UIViewController {
         descriptionLabel.text = decodedExposition.exposition.description
         descriptionLabel.numberOfLines = 0
         posterImageView.image = UIImage(named: "poster")
+        flagImage.image = UIImage(named: "flag")
     }
 }
 
