@@ -101,6 +101,10 @@ extension MainPosterViewController {
         
         let substring = String(text.prefix(upTo: index))
         
+        attributedText.addAttribute(.font,
+                                    value: UIFont.preferredFont(forTextStyle: .body),
+                                    range: (text as NSString).range(of: text))
+        
         attributedText.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: substring))
         label.attributedText = attributedText
         label.adjustsFontForContentSizeCategory = true
