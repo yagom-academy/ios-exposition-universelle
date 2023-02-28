@@ -27,6 +27,9 @@ final class EntryInfoViewController: UIViewController {
     
     private let entryImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         return imageView
     }()
     
@@ -77,7 +80,7 @@ final class EntryInfoViewController: UIViewController {
             stackView.translatesAutoresizingMaskIntoConstraints = false
             stackView.axis = .vertical
             stackView.alignment = .center
-            stackView.spacing = 16
+            stackView.spacing = 4
             stackView.distribution = .equalSpacing
             return stackView
         }()
