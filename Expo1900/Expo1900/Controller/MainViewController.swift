@@ -14,7 +14,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     
     private var parsedMainData: MainExposition?
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchParsedData()
@@ -24,12 +24,12 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        appDelegate.setupViewAllOrientation = false
+        appDelegate?.setupViewAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        appDelegate.setupViewAllOrientation = true
+        appDelegate?.setupViewAllOrientation = true
     }
     
     private func fetchParsedData() {
@@ -39,10 +39,10 @@ final class MainViewController: UIViewController {
     private func setupLabel() {
         guard let exposition = parsedMainData else { return }
         
-        mainTitleLabel.text = exposition.title
+        mainTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = "방문객 : " + NumberFormatter.convertToNumber(from: exposition.visitor)
         locationLabel.text = "개최지 : \(exposition.location)"
-        durationLabel.text = "개최 기간 : \(exposition.location)"
+        durationLabel.text = "개최 기간 : \(exposition.duration)"
         textLabel.text = exposition.description
     }
 
