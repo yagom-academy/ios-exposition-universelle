@@ -13,12 +13,11 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
-    private var exposition: MainExposition?
+    private var parsedMainData: MainExposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchExpositionData()
+        fetchParsedData()
         setupLabel()
     }
     
@@ -27,20 +26,12 @@ final class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    private func fetchExpositionData() {
-        let jsonDecoder = JSONDecoder()
-        
-        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.mainExposition) else { return }
-        
-        do {
-            exposition = try jsonDecoder.decode(MainExposition.self, from: jsonData.data)
-        } catch {
-            return
-        }
+    private func fetchParsedData() {
+        parsedMainData = ExpositionParser.mainExpositionParse()
     }
     
     private func setupLabel() {
-        guard let exposition = exposition else { return }
+        guard let exposition = parsedMainData else { return }
         
         mainTitleLabel.text = exposition.title
         visitorsLabel.text = "방문객 : \(exposition.visitor)"

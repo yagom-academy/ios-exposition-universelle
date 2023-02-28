@@ -11,41 +11,35 @@ final class ExpositionListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
-    private var expositionList: [ExpositionItem] = []
+    private var parsedExpositionData: [ExpositionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchExpositionData()
-
+        fetchParsedData()
+        
         listTableView.delegate = self
         listTableView.dataSource = self
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    private func fetchExpositionData() {
-        let jsonDecoder = JSONDecoder()
-        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.items) else { return }
-        
-        do {
-            expositionList = try jsonDecoder.decode([ExpositionItem].self, from: jsonData.data)
-        } catch {
-            return
-        }
+    private func fetchParsedData() {
+        parsedExpositionData = ExpositionParser.expositionItemParse()
     }
     
     private func setupListCell(listCell: ListTableViewCell, indexPath: IndexPath) {
-        listCell.mainTitleLabel.text = expositionList[indexPath.row].name
-        listCell.shortDescriptionLabel.text = expositionList[indexPath.row].shortDescription
-        listCell.expositionImageView.image = UIImage(named: expositionList[indexPath.row].imageName)
+        listCell.mainTitleLabel.text = parsedExpositionData[indexPath.row].name
+        listCell.shortDescriptionLabel.text = parsedExpositionData[indexPath.row].shortDescription
+        listCell.expositionImageView.image = UIImage(named: parsedExpositionData[indexPath.row].imageName)
     }
     
     private func setupDetailViewController(detailViewController: DetailViewController, indexPath: IndexPath) {
-        detailViewController.imageString = expositionList[indexPath.row].imageName
-        detailViewController.fullDescription = expositionList[indexPath.row].description
-        detailViewController.navigationItem.title = expositionList[indexPath.row].name
+        detailViewController.imageString = parsedExpositionData[indexPath.row].imageName
+        detailViewController.fullDescription = parsedExpositionData[indexPath.row].description
+        detailViewController.navigationItem.title = parsedExpositionData[indexPath.row].name
     }
 }
 
@@ -65,7 +59,7 @@ extension ExpositionListViewController: UITableViewDelegate {
 
 extension ExpositionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expositionList.count
+        return parsedExpositionData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -11,7 +11,7 @@ enum Title {
     static let itemsOfKorea = "한국의 출품작"
     static let main = "메인"
 }
-//
+
 enum JsonFile {
     static let mainExposition = "exposition_universelle_1900"
     static let items = "items"

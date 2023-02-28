@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5803D4CA29A7303900193029 /* TextEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803D4C929A7303900193029 /* TextEnum.swift */; };
+		5811966529AD95FD00CDC92A /* ExpositionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5811966429AD95FD00CDC92A /* ExpositionParser.swift */; };
 		58129EFB29A3505D00877E6D /* MainExposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58129EFA29A3505D00877E6D /* MainExposition.swift */; };
 		58D5B14429A5D3A000472958 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D5B14329A5D3A000472958 /* DetailViewController.swift */; };
 		58ECC74629A52B5E0038DE85 /* ExpositionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		5803D4C929A7303900193029 /* TextEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnum.swift; sourceTree = "<group>"; };
+		5811966429AD95FD00CDC92A /* ExpositionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionParser.swift; sourceTree = "<group>"; };
 		58129EFA29A3505D00877E6D /* MainExposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainExposition.swift; sourceTree = "<group>"; };
 		58D5B14329A5D3A000472958 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionListViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		5803D4CD29A85C8D00193029 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5811966429AD95FD00CDC92A /* ExpositionParser.swift */,
 				5803D4C929A7303900193029 /* TextEnum.swift */,
 				58129EFA29A3505D00877E6D /* MainExposition.swift */,
 				989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */,
@@ -198,6 +201,7 @@
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				9886AA2129A5A79F00A0547E /* ListTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				5811966529AD95FD00CDC92A /* ExpositionParser.swift in Sources */,
 				58ECC74629A52B5E0038DE85 /* ExpositionListViewController.swift in Sources */,
 				5803D4CA29A7303900193029 /* TextEnum.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
