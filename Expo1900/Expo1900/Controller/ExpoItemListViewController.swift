@@ -15,6 +15,7 @@ final class ExpoItemListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
@@ -44,7 +45,7 @@ final class ExpoItemListViewController: UIViewController {
         guard let itemDetailViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController,
               let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
         
-        itemDetailViewController.receiveData(from: cell)
+//        itemDetailViewController.receiveData(from: cell)
     }
     
     private func setupLayout() {
@@ -70,5 +71,14 @@ extension ExpoItemListViewController: UITableViewDataSource {
         cell.configureCellData(expoItem: decodedExpoItem.expoItems[indexPath.row])
         
         return cell
+    }
+}
+
+extension ExpoItemListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let navigationController = self.navigationController
+        let itemDetailViewController = ItemDetailViewController()
+        itemDetailViewController.receiveData(from: decodedExpoItem.expoItems[indexPath.row])
+        navigationController?.pushViewController(itemDetailViewController, animated: true)
     }
 }

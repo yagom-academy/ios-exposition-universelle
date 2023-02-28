@@ -8,9 +8,40 @@
 import UIKit
 
 final class ItemDetailViewController: UIViewController {
+    private var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return scrollView
+    }()
     
-    @IBOutlet weak private var expoDescriptionLabel: UILabel!
-    @IBOutlet weak private var expoImageView: UIImageView!
+    private var contentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 10
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }()
+    
+    
+    private var expoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
+    private var expoDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
     private var expoItemName: String?
     private var expoItemImage: String?
@@ -18,6 +49,8 @@ final class ItemDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        setupLayout()
         setUpView()
     }
     
@@ -30,9 +63,50 @@ final class ItemDetailViewController: UIViewController {
         }
     }
     
-    func receiveData(from cell: ListTableViewCell) {
-        expoItemName = cell.expoTitleLabel.text
-        expoItemDescription = cell.expoDescription
-        expoItemImage = cell.expoImageName
+    private func setupLayout() {
+        
+        view.addSubview(scrollView)
+    
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+        ])
+        
+        scrollView.addSubview(contentStackView)
+        
+        NSLayoutConstraint.activate([
+            contentStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 10),
+            contentStackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 10),
+            contentStackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor, constant: -10),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -10),
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -20)
+        ])
+        
+        contentStackView.addArrangedSubview(expoImageView)
+        contentStackView.addArrangedSubview(expoDescriptionLabel)
+        
+        
+        
+//        NSLayoutConstraint.activate([
+//            expoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+//            expoImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+//            expoImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+//
+//            expoDescriptionLabel.topAnchor.constraint(equalTo: expoImageView.bottomAnchor, constant: 10),
+//            expoDescriptionLabel.leadingAnchor.constraint(equalTo: expoImageView.leadingAnchor, constant: 10),
+//            expoDescriptionLabel.trailingAnchor.constraint(equalTo: expoImageView.trailingAnchor, constant: -10),
+//            //expoDescriptionLabel.bottomAnchor.constraint(equalTo: <#T##NSLayoutAnchor<NSLayoutYAxisAnchor>#>)
+//        ])
+        
+        
+    }
+    
+    func receiveData(from cell: ExpoItem) {
+        expoItemName = cell.name
+        expoItemDescription = cell.description
+        expoItemImage = cell.imageName
     }
 }
