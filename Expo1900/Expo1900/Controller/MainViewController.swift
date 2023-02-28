@@ -40,7 +40,7 @@ final class MainViewController: UIViewController {
         guard let exposition = parsedMainData else { return }
         
         mainTitleLabel.text = exposition.title
-        visitorsLabel.text = "방문객 : \(exposition.visitor)"
+        visitorsLabel.text = "방문객 : " + NumberFormatter.convertToNumber(from: exposition.visitor)
         locationLabel.text = "개최지 : \(exposition.location)"
         durationLabel.text = "개최 기간 : \(exposition.location)"
         textLabel.text = exposition.description
