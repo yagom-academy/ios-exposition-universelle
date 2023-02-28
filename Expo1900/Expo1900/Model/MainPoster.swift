@@ -9,13 +9,19 @@ import UIKit
 
 struct MainPoster: Decodable {
     let title: String
-    let numberOfVisitors: Int
-    let location: String
-    let duration: String
+    private let numberOfVisitors: Int
+    private let location: String
+    private let duration: String
     let description: String
     
-    var numberOfVisitorsText: String {
-        return "방문객 : \(self.numberOfVisitors)명"
+    var visitorsText: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        guard let formattedText = numberFormatter.string(for: self.numberOfVisitors) else {
+            return "방문객 : \(self.numberOfVisitors)명"
+        }
+        
+        return "방문객 : \(formattedText)명"
     }
     
     var locationText: String {
@@ -24,5 +30,10 @@ struct MainPoster: Decodable {
     
     var durationText: String {
         return "개최 기간 : \(self.duration)"
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case title, location, duration, description
+        case numberOfVisitors = "visitors"
     }
 }
