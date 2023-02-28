@@ -144,11 +144,14 @@ final class MainViewController: UIViewController {
         contentStackView.addArrangedSubview(buttonStackView)
         
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 10),
-            contentStackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 10),
+            contentStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor,
+                                                  constant: 10),
+            contentStackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor,
+                                                      constant: 10),
             contentStackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-            contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -15)
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor,
+                                                    constant: -15)
         ])
         
         let leftFlagImage = makeFlagImage()
@@ -157,7 +160,6 @@ final class MainViewController: UIViewController {
         buttonStackView.addArrangedSubview(leftFlagImage)
         buttonStackView.addArrangedSubview(pushExpoItemListViewButton)
         buttonStackView.addArrangedSubview(rightFlagImage)
-        
         
         NSLayoutConstraint.activate([
             leftFlagImage.widthAnchor.constraint(equalToConstant: 50),
@@ -168,12 +170,43 @@ final class MainViewController: UIViewController {
     }
     
     private func setUpView() {
-        titleLabel.text = decodedExposition.exposition.title.replacingOccurrences(of: NameSpace.bracket, with: NameSpace.enterBracket)
-        visitorsLabel.text = NameSpace.visitor + decodedExposition.exposition.visitors.convertDecimal() + NameSpace.person
-        locationLabel.text = NameSpace.location + decodedExposition.exposition.location
-        durationLabel.text = NameSpace.duration + decodedExposition.exposition.duration
+        titleLabel.text = decodedExposition.exposition.title.replacingOccurrences(of: NameSpace.bracket,
+                                                                                  with: NameSpace.enterBracket)
+        
+        visitorsLabel.attributedText = NSMutableAttributedString()
+            .makeBigText(string: NameSpace.visitor)
+            .makeNormalText(string: NameSpace.colon
+                            + decodedExposition.exposition.visitors.convertDecimal()
+                            + NameSpace.person)
+        
+        locationLabel.attributedText = NSMutableAttributedString()
+            .makeBigText(string: NameSpace.location)
+            .makeNormalText(string: NameSpace.colon
+                            + decodedExposition.exposition.location)
+        
+        durationLabel.attributedText = NSMutableAttributedString()
+            .makeBigText(string: NameSpace.duration)
+            .makeNormalText(string: NameSpace.colon
+                            + decodedExposition.exposition.duration)
+        
         descriptionLabel.text = decodedExposition.exposition.description
     }
 }
 
-
+extension NSMutableAttributedString {
+    func makeBigText(string: String,
+                     font: UIFont = .systemFont(ofSize: 20)) -> NSMutableAttributedString {
+        let attributes: [NSAttributedString.Key: Any] = [.font: font]
+        append(NSAttributedString(string: string, attributes: attributes))
+        
+        return self
+    }
+    
+    func makeNormalText(string: String,
+                     font: UIFont = .systemFont(ofSize: 17)) -> NSMutableAttributedString {
+        let attributes: [NSAttributedString.Key: Any] = [.font: font]
+        append(NSAttributedString(string: string, attributes: attributes))
+        
+        return self
+    }
+}
