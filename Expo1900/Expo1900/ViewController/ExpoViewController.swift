@@ -91,16 +91,6 @@ final class ExpoViewController: UIViewController {
         return decimalVisitors
     }
     
-    private func convertTextSize(of label: UILabel, range: NSRange) {
-        guard let target = label.text else { return }
-        
-        let fontSize = UIFont.systemFont(ofSize: 20)
-        let attributedString = NSMutableAttributedString(string: target)
-        
-        attributedString.addAttribute(.font, value: fontSize, range: range)
-        label.attributedText = attributedString
-    }
-    
     @IBAction private func touchUpGoButton(_ sender: UIButton) {
         let identifier = "ItemEntryViewController"
         guard let nextViewController = self.storyboard?.instantiateViewController(
