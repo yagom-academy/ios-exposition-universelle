@@ -14,7 +14,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     
     private var parsedMainData: MainExposition?
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchParsedData()
@@ -24,6 +24,12 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate.setupViewAllOrientation = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate.setupViewAllOrientation = true
     }
     
     private func fetchParsedData() {
