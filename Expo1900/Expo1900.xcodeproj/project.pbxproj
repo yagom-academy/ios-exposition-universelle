@@ -12,6 +12,7 @@
 		1C92C7ED29A8986700E4C997 /* NameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C92C7EC29A8986700E4C997 /* NameSpace.swift */; };
 		3655E9E529A5EC3900BF4FAB /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655E9E429A5EC3900BF4FAB /* ItemDetailViewController.swift */; };
 		3668F1FD29A344970063E8CA /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3668F1FC29A344960063E8CA /* Exposition.swift */; };
+		3673979229ADCA77007AF8FA /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3673979129ADCA76007AF8FA /* NSMutableAttributedString+Extension.swift */; };
 		4BDDEB7E29A5D87F00664E89 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDDEB7D29A5D87F00664E89 /* ListTableViewCell.swift */; };
 		4BDDEB8329A720D800664E89 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDDEB8229A720D800664E89 /* Int+Extension.swift */; };
 		4BDDEB8529A8671D00664E89 /* ExpositionDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDDEB8429A8671D00664E89 /* ExpositionDecoder.swift */; };
@@ -30,6 +31,7 @@
 		1C92C7EC29A8986700E4C997 /* NameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpace.swift; sourceTree = "<group>"; };
 		3655E9E429A5EC3900BF4FAB /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		3668F1FC29A344960063E8CA /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
+		3673979129ADCA76007AF8FA /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		4BDDEB7D29A5D87F00664E89 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		4BDDEB8229A720D800664E89 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		4BDDEB8429A8671D00664E89 /* ExpositionDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionDecoder.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				4BDDEB8229A720D800664E89 /* Int+Extension.swift */,
+				3673979129ADCA76007AF8FA /* NSMutableAttributedString+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				4BDDEB7E29A5D87F00664E89 /* ListTableViewCell.swift in Sources */,
 				1C92558529A5D38600BD6AE0 /* ExpoItemListViewController.swift in Sources */,
 				3655E9E529A5EC3900BF4FAB /* ItemDetailViewController.swift in Sources */,
+				3673979229ADCA77007AF8FA /* NSMutableAttributedString+Extension.swift in Sources */,
 				1C92C7ED29A8986700E4C997 /* NameSpace.swift in Sources */,
 				3668F1FD29A344970063E8CA /* Exposition.swift in Sources */,
 				4BDDEB8729A867D500664E89 /* ExpoItemDecoder.swift in Sources */,
