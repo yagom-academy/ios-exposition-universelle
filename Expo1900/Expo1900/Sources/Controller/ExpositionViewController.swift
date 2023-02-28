@@ -25,7 +25,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureLabel() {
-        let expositionUniverselle = decodingJson().decodeExpositionJson()
+        let expositionUniverselle = DecodingJson().decodeExpositionJson()
         
         titleLabel.text = expositionUniverselle.title
         visitorCountLabel.text = NameSpace.leftVisitorCountString

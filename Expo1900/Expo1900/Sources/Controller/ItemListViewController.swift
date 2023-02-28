@@ -8,7 +8,7 @@ import UIKit
 
 final class ItemListViewController: UIViewController {
     static let viewIdentifier = "itemListViewController"
-    private var exhibitItems: [ExhibitItem] = decodingJson().decodeItemsJson()
+    private var exhibitItems: [ExhibitItem] = DecodingJson().decodeItemsJson()
     
     @IBOutlet private weak var tableView: UITableView!
     
