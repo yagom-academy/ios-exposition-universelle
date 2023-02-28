@@ -24,8 +24,8 @@ final class ItemDetailViewController: UIViewController {
     
     init?(item: ExhibitItem, coder: NSCoder) {
         self.navigationTitle = item.name
-        self.imageName = item.imageName
         self.descriptionText = item.description
+        self.imageName = item.imageName
         super.init(coder: coder)
     }
     

@@ -13,16 +13,11 @@ final class ExpositionViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitle()
         configureLabel()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        hideNavigationBar()
     }
     
     private func configureTitle() {
@@ -38,6 +33,11 @@ final class ExpositionViewController: UIViewController {
         locationLabel.text = NameSpace.leftLocationString + expositionUniverselle.location
         durationLabel.text = NameSpace.leftDurationString + expositionUniverselle.duration
         descriptionLabel.text = expositionUniverselle.description
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
     }
     
     private func hideNavigationBar() {
