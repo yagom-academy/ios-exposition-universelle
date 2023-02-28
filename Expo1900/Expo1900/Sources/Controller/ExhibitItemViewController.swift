@@ -7,17 +7,28 @@
 import UIKit
 
 final class ExhibitItemViewController: UIViewController {
-    var prepareTitle: String = NameSpace.emptyString
-    var prepareImage: String = NameSpace.emptyString
-    var prepareDescription: String = NameSpace.emptyString
-    
+    var navigationTitle: String
+    var imageName: String
+    var descriptionText: String
+
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = prepareTitle
-        descriptionLabel.text = prepareDescription
-        imageView.image = UIImage(named: prepareImage)
+        navigationItem.title = navigationTitle
+        descriptionLabel.text = descriptionText
+        imageView.image = UIImage(named: imageName)
+    }
+    
+    init?(item: ExhibitItem, coder: NSCoder) {
+        self.navigationTitle = item.name
+        self.imageName = item.imageName
+        self.descriptionText = item.description
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

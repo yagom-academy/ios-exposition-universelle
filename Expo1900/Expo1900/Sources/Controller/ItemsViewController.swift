@@ -34,17 +34,6 @@ final class ItemsViewController: UIViewController {
         
         return decodedItems
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "itemDetailView" {
-            guard let exhibitItemView: ExhibitItemViewController = segue.destination as? ExhibitItemViewController,
-                  let selectedIndex: Int = tableView.indexPathForSelectedRow?.row else { return }
-            
-            exhibitItemView.prepareTitle = exhibitItems[selectedIndex].name
-            exhibitItemView.prepareImage = exhibitItems[selectedIndex].imageName
-            exhibitItemView.prepareDescription = exhibitItems[selectedIndex].description
-        }
-    }
 }
 
 extension ItemsViewController: UITableViewDataSource {
@@ -69,7 +58,14 @@ extension ItemsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "itemDetailView", sender: nil)
+        if let itemDetailView: ExhibitItemViewController = storyboard?.instantiateViewController(identifier: "exhibitItemViewController", creator: { creator in
+            let item = self.exhibitItems[indexPath.row]
+            let viewController = ExhibitItemViewController(item: item, coder: creator)
+            
+            return viewController
+        }) {
+            navigationController?.pushViewController(itemDetailView, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
