@@ -27,7 +27,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureLabel() {
-        let expositionUniverselle = decodeJson()
+        let expositionUniverselle = decodingJson().decodeExpositionJson()
         
         titleLabel.text = expositionUniverselle.title
         visitorCountLabel.text = NameSpace.leftVisitorCountString
@@ -35,17 +35,6 @@ final class ExpositionViewController: UIViewController {
         locationLabel.text = NameSpace.leftLocationString + expositionUniverselle.location
         durationLabel.text = NameSpace.leftDurationString + expositionUniverselle.duration
         descriptionLabel.text = expositionUniverselle.description
-    }
-    
-    private func decodeJson() -> ExpositionUniverselle {
-        let decoder: JSONDecoder = JSONDecoder()
-        let emptyData: ExpositionUniverselle = .init(title: NameSpace.emptyString, visitorCount: Int.zero, location: NameSpace.emptyString, duration: NameSpace.emptyString, description: NameSpace.emptyString)
-        
-        guard let expositionUniverselle: NSDataAsset  = NSDataAsset(name: "exposition_universelle_1900") else { return emptyData }
-        
-        guard let decodedExpositionUniverselle: ExpositionUniverselle = try? decoder.decode(ExpositionUniverselle.self, from: expositionUniverselle.data) else { return emptyData }
-        
-        return decodedExpositionUniverselle
     }
     
     @IBAction func touchUpInsideItemButton(_ sender: UIButton) {

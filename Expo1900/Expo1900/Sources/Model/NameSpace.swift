@@ -5,6 +5,7 @@
 //
 
 enum NameSpace {
+    static let emptyString = ""
     static let homeViewTitle = "메인"
     static let itemViewTitle = "한국의 출품작"
     static let leftVisitorCountString = "방문객 : "

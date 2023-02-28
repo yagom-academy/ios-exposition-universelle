@@ -15,24 +15,13 @@ final class ItemListViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        exhibitItems = decodeJson()
+        exhibitItems = decodingJson().decodeItemsJson()
         navigationItem.title = NameSpace.itemViewTitle
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    private func decodeJson() -> [ExhibitItem] {
-        let emptyArray: [ExhibitItem] = []
-        let decoder: JSONDecoder = JSONDecoder()
-        
-        guard let items: NSDataAsset = NSDataAsset(name: "items") else { return emptyArray }
-
-        guard let decodedItems: [ExhibitItem] = try? decoder.decode([ExhibitItem].self, from: items.data) else { return emptyArray }
-        
-        return decodedItems
     }
 }
 
