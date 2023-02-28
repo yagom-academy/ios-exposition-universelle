@@ -48,8 +48,9 @@ extension KoreaItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let expositionItem = expositionItems[safe: indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpositionTableViewCell.identifier) as? ExpositionTableViewCell else {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpositionTableViewCell.identifier) as? ExpositionTableViewCell,
+              let expositionItem = expositionItems[safe: indexPath.row] else {
             return UITableViewCell()
         }
         
@@ -70,9 +71,5 @@ extension KoreaItemsViewController: UITableViewDelegate {
         }) {
             self.navigationController?.pushViewController(itemDetailVC, animated: true)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
 }

@@ -47,3 +47,15 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         flagImage2.image = UIImage(named: AssetName.flag)
     }
 }
+
+fileprivate extension String {
+    var attributedString: NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        guard let index = self.firstIndex(of: ":") else { return attributedString }
+        
+        let range = String(self[index...])
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15), range: (self as NSString).range(of: range))
+        
+        return attributedString
+    }
+}
