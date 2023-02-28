@@ -95,6 +95,15 @@ final class MainViewController: UIViewController {
         return button
     }()
     
+    private func tapButton() {
+        pushExpoItemListViewButton.addTarget(self, action: #selector(pushToExpoItemListViewController), for: .touchUpInside)
+    }
+    
+    @objc func pushToExpoItemListViewController() {
+        let expoItemListViewController = ExpoItemListViewController()
+        self.navigationController?.pushViewController(expoItemListViewController, animated: true)
+    }
+    
     private func makeFlagImage() -> UIImageView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "flag")
@@ -112,6 +121,7 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .white
         setupSubView()
         setUpView()
+        tapButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
