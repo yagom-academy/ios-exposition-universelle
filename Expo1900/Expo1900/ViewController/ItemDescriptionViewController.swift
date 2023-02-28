@@ -15,12 +15,19 @@ final class ItemDescriptionViewController: UIViewController {
     private let stackView = UIStackView()
     private let scrollView = UIScrollView()
     
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     // MARK: - Init Method
     init(_ exhibitItem: ExhibitItem?) {
         item = exhibitItem
         
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        appDelegate?.shouldSupportAllOrientation = true
     }
     
     required init?(coder: NSCoder) {

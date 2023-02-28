@@ -12,6 +12,8 @@ final class ExhibitItemViewController: UIViewController {
     // MARK: -  Property
     private let tableView = UITableView()
     
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ final class ExhibitItemViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = false
+        appDelegate?.shouldSupportAllOrientation = true
     }
     
     // MARK: - Instance Method

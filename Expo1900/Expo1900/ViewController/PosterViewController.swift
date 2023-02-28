@@ -17,18 +17,20 @@ final class PosterViewController: UIViewController {
     private let stackView = UIStackView()
     private let scrollView = UIScrollView()
     
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     // MARK: - View State Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setInitialView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate?.shouldSupportAllOrientation = false
     }
     
     // MARK: - Instance Method
@@ -83,6 +85,8 @@ final class PosterViewController: UIViewController {
     
     private func setImageView() {
         let imageView = makeImageView(fileName: "poster")
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        
         stackView.addArrangedSubview(imageView)
     }
     
@@ -96,8 +100,6 @@ final class PosterViewController: UIViewController {
         let visitorsStackView = makeSubStackView(subTitle: "방문객", contents: formattedVisitor + " 명")
         let locationStackView = makeSubStackView(subTitle: "개최지", contents: location)
         let durationStackView = makeSubStackView(subTitle: "개최 기간", contents: duration)
-        
-        
         
         stackView.addArrangedSubview(visitorsStackView)
         stackView.addArrangedSubview(locationStackView)
@@ -162,8 +164,11 @@ final class PosterViewController: UIViewController {
         
         let leftImageView = makeImageView(fileName: "flag")
         let rightImageView = makeImageView(fileName: "flag")
-        leftImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        rightImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+//        leftImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+//        rightImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        
+        leftImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        rightImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
 
         let subStackView = UIStackView()
         subStackView.axis = .horizontal
