@@ -55,7 +55,7 @@ fileprivate extension String {
         guard let index = self.firstIndex(of: ":") else { return attributedString }
         
         let range = String(self[index...])
-        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15), range: (self as NSString).range(of: range))
+        attributedString.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .subheadline), range: (self as NSString).range(of: range))
         
         return attributedString
     }
