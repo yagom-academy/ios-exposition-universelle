@@ -57,15 +57,8 @@ extension ItemEntryViewController: UITableViewDataSource {
         guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
         
         cell.itemNameLabel.text = items[indexPath.row].name
-        cell.itemNameLabel.font = UIFont.systemFont(ofSize: 25)
-        
         cell.shortDescriptionLabel.text = items[indexPath.row].shortDescription
-        cell.shortDescriptionLabel.font = UIFont.systemFont(ofSize: 18)
-        cell.shortDescriptionLabel.numberOfLines = 0
-        cell.shortDescriptionLabel.lineBreakMode = .byWordWrapping
-        
         cell.itemImageView.image = itemImage
-        
         cell.accessoryType = .disclosureIndicator
     }
 }
