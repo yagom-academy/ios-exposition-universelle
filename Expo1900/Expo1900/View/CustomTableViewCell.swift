@@ -13,6 +13,9 @@ final class CustomTableViewCell: UITableViewCell {
     private let entryImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return imageView
     }()
     
@@ -48,27 +51,38 @@ final class CustomTableViewCell: UITableViewCell {
     }
     
     private func configureLayout() {
-        addSubview(entryImageView)
-        addSubview(entryNameLabel)
-        addSubview(entryShortDescriptionLabel)
+        let itemStackView = createStackView()
+        addSubview(itemStackView)
         
         NSLayoutConstraint.activate([
-            entryImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            entryImageView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            entryImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            entryImageView.widthAnchor.constraint(equalToConstant: 80),
-            entryImageView.heightAnchor.constraint(equalToConstant: 60),
-            
-            entryNameLabel.topAnchor.constraint(equalTo: entryImageView.topAnchor,
-                                                constant: 8),
-            entryNameLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor,
-                                                 constant: 8),
-            
-            entryShortDescriptionLabel.topAnchor.constraint(equalTo: entryNameLabel.bottomAnchor,
-                                                            constant: 8),
-            entryShortDescriptionLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor,
-                                                             constant: 8),
-            entryShortDescriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
+            itemStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            itemStackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 20),
+            itemStackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -40),
+            itemStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
+    }
+    
+    private func createStackView() -> UIStackView {
+        let subStackView = createSubStackView()
+        let itemStackView = {
+            let stackView = UIStackView(arrangedSubviews: [entryImageView, subStackView])
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .horizontal
+            stackView.spacing = 8
+            stackView.alignment = .center
+            return stackView
+        }()
+        return itemStackView
+    }
+    
+    private func createSubStackView() -> UIStackView {
+        let subStackView = {
+            let stackView = UIStackView(arrangedSubviews: [entryNameLabel, entryShortDescriptionLabel])
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .vertical
+            stackView.spacing = 4
+            return stackView
+        }()
+        return subStackView
     }
 }

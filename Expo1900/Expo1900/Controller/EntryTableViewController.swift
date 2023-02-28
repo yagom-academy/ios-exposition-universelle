@@ -45,8 +45,10 @@ extension EntryTableViewController {
         cell.configureEntryList(image: entry.imageName,
                                 name: entry.name,
                                 shortDescription: entry.shortDescription)
+        tableView.rowHeight = UITableView.automaticDimension
         return cell
     }
+    
 }
 
 // MARK: - Table view delegate

@@ -120,7 +120,7 @@ final class ExpoInfoMainViewController: UIViewController {
             
             mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -30),
             mainStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
     }
