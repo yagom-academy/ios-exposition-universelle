@@ -32,6 +32,7 @@ final class MainViewController: UIViewController {
         stackView.spacing = 10
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         return stackView
     }()
 
@@ -47,6 +48,7 @@ final class MainViewController: UIViewController {
     
     private var posterImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "poster")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -86,18 +88,21 @@ final class MainViewController: UIViewController {
     
     private var pushExpoItemListViewButton: UIButton = {
         let button = UIButton()
+        button.setTitle("한국의 출품작 보러 가기", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("한국의 출품작 보러 가기", for: .normal)
         
         return button
     }()
     
-    private var flagImage: UIImageView = {
+    private func makeFlagImage() -> UIImageView {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag")
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         return imageView
-    }()
+    }
     
     var decodedExposition: ExpositionDecoder = ExpositionDecoder()
     
@@ -122,7 +127,6 @@ final class MainViewController: UIViewController {
     private func setupSubView() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentStackView)
-        scrollView.addSubview(buttonStackView)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -137,26 +141,29 @@ final class MainViewController: UIViewController {
         contentStackView.addArrangedSubview(locationLabel)
         contentStackView.addArrangedSubview(durationLabel)
         contentStackView.addArrangedSubview(descriptionLabel)
-        //contentStackView.addArrangedSubview(buttonStackView)
+        contentStackView.addArrangedSubview(buttonStackView)
         
         NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 10),
             contentStackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor, constant: 10),
             contentStackView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-            
-            contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -15),
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -15)
         ])
         
-        buttonStackView.addArrangedSubview(flagImage)
+        let leftFlagImage = makeFlagImage()
+        let rightFlagImage = makeFlagImage()
+        
+        buttonStackView.addArrangedSubview(leftFlagImage)
         buttonStackView.addArrangedSubview(pushExpoItemListViewButton)
-        buttonStackView.addArrangedSubview(flagImage)
+        buttonStackView.addArrangedSubview(rightFlagImage)
+        
         
         NSLayoutConstraint.activate([
-            buttonStackView.topAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: 10),
-            buttonStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            buttonStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            buttonStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            leftFlagImage.widthAnchor.constraint(equalToConstant: 50),
+            leftFlagImage.heightAnchor.constraint(equalToConstant: 50),
+            rightFlagImage.widthAnchor.constraint(equalToConstant: 50),
+            rightFlagImage.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -166,9 +173,6 @@ final class MainViewController: UIViewController {
         locationLabel.text = NameSpace.location + decodedExposition.exposition.location
         durationLabel.text = NameSpace.duration + decodedExposition.exposition.duration
         descriptionLabel.text = decodedExposition.exposition.description
-        descriptionLabel.numberOfLines = 0
-        posterImageView.image = UIImage(named: "poster")
-        flagImage.image = UIImage(named: "flag")
     }
 }
 
