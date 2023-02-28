@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionNavigationController: UINavigationController {
+final class ExpositionNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,6 @@
 import UIKit
 
 final class KoreaItemsViewController: UIViewController {
-    
     @IBOutlet private weak var tableView: UITableView!
     
     private var expositionItems: [ExpositionUniverselleItem] = []

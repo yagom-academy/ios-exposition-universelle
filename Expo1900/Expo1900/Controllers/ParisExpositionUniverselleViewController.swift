@@ -7,7 +7,6 @@
 import UIKit
 
 final class ParisExpositionUniverselleViewController: UIViewController {
-    
     @IBOutlet private weak var expositionTitle: UILabel!
     @IBOutlet private weak var expositionPoster: UIImageView!
     @IBOutlet private weak var expositionVisitors: UILabel!
