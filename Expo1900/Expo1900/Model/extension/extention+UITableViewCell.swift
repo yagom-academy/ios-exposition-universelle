@@ -19,9 +19,9 @@ extension UITableViewCell {
         var content = self.defaultContentConfiguration()
 
         content.text = item.name
-        content.textProperties.font = UIFont.systemFont(ofSize: FontSize.subTitle)
+        content.textProperties.font = UIFont.preferredFont(forTextStyle: .title2)
         content.secondaryText = item.shortDescription
-        content.secondaryTextProperties.font = UIFont.systemFont(ofSize: FontSize.content)
+        content.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .body)
         content.image = image
         
         self.contentConfiguration = content

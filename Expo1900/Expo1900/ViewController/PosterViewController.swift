@@ -75,7 +75,8 @@ final class PosterViewController: UIViewController {
         titleLabel.text = title
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-        titleLabel.font = .systemFont(ofSize: FontSize.title)
+        titleLabel.font = .preferredFont(forTextStyle: .title1)
+        titleLabel.adjustsFontForContentSizeCategory = true
         
         stackView.addArrangedSubview(titleLabel)
     }
@@ -96,6 +97,8 @@ final class PosterViewController: UIViewController {
         let locationStackView = makeSubStackView(subTitle: "개최지", contents: location)
         let durationStackView = makeSubStackView(subTitle: "개최 기간", contents: duration)
         
+        
+        
         stackView.addArrangedSubview(visitorsStackView)
         stackView.addArrangedSubview(locationStackView)
         stackView.addArrangedSubview(durationStackView)
@@ -114,12 +117,18 @@ final class PosterViewController: UIViewController {
         
         let subTitleLabel = UILabel()
         subTitleLabel.text = subTitle
-        subTitleLabel.font = .systemFont(ofSize: FontSize.subTitle)
-        
+        subTitleLabel.font = .preferredFont(forTextStyle: .title2)
+        subTitleLabel.adjustsFontForContentSizeCategory = true
+
         let contentsLabel = UILabel()
         contentsLabel.text = " : " + contents
+        contentsLabel.font = .preferredFont(forTextStyle: .body)
+        contentsLabel.adjustsFontForContentSizeCategory = true
+        contentsLabel.numberOfLines = 0
         
+ 
         subStackView.axis = .horizontal
+        subStackView.alignment = .top
         subStackView.addArrangedSubview(subTitleLabel)
         subStackView.addArrangedSubview(contentsLabel)
         
@@ -133,6 +142,8 @@ final class PosterViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = description
         descriptionLabel.textAlignment = .left
+        descriptionLabel.font = .preferredFont(forTextStyle: .body)
+        descriptionLabel.adjustsFontForContentSizeCategory = true
         
         stackView.addArrangedSubview(descriptionLabel)
     }
@@ -143,8 +154,10 @@ final class PosterViewController: UIViewController {
         let text = NSAttributedString(string: "한국의 출품작 보러가기")
         
         button.setAttributedTitle(text, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: FontSize.content)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.titleLabel?.textColor = .systemBlue
+        button.titleLabel?.numberOfLines = 0
         button.addTarget(self, action: #selector(changeScene), for: .touchUpInside)
         
         let leftImageView = makeImageView(fileName: "flag")
