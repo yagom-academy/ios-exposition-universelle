@@ -7,6 +7,7 @@
 import UIKit
 
 final class ExpoInfoMainViewController: UIViewController {
+    private let delegate = UIApplication.shared.delegate as! AppDelegate
     private var expoAssets: ExpositionInfo?
     
     private let scrollView = {
@@ -84,11 +85,14 @@ final class ExpoInfoMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        delegate.changeOrientation = false
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
+        delegate.changeOrientation = true
     }
     
     private func decodeExpoInfo() {

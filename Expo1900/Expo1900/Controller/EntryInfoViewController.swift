@@ -50,8 +50,10 @@ final class EntryInfoViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
+                                             constant: 16),
+            scrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,
+                                              constant: -16),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
