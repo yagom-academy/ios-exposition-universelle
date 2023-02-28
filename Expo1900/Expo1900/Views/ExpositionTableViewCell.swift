@@ -14,6 +14,7 @@ final class ExpositionTableViewCell: UITableViewCell {
     
     func configure(item: ExpositionUniverselleItem) {
         itemImageView.image = UIImage(named: item.imageName)
+        itemImageView.accessibilityLabel = "\(item.imageName)"
         itemTitleLabel.text = item.name
         itemSubtitleLabel.text = item.shortDescription
     }

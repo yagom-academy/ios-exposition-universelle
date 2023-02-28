@@ -40,6 +40,7 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         
         expositionTitle.text = expositionData.displayedTitle
         expositionPoster.image = UIImage(named: AssetName.poster)
+        expositionPoster.accessibilityLabel = "파리 만국박람회 포스터"
         expositionVisitors.attributedText = expositionData.displayedNumberOfVisitor.attributedString
         expositionLocation.attributedText = expositionData.displayedLocation.attributedString
         expositionDuration.attributedText = expositionData.displayedDuration.attributedString

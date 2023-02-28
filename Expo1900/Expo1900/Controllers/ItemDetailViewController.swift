@@ -31,6 +31,7 @@ final class ItemDetailViewController: UIViewController {
     private func setupUI() {
         self.navigationItem.title = item.name
         itemImage.image = UIImage(named: item.imageName)
+        itemImage.accessibilityLabel = "\(item.imageName)"
         itemDescription.text = item.description
     }
 }
