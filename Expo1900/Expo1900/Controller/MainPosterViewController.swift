@@ -46,11 +46,8 @@ extension MainPosterViewController {
         configureScrollView()
         configureTitleLabel()
         configureMainPosterImage()
-        configureContentLabels()
-//        configureContentLabel(self.mainPoster?.visitorsText)
-//        configureContentLabel(self.mainPoster?.locationText)
-//        configureContentLabel(self.mainPoster?.durationText)
-        configureTextView()
+        configureInfoLabels()
+        configureContentLabel()
         configureFooter()
     }
     
@@ -90,7 +87,7 @@ extension MainPosterViewController {
         self.customScrollView.addArrangeSubView(view: imageView)
     }
     
-    func configureContentLabels() {
+    func configureInfoLabels() {
         let label = UILabel()
         
         label.numberOfLines = 3
@@ -139,59 +136,32 @@ extension MainPosterViewController {
         firstAttributedText.append(thirdAttributedText)
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 10
+        paragraphStyle.lineSpacing = 8
+        paragraphStyle.alignment = .center
+        
         
         firstAttributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, firstAttributedText.length))
         
         label.attributedText = firstAttributedText
         label.adjustsFontForContentSizeCategory = true
-        
-        label.textAlignment = .center
+        label.lineBreakMode = .byClipping
         label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.001
 
         self.customScrollView.addArrangeSubView(view: label)
     }
     
-    private func configureContentLabel(_ labelText: String?) {
+    private func configureContentLabel() {
         let label = UILabel()
-        guard let text = labelText else { return }
         
-        label.numberOfLines = 1
+        label.numberOfLines = 0
+        label.text = self.mainPoster?.description
+        label.font = .preferredFont(forTextStyle: .body)
         
-        let fontSize = UIFont.preferredFont(forTextStyle: .title3)
-        let attributedText = NSMutableAttributedString(string: text)
-        
-        guard let index = text.firstIndex(of: ":") else { return }
-        
-        let substring = String(text.prefix(upTo: index))
-        let substring2 = String(text.suffix(from: index))
-        
-        
-        attributedText.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: substring))
-        
-        attributedText.addAttribute(.font,
-                                    value: UIFont.preferredFont(forTextStyle: .body),
-                                    range: attributedText.mutableString.range(of: substring2))
-        
-        
-        label.attributedText = attributedText
         label.adjustsFontForContentSizeCategory = true
-        label.adjustsFontSizeToFitWidth = true
+        label.lineBreakStrategy = .hangulWordPriority
         
         self.customScrollView.addArrangeSubView(view: label)
-    }
-    
-    private func configureTextView() {
-        let textView = UITextView()
-        
-        textView.font = .preferredFont(forTextStyle: .body)
-        textView.text = self.mainPoster?.description
-        textView.isScrollEnabled = false
-        textView.isEditable = false
-        textView.isSelectable = false
-        textView.adjustsFontForContentSizeCategory = true
-        
-        self.customScrollView.addArrangeSubView(view: textView)
     }
     
     private func configureFooter() {
