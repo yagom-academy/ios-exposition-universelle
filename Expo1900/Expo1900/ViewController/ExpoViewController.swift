@@ -8,7 +8,6 @@ import UIKit
 
 final class ExpoViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
-   
     @IBOutlet private weak var visitorSubtitleLabel: UILabel!
     @IBOutlet private weak var numberOfVisitorsLabel: UILabel!
     @IBOutlet private weak var locationSubtitleLabel: UILabel!
@@ -20,6 +19,7 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private var flagImageViews: [UIImageView]!
     @IBOutlet private weak var goButton: UIButton!
    
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     private var expoUniverselle: ExpoUniverselle?
     
     override func viewDidLoad() {
@@ -32,6 +32,12 @@ final class ExpoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate?.shouldSupportAllOrientation = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate?.shouldSupportAllOrientation = true
     }
     
     private func setNavigationBar() {
