@@ -18,6 +18,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D00E7AA929A36E2900893E3B /* ExhibitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E7AA829A36E2900893E3B /* ExhibitItem.swift */; };
 		D05EDCB729A719B900C70443 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDCB629A719B900C70443 /* ItemsViewController.swift */; };
+		D05EDD2B29AD96C400C70443 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDD2A29AD96C400C70443 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D00E7AA829A36E2900893E3B /* ExhibitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitItem.swift; sourceTree = "<group>"; };
 		D05EDCB629A719B900C70443 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		D05EDD2A29AD96C400C70443 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
 				D05EDCB629A719B900C70443 /* ItemsViewController.swift */,
 				7F26CAE429A77B41000FD91E /* ExhibitItemViewController.swift */,
+				D05EDD2A29AD96C400C70443 /* CustomTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05EDD2B29AD96C400C70443 /* CustomTableViewCell.swift in Sources */,
 				D00E7AA929A36E2900893E3B /* ExhibitItem.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,

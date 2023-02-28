@@ -42,11 +42,10 @@ extension ItemsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else { return CustomTableViewCell() }
+        
         let exhibitItem: ExhibitItem = exhibitItems[indexPath.row]
-        cell.textLabel?.text = exhibitItem.name
-        cell.detailTextLabel?.text = exhibitItem.shortDescription
-        cell.imageView?.image = UIImage(named: exhibitItem.imageName)
+        cell.configure(exhibitItem: exhibitItem)
         
         return cell
     }

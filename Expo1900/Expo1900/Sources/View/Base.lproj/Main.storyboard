@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="Qae-5B-CZc" detailTextLabel="RVp-dj-FHu" imageView="oTI-9c-iHr" style="IBUITableViewCellStyleSubtitle" id="ERM-HR-x4n">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="Qae-5B-CZc" detailTextLabel="RVp-dj-FHu" imageView="oTI-9c-iHr" style="IBUITableViewCellStyleSubtitle" id="ERM-HR-x4n" customClass="CustomTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="57.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ERM-HR-x4n" id="V3Y-Se-AzK">
@@ -152,6 +152,11 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemImageView" destination="oTI-9c-iHr" id="Wa8-3M-Pm0"/>
+                                    <outlet property="subTitleLabel" destination="RVp-dj-FHu" id="Z10-og-UDY"/>
+                                    <outlet property="titleLabel" destination="Qae-5B-CZc" id="Vfb-G0-DZc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
