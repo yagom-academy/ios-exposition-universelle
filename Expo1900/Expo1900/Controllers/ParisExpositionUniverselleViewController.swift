@@ -21,6 +21,7 @@ final class ParisExpositionUniverselleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.title = "메인"
         do {
             expositionData = try JSONDecoder().loadJSONData(name: AssetName.exposition, type: ExpositionUniverselle.self)
