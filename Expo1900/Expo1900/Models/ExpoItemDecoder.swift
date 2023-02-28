@@ -23,6 +23,7 @@ struct ExpoItemDecoder {
             let okAction = UIAlertAction(title: "확인", style: .default)
 
             alertController.addAction(okAction)
+            
             let rootViewController = UIApplication.shared.windows.first?.rootViewController
             rootViewController?.present(alertController, animated: true)
         }

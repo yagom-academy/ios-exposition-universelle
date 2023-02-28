@@ -22,8 +22,8 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decodedExposition.decodeData()
-        setUpView()
+//        decodedExposition.decodeData()
+//        setUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
