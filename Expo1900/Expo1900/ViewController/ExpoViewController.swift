@@ -8,13 +8,18 @@ import UIKit
 
 final class ExpoViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var numberOfVisitorLabel: UILabel!
+   
+    @IBOutlet private weak var visitorSubtitleLabel: UILabel!
+    @IBOutlet private weak var numberOfVisitorsLabel: UILabel!
+    @IBOutlet private weak var locationSubtitleLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationSubtitileLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private var flagImageViews: [UIImageView]!
     @IBOutlet private weak var goButton: UIButton!
+   
     private var expoUniverselle: ExpoUniverselle?
     
     override func viewDidLoad() {
@@ -60,14 +65,13 @@ final class ExpoViewController: UIViewController {
             from: expoData.numberOfVisitors
         ) else { return }
         
-        self.numberOfVisitorLabel.text = "방문객 : \(decimalVisitors) 명"
-        self.locationLabel.text = "개최지 : \(expoData.location)"
-        self.durationLabel.text = "개최 기간 : \(expoData.duration)"
-        
-        convertTextSize(of: self.numberOfVisitorLabel, range: NSMakeRange(0, 3))
-        convertTextSize(of: self.locationLabel, range: NSMakeRange(0, 3))
-        convertTextSize(of: self.durationLabel, range: NSMakeRange(0, 5))
-        
+        self.visitorSubtitleLabel.text = "방문객"
+        self.numberOfVisitorsLabel.text = " : \(decimalVisitors) 명"
+        self.locationSubtitleLabel.text = "개최지"
+        self.locationLabel.text = " : \(expoData.location)"
+        self.durationSubtitileLabel.text = "개최 기간"
+        self.durationLabel.text = " : \(expoData.duration)"
+
         self.titleLabel.text = expoData.title
         self.descriptionLabel.text = expoData.description
     }
