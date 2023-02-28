@@ -7,6 +7,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
+    static let cellIdentifier = "cell"
     
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
