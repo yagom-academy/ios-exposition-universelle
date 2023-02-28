@@ -9,7 +9,18 @@ import UIKit
 
 final class ExpoItemListViewController: UIViewController {
     
-    @IBOutlet weak private var listTableView: UITableView!
+    private var listTableView: UITableView = {
+        let tableView = UITableView(frame: CGRect.zero, style: .plain)
+        tableView.backgroundColor = .clear
+        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 60
+//        tableView.dataSource = self
+//        tableView.delegate = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tableView
+    }()
     
     var decodedExpoItem: ExpoItemDecoder = ExpoItemDecoder()
     
@@ -19,6 +30,7 @@ final class ExpoItemListViewController: UIViewController {
         listTableView.reloadData()
         listTableView.dataSource = self
         setNavigationBar()
+        setupLayout()
     }
     
     private func setNavigationBar() {
@@ -36,6 +48,16 @@ final class ExpoItemListViewController: UIViewController {
               let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
     
         itemDetailViewController.receiveData(from: cell)
+    }
+    
+    private func setupLayout() {
+        view.addSubview(listTableView)
+        NSLayoutConstraint.activate([
+            listTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            listTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            listTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            listTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 

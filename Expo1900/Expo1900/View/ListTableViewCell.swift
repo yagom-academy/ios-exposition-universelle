@@ -11,9 +11,27 @@ final class ListTableViewCell: UITableViewCell {
     private(set) var expoDescription: String = ""
     private(set) var expoImageName: String = ""
     
-    @IBOutlet weak private(set) var expoImageView: UIImageView!
-    @IBOutlet weak private(set) var expoTitleLabel: UILabel!
-    @IBOutlet weak private(set) var expoShortDescriptionLabel: UILabel!
+    private(set) var expoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    private(set) var expoTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    private(set) var expoShortDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
     func configureCellData(expoItem: ExpoItem) {
         expoTitleLabel.text = expoItem.name
@@ -22,5 +40,36 @@ final class ListTableViewCell: UITableViewCell {
         expoImageView.image = UIImage(named: expoItem.imageName)
         expoDescription = expoItem.description
         expoImageName = expoItem.imageName
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("오류발생")
+    }
+    
+    private func setupLayout() {
+        contentView.addSubview(expoImageView)
+        contentView.addSubview(expoTitleLabel)
+        contentView.addSubview(expoShortDescriptionLabel)
+        
+        NSLayoutConstraint.activate([
+            expoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            expoImageView.widthAnchor.constraint(equalToConstant: 75),
+            expoImageView.heightAnchor.constraint(equalToConstant: 75),
+            expoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            expoTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            expoTitleLabel.leadingAnchor.constraint(equalTo: expoImageView.trailingAnchor, constant: 10),
+            expoTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            
+            expoShortDescriptionLabel.topAnchor.constraint(equalTo: expoTitleLabel.bottomAnchor, constant: 5),
+            expoShortDescriptionLabel.leadingAnchor.constraint(equalTo: expoTitleLabel.leadingAnchor),
+            expoShortDescriptionLabel.trailingAnchor.constraint(equalTo: expoTitleLabel.trailingAnchor),
+            expoShortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+        ])
     }
 }
