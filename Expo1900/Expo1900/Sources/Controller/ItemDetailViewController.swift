@@ -1,15 +1,15 @@
 //
-//  Expo1900 - ExhibitItemViewController.swift
+//  Expo1900 - ItemDetailViewController.swift
 //  Created by Christy, Rhode.
 //  Copyright © yagom academy. All rights reserved.
 //
 
 import UIKit
 
-final class ExhibitItemViewController: UIViewController {
-    var navigationTitle: String
-    var imageName: String
-    var descriptionText: String
+final class ItemDetailViewController: UIViewController {
+    private var navigationTitle: String
+    private var imageName: String
+    private var descriptionText: String
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!

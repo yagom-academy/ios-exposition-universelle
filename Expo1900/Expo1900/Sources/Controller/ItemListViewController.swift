@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ItemsViewController.swift
+//  Expo1900 - ItemListViewController.swift
 //  Created by Christy, Rhode.
 //  Copyright © yagom academy. All rights reserved.
 //
 
 import UIKit
 
-final class ItemsViewController: UIViewController {
+final class ItemListViewController: UIViewController {
     private var exhibitItems: [ExhibitItem] = []
     
     @IBOutlet private weak var tableView: UITableView!
@@ -36,7 +36,7 @@ final class ItemsViewController: UIViewController {
     }
 }
 
-extension ItemsViewController: UITableViewDataSource {
+extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exhibitItems.count
     }
@@ -51,15 +51,15 @@ extension ItemsViewController: UITableViewDataSource {
     }
 }
 
-extension ItemsViewController: UITableViewDelegate {
+extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.bounds.height / 6
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let itemDetailView: ExhibitItemViewController = storyboard?.instantiateViewController(identifier: "exhibitItemViewController", creator: { creator in
+        if let itemDetailView: ItemDetailViewController = storyboard?.instantiateViewController(identifier: "exhibitItemViewController", creator: { creator in
             let item = self.exhibitItems[indexPath.row]
-            let viewController = ExhibitItemViewController(item: item, coder: creator)
+            let viewController = ItemDetailViewController(item: item, coder: creator)
             
             return viewController
         }) {

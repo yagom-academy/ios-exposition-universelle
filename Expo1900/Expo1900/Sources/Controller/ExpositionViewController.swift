@@ -49,7 +49,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     @IBAction func touchUpInsideItemButton(_ sender: UIButton) {
-        guard let itemsView: ItemsViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemsViewController else { return }
+        guard let itemsView: ItemListViewController = self.storyboard?.instantiateViewController(withIdentifier: "itemViewController") as? ItemListViewController else { return }
         
         navigationController?.pushViewController(itemsView, animated: true)
     }
