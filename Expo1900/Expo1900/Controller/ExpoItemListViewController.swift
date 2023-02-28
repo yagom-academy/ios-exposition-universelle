@@ -9,14 +9,12 @@ import UIKit
 
 final class ExpoItemListViewController: UIViewController {
     
-    private var listTableView: UITableView = {
+    private lazy var listTableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
-        tableView.backgroundColor = .clear
         tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
-//        tableView.dataSource = self
-//        tableView.delegate = self
+        tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
@@ -28,7 +26,6 @@ final class ExpoItemListViewController: UIViewController {
         super.viewDidLoad()
         decodedExpoItem.decodeData()
         listTableView.reloadData()
-        listTableView.dataSource = self
         setNavigationBar()
         setupLayout()
     }
@@ -46,12 +43,14 @@ final class ExpoItemListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let itemDetailViewController: ItemDetailViewController = segue.destination as? ItemDetailViewController,
               let cell: ListTableViewCell = sender as? ListTableViewCell else { return }
-    
+        
         itemDetailViewController.receiveData(from: cell)
     }
     
     private func setupLayout() {
         view.addSubview(listTableView)
+        title = "한국의 출품작"
+        
         NSLayoutConstraint.activate([
             listTableView.topAnchor.constraint(equalTo: view.topAnchor),
             listTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

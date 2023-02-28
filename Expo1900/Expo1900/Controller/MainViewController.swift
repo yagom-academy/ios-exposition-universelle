@@ -29,13 +29,13 @@ final class MainViewController: UIViewController {
     private var buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 20
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
     }()
-
+    
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 25)

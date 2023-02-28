@@ -13,17 +13,21 @@ final class ListTableViewCell: UITableViewCell {
     
     private(set) var expoImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
+    
     private(set) var expoTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
+        label.font = .systemFont(ofSize: 26)
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
+    
     private(set) var expoShortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17)
@@ -48,7 +52,7 @@ final class ListTableViewCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("오류발생")
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupLayout() {
