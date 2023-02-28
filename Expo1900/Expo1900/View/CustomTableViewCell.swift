@@ -22,13 +22,14 @@ final class CustomTableViewCell: UITableViewCell {
     private let entryNameLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 25)
+        label.font = .preferredFont(forTextStyle: .title2)
         return label
     }()
     
     private let entryShortDescriptionLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label

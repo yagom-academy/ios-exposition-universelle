@@ -18,7 +18,7 @@ final class ExpoInfoMainViewController: UIViewController {
     
     private let titleLabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 25)
+        label.font = .preferredFont(forTextStyle: .title1)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
@@ -48,6 +48,7 @@ final class ExpoInfoMainViewController: UIViewController {
 
     private let descriptionLabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label

@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: ExpoInfoMainViewController())
         window?.makeKeyAndVisible()
+        
+        UILabel.appearance().adjustsFontForContentSizeCategory = true
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
