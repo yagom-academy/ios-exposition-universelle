@@ -2,7 +2,7 @@
 //  CustomTableViewCell.swift
 //  Expo1900
 //
-//  Created by jiye Yi on 2023/02/27.
+//  Created by 리지, Rowan on 2023/02/27.
 //
 
 import UIKit

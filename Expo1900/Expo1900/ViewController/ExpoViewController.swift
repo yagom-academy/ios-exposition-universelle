@@ -71,11 +71,11 @@ final class ExpoViewController: UIViewController {
             from: expoData.numberOfVisitors
         ) else { return }
         
-        self.visitorSubtitleLabel.text = "방문객"
+        self.visitorSubtitleLabel.text = Subtitle.visitor
         self.numberOfVisitorsLabel.text = " : \(decimalVisitors) 명"
-        self.locationSubtitleLabel.text = "개최지"
+        self.locationSubtitleLabel.text = Subtitle.location
         self.locationLabel.text = " : \(expoData.location)"
-        self.durationSubtitileLabel.text = "개최 기간"
+        self.durationSubtitileLabel.text = Subtitle.duration
         self.durationLabel.text = " : \(expoData.duration)"
 
         self.titleLabel.text = expoData.title
@@ -103,6 +103,12 @@ final class ExpoViewController: UIViewController {
         static let expo = "exposition_universelle_1900"
         static let poster = "poster"
         static let flag = "flag"
+    }
+    
+    private enum Subtitle {
+        static let visitor = "방문객"
+        static let location = "개최지"
+        static let duration = "개최 기간"
     }
 }
 
