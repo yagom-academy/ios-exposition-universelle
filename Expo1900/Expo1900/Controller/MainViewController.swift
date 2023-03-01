@@ -40,6 +40,8 @@ final class MainViewController: UIViewController {
         label.font = .systemFont(ofSize: 25)
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -56,6 +58,8 @@ final class MainViewController: UIViewController {
     private var visitorsLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -64,6 +68,8 @@ final class MainViewController: UIViewController {
     private var locationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -72,6 +78,8 @@ final class MainViewController: UIViewController {
     private var durationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -80,6 +88,8 @@ final class MainViewController: UIViewController {
     private var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -89,6 +99,9 @@ final class MainViewController: UIViewController {
         let button = UIButton()
         button.setTitle("한국의 출품작 보러 가기", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button

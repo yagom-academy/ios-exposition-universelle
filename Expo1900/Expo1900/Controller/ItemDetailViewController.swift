@@ -37,6 +37,8 @@ final class ItemDetailViewController: UIViewController {
     private var expoDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -70,7 +72,6 @@ final class ItemDetailViewController: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            
         ])
         
         scrollView.addSubview(contentStackView)
@@ -85,6 +86,10 @@ final class ItemDetailViewController: UIViewController {
         
         contentStackView.addArrangedSubview(expoImageView)
         contentStackView.addArrangedSubview(expoDescriptionLabel)
+        
+        NSLayoutConstraint.activate([
+            expoImageView.heightAnchor.constraint(equalToConstant: 250)
+        ])
     }
     
     func receiveData(from cell: ExpoItem) {
