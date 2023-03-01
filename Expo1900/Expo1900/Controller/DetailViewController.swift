@@ -59,15 +59,16 @@ extension DetailViewController {
     }
     
     private func configureTextView() {
-        let textView = UITextView()
+        let detailLabel = UILabel()
         
-        textView.font = .preferredFont(forTextStyle: .body)
-        textView.text = self.exhibitionItem.description
-        textView.isScrollEnabled = false
-        textView.isEditable = false
-        textView.isSelectable = false
-        textView.adjustsFontForContentSizeCategory = true
+        detailLabel.numberOfLines = 0
+        detailLabel.font = .preferredFont(forTextStyle: .body)
+        detailLabel.text = self.exhibitionItem.description
+        detailLabel.adjustsFontForContentSizeCategory = true
         
-        self.scrollView.addArrangeSubView(view: textView)
+        detailLabel.lineBreakMode = .byWordWrapping
+        detailLabel.lineBreakStrategy = .hangulWordPriority
+        
+        self.scrollView.addArrangeSubView(view: detailLabel)
     }
 }
