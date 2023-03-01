@@ -22,7 +22,7 @@ final class EntryTableViewController: UITableViewController {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
-            self.entryList = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
+            entryList = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }
@@ -32,7 +32,7 @@ final class EntryTableViewController: UITableViewController {
 // MARK: - Table view data source
 extension EntryTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.entryList.count
+        return entryList.count
     }
 
     override func tableView(_ tableView: UITableView,
@@ -40,7 +40,7 @@ extension EntryTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier,
                                                        for: indexPath) as? CustomTableViewCell
         else { fatalError("Failed to load a CustomTableViewCell from the table.") }
-        let entry: Entry = self.entryList[indexPath.row]
+        let entry: Entry = entryList[indexPath.row]
         
         cell.configureEntryList(image: entry.imageName,
                                 name: entry.name,

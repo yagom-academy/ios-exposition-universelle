@@ -14,8 +14,6 @@ final class CustomTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return imageView
     }()
     
@@ -38,7 +36,7 @@ final class CustomTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
-        self.accessoryType = .disclosureIndicator
+        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -46,9 +44,9 @@ final class CustomTableViewCell: UITableViewCell {
     }
     
     func configureEntryList(image: String, name: String, shortDescription: String) {
-        self.entryImageView.image = UIImage(named: image)
-        self.entryNameLabel.text = name
-        self.entryShortDescriptionLabel.text = shortDescription
+        entryImageView.image = UIImage(named: image)
+        entryNameLabel.text = name
+        entryShortDescriptionLabel.text = shortDescription
     }
     
     private func configureLayout() {
@@ -56,10 +54,16 @@ final class CustomTableViewCell: UITableViewCell {
         addSubview(itemStackView)
         
         NSLayoutConstraint.activate([
-            itemStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            itemStackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 20),
-            itemStackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -40),
-            itemStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            entryImageView.widthAnchor.constraint(equalToConstant: 70),
+            entryImageView.heightAnchor.constraint(equalToConstant: 60),
+            
+            itemStackView.topAnchor.constraint(equalTo: topAnchor,
+                                               constant: 10),
+            itemStackView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor,
+                                                constant: 20),
+            itemStackView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor,
+                                                 constant: -40),
+            itemStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
     

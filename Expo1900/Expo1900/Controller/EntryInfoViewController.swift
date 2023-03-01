@@ -28,8 +28,6 @@ final class EntryInfoViewController: UIViewController {
     private let entryImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         return imageView
     }()
     
@@ -53,6 +51,9 @@ final class EntryInfoViewController: UIViewController {
         scrollView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
+            entryImageView.widthAnchor.constraint(equalToConstant: 200),
+            entryImageView.heightAnchor.constraint(equalToConstant: 200),
+            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
                                              constant: 16),

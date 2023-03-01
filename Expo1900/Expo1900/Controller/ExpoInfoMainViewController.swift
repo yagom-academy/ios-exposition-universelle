@@ -63,16 +63,12 @@ final class ExpoInfoMainViewController: UIViewController {
     private let leftFlagImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "flag")
-        imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return imageView
     }()
     
     private let rightFlagImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "flag")
-        imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return imageView
     }()
     
@@ -114,6 +110,11 @@ final class ExpoInfoMainViewController: UIViewController {
         scrollView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
+            leftFlagImageView.widthAnchor.constraint(equalToConstant: 30),
+            leftFlagImageView.heightAnchor.constraint(equalToConstant: 20),
+            rightFlagImageView.widthAnchor.constraint(equalToConstant: 30),
+            rightFlagImageView.heightAnchor.constraint(equalToConstant: 20),
+            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
@@ -129,14 +130,20 @@ final class ExpoInfoMainViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         navigationItem.title = "메인"
+        
         titleLabel.text = expoAssets?.title
+        
         numberOfVisitorsLabel.text = "방문객 : \(String(expoAssets?.numberOfVisitors ?? 0).applyNumberFormatter()) 명"
         numberOfVisitorsLabel.applyFont(targetString: "방문객")
-        locationLabel.text = "개최지 : \(self.expoAssets?.location ?? "")"
+        
+        locationLabel.text = "개최지 : \(expoAssets?.location ?? "")"
         locationLabel.applyFont(targetString: "개최지")
-        durationLabel.text = "개최 기간 : \(self.expoAssets?.duration ?? "")"
+        
+        durationLabel.text = "개최 기간 : \(expoAssets?.duration ?? "")"
         durationLabel.applyFont(targetString: "개최 기간")
-        descriptionLabel.text = self.expoAssets?.description
+        
+        descriptionLabel.text = expoAssets?.description
+        
         nextViewButton.addTarget(self, action: #selector(didTapMoveToEntryTableVC), for: .touchUpInside)
     }
     
