@@ -103,6 +103,7 @@ final class MainViewController: UIViewController {
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityLabel = "한국의 출품작 보러 가기"
         
         return button
     }()
