@@ -87,66 +87,53 @@ extension MainPosterViewController {
         self.customScrollView.addArrangeSubView(view: imageView)
     }
     
+    func makeAttributedText(text: String, index: String.Index) -> NSMutableAttributedString {
+        let bigFont = UIFont.preferredFont(forTextStyle: .title3)
+        let generalFont = UIFont.preferredFont(forTextStyle: .body)
+        
+        let attributedText = NSMutableAttributedString(string: text)
+        
+        let textLineTitle = String(text.prefix(upTo: index))
+        let textLineContent = String(text.suffix(from: index))
+        
+        attributedText.addAttribute(.font, value: bigFont, range: (text as NSString).range(of: textLineTitle))
+        attributedText.addAttribute(.font, value: generalFont, range: (text as NSString).range(of: textLineContent))
+        
+        return attributedText
+    }
+    
     func configureInfoLabels() {
         let label = UILabel()
         
         label.numberOfLines = 3
         
-        
         guard let firstLine = self.mainPoster?.visitorsText,
               let secondLine = self.mainPoster?.locationText,
               let thirdLine = self.mainPoster?.durationText else { return }
-        
-        let bigFont = UIFont.preferredFont(forTextStyle: .title3)
-        let generalFont = UIFont.preferredFont(forTextStyle: .body)
-                
-        guard let index1 = firstLine.firstIndex(of: ":") else { return }
-        guard let index2 = secondLine.firstIndex(of: ":") else { return }
-        guard let index3 = thirdLine.firstIndex(of: ":") else { return }
-        
-        let firstAttributedText = NSMutableAttributedString(string: firstLine)
-        let secondAttributedText = NSMutableAttributedString(string: secondLine)
-        let thirdAttributedText = NSMutableAttributedString(string: thirdLine)
+
+        let attributedText = NSMutableAttributedString()
         let lineBreakText = NSMutableAttributedString(string: "\n")
         
-        let firstLineTitle = String(firstLine.prefix(upTo: index1))
-        let firstLineContent = String(firstLine.suffix(from: index1))
-        
-        let secondLineTitle = String(secondLine.prefix(upTo: index2))
-        let secondLineContent = String(secondLine.suffix(from: index2))
-        
-        let thirdLineTitle = String(thirdLine.prefix(upTo: index3))
-        let thirdLineContent = String(thirdLine.suffix(from: index3))
-        
-        
-        
-        firstAttributedText.addAttribute(.font, value: bigFont, range: (firstLine as NSString).range(of: firstLineTitle))
-        firstAttributedText.addAttribute(.font, value: generalFont, range: (firstLine as NSString).range(of: firstLineContent))
-        
-        secondAttributedText.addAttribute(.font, value: bigFont, range: (secondLine as NSString).range(of: secondLineTitle))
-        secondAttributedText.addAttribute(.font, value: generalFont, range: (secondLine as NSString).range(of: secondLineContent))
-        
-        thirdAttributedText.addAttribute(.font, value: bigFont, range: (thirdLine as NSString).range(of: thirdLineTitle))
-        thirdAttributedText.addAttribute(.font, value: generalFont, range: (thirdLine as NSString).range(of: thirdLineContent))
-        
-        
-        firstAttributedText.append(lineBreakText)
-        firstAttributedText.append(secondAttributedText)
-        firstAttributedText.append(lineBreakText)
-        firstAttributedText.append(thirdAttributedText)
-        
+        [firstLine, secondLine, thirdLine].forEach { text in
+            guard let index = text.firstIndex(of: ":") else { return }
+            
+            attributedText.append(makeAttributedText(text: text, index: index))
+            
+            if text != thirdLine {
+                attributedText.append(lineBreakText)
+            }
+        }
+
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 8
         paragraphStyle.alignment = .center
         
+        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
         
-        firstAttributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, firstAttributedText.length))
-        
-        label.attributedText = firstAttributedText
+        label.attributedText = attributedText
         label.adjustsFontForContentSizeCategory = true
         label.lineBreakMode = .byClipping
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.001
 
         self.customScrollView.addArrangeSubView(view: label)
     }
