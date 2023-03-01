@@ -90,8 +90,11 @@ final class ExhibitionEntryCell: UITableViewCell {
     private func configureExhibitionImage() {
         self.stackView.addArrangedSubview(exhibitionImage)
         
+        let heightAnchor = exhibitionImage.widthAnchor.constraint(equalTo: exhibitionImage.heightAnchor)
+        heightAnchor.priority = .defaultHigh
+        heightAnchor.isActive = true
+        
         NSLayoutConstraint.activate([
-            exhibitionImage.widthAnchor.constraint(equalTo: exhibitionImage.heightAnchor),
             exhibitionImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.2)
         ])
     }
