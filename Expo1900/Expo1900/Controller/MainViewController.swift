@@ -129,7 +129,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decodedExposition.decodeData()
+        checkValidDecodedData()
         view.backgroundColor = .white
         setupSubView()
         setUpView()
@@ -146,6 +146,22 @@ final class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
         AppDelegate.portraitOrientation = false
+    }
+    
+    private func checkValidDecodedData() {
+        do {
+            try decodedExposition.decodeData()
+        } catch DecodeError.expositionDecodeError {
+            let alertController = UIAlertController(title: "에러 발생",
+                                                    message: "박람회 정보를 불러오지 못했습니다.",
+                                                    preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            
+            alertController.addAction(okAction)
+            
+            let rootViewController = UIApplication.shared.windows.first?.rootViewController
+            rootViewController?.present(alertController, animated: true)
+        } catch { }
     }
     
     private func setupSubView() {

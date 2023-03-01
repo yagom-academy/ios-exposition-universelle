@@ -24,7 +24,7 @@ final class ExpoItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decodedExpoItem.decodeData()
+        checkValidDecodedData()
         listTableView.reloadData()
         setNavigationBar()
         setupLayout()
@@ -38,6 +38,22 @@ final class ExpoItemListViewController: UIViewController {
                                                  style: .plain,
                                                  target: self,
                                                  action: nil)
+    }
+    
+    private func checkValidDecodedData() {
+        do {
+            try decodedExpoItem.decodeData()
+        } catch DecodeError.expoItemDecodeError {
+            let alertController = UIAlertController(title: "에러 발생",
+                                                    message: "출품작리스트를 불러오지 못했습니다.",
+                                                    preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            
+            alertController.addAction(okAction)
+            
+            let rootViewController = UIApplication.shared.windows.first?.rootViewController
+            rootViewController?.present(alertController, animated: true)
+        } catch { }
     }
     
     private func setupLayout() {
