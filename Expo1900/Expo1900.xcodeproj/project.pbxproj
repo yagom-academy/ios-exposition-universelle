@@ -7,27 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD87E81C29A5AA390021E1C9 /* ItemEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87E81B29A5AA390021E1C9 /* ItemEntryViewController.swift */; };
+		AD8CCCE229ACADDD0007B301 /* DecodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8CCCE129ACADDD0007B301 /* DecodeManager.swift */; };
 		ADC7AE0329A341B1001DD9F4 /* ExpoUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7AE0229A341B1001DD9F4 /* ExpoUniverselle.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
+		C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		FB3D954029A3403C000153CF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D953F29A3403C000153CF /* Item.swift */; };
+		FB3D956229A5DF60000153CF /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D956129A5DF60000153CF /* DescriptionViewController.swift */; };
+		FB3D95D329AC806E000153CF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D95D229AC806E000153CF /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD87E81B29A5AA390021E1C9 /* ItemEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEntryViewController.swift; sourceTree = "<group>"; };
+		AD8CCCE129ACADDD0007B301 /* DecodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeManager.swift; sourceTree = "<group>"; };
 		ADC7AE0229A341B1001DD9F4 /* ExpoUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoUniverselle.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* ExpoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoViewController.swift; sourceTree = "<group>"; };
 		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB3D953F29A3403C000153CF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FB3D956129A5DF60000153CF /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		FB3D95D229AC806E000153CF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD87E81629A5A5910021E1C9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AD87E81729A5A5950021E1C9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
+				AD87E81B29A5AA390021E1C9 /* ItemEntryViewController.swift */,
+				FB3D956129A5DF60000153CF /* DescriptionViewController.swift */,
+				AD8CCCE129ACADDD0007B301 /* DecodeManager.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AD87E81829A5A5960021E1C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB3D95D229AC806E000153CF /* CustomTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AD87E81929A5A59B0021E1C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD87E81A29A5A5C70021E1C9 /* JSON */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD87E81A29A5A5C70021E1C9 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				FB3D953F29A3403C000153CF /* Item.swift */,
+				ADC7AE0229A341B1001DD9F4 /* ExpoUniverselle.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +113,10 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				FB3D953F29A3403C000153CF /* Item.swift */,
-				ADC7AE0229A341B1001DD9F4 /* ExpoUniverselle.swift */,
+				AD87E81929A5A59B0021E1C9 /* Model */,
+				AD87E81829A5A5960021E1C9 /* View */,
+				AD87E81729A5A5950021E1C9 /* ViewController */,
+				AD87E81629A5A5910021E1C9 /* App */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
@@ -144,10 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC7AE0329A341B1001DD9F4 /* ExpoUniverselle.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				FB3D956229A5DF60000153CF /* DescriptionViewController.swift in Sources */,
+				FB3D95D329AC806E000153CF /* CustomTableViewCell.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
+				AD87E81C29A5AA390021E1C9 /* ItemEntryViewController.swift in Sources */,
 				FB3D954029A3403C000153CF /* Item.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				AD8CCCE229ACADDD0007B301 /* DecodeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +358,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -320,6 +379,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
