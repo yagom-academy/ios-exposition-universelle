@@ -19,8 +19,6 @@ final class ExpoInfoMainViewController: UIViewController {
     private let titleLabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         return label
     }()
@@ -49,14 +47,13 @@ final class ExpoInfoMainViewController: UIViewController {
     private let descriptionLabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private let nextViewButton = {
         let button = UIButton(type: .system)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
         return button
     }()
     
@@ -105,7 +102,10 @@ final class ExpoInfoMainViewController: UIViewController {
     }
     
     private func configureLayout() {
-        let mainStackView = createMainStackView(subStackView: createButtonStackView())
+        let buttonStackView = createButtonStackView()
+        let mainStackView = createMainStackView(subStackView: buttonStackView)
+        guard let buttonTitleLabel = nextViewButton.titleLabel else { return }
+        
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
         
@@ -119,6 +119,8 @@ final class ExpoInfoMainViewController: UIViewController {
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            buttonStackView.heightAnchor.constraint(equalTo: buttonTitleLabel.heightAnchor),
             
             mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             mainStackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
@@ -153,6 +155,7 @@ final class ExpoInfoMainViewController: UIViewController {
                                                            nextViewButton,
                                                            rightFlagImageView])
             stackView.axis = .horizontal
+            stackView.alignment = .center
             stackView.spacing = 20
             return stackView
         }()

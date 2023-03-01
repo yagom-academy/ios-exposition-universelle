@@ -34,8 +34,6 @@ final class EntryInfoViewController: UIViewController {
     private let entryDescriptionLabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
         return label
     }()
     

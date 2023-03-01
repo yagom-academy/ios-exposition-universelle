@@ -28,8 +28,6 @@ final class CustomTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .body)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
