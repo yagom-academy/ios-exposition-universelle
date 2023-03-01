@@ -33,7 +33,7 @@ extension DetailViewController {
     private func configureViews() {
         configureScrollView()
         configureImageView()
-        configureTextView()
+        configureDescriptionLabel()
     }
     
     private func configureScrollView() {
@@ -58,17 +58,17 @@ extension DetailViewController {
         self.scrollView.addArrangeSubView(view: imageView)
     }
     
-    private func configureTextView() {
-        let detailLabel = UILabel()
+    private func configureDescriptionLabel() {
+        let label = UILabel()
         
-        detailLabel.numberOfLines = 0
-        detailLabel.font = .preferredFont(forTextStyle: .body)
-        detailLabel.text = self.exhibitionItem.description
-        detailLabel.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .body)
+        label.text = self.exhibitionItem.description
+        label.adjustsFontForContentSizeCategory = true
         
-        detailLabel.lineBreakMode = .byWordWrapping
-        detailLabel.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byWordWrapping
+        label.lineBreakStrategy = .hangulWordPriority
         
-        self.scrollView.addArrangeSubView(view: detailLabel)
+        self.scrollView.addArrangeSubView(view: label)
     }
 }
