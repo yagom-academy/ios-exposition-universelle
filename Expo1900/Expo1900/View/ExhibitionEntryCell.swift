@@ -30,6 +30,7 @@ final class ExhibitionEntryCell: UITableViewCell {
     private var titleLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
         label.font = .preferredFont(forTextStyle: .title1)
         
         return label
