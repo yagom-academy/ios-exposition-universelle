@@ -1,6 +1,6 @@
 //
 //  Expo1900 - ViewController.swift
-//  Created by yagom. 
+//  Created by kokkilE, rilla. 
 //  Copyright © yagom academy. All rights reserved.
 // 
 
@@ -28,7 +28,7 @@ final class PosterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.navigationController?.isNavigationBarHidden = true
         appDelegate?.shouldSupportAllOrientation = false
     }
@@ -85,7 +85,6 @@ final class PosterViewController: UIViewController {
     
     private func setImageView() {
         let imageView = makeImageView(fileName: "poster")
-        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
         stackView.addArrangedSubview(imageView)
     }
@@ -164,15 +163,16 @@ final class PosterViewController: UIViewController {
         
         let leftImageView = makeImageView(fileName: "flag")
         let rightImageView = makeImageView(fileName: "flag")
-//        leftImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
-//        rightImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
         
-        leftImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
-        rightImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
-
+        leftImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        leftImageView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        rightImageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        rightImageView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+ 
         let subStackView = UIStackView()
+       
         subStackView.axis = .horizontal
-        subStackView.distribution = .equalCentering
+        subStackView.distribution = .fill
         subStackView.alignment = .center
         
         subStackView.addArrangedSubview(leftImageView)
