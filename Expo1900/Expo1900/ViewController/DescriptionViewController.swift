@@ -16,9 +16,10 @@ final class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         setImageView()
         setLabel()
-        setNavigationBar()
+        setAccessibilityProperties()
     }
     
     private func setNavigationBar() {
@@ -32,6 +33,15 @@ final class DescriptionViewController: UIViewController {
     
     private func setLabel() {
         self.descriptionLabel.text = item.description
+    }
+    
+    private func setAccessibilityProperties() {
+        self.itemImageView.isAccessibilityElement = true
+        self.itemImageView.accessibilityLabel = item.name
+        self.itemImageView.accessibilityTraits = .image
+        
+        self.descriptionLabel.accessibilityLabel = item.name + " 상세 설명"
+        self.descriptionLabel.accessibilityValue = item.description
     }
     
     init?(item: Item, coder: NSCoder) {
