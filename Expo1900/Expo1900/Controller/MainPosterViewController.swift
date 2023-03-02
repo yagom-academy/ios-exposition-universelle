@@ -125,7 +125,7 @@ extension MainPosterViewController {
         }
 
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 8
+        paragraphStyle.lineSpacing = LayoutConstant.spacing
         paragraphStyle.alignment = .center
         
         attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
@@ -155,7 +155,7 @@ extension MainPosterViewController {
         let stackView = UIStackView()
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = 8
+        stackView.spacing = LayoutConstant.spacing
         
         let button = UIButton(type: .system)
         button.setTitle("한국의 출품작 보러가기", for: .normal)

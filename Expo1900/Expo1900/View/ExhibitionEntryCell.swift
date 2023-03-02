@@ -58,7 +58,7 @@ final class ExhibitionEntryCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = .center
         stack.distribution = .fill
-        stack.spacing = 8
+        stack.spacing = LayoutConstant.spacing
         
         return stack
     }()
@@ -111,6 +111,7 @@ final class ExhibitionEntryCell: UITableViewCell {
     
     private func configureLabels() {
         let innerStackView = UIStackView()
+        
         innerStackView.translatesAutoresizingMaskIntoConstraints = false
         innerStackView.axis = .vertical
         innerStackView.alignment = .leading
