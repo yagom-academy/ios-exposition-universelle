@@ -9,16 +9,16 @@ import UIKit
 
 extension NSMutableAttributedString {
     func makeBigText(string: String) -> NSMutableAttributedString {
-        let metric = UIFontMetrics(forTextStyle: .body)
-        let font = metric.scaledFont(for: UIFont.systemFont(ofSize: 17))
+        let metric = UIFontMetrics(forTextStyle: .title2)
+        let font = metric.scaledFont(for: UIFont.systemFont(ofSize: 20))
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
         append(NSAttributedString(string: string, attributes: attributes))
-        
+
         return self
     }
     
     func makeNormalText(string: String) -> NSMutableAttributedString {
-        let metric = UIFontMetrics(forTextStyle: .body)
+        let metric = UIFontMetrics(forTextStyle: .title3)
         let font = metric.scaledFont(for: UIFont.systemFont(ofSize: 17))
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
         append(NSAttributedString(string: string, attributes: attributes))
