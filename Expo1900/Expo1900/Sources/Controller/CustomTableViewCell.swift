@@ -9,9 +9,9 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
     static let cellIdentifier = "cell"
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
-    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subTitleLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
     
     func configure(exhibitItem: ExhibitItem) {
         titleLabel.text = exhibitItem.name
