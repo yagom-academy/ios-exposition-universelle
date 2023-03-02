@@ -14,7 +14,8 @@ final class ExhibitionEntryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.register(ExhibitionEntryCell.self, forCellReuseIdentifier: ExhibitionEntryCell.identifier)
+        self.tableView.register(ExhibitionEntryCell.self,
+                                forCellReuseIdentifier: ExhibitionEntryCell.identifier)
         
         configureNavigationBar()
         decodeJson()
@@ -48,8 +49,12 @@ extension ExhibitionEntryTableViewController {
         return self.exhibitionItems.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExhibitionEntryCell.identifier, for: indexPath) as? ExhibitionEntryCell else {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ExhibitionEntryCell.identifier,
+            for: indexPath
+        ) as? ExhibitionEntryCell else {
             return UITableViewCell()
         }
 
@@ -62,7 +67,9 @@ extension ExhibitionEntryTableViewController {
 // MARK: - Table view delegate
 extension ExhibitionEntryTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = DetailViewController(exhibitionItem: exhibitionItems[indexPath.row])
+        let detailViewController = DetailViewController(
+            exhibitionItem: exhibitionItems[indexPath.row]
+        )
         
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }

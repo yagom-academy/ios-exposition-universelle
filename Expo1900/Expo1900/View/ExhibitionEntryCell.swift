@@ -88,10 +88,14 @@ final class ExhibitionEntryCell: UITableViewCell {
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
-            stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+            stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor,
+                                           constant: 10),
+            stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,
+                                              constant: -10),
+            stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,
+                                               constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,
+                                                constant: -10),
         ])
     }
     
@@ -99,13 +103,16 @@ final class ExhibitionEntryCell: UITableViewCell {
         self.stackView.addArrangedSubview(exhibitionImage)
         
         let widthMultiplier = 0.2
+        let heightAnchor = exhibitionImage
+            .widthAnchor
+            .constraint(equalTo: exhibitionImage.heightAnchor)
         
-        let heightAnchor = exhibitionImage.widthAnchor.constraint(equalTo: exhibitionImage.heightAnchor)
         heightAnchor.priority = .defaultHigh
         heightAnchor.isActive = true
-
+        
         NSLayoutConstraint.activate([
-            exhibitionImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: widthMultiplier)
+            exhibitionImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor,
+                                                   multiplier: widthMultiplier)
         ])
     }
     

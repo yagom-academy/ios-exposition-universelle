@@ -96,8 +96,12 @@ extension MainPosterViewController {
         let textLineTitle = String(text.prefix(upTo: index))
         let textLineContent = String(text.suffix(from: index))
         
-        attributedText.addAttribute(.font, value: bigFont, range: (text as NSString).range(of: textLineTitle))
-        attributedText.addAttribute(.font, value: generalFont, range: (text as NSString).range(of: textLineContent))
+        attributedText.addAttribute(.font,
+                                    value: bigFont,
+                                    range: (text as NSString).range(of: textLineTitle))
+        attributedText.addAttribute(.font,
+                                    value: generalFont,
+                                    range: (text as NSString).range(of: textLineContent))
         
         return attributedText
     }
@@ -128,7 +132,9 @@ extension MainPosterViewController {
         paragraphStyle.lineSpacing = LayoutConstant.spacing
         paragraphStyle.alignment = .center
         
-        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
+        attributedText.addAttribute(.paragraphStyle,
+                                    value: paragraphStyle,
+                                    range: NSMakeRange(0, attributedText.length))
         
         label.attributedText = attributedText
         label.adjustsFontForContentSizeCategory = true
@@ -182,6 +188,7 @@ extension MainPosterViewController {
     }
     
     @objc private func tapExhibitionEntryButton() {
-        self.navigationController?.pushViewController(ExhibitionEntryTableViewController(), animated: true)
+        self.navigationController?.pushViewController(ExhibitionEntryTableViewController(),
+                                                      animated: true)
     }
 }
