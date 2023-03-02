@@ -17,9 +17,9 @@
 		16D2ADAA29A75D1400BCE18F /* JSONDecoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D2ADA929A75D1400BCE18F /* JSONDecoderExtension.swift */; };
 		16D2ADAF29A8474100BCE18F /* ExpositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D2ADAD29A8474100BCE18F /* ExpositionTableViewCell.swift */; };
 		16D2ADB029A8474100BCE18F /* ExpositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D2ADAE29A8474100BCE18F /* ExpositionTableViewCell.xib */; };
+		16EF0A5029AD973D00C6867D /* ExpositionNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF0A4F29AD973D00C6867D /* ExpositionNavigationController.swift */; };
 		62530AAF29A348CA0043CFB7 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62530AAE29A348CA0043CFB7 /* ExpositionUniverselle.swift */; };
 		62530AFB29A7303A0043CFB7 /* Identifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62530AFA29A7303A0043CFB7 /* Identifying.swift */; };
-		62530B0129A766620043CFB7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62530B0029A766620043CFB7 /* StringExtension.swift */; };
 		62530B0329AC7CAF0043CFB7 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62530B0229AC7CAF0043CFB7 /* ArrayExtension.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -40,9 +40,9 @@
 		16D2ADA929A75D1400BCE18F /* JSONDecoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtension.swift; sourceTree = "<group>"; };
 		16D2ADAD29A8474100BCE18F /* ExpositionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionTableViewCell.swift; sourceTree = "<group>"; };
 		16D2ADAE29A8474100BCE18F /* ExpositionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpositionTableViewCell.xib; sourceTree = "<group>"; };
+		16EF0A4F29AD973D00C6867D /* ExpositionNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionNavigationController.swift; sourceTree = "<group>"; };
 		62530AAE29A348CA0043CFB7 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
 		62530AFA29A7303A0043CFB7 /* Identifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifying.swift; sourceTree = "<group>"; };
-		62530B0029A766620043CFB7 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		62530B0229AC7CAF0043CFB7 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +87,7 @@
 		16495FE029A34542008AAA0F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				16EF0A4F29AD973D00C6867D /* ExpositionNavigationController.swift */,
 				C79FF4B82589F401005FB0FD /* ParisExpositionUniverselleViewController.swift */,
 				16D2AD9429A494DF00BCE18F /* KoreaItemsViewController.swift */,
 				16D2AD9829A5A4B600BCE18F /* ItemDetailViewController.swift */,
@@ -121,7 +122,6 @@
 				16D2AD9229A46DF300BCE18F /* UIntExtension.swift */,
 				16D2ADA229A740B100BCE18F /* UIViewControllerExtension.swift */,
 				16D2ADA929A75D1400BCE18F /* JSONDecoderExtension.swift */,
-				62530B0029A766620043CFB7 /* StringExtension.swift */,
 				62530B0229AC7CAF0043CFB7 /* ArrayExtension.swift */,
 			);
 			path = Extension;
@@ -238,10 +238,10 @@
 			files = (
 				16495FE229A34579008AAA0F /* ExpositionUniverselleItem.swift in Sources */,
 				62530AAF29A348CA0043CFB7 /* ExpositionUniverselle.swift in Sources */,
-				62530B0129A766620043CFB7 /* StringExtension.swift in Sources */,
 				16D2AD9929A5A4B600BCE18F /* ItemDetailViewController.swift in Sources */,
 				16D2AD9B29A5B55D00BCE18F /* AssetName.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ParisExpositionUniverselleViewController.swift in Sources */,
+				16EF0A5029AD973D00C6867D /* ExpositionNavigationController.swift in Sources */,
 				62530AFB29A7303A0043CFB7 /* Identifying.swift in Sources */,
 				16D2ADA829A75C6F00BCE18F /* DataAssetError.swift in Sources */,
 				16D2AD9329A46DF300BCE18F /* UIntExtension.swift in Sources */,

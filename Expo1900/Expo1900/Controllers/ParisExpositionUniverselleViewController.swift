@@ -7,7 +7,6 @@
 import UIKit
 
 final class ParisExpositionUniverselleViewController: UIViewController {
-    
     @IBOutlet private weak var expositionTitle: UILabel!
     @IBOutlet private weak var expositionPoster: UIImageView!
     @IBOutlet private weak var expositionVisitors: UILabel!
@@ -21,6 +20,7 @@ final class ParisExpositionUniverselleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.title = "메인"
         do {
             expositionData = try JSONDecoder().loadJSONData(name: AssetName.exposition, type: ExpositionUniverselle.self)
@@ -39,11 +39,24 @@ final class ParisExpositionUniverselleViewController: UIViewController {
         
         expositionTitle.text = expositionData.displayedTitle
         expositionPoster.image = UIImage(named: AssetName.poster)
+        expositionPoster.accessibilityLabel = "파리 만국박람회 포스터"
         expositionVisitors.attributedText = expositionData.displayedNumberOfVisitor.attributedString
         expositionLocation.attributedText = expositionData.displayedLocation.attributedString
         expositionDuration.attributedText = expositionData.displayedDuration.attributedString
         expositionDescription.text = expositionData.description
         flagImage1.image = UIImage(named: AssetName.flag)
         flagImage2.image = UIImage(named: AssetName.flag)
+    }
+}
+
+fileprivate extension String {
+    var attributedString: NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        guard let index = self.firstIndex(of: ":") else { return attributedString }
+        
+        let range = String(self[index...])
+        attributedString.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .subheadline), range: (self as NSString).range(of: range))
+        
+        return attributedString
     }
 }

@@ -12,22 +12,18 @@ final class ExpositionTableViewCell: UITableViewCell {
     @IBOutlet private weak var itemTitleLabel: UILabel!
     @IBOutlet private weak var itemSubtitleLabel: UILabel!
     
-    func configure(item: ExpositionUniverselleItem?) {
-        guard let item = item else {
-            itemImageView.image = nil
-            itemTitleLabel.text = nil
-            itemSubtitleLabel.text = nil
-            
-            return
-        }
-        
+    func configure(item: ExpositionUniverselleItem) {
         itemImageView.image = UIImage(named: item.imageName)
+        itemImageView.accessibilityLabel = "\(item.imageName)"
         itemTitleLabel.text = item.name
         itemSubtitleLabel.text = item.shortDescription
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        configure(item: nil)
+        
+        itemImageView.image = nil
+        itemTitleLabel.text = nil
+        itemSubtitleLabel.text = nil
     }
 }
