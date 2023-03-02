@@ -15,7 +15,7 @@ final class ExpositionListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchExopositionList()
+        fetchExpositionList()
         
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -26,7 +26,7 @@ final class ExpositionListViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    private func fetchExopositionList() {
+    private func fetchExpositionList() {
         fetchedExpositions = ExpositionParser.expositionItemParse()
     }
     
