@@ -85,6 +85,7 @@ final class PosterViewController: UIViewController {
     
     private func setImageView() {
         let imageView = makeImageView(fileName: "poster")
+        imageView.accessibilityLabel = "poster"
         
         stackView.addArrangedSubview(imageView)
     }
