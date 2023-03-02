@@ -32,20 +32,20 @@ final class ExpositionListViewController: UIViewController {
     
     private func setupListCell(listCell: ListTableViewCell, indexPath: IndexPath) {
         
-        let fetchedExpositionsRow = fetchedExpositions[indexPath.row]
+        let fetchedExposition = fetchedExpositions[indexPath.row]
         
-        listCell.mainTitleLabel.text = fetchedExpositionsRow.name
-        listCell.shortDescriptionLabel.text = fetchedExpositionsRow.shortDescription
-        listCell.expositionImageView.image = UIImage(named: fetchedExpositionsRow.imageName)
+        listCell.mainTitleLabel.text = fetchedExposition.name
+        listCell.shortDescriptionLabel.text = fetchedExposition.shortDescription
+        listCell.expositionImageView.image = UIImage(named: fetchedExposition.imageName)
     }
     
     private func setupDetailViewController(detailViewController: DetailViewController, indexPath: IndexPath) {
         
-        let fetchedExpositionsRow = fetchedExpositions[indexPath.row]
+        let fetchedExposition = fetchedExpositions[indexPath.row]
         
-        detailViewController.imageString = fetchedExpositionsRow.imageName
-        detailViewController.fullDescription = fetchedExpositionsRow.description
-        detailViewController.navigationItem.title = fetchedExpositionsRow.name
+        detailViewController.imageString = fetchedExposition.imageName
+        detailViewController.fullDescription = fetchedExposition.description
+        detailViewController.navigationItem.title = fetchedExposition.name
     }
 }
 
