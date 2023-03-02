@@ -275,24 +275,24 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqd-oU-SiR" userLabel="Contents View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="190.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="197.66666666666666"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BRU-hU-B5y">
-                                                <rect key="frame" x="16" y="10" width="361" height="170.33333333333334"/>
+                                                <rect key="frame" x="16" y="10" width="361" height="177.66666666666666"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-6h-USM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
+                                                        <rect key="frame" x="102" y="0.0" width="157" height="157.33333333333334"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="U6f-6h-USM" secondAttribute="height" multiplier="1:1" id="ibX-3o-YHr"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBR-Yi-pWa">
-                                                        <rect key="frame" x="160" y="150" width="41.333333333333343" height="20.333333333333343"/>
+                                                        <rect key="frame" x="160" y="157.33333333333334" width="41.333333333333343" height="20.333333333333343"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="qBR-Yi-pWa" firstAttribute="top" secondItem="BRU-hU-B5y" secondAttribute="top" constant="150" id="SwL-UH-GnB"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -310,6 +310,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Oqd-oU-SiR" secondAttribute="trailing" id="Axf-YK-4cr"/>
                                     <constraint firstItem="Oqd-oU-SiR" firstAttribute="width" secondItem="a6Y-Pe-Mec" secondAttribute="width" id="JhF-lW-LQS"/>
                                     <constraint firstItem="Oqd-oU-SiR" firstAttribute="leading" secondItem="a6Y-Pe-Mec" secondAttribute="leading" id="RNk-vH-hRp"/>
+                                    <constraint firstItem="U6f-6h-USM" firstAttribute="width" secondItem="7Cm-Yz-kTK" secondAttribute="width" multiplier="0.4" id="yhj-KC-TTp"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="2aY-cc-Dz2"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="7Cm-Yz-kTK"/>
