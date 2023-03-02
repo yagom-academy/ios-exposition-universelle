@@ -19,6 +19,7 @@ final class ExpositionListViewController: UIViewController {
         
         listTableView.delegate = self
         listTableView.dataSource = self
+        setupNavigationTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +48,10 @@ final class ExpositionListViewController: UIViewController {
         detailViewController.fullDescription = fetchedExposition.description
         detailViewController.navigationItem.title = fetchedExposition.name
     }
+    
+    private func setupNavigationTitle() {
+        navigationItem.title = Title.itemsOfKorea
+    }
 }
 
 extension ExpositionListViewController: UITableViewDelegate {
@@ -56,9 +61,6 @@ extension ExpositionListViewController: UITableViewDelegate {
         
         setupDetailViewController(detailViewController: detailVC, indexPath: indexPath)
         
-        let backBarButtonItem = UIBarButtonItem(title: Title.itemsOfKorea, style: .plain, target: DetailViewController.self, action: nil)
-        
-        self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(detailVC , animated: true)
     }
 }

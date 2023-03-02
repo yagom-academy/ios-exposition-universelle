@@ -19,6 +19,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         fetchMainExposition()
         setupLabel()
+        setupNavigationTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,13 +51,14 @@ final class MainViewController: UIViewController {
         durationLabel.text = "개최 기간 : \(exposition.duration)"
         textLabel.text = exposition.description
     }
+    
+    private func setupNavigationTitle() {
+        navigationItem.title = Title.main
+    }
 
     @IBAction func moveToListViewController(_ sender: UIButton) {
         guard let expoListVC = self.storyboard?.instantiateViewController(withIdentifier: Identifier.expositionListViewController) as? ExpositionListViewController else { return }
         
-        expoListVC.navigationItem.title = Title.itemsOfKorea
-        let backBarButtonItem = UIBarButtonItem(title: Title.main, style: .plain, target: ExpositionListViewController.self, action: nil)
-        self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(expoListVC , animated: true)
     }
 }
