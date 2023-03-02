@@ -15,8 +15,6 @@ final class MainViewController: UIViewController {
     
     private var fetchedMainExposition: MainExposition?
     
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchMainExposition()
@@ -26,12 +24,17 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        appDelegate?.setupViewAllOrientation = false
+        switchViewAllOrientation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        appDelegate?.setupViewAllOrientation = true
+        switchViewAllOrientation()
+    }
+    
+    private func switchViewAllOrientation() {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.isViewAllOrientation.toggle()
     }
     
     private func fetchMainExposition() {
