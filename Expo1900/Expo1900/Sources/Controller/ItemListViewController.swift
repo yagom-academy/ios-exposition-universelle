@@ -8,7 +8,7 @@ import UIKit
 
 final class ItemListViewController: UIViewController {
     static let viewIdentifier = "itemListViewController"
-    private var exhibitItems: [ExhibitItem] = DecodingJson().decodeItemsJson()
+    private var exhibitItems: [ExhibitItem] = Decoder().decodeItemsJson()
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -60,9 +60,9 @@ extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let itemDetailView: ItemDetailViewController = storyboard?.instantiateViewController(identifier: ItemDetailViewController.viewIdentifier, creator: { creator in
             let item = self.exhibitItems[indexPath.row]
-            let viewController = ItemDetailViewController(item: item, coder: creator)
+            let itemDetailViewController = ItemDetailViewController(item: item, coder: creator)
             
-            return viewController
+            return itemDetailViewController
         }) {
             navigationController?.pushViewController(itemDetailView, animated: true)
         }

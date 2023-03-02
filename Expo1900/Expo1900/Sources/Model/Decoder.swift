@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct DecodingJson {
+struct Decoder {
     func decodeExpositionJson() -> ExpositionUniverselle {
         let decoder: JSONDecoder = JSONDecoder()
         let emptyData: ExpositionUniverselle = .init(title: NameSpace.emptyString, visitorCount: Int.zero, location: NameSpace.emptyString, duration: NameSpace.emptyString, description: NameSpace.emptyString)

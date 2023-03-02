@@ -10,7 +10,7 @@
 		7F26CAE529A77B41000FD91E /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F26CAE429A77B41000FD91E /* ItemDetailViewController.swift */; };
 		7F66A0D429A391D5002A9A6E /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F66A0D329A391D5002A9A6E /* ExpositionUniverselle.swift */; };
 		7FA6175E29AC913400BC26B2 /* NameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6175D29AC913400BC26B2 /* NameSpace.swift */; };
-		7FD6077E29AD9FEB00C733B6 /* DecodingJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6077D29AD9FEB00C733B6 /* DecodingJson.swift */; };
+		7FD6077E29AD9FEB00C733B6 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6077D29AD9FEB00C733B6 /* Decoder.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */; };
@@ -26,7 +26,7 @@
 		7F26CAE429A77B41000FD91E /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		7F66A0D329A391D5002A9A6E /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
 		7FA6175D29AC913400BC26B2 /* NameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpace.swift; sourceTree = "<group>"; };
-		7FD6077D29AD9FEB00C733B6 /* DecodingJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingJson.swift; sourceTree = "<group>"; };
+		7FD6077D29AD9FEB00C733B6 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				D00E7AA829A36E2900893E3B /* ExhibitItem.swift */,
 				7F66A0D329A391D5002A9A6E /* ExpositionUniverselle.swift */,
 				7FA6175D29AC913400BC26B2 /* NameSpace.swift */,
-				7FD6077D29AD9FEB00C733B6 /* DecodingJson.swift */,
+				7FD6077D29AD9FEB00C733B6 /* Decoder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				7F26CAE529A77B41000FD91E /* ItemDetailViewController.swift in Sources */,
 				7F66A0D429A391D5002A9A6E /* ExpositionUniverselle.swift in Sources */,
-				7FD6077E29AD9FEB00C733B6 /* DecodingJson.swift in Sources */,
+				7FD6077E29AD9FEB00C733B6 /* Decoder.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				D05EDCB729A719B900C70443 /* ItemListViewController.swift in Sources */,
 				7FA6175E29AC913400BC26B2 /* NameSpace.swift in Sources */,

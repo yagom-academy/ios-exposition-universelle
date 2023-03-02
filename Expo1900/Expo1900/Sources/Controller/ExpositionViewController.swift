@@ -25,7 +25,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureLabel() {
-        let expositionUniverselle = DecodingJson().decodeExpositionJson()
+        let expositionUniverselle = Decoder().decodeExpositionJson()
         
         titleLabel.text = expositionUniverselle.title
         visitorCountLabel.text = String(format: NameSpace.visitorCountText, expositionUniverselle.visitorCount)
@@ -44,8 +44,8 @@ final class ExpositionViewController: UIViewController {
     }
     
     @IBAction func touchUpInsideItemButton(_ sender: UIButton) {
-        guard let itemsView: ItemListViewController = self.storyboard?.instantiateViewController(withIdentifier: ItemListViewController.viewIdentifier) as? ItemListViewController else { return }
+        guard let itemListViewController: ItemListViewController = self.storyboard?.instantiateViewController(withIdentifier: ItemListViewController.viewIdentifier) as? ItemListViewController else { return }
         
-        navigationController?.pushViewController(itemsView, animated: true)
+        navigationController?.pushViewController(itemListViewController, animated: true)
     }
 }
