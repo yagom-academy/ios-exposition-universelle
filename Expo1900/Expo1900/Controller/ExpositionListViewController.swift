@@ -11,11 +11,11 @@ final class ExpositionListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
-    private var parsedExpositionData: [ExpositionItem] = []
+    private var fetchedExpositions: [ExpositionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchParsedData()
+        fetchExopositionList()
         
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -26,20 +26,20 @@ final class ExpositionListViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    private func fetchParsedData() {
-        parsedExpositionData = ExpositionParser.expositionItemParse()
+    private func fetchExopositionList() {
+        fetchedExpositions = ExpositionParser.expositionItemParse()
     }
     
     private func setupListCell(listCell: ListTableViewCell, indexPath: IndexPath) {
-        listCell.mainTitleLabel.text = parsedExpositionData[indexPath.row].name
-        listCell.shortDescriptionLabel.text = parsedExpositionData[indexPath.row].shortDescription
-        listCell.expositionImageView.image = UIImage(named: parsedExpositionData[indexPath.row].imageName)
+        listCell.mainTitleLabel.text = fetchedExpositions[indexPath.row].name
+        listCell.shortDescriptionLabel.text = fetchedExpositions[indexPath.row].shortDescription
+        listCell.expositionImageView.image = UIImage(named: fetchedExpositions[indexPath.row].imageName)
     }
     
     private func setupDetailViewController(detailViewController: DetailViewController, indexPath: IndexPath) {
-        detailViewController.imageString = parsedExpositionData[indexPath.row].imageName
-        detailViewController.fullDescription = parsedExpositionData[indexPath.row].description
-        detailViewController.navigationItem.title = parsedExpositionData[indexPath.row].name
+        detailViewController.imageString = fetchedExpositions[indexPath.row].imageName
+        detailViewController.fullDescription = fetchedExpositions[indexPath.row].description
+        detailViewController.navigationItem.title = fetchedExpositions[indexPath.row].name
     }
 }
 
@@ -59,7 +59,7 @@ extension ExpositionListViewController: UITableViewDelegate {
 
 extension ExpositionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return parsedExpositionData.count
+        return fetchedExpositions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

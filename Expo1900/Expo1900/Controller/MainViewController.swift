@@ -13,11 +13,13 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
-    private var parsedMainData: MainExposition?
+    private var fetchedMainExposition: MainExposition?
+    
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchParsedData()
+        fetchMainExposition()
         setupLabel()
     }
     
@@ -32,12 +34,12 @@ final class MainViewController: UIViewController {
         appDelegate?.setupViewAllOrientation = true
     }
     
-    private func fetchParsedData() {
-        parsedMainData = ExpositionParser.mainExpositionParse()
+    private func fetchMainExposition() {
+        fetchedMainExposition = ExpositionParser.mainExpositionParse()
     }
     
     private func setupLabel() {
-        guard let exposition = parsedMainData else { return }
+        guard let exposition = fetchedMainExposition else { return }
         
         mainTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = "방문객 : " + NumberFormatter.convertToNumber(from: exposition.visitor)
