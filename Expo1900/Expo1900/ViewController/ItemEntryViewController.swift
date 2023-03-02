@@ -59,6 +59,10 @@ extension ItemEntryViewController: UITableViewDataSource {
         cell.itemNameLabel.text = items[indexPath.row].name
         cell.shortDescriptionLabel.text = items[indexPath.row].shortDescription
         cell.itemImageView.image = itemImage
+        cell.setAccessibilityProperties(
+            itemName: items[indexPath.row].name,
+            shortDescription: items[indexPath.row].shortDescription
+        )
         cell.accessoryType = .disclosureIndicator
     }
 }
