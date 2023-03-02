@@ -10,7 +10,8 @@ import UIKit
 final class ExhibitionEntryCell: UITableViewCell {
     
     static let identifier = "ExhibitionEntryCell"
-    
+    let innerStackView = UIStackView()
+    var widthHeight = UIScreen.main.bounds.width * 0.3
     var data: ExhibitionItem? {
         didSet {
             self.exhibitionImage.image = data?.image
@@ -22,7 +23,10 @@ final class ExhibitionEntryCell: UITableViewCell {
     private var exhibitionImage = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         imageView.contentMode = .scaleAspectFit
+//        imageView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        imageView.clipsToBounds = true
         
         return imageView
     }()
@@ -93,10 +97,18 @@ final class ExhibitionEntryCell: UITableViewCell {
         let heightAnchor = exhibitionImage.widthAnchor.constraint(equalTo: exhibitionImage.heightAnchor)
         heightAnchor.priority = .defaultHigh
         heightAnchor.isActive = true
-        
+
+        // 우선순위가 높으면 먼저 계산하는가?
         NSLayoutConstraint.activate([
             exhibitionImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.2)
         ])
+        
+//        let widthHeight = UIScreen.main.bounds.width * 0.3
+        
+//        NSLayoutConstraint.activate([
+//            exhibitionImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
+//            exhibitionImage.heightAnchor.constraint(equalTo: exhibitionImage.widthAnchor)
+//        ])
     }
     
     private func configureLabels() {

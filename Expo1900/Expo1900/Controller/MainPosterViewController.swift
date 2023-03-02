@@ -160,6 +160,9 @@ extension MainPosterViewController {
         let button = UIButton(type: .system)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.addTarget(self, action: #selector(tapExhibitionEntryButton), for: .touchUpInside)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
         
         let leftImage = UIImageView(image: UIImage(named: "flag"))
         let height = leftImage.frame.height / 15
