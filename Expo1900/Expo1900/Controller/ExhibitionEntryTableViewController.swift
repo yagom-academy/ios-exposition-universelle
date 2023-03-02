@@ -22,12 +22,12 @@ final class ExhibitionEntryTableViewController: UITableViewController {
     
     private func configureNavigationBar() {
         self.navigationController?.navigationBar.isHidden = false
-        self.navigationItem.title = "한국의 출품작"
+        self.navigationItem.title = NavigationBarTitle.tableViewTitle
     }
     
     private func decodeJson() {
         let jsonDecoder = JSONDecoder()
-        guard let data = NSDataAsset(name: "items") else { return }
+        guard let data = NSDataAsset(name: AssetName.tableViewDataset) else { return }
         
         do {
             exhibitionItems = try jsonDecoder.decode([ExhibitionItem].self, from: data.data)

@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomScrollView: UIScrollView {
-
+    
     private let stackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false

@@ -23,12 +23,12 @@ final class MainPosterViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        self.navigationItem.title = "메인"
+        self.navigationItem.title = NavigationBarTitle.mainTitle
     }
     
     private func decodeJson() {
         let jsonDecoder = JSONDecoder()
-        guard let data = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        guard let data = NSDataAsset(name: AssetName.mainPosterDataset) else { return }
         
         do {
             mainPoster = try jsonDecoder.decode(MainPoster.self, from: data.data)
@@ -79,7 +79,7 @@ extension MainPosterViewController {
     }
     
     private func configureMainPosterImage() {
-        guard let image = UIImage(named: "poster") else { return }
+        guard let image = UIImage(named: AssetName.posterImage) else { return }
         let imageView = UIImageView()
         
         imageView.image = image
@@ -164,13 +164,13 @@ extension MainPosterViewController {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         
-        let leftImage = UIImageView(image: UIImage(named: "flag"))
+        let leftImage = UIImageView(image: UIImage(named: AssetName.flagImage))
         let height = leftImage.frame.height / 15
         let width = leftImage.frame.width / 15
         leftImage.widthAnchor.constraint(equalToConstant: width).isActive = true
         leftImage.heightAnchor.constraint(equalToConstant: height).isActive = true
         
-        let rightImage = UIImageView(image: UIImage(named: "flag"))
+        let rightImage = UIImageView(image: UIImage(named: AssetName.flagImage))
         rightImage.widthAnchor.constraint(equalToConstant: width).isActive = true
         rightImage.heightAnchor.constraint(equalToConstant: height).isActive = true
         
