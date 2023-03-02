@@ -7,6 +7,11 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    
+    @IBOutlet weak var visitorTitleLabel: UILabel!
+    @IBOutlet weak var locationTitleLabel: UILabel!
+    @IBOutlet weak var durationTitleLabel: UILabel!
+    
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -45,10 +50,23 @@ final class MainViewController: UIViewController {
     private func setupLabel() {
         guard let exposition = fetchedMainExposition else { return }
         
+        visitorTitleLabel.text = "방문객"
+        locationTitleLabel.text = "개최지"
+        durationTitleLabel.text = "개최기간"
+        
+        visitorTitleLabel.font = .preferredFont(forTextStyle: .title3)
+        visitorTitleLabel.adjustsFontForContentSizeCategory = true
+        
+        locationTitleLabel.font = .preferredFont(forTextStyle: .title3)
+        locationTitleLabel.adjustsFontForContentSizeCategory = true
+        
+        durationTitleLabel.font = .preferredFont(forTextStyle: .title3)
+        durationTitleLabel.adjustsFontForContentSizeCategory = true
+        
         mainTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = "방문객 : \(exposition.visitor.convertedString)"
-        locationLabel.text = "개최지 : \(exposition.location)"
-        durationLabel.text = "개최 기간 : \(exposition.duration)"
+        visitorsLabel.text = Symbol.blankAndColon + exposition.visitor.convertedString
+        locationLabel.text = Symbol.blankAndColon + exposition.location
+        durationLabel.text = Symbol.blankAndColon + exposition.duration
         textLabel.text = exposition.description
     }
     

@@ -22,3 +22,7 @@ enum Identifier {
     static let listTableViewCell = "ListTableViewCell"
     static let detailViewController = "DetailViewController"
 }
+
+enum Symbol {
+    static let blankAndColon = " : "
+}
