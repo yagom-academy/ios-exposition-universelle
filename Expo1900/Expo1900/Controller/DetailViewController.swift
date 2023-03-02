@@ -65,9 +65,7 @@ extension DetailViewController {
         label.font = .preferredFont(forTextStyle: .body)
         label.text = self.exhibitionItem.description
         label.adjustsFontForContentSizeCategory = true
-        
-        label.lineBreakMode = .byWordWrapping
-        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         
         self.scrollView.addArrangeSubView(view: label)
     }

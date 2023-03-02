@@ -146,7 +146,7 @@ extension MainPosterViewController {
         label.font = .preferredFont(forTextStyle: .body)
         
         label.adjustsFontForContentSizeCategory = true
-        label.lineBreakStrategy = .hangulWordPriority
+        label.lineBreakMode = .byCharWrapping
         
         self.customScrollView.addArrangeSubView(view: label)
     }
