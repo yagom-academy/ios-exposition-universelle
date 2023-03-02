@@ -46,7 +46,7 @@ extension ItemListViewController: UITableViewDataSource {
         guard let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.cellIdentifier, for: indexPath) as? CustomTableViewCell else { return CustomTableViewCell() }
         
         let exhibitItem: ExhibitItem = exhibitItems[indexPath.row]
-        cell.configure(exhibitItem: exhibitItem)
+        cell.configureContent(exhibitItem: exhibitItem)
         
         return cell
     }

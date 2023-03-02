@@ -13,7 +13,7 @@ final class CustomTableViewCell: UITableViewCell {
     @IBOutlet private weak var subTitleLabel: UILabel!
     @IBOutlet private weak var itemImageView: UIImageView!
     
-    func configure(exhibitItem: ExhibitItem) {
+    func configureContent(exhibitItem: ExhibitItem) {
         titleLabel.text = exhibitItem.name
         subTitleLabel.text = exhibitItem.shortDescription
         itemImageView.image = UIImage(named: exhibitItem.imageName)
