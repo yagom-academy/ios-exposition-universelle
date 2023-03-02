@@ -45,7 +45,7 @@ final class MainViewController: UIViewController {
         guard let exposition = fetchedMainExposition else { return }
         
         mainTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = "방문객 : " + NumberFormatter.convertToNumber(from: exposition.visitor)
+        visitorsLabel.text = "방문객 : \(exposition.visitor.convertedString)"
         locationLabel.text = "개최지 : \(exposition.location)"
         durationLabel.text = "개최 기간 : \(exposition.duration)"
         textLabel.text = exposition.description

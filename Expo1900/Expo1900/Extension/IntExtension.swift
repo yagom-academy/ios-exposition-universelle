@@ -3,14 +3,14 @@
 
 import Foundation
 
-extension NumberFormatter {
-    static func convertToNumber(from int: Int) -> String {
+extension Int {
+    var convertedString: String {
         let numberFormatter = NumberFormatter()
         
         numberFormatter.numberStyle = .decimal
         numberFormatter.roundingMode = .halfUp
         
-        guard let number = numberFormatter.string(for: int) else { return "" }
+        guard let number = numberFormatter.string(for: self) else { return "" }
         
         return number
     }
