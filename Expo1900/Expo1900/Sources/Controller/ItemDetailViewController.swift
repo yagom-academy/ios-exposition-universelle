@@ -15,13 +15,6 @@ final class ItemDetailViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = navigationTitle
-        descriptionLabel.text = descriptionText
-        imageView.image = UIImage(named: imageName)
-    }
-    
     init?(item: ExhibitItem, coder: NSCoder) {
         self.navigationTitle = item.name
         self.descriptionText = item.description
@@ -31,5 +24,12 @@ final class ItemDetailViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = navigationTitle
+        descriptionLabel.text = descriptionText
+        imageView.image = UIImage(named: imageName)
     }
 }

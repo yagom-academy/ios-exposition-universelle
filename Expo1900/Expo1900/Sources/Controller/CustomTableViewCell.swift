@@ -6,7 +6,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+final class CustomTableViewCell: UITableViewCell {
     static let cellIdentifier = "cell"
     
     @IBOutlet private weak var titleLabel: UILabel!

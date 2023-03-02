@@ -18,6 +18,11 @@ final class ItemListViewController: UIViewController {
         configureTitle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+    }
+    
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -25,11 +30,6 @@ final class ItemListViewController: UIViewController {
     
     private func configureTitle() {
         navigationItem.title = NameSpace.itemViewTitle
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        hideNavigationBar()
     }
     
     private func hideNavigationBar() {

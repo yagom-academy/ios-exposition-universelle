@@ -20,6 +20,11 @@ final class ExpositionViewController: UIViewController {
         configureLabel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavigationBar()
+    }
+    
     private func configureTitle() {
         navigationItem.title = NameSpace.homeViewTitle
     }
@@ -32,11 +37,6 @@ final class ExpositionViewController: UIViewController {
         locationLabel.text = String(format: NameSpace.locationText, expositionUniverselle.location)
         durationLabel.text = String(format: NameSpace.durationText, expositionUniverselle.duration)
         descriptionLabel.text = expositionUniverselle.description
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        hideNavigationBar()
     }
     
     private func hideNavigationBar() {
