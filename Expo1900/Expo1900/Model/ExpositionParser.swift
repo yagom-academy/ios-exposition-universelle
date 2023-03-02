@@ -13,8 +13,9 @@ enum ExpositionParser {
         var expositionList: [ExpositionItem] = []
         let jsonDecoder = JSONDecoder()
         
-        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.items) else
-        { return expositionList }
+        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.items) else {
+            return expositionList
+        }
         
         do {
             expositionList = try jsonDecoder.decode([ExpositionItem].self, from: jsonData.data)
@@ -28,8 +29,9 @@ enum ExpositionParser {
         var expositionList = MainExposition(title: "", visitor: 0, location: "", duration: "", description: "")
         let jsonDecoder = JSONDecoder()
         
-        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.mainExposition) else
-        { return expositionList }
+        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.mainExposition) else {
+            return expositionList
+        }
         
         do {
             expositionList = try jsonDecoder.decode(MainExposition.self, from: jsonData.data)
@@ -38,5 +40,4 @@ enum ExpositionParser {
             return expositionList
         }
     }
-    
 }
