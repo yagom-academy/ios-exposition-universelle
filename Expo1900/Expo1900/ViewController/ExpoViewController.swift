@@ -27,6 +27,7 @@ final class ExpoViewController: UIViewController {
         setNavigationBar()
         decodeExpoData()
         setMainScene()
+        setAccessibilityProperties()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,3 +113,20 @@ final class ExpoViewController: UIViewController {
     }
 }
 
+extension ExpoViewController {
+    private func setAccessibilityProperties() {
+        titleLabel.accessibilityLabel = "파리 만국박람회 1900"
+        posterImageView.isAccessibilityElement = true
+        posterImageView.accessibilityLabel = "박람회 포스터"
+        posterImageView.accessibilityTraits = .image
+        durationLabel.accessibilityLabel = "1900년 4월 14일부터 1900년 11월 12일까지"
+        descriptionLabel.accessibilityLabel = "1900년 파리 만국박람회 설명"
+        goButton.accessibilityHint = "한국의 출품작 화면으로 이동합니다."
+        flagImageViews.forEach {
+            $0.isAccessibilityElement = true
+            $0.accessibilityTraits = .image
+        }
+        flagImageViews[0].accessibilityLabel = "버튼 오른쪽 태극기"
+        flagImageViews[1].accessibilityLabel = "버튼 왼쪽 태극기"
+    }
+}
