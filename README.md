@@ -1,15 +1,25 @@
 # README
 
-## 프로젝트 소개 :book:
+## 프로젝트 소개 🎪
 > JSON 파일에 맞는 Model을 생성하고 Decording하여 전시품 정보를 앱에 표시
 > 
 > 프로젝트 기간 2023.02.20 - 2023.03.03
 > 리뷰어 : 태태 🧑🏻‍💻
 
+## 목차 :book:
+
+| <center>순서</center> |
+|---|
+| [1. 팀원을 소개합니다 👀](#팀원을-소개합니다-👀) |
+| [2. Class Diagram 🗺](#Class-Diagram-🗺) |
+| [3. File Tree 🌲](#File-Tree-🌲) |
+| [4. 타임라인 ⏰](#타임라인-⏰) |
+| [5. 실행 화면 🎬](#실행화면-🎬) |
+| [6. 트러블슈팅 🚀](#트러블슈팅-🚀) |
+| [7. Reference 📑](#Reference-📑) |
+
+
 ## 팀원을 소개합니다 👀
-
-
-
 
 |<center>[kokkilE](https://github.com/kokkilE)</center>| <center> 코끼릴라 </center> | <center> [릴라](https://github.com/juun97)</center> | 
 |--- | --- | --- |
@@ -34,7 +44,8 @@
 │   ├── FontSize.swift
 │   └── extension
 │       ├── extension+UIImage.swift
-│       └── extention+UITableViewCell.swift
+│       └── extension+UITableViewCell.swift
+│       └── extension+UIView.swift
 ├── Resource
 │   ├── Assets.xcassets
 │   │   ├── AccentColor.colorset
@@ -62,19 +73,35 @@
 |STEP2| **2023.02.21** | - Exposition 타입 내 JSON 디코딩 메서드 구현 </br> - PosterViewController 타입 정의 </br> - PosterViewController 타입의 상위 navigation controller 추가 </br> - PosterViewController 타입 내 scrollView 구현 </br> - PosterViewController 타입 내 scrollView의 하위 UI 오브젝트 구현 </br> - PosterViewController 타입 내 UI 오브젝트 오토레이아웃 적용 |
 |STEP2| **2023.02.22** | - PosterViewController 타입 내 버튼 이벤트에 따른 화면전환 메서드 구현 </br> - ExhibitItemViewController 타입 정의 </br> - ExhibitItemViewController 타입 내 tableView 구현 </br> - ExhibitItemViewController 타입 내 tableView에 추가되어 전시품 데이터를 나타낼 Custom Cell 구현 </br> - ExhibitItemViewController 타입 내 UI 오브젝트 오토레이아웃 적용 |
 |STEP2| **2023.02.23** | - ExhibitItemViewController 타입 내 Cell 데이터 전달 구조 변경 </br> - Custom Cell 삭제 및 extension UITableViewCell 구현 </br> - extension UIImage 구현 </br> - ExhibitItemViewController 타입 내 화면전환 메서드 구현 </br> - ItemDescriptionViewController 타입 정의 </br> - ItemDescriptionViewController 타입 내 UI 오브젝트 구현 및 오토레이아웃 적용 </br> - 전체적인 컨벤션 정리 </br> - StoryBoard 삭제 |
+|STEP2| **2023.02.27** | - extension UIView 내 setAutoLayout 메서드 구현 </br> - ItemDescriptionViewController 내 init() 파라미터 수정 </br> - numberFormatter 메서드 구현 |
+|STEP3| **2023.02.28** | - 각 뷰 텍스트에 Dynamic Type 적용  </br> - 첫 번째 뷰컨트롤러 세로 화면 고정 |
+|STEP3| **2023.03.01** | - Dynamic Type에 따른 이미지 사라짐 버그 수정  |
 
 ## 실행화면 🎬
 
-|<center>초기화면</center>|<center>버튼 클릭 시 화면전환</center>|
+|<center>초기화면</center>|<center>버튼 클릭 시 화면전환</center>|<center>테이블 뷰 정상출력</center> |
+| -- | -- | -- |
+| <img src = "https://i.imgur.com/oWnNQQK.gif" width = 400> |<img src = "https://i.imgur.com/jGvWmAI.gif" width = 400> |<img src = "https://i.imgur.com/r546Oeg.gif" width = 400> |
+
+
+
+|<center>테이블 뷰 정상출력</center>|<center>Dynamic Text 적용 화면</center>|
 |--|--|
-| ![](https://i.imgur.com/oWnNQQK.gif)|![](https://i.imgur.com/jGvWmAI.gif)  |
+| <img src = "https://i.imgur.com/r546Oeg.gif" width = 400> | <img src = "https://i.imgur.com/H8WjsiB.gif" width = 400>|
 
 
-|<center>테이블 뷰 정상출력</center>|<center>셀 클릭 시 화면전환</center>|
-|--|--|
-| ![](https://i.imgur.com/r546Oeg.gif) | ![](https://i.imgur.com/luZRMm8.gif) |
+|<center>첫 화면에서 화면 회전(세로 고정)</center> | <center>다른 화면에서 화면 회전(자유 회전)</center> |
+| -- | -- |
+| <img src = "https://i.imgur.com/bsZY66I.gif" width = 600> | <img src = "https://i.imgur.com/ioqd2uD.gif" width = "600"> |
 
-## STEP 트러블슈팅 🚀
+
+
+
+
+
+
+
+## 트러블슈팅 🚀
 
 ## 1️⃣ 코드로 UI 구현
 > 코드로 UI요소를 구현하면서 가장 많이 헤맨곳은 `오토 레이아웃` 의 문제 였습니다.
@@ -184,9 +211,96 @@ var content = self.defaultContentConfiguration()
     
  직접 UI 를 만들지 않고 `ContentConfiguration` 를 사용하니 코드의 길이도 확 줄고 가독성면에서도 개선되는 점을 체험했습니다 😋
  
- ## Reference
- - [UITableView - Apple 공식문서](https://developer.apple.com/documentation/uikit/uitableview)
- - [Filling a table with data - Apple 공식 문서](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data)
- - [UITableViewDataSource - Apple 공식 문서](https://developer.apple.com/documentation/uikit/uitableviewdatasource)
- - [UITableViewDelegate - Apple 공식 문서](https://developer.apple.com/documentation/uikit/uitableviewdelegate)
- - [JSONDecoder - Apple 공식문서](https://developer.apple.com/documentation/foundation/jsondecoder)
+## 6️⃣ 첫 번째 뷰 세로 화면으로 고정
+
+특정 뷰에서 화면 방향을 고정하기 위해 다음의 두 가지 방법을 찾아냈습니다.
+
+### `UINavigationController`의 `supportedInterfaceOrientations` 프로퍼티 활용
+
+- `supportedInterfaceOrientations` 이 속성의 경우 장치 방향이 변경이 되면 시스템은 창을 채우는 Root View Controller 또는 최상위 Modal ViewController 에서 메서드를 호출 한다고 합니다. 
+- 현재 저희 프로젝트의 Root View Controller 는 Navigation Controller 였기 때문에 특정 View Controller 에서 해당 속성을 override 해도 기능이 작동하지 않았습니다. 
+- 이 이유로 인해 NavigationController 를 extension 해 사용 해 보았습니다.
+
+```swift
+    extension UINavigationController {
+        
+        open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            guard let _ = self.topViewController as? PosterViewController else {
+                return .all
+            }
+            return .portrait
+        }
+    }
+```
+
+> 하지만 작동이 잘 되지 않았습니다! 그 이유는 extension 은 원본의 내용을 `변경하는 것이 아니라 확장`을 하는 개념이기 때문에 override 가 제대로 작동하지 않았습니다.
+
+이를 해결하기 위해서는 `UINavigationController` 를 상속받는 서브 class 를 만들어 override 를 진행하는 방식을 사용해야 했습니다.
+
+### `UIApplicationDelegate`의 메서드 활용
+`UIApplicationDelegate` 프로토콜을 채택한 `AppDelegate` 내에서 다음의 메서드를 구현하여 화면 방향을 정해줄 수 있습니다.
+``` swift
+func application(_ application: UIApplication, 
+    supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
+```
+이 프로젝트에서는 첫 번째 뷰는 세로로 고정해야 하고 두 번째, 세 번째 뷰는 모든 방향을 지원하도록 구현해야했기 때문에, 위 메서드를 다음과 같이 구현하였습니다.
+
+``` swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var shouldSupportAllOrientation = true
+    
+    ...
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if (shouldSupportAllOrientation == true) {
+            return UIInterfaceOrientationMask.all
+        }
+        
+        return UIInterfaceOrientationMask.portrait
+    }
+}
+```
+
+그리고 각각의 ViewController에서 `UIApplication`의 `appDelegate`를 프로퍼티로 보유하도록 하고, 각 뷰가 지원할 방향에 따라 값을 설정했습니다.
+
+``` swift
+private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
+override func viewWillAppear(_ animated: Bool) {
+    ...
+    appDelegate?.shouldSupportAllOrientation = false
+}
+```
+
+### 결론
+- `UINavigationController`를 상속받는 서브클래스를 구현하면 각 뷰컨트롤러에서 별도의 처리를 하지 않아도 되기때문에 간단합니다.
+- 각 뷰컨트롤러에서 `appDelegate`를 보유하여 `shouldSupportAllOrientation`를 설정하는 방법으로 구현하면 각 뷰컨트롤러에서 일일이 설정해야 한다는 단점은 있지만, 각 뷰컨트롤러에서 주체적으로 화면의 방향을 결정할 수 있기 때문에 장점이 있다고 생각해 이 방법으로 구현하였습니다.
+
+
+## 팀 회고 🤗
+
+### 코끼릴라의 잘한 점
+- 유쾌한 분위기 속에 즐겁게 작업을 진행했습니다
+- 무리하지 않고 적절한 쉬는 시간을 가져 탄력적으로 운영을 했습니다.
+- 서로의 의견을 나누는데 주저하지 않고 거리낌이 없었습니다
+- 서로 의견을 제시하고 더 나은 방법을 결정하는 데 근거를 찾아가며 작업했습니다.
+
+### 코끼릴라의 개선할 점
+- 참고 자료를 블로그가 아닌 공식문서 위주로 볼 것
+
+### 서로에게 한 마디
+
+- 릴라🦍 가 kokkilE🐘 에게
+: 코낄이랑 했던 2주가 너무 짧게 지나간거 같아요 🥹 너무 편한 분위기 속에서 즐겁게 작업한 것 같네요!! 2주가 이틀 같았습니다 코낄!! 다음 프로젝트때도 꼭!! 다시 만났으면 좋겠어요 코끼릴라는 언제나 하나...⭐️
+
+- kokkilE🐘 이 릴라🦍 에게
+: 릴라는 항상 좋은 분위기를 주도하여 협업하는데 즐거웠습니다. 어려운 부분이 있을 때 다른 캠퍼들에게 적극적으로 의견을 물어가며 참고하는 태도가 프로젝트 진행에 큰 도움이 된 것 같습니다. 다음에 또 만나요 릴라!
+
+## Reference 📑
+- [UITableView - Apple 공식문서](https://developer.apple.com/documentation/uikit/uitableview)
+- [Filling a table with data - Apple 공식 문서](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data)
+- [UITableViewDataSource - Apple 공식 문서](https://developer.apple.com/documentation/uikit/uitableviewdatasource)
+- [UITableViewDelegate - Apple 공식 문서](https://developer.apple.com/documentation/uikit/uitableviewdelegate)
+- [JSONDecoder - Apple 공식문서](https://developer.apple.com/documentation/foundation/jsondecoder)
+- [supportedInterfaceOrientations - Apple 공식문서](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621435-supportedinterfaceorientations)

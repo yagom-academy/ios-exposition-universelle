@@ -17,7 +17,7 @@ extension UITableViewCell {
               let image = UIImage(named: item.imageName)?.squareImage() else { return }
 
         var content = self.defaultContentConfiguration()
-
+        
         content.text = item.name
         content.textProperties.font = UIFont.preferredFont(forTextStyle: .title2)
         content.secondaryText = item.shortDescription
