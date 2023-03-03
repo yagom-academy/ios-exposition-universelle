@@ -7,7 +7,7 @@
 import UIKit
 
 final class ItemListViewController: UIViewController {
-    static let viewIdentifier = "itemListViewController"
+
     private var exhibitItems: [ExhibitItem] = Decoder().decodeItemsJson()
     
     @IBOutlet private weak var tableView: UITableView!
@@ -34,8 +34,8 @@ extension ItemListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.cellIdentifier, for: indexPath) as? CustomTableViewCell else { return CustomTableViewCell() }
-        
+        guard let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as? CustomTableViewCell else { return CustomTableViewCell() }
+ 
         let exhibitItem: ExhibitItem = exhibitItems[indexPath.row]
         cell.configureContent(exhibitItem: exhibitItem)
         
@@ -49,7 +49,7 @@ extension ItemListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let itemDetailView: ItemDetailViewController = storyboard?.instantiateViewController(identifier: ItemDetailViewController.viewIdentifier, creator: { creator in
+        if let itemDetailView: ItemDetailViewController = storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier, creator: { creator in
             let item = self.exhibitItems[indexPath.row]
             let itemDetailViewController = ItemDetailViewController(item: item, coder: creator)
             

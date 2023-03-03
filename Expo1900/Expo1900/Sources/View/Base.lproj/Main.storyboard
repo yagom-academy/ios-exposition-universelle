@@ -119,13 +119,13 @@
         <!--Item List View Controller-->
         <scene sceneID="059-my-VlR">
             <objects>
-                <viewController storyboardIdentifier="itemListViewController" id="XXz-M8-msU" customClass="ItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ItemListViewController" id="XXz-M8-msU" customClass="ItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mYo-jd-h5f">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="Qae-5B-CZc" detailTextLabel="RVp-dj-FHu" imageView="oTI-9c-iHr" style="IBUITableViewCellStyleSubtitle" id="ERM-HR-x4n" customClass="CustomTableViewCell" customModule="Expo1900" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CustomTableViewCell" textLabel="Qae-5B-CZc" detailTextLabel="RVp-dj-FHu" imageView="oTI-9c-iHr" style="IBUITableViewCellStyleSubtitle" id="ERM-HR-x4n" customClass="CustomTableViewCell" customModule="Expo1900" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="57.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ERM-HR-x4n" id="V3Y-Se-AzK">
@@ -172,7 +172,7 @@
         <!--Item Detail View Controller-->
         <scene sceneID="Shi-Ql-vNq">
             <objects>
-                <viewController storyboardIdentifier="itemDetailViewController" id="Fkm-dM-xfy" customClass="ItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ItemDetailViewController" id="Fkm-dM-xfy" customClass="ItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aag-qe-jUp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

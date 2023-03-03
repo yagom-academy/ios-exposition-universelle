@@ -7,11 +7,18 @@
 import UIKit
 
 final class CustomTableViewCell: UITableViewCell {
-    static let cellIdentifier = "cell"
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subTitleLabel: UILabel!
     @IBOutlet private weak var itemImageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        titleLabel.text = nil
+        subTitleLabel.text = nil
+        itemImageView.image = nil
+    }
     
     func configureContent(exhibitItem: ExhibitItem) {
         titleLabel.text = exhibitItem.name

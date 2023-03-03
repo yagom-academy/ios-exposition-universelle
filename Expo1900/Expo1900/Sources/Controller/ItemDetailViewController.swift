@@ -7,7 +7,7 @@
 import UIKit
 
 final class ItemDetailViewController: UIViewController {
-    static let viewIdentifier = "itemDetailViewController"
+
     private var navigationTitle: String
     private var imageName: String
     private var descriptionText: String
