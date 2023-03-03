@@ -20,7 +20,7 @@ final class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationControllerDelegate()
+        self.navigationController?.delegate = self
         setNavigationBar()
         decodeExpoData()
         setMainScene()
@@ -30,10 +30,6 @@ final class ExpoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    private func setNavigationControllerDelegate() {
-        self.navigationController?.delegate = self
     }
     
     private func setNavigationBar() {

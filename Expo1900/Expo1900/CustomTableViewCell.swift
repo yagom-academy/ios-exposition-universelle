@@ -13,7 +13,7 @@ final class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet var contents: [Any]!
     
-    var item: Item?
+    private var item: Item?
     
     func setContents() {
         guard let item = self.item else { return }

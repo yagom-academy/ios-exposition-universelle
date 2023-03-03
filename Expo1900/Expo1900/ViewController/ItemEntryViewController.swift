@@ -13,6 +13,7 @@ final class ItemEntryViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         setNavigationBar()
@@ -27,7 +28,6 @@ final class ItemEntryViewController: UIViewController {
     
     private func decodeItemsData() {
         let assetName = "items"
-        
         self.items = DecodeManager.decodeData(of: assetName, returnType: [Item].self) ?? []
     }
     
@@ -73,4 +73,3 @@ extension ItemEntryViewController: UITableViewDelegate {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
