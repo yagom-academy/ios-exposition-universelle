@@ -31,6 +31,7 @@ final class ExpoItemListViewController: UIViewController {
     }
     
     private func setNavigationBar() {
+        title = "한국의 출품작"
         navigationController?
             .navigationBar
             .topItem?
@@ -58,7 +59,6 @@ final class ExpoItemListViewController: UIViewController {
     
     private func setupLayout() {
         view.addSubview(listTableView)
-        title = "한국의 출품작"
         
         NSLayoutConstraint.activate([
             listTableView.topAnchor.constraint(equalTo: view.topAnchor),
