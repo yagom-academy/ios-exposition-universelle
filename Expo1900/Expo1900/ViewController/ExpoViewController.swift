@@ -8,11 +8,8 @@ import UIKit
 
 final class ExpoViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var visitorSubtitleLabel: UILabel!
     @IBOutlet private weak var numberOfVisitorsLabel: UILabel!
-    @IBOutlet private weak var locationSubtitleLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
-    @IBOutlet private weak var durationSubtitileLabel: UILabel!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var posterImageView: UIImageView!
@@ -70,15 +67,36 @@ final class ExpoViewController: UIViewController {
             from: expoData.numberOfVisitors
         ) else { return }
         
-        self.visitorSubtitleLabel.text = Subtitle.visitor
-        self.numberOfVisitorsLabel.text = " : \(decimalVisitors) 명"
-        self.locationSubtitleLabel.text = Subtitle.location
-        self.locationLabel.text = " : \(expoData.location)"
-        self.durationSubtitileLabel.text = Subtitle.duration
-        self.durationLabel.text = " : \(expoData.duration)"
-        
         self.titleLabel.text = expoData.title
+        self.numberOfVisitorsLabel.text = String(format: LabelText.visitor, decimalVisitors)
+        self.locationLabel.text = String(format: LabelText.location, expoData.location)
+        self.durationLabel.text = String(format: LabelText.duration, expoData.duration)
+        
+        convertTextSize(of: numberOfVisitorsLabel)
+        convertTextSize(of: locationLabel)
+        convertTextSize(of: durationLabel)
+        
         self.descriptionLabel.text = expoData.description
+    }
+    
+    private func convertTextSize(of label: UILabel) {
+        guard let target = label.text,
+              let colonIndex = target.firstIndex(of: ":")else { return }
+        
+        let leftFont = UIFont.preferredFont(forTextStyle: .title3)
+        let rightFont = UIFont.preferredFont(forTextStyle: .body)
+        
+        let leftDistance = target.distance(from: target.startIndex, to: colonIndex)
+        let rightDistance = target.distance(from: colonIndex, to: target.endIndex)
+        
+        let leftRange = NSMakeRange(0, leftDistance)
+        let rightRange = NSMakeRange(leftDistance, rightDistance)
+        
+        let attributedString = NSMutableAttributedString(string: target)
+        attributedString.addAttribute(.font, value: leftFont, range: leftRange)
+        attributedString.addAttribute(.font, value: rightFont, range: rightRange)
+        
+        label.attributedText = attributedString
     }
     
     private func convertToDecimal(from visitors: Int) -> String? {
@@ -104,10 +122,10 @@ final class ExpoViewController: UIViewController {
         static let flag = "flag"
     }
     
-    private enum Subtitle {
-        static let visitor = "방문객"
-        static let location = "개최지"
-        static let duration = "개최 기간"
+    private enum LabelText {
+        static let visitor = "방문객 : %@ 명"
+        static let location = "개최지 : %@"
+        static let duration = "개최 기간 : %@"
     }
 }
 
@@ -127,8 +145,9 @@ extension ExpoViewController {
     
     private func setLabelAccessibility() {
         self.titleLabel.accessibilityLabel = "파리 만국박람회 1900"
-        self.durationLabel.accessibilityLabel = "1900년 4월 14일부터 1900년 11월 12일까지"
-        self.descriptionLabel.accessibilityLabel = "1900년 파리 만국박람회 설명"
+        self.durationLabel.accessibilityLabel = "개최 기간"
+        self.durationLabel.accessibilityValue = "1900년 4월 14일부터 1900년 11월 12일까지"
+        self.descriptionLabel.accessibilityLabel = "1900년 파리 만국박람회 설명" 
         self.goButton.accessibilityHint = "한국의 출품작 화면으로 이동합니다."
     }
     
