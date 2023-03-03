@@ -91,6 +91,7 @@ final class ItemDescriptionViewController: UIViewController {
         descriptionLabel.text = item?.description
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = .preferredFont(forTextStyle: .body)
+        descriptionLabel.adjustsFontForContentSizeCategory = true
         
         stackView.addArrangedSubview(descriptionLabel)
     }
