@@ -8,12 +8,12 @@
 import UIKit
 
 enum DecodeManager {
-    static func decodeData<T: Decodable>(of name: String, type: T.Type) -> T? {
+    static func decodeData<T: Decodable>(of name: String) -> T? {
         let jsonDecoder = JSONDecoder()
         guard let dataAsset = NSDataAsset(name: name) else { return nil }
 
         do {
-            let result = try jsonDecoder.decode(type, from: dataAsset.data)
+            let result = try jsonDecoder.decode(T.self, from: dataAsset.data)
 
             return result
         } catch {
