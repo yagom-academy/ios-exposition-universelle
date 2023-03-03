@@ -6,7 +6,7 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController  {
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,6 @@ final class MainViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 20
-        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView

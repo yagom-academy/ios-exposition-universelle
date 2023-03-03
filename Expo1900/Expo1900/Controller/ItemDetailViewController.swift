@@ -20,7 +20,6 @@ final class ItemDetailViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.spacing = 10
-        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
