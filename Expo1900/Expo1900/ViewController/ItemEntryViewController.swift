@@ -48,12 +48,9 @@ extension ItemEntryViewController: UITableViewDataSource {
             withIdentifier: Identifier.cell, for: indexPath
         ) as? CustomTableViewCell else { return UITableViewCell() }
         
-        let itemName = items[indexPath.row].name
-        let shortDescription = items[indexPath.row].shortDescription
-        let itemImage = UIImage(named: items[indexPath.row].imageName) ?? nil
-        
-        cell.setContents(itemName, shortDescription, itemImage)
-        setAccessibilityProperties(of: cell, itemName: itemName, shortDescription: shortDescription)
+        cell.allocate(data: items[indexPath.row])
+        cell.setContents()
+        cell.setAccessibilityProperties()
         
         return cell
     }
@@ -77,37 +74,3 @@ extension ItemEntryViewController: UITableViewDelegate {
     }
 }
 
-extension ItemEntryViewController {
-    private func setAccessibilityProperties(
-        of cell: CustomTableViewCell,
-        itemName: String,
-        shortDescription: String
-    ) {
-        cell.isAccessibilityElement = false
-        cell.accessibilityElements = [
-            cell.itemNameLabel!,
-            cell.shortDescriptionLabel!,
-            cell.itemImageView!
-        ]
-        
-        setLabelAccessibility(in: cell, itemName: itemName, shortDescription: shortDescription)
-        setImageViewAccessibility(in: cell, itemName: itemName)
-    }
-    
-    private func setLabelAccessibility(
-        in cell: CustomTableViewCell,
-        itemName: String,
-        shortDescription: String
-    ) {
-        cell.itemNameLabel.accessibilityLabel = itemName
-        cell.shortDescriptionLabel.accessibilityLabel = "짧은 설명"
-        cell.shortDescriptionLabel.accessibilityValue = shortDescription
-    }
-    
-    private func setImageViewAccessibility(in cell: CustomTableViewCell, itemName: String) {
-        cell.itemImageView.isAccessibilityElement = true
-        cell.itemImageView.accessibilityLabel = itemName
-        cell.itemImageView.accessibilityTraits = .image
-        cell.itemImageView.accessibilityHint = "현재 셀을 선택하면 상세 화면으로 이동합니다."
-    }
-}

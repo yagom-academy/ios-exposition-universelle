@@ -210,6 +210,9 @@
                                     <outlet property="itemImageView" destination="Hzm-jt-80o" id="Bzt-qK-RVr"/>
                                     <outlet property="itemNameLabel" destination="if3-3g-AnI" id="1E5-g1-33p"/>
                                     <outlet property="shortDescriptionLabel" destination="W4v-ns-1S8" id="FNe-kD-UPo"/>
+                                    <outletCollection property="contents" destination="if3-3g-AnI" collectionClass="NSMutableArray" id="eIF-au-cso"/>
+                                    <outletCollection property="contents" destination="W4v-ns-1S8" collectionClass="NSMutableArray" id="gEz-qJ-fls"/>
+                                    <outletCollection property="contents" destination="Hzm-jt-80o" collectionClass="NSMutableArray" id="fAe-9D-F7a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
