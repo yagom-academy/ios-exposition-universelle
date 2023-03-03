@@ -28,7 +28,7 @@
 
 | <center>프로젝트 메인화면</center> | <center>출품작리스트 화면</center> | <center>출품작의 상세화면</center> |
 | --- | --- | --- |
-| <img src="https://i.imgur.com/oRMLXTs.gif">| <img src="https://i.imgur.com/rolmdF5.gif"> | <img src="https://i.imgur.com/kFbOBpp.gif">|
+| <img src="https://i.imgur.com/0uQumNV.gif">| <img src="https://i.imgur.com/rolmdF5.gif"> | <img src="https://i.imgur.com/kFbOBpp.gif">|
 
 
  
