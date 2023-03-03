@@ -83,14 +83,14 @@
 #### 📱 iPhone 12 mini 
 | 앱 실행| Dynamic Type 적용| 화면 회전|
 |:---:|:---:|:---:|
-| <img src="https://i.imgur.com/H1apPpv.gif" width="300"> | <img src = "https://i.imgur.com/mEEj8mF.gif" width="300"> | <img src="https://i.imgur.com/JSEb3yd.gif" width ="600"> |
+| <img src="https://user-images.githubusercontent.com/114971172/222661318-13dd3618-64b8-4a3d-946e-0bbc5d5f8713.gif" width="150"> | <img src = "https://user-images.githubusercontent.com/114971172/222661661-01246808-a48b-49a8-824b-aad5520f7e9b.gif" width="150"> | <img src="https://i.imgur.com/JSEb3yd.gif" width ="300"> |
 
 
 #### 📱 iPhone SE
 
 |앱 실행|Dynamic Type 적용|화면 회전|
 |:---:|:---:|:---:|
-|<img src="https://i.imgur.com/DrAIXe7.gif" width="300">|<img src = "https://i.imgur.com/av3yqfF.gif" width="300">|<img src="https://i.imgur.com/QQ1tCfr.gif" width="600">|
+|<img src="https://user-images.githubusercontent.com/114971172/222661672-789ff840-390b-48f9-9234-2a6f8b49f81e.gif" width="150">|<img src = "https://i.imgur.com/av3yqfF.gif" width="150">|<img src="https://i.imgur.com/QQ1tCfr.gif" width="300">|
 
 
 <br/>
