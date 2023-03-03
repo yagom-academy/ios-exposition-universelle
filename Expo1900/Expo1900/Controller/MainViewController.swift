@@ -28,6 +28,7 @@ final class MainViewController: UIViewController  {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 20
+        stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
@@ -206,7 +207,9 @@ final class MainViewController: UIViewController  {
             leftFlagImage.widthAnchor.constraint(equalToConstant: 50),
             leftFlagImage.heightAnchor.constraint(equalToConstant: 50),
             rightFlagImage.widthAnchor.constraint(equalToConstant: 50),
-            rightFlagImage.heightAnchor.constraint(equalToConstant: 50)
+            rightFlagImage.heightAnchor.constraint(equalToConstant: 50),
+            
+            pushExpoItemListViewButton.lastBaselineAnchor.constraint(equalTo: buttonStackView.bottomAnchor)
         ])
     }
     
