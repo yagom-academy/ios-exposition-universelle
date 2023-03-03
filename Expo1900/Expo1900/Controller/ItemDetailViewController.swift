@@ -8,14 +8,14 @@
 import UIKit
 
 final class ItemDetailViewController: UIViewController {
-    private var scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         return scrollView
     }()
     
-    private var contentStackView: UIStackView = {
+    private let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -25,7 +25,7 @@ final class ItemDetailViewController: UIViewController {
         return stackView
     }()
     
-    private var expoImageView: UIImageView = {
+    private let expoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +33,7 @@ final class ItemDetailViewController: UIViewController {
         return imageView
     }()
     
-    private var expoDescriptionLabel: UILabel = {
+    private let expoDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .body)
@@ -57,7 +57,6 @@ final class ItemDetailViewController: UIViewController {
     private func setUpView() {
         title = expoItemName
         expoDescriptionLabel.text = expoItemDescription
-        expoDescriptionLabel.numberOfLines = 0
         if let expoItemImage = expoItemImage {
             expoImageView.image = UIImage(named: expoItemImage)
         }

@@ -7,25 +7,24 @@
 import UIKit
 
 final class MainViewController: UIViewController  {
-    private var scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         return scrollView
     }()
     
-    private var contentStackView: UIStackView = {
+    private let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.spacing = 10
-        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
     }()
     
-    private var buttonStackView: UIStackView = {
+    private let buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 20
@@ -34,7 +33,7 @@ final class MainViewController: UIViewController  {
         return stackView
     }()
     
-    private var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -45,7 +44,7 @@ final class MainViewController: UIViewController  {
         return label
     }()
     
-    private var posterImageView: UIImageView = {
+    private let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "poster")
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +52,7 @@ final class MainViewController: UIViewController  {
         return imageView
     }()
     
-    private var visitorsLabel: UILabel = {
+    private let visitorsLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -63,7 +62,7 @@ final class MainViewController: UIViewController  {
         return label
     }()
     
-    private var locationLabel: UILabel = {
+    private let locationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -73,7 +72,7 @@ final class MainViewController: UIViewController  {
         return label
     }()
     
-    private var durationLabel: UILabel = {
+    private let durationLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -83,7 +82,7 @@ final class MainViewController: UIViewController  {
         return label
     }()
     
-    private var descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .body)
@@ -93,7 +92,7 @@ final class MainViewController: UIViewController  {
         return label
     }()
     
-    private var pushExpoItemListViewButton: UIButton = {
+    private let pushExpoItemListViewButton: UIButton = {
         let button = UIButton()
         button.setTitle("한국의 출품작 보러 가기", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
