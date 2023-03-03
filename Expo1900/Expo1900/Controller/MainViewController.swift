@@ -150,17 +150,18 @@ final class MainViewController: UIViewController  {
     private func checkValidDecodedData() {
         do {
             try decodedExposition.decodeData()
-        } catch DecodeError.expositionDecodeError {
-            let alertController = UIAlertController(title: "에러 발생",
-                                                    message: "박람회 정보를 불러오지 못했습니다.",
-                                                    preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "확인", style: .default)
-            
-            alertController.addAction(okAction)
-            
-            let rootViewController = UIApplication.shared.windows.first?.rootViewController
-            rootViewController?.present(alertController, animated: true)
-        } catch { }
+        } catch {
+            presentAlert(title: DecodeError.title, message: error.localizedDescription)
+        }
+    }
+    
+    private func presentAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let string = NSLocalizedString("확인", comment: "확인버튼")
+        let action = UIAlertAction(title: string, style: .default)
+        alert.addAction(action)
+        
+        present(alert, animated: true)
     }
     
     private func setupSubView() {
