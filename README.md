@@ -1,13 +1,13 @@
 # 만국박람회
 
 ## 목차
-[1. 프로젝트 소개](#1-프로젝트-소개)
-[2. 팀원](#2-팀원)
-[3. 타임라인](#3-타임라인)
-[4. 시각화된 프로젝트 구조](#4-시각화된-프로젝트-구조)
-[5. 실행 화면](#5-실행-화면)
-[6. 트러블 슈팅](#6-트러블-슈팅)
-[7. 팀 회고](#7-팀-회고)
+[1. 프로젝트 소개](#1-프로젝트-소개)<br>
+[2. 팀원](#2-팀원)<br>
+[3. 타임라인](#3-타임라인)<br>
+[4. 시각화된 프로젝트 구조](#4-시각화된-프로젝트-구조)<br>
+[5. 실행 화면](#5-실행-화면)<br>
+[6. 트러블 슈팅](#6-트러블-슈팅)<br>
+[7. 팀 회고](#7-팀-회고)<br>
 [8. 참고 링크](#8-참고-링크)
 <br>
 <br>
@@ -32,7 +32,7 @@
 
 | Harry | 레옹아범 |
 |:----:| :----: |
-|<div style="width:130px"><img src="https://i.imgur.com/BYdaDjU.png" width="130" height="130"/></div>|<div style="width:130px"><img src="https://raw.githubusercontent.com/Rhode-park/ios-rock-paper-scissors/step02/image/leonFather.jpeg"></div>|
+|<div width="130" height="200"><img src="https://i.imgur.com/BYdaDjU.png" width="130" height="130"/></div>|<div width="130" height="200"><img src="https://raw.githubusercontent.com/Rhode-park/ios-rock-paper-scissors/step02/image/leonFather.jpeg" width="130"></div>|
 | [<img src="https://i.imgur.com/IOAJpzu.png" width="22"/> Github](https://github.com/HarryHyeon) | [<img src="https://i.imgur.com/IOAJpzu.png" width="22"/> Github](https://github.com/fatherLeon) |
 
 <br>
