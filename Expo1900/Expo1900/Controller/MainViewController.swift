@@ -18,7 +18,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
-    private var fetchedMainExposition: MainExposition?
+    private var mainExposition: MainExposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +44,11 @@ final class MainViewController: UIViewController {
     }
     
     private func fetchMainExposition() {
-        fetchedMainExposition = ExpositionParser.mainExpositionParse()
+        mainExposition = ExpositionParser.mainExpositionParse()
     }
     
     private func setupLabel() {
-        guard let exposition = fetchedMainExposition else { return }
+        guard let exposition = mainExposition else { return }
         
         visitorTitleLabel.text = "방문객"
         locationTitleLabel.text = "개최지"

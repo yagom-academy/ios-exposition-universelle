@@ -11,7 +11,7 @@ final class ExpositionListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
-    private var fetchedExpositions: [ExpositionItem] = []
+    private var expositionItems: [ExpositionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,12 @@ final class ExpositionListViewController: UIViewController {
     }
     
     private func fetchExpositionList() {
-        fetchedExpositions = ExpositionParser.expositionItemParse()
+        expositionItems = ExpositionParser.expositionItemParse()
     }
     
     private func setupListCell(listCell: ListTableViewCell, indexPath: IndexPath) {
         
-        let fetchedExposition = fetchedExpositions[indexPath.row]
+        let fetchedExposition = expositionItems[indexPath.row]
         
         listCell.mainTitleLabel.text = fetchedExposition.name
         listCell.shortDescriptionLabel.text = fetchedExposition.shortDescription
@@ -42,7 +42,7 @@ final class ExpositionListViewController: UIViewController {
     
     private func setupDetailViewController(detailViewController: DetailViewController, indexPath: IndexPath) {
         
-        let fetchedExposition = fetchedExpositions[indexPath.row]
+        let fetchedExposition = expositionItems[indexPath.row]
         
         detailViewController.imageString = fetchedExposition.imageName
         detailViewController.fullDescription = fetchedExposition.description
@@ -67,7 +67,7 @@ extension ExpositionListViewController: UITableViewDelegate {
 
 extension ExpositionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedExpositions.count
+        return expositionItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
