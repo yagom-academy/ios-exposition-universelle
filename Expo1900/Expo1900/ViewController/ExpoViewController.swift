@@ -115,13 +115,22 @@ final class ExpoViewController: UIViewController {
 
 extension ExpoViewController {
     private func setAccessibilityProperties() {
+        setLabelAccessibility()
+        setImageViewAccessibility()
+    }
+    
+    private func setLabelAccessibility() {
         self.titleLabel.accessibilityLabel = "파리 만국박람회 1900"
-        self.posterImageView.isAccessibilityElement = true
-        self.posterImageView.accessibilityLabel = "박람회 포스터"
-        self.posterImageView.accessibilityTraits = .image
         self.durationLabel.accessibilityLabel = "1900년 4월 14일부터 1900년 11월 12일까지"
         self.descriptionLabel.accessibilityLabel = "1900년 파리 만국박람회 설명"
         self.goButton.accessibilityHint = "한국의 출품작 화면으로 이동합니다."
+    }
+    
+    private func setImageViewAccessibility() {
+        self.posterImageView.isAccessibilityElement = true
+        self.posterImageView.accessibilityLabel = "박람회 포스터"
+        self.posterImageView.accessibilityTraits = .image
+        
         self.flagImageViews.forEach {
             $0.isAccessibilityElement = true
             $0.accessibilityTraits = .image

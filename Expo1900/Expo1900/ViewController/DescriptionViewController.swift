@@ -35,15 +35,6 @@ final class DescriptionViewController: UIViewController {
         self.descriptionLabel.text = item.description
     }
     
-    private func setAccessibilityProperties() {
-        self.itemImageView.isAccessibilityElement = true
-        self.itemImageView.accessibilityLabel = item.name
-        self.itemImageView.accessibilityTraits = .image
-        
-        self.descriptionLabel.accessibilityLabel = item.name + " 상세 설명"
-        self.descriptionLabel.accessibilityValue = item.description
-    }
-    
     init?(item: Item, coder: NSCoder) {
         self.item = item
         super.init(coder: coder)
@@ -51,5 +42,23 @@ final class DescriptionViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension DescriptionViewController {
+    private func setAccessibilityProperties() {
+        setLabelAccessibility()
+        setImageViewAccessibility()
+    }
+    
+    private func setLabelAccessibility() {
+        self.descriptionLabel.accessibilityLabel = item.name + " 상세 설명"
+        self.descriptionLabel.accessibilityValue = item.description
+    }
+    
+    private func setImageViewAccessibility() {
+        self.itemImageView.isAccessibilityElement = true
+        self.itemImageView.accessibilityLabel = item.name
+        self.itemImageView.accessibilityTraits = .image
     }
 }
