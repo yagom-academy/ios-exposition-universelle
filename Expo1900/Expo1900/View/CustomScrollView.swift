@@ -8,13 +8,13 @@
 import UIKit
 
 class CustomScrollView: UIScrollView {
-
+    
     private let stackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         
+        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 8
+        stack.spacing = LayoutConstant.spacing
         stack.alignment = .center
         stack.distribution = .equalSpacing
         
@@ -25,7 +25,7 @@ class CustomScrollView: UIScrollView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
         self.showsVerticalScrollIndicator = false
         configureStackView()
     }

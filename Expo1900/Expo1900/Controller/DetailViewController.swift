@@ -33,7 +33,7 @@ extension DetailViewController {
     private func configureViews() {
         configureScrollView()
         configureImageView()
-        configureTextView()
+        configureDescriptionLabel()
     }
     
     private func configureScrollView() {
@@ -49,6 +49,7 @@ extension DetailViewController {
     
     private func configureImageView() {
         let imageView = UIImageView(image: self.exhibitionItem.image)
+        
         imageView.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([
@@ -58,16 +59,15 @@ extension DetailViewController {
         self.scrollView.addArrangeSubView(view: imageView)
     }
     
-    private func configureTextView() {
-        let textView = UITextView()
+    private func configureDescriptionLabel() {
+        let label = UILabel()
         
-        textView.font = .preferredFont(forTextStyle: .body)
-        textView.text = self.exhibitionItem.description
-        textView.isScrollEnabled = false
-        textView.isEditable = false
-        textView.isSelectable = false
-        textView.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .body)
+        label.text = self.exhibitionItem.description
+        label.adjustsFontForContentSizeCategory = true
+        label.lineBreakMode = .byCharWrapping
         
-        self.scrollView.addArrangeSubView(view: textView)
+        self.scrollView.addArrangeSubView(view: label)
     }
 }

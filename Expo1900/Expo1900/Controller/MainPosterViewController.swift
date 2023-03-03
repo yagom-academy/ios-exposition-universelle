@@ -23,12 +23,13 @@ final class MainPosterViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        self.navigationItem.title = "메인"
+        self.navigationItem.title = NavigationBarTitle.mainTitle
     }
     
     private func decodeJson() {
         let jsonDecoder = JSONDecoder()
-        guard let data = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        
+        guard let data = NSDataAsset(name: AssetName.mainPosterDataset) else { return }
         
         do {
             mainPoster = try jsonDecoder.decode(MainPoster.self, from: data.data)
@@ -46,10 +47,8 @@ extension MainPosterViewController {
         configureScrollView()
         configureTitleLabel()
         configureMainPosterImage()
-        configureContentLabel(self.mainPoster?.visitorsText)
-        configureContentLabel(self.mainPoster?.locationText)
-        configureContentLabel(self.mainPoster?.durationText)
-        configureTextView()
+        configureInfoLabels()
+        configureContentLabel()
         configureFooter()
     }
     
@@ -69,18 +68,20 @@ extension MainPosterViewController {
               let index = titleText.firstIndex(of: "(") else { return }
         
         let label = UILabel()
+        
         titleText.insert("\n", at: index)
         label.text = titleText
         label.font = .preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
         label.numberOfLines = 2
         label.adjustsFontForContentSizeCategory = true
+        label.adjustsFontSizeToFitWidth = true
         
         self.customScrollView.addArrangeSubView(view: label)
     }
     
     private func configureMainPosterImage() {
-        guard let image = UIImage(named: "poster") else { return }
+        guard let image = UIImage(named: AssetName.posterImage) else { return }
         let imageView = UIImageView()
         
         imageView.image = image
@@ -88,67 +89,110 @@ extension MainPosterViewController {
         self.customScrollView.addArrangeSubView(view: imageView)
     }
     
-    private func configureContentLabel(_ labelText: String?) {
-        let label = UILabel()
-        guard let text = labelText else { return }
-        
-        label.numberOfLines = 1
-        
-        let fontSize = UIFont.preferredFont(forTextStyle: .title3)
+    func makeAttributedText(text: String, index: String.Index) -> NSMutableAttributedString {
+        let bigFont = UIFont.preferredFont(forTextStyle: .title3)
+        let generalFont = UIFont.preferredFont(forTextStyle: .body)
         let attributedText = NSMutableAttributedString(string: text)
+        let textLineTitle = String(text.prefix(upTo: index))
+        let textLineContent = String(text.suffix(from: index))
         
-        guard let index = text.firstIndex(of: ":") else { return }
+        attributedText.addAttribute(.font,
+                                    value: bigFont,
+                                    range: (text as NSString).range(of: textLineTitle))
+        attributedText.addAttribute(.font,
+                                    value: generalFont,
+                                    range: (text as NSString).range(of: textLineContent))
         
-        let substring = String(text.prefix(upTo: index))
+        return attributedText
+    }
+    
+    func configureInfoLabels() {
+        let label = UILabel()
         
-        attributedText.addAttribute(.font, value: fontSize, range: (text as NSString).range(of: substring))
+        label.numberOfLines = 3
+        
+        guard let firstLine = self.mainPoster?.visitorsText,
+              let secondLine = self.mainPoster?.locationText,
+              let thirdLine = self.mainPoster?.durationText else { return }
+
+        let attributedText = NSMutableAttributedString()
+        let lineBreakText = NSMutableAttributedString(string: "\n")
+        
+        [firstLine, secondLine, thirdLine].forEach { text in
+            guard let index = text.firstIndex(of: ":") else { return }
+            
+            attributedText.append(makeAttributedText(text: text, index: index))
+            
+            if text != thirdLine {
+                attributedText.append(lineBreakText)
+            }
+        }
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = LayoutConstant.spacing
+        paragraphStyle.alignment = .center
+        
+        attributedText.addAttribute(.paragraphStyle,
+                                    value: paragraphStyle,
+                                    range: NSMakeRange(0, attributedText.length))
+        
         label.attributedText = attributedText
         label.adjustsFontForContentSizeCategory = true
+        label.lineBreakMode = .byClipping
+        label.adjustsFontSizeToFitWidth = true
+
+        self.customScrollView.addArrangeSubView(view: label)
+    }
+    
+    private func configureContentLabel() {
+        let label = UILabel()
+        
+        label.numberOfLines = 0
+        label.text = self.mainPoster?.description
+        label.font = .preferredFont(forTextStyle: .body)
+        
+        label.adjustsFontForContentSizeCategory = true
+        label.lineBreakMode = .byCharWrapping
         
         self.customScrollView.addArrangeSubView(view: label)
     }
     
-    private func configureTextView() {
-        let textView = UITextView()
-        
-        textView.font = .preferredFont(forTextStyle: .body)
-        textView.text = self.mainPoster?.description
-        textView.isScrollEnabled = false
-        textView.isEditable = false
-        textView.isSelectable = false
-        textView.adjustsFontForContentSizeCategory = true
-        
-        self.customScrollView.addArrangeSubView(view: textView)
-    }
-    
     private func configureFooter() {
         let stackView = UIStackView()
+        
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = 8
+        stackView.spacing = LayoutConstant.spacing
         
         let button = UIButton(type: .system)
+        
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.addTarget(self, action: #selector(tapExhibitionEntryButton), for: .touchUpInside)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
         
-        let leftImage = UIImageView(image: UIImage(named: "flag"))
-        let height = leftImage.frame.height / 15
-        let width = leftImage.frame.width / 15
-        leftImage.widthAnchor.constraint(equalToConstant: width).isActive = true
-        leftImage.heightAnchor.constraint(equalToConstant: height).isActive = true
+        let flagImage = UIImage(named: AssetName.flagImage)
+        let leftImageView = UIImageView(image: flagImage)
+        let rightImageView = UIImageView(image: flagImage)
+        let height = leftImageView.frame.height / 15
+        let width = leftImageView.frame.width / 15
         
-        let rightImage = UIImageView(image: UIImage(named: "flag"))
-        rightImage.widthAnchor.constraint(equalToConstant: width).isActive = true
-        rightImage.heightAnchor.constraint(equalToConstant: height).isActive = true
+        leftImageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        leftImageView.heightAnchor.constraint(equalToConstant: height).isActive = true
         
-        stackView.addArrangedSubview(leftImage)
+        rightImageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        rightImageView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        
+        stackView.addArrangedSubview(leftImageView)
         stackView.addArrangedSubview(button)
-        stackView.addArrangedSubview(rightImage)
+        stackView.addArrangedSubview(rightImageView)
         
         self.customScrollView.addArrangeSubView(view: stackView)
     }
     
     @objc private func tapExhibitionEntryButton() {
-        self.navigationController?.pushViewController(ExhibitionEntryTableViewController(), animated: true)
+        self.navigationController?.pushViewController(ExhibitionEntryTableViewController(),
+                                                      animated: true)
     }
 }
