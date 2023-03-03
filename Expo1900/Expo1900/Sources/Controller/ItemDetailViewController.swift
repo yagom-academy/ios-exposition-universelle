@@ -39,5 +39,9 @@ final class ItemDetailViewController: UIViewController {
     private func configureContent() {
         descriptionLabel.text = descriptionText
         imageView.image = UIImage(named: imageName)
+        
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        
+        descriptionLabel.adjustsFontForContentSizeCategory = true
     }
 }

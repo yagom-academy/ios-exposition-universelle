@@ -42,6 +42,18 @@ final class ExpositionViewController: UIViewController {
         locationLabel.text = String(format: NameSpace.locationText, expositionUniverselle.location)
         durationLabel.text = String(format: NameSpace.durationText, expositionUniverselle.duration)
         descriptionLabel.text = expositionUniverselle.description
+        
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        visitorCountLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        locationLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        durationLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        
+        titleLabel.adjustsFontForContentSizeCategory = true
+        visitorCountLabel.adjustsFontForContentSizeCategory = true
+        locationLabel.adjustsFontForContentSizeCategory = true
+        durationLabel.adjustsFontForContentSizeCategory = true
+        descriptionLabel.adjustsFontForContentSizeCategory = true
     }
     
     private func configureNavigationBar(isHidden: Bool) {

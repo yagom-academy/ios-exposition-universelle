@@ -24,5 +24,11 @@ final class CustomTableViewCell: UITableViewCell {
         titleLabel.text = exhibitItem.name
         subTitleLabel.text = exhibitItem.shortDescription
         itemImageView.image = UIImage(named: exhibitItem.imageName)
+        
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        subTitleLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+        
+        titleLabel.adjustsFontForContentSizeCategory = true
+        subTitleLabel.adjustsFontForContentSizeCategory = true
     }
 }
