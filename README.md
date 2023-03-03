@@ -285,21 +285,14 @@ override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 ``` 
  
 ### 6️⃣ 프로젝트에서 dynamic Type을 적용하였는데 글씨크기를 크게하면 버튼과 바로 위 레이블이 겹치는 문제
-아래 사진처럼 글씨크기가 커지면 겹치는 문제가 발생하는데 해결하지 못하였습니다. contentHuggingPriority를 사용해서 조절하는 방식을 사용했는데 적용이 되지 않아 해결 방법에 대한 키워드를 알고 싶습니다. 
-> pushExpoItemListViewButton의 baseLineAnchor에 대해서 알아보세요. dynamic type에 대한 답이 될거 같습니다.
+
+- 위와같은 질문을 PR에 남겨놓고 `button의 baseline`이라는 키워드를 답변받았습니다. 
+button의 baseline을 stackView의 bottom과 제약을 걸어보니, 버튼의 numberOfLines가 먹히지 않고 `한...가기`와 같은 레이블이 보였습니다.
+- 리뷰어에게 다시한번 질문을 드렸고, button이 담겨있는 stackView의 alignment를 center로 설정하니 다음과 같이 dynamic type에서도 아래와같이 잘 보이게 되었습니다🥲
+~~어렵고도어려운 오토레이아웃~~
 
 
-#### 🔥해결하고 해결방법을 올리도록 하겠습니다..ㅎ
-<p align="center">
-  <img src="https://i.imgur.com/TPx7pPf.png" align="center" width="30%">
-  <img src="https://i.imgur.com/rVNlYRm.png" align="center" width="30%">
-  <img src="https://i.imgur.com/FHyYxWn.png" align="center" width="30%">
-  </figcaption>
-</p>
-
->첫번째 화면: dynamic type을 적용하지 않은 상태, 
-두번째 화면: dynmic type을 적용한 상태, 
-세번째 화면: dynamic type + button의 firstBaseline을 상위 stackView의 lastBaseline에 제약을 건 상태 (button의 numberOfLines이 적용되지 않음)
+<img src="https://i.imgur.com/0mjT5FB.png" width="40%">
 
 </br>
 
