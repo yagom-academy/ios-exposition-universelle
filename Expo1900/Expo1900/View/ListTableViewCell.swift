@@ -23,6 +23,7 @@ final class ListTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
