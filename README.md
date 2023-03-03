@@ -17,6 +17,8 @@
 
 ## 2. 팀원
 
+[팀 회고](https://github.com/Rhode-park/ios-exposition-universelle/blob/step03/%ED%8C%80%20%ED%9A%8C%EA%B3%A0.md)
+
 |⭐️[Rhode](https://github.com/Rhode-park)|⭐️[Christy](https://github.com/christy-hs-lee)|
 | :--------: | :--------: |
 |<img height="180px" src="https://i.imgur.com/XyDwGwe.jpg">|<img height="180px" src="https://i.imgur.com/kHLXeMG.png">|
