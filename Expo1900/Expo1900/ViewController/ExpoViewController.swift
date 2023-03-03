@@ -18,12 +18,12 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private var flagImageViews: [UIImageView]!
     @IBOutlet private weak var goButton: UIButton!
-   
-    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     private var expoUniverselle: ExpoUniverselle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationControllerDelegate()
         setNavigationBar()
         decodeExpoData()
         setMainScene()
@@ -33,12 +33,10 @@ final class ExpoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        appDelegate?.shouldSupportAllOrientation = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        appDelegate?.shouldSupportAllOrientation = true
+    private func setNavigationControllerDelegate() {
+        self.navigationController?.delegate = self
     }
     
     private func setNavigationBar() {
@@ -78,7 +76,7 @@ final class ExpoViewController: UIViewController {
         self.locationLabel.text = " : \(expoData.location)"
         self.durationSubtitileLabel.text = Subtitle.duration
         self.durationLabel.text = " : \(expoData.duration)"
-
+        
         self.titleLabel.text = expoData.title
         self.descriptionLabel.text = expoData.description
     }
@@ -110,6 +108,14 @@ final class ExpoViewController: UIViewController {
         static let visitor = "방문객"
         static let location = "개최지"
         static let duration = "개최 기간"
+    }
+}
+
+extension ExpoViewController: UINavigationControllerDelegate {
+    func navigationControllerSupportedInterfaceOrientations(
+        _ navigationController: UINavigationController
+    ) -> UIInterfaceOrientationMask {
+        return .portrait
     }
 }
 
