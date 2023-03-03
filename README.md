@@ -28,7 +28,7 @@
 
 ## Class Diagram 🗺
 
-<img src= "https://i.imgur.com/juBeLTG.png">
+<img src= "https://i.imgur.com/juBeLTG.png" width=600>
 
 
 ## File Tree 🌲
@@ -81,24 +81,18 @@
 
 |<center>초기화면</center>|<center>버튼 클릭 시 화면전환</center>|<center>테이블 뷰 정상출력</center> |
 | -- | -- | -- |
-| <img src = "https://i.imgur.com/oWnNQQK.gif" width = 400> |<img src = "https://i.imgur.com/jGvWmAI.gif" width = 400> |<img src = "https://i.imgur.com/r546Oeg.gif" width = 400> |
+| <img src = "https://i.imgur.com/oWnNQQK.gif" width = 250> |<img src = "https://i.imgur.com/jGvWmAI.gif" width = 250> |<img src = "https://i.imgur.com/r546Oeg.gif" width = 250> |
 
 
 
 |<center>테이블 뷰 정상출력</center>|<center>Dynamic Text 적용 화면</center>|
 |--|--|
-| <img src = "https://i.imgur.com/r546Oeg.gif" width = 400> | <img src = "https://i.imgur.com/H8WjsiB.gif" width = 400>|
+| <img src = "https://i.imgur.com/r546Oeg.gif" width = 350> | <img src = "https://i.imgur.com/H8WjsiB.gif" width = 350>|
 
 
 |<center>첫 화면에서 화면 회전(세로 고정)</center> | <center>다른 화면에서 화면 회전(자유 회전)</center> |
 | -- | -- |
-| <img src = "https://i.imgur.com/bsZY66I.gif" width = 600> | <img src = "https://i.imgur.com/ioqd2uD.gif" width = "600"> |
-
-
-
-
-
-
+| <img src = "https://i.imgur.com/bsZY66I.gif" width = 400> | <img src = "https://i.imgur.com/ioqd2uD.gif" width = "400"> |
 
 
 ## 트러블슈팅 🚀
@@ -146,7 +140,7 @@ if let index = title.range(of: "(")?.lowerBound {
 위 방법을 사용해 title 중간에 개행문자를 넣어 한글과 영어부분을 분리하였습니다.
 
 ## 3️⃣ 좌우 스크롤 문제
-<img src= "https://i.imgur.com/Q7xjVv8.gif" width=250>
+<img src= "https://i.imgur.com/Q7xjVv8.gif" height=400>
 <br><br>
 
 ``` swift
