@@ -8,7 +8,7 @@
 import UIKit
 
 final class CustomTableViewCell: UITableViewCell {
-    static let identifier: String = "cell"
+    static let identifier = "cell"
     
     private let entryImageView = {
         let imageView = UIImageView()
@@ -21,6 +21,9 @@ final class CustomTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -28,6 +31,9 @@ final class CustomTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -67,25 +73,19 @@ final class CustomTableViewCell: UITableViewCell {
     
     private func createStackView() -> UIStackView {
         let subStackView = createSubStackView()
-        let itemStackView = {
-            let stackView = UIStackView(arrangedSubviews: [entryImageView, subStackView])
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .horizontal
-            stackView.spacing = 8
-            stackView.alignment = .center
-            return stackView
-        }()
-        return itemStackView
+        let mainStackView = UIStackView(arrangedSubviews: [entryImageView, subStackView])
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.axis = .horizontal
+        mainStackView.spacing = 8
+        mainStackView.alignment = .center
+        return mainStackView
     }
     
     private func createSubStackView() -> UIStackView {
-        let subStackView = {
-            let stackView = UIStackView(arrangedSubviews: [entryNameLabel, entryShortDescriptionLabel])
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .vertical
-            stackView.spacing = 4
-            return stackView
-        }()
-        return subStackView
+        let stackView = UIStackView(arrangedSubviews: [entryNameLabel, entryShortDescriptionLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        return stackView
     }
 }

@@ -19,10 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: ExpoInfoMainViewController())
         window?.makeKeyAndVisible()
-        
-        UILabel.appearance().adjustsFontForContentSizeCategory = true
-        UILabel.appearance().numberOfLines = 0
-        UILabel.appearance().lineBreakMode = .byWordWrapping
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

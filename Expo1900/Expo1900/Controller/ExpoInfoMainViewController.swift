@@ -19,6 +19,9 @@ final class ExpoInfoMainViewController: UIViewController {
     private let titleLabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         return label
     }()
@@ -31,22 +34,34 @@ final class ExpoInfoMainViewController: UIViewController {
     
     private let numberOfVisitorsLabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
-
+    
     private let locationLabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private let durationLabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
-
+    
     private let descriptionLabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -54,6 +69,9 @@ final class ExpoInfoMainViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.lineBreakMode = .byWordWrapping
         return button
     }()
     
@@ -82,7 +100,7 @@ final class ExpoInfoMainViewController: UIViewController {
         delegate.changeOrientation = false
         
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
@@ -91,9 +109,9 @@ final class ExpoInfoMainViewController: UIViewController {
     
     private func decodeExpoInfo() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900")
+        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900")
         else { return }
-
+        
         do {
             self.expoAssets = try jsonDecoder.decode(ExpositionInfo.self, from: dataAsset.data)
         } catch {
@@ -150,37 +168,31 @@ final class ExpoInfoMainViewController: UIViewController {
     }
     
     private func createButtonStackView() -> UIStackView {
-        let buttonStackView = {
-            let stackView = UIStackView(arrangedSubviews: [leftFlagImageView,
-                                                           nextViewButton,
-                                                           rightFlagImageView])
-            stackView.axis = .horizontal
-            stackView.alignment = .center
-            stackView.spacing = 20
-            return stackView
-        }()
-        return buttonStackView
+        let stackView = UIStackView(arrangedSubviews: [leftFlagImageView,
+                                                       nextViewButton,
+                                                       rightFlagImageView])
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 20
+        return stackView
     }
     
     private func createMainStackView(subStackView: UIStackView) -> UIStackView {
-        let mainStackView = {
-            let stackView = UIStackView(arrangedSubviews: [
-                titleLabel,
-                posterImageView,
-                numberOfVisitorsLabel,
-                locationLabel,
-                durationLabel,
-                descriptionLabel,
-                subStackView
-            ])
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .vertical
-            stackView.alignment = .center
-            stackView.spacing = 16
-            stackView.distribution = .equalSpacing
-            return stackView
-        }()
-        return mainStackView
+        let stackView = UIStackView(arrangedSubviews: [
+            titleLabel,
+            posterImageView,
+            numberOfVisitorsLabel,
+            locationLabel,
+            durationLabel,
+            descriptionLabel,
+            subStackView
+        ])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 16
+        stackView.distribution = .equalSpacing
+        return stackView
     }
     
     @objc private func didTapMoveToEntryTableVC() {

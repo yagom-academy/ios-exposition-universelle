@@ -18,8 +18,8 @@ final class EntryTableViewController: UITableViewController {
     }
     
     private func decodeEntryInfo() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
+        let jsonDecoder = JSONDecoder()
+        guard let dataAsset = NSDataAsset(name: "items") else { return }
         
         do {
             entryList = try jsonDecoder.decode([Entry].self, from: dataAsset.data)
@@ -40,12 +40,11 @@ extension EntryTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier,
                                                        for: indexPath) as? CustomTableViewCell
         else { fatalError("Failed to load a CustomTableViewCell from the table.") }
-        let entry: Entry = entryList[indexPath.row]
+        let entry = entryList[indexPath.row]
         
         cell.configureEntryList(image: entry.imageName,
                                 name: entry.name,
                                 shortDescription: entry.shortDescription)
-        tableView.rowHeight = UITableView.automaticDimension
         return cell
     }
     

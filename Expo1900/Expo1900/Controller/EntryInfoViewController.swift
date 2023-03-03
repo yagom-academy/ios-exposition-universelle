@@ -33,6 +33,9 @@ final class EntryInfoViewController: UIViewController {
     
     private let entryDescriptionLabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = .preferredFont(forTextStyle: .body)
         return label
     }()
@@ -74,15 +77,12 @@ final class EntryInfoViewController: UIViewController {
     }
     
     private func createMainStackView() -> UIStackView {
-        let mainStackView = {
-            let stackView = UIStackView(arrangedSubviews: [entryImageView, entryDescriptionLabel])
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .vertical
-            stackView.alignment = .center
-            stackView.spacing = 4
-            stackView.distribution = .equalSpacing
-            return stackView
-        }()
-        return mainStackView
+        let stackView = UIStackView(arrangedSubviews: [entryImageView, entryDescriptionLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 4
+        stackView.distribution = .equalSpacing
+        return stackView
     }
 }
