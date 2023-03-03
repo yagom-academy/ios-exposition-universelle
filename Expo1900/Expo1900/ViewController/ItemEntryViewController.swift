@@ -48,22 +48,14 @@ extension ItemEntryViewController: UITableViewDataSource {
             withIdentifier: Identifier.cell, for: indexPath
         ) as? CustomTableViewCell else { return UITableViewCell() }
         
-        setContents(of: cell, at: indexPath)
-        
-        return cell
-    }
-    
-    private func setContents(of cell: CustomTableViewCell, at indexPath: IndexPath) {
-        guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
         let itemName = items[indexPath.row].name
         let shortDescription = items[indexPath.row].shortDescription
+        let itemImage = UIImage(named: items[indexPath.row].imageName) ?? nil
         
-        cell.itemNameLabel.text = itemName
-        cell.shortDescriptionLabel.text = shortDescription
-        cell.itemImageView.image = itemImage
-        
+        cell.setContents(itemName, shortDescription, itemImage)
         setAccessibilityProperties(of: cell, itemName: itemName, shortDescription: shortDescription)
-        cell.accessoryType = .disclosureIndicator
+        
+        return cell
     }
 }
 
