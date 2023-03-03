@@ -217,18 +217,25 @@ final class MainViewController: UIViewController  {
         
         visitorsLabel.attributedText = NSMutableAttributedString()
             .makeBigText(string: NameSpace.visitor)
-            .makeNormalText(string: NameSpace.colon
+            .makeNormalText(string: NameSpace.space
+                            + NameSpace.colon
+                            + NameSpace.space
                             + decodedExposition.exposition.visitors.convertDecimal()
+                            + NameSpace.space
                             + NameSpace.person)
         
         locationLabel.attributedText = NSMutableAttributedString()
             .makeBigText(string: NameSpace.location)
-            .makeNormalText(string: NameSpace.colon
+            .makeNormalText(string: NameSpace.space
+                            + NameSpace.colon
+                            + NameSpace.space
                             + decodedExposition.exposition.location)
         
         durationLabel.attributedText = NSMutableAttributedString()
             .makeBigText(string: NameSpace.duration)
-            .makeNormalText(string: NameSpace.colon
+            .makeNormalText(string: NameSpace.space
+                            + NameSpace.colon
+                            + NameSpace.space
                             + decodedExposition.exposition.duration)
         
         descriptionLabel.text = decodedExposition.exposition.description
