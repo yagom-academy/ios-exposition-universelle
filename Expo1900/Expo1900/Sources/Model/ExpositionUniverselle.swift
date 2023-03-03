@@ -1,22 +1,21 @@
 //
-//  ExpositionUniverselle.swift
-//  Expo1900
-//
-//  Created by Christy, Rhode on 2023/02/20.
+//  Expo1900 - ExpositionUniverselle.swift
+//  Created by Christy, Rhode.
+//  Copyright © yagom academy. All rights reserved.
 //
 
 import Foundation
 
 struct ExpositionUniverselle: Decodable {
-    var title: String
-    var visitorNumber: Int
-    var location: String
-    var duration: String
-    var description: String
+    let title: String
+    let visitorCount: Int
+    let location: String
+    let duration: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
         case title
-        case visitorNumber = "visitors"
+        case visitorCount = "visitors"
         case location
         case duration
         case description

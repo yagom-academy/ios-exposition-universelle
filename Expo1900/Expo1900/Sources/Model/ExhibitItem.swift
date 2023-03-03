@@ -7,10 +7,10 @@
 import Foundation
 
 struct ExhibitItem: Decodable {
-    var name: String
-    var imageName: String
-    var shortDescription: String
-    var description: String
+    let name: String
+    let imageName: String
+    let shortDescription: String
+    let description: String
     
     private enum CodingKeys: String, CodingKey {
         case name
