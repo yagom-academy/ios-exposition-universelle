@@ -41,7 +41,7 @@ final class ExpositionViewController: UIViewController {
         let expositionUniverselle = Decoder().decodeExpositionJson()
         
         titleLabel.text = expositionUniverselle.title
-        visitorCountLabel.text = String(format: NameSpace.visitorCountText, expositionUniverselle.visitorCount)
+        visitorCountLabel.text = String(format: NameSpace.visitorCountText, expositionUniverselle.visitorCount.insertComma())
         locationLabel.text = String(format: NameSpace.locationText, expositionUniverselle.location)
         durationLabel.text = String(format: NameSpace.durationText, expositionUniverselle.duration)
         descriptionLabel.text = expositionUniverselle.description

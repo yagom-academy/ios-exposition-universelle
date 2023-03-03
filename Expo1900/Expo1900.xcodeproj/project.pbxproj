@@ -19,6 +19,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D00E7AA929A36E2900893E3B /* ExhibitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E7AA829A36E2900893E3B /* ExhibitItem.swift */; };
+		D01A1AEF29B1CF5F0028B601 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A1AEE29B1CF5F0028B601 /* Int+.swift */; };
 		D05EDCB729A719B900C70443 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDCB629A719B900C70443 /* ItemListViewController.swift */; };
 		D05EDD2B29AD96C400C70443 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EDD2A29AD96C400C70443 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D00E7AA829A36E2900893E3B /* ExhibitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitItem.swift; sourceTree = "<group>"; };
+		D01A1AEE29B1CF5F0028B601 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		D05EDCB629A719B900C70443 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		D05EDD2A29AD96C400C70443 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +60,7 @@
 			children = (
 				7FD6077D29AD9FEB00C733B6 /* Decoder.swift */,
 				7F70303429B1B0F90008B78B /* IdentifierType.swift */,
+				D01A1AEE29B1CF5F0028B601 /* Int+.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				D05EDCB729A719B900C70443 /* ItemListViewController.swift in Sources */,
 				7F70303529B1B0F90008B78B /* IdentifierType.swift in Sources */,
 				7FA6175E29AC913400BC26B2 /* NameSpace.swift in Sources */,
+				D01A1AEF29B1CF5F0028B601 /* Int+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
