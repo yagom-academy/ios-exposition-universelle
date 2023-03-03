@@ -102,7 +102,7 @@ final class ExhibitionEntryCell: UITableViewCell {
     private func configureExhibitionImage() {
         self.stackView.addArrangedSubview(exhibitionImage)
         
-        let widthMultiplier = 0.2
+        let lengthRatio = 0.2
         let heightAnchor = exhibitionImage
             .widthAnchor
             .constraint(equalTo: exhibitionImage.heightAnchor)
@@ -112,7 +112,7 @@ final class ExhibitionEntryCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             exhibitionImage.widthAnchor.constraint(equalTo: self.contentView.widthAnchor,
-                                                   multiplier: widthMultiplier)
+                                                   multiplier: lengthRatio)
         ])
     }
     
