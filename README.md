@@ -113,7 +113,10 @@
 ```
 
 ## 트러블 슈팅
-    
+
+<details>
+ <summary>트러블슈팅 펼쳐보기</summary>
+ 
 ### 1️⃣ 상세정보 페이지에 데이터 전달하기 
 **변경 전**
 >- 한국의 출품작 목록을 나타내는 뷰컨트롤러에서 셀(출품작)을 선택하게되면 출품작의 상세정보를 보여주는 페이지를 나타내주어야했습니다.
@@ -294,6 +297,8 @@ button의 baseline을 stackView의 bottom과 제약을 걸어보니, 버튼의 n
 
 <img src="https://i.imgur.com/0mjT5FB.png" width="40%">
 
+ </details>
+ 
 </br>
 
 ## 참고문서
