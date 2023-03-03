@@ -1,5 +1,5 @@
 //
-//  extention+UITableViewCell.swift
+//  extension+UITableViewCell.swift
 //  Expo1900
 //
 //  Created by kokkilE, rilla on 2023/02/22.
