@@ -140,7 +140,7 @@ if let index = title.range(of: "(")?.lowerBound {
 위 방법을 사용해 title 중간에 개행문자를 넣어 한글과 영어부분을 분리하였습니다.
 
 ## 3️⃣ 좌우 스크롤 문제
-<img src= "https://i.imgur.com/Q7xjVv8.gif" height=400>
+<img src= "https://i.imgur.com/Q7xjVv8.gif" width=200>
 <br><br>
 
 ``` swift
