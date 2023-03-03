@@ -49,6 +49,7 @@ extension DetailViewController {
     
     private func configureImageView() {
         let imageView = UIImageView(image: self.exhibitionItem.image)
+        
         imageView.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([

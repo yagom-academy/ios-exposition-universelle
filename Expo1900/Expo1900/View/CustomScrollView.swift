@@ -11,8 +11,8 @@ class CustomScrollView: UIScrollView {
     
     private let stackView = {
         let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
         
+        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = LayoutConstant.spacing
         stack.alignment = .center

@@ -28,6 +28,7 @@ final class ExhibitionEntryTableViewController: UITableViewController {
     
     private func decodeJson() {
         let jsonDecoder = JSONDecoder()
+        
         guard let data = NSDataAsset(name: AssetName.tableViewDataset) else { return }
         
         do {

@@ -28,6 +28,7 @@ final class MainPosterViewController: UIViewController {
     
     private func decodeJson() {
         let jsonDecoder = JSONDecoder()
+        
         guard let data = NSDataAsset(name: AssetName.mainPosterDataset) else { return }
         
         do {
@@ -67,6 +68,7 @@ extension MainPosterViewController {
               let index = titleText.firstIndex(of: "(") else { return }
         
         let label = UILabel()
+        
         titleText.insert("\n", at: index)
         label.text = titleText
         label.font = .preferredFont(forTextStyle: .title1)
@@ -90,9 +92,7 @@ extension MainPosterViewController {
     func makeAttributedText(text: String, index: String.Index) -> NSMutableAttributedString {
         let bigFont = UIFont.preferredFont(forTextStyle: .title3)
         let generalFont = UIFont.preferredFont(forTextStyle: .body)
-        
         let attributedText = NSMutableAttributedString(string: text)
-        
         let textLineTitle = String(text.prefix(upTo: index))
         let textLineContent = String(text.suffix(from: index))
         
@@ -159,11 +159,13 @@ extension MainPosterViewController {
     
     private func configureFooter() {
         let stackView = UIStackView()
+        
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.spacing = LayoutConstant.spacing
         
         let button = UIButton(type: .system)
+        
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.addTarget(self, action: #selector(tapExhibitionEntryButton), for: .touchUpInside)
         button.titleLabel?.font = .preferredFont(forTextStyle: .body)
@@ -171,12 +173,14 @@ extension MainPosterViewController {
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         
         let leftImage = UIImageView(image: UIImage(named: AssetName.flagImage))
+        
         let height = leftImage.frame.height / 15
         let width = leftImage.frame.width / 15
         leftImage.widthAnchor.constraint(equalToConstant: width).isActive = true
         leftImage.heightAnchor.constraint(equalToConstant: height).isActive = true
         
         let rightImage = UIImageView(image: UIImage(named: AssetName.flagImage))
+        
         rightImage.widthAnchor.constraint(equalToConstant: width).isActive = true
         rightImage.heightAnchor.constraint(equalToConstant: height).isActive = true
         
