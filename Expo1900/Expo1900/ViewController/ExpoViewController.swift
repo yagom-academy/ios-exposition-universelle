@@ -47,7 +47,9 @@ final class ExpoViewController: UIViewController {
     }
     
     private func decodeExpoData() {
-        self.expoUniverselle = DecodeManager.decodeData(of: AssetName.expo) ?? nil
+        self.expoUniverselle = DecodeManager.decodeData(
+            of: AssetName.expo, returnType: ExpoUniverselle.self
+        ) ?? nil
     }
     
     private func setMainScene() {

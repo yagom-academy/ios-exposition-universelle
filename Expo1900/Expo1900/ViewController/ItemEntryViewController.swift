@@ -28,7 +28,7 @@ final class ItemEntryViewController: UIViewController {
     private func decodeItemsData() {
         let assetName = "items"
         
-        self.items = DecodeManager.decodeData(of: assetName) ?? []
+        self.items = DecodeManager.decodeData(of: assetName, returnType: [Item].self) ?? []
     }
     
     private enum Identifier {
