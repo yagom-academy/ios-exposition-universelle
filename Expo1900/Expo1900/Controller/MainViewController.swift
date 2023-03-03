@@ -135,16 +135,18 @@ final class MainViewController: UIViewController  {
         tapButton()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        AppDelegate.portraitOrientation = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
-        AppDelegate.portraitOrientation = false
     }
     
     private func checkValidDecodedData() {

@@ -20,17 +20,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
-    // MARK: - 화면 방향 지정
-
-    static var portraitOrientation: Bool = true
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        
-        if AppDelegate.portraitOrientation == true {
-            return UIInterfaceOrientationMask.portrait
-        } else {
-            return UIInterfaceOrientationMask.all
-        }
-    }
 }
