@@ -172,21 +172,21 @@ extension MainPosterViewController {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         
-        let leftImage = UIImageView(image: UIImage(named: AssetName.flagImage))
+        let flagImage = UIImage(named: AssetName.flagImage)
+        let leftImageView = UIImageView(image: flagImage)
+        let rightImageView = UIImageView(image: flagImage)
+        let height = leftImageView.frame.height / 15
+        let width = leftImageView.frame.width / 15
         
-        let height = leftImage.frame.height / 15
-        let width = leftImage.frame.width / 15
-        leftImage.widthAnchor.constraint(equalToConstant: width).isActive = true
-        leftImage.heightAnchor.constraint(equalToConstant: height).isActive = true
+        leftImageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        leftImageView.heightAnchor.constraint(equalToConstant: height).isActive = true
         
-        let rightImage = UIImageView(image: UIImage(named: AssetName.flagImage))
+        rightImageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        rightImageView.heightAnchor.constraint(equalToConstant: height).isActive = true
         
-        rightImage.widthAnchor.constraint(equalToConstant: width).isActive = true
-        rightImage.heightAnchor.constraint(equalToConstant: height).isActive = true
-        
-        stackView.addArrangedSubview(leftImage)
+        stackView.addArrangedSubview(leftImageView)
         stackView.addArrangedSubview(button)
-        stackView.addArrangedSubview(rightImage)
+        stackView.addArrangedSubview(rightImageView)
         
         self.customScrollView.addArrangeSubView(view: stackView)
     }
