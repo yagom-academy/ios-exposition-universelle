@@ -27,13 +27,16 @@ final class EntryInfoViewController: UIViewController {
     
     private let entryImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private let entryDescriptionLabel = {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.font = .preferredFont(forTextStyle: .body)
         return label
     }()
     
@@ -49,9 +52,14 @@ final class EntryInfoViewController: UIViewController {
         scrollView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
+            entryImageView.widthAnchor.constraint(equalToConstant: 200),
+            entryImageView.heightAnchor.constraint(equalToConstant: 200),
+            
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor,
+                                             constant: 16),
+            scrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor,
+                                              constant: -16),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             mainStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
@@ -69,15 +77,12 @@ final class EntryInfoViewController: UIViewController {
     }
     
     private func createMainStackView() -> UIStackView {
-        let mainStackView = {
-            let stackView = UIStackView(arrangedSubviews: [entryImageView, entryDescriptionLabel])
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .vertical
-            stackView.alignment = .center
-            stackView.spacing = 16
-            stackView.distribution = .equalSpacing
-            return stackView
-        }()
-        return mainStackView
+        let stackView = UIStackView(arrangedSubviews: [entryImageView, entryDescriptionLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 4
+        stackView.distribution = .equalSpacing
+        return stackView
     }
 }

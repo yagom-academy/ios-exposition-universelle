@@ -8,24 +8,30 @@
 import UIKit
 
 final class CustomTableViewCell: UITableViewCell {
-    static let identifier: String = "cell"
+    static let identifier = "cell"
     
     private let entryImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private let entryNameLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 25)
+        label.font = .preferredFont(forTextStyle: .title2)
+        label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
     private let entryShortDescriptionLabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -34,7 +40,7 @@ final class CustomTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayout()
-        self.accessoryType = .disclosureIndicator
+        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -42,33 +48,44 @@ final class CustomTableViewCell: UITableViewCell {
     }
     
     func configureEntryList(image: String, name: String, shortDescription: String) {
-        self.entryImageView.image = UIImage(named: image)
-        self.entryNameLabel.text = name
-        self.entryShortDescriptionLabel.text = shortDescription
+        entryImageView.image = UIImage(named: image)
+        entryNameLabel.text = name
+        entryShortDescriptionLabel.text = shortDescription
     }
     
     private func configureLayout() {
-        addSubview(entryImageView)
-        addSubview(entryNameLabel)
-        addSubview(entryShortDescriptionLabel)
+        let itemStackView = createStackView()
+        addSubview(itemStackView)
         
         NSLayoutConstraint.activate([
-            entryImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            entryImageView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            entryImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            entryImageView.widthAnchor.constraint(equalToConstant: 80),
+            entryImageView.widthAnchor.constraint(equalToConstant: 70),
             entryImageView.heightAnchor.constraint(equalToConstant: 60),
             
-            entryNameLabel.topAnchor.constraint(equalTo: entryImageView.topAnchor,
-                                                constant: 8),
-            entryNameLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor,
-                                                 constant: 8),
-            
-            entryShortDescriptionLabel.topAnchor.constraint(equalTo: entryNameLabel.bottomAnchor,
-                                                            constant: 8),
-            entryShortDescriptionLabel.leftAnchor.constraint(equalTo: entryImageView.rightAnchor,
-                                                             constant: 8),
-            entryShortDescriptionLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
+            itemStackView.topAnchor.constraint(equalTo: topAnchor,
+                                               constant: 10),
+            itemStackView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor,
+                                                constant: 20),
+            itemStackView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor,
+                                                 constant: -40),
+            itemStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
+    }
+    
+    private func createStackView() -> UIStackView {
+        let subStackView = createSubStackView()
+        let mainStackView = UIStackView(arrangedSubviews: [entryImageView, subStackView])
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.axis = .horizontal
+        mainStackView.spacing = 8
+        mainStackView.alignment = .center
+        return mainStackView
+    }
+    
+    private func createSubStackView() -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [entryNameLabel, entryShortDescriptionLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        return stackView
     }
 }
