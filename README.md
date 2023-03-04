@@ -37,18 +37,20 @@
 <details>
 <summary>핵심경험</summary>
 
-- [X] Codable을 채택하여 JSON 데이터와 매칭할 모델 타입 구현
-- [X] 스네이크 케이스 또는 축약형인 JSON 키 값을 스위프트의 네이밍에 맞게 변환
-- [X] 테이블뷰의 Delegate와 Data Source의 역할의 이해
-- [X] 테이블뷰의 셀의 재사용 이해
-- [X] 테이블뷰의 전반적인 동작 방식의 이해
-- [X] 주어진 JSON 데이터를 파싱하여 테이블뷰에 표시
-- [X] 내비게이션 컨트롤러를 활용한 화면 전환
-- [X] 뷰 컨트롤러 사이의 데이터 전달
-- [X] 오토 레이아웃을 적용하여 다양한 기기에 대응
-- [ ] Word Wrapping / Line Wrapping / Line Break 방식의 이해
-- [X] 접근성(Accessibility)의 개념과 필요성 이해
-- [X] Dynamic Types를 통해 텍스트 접근성 향상
+- [X] JSON Data 모델 구현 (Codable, Decodable)
+- [X] JSON Data 파싱하기
+   - [X] 데이터 파싱 시 스네이크 케이스인 JSON의 키값 변환시키기
+- [X] main.storyboard없이 코드로 UI 구성하기
+   - [X] 코드로 오토레이아웃 구성하기
+   - [X] Table View 생성 시 Data Source와 Delegate 이해하며 사용하기
+   - [X] TableView Cell 재사용
+   - [X] TableView Cell Custom 타입 만들어보기
+   - [X] 파싱해온 데이터 TableView Cell에 표시하기
+- [X] 코드로 NavigationController를 이용해 화면 전환하기
+   - [X] 화면 이동 시 데이터 전달하기
+- [X] Accessibility 이해하고 활용하기
+   - [X] Dynamic Type 적용해보기
+   - [X] Accessibility Property 사용해보기
 
 </details>
 
