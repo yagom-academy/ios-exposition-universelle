@@ -14,7 +14,7 @@ extension UITableViewCell {
     func setCellContents(_ indexPath: IndexPath) {
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         guard let item = ExhibitItem.items?[indexPath.row],
-              let image = UIImage(named: item.imageName)?.squareImage() else { return }
+              let image = UIImage(named: item.imageName) else { return }
 
         var content = self.defaultContentConfiguration()
         
@@ -23,6 +23,9 @@ extension UITableViewCell {
         content.secondaryText = item.shortDescription
         content.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .body)
         content.image = image
+        
+        content.imageProperties.maximumSize.height = image.resizeHeightByWidth(width: 60)
+        content.imageProperties.maximumSize.width = 60
         
         self.contentConfiguration = content
         self.accessoryType = .disclosureIndicator

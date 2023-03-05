@@ -38,4 +38,14 @@ extension UIImage {
         
         return resizedImage
     }
+    
+    func resizeHeightByWidth(width: CGFloat = 65) -> CGFloat {
+        let originWidth: CGFloat = self.size.width
+        let originHeight: CGFloat = self.size.height
+        
+        
+        let sizeRatio = width / originWidth
+        let resizedHeight = originHeight * sizeRatio
+        return resizedHeight
+    }
 }
