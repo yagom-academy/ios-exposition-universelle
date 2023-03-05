@@ -13,7 +13,6 @@ extension UIImage {
         let originWidth: CGFloat = self.size.width
         let originHeight: CGFloat = self.size.height
         
-        
         let sizeRatio = width / originWidth
         let resizedHeight = originHeight * sizeRatio
         return resizedHeight

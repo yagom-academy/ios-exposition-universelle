@@ -53,14 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		088F73EF29A7302C0046128D /* extension */ = {
+		088F73EF29A7302C0046128D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				088F73ED29A730020046128D /* extension+UIImage.swift */,
 				08C59A6D29A5EF9500896C0F /* extension+UITableViewCell.swift */,
 				08A49D8929AC7C07005F9313 /* extension+UIView.swift */,
 			);
-			path = extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		088F73F429A752BD0046128D /* Application */ = {
@@ -95,7 +95,6 @@
 		AA4BA5CA29A349E8007CA1B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				088F73EF29A7302C0046128D /* extension */,
 				AA4BA5CD29A34AB5007CA1B0 /* Exposition.swift */,
 				AA4BA5CF29A34B34007CA1B0 /* ExhibitItem.swift */,
 				08D8C15629A457D500F05F5F /* Decoder.swift */,
@@ -123,6 +122,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				088F73EF29A7302C0046128D /* Extension */,
 				088F73F629A753800046128D /* Resource */,
 				088F73F429A752BD0046128D /* Application */,
 				AA4BA5CA29A349E8007CA1B0 /* Model */,
