@@ -13,6 +13,7 @@ final class ItemEntryViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         setNavigationBar()
@@ -27,8 +28,7 @@ final class ItemEntryViewController: UIViewController {
     
     private func decodeItemsData() {
         let assetName = "items"
-        
-        self.items = DecodeManager.decodeData(of: assetName, type: [Item].self) ?? []
+        self.items = DecodeManager.decodeData(of: assetName, returnType: [Item].self) ?? []
     }
     
     private enum Identifier {
@@ -48,25 +48,11 @@ extension ItemEntryViewController: UITableViewDataSource {
             withIdentifier: Identifier.cell, for: indexPath
         ) as? CustomTableViewCell else { return UITableViewCell() }
         
-        setContents(of: cell, at: indexPath)
+        cell.allocate(data: items[indexPath.row])
+        cell.setContents()
+        cell.setAccessibilityProperties()
         
         return cell
-    }
-    
-    private func setContents(of cell: CustomTableViewCell, at indexPath: IndexPath) {
-        guard let itemImage = UIImage(named: items[indexPath.row].imageName) else { return }
-        
-        cell.itemNameLabel.text = items[indexPath.row].name
-        cell.itemNameLabel.font = UIFont.systemFont(ofSize: 25)
-        
-        cell.shortDescriptionLabel.text = items[indexPath.row].shortDescription
-        cell.shortDescriptionLabel.font = UIFont.systemFont(ofSize: 18)
-        cell.shortDescriptionLabel.numberOfLines = 0
-        cell.shortDescriptionLabel.lineBreakMode = .byWordWrapping
-        
-        cell.itemImageView.image = itemImage
-        
-        cell.accessoryType = .disclosureIndicator
     }
 }
 
