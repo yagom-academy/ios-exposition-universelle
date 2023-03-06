@@ -11,41 +11,46 @@ final class ExpositionListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     
-    private var expositionList: [ExpositionItem] = []
+    private var expositionItems: [ExpositionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchExpositionData()
-
+        fetchExpositionList()
+        
         listTableView.delegate = self
         listTableView.dataSource = self
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
+        setupNavigationTitle()
     }
     
-    private func fetchExpositionData() {
-        let jsonDecoder = JSONDecoder()
-        guard let jsonData: NSDataAsset = NSDataAsset(name: JsonFile.items) else { return }
-        
-        do {
-            expositionList = try jsonDecoder.decode([ExpositionItem].self, from: jsonData.data)
-        } catch {
-            return
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func fetchExpositionList() {
+        expositionItems = ExpositionParser.expositionItemParse()
     }
     
     private func setupListCell(listCell: ListTableViewCell, indexPath: IndexPath) {
-        listCell.mainTitleLabel.text = expositionList[indexPath.row].name
-        listCell.shortDescriptionLabel.text = expositionList[indexPath.row].shortDescription
-        listCell.expositionImageView.image = UIImage(named: expositionList[indexPath.row].imageName)
+        
+        let fetchedExposition = expositionItems[indexPath.row]
+        
+        listCell.mainTitleLabel.text = fetchedExposition.name
+        listCell.shortDescriptionLabel.text = fetchedExposition.shortDescription
+        listCell.expositionImageView.image = UIImage(named: fetchedExposition.imageName)
     }
     
     private func setupDetailViewController(detailViewController: DetailViewController, indexPath: IndexPath) {
-        detailViewController.imageString = expositionList[indexPath.row].imageName
-        detailViewController.fullDescription = expositionList[indexPath.row].description
-        detailViewController.navigationItem.title = expositionList[indexPath.row].name
+        
+        let fetchedExposition = expositionItems[indexPath.row]
+        
+        detailViewController.imageString = fetchedExposition.imageName
+        detailViewController.fullDescription = fetchedExposition.description
+        detailViewController.navigationItem.title = fetchedExposition.name
+    }
+    
+    private func setupNavigationTitle() {
+        navigationItem.title = Title.itemsOfKorea
     }
 }
 
@@ -56,16 +61,13 @@ extension ExpositionListViewController: UITableViewDelegate {
         
         setupDetailViewController(detailViewController: detailVC, indexPath: indexPath)
         
-        let backBarButtonItem = UIBarButtonItem(title: Title.itemsOfKorea, style: .plain, target: DetailViewController.self, action: nil)
-        
-        self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(detailVC , animated: true)
     }
 }
 
 extension ExpositionListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expositionList.count
+        return expositionItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

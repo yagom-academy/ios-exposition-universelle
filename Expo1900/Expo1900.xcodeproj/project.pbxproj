@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5803D4CA29A7303900193029 /* TextEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5803D4C929A7303900193029 /* TextEnum.swift */; };
+		5811966529AD95FD00CDC92A /* ExpositionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5811966429AD95FD00CDC92A /* ExpositionParser.swift */; };
 		58129EFB29A3505D00877E6D /* MainExposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58129EFA29A3505D00877E6D /* MainExposition.swift */; };
 		58D5B14429A5D3A000472958 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D5B14329A5D3A000472958 /* DetailViewController.swift */; };
 		58ECC74629A52B5E0038DE85 /* ExpositionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */; };
+		9834861629ADAFA6007955C5 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834861529ADAFA6007955C5 /* IntExtension.swift */; };
 		9886AA2129A5A79F00A0547E /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9886AA2029A5A79F00A0547E /* ListTableViewCell.swift */; };
 		989BD53529A39CB700F4E1B7 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -23,9 +25,11 @@
 
 /* Begin PBXFileReference section */
 		5803D4C929A7303900193029 /* TextEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEnum.swift; sourceTree = "<group>"; };
+		5811966429AD95FD00CDC92A /* ExpositionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionParser.swift; sourceTree = "<group>"; };
 		58129EFA29A3505D00877E6D /* MainExposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainExposition.swift; sourceTree = "<group>"; };
 		58D5B14329A5D3A000472958 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		58ECC74529A52B5E0038DE85 /* ExpositionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionListViewController.swift; sourceTree = "<group>"; };
+		9834861529ADAFA6007955C5 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		9886AA2029A5A79F00A0547E /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +75,7 @@
 		5803D4CD29A85C8D00193029 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5811966429AD95FD00CDC92A /* ExpositionParser.swift */,
 				5803D4C929A7303900193029 /* TextEnum.swift */,
 				58129EFA29A3505D00877E6D /* MainExposition.swift */,
 				989BD53429A39CB700F4E1B7 /* ExpositionItem.swift */,
@@ -96,6 +101,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		9834861429ADAF8B007955C5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9834861529ADAFA6007955C5 /* IntExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -115,9 +128,10 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				9834861429ADAF8B007955C5 /* Extension */,
 				5803D4CE29A85CB500193029 /* App */,
-				5803D4CB29A85C7000193029 /* Controller */,
 				5803D4CC29A85C8200193029 /* View */,
+				5803D4CB29A85C7000193029 /* Controller */,
 				5803D4CD29A85C8D00193029 /* Model */,
 				5803D4CF29A85CCA00193029 /* Resources */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -198,8 +212,10 @@
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				9886AA2129A5A79F00A0547E /* ListTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				5811966529AD95FD00CDC92A /* ExpositionParser.swift in Sources */,
 				58ECC74629A52B5E0038DE85 /* ExpositionListViewController.swift in Sources */,
 				5803D4CA29A7303900193029 /* TextEnum.swift in Sources */,
+				9834861629ADAFA6007955C5 /* IntExtension.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				58129EFB29A3505D00877E6D /* MainExposition.swift in Sources */,
 				989BD53529A39CB700F4E1B7 /* ExpositionItem.swift in Sources */,
