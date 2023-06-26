@@ -5,7 +5,7 @@
 //  Created by Zion, Serena Lee on 2023/06/26.
 //
 
-struct Items: Decodable {
+struct Item: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String
