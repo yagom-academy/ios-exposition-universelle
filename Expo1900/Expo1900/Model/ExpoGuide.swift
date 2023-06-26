@@ -5,7 +5,7 @@
 //  Created by mint, Yetti on 2023/06/26.
 //
 
-struct ExpoGuide: Codable {
+struct ExpoGuide: Decodable {
     let title: String
     let visitors: Int
     let location: String

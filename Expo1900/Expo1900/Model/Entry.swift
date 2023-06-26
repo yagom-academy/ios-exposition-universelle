@@ -5,7 +5,7 @@
 //  Created by mint, Yetti on 2023/06/26.
 //
 
-struct Entry: Codable {
+struct Entry: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
