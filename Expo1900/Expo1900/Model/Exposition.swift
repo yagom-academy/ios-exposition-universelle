@@ -2,7 +2,7 @@
 //  Exposition.swift
 //  Expo1900
 //
-//  Created by 박종화 on 2023/06/26.
+//  Created by Minsup, Jusbug on 2023/06/26.
 //
 
 struct Exposition: Codable {
