@@ -2,7 +2,7 @@
 //  Items.swift
 //  Expo1900
 //
-//  Created by Hyungmin Lee on 2023/06/26.
+//  Created by Zion, Serena Lee on 2023/06/26.
 //
 
 struct Items: Decodable {
