@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63126B652A497F0C00FEB675 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63126B642A497F0C00FEB675 /* Items.swift */; };
+		63126B652A497F0C00FEB675 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63126B642A497F0C00FEB675 /* Item.swift */; };
 		63126B672A49828400FEB675 /* ExpositionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63126B662A49828400FEB675 /* ExpositionInfo.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		63126B642A497F0C00FEB675 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		63126B642A497F0C00FEB675 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		63126B662A49828400FEB675 /* ExpositionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInfo.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				63126B662A49828400FEB675 /* ExpositionInfo.swift */,
-				63126B642A497F0C00FEB675 /* Items.swift */,
+				63126B642A497F0C00FEB675 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
-				63126B652A497F0C00FEB675 /* Items.swift in Sources */,
+				63126B652A497F0C00FEB675 /* Item.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				63126B672A49828400FEB675 /* ExpositionInfo.swift in Sources */,

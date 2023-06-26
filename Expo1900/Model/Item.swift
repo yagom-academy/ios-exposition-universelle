@@ -1,11 +1,11 @@
 //
-//  Items.swift
+//  Item.swift
 //  Expo1900
 //
 //  Created by Hemg, RedMango on 2023/06/26.
 //
 
-struct Items: Codable {
+struct Item: Decodable {
     let name: String
     let imageName: String
     let shortDesc: String
