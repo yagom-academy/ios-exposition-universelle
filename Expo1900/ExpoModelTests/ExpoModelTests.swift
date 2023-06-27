@@ -9,14 +9,6 @@ import XCTest
 @testable import Expo1900
 
 final class ExpoModelTests: XCTestCase {
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-    }
-
-    override func tearDownWithError() throws {
-        try super.tearDownWithError()
-    }
-
     func test_파리만국박람회json데이터를_parsing했을때_정보를추출한다() {
         // given
         guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
