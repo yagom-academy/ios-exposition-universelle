@@ -21,7 +21,9 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
+        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: "itemsViewControllerID") else { return }
         
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     private func configureLabels() {
