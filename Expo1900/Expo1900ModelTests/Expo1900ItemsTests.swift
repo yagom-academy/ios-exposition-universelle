@@ -9,7 +9,7 @@ import XCTest
 @testable import Expo1900
 
 final class Expo1900ItemsTests: XCTestCase {
-    var sut: [Items]!
+    var sut: [ExpositionItemData]!
 
     override func setUpWithError() throws {
         guard let itemsData = NSDataAsset.init(name: "items") else {
@@ -17,7 +17,7 @@ final class Expo1900ItemsTests: XCTestCase {
         }
         
         let decorder = JSONDecoder()
-        sut = try decorder.decode([Items].self, from: itemsData.data)
+        sut = try decorder.decode([ExpositionItemData].self, from: itemsData.data)
     }
 
     override func tearDownWithError() throws {

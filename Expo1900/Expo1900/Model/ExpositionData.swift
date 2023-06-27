@@ -1,5 +1,5 @@
 //
-//  ExpositionUniverselle.swift
+//  ExpositionData.swift
 //  Expo1900
 //
 //  Created by Max, Whales on 2023/06/27.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExpositionUniverselle: Decodable {
+struct ExpositionData: Decodable {
     let title: String
     let visitors: UInt
     let location: String

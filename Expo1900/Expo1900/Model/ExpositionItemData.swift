@@ -1,11 +1,11 @@
 //
-//  Items.swift
+//  ExpositionItemData.swift
 //  Expo1900
 //
 //  Created by Max, Whales on 2023/06/27.
 //
 
-struct Items: Decodable {
+struct ExpositionItemData: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
