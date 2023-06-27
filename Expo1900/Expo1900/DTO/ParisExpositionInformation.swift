@@ -6,9 +6,9 @@
 //
 
 struct ParisExpositionInformation: Decodable {
-    var title: String
-    var visitors: UInt
-    var location: String
-    var duration: String
-    var description: String
+    let title: String
+    let visitors: UInt
+    let location: String
+    let duration: String
+    let description: String
 }
