@@ -5,7 +5,7 @@
 //  Created by Minsup, Jusbug on 2023/06/26.
 //
 
-struct Item: Codable {
+struct Item: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String

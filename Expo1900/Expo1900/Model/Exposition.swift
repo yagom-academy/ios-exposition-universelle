@@ -5,7 +5,7 @@
 //  Created by Minsup, Jusbug on 2023/06/26.
 //
 
-struct Exposition: Codable {
+struct Exposition: Decodable {
     let title: String
     let visitors: Int
     let location: String
