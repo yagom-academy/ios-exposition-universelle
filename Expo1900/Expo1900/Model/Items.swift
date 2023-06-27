@@ -5,8 +5,6 @@
 //  Created by Max, Whales on 2023/06/27.
 //
 
-import UIKit
-
 struct Items: Decodable {
     let name: String
     let imageName: String
