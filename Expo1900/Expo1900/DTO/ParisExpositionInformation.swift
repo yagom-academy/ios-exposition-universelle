@@ -7,7 +7,7 @@
 
 struct ParisExpositionInformation: Decodable {
     var title: String
-    var visitors: Int
+    var visitors: UInt
     var location: String
     var duration: String
     var description: String

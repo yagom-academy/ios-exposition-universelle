@@ -11,7 +11,7 @@ struct ExhibitionItem: Decodable {
     var shortDescription: String
     var description: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"
