@@ -34,4 +34,11 @@ final class ExpositionUniverselleViewController: UIViewController {
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
         
     }
+    
+    private func formatNumber(of number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        return numberFormatter.string(for: number) ?? "0"
+    }
 }
