@@ -29,7 +29,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
-        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: "itemsViewControllerID") else { return }
+        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemsTableViewController.id) else { return }
         
         navigationController?.pushViewController(nextViewController, animated: true)
     }
