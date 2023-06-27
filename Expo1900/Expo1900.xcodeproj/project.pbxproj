@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3CBDC7782A4A71F90089F7A2 /* ExpositionItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7772A4A71F90089F7A2 /* ExpositionItemData.swift */; };
-		3CBDC7802A4A7AF90089F7A2 /* Expo1900ItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ItemsTests.swift */; };
+		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift */; };
 		BAB75C5D2A4A7735005C4F41 /* ExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5C2A4A7735005C4F41 /* ExpositionData.swift */; };
-		BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionUniverselleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionUniverselleTests.swift */; };
+		BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift */; };
+		BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */; };
+		BAFD9F452A4ADC6600DC9186 /* Expo1900UIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -32,9 +34,11 @@
 /* Begin PBXFileReference section */
 		3CBDC7772A4A71F90089F7A2 /* ExpositionItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemData.swift; sourceTree = "<group>"; };
 		3CBDC77D2A4A7AF80089F7A2 /* Expo1900ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ItemsTests.swift; sourceTree = "<group>"; };
+		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemDataTests.swift; sourceTree = "<group>"; };
 		BAB75C5C2A4A7735005C4F41 /* ExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionData.swift; sourceTree = "<group>"; };
-		BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionUniverselleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionUniverselleTests.swift; sourceTree = "<group>"; };
+		BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionDataTests.swift; sourceTree = "<group>"; };
+		BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+.swift"; sourceTree = "<group>"; };
+		BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900UIntTests.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			children = (
 				3CBDC7772A4A71F90089F7A2 /* ExpositionItemData.swift */,
 				BAB75C5C2A4A7735005C4F41 /* ExpositionData.swift */,
+				BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -75,8 +80,9 @@
 		3CBDC77E2A4A7AF90089F7A2 /* Expo1900ModelTests */ = {
 			isa = PBXGroup;
 			children = (
-				BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionUniverselleTests.swift */,
-				3CBDC77F2A4A7AF90089F7A2 /* Expo1900ItemsTests.swift */,
+				BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */,
+				BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift */,
+				3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift */,
 			);
 			path = Expo1900ModelTests;
 			sourceTree = "<group>";
@@ -214,8 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionUniverselleTests.swift in Sources */,
-				3CBDC7802A4A7AF90089F7A2 /* Expo1900ItemsTests.swift in Sources */,
+				BAFD9F452A4ADC6600DC9186 /* Expo1900UIntTests.swift in Sources */,
+				BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift in Sources */,
+				3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +233,7 @@
 				3CBDC7782A4A71F90089F7A2 /* ExpositionItemData.swift in Sources */,
 				BAB75C5D2A4A7735005C4F41 /* ExpositionData.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
