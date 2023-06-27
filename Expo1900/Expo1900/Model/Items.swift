@@ -8,8 +8,8 @@
 struct Items: Decodable {
     let name: String
     let imageName: String
-    let shortDescription: String
-    let description: String
+    let shortDescription: String?
+    let description: String?
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -23,7 +23,7 @@ struct Items: Decodable {
         
         name = try container.decode(String.self, forKey: .name)
         imageName = try container.decode(String.self, forKey: .imageName)
-        shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription) ?? ""
-        description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
+        shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
     }
 }
