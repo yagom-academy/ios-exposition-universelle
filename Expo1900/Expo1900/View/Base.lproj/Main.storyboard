@@ -129,8 +129,33 @@
                     <view key="view" contentMode="scaleToFill" id="R5b-jG-qqN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Hh-Ey-h19">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" id="Gxj-q0-5iF" customClass="EntryTableViewCell" customModule="Expo1900" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gxj-q0-5iF" id="UbR-ep-eZn">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tul-yh-H82" id="YEw-1e-gSD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="jtu-NG-90M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Hh-Ey-h19" firstAttribute="leading" secondItem="jtu-NG-90M" secondAttribute="leading" id="QV5-dj-UOm"/>
+                            <constraint firstAttribute="bottom" secondItem="3Hh-Ey-h19" secondAttribute="bottom" id="Ww9-ff-RQP"/>
+                            <constraint firstItem="3Hh-Ey-h19" firstAttribute="top" secondItem="jtu-NG-90M" secondAttribute="top" id="bty-UG-OTY"/>
+                            <constraint firstItem="jtu-NG-90M" firstAttribute="trailing" secondItem="3Hh-Ey-h19" secondAttribute="trailing" id="cWR-jm-LtO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="urU-6s-Txn"/>
                 </viewController>
