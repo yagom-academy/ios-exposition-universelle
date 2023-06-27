@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		446064D72A4A5F4700B65D0C /* ExpoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446064D62A4A5F4700B65D0C /* ExpoModel.swift */; };
 		446064E02A4AB08F00B65D0C /* ExpoModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446064DF2A4AB08F00B65D0C /* ExpoModelTests.swift */; };
+		BA6BC5702A4AC3A800532110 /* ItemsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BC56F2A4AC3A800532110 /* ItemsModelTests.swift */; };
 		BAD3FD332A4A60D90099934E /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3FD322A4A60D90099934E /* ItemsModel.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -26,6 +27,13 @@
 			remoteGlobalIDString = C79FF4B02589F401005FB0FD;
 			remoteInfo = Expo1900;
 		};
+		BA6BC5712A4AC3A800532110 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C79FF4A92589F401005FB0FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C79FF4B02589F401005FB0FD;
+			remoteInfo = Expo1900;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +41,8 @@
 		446064D82A4AB07C00B65D0C /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		446064DD2A4AB08F00B65D0C /* ExpoModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpoModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		446064DF2A4AB08F00B65D0C /* ExpoModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoModelTests.swift; sourceTree = "<group>"; };
+		BA6BC56D2A4AC3A800532110 /* ItemsModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItemsModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6BC56F2A4AC3A800532110 /* ItemsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModelTests.swift; sourceTree = "<group>"; };
 		BAD3FD322A4A60D90099934E /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +56,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		446064DA2A4AB08F00B65D0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6BC56A2A4AC3A800532110 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -70,12 +87,21 @@
 			path = ExpoModelTests;
 			sourceTree = "<group>";
 		};
+		BA6BC56E2A4AC3A800532110 /* ItemsModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA6BC56F2A4AC3A800532110 /* ItemsModelTests.swift */,
+			);
+			path = ItemsModelTests;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
 				446064D82A4AB07C00B65D0C /* TestPlan.xctestplan */,
 				C79FF4B32589F401005FB0FD /* Expo1900 */,
 				446064DE2A4AB08F00B65D0C /* ExpoModelTests */,
+				BA6BC56E2A4AC3A800532110 /* ItemsModelTests */,
 				C79FF4B22589F401005FB0FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,6 +111,7 @@
 			children = (
 				C79FF4B12589F401005FB0FD /* Expo1900.app */,
 				446064DD2A4AB08F00B65D0C /* ExpoModelTests.xctest */,
+				BA6BC56D2A4AC3A800532110 /* ItemsModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +153,24 @@
 			productReference = 446064DD2A4AB08F00B65D0C /* ExpoModelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BA6BC56C2A4AC3A800532110 /* ItemsModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA6BC5752A4AC3A800532110 /* Build configuration list for PBXNativeTarget "ItemsModelTests" */;
+			buildPhases = (
+				BA6BC5692A4AC3A800532110 /* Sources */,
+				BA6BC56A2A4AC3A800532110 /* Frameworks */,
+				BA6BC56B2A4AC3A800532110 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA6BC5722A4AC3A800532110 /* PBXTargetDependency */,
+			);
+			name = ItemsModelTests;
+			productName = ItemsModelTests;
+			productReference = BA6BC56D2A4AC3A800532110 /* ItemsModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C79FF4B02589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C79FF4C52589F404005FB0FD /* Build configuration list for PBXNativeTarget "Expo1900" */;
@@ -156,6 +201,10 @@
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = C79FF4B02589F401005FB0FD;
 					};
+					BA6BC56C2A4AC3A800532110 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = C79FF4B02589F401005FB0FD;
+					};
 					C79FF4B02589F401005FB0FD = {
 						CreatedOnToolsVersion = 12.1;
 					};
@@ -176,12 +225,20 @@
 			targets = (
 				C79FF4B02589F401005FB0FD /* Expo1900 */,
 				446064DC2A4AB08F00B65D0C /* ExpoModelTests */,
+				BA6BC56C2A4AC3A800532110 /* ItemsModelTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		446064DB2A4AB08F00B65D0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6BC56B2A4AC3A800532110 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,6 +266,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA6BC5692A4AC3A800532110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA6BC5702A4AC3A800532110 /* ItemsModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C79FF4AD2589F401005FB0FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +293,11 @@
 			isa = PBXTargetDependency;
 			target = C79FF4B02589F401005FB0FD /* Expo1900 */;
 			targetProxy = 446064E12A4AB08F00B65D0C /* PBXContainerItemProxy */;
+		};
+		BA6BC5722A4AC3A800532110 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C79FF4B02589F401005FB0FD /* Expo1900 */;
+			targetProxy = BA6BC5712A4AC3A800532110 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -285,6 +355,52 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.mary.ExpoModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Expo1900";
+			};
+			name = Release;
+		};
+		BA6BC5732A4AC3A800532110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64WAG22Y2J;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MSKang.ItemsModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expo1900.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Expo1900";
+			};
+			name = Debug;
+		};
+		BA6BC5742A4AC3A800532110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64WAG22Y2J;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MSKang.ItemsModelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -455,6 +571,15 @@
 			buildConfigurations = (
 				446064E42A4AB08F00B65D0C /* Debug */,
 				446064E52A4AB08F00B65D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA6BC5752A4AC3A800532110 /* Build configuration list for PBXNativeTarget "ItemsModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA6BC5732A4AC3A800532110 /* Debug */,
+				BA6BC5742A4AC3A800532110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
