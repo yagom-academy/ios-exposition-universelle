@@ -5,7 +5,7 @@
 //  Created by Dasan & Moon on 2023/06/26.
 //
 
-struct Introduction: Codable {
+struct Introduction: Decodable {
     let title: String
     let visitors: Int
     let location: String
