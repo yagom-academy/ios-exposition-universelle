@@ -20,6 +20,14 @@ final class ExpositionUniverselleViewController: UIViewController {
         configureLabels()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+      navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+      navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
         guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: "itemsViewControllerID") else { return }
         
