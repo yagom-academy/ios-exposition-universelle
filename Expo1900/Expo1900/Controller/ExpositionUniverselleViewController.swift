@@ -6,13 +6,19 @@
 
 import UIKit
 
-class ExpositionUniverselleViewController: UIViewController {
+final class ExpositionUniverselleViewController: UIViewController {
 
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    @IBAction private func tapShowItemsButton(_ sender: UIButton) {
+    }
 }
-
