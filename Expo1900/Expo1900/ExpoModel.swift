@@ -5,7 +5,7 @@
 //  Created by MARY, KOBE on 2023/06/27.
 //
 
-struct ExpoModel {
+struct ExpoModel: Decodable {
     let title: String
     let visitors: Int
     let location: String
