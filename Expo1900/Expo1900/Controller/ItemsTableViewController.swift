@@ -14,6 +14,7 @@ final class ItemsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "한국의 출품작"
         decodeJSONToItems()
     }
 
@@ -29,6 +30,11 @@ final class ItemsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard var cell = tableView.dequeueReusableCell(withIdentifier: ItemsTableViewCell.id, for: indexPath) as? ItemsTableViewCell else { fatalError() }
+        let item = items[indexPath.row]
+        
+        cell.itemImageView.image = UIImage(named: item.imageName)
+        cell.nameLabel.text = item.name
+        cell.shortDesctionLabel.text = item.shortDescription
         
         return cell
     }

@@ -10,7 +10,7 @@ import UIKit
 final class ItemsTableViewCell: UITableViewCell {
     static let id = "itemTableViewCellID"
     
-    @IBOutlet private weak var itemImageView: UIImageView!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var shortDesctionLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var shortDesctionLabel: UILabel!
 }
