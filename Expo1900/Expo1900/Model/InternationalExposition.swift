@@ -12,4 +12,11 @@ struct InternationalExposition: Decodable {
     let duration: String
     let description: String
     
+    enum CodingKeys: String, CodingKey {
+        case title
+        case visitors
+        case location
+        case duration
+        case description
+    }
 }
