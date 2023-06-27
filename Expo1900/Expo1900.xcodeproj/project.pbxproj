@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BA9929E2A49B20A00613BD1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9929D2A49B20A00613BD1 /* Item.swift */; };
+		5BA9929E2A49B20A00613BD1 /* ExhibitionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9929D2A49B20A00613BD1 /* ExhibitionItem.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
 		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
-		D2DB54E02A49B366003F80C6 /* ParisExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB54DF2A49B366003F80C6 /* ParisExpositionData.swift */; };
+		D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5BA9929D2A49B20A00613BD1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		5BA9929D2A49B20A00613BD1 /* ExhibitionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitionItem.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +27,7 @@
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2DB54DF2A49B366003F80C6 /* ParisExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpositionData.swift; sourceTree = "<group>"; };
+		D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpositionInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +44,8 @@
 		5BA9929C2A49B1D100613BD1 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				5BA9929D2A49B20A00613BD1 /* Item.swift */,
-				D2DB54DF2A49B366003F80C6 /* ParisExpositionData.swift */,
+				5BA9929D2A49B20A00613BD1 /* ExhibitionItem.swift */,
+				D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -151,9 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BA9929E2A49B20A00613BD1 /* Item.swift in Sources */,
+				5BA9929E2A49B20A00613BD1 /* ExhibitionItem.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
-				D2DB54E02A49B366003F80C6 /* ParisExpositionData.swift in Sources */,
+				D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);

@@ -1,11 +1,11 @@
 //
-//  Item.swift
+//  ExhibitionItem.swift
 //  Expo1900
 //
 //  Created by Zion, Serena on 2023/06/26.
 //
 
-struct Item: Decodable {
+struct ExhibitionItem: Decodable {
     var name: String
     var imageName: String
     var shortDescription: String
