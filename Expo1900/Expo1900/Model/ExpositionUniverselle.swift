@@ -16,6 +16,7 @@ struct ExpositionUniverselle: Decodable {
     
     var formattedVisitors: String {
         let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
         guard let result = numberFormatter.string(for: visitors) else {
             return String(visitors)

@@ -34,4 +34,15 @@ final class Expo1900ExpositionUniverselleTests: XCTestCase {
         // then
         XCTAssertEqual(expectation, location)
     }
+    
+    func test_방문자_수에_구분기호가_들어간다() {
+        // given
+        let expectation = "48,130,300"
+        
+        // when
+        let formattedVisitors = sut.formattedVisitors
+        
+        // then
+        XCTAssertEqual(expectation, formattedVisitors)
+    }
 }
