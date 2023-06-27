@@ -15,7 +15,6 @@ struct ExhibitionItem: Decodable, Identifiable {
     let shortDescription: String
     let description: String
     
-    
     private enum CodingKeys: String, CodingKey {
         case name
         case imageName = "image_name"
