@@ -26,10 +26,14 @@ class MainViewController: UIViewController {
             expoGuideData = try ExpoGuide.decode(file: "exposition_universelle_1900")
         } catch {}
         
-        titleLabel.text = expoGuideData.title
-        visitorsLabel.text = "방문객 : \(String(describing: expoGuideData.visitors)) 명"
-        locationLabel.text = "개최지 : \(String(describing: expoGuideData.location))"
-        durationLabel.text = "개최 기간: \(String(describing: expoGuideData.duration))"
+        guard let visitorText = expoGuideData.visitors,
+              let locationText = expoGuideData.location,
+              let durationText = expoGuideData.duration else { return }
+        
+        titleLabel.text = expoGuideData.title?.replacingOccurrences(of: "(", with: "\n(")
+        visitorsLabel.text = "방문객 : \(String(visitorText)) 명"
+        locationLabel.text = "개최지 : \(locationText)"
+        durationLabel.text = "개최 기간: \(durationText)"
         descriptionLabel.text = expoGuideData.description
     }
 }
