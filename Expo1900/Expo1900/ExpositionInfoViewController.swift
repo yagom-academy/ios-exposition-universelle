@@ -7,7 +7,7 @@
 import UIKit
 
 class ExpositionInfoViewController: UIViewController {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,46 +21,39 @@ class ExpositionInfoViewController: UIViewController {
     private let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-
+        
         return formatter
     }()
+    
+    private let jsonDecoder: JsonDecoder = JsonDecoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showExpositionInfo()
     }
     
-    func showExpositionInfo() {
-        guard let reciveExpositionData = reciveExpositionInfo() else {
+    private func showExpositionInfo() {
+        guard let receiveExpositionData = receiveExpositionInfo() else {
             return
         }
         
         do {
-            let decodingExposition = try decodingExpositionInfo(with: reciveExpositionData)
+            let decodingExposition = try jsonDecoder.decodingExposition(contentData: receiveExpositionData)
             updateMainViewLabels(with: decodingExposition)
         } catch {
             print(error)
         }
     }
     
-    func reciveExpositionInfo() -> Data? {
+    private func receiveExpositionInfo() -> Data? {
         guard let file = NSDataAsset(name: "exposition_universelle_1900") else {
             return nil
         }
-
+        
         return file.data
     }
     
-    func decodingExpositionInfo(with contentData: Data) throws -> Exposition {
-        let jsonDecoder = JSONDecoder()
-        var expositionInfo: Exposition
-
-        expositionInfo = try jsonDecoder.decode(Exposition.self, from: contentData)
-        
-        return expositionInfo
-    }
-    
-    func updateMainViewLabels(with exposition: Exposition) {
+    private func updateMainViewLabels(with exposition: Exposition) {
         guard let visitors = numberFormatter
             .string(from: NSNumber(value: exposition.visitors)) else {
             return

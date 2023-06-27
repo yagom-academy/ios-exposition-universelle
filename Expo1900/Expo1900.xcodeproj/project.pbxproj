@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63126B652A497F0C00FEB675 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63126B642A497F0C00FEB675 /* Item.swift */; };
 		63126B672A49828400FEB675 /* ExpositionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63126B662A49828400FEB675 /* ExpositionInfo.swift */; };
+		63F1C25C2A4B24AC002A6B4F /* JsonDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1C25B2A4B24AC002A6B4F /* JsonDecoder.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionInfoViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		63126B642A497F0C00FEB675 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		63126B662A49828400FEB675 /* ExpositionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInfo.swift; sourceTree = "<group>"; };
+		63F1C25B2A4B24AC002A6B4F /* JsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDecoder.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			children = (
 				63126B662A49828400FEB675 /* ExpositionInfo.swift */,
 				63126B642A497F0C00FEB675 /* Item.swift */,
+				63F1C25B2A4B24AC002A6B4F /* JsonDecoder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* ExpositionInfoViewController.swift in Sources */,
 				63126B652A497F0C00FEB675 /* Item.swift in Sources */,
+				63F1C25C2A4B24AC002A6B4F /* JsonDecoder.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				63126B672A49828400FEB675 /* ExpositionInfo.swift in Sources */,
