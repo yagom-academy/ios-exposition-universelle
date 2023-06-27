@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ItemsTableViewController: UITableViewController {
+final class ItemsTableViewController: UITableViewController {
     static let id = "itemsTableViewControllerID"
-    
-    var items: [Item] = []
+    private let cellId = "ItemTableViewCellID"
+    private var items: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
