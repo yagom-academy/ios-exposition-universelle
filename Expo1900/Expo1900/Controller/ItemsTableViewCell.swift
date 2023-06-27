@@ -8,6 +8,8 @@
 import UIKit
 
 final class ItemsTableViewCell: UITableViewCell {
+    static let id = "itemTableViewCellID"
+    
     @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var shortDesctionLabel: UILabel!

@@ -9,7 +9,6 @@ import UIKit
 
 final class ItemsTableViewController: UITableViewController {
     static let id = "itemsTableViewControllerID"
-    private let cellId = "ItemTableViewCellID"
     private var items: [Item] = []
 
     override func viewDidLoad() {
@@ -25,7 +24,13 @@ final class ItemsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: ItemsTableViewCell.id, for: indexPath) as? ItemsTableViewCell else { fatalError() }
+        
+        return cell
     }
     
     private func decodeJSONToItems() {
