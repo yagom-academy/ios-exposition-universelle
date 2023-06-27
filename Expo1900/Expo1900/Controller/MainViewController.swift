@@ -7,8 +7,19 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var visitorsLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    private var introduction: Introduction?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        decodeIntroduction()
+        configureLabels()
     }
 
     @IBAction func touchUpGoToEntryListButton(_ sender: UIButton) {
@@ -22,10 +33,40 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func createMainBackBarButtonItem() -> UIBarButtonItem {
+    private func createMainBackBarButtonItem() -> UIBarButtonItem {
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
         
         return backBarButtonItem
+    }
+    
+    private func decodeIntroduction() {
+        let decoder = JSONDecoder()
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return
+        }
+        
+        do {
+            introduction = try decoder.decode(Introduction.self, from: dataAsset.data)
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func configureLabels() {
+        guard let title = introduction?.title,
+              let visitors = introduction?.visitors,
+              let location = introduction?.location,
+              let duration = introduction?.duration,
+              let description = introduction?.description else {
+            return
+        }
+        
+        titleLabel.text = title
+        visitorsLabel.text = String(visitors)
+        locationLabel.text = location
+        durationLabel.text = duration
+        descriptionLabel.text = description
     }
 }
 
