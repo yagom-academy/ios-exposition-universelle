@@ -19,4 +19,14 @@ struct InternationalExposition: Decodable {
         case duration
         case description
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        title = try container.decode(String.self, forKey: .title)
+        visitors = try container.decodeIfPresent(UInt.self, forKey: .visitors) ?? 0
+        location = try container.decode(String.self, forKey: .location)
+        duration = try container.decode(String.self, forKey: .duration)
+        description = try container.decode(String.self, forKey: .description)
+    }
 }
