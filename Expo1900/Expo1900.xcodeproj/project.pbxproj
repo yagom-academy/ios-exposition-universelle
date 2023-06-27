@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -66,7 +66,6 @@
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
-				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -90,6 +89,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				C79FF4C22589F404005FB0FD /* Info.plist */,
 				9C08111D2A4AC5C300767316 /* Model */,
 				9C08111F2A4AC5DD00767316 /* View */,
 				9C08111E2A4AC5D100767316 /* Controller */,
@@ -123,8 +123,9 @@
 		C79FF4A92589F401005FB0FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1210;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					C79FF4B02589F401005FB0FD = {
 						CreatedOnToolsVersion = 12.1;

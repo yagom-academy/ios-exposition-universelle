@@ -23,12 +23,7 @@ struct Items: Decodable {
         
         name = try container.decode(String.self, forKey: .name)
         imageName = try container.decode(String.self, forKey: .imageName)
-        shortDescription = try container.decode(String.self, forKey: .shortDescription)
-        
-        if let description = try container.decodeIfPresent(String.self, forKey: .description) {
-            self.description = description
-        } else {
-            self.description = ""
-        }
+        shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription) ?? ""
+        description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
     }
 }
