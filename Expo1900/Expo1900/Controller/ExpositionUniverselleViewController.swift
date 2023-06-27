@@ -17,22 +17,27 @@ final class ExpositionUniverselleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let json = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        let decoder = JSONDecoder()
-        do {
-            let expositionUniverselle = try decoder.decode(ExpositionUniverselle.self, from: json.data)
-            titleLabel.text = expositionUniverselle.title
-            visitorsLabel.text = "방문객 : " + String(expositionUniverselle.visitors) + "명"
-            locationLabel.text = "개최지 : " + expositionUniverselle.location
-            durationLabel.text = "개최 기간 : " + expositionUniverselle.duration
-            descriptionLabel.text = expositionUniverselle.description
-        } catch {
-            print(error.localizedDescription)
-        }
+        configureLabels()
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
         
+    }
+    
+    private func configureLabels() {
+        guard let json = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        let decoder = JSONDecoder()
+        
+        do {
+            let expositionUniverselle = try decoder.decode(ExpositionUniverselle.self, from: json.data)
+            titleLabel.text = expositionUniverselle.title
+            visitorsLabel.text = "방문객 : \(formatNumber(of: expositionUniverselle.visitors)) 명"
+            locationLabel.text = "개최지 : \(expositionUniverselle.location)"
+            durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
+            descriptionLabel.text = expositionUniverselle.description
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     private func formatNumber(of number: Int) -> String {
