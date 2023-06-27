@@ -7,13 +7,13 @@
 
 struct Entry: Decodable {
     let name: String
-    let image: String
+    let imageName: String
     let shortDescription: String
     let description: String
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
-        case image = "image_name"
+        case imageName = "image_name"
         case shortDescription = "short_desc"
         case description = "desc"
     }
