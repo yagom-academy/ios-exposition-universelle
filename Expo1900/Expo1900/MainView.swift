@@ -22,6 +22,54 @@ class MainView: UIView {
         return contentView
     }()
     
+    let contentStackView: UIStackView = {
+        let contentStackView = UIStackView()
+        contentStackView.axis = .vertical
+        contentStackView.spacing = 8
+        contentStackView.alignment = .center
+        contentStackView.distribution = .equalSpacing
+        contentStackView.backgroundColor = .yellow
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        return contentStackView
+    }()
+    
+    let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "제목"
+        return titleLabel
+    }()
+    
+    let visitorsLabel: UILabel = {
+        let visitorsLabel = UILabel()
+        visitorsLabel.text = "방문객"
+        return visitorsLabel
+    }()
+    
+    let locationLabel: UILabel = {
+        let locationLabel = UILabel()
+        locationLabel.numberOfLines = 0
+        locationLabel.text = "위치"
+        return locationLabel
+    }()
+    
+    let durationLabel: UILabel = {
+        let durationLabel = UILabel()
+        durationLabel.text = "기간"
+        return durationLabel
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.text = "디테일"
+        return descriptionLabel
+    }()
+    
+    let infoImage: UIImageView = {
+        let infoImage = UIImageView()
+        infoImage.image = UIImage(named: "poster")
+        return infoImage
+    }()
+    
     convenience init() {
         self.init(frame: CGRectZero)
         
@@ -40,11 +88,15 @@ class MainView: UIView {
     private func configureUI() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
+        
+        contentView.addSubview(contentStackView)
+        [titleLabel, infoImage, visitorsLabel, locationLabel, durationLabel, descriptionLabel].forEach { contentStackView.addArrangedSubview($0) }
     }
     
     private func setUpContraints() {
         setUpScrollViewConstraints()
         setUpContentViewConstraints()
+        setUpContentStackViewConstraints()
     }
 }
 
@@ -71,5 +123,15 @@ extension MainView {
         let contentViewHeightConstraints = contentView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor, constant: 1)
         contentViewHeightConstraints.priority = .init(1)
         contentViewHeightConstraints.isActive = true
+    }
+    
+    private func setUpContentStackViewConstraints() {
+        NSLayoutConstraint.activate([
+            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            
+        ])
     }
 }
