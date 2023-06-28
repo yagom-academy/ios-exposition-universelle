@@ -10,5 +10,10 @@ struct ExpositionUniverselle: Decodable {
     let visitors: Int
     let location: String
     let duration: String
-    let description: String
+    let totalDescription: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title, visitors, location, duration
+        case totalDescription = "description"
+    }
 }
