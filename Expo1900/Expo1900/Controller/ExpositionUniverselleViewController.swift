@@ -77,9 +77,15 @@ class ExpositionUniverselleViewController: UIViewController {
         let button: UIButton = UIButton()
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
+        button.addTarget(self, action: #selector(touchUpExpositionItemListButton), for: .touchUpInside)
         
         return button
     }()
+    
+    @objc private func touchUpExpositionItemListButton() {
+        let expositionItemListViewController: ExpositionItemListViewController = ExpositionItemListViewController()
+        navigationController?.pushViewController(expositionItemListViewController, animated: true)
+    }
     
     private let verticalStackView: UIStackView = {
         let stackView = UIStackView()
@@ -113,13 +119,13 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureView() {
-        addArangedSubviews(to: horizontalStackView, elements: leftFlagImage, expositionItemListButton, rightFlagImage)
-        addArangedSubviews(to: verticalStackView, elements: titleLabel, posterImage, visitorsLabel, durationLabel, locationLabel, totalDescriptionLabel, horizontalStackView)
+        addArrangedSubviews(to: horizontalStackView, elements: leftFlagImage, expositionItemListButton, rightFlagImage)
+        addArrangedSubviews(to: verticalStackView, elements: titleLabel, posterImage, visitorsLabel, durationLabel, locationLabel, totalDescriptionLabel, horizontalStackView)
         expositionUniverselleScrollView.addSubview(verticalStackView)
         view.addSubview(expositionUniverselleScrollView)
     }
     
-    private func addArangedSubviews(to superview: UIStackView, elements subviews: AnyObject...) {
+    private func addArrangedSubviews(to superview: UIStackView, elements subviews: AnyObject...) {
         subviews.forEach {
             guard let subview = $0 as? UIView else { return }
             superview.addArrangedSubview(subview)
