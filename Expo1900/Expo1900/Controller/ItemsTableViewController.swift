@@ -10,11 +10,12 @@ import UIKit
 final class ItemsTableViewController: UITableViewController {
     static let id = "itemsTableViewControllerID"
     private var items: [Item] = []
+    var navigationTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = navigationTitle
         decodeJSONToItems()
     }
 

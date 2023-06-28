@@ -31,9 +31,11 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
-        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemsTableViewController.id) else {
+        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemsTableViewController.id) as? ItemsTableViewController else {
             return
         }
+        
+        nextViewController.navigationTitle = sender.currentTitle?.replacingOccurrences(of: " 보러가기", with: "")
         
         navigationController?.pushViewController(nextViewController, animated: true)
     }
