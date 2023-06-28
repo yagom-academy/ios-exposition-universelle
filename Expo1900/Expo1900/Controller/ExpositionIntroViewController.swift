@@ -44,5 +44,9 @@ class ExpositionIntroViewController: UIViewController {
         return formatter.string(from: NSNumber(value: target)) ?? ""
     }
     
-    @IBAction private func tabKoreanEntryButton(_ sender: UIButton) { }
+    @IBAction private func tabKoreanEntryButton(_ sender: UIButton) {
+        guard let koreanEntryListViewController = self.storyboard?.instantiateViewController(withIdentifier: KoreanEntryListViewController.identifier) as? KoreanEntryListViewController else { return }
+        
+        self.navigationController?.pushViewController(koreanEntryListViewController, animated: true)
+    }
 }
