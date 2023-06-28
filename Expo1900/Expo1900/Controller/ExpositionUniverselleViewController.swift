@@ -7,6 +7,7 @@
 import UIKit
 
 final class ExpositionUniverselleViewController: UIViewController {
+    private var expositionUniverselle: ExpositionUniverselle?
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -17,15 +18,16 @@ final class ExpositionUniverselleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        decodeJSONToExpositionUniverselle()
         configureLabels()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
-      navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
@@ -37,19 +39,21 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureLabels() {
-        guard let json = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let expositionUniverselle else {
             return
         }
         
-        let decoder = JSONDecoder()
+        titleLabel.text = expositionUniverselle.title
+        visitorsLabel.text = "방문객 : \(formatNumber(of: expositionUniverselle.visitors)) 명"
+        locationLabel.text = "개최지 : \(expositionUniverselle.location)"
+        durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
+        descriptionLabel.text = expositionUniverselle.description
         
+    }
+    
+    private func decodeJSONToExpositionUniverselle() {
         do {
-            let expositionUniverselle = try decoder.decode(ExpositionUniverselle.self, from: json.data)
-            titleLabel.text = expositionUniverselle.title
-            visitorsLabel.text = "방문객 : \(formatNumber(of: expositionUniverselle.visitors)) 명"
-            locationLabel.text = "개최지 : \(expositionUniverselle.location)"
-            durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
-            descriptionLabel.text = expositionUniverselle.description
+            expositionUniverselle = try ExpositionUniverselle.decodeExpositionUniverselle()
         } catch {
             print(error.localizedDescription)
         }

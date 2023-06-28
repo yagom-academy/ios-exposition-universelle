@@ -51,14 +51,8 @@ final class ItemsTableViewController: UITableViewController {
     }
     
     private func decodeJSONToItems() {
-        guard let json = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        let decoder = JSONDecoder()
-        
         do {
-            items = try decoder.decode([Item].self, from: json.data)
+            items = try Item.decodeItems()
         } catch {
             print(error.localizedDescription)
         }

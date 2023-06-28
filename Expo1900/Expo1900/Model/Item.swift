@@ -4,6 +4,7 @@
 //
 //  Created by Erick, 비모 on 2023/06/26.
 //
+import UIKit
 
 struct Item: Codable {
     var name: String
@@ -16,5 +17,13 @@ struct Item: Codable {
         case imageName = "image_name"
         case shortDescription = "short_desc"
         case description = "desc"
+    }
+    
+    static func decodeItems() throws -> [Item] {
+        guard let json = NSDataAsset(name: "items") else {
+            fatalError()
+        }
+                
+        return try JSONDecoder().decode([Item].self, from: json.data)
     }
 }
