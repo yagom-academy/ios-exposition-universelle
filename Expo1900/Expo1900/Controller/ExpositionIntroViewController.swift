@@ -17,5 +17,24 @@ class ExpositionIntroViewController: UIViewController {
        super.viewDidLoad()
     }
     
+    private func configureExposionLabel() {
+        guard let exposition: Exposition = DecodingHandler.decode(fileName: .exposition) else { return }
+        
+        self.expositionTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
+        let expoTitle = NSMutableAttributedString(string: "방문객 : " + String(exposition.visitors))
+        let expoLocation = NSMutableAttributedString(string: "개최지 : " + exposition.location)
+        let expoDuration = NSMutableAttributedString(string: "개최 기간 : " + exposition.duration)
+        let font1 = UIFont.systemFont(ofSize: 20)
+
+        expoTitle.addAttribute(.font, value: font1, range: NSRange(location: 0, length: 4))
+        expoLocation.addAttribute(.font, value: font1, range: NSRange(location: 0, length: 4))
+        expoDuration.addAttribute(.font, value: font1, range: NSRange(location: 0, length: 5))
+
+        self.visitorsLabel.attributedText = expoTitle
+        self.locationLabel.attributedText = expoLocation
+        self.durationLabel.attributedText = expoDuration
+        self.descriptionLabel.text = exposition.description
+    }
+    
     @IBAction private func tabKoreanEntryButton(_ sender: UIButton) { }
 }
