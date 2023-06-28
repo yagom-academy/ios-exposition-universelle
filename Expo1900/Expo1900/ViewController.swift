@@ -115,6 +115,7 @@ class ViewController: UIViewController {
         }()
         
         let formattedVisitors = "\(entity.visitors.formatToDecimal()) 명"
+        let stackView = configureButtonStackView()
 
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(posterImageView)
@@ -122,6 +123,9 @@ class ViewController: UIViewController {
         verticalStackView.addArrangedSubview(configureDetailsStackView("개최지", entity.location))
         verticalStackView.addArrangedSubview(configureDetailsStackView("개최 기간", entity.duration))
         verticalStackView.addArrangedSubview(descriptionLabel)
+        verticalStackView.addArrangedSubview(stackView)
+        
+        stackView.widthAnchor.constraint(equalTo: verticalStackView.widthAnchor).isActive = true
     }
     
     private func configureDetailsStackView(_ subtitle: String, _ data: String) -> UIStackView {
@@ -155,5 +159,49 @@ class ViewController: UIViewController {
         detailsStackView.addArrangedSubview(dataLabel)
         
         return detailsStackView
+    }
+    
+    private func configureButtonStackView() -> UIStackView {
+        let buttonStackView = {
+           let stackView = UIStackView()
+            stackView.axis = .horizontal
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            
+            return stackView
+        }()
+        
+        let leftFlagImageView = {
+            let imageView = UIImageView()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.image = UIImage(named: "flag")
+            
+            return imageView
+        }()
+        
+        let rightFlagImageView = {
+            let imageView = UIImageView()
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.image = UIImage(named: "flag")
+            
+            return imageView
+        }()
+        
+        let changeViewButton = {
+            let button = UIButton()
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setTitle("한국 출품작 보러가기", for: .normal)
+            button.setTitleColor(UIColor.blue, for: .normal)
+            
+            return button
+        }()
+        
+        buttonStackView.addArrangedSubview(leftFlagImageView)
+        buttonStackView.addArrangedSubview(changeViewButton)
+        buttonStackView.addArrangedSubview(rightFlagImageView)
+        
+        leftFlagImageView.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.2).isActive = true
+        rightFlagImageView.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.2).isActive = true
+        
+        return buttonStackView
     }
 }
