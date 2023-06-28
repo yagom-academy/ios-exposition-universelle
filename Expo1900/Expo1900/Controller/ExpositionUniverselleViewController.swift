@@ -7,38 +7,39 @@
 import UIKit
 
 class ExpositionUniverselleViewController: UIViewController {
+    private var expositionUniverselle: ExpositionUniverselle?
     
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = "타이틀 레이블"
+        label.text = expositionUniverselle?.title
         
         return label
     }()
     
-    private let visitorsLabel: UILabel = {
+    private lazy var visitorsLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = "방문자 레이블"
+        label.text = expositionUniverselle?.numberOfVisitors
+
+        return label
+    }()
+
+    private lazy var locationLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.text = expositionUniverselle?.location
         
         return label
     }()
     
-    private let locationLabel: UILabel = {
+    private lazy var durationLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = "위치 레이블"
+        label.text = expositionUniverselle?.duration
         
         return label
     }()
     
-    private let durationLabel: UILabel = {
+    private lazy var totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = "기간 레이블"
-        
-        return label
-    }()
-    
-    private let totalDescriptionLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.text = "설명 레이블"
+        label.text = expositionUniverselle?.totalDescription
         
         return label
     }()
@@ -91,9 +92,11 @@ class ExpositionUniverselleViewController: UIViewController {
         
         return stackView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        decodeExpositionUniverselle()
+
         horizontalStackView.addArrangedSubview(leftFlagImage)
         horizontalStackView.addArrangedSubview(expositionItemListButton)
         horizontalStackView.addArrangedSubview(rightFlagImage)
@@ -112,5 +115,19 @@ class ExpositionUniverselleViewController: UIViewController {
             verticalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func decodeExpositionUniverselle() {
+        let decoder: JSONDecoder = JSONDecoder()
+        
+        guard let json = NSDataAsset(name: "exposition_universelle_1900") else {
+            return
+        }
+        
+        do {
+            expositionUniverselle = try decoder.decode(ExpositionUniverselle.self, from: json.data)
+        } catch {
+            print(error)
+        }
     }
 }

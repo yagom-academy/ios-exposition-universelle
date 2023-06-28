@@ -11,6 +11,9 @@ struct ExpositionUniverselle: Decodable {
     let location: String
     let duration: String
     let totalDescription: String
+    var numberOfVisitors: String {
+        return String(visitors)
+    }
     
     enum CodingKeys: String, CodingKey {
         case title, visitors, location, duration
