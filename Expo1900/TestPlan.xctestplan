@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "FD83B439-E6EA-4F93-81C6-5B581579E8AD",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Expo1900.xcodeproj",
+        "identifier" : "446064DC2A4AB08F00B65D0C",
+        "name" : "ExpoModelTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Expo1900.xcodeproj",
+        "identifier" : "BA6BC56C2A4AC3A800532110",
+        "name" : "ItemsModelTests"
+      }
+    }
+  ],
+  "version" : 1
+}
