@@ -9,12 +9,27 @@ import UIKit
 class ViewController: UIViewController {
     private var expositionEntity: ExpositionEntity?
     private var isSetUpEntity: Bool = false
-
+    
+    private let verticalStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .center
+        return stackView
+    }()
+    
+    private let mainScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         setUpEntity()
+        configureUI()
     }
 
     private func setUpEntity() {
@@ -30,6 +45,18 @@ class ViewController: UIViewController {
         } catch {
             isSetUpEntity = false
         }
+    }
+    
+    private func configureUI() {
+        view.addSubview(mainScrollView)
+        mainScrollView.addSubview(verticalStackView)
+        
+        NSLayoutConstraint.activate([
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mainScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            mainScrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ])
     }
 }
 
