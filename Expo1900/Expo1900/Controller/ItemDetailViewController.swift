@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ItemDetailViewController: UIViewController {
+final class ItemDetailViewController: UIViewController {
     static let id = "itemDetailViewControllerID"
+    var item: Item?
 
     @IBOutlet weak var itemDetailImageView: UIImageView!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
@@ -16,5 +17,16 @@ class ItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configure()
+    }
+    
+    private func configure() {
+        guard let item else {
+            return
+        }
+        
+        navigationItem.title = item.name
+        itemDetailImageView.image = UIImage(named: item.imageName)
+        itemDescriptionLabel.text = item.description
     }
 }

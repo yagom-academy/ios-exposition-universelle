@@ -45,6 +45,8 @@ final class ItemsTableViewController: UITableViewController {
             return
         }
         
+        nextViewController.item = items[indexPath.row]
+        
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
