@@ -10,6 +10,7 @@
 		286201692A49C96500ACCDD7 /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286201682A49C96500ACCDD7 /* Introduction.swift */; };
 		286CCF332A4BF6D9008F6BB7 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCF322A4BF6D9008F6BB7 /* Decoder.swift */; };
 		286CCF362A4BFDAB008F6BB7 /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCF352A4BFDAB008F6BB7 /* DecoderError.swift */; };
+		286CCF382A4C19A8008F6BB7 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCF372A4C19A8008F6BB7 /* EntryDetailViewController.swift */; };
 		AC0931142A49BF4700ECA2BC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0931132A49BF4700ECA2BC /* Entry.swift */; };
 		AC09311C2A49C30500ECA2BC /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC09311B2A49C30500ECA2BC /* EntryTests.swift */; };
 		ACB8240E2A4B198800E2128B /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8240D2A4B198800E2128B /* EntryTableViewCell.swift */; };
@@ -36,6 +37,7 @@
 		286201682A49C96500ACCDD7 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
 		286CCF322A4BF6D9008F6BB7 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		286CCF352A4BFDAB008F6BB7 /* DecoderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
+		286CCF372A4C19A8008F6BB7 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		AC0931132A49BF4700ECA2BC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		AC0931192A49C30500ECA2BC /* EntryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC09311B2A49C30500ECA2BC /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				ACD80C692A4AF21E009B364C /* EntryListViewController.swift */,
+				286CCF372A4C19A8008F6BB7 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				286CCF362A4BFDAB008F6BB7 /* DecoderError.swift in Sources */,
 				286CCF332A4BF6D9008F6BB7 /* Decoder.swift in Sources */,
+				286CCF382A4C19A8008F6BB7 /* EntryDetailViewController.swift in Sources */,
 				ACD80C6A2A4AF21E009B364C /* EntryListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

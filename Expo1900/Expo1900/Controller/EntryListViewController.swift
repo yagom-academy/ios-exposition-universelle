@@ -20,6 +20,7 @@ final class EntryListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.isHidden = false
+        navigationItem.title = "한국의 출품작"
     }
     
     private func decodeEntryList() {
@@ -53,5 +54,26 @@ extension EntryListViewController: UITableViewDataSource {
         }
         
         return entryCell
+    }
+}
+
+extension EntryListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboardName = "Main"
+        let storyboardId = "EntryDetailViewController"
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        
+        guard let entryDetailViewController = viewController as? EntryDetailViewController else {
+            return
+        }
+        
+        if let entryList {
+            entryDetailViewController.entryName = entryList[indexPath.row].name
+            entryDetailViewController.entryImageName = entryList[indexPath.row].imageName
+            entryDetailViewController.descriptionText = entryList[indexPath.row].description
+        }
+        
+        self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
