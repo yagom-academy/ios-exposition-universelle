@@ -12,6 +12,7 @@ class ExpositionUniverselleViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.text = expositionUniverselle?.title
+        label.textAlignment = .center
         
         return label
     }()
@@ -19,6 +20,7 @@ class ExpositionUniverselleViewController: UIViewController {
     private lazy var visitorsLabel: UILabel = {
         let label: UILabel = UILabel()
         label.text = expositionUniverselle?.numberOfVisitors
+        label.textAlignment = .center
 
         return label
     }()
@@ -26,6 +28,7 @@ class ExpositionUniverselleViewController: UIViewController {
     private lazy var locationLabel: UILabel = {
         let label: UILabel = UILabel()
         label.text = expositionUniverselle?.location
+        label.textAlignment = .center
         
         return label
     }()
@@ -33,6 +36,7 @@ class ExpositionUniverselleViewController: UIViewController {
     private lazy var durationLabel: UILabel = {
         let label: UILabel = UILabel()
         label.text = expositionUniverselle?.duration
+        label.textAlignment = .center
         
         return label
     }()
@@ -40,6 +44,7 @@ class ExpositionUniverselleViewController: UIViewController {
     private lazy var totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
         label.text = expositionUniverselle?.totalDescription
+        label.numberOfLines = 0
         
         return label
     }()
@@ -80,7 +85,7 @@ class ExpositionUniverselleViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
         
         return stackView
     }()
@@ -91,6 +96,13 @@ class ExpositionUniverselleViewController: UIViewController {
         stackView.distribution = .fillEqually
         
         return stackView
+    }()
+    
+    private let expositionUniverselleScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return scrollView
     }()
     
     override func viewDidLoad() {
@@ -107,13 +119,17 @@ class ExpositionUniverselleViewController: UIViewController {
         verticalStackView.addArrangedSubview(locationLabel)
         verticalStackView.addArrangedSubview(totalDescriptionLabel)
         verticalStackView.addArrangedSubview(horizontalStackView)
-        view.addSubview(verticalStackView)
+        expositionUniverselleScrollView.addSubview(verticalStackView)
+        view.addSubview(expositionUniverselleScrollView)
         
         NSLayoutConstraint.activate([
-            verticalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            verticalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            expositionUniverselleScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            expositionUniverselleScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            expositionUniverselleScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            expositionUniverselleScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            verticalStackView.topAnchor.constraint(equalTo: expositionUniverselleScrollView.topAnchor),
+            verticalStackView.bottomAnchor.constraint(equalTo: expositionUniverselleScrollView.bottomAnchor),
+            verticalStackView.widthAnchor.constraint(equalTo: expositionUniverselleScrollView.widthAnchor)
         ])
     }
     
