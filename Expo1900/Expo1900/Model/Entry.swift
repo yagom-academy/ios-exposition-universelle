@@ -1,11 +1,11 @@
 //
-//  Items.swift
+//  Entry.swift
 //  Expo1900
 //
 //  Created by Minsup, Jusbug on 2023/06/26.
 //
 
-struct Item: Decodable {
+struct Entry: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String
