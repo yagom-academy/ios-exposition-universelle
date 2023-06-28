@@ -17,7 +17,7 @@ enum DecodingHandler {
         }
     }
     
-    static func decode<T: Codable>(fileName file: FileName) -> T? {
+    static func decode<T: Decodable>(fileName file: FileName) -> T? {
         let decoder = JSONDecoder()
         
         guard let path = Bundle.main.path(forResource: file.name, ofType: "json") else {
