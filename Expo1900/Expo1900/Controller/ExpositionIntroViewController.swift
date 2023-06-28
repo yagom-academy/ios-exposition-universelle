@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpositionIntroViewController: UIViewController {
+final class ExpositionIntroViewController: UIViewController {
     @IBOutlet weak private var expositionTitleLabel: UILabel!
     @IBOutlet weak private var visitorsLabel: UILabel!
     @IBOutlet weak private var locationLabel: UILabel!
