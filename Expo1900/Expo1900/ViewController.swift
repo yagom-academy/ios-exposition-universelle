@@ -33,7 +33,6 @@ class ViewController: UIViewController {
         
         setUpEntity()
         configureUI()
-        configureStackView()
     }
 
     private func setUpEntity() {
@@ -68,40 +67,13 @@ class ViewController: UIViewController {
             verticalStackView.leftAnchor.constraint(equalTo: mainScrollView.leftAnchor),
             verticalStackView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor)
         ])
+        
+        configureStackView()
     }
     
     private func configureStackView() {
         if isSetUpEntity {
-            let titleLabel = {
-                let label = UILabel()
-                label.text = expositionEntity?.title
-                label.textAlignment = .center
-                
-                return label
-            }()
-
-            let posterImageView = {
-                let image = UIImageView()
-                image.image = UIImage(named: "poster")
-                
-                return image
-            }()
-            
-            let descriptionLabel = {
-                let textLabel = UILabel()
-                textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-                textLabel.numberOfLines = 0
-                textLabel.text = expositionEntity?.description
-                textLabel.translatesAutoresizingMaskIntoConstraints = false
-                
-                return textLabel
-            }()
-            
-            let safeArea = view.safeAreaLayoutGuide
-
-            verticalStackView.addArrangedSubview(titleLabel)
-            verticalStackView.addArrangedSubview(posterImageView)
-            verticalStackView.addArrangedSubview(descriptionLabel)
+            configureStackViewFromEntity()
         } else {
             let errorLabel = {
                 let label = UILabel()
@@ -113,5 +85,75 @@ class ViewController: UIViewController {
             verticalStackView.addArrangedSubview(errorLabel)
         }
     }
-}
+    
+    private func configureStackViewFromEntity() {
+        guard let entity = expositionEntity else { return }
+        
+        let titleLabel = {
+            let label = UILabel()
+            label.text = entity.title
+            label.textAlignment = .center
+            
+            return label
+        }()
 
+        let posterImageView = {
+            let image = UIImageView()
+            image.image = UIImage(named: "poster")
+            
+            return image
+        }()
+        
+        let descriptionLabel = {
+            let textLabel = UILabel()
+            textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+            textLabel.numberOfLines = 0
+            textLabel.text = entity.description
+            textLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            return textLabel
+        }()
+        
+        let formattedVisitors = "\(entity.visitors.formatToDecimal()) 명"
+
+        verticalStackView.addArrangedSubview(titleLabel)
+        verticalStackView.addArrangedSubview(posterImageView)
+        verticalStackView.addArrangedSubview(configureDetailsStackView("방문객", formattedVisitors))
+        verticalStackView.addArrangedSubview(configureDetailsStackView("개최지", entity.location))
+        verticalStackView.addArrangedSubview(configureDetailsStackView("개최 기간", entity.duration))
+        verticalStackView.addArrangedSubview(descriptionLabel)
+    }
+    
+    private func configureDetailsStackView(_ subtitle: String, _ data: String) -> UIStackView {
+        let detailsStackView = {
+           let stackView = UIStackView()
+            stackView.axis = .horizontal
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.alignment = .center
+            stackView.spacing = 10
+            
+            return stackView
+        }()
+        
+        let subtitleLabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = subtitle
+            
+            return label
+        }()
+        
+        let dataLabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = ": \(data)"
+            
+            return label
+        }()
+        
+        detailsStackView.addArrangedSubview(subtitleLabel)
+        detailsStackView.addArrangedSubview(dataLabel)
+        
+        return detailsStackView
+    }
+}
