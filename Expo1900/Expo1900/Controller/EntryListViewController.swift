@@ -74,6 +74,6 @@ extension EntryListViewController: UITableViewDelegate {
             entryDetailViewController.descriptionText = entryList[indexPath.row].description
         }
         
-        self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+        navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
