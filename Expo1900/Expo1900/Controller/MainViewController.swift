@@ -24,6 +24,16 @@ class MainViewController: UIViewController {
         decimalNumber()
         fillLabels()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
 
     func fillLabels() {
         var expoGuideData = ExpoGuide()
@@ -44,5 +54,13 @@ class MainViewController: UIViewController {
         durationLabel.text = "개최 기간: \(durationText)"
         descriptionLabel.text = expoGuideData.description
     }
+    
+    
+    @IBAction func tappedEntryListButton(_ sender: UIButton) {
+        guard let entryListView = self.storyboard?.instantiateViewController(withIdentifier: "entryList") else {
+            return
+        }
+        
+        navigationController?.pushViewController(entryListView, animated: true)
+    }
 }
-
