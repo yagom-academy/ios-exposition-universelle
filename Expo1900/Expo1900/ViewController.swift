@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         
         setUpEntity()
         configureUI()
+        configureStackView()
     }
 
     private func setUpEntity() {
@@ -58,5 +59,32 @@ class ViewController: UIViewController {
             mainScrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
+    
+    private func configureStackView() {
+            if isSetUpEntity {
+                let titleLabel = {
+                    let label = UILabel()
+                    label.text = expositionEntity?.title
+                    return label
+                }()
+
+                let posterImageView = {
+                    let image = UIImageView()
+                    image.image = UIImage(named: "poster")
+                    return image
+                }()
+
+                verticalStackView.addArrangedSubview(titleLabel)
+                verticalStackView.addArrangedSubview(posterImageView)
+            } else {
+                let errorLabel = {
+                    let label = UILabel()
+                    label.text = "데이터를 불러오지 못했습니다."
+                    return label
+                }()
+
+                verticalStackView.addArrangedSubview(errorLabel)
+            }
+        }
 }
 
