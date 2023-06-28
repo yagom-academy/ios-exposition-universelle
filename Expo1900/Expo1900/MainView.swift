@@ -70,6 +70,34 @@ class MainView: UIView {
         return infoImage
     }()
     
+    let leftImage: UIImageView = {
+        let leftImage = UIImageView()
+        leftImage.image = UIImage(named: "flag")
+        return leftImage
+    }()
+    
+    let rightImage: UIImageView = {
+        let rightImage = UIImageView()
+        rightImage.image = UIImage(named: "flag")
+        return rightImage
+    }()
+    
+    let koreaExpositionButton: UIButton = {
+        let koreaExpositionButton = UIButton()
+        koreaExpositionButton.titleLabel?.text = "해봐해봐"
+        return koreaExpositionButton
+    }()
+    
+    let bottomStackView: UIStackView = {
+        let bottomStackView = UIStackView()
+        bottomStackView.axis = .horizontal
+        bottomStackView.spacing = 10
+        bottomStackView.distribution = .equalSpacing
+        bottomStackView.alignment = .center
+        bottomStackView.backgroundColor = .brown
+        return bottomStackView
+    }()
+    
     convenience init() {
         self.init(frame: CGRectZero)
         
@@ -90,7 +118,13 @@ class MainView: UIView {
         scrollView.addSubview(contentView)
         
         contentView.addSubview(contentStackView)
-        [titleLabel, infoImage, visitorsLabel, locationLabel, durationLabel, descriptionLabel].forEach { contentStackView.addArrangedSubview($0) }
+        [titleLabel, infoImage, visitorsLabel, locationLabel, durationLabel, descriptionLabel, bottomStackView].forEach {
+            contentStackView.addArrangedSubview($0)
+        }
+        
+        [leftImage, koreaExpositionButton, rightImage].forEach {
+            bottomStackView.addArrangedSubview($0)
+        }
     }
     
     private func setUpContraints() {
@@ -132,6 +166,15 @@ extension MainView {
             contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             
+        ])
+    }
+    
+    private func setUpImageViewConstraints() {
+        NSLayoutConstraint.activate([
+            leftImage.heightAnchor.constraint(equalToConstant: 50),
+            leftImage.widthAnchor.constraint(equalToConstant: 50),
+            rightImage.heightAnchor.constraint(equalToConstant: 50),
+            rightImage.widthAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
