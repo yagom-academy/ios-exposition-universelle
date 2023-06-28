@@ -1,11 +1,11 @@
 //
-//  ExpositionData.swift
+//  ExpositionEntity.swift
 //  Expo1900
 //
 //  Created by Max, Whales on 2023/06/27.
 //
 
-struct ExpositionData: Decodable, Equatable {
+struct ExpositionEntity: Decodable, Equatable {
     let title: String
     let visitors: UInt
     let location: String
