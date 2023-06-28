@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		286201692A49C96500ACCDD7 /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286201682A49C96500ACCDD7 /* Introduction.swift */; };
+		286CCF332A4BF6D9008F6BB7 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCF322A4BF6D9008F6BB7 /* Decoder.swift */; };
+		286CCF362A4BFDAB008F6BB7 /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CCF352A4BFDAB008F6BB7 /* DecoderError.swift */; };
 		AC0931142A49BF4700ECA2BC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0931132A49BF4700ECA2BC /* Entry.swift */; };
 		AC09311C2A49C30500ECA2BC /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC09311B2A49C30500ECA2BC /* EntryTests.swift */; };
 		ACB8240E2A4B198800E2128B /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8240D2A4B198800E2128B /* EntryTableViewCell.swift */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		286201682A49C96500ACCDD7 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
+		286CCF322A4BF6D9008F6BB7 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		286CCF352A4BFDAB008F6BB7 /* DecoderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
 		AC0931132A49BF4700ECA2BC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		AC0931192A49C30500ECA2BC /* EntryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC09311B2A49C30500ECA2BC /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
@@ -65,11 +69,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		286CCF342A4BFD94008F6BB7 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				286CCF352A4BFDAB008F6BB7 /* DecoderError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		AC09310F2A49BDB200ECA2BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				AC0931132A49BF4700ECA2BC /* Entry.swift */,
 				286201682A49C96500ACCDD7 /* Introduction.swift */,
+				286CCF322A4BF6D9008F6BB7 /* Decoder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +144,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				286CCF342A4BFD94008F6BB7 /* Error */,
 				AC0931122A49BDF800ECA2BC /* Application */,
 				AC09310F2A49BDB200ECA2BC /* Model */,
 				AC0931112A49BDC600ECA2BC /* View */,
@@ -255,6 +269,8 @@
 				ACB8240E2A4B198800E2128B /* EntryTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				286CCF362A4BFDAB008F6BB7 /* DecoderError.swift in Sources */,
+				286CCF332A4BF6D9008F6BB7 /* Decoder.swift in Sources */,
 				ACD80C6A2A4AF21E009B364C /* EntryListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

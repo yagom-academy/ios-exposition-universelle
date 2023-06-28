@@ -13,19 +13,14 @@ final class EntryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        decodeIntroduction()
+        decodeEntryList()
     }
     
-    private func decodeIntroduction() {
+    private func decodeEntryList() {
         let dataAssetName = "items"
-        let decoder = JSONDecoder()
-        
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: dataAssetName) else {
-            return
-        }
         
         do {
-            entryList = try decoder.decode([Entry].self, from: dataAsset.data)
+            entryList = try Decoder.decodeJSON(dataAssetName)
         } catch {
             print(error)
         }

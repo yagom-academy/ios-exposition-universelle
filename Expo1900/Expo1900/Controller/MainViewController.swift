@@ -41,14 +41,9 @@ final class MainViewController: UIViewController {
     
     private func decodeIntroduction() {
         let dataAssetName = "exposition_universelle_1900"
-        let decoder = JSONDecoder()
-        
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: dataAssetName) else {
-            return
-        }
         
         do {
-            introduction = try decoder.decode(Introduction.self, from: dataAsset.data)
+            introduction = try Decoder.decodeJSON(dataAssetName)
         } catch {
             print(error)
         }
