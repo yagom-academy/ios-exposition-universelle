@@ -24,6 +24,8 @@ final class EntryTableViewCell: UITableViewCell {
         
         setEntryImageViewConstraints()
         setEntryTextStackViewConstraints(for: entryTextStackView)
+        
+        accessoryType = .disclosureIndicator
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -52,6 +52,6 @@ extension EntryListViewController: UITableViewDataSource {
             entryCell.entryImageView.image = UIImage(named: entryList[indexPath.row].imageName)
         }
         
-        return cell
+        return entryCell
     }
 }
