@@ -14,6 +14,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */; };
+		D2DB552C2A4C3ED4003F80C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB552B2A4C3ED4003F80C6 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpositionInformation.swift; sourceTree = "<group>"; };
+		D2DB552B2A4C3ED4003F80C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
+				D2DB552B2A4C3ED4003F80C6 /* MainView.swift */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BA9929E2A49B20A00613BD1 /* ExhibitionItem.swift in Sources */,
+				D2DB552C2A4C3ED4003F80C6 /* MainView.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,

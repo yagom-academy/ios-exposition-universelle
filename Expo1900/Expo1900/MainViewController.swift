@@ -7,11 +7,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    let mainView = MainView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        
+        mainView.scrollView.
     }
 }
 
