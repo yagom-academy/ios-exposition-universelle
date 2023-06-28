@@ -18,24 +18,19 @@ class ExpositionInfoViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tapPushButton: UIButton!
     
-    private let numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
-        return formatter
-    }()
-    
     private let jsonDecoder: JsonDecoder = JsonDecoder()
+    private let formatManager: FormatManager = FormatManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showExpositionInfo()
+        self.navigationController?.navigationBar.topItem?.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 코드 사용 시
-        scrollView.updateContentSize()
+        self.navigationController?.isNavigationBarHidden = true
+        
     }
     
     private func showExpositionInfo() {
@@ -60,38 +55,24 @@ class ExpositionInfoViewController: UIViewController {
     }
     
     private func updateMainViewLabels(with exposition: Exposition) {
-        guard let visitors = numberFormatter
+        guard let visitors = formatManager.numberFormatter
             .string(from: NSNumber(value: exposition.visitors)) else {
             return
         }
         
-        titleLabel.text = exposition.title
+        titleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
         visitorLabel.text = "방문객 : \(visitors)명"
         locationLabel.text = "개최지 : \(exposition.location)"
         openPeriodLabel.text = "개최 기간 : \(exposition.duration)"
         descriptionLabel.text = exposition.description
     }
-}
-
-extension UIScrollView {
-    func updateContentSize() {
-        let unionCalculatedTotalRect = recursiveUnionInDepthFor(view: self)
-        
-        // 계산된 크기로 컨텐츠 사이즈 설정
-        self.contentSize = CGSize(width: self.frame.width, height: unionCalculatedTotalRect.height+50)
-    }
     
-    private func recursiveUnionInDepthFor(view: UIView) -> CGRect {
-        var totalRect: CGRect = .zero
-        
-        // 모든 자식 View의 컨트롤의 크기를 재귀적으로 호출하며 최종 영역의 크기를 설정
-        for subView in view.subviews {
-            totalRect = totalRect.union(recursiveUnionInDepthFor(view: subView))
+    @IBAction func touchUpPushButton(_ sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ItemListView") else {
+            return
         }
         
-        // 최종 계산 영역의 크기를 반환
-        return totalRect.union(view.frame)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
-
-
