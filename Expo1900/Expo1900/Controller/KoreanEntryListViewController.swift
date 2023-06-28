@@ -31,7 +31,6 @@ extension KoreanEntryListViewController: UITableViewDelegate {
         guard let entryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: EntryDetailViewController.identifier) as? EntryDetailViewController else { return }
         
         entryDetailViewController.entry = self.entryList[indexPath.row]
-        
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
