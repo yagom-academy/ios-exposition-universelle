@@ -9,7 +9,17 @@ import UIKit
 
 final class ItemDetailViewController: UIViewController {
     static let id = "itemDetailViewControllerID"
-    var item: Item?
+    
+    private let item: Item
+    
+    init?(item: Item, coder: NSCoder) {
+        self.item = item
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     @IBOutlet weak var itemDetailImageView: UIImageView!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
@@ -21,10 +31,6 @@ final class ItemDetailViewController: UIViewController {
     }
     
     private func configure() {
-        guard let item else {
-            return
-        }
-        
         navigationItem.title = item.name
         itemDetailImageView.image = UIImage(named: item.imageName)
         itemDescriptionLabel.text = item.description

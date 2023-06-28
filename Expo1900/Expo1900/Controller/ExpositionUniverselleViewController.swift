@@ -31,12 +31,16 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
-        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemsTableViewController.id) as? ItemsTableViewController else {
+        guard let nextViewController = storyboard?.instantiateViewController(
+            identifier: ItemsTableViewController.id,
+            creator: {
+                let title = sender.currentTitle?.replacingOccurrences(of: " 보러가기", with: "") ?? ""
+                return ItemsTableViewController(navigationTitle: title, coder: $0)
+            }
+        ) else {
             return
         }
-        
-        nextViewController.navigationTitle = sender.currentTitle?.replacingOccurrences(of: " 보러가기", with: "")
-        
+                
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
@@ -50,7 +54,6 @@ final class ExpositionUniverselleViewController: UIViewController {
         locationLabel.text = "개최지 : \(expositionUniverselle.location)"
         durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
         descriptionLabel.text = expositionUniverselle.description
-        
     }
     
     private func decodeJSONToExpositionUniverselle() {
