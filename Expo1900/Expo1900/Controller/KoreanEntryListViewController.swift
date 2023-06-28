@@ -14,8 +14,14 @@ class KoreanEntryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.registerXib()
         self.entryTableView.delegate = self
         self.entryTableView.dataSource = self
+    }
+    
+    private func registerXib() {
+        let nibName = UINib(nibName: EntryListCell.nibName, bundle: nil)
+        entryTableView.register(nibName, forCellReuseIdentifier: EntryListCell.reuseIdentifier)
     }
 }
 
@@ -25,10 +31,16 @@ extension KoreanEntryListViewController: UITableViewDelegate {
 
 extension KoreanEntryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.entryList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EntryListCell.reuseIdentifier) as? EntryListCell else {
+            return UITableViewCell()
+        }
+        
+        cell.configureCell(entry: self.entryList[indexPath.row])
+        
+        return cell
     }
 }
