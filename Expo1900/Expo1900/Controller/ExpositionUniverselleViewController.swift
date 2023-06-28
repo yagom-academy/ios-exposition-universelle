@@ -108,20 +108,25 @@ class ExpositionUniverselleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         decodeExpositionUniverselle()
-
-        horizontalStackView.addArrangedSubview(leftFlagImage)
-        horizontalStackView.addArrangedSubview(expositionItemListButton)
-        horizontalStackView.addArrangedSubview(rightFlagImage)
-        verticalStackView.addArrangedSubview(titleLabel)
-        verticalStackView.addArrangedSubview(posterImage)
-        verticalStackView.addArrangedSubview(visitorsLabel)
-        verticalStackView.addArrangedSubview(durationLabel)
-        verticalStackView.addArrangedSubview(locationLabel)
-        verticalStackView.addArrangedSubview(totalDescriptionLabel)
-        verticalStackView.addArrangedSubview(horizontalStackView)
+        configureView()
+        configureConstraint()
+    }
+    
+    private func configureView() {
+        addArangedSubviews(to: horizontalStackView, elements: leftFlagImage, expositionItemListButton, rightFlagImage)
+        addArangedSubviews(to: verticalStackView, elements: titleLabel, posterImage, visitorsLabel, durationLabel, locationLabel, totalDescriptionLabel, horizontalStackView)
         expositionUniverselleScrollView.addSubview(verticalStackView)
         view.addSubview(expositionUniverselleScrollView)
-        
+    }
+    
+    private func addArangedSubviews(to superview: UIStackView, elements subviews: AnyObject...) {
+        subviews.forEach {
+            guard let subview = $0 as? UIView else { return }
+            superview.addArrangedSubview(subview)
+        }
+    }
+    
+    private func configureConstraint() {
         NSLayoutConstraint.activate([
             expositionUniverselleScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             expositionUniverselleScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
