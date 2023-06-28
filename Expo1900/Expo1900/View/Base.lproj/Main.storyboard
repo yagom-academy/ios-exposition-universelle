@@ -181,6 +181,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Tul-yh-H82" id="YEw-1e-gSD"/>
+                                    <outlet property="delegate" destination="Tul-yh-H82" id="EnO-CC-fyh"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -198,6 +199,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OT9-a1-Zri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1684.7328244274809" y="-46.478873239436624"/>
+        </scene>
+        <!--Entry Detail View Controller-->
+        <scene sceneID="jlZ-ds-V0C">
+            <objects>
+                <viewController storyboardIdentifier="EntryDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cId-81-Mlb" customClass="EntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hv0-sC-KVK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nw4-w2-dN9">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LFn-C0-zBc">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="228.33333333333334"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bHg-T3-Rsa">
+                                                <rect key="frame" x="96.666666666666686" y="0.0" width="200" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="9Im-Za-BLy"/>
+                                                    <constraint firstAttribute="width" constant="200" id="BSx-Fr-Szh"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnH-rL-ibm">
+                                                <rect key="frame" x="176" y="208" width="41.333333333333343" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LFn-C0-zBc" firstAttribute="trailing" secondItem="EZD-49-Vci" secondAttribute="trailing" id="7pV-PA-K1y"/>
+                                    <constraint firstItem="LFn-C0-zBc" firstAttribute="bottom" secondItem="EZD-49-Vci" secondAttribute="bottom" id="Djx-tR-vrV"/>
+                                    <constraint firstItem="LFn-C0-zBc" firstAttribute="top" secondItem="EZD-49-Vci" secondAttribute="top" id="yKC-uv-5Ep"/>
+                                    <constraint firstItem="LFn-C0-zBc" firstAttribute="leading" secondItem="EZD-49-Vci" secondAttribute="leading" id="ySC-lX-era"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="EZD-49-Vci"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="00A-U0-5qi"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zhy-7p-rQN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nw4-w2-dN9" secondAttribute="trailing" id="WXC-F6-d7e"/>
+                            <constraint firstItem="nw4-w2-dN9" firstAttribute="leading" secondItem="hv0-sC-KVK" secondAttribute="leading" id="Xky-Bi-uI5"/>
+                            <constraint firstItem="nw4-w2-dN9" firstAttribute="top" secondItem="hv0-sC-KVK" secondAttribute="top" id="ivY-Sr-VTc"/>
+                            <constraint firstAttribute="bottom" secondItem="nw4-w2-dN9" secondAttribute="bottom" id="orU-Us-xOT"/>
+                            <constraint firstItem="LFn-C0-zBc" firstAttribute="width" secondItem="hv0-sC-KVK" secondAttribute="width" id="tyC-qs-uVO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="vnH-rL-ibm" id="ot1-mU-Srs"/>
+                        <outlet property="entryImageView" destination="bHg-T3-Rsa" id="3PB-CA-x4i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0V8-i9-c0U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2449.6183206106871" y="-46.478873239436624"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c6f-CT-m9n">
