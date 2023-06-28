@@ -59,6 +59,8 @@ final class ExpositionUniverselleViewController: UIViewController {
     private func decodeJSONToExpositionUniverselle() {
         do {
             expositionUniverselle = try ExpositionUniverselle.decodeExpositionUniverselle()
+        } catch NSDataAssetError.assetNotFound {
+            print("JSON Asset을 찾지 못했습니다.")
         } catch {
             print(error.localizedDescription)
         }

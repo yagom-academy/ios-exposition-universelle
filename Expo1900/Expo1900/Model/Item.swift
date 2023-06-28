@@ -21,7 +21,7 @@ struct Item: Codable {
     
     static func decodeItems() throws -> [Item] {
         guard let json = NSDataAsset(name: "items") else {
-            fatalError()
+            throw NSDataAssetError.assetNotFound
         }
                 
         return try JSONDecoder().decode([Item].self, from: json.data)

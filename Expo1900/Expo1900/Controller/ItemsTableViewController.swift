@@ -70,6 +70,8 @@ final class ItemsTableViewController: UITableViewController {
     private func decodeJSONToItems() {
         do {
             items = try Item.decodeItems()
+        } catch NSDataAssetError.assetNotFound {
+            print("JSON Asset을 찾지 못했습니다.")
         } catch {
             print(error.localizedDescription)
         }

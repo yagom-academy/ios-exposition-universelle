@@ -15,7 +15,7 @@ struct ExpositionUniverselle: Codable {
     
     static func decodeExpositionUniverselle() throws -> ExpositionUniverselle {
         guard let json = NSDataAsset(name: "exposition_universelle_1900") else {
-            fatalError()
+            throw NSDataAssetError.assetNotFound
         }
                 
         return try JSONDecoder().decode(ExpositionUniverselle.self, from: json.data)
