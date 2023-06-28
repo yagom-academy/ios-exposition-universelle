@@ -17,6 +17,7 @@ class KoreanEntryListViewController: UIViewController {
         self.registerXib()
         self.entryTableView.delegate = self
         self.entryTableView.dataSource = self
+        self.navigationItem.title = "한국의 출품작"
     }
     
     private func registerXib() {
