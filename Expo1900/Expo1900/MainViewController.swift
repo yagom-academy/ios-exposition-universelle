@@ -11,10 +11,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let mainView = MainView()
         
         view.backgroundColor = .systemBackground
         
-        mainView.scrollView.
     }
 }
 
