@@ -27,7 +27,10 @@ final class ItemsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemsTableViewCell.id, for: indexPath) as? ItemsTableViewCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemsTableViewCell.id, for: indexPath) as? ItemsTableViewCell else {
+            fatalError()
+        }
+        
         let item = items[indexPath.row]
         
         cell.itemImageView.image = UIImage(named: item.imageName)
@@ -38,13 +41,18 @@ final class ItemsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemDetailViewController.id) else { return }
+        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemDetailViewController.id) as? ItemDetailViewController else {
+            return
+        }
         
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     private func decodeJSONToItems() {
-        guard let json = NSDataAsset(name: "items") else { return }
+        guard let json = NSDataAsset(name: "items") else {
+            return
+        }
+        
         let decoder = JSONDecoder()
         
         do {

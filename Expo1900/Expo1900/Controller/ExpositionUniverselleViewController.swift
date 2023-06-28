@@ -29,13 +29,18 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
-        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemsTableViewController.id) else { return }
+        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemsTableViewController.id) else {
+            return
+        }
         
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     private func configureLabels() {
-        guard let json = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        guard let json = NSDataAsset(name: "exposition_universelle_1900") else {
+            return
+        }
+        
         let decoder = JSONDecoder()
         
         do {
