@@ -37,6 +37,12 @@ final class ItemsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nextViewController = storyboard?.instantiateViewController(withIdentifier: ItemDetailViewController.id) else { return }
+        
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
     private func decodeJSONToItems() {
         guard let json = NSDataAsset(name: "items") else { return }
         let decoder = JSONDecoder()
