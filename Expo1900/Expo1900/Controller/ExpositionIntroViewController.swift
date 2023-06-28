@@ -6,4 +6,4 @@
 
 import UIKit
 
-class ViewController: UIViewController { }
+class ExpositionIntroViewController: UIViewController { }
