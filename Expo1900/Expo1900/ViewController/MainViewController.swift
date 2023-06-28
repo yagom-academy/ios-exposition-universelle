@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
         
         configureUI()
         setUpConstraints()
+        loadMainViewInformation()
     }
     
     private func configureUI() {
@@ -32,5 +33,18 @@ class MainViewController: UIViewController {
             mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    private func loadMainViewInformation() {
+        let jsonDecoder = JSONDecoder()
+        guard let asset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        
+        do {
+            let data = try jsonDecoder.decode(ParisExpositionInformation.self, from: asset.data)
+            mainView.loadInformation(information: data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
 

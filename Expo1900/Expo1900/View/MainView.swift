@@ -36,6 +36,9 @@ class MainView: UIView {
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "제목"
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.systemFont(ofSize: 30)
         return titleLabel
     }()
     
@@ -61,6 +64,7 @@ class MainView: UIView {
     let descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.text = "디테일"
+        descriptionLabel.numberOfLines = 0
         return descriptionLabel
     }()
     
@@ -131,6 +135,27 @@ class MainView: UIView {
         setUpContentViewConstraints()
         setUpContentStackViewConstraints()
         setUpImageViewConstraints()
+    }
+}
+
+// MARK: - Load Information
+extension MainView {
+    func loadInformation(information: ParisExpositionInformation) {
+        titleLabel.text = information.title
+        locationLabel.text = "개최지 : \(information.location)"
+        durationLabel.text = "개최 기간 : \(information.duration)"
+        descriptionLabel.text = information.description
+        loadVistorsInformation(information.visitors)
+    }
+    
+    private func loadVistorsInformation(_ vistors: UInt) {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        let vistorsAsNumber = numberFormatter.number(from: vistors.description) ?? 0
+        guard let vistorsAsFormatterString = numberFormatter.string(from: vistorsAsNumber) else { return }
+        
+        visitorsLabel.text = "방문객 : \(vistorsAsFormatterString) 명"
     }
 }
 
