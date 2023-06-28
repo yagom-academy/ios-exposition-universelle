@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kFS-99-WPE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kFS-99-WPE">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmS-LD-nFM">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="2000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="530.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hhU-WI-BRO">
                                                 <rect key="frame" x="5" y="50" width="380" height="365.66666666666669"/>
@@ -63,22 +63,22 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fQj-w3-RR0">
-                                                <rect key="frame" x="35" y="435.66666666666663" width="320" height="1514.3333333333335"/>
+                                                <rect key="frame" x="35" y="435.66666666666669" width="320" height="45"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="i7k-Oh-WI6">
-                                                        <rect key="frame" x="0.0" y="1469.3333333333333" width="45" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="Lff-p6-qj3"/>
                                                             <constraint firstAttribute="height" constant="45" id="Ong-v9-xS6"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-cw-yuP">
-                                                        <rect key="frame" x="50" y="1480" width="220" height="34.333333333333258"/>
+                                                        <rect key="frame" x="50" y="10.666666666666515" width="220" height="34.333333333333485"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러 가기"/>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="30g-jI-ld6">
-                                                        <rect key="frame" x="275" y="1469.3333333333333" width="45" height="45"/>
+                                                        <rect key="frame" x="275" y="0.0" width="45" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="JTE-UH-b9X"/>
                                                             <constraint firstAttribute="width" constant="45" id="VV8-rE-g0G"/>
@@ -91,7 +91,6 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="hhU-WI-BRO" secondAttribute="trailing" constant="5" id="1Ln-mQ-Feq"/>
                                             <constraint firstItem="hhU-WI-BRO" firstAttribute="top" secondItem="OmS-LD-nFM" secondAttribute="top" constant="50" id="2ck-Q6-VQz"/>
-                                            <constraint firstAttribute="height" constant="2000" id="JH7-Zj-iwT"/>
                                             <constraint firstAttribute="trailing" secondItem="fQj-w3-RR0" secondAttribute="trailing" constant="35" id="VSG-rY-8ob"/>
                                             <constraint firstAttribute="bottom" secondItem="fQj-w3-RR0" secondAttribute="bottom" constant="50" id="WBM-2x-q7c"/>
                                             <constraint firstItem="fQj-w3-RR0" firstAttribute="top" secondItem="hhU-WI-BRO" secondAttribute="bottom" constant="20" id="igT-Po-iq5"/>
@@ -134,10 +133,9 @@
         <!--Navigation Controller-->
         <scene sceneID="rl8-MU-VS8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kFS-99-WPE" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="kFS-99-WPE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qEd-lB-h2d">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
