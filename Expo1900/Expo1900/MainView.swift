@@ -84,16 +84,15 @@ class MainView: UIView {
     
     let koreaExpositionButton: UIButton = {
         let koreaExpositionButton = UIButton()
-        koreaExpositionButton.titleLabel?.text = "해봐해봐"
+        koreaExpositionButton.setTitle("한국 박람회 전시", for: .normal)
         return koreaExpositionButton
     }()
     
     let bottomStackView: UIStackView = {
         let bottomStackView = UIStackView()
         bottomStackView.axis = .horizontal
-        bottomStackView.spacing = 10
+        bottomStackView.spacing = 30
         bottomStackView.distribution = .equalSpacing
-        bottomStackView.alignment = .center
         bottomStackView.backgroundColor = .brown
         return bottomStackView
     }()
@@ -114,23 +113,24 @@ class MainView: UIView {
     }
     
     private func configureUI() {
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        
-        contentView.addSubview(contentStackView)
+        [leftImage, koreaExpositionButton, rightImage].forEach {
+            bottomStackView.addArrangedSubview($0)
+        }
+
         [titleLabel, infoImage, visitorsLabel, locationLabel, durationLabel, descriptionLabel, bottomStackView].forEach {
             contentStackView.addArrangedSubview($0)
         }
         
-        [leftImage, koreaExpositionButton, rightImage].forEach {
-            bottomStackView.addArrangedSubview($0)
-        }
-    }
+        contentView.addSubview(contentStackView)
+        scrollView.addSubview(contentView)
+        addSubview(scrollView)
+}
     
     private func setUpContraints() {
         setUpScrollViewConstraints()
         setUpContentViewConstraints()
         setUpContentStackViewConstraints()
+        setUpImageViewConstraints()
     }
 }
 
@@ -171,10 +171,10 @@ extension MainView {
     
     private func setUpImageViewConstraints() {
         NSLayoutConstraint.activate([
-            leftImage.heightAnchor.constraint(equalToConstant: 50),
-            leftImage.widthAnchor.constraint(equalToConstant: 50),
-            rightImage.heightAnchor.constraint(equalToConstant: 50),
-            rightImage.widthAnchor.constraint(equalToConstant: 50)
+            leftImage.heightAnchor.constraint(equalToConstant: 40),
+            leftImage.widthAnchor.constraint(equalToConstant: 60),
+            rightImage.heightAnchor.constraint(equalToConstant: 40),
+            rightImage.widthAnchor.constraint(equalToConstant: 60)
         ])
     }
 }
