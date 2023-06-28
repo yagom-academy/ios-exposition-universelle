@@ -16,6 +16,12 @@ final class EntryListViewController: UIViewController {
         decodeEntryList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func decodeEntryList() {
         let dataAssetName = "items"
         

@@ -22,9 +22,15 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         decodeIntroduction()
         configureLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
     }
 
     @IBAction func touchUpGoToEntryListButton(_ sender: UIButton) {
