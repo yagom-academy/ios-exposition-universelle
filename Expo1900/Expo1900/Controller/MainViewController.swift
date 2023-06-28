@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -25,7 +25,6 @@ class MainViewController: UIViewController {
     @IBAction func touchUpGoToEntryListButton(_ sender: UIButton) {
         let storyboardName = "Main"
         let storyboardId = "EntryListViewController"
-
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
 
@@ -34,15 +33,17 @@ class MainViewController: UIViewController {
     }
     
     private func createMainBackBarButtonItem() -> UIBarButtonItem {
-        let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+        let backBarButtonTitle = "메인"
+        let backBarButtonItem = UIBarButtonItem(title: backBarButtonTitle, style: .plain, target: self, action: nil)
         
         return backBarButtonItem
     }
     
     private func decodeIntroduction() {
+        let dataAssetName = "exposition_universelle_1900"
         let decoder = JSONDecoder()
         
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: dataAssetName) else {
             return
         }
         
@@ -69,4 +70,3 @@ class MainViewController: UIViewController {
         descriptionLabel.text = description
     }
 }
-

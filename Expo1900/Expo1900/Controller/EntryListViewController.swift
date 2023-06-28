@@ -7,18 +7,20 @@
 
 import UIKit
 
-class EntryListViewController: UIViewController {
+final class EntryListViewController: UIViewController {
     private var entryList: [Entry]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         decodeIntroduction()
     }
     
     private func decodeIntroduction() {
+        let dataAssetName = "items"
         let decoder = JSONDecoder()
         
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: dataAssetName) else {
             return
         }
         

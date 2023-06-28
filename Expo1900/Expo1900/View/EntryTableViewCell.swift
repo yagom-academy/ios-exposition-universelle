@@ -7,13 +7,14 @@
 
 import UIKit
 
-class EntryTableViewCell: UITableViewCell {
+final class EntryTableViewCell: UITableViewCell {
     var entryImageView: UIImageView = UIImageView()
     var titleLabel: UILabel = UILabel()
     var shortDescriptionLabel: UILabel = UILabel()
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         setTitleAndShortDescriptionLabelSetting()
         
         let entryTextStackView = createEntryTextStackView(arrangedSubviews: [titleLabel, shortDescriptionLabel])
