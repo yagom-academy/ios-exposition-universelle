@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F7900CB2A49302E00362EC7 /* exposition.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F7900CA2A49302E00362EC7 /* exposition.json */; };
 		1F7900CE2A49304A00362EC7 /* entry.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F7900CD2A49304A00362EC7 /* entry.json */; };
+		1FA5E4722A4C533000185366 /* KoreanEntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5E4712A4C533000185366 /* KoreanEntryListViewController.swift */; };
+		1FA5E4742A4C538200185366 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5E4732A4C538200185366 /* EntryDetailViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionIntroViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		1F7900CA2A49302E00362EC7 /* exposition.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exposition.json; sourceTree = "<group>"; };
 		1F7900CD2A49304A00362EC7 /* entry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = entry.json; sourceTree = "<group>"; };
+		1FA5E4712A4C533000185366 /* KoreanEntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanEntryListViewController.swift; sourceTree = "<group>"; };
+		1FA5E4732A4C538200185366 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionIntroViewController.swift */,
+				1FA5E4712A4C533000185366 /* KoreanEntryListViewController.swift */,
+				1FA5E4732A4C538200185366 /* EntryDetailViewController.swift */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 			);
@@ -208,6 +214,8 @@
 				D0A2F9E32A493186007CF77E /* Entry.swift in Sources */,
 				D0A2F9E12A493120007CF77E /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				1FA5E4722A4C533000185366 /* KoreanEntryListViewController.swift in Sources */,
+				1FA5E4742A4C538200185366 /* EntryDetailViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
