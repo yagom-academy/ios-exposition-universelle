@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         decimalNumber()
         fillLabels()
+        navigationItem.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
