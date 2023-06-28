@@ -226,20 +226,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Loh-12-pKK">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="245.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="241"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GB7-v6-Vrf">
-                                                <rect key="frame" x="8" y="16" width="377" height="189.66666666666666"/>
+                                                <rect key="frame" x="16" y="16" width="361" height="185"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bTE-XU-Out">
-                                                        <rect key="frame" x="90.333333333333329" y="0.0" width="196.33333333333337" height="147.33333333333334"/>
+                                                        <rect key="frame" x="82.333333333333329" y="0.0" width="196.33333333333337" height="147.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="bTE-XU-Out" secondAttribute="height" multiplier="4:3" id="f8C-KI-1BR"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGh-Xi-UuL">
-                                                        <rect key="frame" x="162.66666666666666" y="163.33333333333334" width="52" height="26.333333333333343"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                        <rect key="frame" x="158.66666666666666" y="163.33333333333334" width="43.666666666666657" height="21.666666666666657"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -249,8 +249,8 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="bTE-XU-Out" firstAttribute="width" secondItem="Loh-12-pKK" secondAttribute="width" multiplier="0.5" id="LTp-69-iIp"/>
-                                            <constraint firstItem="GB7-v6-Vrf" firstAttribute="leading" secondItem="Loh-12-pKK" secondAttribute="leading" constant="8" id="Q2O-UY-OIX"/>
-                                            <constraint firstAttribute="trailing" secondItem="GB7-v6-Vrf" secondAttribute="trailing" constant="8" id="eDt-Ff-mDG"/>
+                                            <constraint firstItem="GB7-v6-Vrf" firstAttribute="leading" secondItem="Loh-12-pKK" secondAttribute="leading" constant="16" id="Q2O-UY-OIX"/>
+                                            <constraint firstAttribute="trailing" secondItem="GB7-v6-Vrf" secondAttribute="trailing" constant="16" id="eDt-Ff-mDG"/>
                                             <constraint firstItem="GB7-v6-Vrf" firstAttribute="top" secondItem="Loh-12-pKK" secondAttribute="top" constant="16" id="hsR-l4-p8y"/>
                                             <constraint firstAttribute="bottom" secondItem="GB7-v6-Vrf" secondAttribute="bottom" constant="40" id="t4c-42-DBQ"/>
                                         </constraints>
