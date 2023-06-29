@@ -53,6 +53,12 @@ final class EntryDetailViewController: UIViewController {
         setUpConstraints()
     }
     
+    func setEntryDetatilInformation(_ title: String, _ imageName: String, _ description: String) {
+        navigationItem.title = title
+        contentImage.image = UIImage(named: imageName)
+        contentLabel.text = description
+    }
+    
     private func configureUI() {
         [contentImage, contentLabel].forEach {
             stackView.addArrangedSubview($0)
@@ -73,8 +79,8 @@ final class EntryDetailViewController: UIViewController {
 extension EntryDetailViewController {
     private func setUpScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])

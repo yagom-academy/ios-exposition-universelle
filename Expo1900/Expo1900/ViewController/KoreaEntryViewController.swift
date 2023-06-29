@@ -49,8 +49,13 @@ final class KoreaEntryViewController: UIViewController {
 // MARK: - TableView Delegate
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let entryInformation = dataSource.sendEntryInformation(index: indexPath.row) else { return }
         let entryDetailViewController = EntryDetailViewController()
         
+        entryDetailViewController.setEntryDetatilInformation(entryInformation.name,
+                                                             entryInformation.imageName,
+                                                             entryInformation.description)
         navigationController?.pushViewController(entryDetailViewController, animated: true)
+        navigationItem.backButtonTitle = "한국의 출품작"
     }
 }

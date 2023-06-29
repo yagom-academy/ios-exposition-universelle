@@ -36,3 +36,12 @@ extension KoreaEntryDataSource {
         koreaEntryList = data
     }
 }
+
+// MARK: - Send Information
+extension KoreaEntryDataSource {
+    func sendEntryInformation(index: Int) -> ExhibitionItem? {
+        guard let information = koreaEntryList?[index] else { return nil }
+        
+        return information
+    }
+}
