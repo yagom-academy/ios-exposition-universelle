@@ -73,7 +73,7 @@ class ExpositionUniverselleViewController: UIViewController {
         return imageView
     }()
     
-    private let expositionItemListButton: UIButton = {
+    private lazy var expositionItemListButton: UIButton = {
         let button: UIButton = UIButton()
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
@@ -92,6 +92,7 @@ class ExpositionUniverselleViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
+        stackView.backgroundColor = .brown
         
         return stackView
     }()
@@ -100,6 +101,7 @@ class ExpositionUniverselleViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
+        stackView.backgroundColor = .green
         
         return stackView
     }()
@@ -113,6 +115,7 @@ class ExpositionUniverselleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         decodeExpositionUniverselle()
         configureView()
         configureConstraint()
