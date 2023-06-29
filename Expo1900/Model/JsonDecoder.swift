@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct JsonDecoder {
+extension JSONDecoder {
     func decodingContentInfo<T:Decodable>(with contentData: Data, modelType:T.Type) throws -> T {
-        let jsonDecoder = JSONDecoder()
-        let decodedModel = try jsonDecoder.decode(T.self, from: contentData)
+        let decodedModel = try self.decode(T.self, from: contentData)
         
         return decodedModel
     }

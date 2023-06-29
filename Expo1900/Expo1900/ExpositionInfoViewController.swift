@@ -18,7 +18,6 @@ class ExpositionInfoViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tapPushButton: UIButton!
     
-    private let jsonDecoder: JsonDecoder = JsonDecoder()
     private let formatManager: FormatManager = FormatManager()
     
     override func viewDidLoad() {
@@ -34,12 +33,14 @@ class ExpositionInfoViewController: UIViewController {
     }
     
     private func showExpositionInfo() {
+        let decoder = JSONDecoder()
+        
         guard let receiveExpositionData = receiveExpositionInfo() else {
             return
         }
         
         do {
-            let decodingExposition = try jsonDecoder.decodingContentInfo(with: receiveExpositionData, modelType: Exposition.self)
+            let decodingExposition = try decoder.decodingContentInfo(with: receiveExpositionData, modelType: Exposition.self)
             updateMainViewLabels(with: decodingExposition)
         } catch {
             print(error)
