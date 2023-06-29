@@ -33,6 +33,12 @@ class ExpositionViewController: UIViewController {
         navigationItem.title = "메인"
         
         setUpEntity()
+        
+        guard isSetUpEntity else {
+            configureErrorLabel()
+            return
+        }
+        
         configureUI()
     }
     
@@ -94,22 +100,28 @@ class ExpositionViewController: UIViewController {
         configureStackView()
     }
     
-    private func configureStackView() {
-        if isSetUpEntity {
-            configureStackViewFromEntity()
-        } else {
-            let errorLabel = {
-                let label = UILabel()
-                label.text = "데이터를 불러오지 못했습니다."
-                
-                return label
-            }()
+    private func configureErrorLabel() {
+        let errorLabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = "데이터를 불러오지 못했습니다."
             
-            verticalStackView.addArrangedSubview(errorLabel)
-        }
+            return label
+        }()
+        
+        view.addSubview(errorLabel)
+        
+        NSLayoutConstraint.activate([
+            errorLabel
+                .centerXAnchor
+                .constraint(equalTo: view.centerXAnchor),
+            errorLabel
+                .centerYAnchor
+                .constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
-    private func configureStackViewFromEntity() {
+    private func configureStackView() {
         guard let entity = expositionEntity else { return }
         
         let titleLabel = {

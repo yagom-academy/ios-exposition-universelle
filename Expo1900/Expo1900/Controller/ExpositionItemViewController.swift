@@ -9,7 +9,8 @@ import UIKit
 
 class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     private var expositionItemEntity: [ExpositionItemEntity] = []
-    private let identifier = "cell"
+    private let identifier: String = "cell"
+    private var isSetUpEntity: Bool = false
     
     private let tableView = {
         let tableView = UITableView()
@@ -25,6 +26,15 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         
         setUpEntity()
         
+        guard isSetUpEntity else {
+            configureErrorLabel()
+            return
+        }
+        
+        configureUI()
+    }
+    
+    private func configureUI() {
         view.addSubview(tableView)
         
         tableView.register(ExpositionItemTableViewCell.self, forCellReuseIdentifier: identifier)
@@ -56,8 +66,31 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         
         do {
             expositionItemEntity = try decorder.decode([ExpositionItemEntity].self, from: entity.data)
+            isSetUpEntity = true
         } catch {
+            isSetUpEntity = false
         }
+    }
+    
+    private func configureErrorLabel() {
+        let errorLabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = "데이터를 불러오지 못했습니다."
+            
+            return label
+        }()
+        
+        view.addSubview(errorLabel)
+        
+        NSLayoutConstraint.activate([
+            errorLabel
+                .centerXAnchor
+                .constraint(equalTo: view.centerXAnchor),
+            errorLabel
+                .centerYAnchor
+                .constraint(equalTo: view.centerYAnchor)
+        ])
     }
 }
 
@@ -83,9 +116,10 @@ extension ExpositionItemViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = ExpositionItemDetailViewController(expositionItemDetail: expositionItemEntity[indexPath.row])
+        let detailViewController = ExpositionItemDetailViewController(
+            expositionItemDetail: expositionItemEntity[indexPath.row]
+        )
         
         navigationController?.pushViewController(detailViewController, animated: true)
-        
     }
 }
