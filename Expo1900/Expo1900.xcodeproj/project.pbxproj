@@ -21,6 +21,7 @@
 		BAFD9F542A4D848800DC9186 /* LabelTextNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */; };
 		BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */; };
 		BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */; };
+		BAFD9F682A4DDA9500DC9186 /* ChangeViewButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */; };
@@ -54,6 +55,7 @@
 		BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextNameSpace.swift; sourceTree = "<group>"; };
 		BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNamespace.swift; sourceTree = "<group>"; };
 		BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierNamespace.swift; sourceTree = "<group>"; };
+		BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewButtonStackView.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */,
+				BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				3CBDC8292A4DD1020089F7A2 /* DecodingManager.swift in Sources */,
 				BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */,
+				BAFD9F682A4DDA9500DC9186 /* ChangeViewButtonStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

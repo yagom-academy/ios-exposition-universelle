@@ -27,6 +27,8 @@ class ExpositionViewController: UIViewController {
         return stackView
     }()
     
+    private let buttonStackView = ChangeViewButtonStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -127,7 +129,6 @@ class ExpositionViewController: UIViewController {
         }()
         
         let formattedVisitors = "\(expositionEntity.visitors.formatToDecimal()) 명"
-        let stackView = configureButtonStackView()
         
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(posterImageView)
@@ -135,13 +136,15 @@ class ExpositionViewController: UIViewController {
         verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.location, expositionEntity.location))
         verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.duration, expositionEntity.duration))
         verticalStackView.addArrangedSubview(descriptionLabel)
-        verticalStackView.addArrangedSubview(stackView)
+        verticalStackView.addArrangedSubview(buttonStackView)
+        
+        buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            stackView
+            buttonStackView
                 .leftAnchor
                 .constraint(equalTo: verticalStackView.leftAnchor, constant: 40),
-            stackView
+            buttonStackView
                 .rightAnchor
                 .constraint(equalTo: verticalStackView.rightAnchor, constant: -40)
         ])
@@ -178,64 +181,6 @@ class ExpositionViewController: UIViewController {
         detailsStackView.addArrangedSubview(dataLabel)
         
         return detailsStackView
-    }
-    
-    private func configureButtonStackView() -> UIStackView {
-        let buttonStackView = {
-            let stackView = UIStackView()
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .horizontal
-            stackView.spacing = 30
-            
-            return stackView
-        }()
-        
-        let leftFlagImageView = {
-            let imageView = UIImageView()
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.image = UIImage(named: AssetNamespace.flag)
-            
-            return imageView
-        }()
-        
-        let rightFlagImageView = {
-            let imageView = UIImageView()
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.image = UIImage(named: AssetNamespace.flag)
-            
-            return imageView
-        }()
-        
-        let changeViewButton = {
-            let button = UIButton()
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle(LabelTextNameSpace.buttonTitle, for: .normal)
-            button.setTitleColor(UIColor.systemBlue, for: .normal)
-            button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
-            button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-            
-            return button
-        }()
-        
-        buttonStackView.addArrangedSubview(leftFlagImageView)
-        buttonStackView.addArrangedSubview(changeViewButton)
-        buttonStackView.addArrangedSubview(rightFlagImageView)
-        
-        changeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
-        
-        NSLayoutConstraint.activate([
-            leftFlagImageView
-                .heightAnchor
-                .constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView
-                .heightAnchor
-                .constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView
-                .widthAnchor
-                .constraint(equalTo: leftFlagImageView.widthAnchor)
-        ])
-        
-        return buttonStackView
     }
     
     @objc private func didTapButton() {
