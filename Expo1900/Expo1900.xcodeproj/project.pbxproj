@@ -14,6 +14,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D26543092A4C5B3C003B1AC0 /* KoreaEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26543082A4C5B3C003B1AC0 /* KoreaEntryViewController.swift */; };
+		D265430B2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D265430A2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift */; };
 		D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */; };
 		D2DB552C2A4C3ED4003F80C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB552B2A4C3ED4003F80C6 /* MainView.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D26543082A4C5B3C003B1AC0 /* KoreaEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryViewController.swift; sourceTree = "<group>"; };
+		D265430A2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDataSource.swift; sourceTree = "<group>"; };
 		D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpositionInformation.swift; sourceTree = "<group>"; };
 		D2DB552B2A4C3ED4003F80C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,11 +111,20 @@
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 				5B04A3132A4C56310059C690 /* App */,
 				5B04A3162A4C564D0059C690 /* Resource */,
+				D265430C2A4D32FB003B1AC0 /* Model */,
 				5B04A3152A4C56440059C690 /* ViewController */,
 				5B04A3142A4C563C0059C690 /* View */,
-				5BA9929C2A49B1D100613BD1 /* DTO */,
 			);
 			path = Expo1900;
+			sourceTree = "<group>";
+		};
+		D265430C2A4D32FB003B1AC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D265430A2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift */,
+				5BA9929C2A49B1D100613BD1 /* DTO */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 				D2DB552C2A4C3ED4003F80C6 /* MainView.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				D26543092A4C5B3C003B1AC0 /* KoreaEntryViewController.swift in Sources */,
+				D265430B2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift in Sources */,
 				D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
