@@ -81,4 +81,11 @@ extension ExpositionItemViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = ExpositionItemDetailViewController(expositionItemDetail: expositionItemEntity[indexPath.row])
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+        
+    }
 }
