@@ -12,16 +12,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    private let numberFormatter = NumberFormatter()
-    
-    private func decimalNumber() {
-        numberFormatter.numberStyle = .decimal
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decimalNumber()
         fillLabels()
         navigationItem.title = "메인"
     }
@@ -43,16 +37,10 @@ class MainViewController: UIViewController {
             expoGuideData = try ExpoGuide.decode(file: "exposition_universelle_1900")
         } catch {}
         
-        guard let visitorText = expoGuideData.visitors,
-              let locationText = expoGuideData.location,
-              let durationText = expoGuideData.duration else { return }
-        
-        guard let decimalVisitorText = numberFormatter.string(from: visitorText as NSNumber) else { return }
-        
         titleLabel.text = expoGuideData.title?.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = "방문객 : \(String(decimalVisitorText)) 명"
-        locationLabel.text = "개최지 : \(locationText)"
-        durationLabel.text = "개최 기간: \(durationText)"
+        visitorsLabel.text = expoGuideData.visitors?.changeToDecimalStylePopulation()
+        locationLabel.text = expoGuideData.location
+        durationLabel.text = expoGuideData.duration
         descriptionLabel.text = expoGuideData.description
     }
     

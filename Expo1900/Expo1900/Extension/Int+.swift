@@ -1,0 +1,23 @@
+//
+//  Int+.swift
+//  Expo1900
+//
+//  Created by mint, Yetti on 2023/06/29.
+//
+
+import Foundation
+
+extension Int {
+    func changeToDecimalStylePopulation() -> String? {
+        let koreanPopulationExpression = " 명"
+        let numberFormatter = NumberFormatter()
+        
+        numberFormatter.numberStyle = .decimal
+        
+        guard let decimalStyleNumber = numberFormatter.string(from: self as NSNumber) else {
+            return nil
+        }
+        
+        return decimalStyleNumber + koreanPopulationExpression
+    }
+}
