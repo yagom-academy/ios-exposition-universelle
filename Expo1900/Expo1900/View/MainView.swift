@@ -11,24 +11,24 @@ protocol MainViewDelegate: AnyObject {
     func pushKoreaEntryViewController()
 }
 
-class MainView: UIView {
+final class MainView: UIView {
     weak var delegate: MainViewDelegate?
     
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .red
         scrollView.translatesAutoresizingMaskIntoConstraints  = false
         return scrollView
     }()
     
-    let contentView: UIView = {
+    private let contentView: UIView = {
         let contentView = UIView()
         contentView.backgroundColor = .blue
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
     
-    let contentStackView: UIStackView = {
+    private let contentStackView: UIStackView = {
         let contentStackView = UIStackView()
         contentStackView.axis = .vertical
         contentStackView.spacing = 8
@@ -39,7 +39,7 @@ class MainView: UIView {
         return contentStackView
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "제목"
         titleLabel.numberOfLines = 0
@@ -48,58 +48,58 @@ class MainView: UIView {
         return titleLabel
     }()
     
-    let visitorsLabel: UILabel = {
+    private let visitorsLabel: UILabel = {
         let visitorsLabel = UILabel()
         visitorsLabel.text = "방문객"
         return visitorsLabel
     }()
     
-    let locationLabel: UILabel = {
+    private let locationLabel: UILabel = {
         let locationLabel = UILabel()
         locationLabel.numberOfLines = 0
         locationLabel.text = "위치"
         return locationLabel
     }()
     
-    let durationLabel: UILabel = {
+    private let durationLabel: UILabel = {
         let durationLabel = UILabel()
         durationLabel.text = "기간"
         return durationLabel
     }()
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.text = "디테일"
         descriptionLabel.numberOfLines = 0
         return descriptionLabel
     }()
     
-    let infoImage: UIImageView = {
+    private let infoImage: UIImageView = {
         let infoImage = UIImageView()
         infoImage.image = UIImage(named: "poster")
         return infoImage
     }()
     
-    let leftImage: UIImageView = {
+    private let leftImage: UIImageView = {
         let leftImage = UIImageView()
         leftImage.image = UIImage(named: "flag")
         return leftImage
     }()
     
-    let rightImage: UIImageView = {
+    private let rightImage: UIImageView = {
         let rightImage = UIImageView()
         rightImage.image = UIImage(named: "flag")
         return rightImage
     }()
     
-    lazy var koreaExpositionButton: UIButton = {
+    private lazy var koreaExpositionButton: UIButton = {
         let koreaExpositionButton = UIButton()
         koreaExpositionButton.setTitle("한국 박람회 전시", for: .normal)
         koreaExpositionButton.addTarget(self, action: #selector(didTappedKoreaExhibitionButton), for: .touchUpInside)
         return koreaExpositionButton
     }()
     
-    let bottomStackView: UIStackView = {
+    private let bottomStackView: UIStackView = {
         let bottomStackView = UIStackView()
         bottomStackView.axis = .horizontal
         bottomStackView.spacing = 30

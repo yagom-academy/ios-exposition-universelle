@@ -7,9 +7,8 @@
 
 import UIKit
 
-class KoreaEntryViewController: UIViewController {
+final class KoreaEntryViewController: UIViewController {
     private let cellIdentifier = "basiceCell"
-    
     private lazy var dataSource: KoreaEntryDataSource = {
         let dataSource = KoreaEntryDataSource(cellIdentifier)
         dataSource.loadKoreaEntryInformation()

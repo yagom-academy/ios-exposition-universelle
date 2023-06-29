@@ -6,8 +6,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController, MainViewDelegate {
-    lazy var mainView: MainView = {
+final class MainViewController: UIViewController, MainViewDelegate {
+    private lazy var mainView: MainView = {
         let view = MainView()
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +20,6 @@ class MainViewController: UIViewController, MainViewDelegate {
         configureUI()
         setUpConstraints()
         loadMainViewInformation()
-        
         navigationItem.backButtonTitle = "메인"
     }
     

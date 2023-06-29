@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaEntryDataSource: NSObject, UITableViewDataSource {
+final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
     var cellIdentifier: String
     private var koreaEntryList: [ExhibitionItem]?
     
