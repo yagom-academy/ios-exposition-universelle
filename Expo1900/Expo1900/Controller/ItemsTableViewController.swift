@@ -55,16 +55,14 @@ final class ItemsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextViewController = storyboard?.instantiateViewController(
+        if let nextViewController = storyboard?.instantiateViewController(
             identifier: ItemDetailViewController.id,
             creator: { coder in
                 return ItemDetailViewController(item: self.items[indexPath.row], coder: coder)
             }
-        ) else {
-            return
+        ) {
+            navigationController?.pushViewController(nextViewController, animated: true)
         }
-        
-        navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     private func decodeJSONToItems() {
