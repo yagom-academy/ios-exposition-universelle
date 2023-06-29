@@ -31,14 +31,8 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
 // MARK: - Load Inforamtion
 extension KoreaEntryDataSource {
     func loadKoreaEntryInformation() {
-        let jsonDecoder = JSONDecoder()
-        guard let asset = NSDataAsset(name: "items") else { return }
+        guard let data: [ExhibitionItem] = Decoder.decode(fileName: "items") else { return }
         
-        do {
-            let data = try jsonDecoder.decode([ExhibitionItem].self, from: asset.data)
-            koreaEntryList = data
-        } catch {
-            print(error.localizedDescription)
-        }
+        koreaEntryList = data
     }
 }
