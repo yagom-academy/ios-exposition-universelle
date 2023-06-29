@@ -16,6 +16,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D26543092A4C5B3C003B1AC0 /* KoreaEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26543082A4C5B3C003B1AC0 /* KoreaEntryViewController.swift */; };
 		D265430B2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D265430A2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift */; };
+		D265432E2A4D6AC1003B1AC0 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D265432D2A4D6AC1003B1AC0 /* EntryDetailViewController.swift */; };
 		D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */; };
 		D2DB552C2A4C3ED4003F80C6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB552B2A4C3ED4003F80C6 /* MainView.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D26543082A4C5B3C003B1AC0 /* KoreaEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryViewController.swift; sourceTree = "<group>"; };
 		D265430A2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryDataSource.swift; sourceTree = "<group>"; };
+		D265432D2A4D6AC1003B1AC0 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisExpositionInformation.swift; sourceTree = "<group>"; };
 		D2DB552B2A4C3ED4003F80C6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				D26543082A4C5B3C003B1AC0 /* KoreaEntryViewController.swift */,
+				D265432D2A4D6AC1003B1AC0 /* EntryDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */,
 				5B04A33E2A4D68080059C690 /* UITableViewCell +.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				D265432E2A4D6AC1003B1AC0 /* EntryDetailViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
