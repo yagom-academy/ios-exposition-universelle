@@ -10,7 +10,6 @@ import UIKit
 class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     private let expositionItemEntity = DecodingManager().decodeExpositionItemsJSON()
     private let identifier: String = IdentifierNamespace.cell
-    private var isSetUpEntity: Bool = false
     
     private let tableView = {
         let tableView = UITableView()
@@ -22,7 +21,7 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = ViewControllerTitleNamespace.koreanItem
+        self.title = ViewControllerTitleNamespace.koreanItem
         
         configureUI()
     }
@@ -35,39 +34,10 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         
         NSLayoutConstraint.activate([
-            tableView
-                .topAnchor
-                .constraint(equalTo: view.topAnchor),
-            tableView
-                .leftAnchor
-                .constraint(equalTo: view.leftAnchor),
-            tableView
-                .rightAnchor
-                .constraint(equalTo: view.rightAnchor),
-            tableView
-                .bottomAnchor
-                .constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
-    private func configureErrorLabel() {
-        let errorLabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = LabelTextNameSpace.errorMessage
-            
-            return label
-        }()
-        
-        view.addSubview(errorLabel)
-        
-        NSLayoutConstraint.activate([
-            errorLabel
-                .centerXAnchor
-                .constraint(equalTo: view.centerXAnchor),
-            errorLabel
-                .centerYAnchor
-                .constraint(equalTo: view.centerYAnchor)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }

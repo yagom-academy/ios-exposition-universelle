@@ -50,15 +50,9 @@ class ChangeViewButtonStackView: UIStackView {
         changeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
         
         NSLayoutConstraint.activate([
-            leftFlagImageView
-                .heightAnchor
-                .constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView
-                .heightAnchor
-                .constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView
-                .widthAnchor
-                .constraint(equalTo: leftFlagImageView.widthAnchor)
+            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
+            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
+            rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor)
         ])
     }
 }

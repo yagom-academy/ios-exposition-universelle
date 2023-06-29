@@ -8,7 +8,6 @@ import UIKit
 
 class ExpositionViewController: UIViewController {
     private let expositionEntity = DecodingManager().decodeExpositionJSON()
-    private var isSetUpEntity: Bool = false
     
     private let mainScrollView = {
         let scrollView = UIScrollView()
@@ -22,9 +21,11 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = ViewControllerTitleNamespace.main
+        self.title = ViewControllerTitleNamespace.main
         
-        configureUI()
+        configureMainStackView()
+        configureMainView()
+        addConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,88 +36,42 @@ class ExpositionViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    private func configureUI() {
+    private func configureMainView() {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(mainStackView)
-        
-        NSLayoutConstraint.activate([
-            mainScrollView
-                .topAnchor
-                .constraint(equalTo: view.topAnchor),
-            mainScrollView
-                .bottomAnchor
-                .constraint(equalTo: view.bottomAnchor),
-            mainScrollView
-                .leftAnchor
-                .constraint(equalTo: view.leftAnchor),
-            mainScrollView
-                .rightAnchor
-                .constraint(equalTo: view.rightAnchor),
-            
-            mainStackView
-                .topAnchor
-                .constraint(equalTo: mainScrollView.topAnchor, constant: 20),
-            mainStackView
-                .bottomAnchor
-                .constraint(equalTo: mainScrollView.bottomAnchor, constant: -20),
-            mainStackView
-                .centerXAnchor
-                .constraint(equalTo: mainScrollView.centerXAnchor),
-            mainStackView
-                .widthAnchor
-                .constraint(equalTo: mainScrollView.widthAnchor, constant: -40)
-        ])
-        
-        configureStackView()
     }
     
-    private func configureErrorLabel() {
-        let errorLabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = LabelTextNameSpace.errorMessage
-            
-            return label
-        }()
-        
-        view.addSubview(errorLabel)
-        
+    private func addConstraints() {
         NSLayoutConstraint.activate([
-            errorLabel
-                .centerXAnchor
-                .constraint(equalTo: view.centerXAnchor),
-            errorLabel
-                .centerYAnchor
-                .constraint(equalTo: view.centerYAnchor)
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mainScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            mainScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            
+            mainStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: 20),
+            mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -20),
+            mainStackView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
+            mainStackView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -40),
+            
+            mainStackView.buttonStackView.leftAnchor.constraint(equalTo: mainStackView.leftAnchor, constant: 20),
+            mainStackView.buttonStackView.rightAnchor.constraint(equalTo: mainStackView.rightAnchor, constant: -20)
         ])
     }
     
-    private func configureStackView() {
+    private func configureMainStackView() {
         mainStackView.titleLabel.text = expositionEntity.title.replacingOccurrences(of: "(", with: "\n(")
         mainStackView.descriptionLabel.text = expositionEntity.description
         
-        let formattedVisitors = "\(expositionEntity.visitors.formatToDecimal()) 명"
+        let formattedVisitors = expositionEntity.visitors.formatToDecimal()
         
-        mainStackView.visitorsStackView.subtitleLabel.text = LabelTextNameSpace.visitors
-        mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors)"
-        mainStackView.locationStackView.subtitleLabel.text = LabelTextNameSpace.location
+        mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors) 명"
         mainStackView.locationStackView.dataLabel.text = ": \(expositionEntity.location)"
-        mainStackView.durationStackView.subtitleLabel.text = LabelTextNameSpace.duration
         mainStackView.durationStackView.dataLabel.text = ": \(expositionEntity.duration)"
         
         mainStackView.buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        
-        NSLayoutConstraint.activate([
-            mainStackView.buttonStackView
-                .leftAnchor
-                .constraint(equalTo: mainStackView.leftAnchor, constant: 40),
-            mainStackView.buttonStackView
-                .rightAnchor
-                .constraint(equalTo: mainStackView.rightAnchor, constant: -40)
-        ])
     }
     
     @objc private func didTapButton() {
-        show(ExpositionItemViewController(), sender: mainStackView)
+        navigationController?.pushViewController(ExpositionItemViewController(), animated: true)
     }
 }

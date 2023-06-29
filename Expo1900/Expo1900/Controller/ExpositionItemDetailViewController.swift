@@ -26,6 +26,19 @@ class ExpositionItemDetailViewController: UIViewController {
         
         return stackView
     }()
+
+    let itemImage = {
+        let imageView = UIImageView()
+        
+        return imageView
+    }()
+    
+    let itemDescription = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        
+        return label
+    }()
     
     init(expositionItemDetail: ExpositionItemEntity) {
         self.expositionItemDetail = expositionItemDetail
@@ -41,61 +54,32 @@ class ExpositionItemDetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.title = expositionItemDetail.name
         
-        configureUI()
+        configureView()
+        addConstraints()
     }
     
-    private func configureUI() {
+    private func configureView() {
         view.addSubview(detailScrollView)
         detailScrollView.addSubview(detailStackView)
         
-        NSLayoutConstraint.activate([
-            detailScrollView
-                .topAnchor
-                .constraint(equalTo: view.topAnchor),
-            detailScrollView
-                .bottomAnchor
-                .constraint(equalTo: view.bottomAnchor),
-            detailScrollView
-                .leftAnchor
-                .constraint(equalTo: view.leftAnchor),
-            detailScrollView
-                .rightAnchor
-                .constraint(equalTo: view.rightAnchor),
-            
-            detailStackView
-                .topAnchor
-                .constraint(equalTo: detailScrollView.topAnchor, constant: 20),
-            detailStackView
-                .bottomAnchor
-                .constraint(equalTo: detailScrollView.bottomAnchor, constant: -20),
-            detailStackView
-                .centerXAnchor
-                .constraint(equalTo: detailScrollView.centerXAnchor),
-            detailStackView
-                .widthAnchor
-                .constraint(equalTo: detailScrollView.widthAnchor, constant: -40)
-        ])
-        
-        configureStackView()
-    }
-    
-    private func configureStackView() {
-        let itemImage = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: expositionItemDetail.imageName)
-            
-            return imageView
-        }()
-        
-        let itemDescription = {
-            let label = UILabel()
-            label.text = expositionItemDetail.description
-            label.numberOfLines = 0
-            
-            return label
-        }()
+        itemImage.image = UIImage(named: expositionItemDetail.imageName)
+        itemDescription.text = expositionItemDetail.description
         
         detailStackView.addArrangedSubview(itemImage)
         detailStackView.addArrangedSubview(itemDescription)
+    }
+    
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            detailScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            detailScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            detailScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            detailScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            
+            detailStackView.topAnchor.constraint(equalTo: detailScrollView.topAnchor, constant: 20),
+            detailStackView.bottomAnchor.constraint(equalTo: detailScrollView.bottomAnchor, constant: -20),
+            detailStackView.centerXAnchor.constraint(equalTo: detailScrollView.centerXAnchor),
+            detailStackView.widthAnchor.constraint(equalTo: detailScrollView.widthAnchor, constant: -40)
+        ])
     }
 }

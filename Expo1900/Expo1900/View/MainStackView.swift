@@ -53,6 +53,10 @@ class MainStackView: UIStackView {
         self.alignment = .center
         self.spacing = 10
         
+        visitorsStackView.subtitleLabel.text = LabelTextNameSpace.visitors
+        locationStackView.subtitleLabel.text = LabelTextNameSpace.location
+        durationStackView.subtitleLabel.text = LabelTextNameSpace.duration
+        
         self.addArrangedSubview(titleLabel)
         self.addArrangedSubview(posterImageView)
         self.addArrangedSubview(visitorsStackView)
