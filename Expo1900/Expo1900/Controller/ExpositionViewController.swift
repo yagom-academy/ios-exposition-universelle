@@ -130,11 +130,22 @@ class ExpositionViewController: UIViewController {
         
         let formattedVisitors = "\(expositionEntity.visitors.formatToDecimal()) 명"
         
+        let visitorsStackView = ExpositionInformationStackView()
+        let locationStackView = ExpositionInformationStackView()
+        let durationStackView = ExpositionInformationStackView()
+        
+        visitorsStackView.subtitleLabel.text = LabelTextNameSpace.visitors
+        visitorsStackView.dataLabel.text = ": \(formattedVisitors)"
+        locationStackView.subtitleLabel.text = LabelTextNameSpace.location
+        locationStackView.dataLabel.text = ": \(expositionEntity.location)"
+        durationStackView.subtitleLabel.text = LabelTextNameSpace.duration
+        durationStackView.dataLabel.text = ": \(expositionEntity.duration)"
+        
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(posterImageView)
-        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.visitors, formattedVisitors))
-        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.location, expositionEntity.location))
-        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.duration, expositionEntity.duration))
+        verticalStackView.addArrangedSubview(visitorsStackView)
+        verticalStackView.addArrangedSubview(locationStackView)
+        verticalStackView.addArrangedSubview(durationStackView)
         verticalStackView.addArrangedSubview(descriptionLabel)
         verticalStackView.addArrangedSubview(buttonStackView)
         
@@ -148,39 +159,6 @@ class ExpositionViewController: UIViewController {
                 .rightAnchor
                 .constraint(equalTo: verticalStackView.rightAnchor, constant: -40)
         ])
-    }
-    
-    private func configureDetailsStackView(_ subtitle: String, _ data: String) -> UIStackView {
-        let detailsStackView = {
-            let stackView = UIStackView()
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .horizontal
-            stackView.alignment = .center
-            stackView.spacing = 10
-            
-            return stackView
-        }()
-        
-        let subtitleLabel = {
-            let label = UILabel()
-            label.text = subtitle
-            label.font = .preferredFont(forTextStyle: .title3)
-            
-            return label
-        }()
-        
-        let dataLabel = {
-            let label = UILabel()
-            label.text = ": \(data)"
-            label.font = .preferredFont(forTextStyle: .body)
-            
-            return label
-        }()
-        
-        detailsStackView.addArrangedSubview(subtitleLabel)
-        detailsStackView.addArrangedSubview(dataLabel)
-        
-        return detailsStackView
     }
     
     @objc private func didTapButton() {
