@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - ExpositionViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
-// 
+//  last modified by Max, Whales.
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpositionViewController: UIViewController {
     private var expositionEntity: ExpositionEntity?
     private var isSetUpEntity: Bool = false
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         setUpEntity()
         configureUI()
