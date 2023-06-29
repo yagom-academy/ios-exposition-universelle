@@ -1,6 +1,6 @@
 //
 //  Expo1900 - ExpositionViewController.swift
-//  Created by yagom. 
+//  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
 //  last modified by Max, Whales.
 
@@ -53,6 +53,7 @@ class ExpositionViewController: UIViewController {
     private func configureUI() {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(verticalStackView)
+        navigationItem.title = "메인"
         
         let safeArea = view.safeAreaLayoutGuide
         
@@ -65,6 +66,7 @@ class ExpositionViewController: UIViewController {
             verticalStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
             verticalStackView.leftAnchor.constraint(equalTo: mainScrollView.leftAnchor),
+            verticalStackView.rightAnchor.constraint(equalTo: mainScrollView.rightAnchor),
             verticalStackView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor)
         ])
         
@@ -125,7 +127,12 @@ class ExpositionViewController: UIViewController {
         verticalStackView.addArrangedSubview(descriptionLabel)
         verticalStackView.addArrangedSubview(stackView)
         
-        stackView.widthAnchor.constraint(equalTo: verticalStackView.widthAnchor).isActive = true
+//        stackView.widthAnchor.constraint(equalTo: verticalStackView.widthAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            stackView.leftAnchor.constraint(equalTo: verticalStackView.leftAnchor, constant: 40),
+            stackView.rightAnchor.constraint(equalTo: verticalStackView.rightAnchor, constant: -40)
+        ])
+        
     }
     
     private func configureDetailsStackView(_ subtitle: String, _ data: String) -> UIStackView {
@@ -166,6 +173,7 @@ class ExpositionViewController: UIViewController {
            let stackView = UIStackView()
             stackView.axis = .horizontal
             stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.spacing = 30
             
             return stackView
         }()
@@ -189,8 +197,10 @@ class ExpositionViewController: UIViewController {
         let changeViewButton = {
             let button = UIButton()
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("한국 출품작 보러가기", for: .normal)
-            button.setTitleColor(UIColor.blue, for: .normal)
+            button.setTitle("한국의 출품작 보러가기", for: .normal)
+            button.setTitleColor(UIColor.systemBlue, for: .normal)
+            button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+            button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
             
             return button
         }()
@@ -198,10 +208,21 @@ class ExpositionViewController: UIViewController {
         buttonStackView.addArrangedSubview(leftFlagImageView)
         buttonStackView.addArrangedSubview(changeViewButton)
         buttonStackView.addArrangedSubview(rightFlagImageView)
-        
-        leftFlagImageView.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.2).isActive = true
-        rightFlagImageView.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.2).isActive = true
-        
+
+        leftFlagImageView.setContentCompressionResistancePriority(.init(100), for: .horizontal)
+        rightFlagImageView.setContentCompressionResistancePriority(.init(100), for: .horizontal)
+        changeViewButton.setContentCompressionResistancePriority(.init(900), for: .horizontal)
+
+
+        NSLayoutConstraint.activate([
+            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
+            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65)
+        ])
+
         return buttonStackView
+    }
+    
+    @objc private func didTapButton() {
+        show(ExpositionItemViewController(), sender: verticalStackView)
     }
 }

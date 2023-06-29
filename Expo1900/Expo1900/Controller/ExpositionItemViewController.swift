@@ -21,6 +21,7 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        view.addSubview(tableView)
         
         tableView.register(ExpositionItemTableViewCell.self, forCellReuseIdentifier: identifier)
         tableView.dataSource = self
