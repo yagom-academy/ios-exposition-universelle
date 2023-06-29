@@ -14,9 +14,10 @@ struct Entry: Decodable {
     enum CodingKeys: String, CodingKey {
         case imageName = "image_name"
         case shortDescription = "short_desc"
+        case description = "desc"
         
         case name
-        case description
+        
     }
     
     init(name: String? = nil, imageName: String? = nil, shortDescription: String? = nil, description: String? = nil) {

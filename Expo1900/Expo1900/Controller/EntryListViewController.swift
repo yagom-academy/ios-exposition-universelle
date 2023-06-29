@@ -42,4 +42,11 @@ extension EntryListViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let entryDetailViewController = self.storyboard?.instantiateViewController(identifier: "entryDetailViewController", creator: { coder in
+            EntryDetailViewController(coder: coder, data: self.entryData[indexPath.row]) }) else { return }
+        
+        navigationController?.pushViewController(entryDetailViewController, animated: true)
+    }
 }
