@@ -2,7 +2,7 @@
 //  DecodingManager.swift
 //  Expo1900
 //
-//  Created by Whales on 2023/06/29.
+//  Created by Max, Whales on 2023/06/29.
 //
 
 import UIKit

@@ -46,13 +46,19 @@ class ChangeViewButtonStackView: UIStackView {
         self.addArrangedSubview(leftFlagImageView)
         self.addArrangedSubview(changeViewButton)
         self.addArrangedSubview(rightFlagImageView)
-
+        
         changeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
+        changeViewButton.setContentCompressionResistancePriority(.init(999), for: .vertical)
+        leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
+        leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
+        rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
+        rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
         
         NSLayoutConstraint.activate([
             leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
             rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor)
+            rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor),
+            leftFlagImageView.heightAnchor.constraint(equalTo: changeViewButton.heightAnchor)
         ])
     }
 }

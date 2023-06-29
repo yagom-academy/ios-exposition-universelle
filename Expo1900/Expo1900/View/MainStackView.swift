@@ -2,7 +2,7 @@
 //  MainStackView.swift
 //  Expo1900
 //
-//  Created by Min Hyun on 2023/06/30.
+//  Created by Max, Whales on 2023/06/30.
 //
 
 import UIKit

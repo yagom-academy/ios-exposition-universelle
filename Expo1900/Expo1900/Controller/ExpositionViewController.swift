@@ -53,8 +53,7 @@ class ExpositionViewController: UIViewController {
             mainStackView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
             mainStackView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -40),
             
-            mainStackView.buttonStackView.leftAnchor.constraint(equalTo: mainStackView.leftAnchor, constant: 20),
-            mainStackView.buttonStackView.rightAnchor.constraint(equalTo: mainStackView.rightAnchor, constant: -20)
+            mainStackView.buttonStackView.centerXAnchor.constraint(equalTo: mainStackView.centerXAnchor)
         ])
     }
     
