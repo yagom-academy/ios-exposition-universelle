@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol PushViewDelegate: AnyObject {
+    func didTappedKoreaExhibitionButton()
+}
+
 class MainView: UIView {
+    weak var delegate: PushViewDelegate?
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .red
@@ -86,9 +92,10 @@ class MainView: UIView {
         return rightImage
     }()
     
-    let koreaExpositionButton: UIButton = {
+    lazy var koreaExpositionButton: UIButton = {
         let koreaExpositionButton = UIButton()
         koreaExpositionButton.setTitle("한국 박람회 전시", for: .normal)
+        koreaExpositionButton.addTarget(self, action: #selector(didTappedKoreaExhibitionButton), for: .touchUpInside)
         return koreaExpositionButton
     }()
     
@@ -105,7 +112,7 @@ class MainView: UIView {
         self.init(frame: CGRectZero)
         
         configureUI()
-        setUpContraints()
+        setUpConstraints()
     }
     
     override init(frame: CGRect) {
@@ -130,7 +137,7 @@ class MainView: UIView {
         addSubview(scrollView)
 }
     
-    private func setUpContraints() {
+    private func setUpConstraints() {
         setUpScrollViewConstraints()
         setUpContentViewConstraints()
         setUpContentStackViewConstraints()
@@ -145,17 +152,17 @@ extension MainView {
         locationLabel.text = "개최지 : \(information.location)"
         durationLabel.text = "개최 기간 : \(information.duration)"
         descriptionLabel.text = information.description
-        loadVistorsInformation(information.visitors)
+        loadVisitorsInformation(information.visitors)
     }
     
-    private func loadVistorsInformation(_ vistors: UInt) {
+    private func loadVisitorsInformation(_ visitors: UInt) {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        let vistorsAsNumber = numberFormatter.number(from: vistors.description) ?? 0
-        guard let vistorsAsFormatterString = numberFormatter.string(from: vistorsAsNumber) else { return }
+        let visitorsAsNumber = numberFormatter.number(from: visitors.description) ?? 0
+        guard let visitorsAsFormatterString = numberFormatter.string(from: visitorsAsNumber) else { return }
         
-        visitorsLabel.text = "방문객 : \(vistorsAsFormatterString) 명"
+        visitorsLabel.text = "방문객 : \(visitorsAsFormatterString) 명"
     }
 }
 
@@ -163,10 +170,10 @@ extension MainView {
 extension MainView {
     private func setUpScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
@@ -201,5 +208,12 @@ extension MainView {
             rightImage.heightAnchor.constraint(equalToConstant: 40),
             rightImage.widthAnchor.constraint(equalToConstant: 60)
         ])
+    }
+}
+
+// MARK: - Delegate
+extension MainView {
+    @objc func didTappedKoreaExhibitionButton() {
+        delegate?.didTappedKoreaExhibitionButton()
     }
 }

@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, PushViewDelegate {
     let mainView: MainView = {
         let view = MainView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +19,21 @@ class MainViewController: UIViewController {
         configureUI()
         setUpConstraints()
         loadMainViewInformation()
+        mainView.delegate = self
+        
+        navigationItem.backButtonTitle = "메인"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    func didTappedKoreaExhibitionButton() {
+        navigationController?.pushViewController(KoreaEntryViewController(), animated: true)
     }
     
     private func configureUI() {
@@ -29,7 +44,7 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainView.topAnchor.constraint(equalTo: view.topAnchor),
             mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
@@ -45,6 +60,5 @@ class MainViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
 }
 
