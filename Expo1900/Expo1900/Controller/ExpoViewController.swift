@@ -1,12 +1,12 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - ExpoViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
-// 
+//  last modified by MARY, KOBE.
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
