@@ -10,7 +10,7 @@ import UIKit
 class ItemUITableViewCellStyleSubtitle: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .green
+        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {

@@ -19,6 +19,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		DC42FFE72A49943D0046D339 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42FFE62A49943D0046D339 /* ExpositionUniverselle.swift */; };
 		DC9E376F2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E376E2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift */; };
+		DC9E37712A4DA6FE00563254 /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E37702A4DA6FE00563254 /* ExpositionItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC42FFE62A49943D0046D339 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
 		DC9E376E2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUITableViewCellStyleSubtitle.swift; sourceTree = "<group>"; };
+		DC9E37702A4DA6FE00563254 /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ExpositionUniverselleViewController.swift */,
 				78728DEC2A4C5D8E00966B52 /* ExpositionItemListViewController.swift */,
+				DC9E37702A4DA6FE00563254 /* ExpositionItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				78728DED2A4C5D8F00966B52 /* ExpositionItemListViewController.swift in Sources */,
 				DC9E376F2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift in Sources */,
 				DC42FFE72A49943D0046D339 /* ExpositionUniverselle.swift in Sources */,
+				DC9E37712A4DA6FE00563254 /* ExpositionItemViewController.swift in Sources */,
 				78C454312A4D886C00B21BE4 /* JSONDecoder+Extension.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);

@@ -13,14 +13,13 @@ class ExpositionItemListViewController: UIViewController {
     private let itemListTableView: UITableView = {
         let tableView: UITableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .brown
         
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "한국의 출품작"
         decodeItems()
         view.backgroundColor = .systemBackground
         itemListTableView.delegate = self
@@ -35,7 +34,7 @@ class ExpositionItemListViewController: UIViewController {
             itemListTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
+
     private func decodeItems() {
         do {
             itemList = try JSONDecoder().decode([Item].self, from: "items")
@@ -43,6 +42,7 @@ class ExpositionItemListViewController: UIViewController {
             print(error)
         }
     }
+    
 }
 
 extension ExpositionItemListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,4 +61,11 @@ extension ExpositionItemListViewController: UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let expositionItemViewController: ExpositionItemViewController = ExpositionItemViewController(item: itemList[indexPath.row])
+        navigationController?.pushViewController(expositionItemViewController, animated: true)
+    }
+    
 }

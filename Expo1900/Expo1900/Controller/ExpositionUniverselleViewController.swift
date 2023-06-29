@@ -82,17 +82,11 @@ class ExpositionUniverselleViewController: UIViewController {
         return button
     }()
     
-    @objc private func touchUpExpositionItemListButton() {
-        let expositionItemListViewController: ExpositionItemListViewController = ExpositionItemListViewController()
-        navigationController?.pushViewController(expositionItemListViewController, animated: true)
-    }
-    
     private let verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
-        stackView.backgroundColor = .brown
         
         return stackView
     }()
@@ -101,7 +95,6 @@ class ExpositionUniverselleViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.backgroundColor = .green
         
         return stackView
     }()
@@ -115,10 +108,29 @@ class ExpositionUniverselleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "메인"
         view.backgroundColor = .systemBackground
         decodeExpositionUniverselle()
         configureView()
         configureConstraint()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func decodeExpositionUniverselle() {
+        do {
+            expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: "exposition_universelle_1900")
+        } catch {
+            print(error)
+        }
     }
     
     private func configureView() {
@@ -147,11 +159,8 @@ class ExpositionUniverselleViewController: UIViewController {
         ])
     }
     
-    private func decodeExpositionUniverselle() {
-        do {
-            expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: "exposition_universelle_1900")
-        } catch {
-            print(error)
-        }
+    @objc private func touchUpExpositionItemListButton() {
+        let expositionItemListViewController: ExpositionItemListViewController = ExpositionItemListViewController()
+        navigationController?.pushViewController(expositionItemListViewController, animated: true)
     }
 }
