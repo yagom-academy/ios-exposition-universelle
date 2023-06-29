@@ -37,9 +37,9 @@ final class ExpositionUniverselleViewController: UIViewController {
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
         guard let nextViewController = storyboard?.instantiateViewController(
             identifier: ItemsTableViewController.id,
-            creator: {
+            creator: { coder in
                 let title = sender.currentTitle?.replacingOccurrences(of: " 보러가기", with: "") ?? ""
-                return ItemsTableViewController(navigationTitle: title, coder: $0)
+                return ItemsTableViewController(navigationTitle: title, coder: coder)
             }
         ) else {
             return
