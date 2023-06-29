@@ -22,6 +22,30 @@ final class EntryDetailViewController: UIViewController {
         return contentView
     }()
     
+    private let contentImage: UIImageView = {
+        let contentImage = UIImageView()
+        contentImage.image = UIImage(named: "poster")
+        return contentImage
+    }()
+    
+    private let contentLabel: UILabel = {
+        let contentLabel = UILabel()
+        contentLabel.numberOfLines = 0
+        contentLabel.backgroundColor = .brown
+        return contentLabel
+    }()
+    
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.backgroundColor = .purple
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +54,10 @@ final class EntryDetailViewController: UIViewController {
     }
     
     private func configureUI() {
+        [contentImage, contentLabel].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        contentView.addSubview(stackView)
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
     }
@@ -37,6 +65,7 @@ final class EntryDetailViewController: UIViewController {
     private func setUpConstraints() {
         setUpScrollViewConstraints()
         setUpContentViewConstraints()
+        setUpStackViewConstraints()
     }
 }
 
@@ -64,5 +93,14 @@ extension EntryDetailViewController {
         let contentViewHeightConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor, constant: 1)
         contentViewHeightConstraint.priority = .init(1)
         contentViewHeightConstraint.isActive = true
+    }
+    
+    private func setUpStackViewConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 }
