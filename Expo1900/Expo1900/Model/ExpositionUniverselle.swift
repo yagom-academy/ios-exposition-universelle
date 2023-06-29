@@ -4,6 +4,7 @@
 //
 //  Created by Erick, 비모 on 2023/06/26.
 //
+import UIKit
 
 struct ExpositionUniverselle: Codable {
     var title: String
