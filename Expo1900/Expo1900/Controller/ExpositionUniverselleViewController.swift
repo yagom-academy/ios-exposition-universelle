@@ -148,14 +148,8 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func decodeExpositionUniverselle() {
-        let decoder: JSONDecoder = JSONDecoder()
-        
-        guard let json = NSDataAsset(name: "exposition_universelle_1900") else {
-            return
-        }
-        
         do {
-            expositionUniverselle = try decoder.decode(ExpositionUniverselle.self, from: json.data)
+            expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: "exposition_universelle_1900")
         } catch {
             print(error)
         }

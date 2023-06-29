@@ -8,7 +8,8 @@
 import UIKit
 
 class ExpositionItemListViewController: UIViewController {
-
+    private var itemList: [Item] = []
+    
     private let itemListTableView: UITableView = {
         let tableView: UITableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +21,7 @@ class ExpositionItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        decodeItems()
         view.backgroundColor = .systemBackground
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
@@ -33,19 +35,29 @@ class ExpositionItemListViewController: UIViewController {
             itemListTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    private func decodeItems() {
+        do {
+            itemList = try JSONDecoder().decode([Item].self, from: "items")
+        } catch {
+            print(error)
+        }
+    }
 }
 
 extension ExpositionItemListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return itemList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ItemUITableViewCellStyleSubtitle else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ItemUITableViewCellStyleSubtitle else {
+            return UITableViewCell()
+        }
         
-        cell.textLabel?.text = "title"
-        cell.detailTextLabel?.text = "subtitle"
-        cell.imageView?.image = UIImage(named: "flag")
+        cell.textLabel?.text = itemList[indexPath.row].name
+        cell.detailTextLabel?.text = itemList[indexPath.row].shortDescription
+        cell.imageView?.image = UIImage(named: itemList[indexPath.row].imageName)
         
         return cell
     }

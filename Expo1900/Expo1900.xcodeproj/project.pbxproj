@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		78728DED2A4C5D8F00966B52 /* ExpositionItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78728DEC2A4C5D8E00966B52 /* ExpositionItemListViewController.swift */; };
 		788B8C7E2A49953D00081A6F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B8C7D2A49953D00081A6F /* Item.swift */; };
+		78C454312A4D886C00B21BE4 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C454302A4D886C00B21BE4 /* JSONDecoder+Extension.swift */; };
+		78C454342A4D894D00B21BE4 /* NSDataAssetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C454332A4D894D00B21BE4 /* NSDataAssetError.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionUniverselleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionUniverselleViewController.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		78728DEC2A4C5D8E00966B52 /* ExpositionItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemListViewController.swift; sourceTree = "<group>"; };
 		788B8C7D2A49953D00081A6F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		78C454302A4D886C00B21BE4 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
+		78C454332A4D894D00B21BE4 /* NSDataAssetError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDataAssetError.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78C4542F2A4D875F00B21BE4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78C454302A4D886C00B21BE4 /* JSONDecoder+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		78C454322A4D891300B21BE4 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				78C454332A4D894D00B21BE4 /* NSDataAssetError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +87,8 @@
 				DC57FC572A4993CB0032FB1E /* Model */,
 				DC42FFE82A499A240046D339 /* View */,
 				DC42FFE92A499A2D0046D339 /* Controller */,
+				78C4542F2A4D875F00B21BE4 /* Extension */,
+				78C454322A4D891300B21BE4 /* Error */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
@@ -174,12 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78C454342A4D894D00B21BE4 /* NSDataAssetError.swift in Sources */,
 				788B8C7E2A49953D00081A6F /* Item.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionUniverselleViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				78728DED2A4C5D8F00966B52 /* ExpositionItemListViewController.swift in Sources */,
 				DC9E376F2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift in Sources */,
 				DC42FFE72A49943D0046D339 /* ExpositionUniverselle.swift in Sources */,
+				78C454312A4D886C00B21BE4 /* JSONDecoder+Extension.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
