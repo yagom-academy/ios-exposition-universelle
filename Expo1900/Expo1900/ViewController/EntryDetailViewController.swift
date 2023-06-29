@@ -53,7 +53,7 @@ final class EntryDetailViewController: UIViewController {
         setUpConstraints()
     }
     
-    func setEntryDetatilInformation(_ title: String, _ imageName: String, _ description: String) {
+    func setEntryDetailInformation(_ title: String, _ imageName: String, _ description: String) {
         navigationItem.title = title
         contentImage.image = UIImage(named: imageName)
         contentLabel.text = description
