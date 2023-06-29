@@ -49,6 +49,8 @@ final class KoreaEntryViewController: UIViewController {
 // MARK: - TableView Delegate
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(EntryDetailViewController(), animated: true)
+        let entryDetailViewController = EntryDetailViewController()
+        
+        navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
