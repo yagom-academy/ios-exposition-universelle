@@ -2,7 +2,7 @@
 //  KoreaEntryDataSource.swift
 //  Expo1900
 //
-//  Created by Hyun A Song on 2023/06/29.
+//  Created by Zion, Serena on 2023/06/29.
 //
 
 import UIKit
@@ -20,11 +20,10 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        guard let koreaEntryItem = koreaEntryList?[indexPath.row] else { return UITableViewCell() }
         
-        cell.textLabel?.text = "TEST"
-        cell.detailTextLabel?.text = "WERWERW"
-        
+        cell.setExpositionEntryCell(information: koreaEntryItem)
         return cell
     }
 }
