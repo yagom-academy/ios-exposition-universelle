@@ -9,11 +9,13 @@ import UIKit
 
 class KoreaEntryViewController: UIViewController {
     private let cellIdentifier = "basiceCell"
+    
     private lazy var dataSource: KoreaEntryDataSource = {
         let dataSource = KoreaEntryDataSource(cellIdentifier)
         dataSource.loadKoreaEntryInformation()
         return dataSource
     }()
+    
     private lazy var tableView: UITableView = {
        let tableView = UITableView()
         tableView.delegate = self
