@@ -11,6 +11,7 @@
 		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */; };
 		3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */; };
 		3CBDC8252A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC8242A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift */; };
+		3CBDC8292A4DD1020089F7A2 /* DecodingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */; };
 		BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */; };
 		BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift */; };
 		BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */; };
@@ -43,6 +44,7 @@
 		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemEntityTests.swift; sourceTree = "<group>"; };
 		3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemTableViewCell.swift; sourceTree = "<group>"; };
 		3CBDC8242A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemDetailViewController.swift; sourceTree = "<group>"; };
+		3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingManager.swift; sourceTree = "<group>"; };
 		BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionEntity.swift; sourceTree = "<group>"; };
 		BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionEntityTests.swift; sourceTree = "<group>"; };
 		BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+.swift"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */,
 				BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */,
 				BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */,
+				3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				3CBDC8292A4DD1020089F7A2 /* DecodingManager.swift in Sources */,
 				BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

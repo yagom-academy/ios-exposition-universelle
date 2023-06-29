@@ -7,7 +7,7 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
-    private var expositionEntity: ExpositionEntity?
+    private let expositionEntity = DecodingManager().decodeExpositionJSON()
     private var isSetUpEntity: Bool = false
     
     private let mainScrollView = {
@@ -32,13 +32,6 @@ class ExpositionViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = ViewControllerTitleNamespace.main
         
-        setUpEntity()
-        
-        guard isSetUpEntity else {
-            configureErrorLabel()
-            return
-        }
-        
         configureUI()
     }
     
@@ -48,21 +41,6 @@ class ExpositionViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    private func setUpEntity() {
-        guard let entity = NSDataAsset(name: AssetNamespace.expositionUniverselle) else {
-            return
-        }
-        
-        let decorder = JSONDecoder()
-        
-        do {
-            expositionEntity = try decorder.decode(ExpositionEntity.self, from: entity.data)
-            isSetUpEntity = true
-        } catch {
-            isSetUpEntity = false
-        }
     }
     
     private func configureUI() {
@@ -122,11 +100,9 @@ class ExpositionViewController: UIViewController {
     }
     
     private func configureStackView() {
-        guard let entity = expositionEntity else { return }
-        
         let titleLabel = {
             let label = UILabel()
-            label.text = entity.title.replacingOccurrences(of: "(", with: "\n(")
+            label.text = expositionEntity.title.replacingOccurrences(of: "(", with: "\n(")
             label.font = .preferredFont(forTextStyle: .title1)
             label.numberOfLines = 0
             label.textAlignment = .center
@@ -143,21 +119,21 @@ class ExpositionViewController: UIViewController {
         
         let descriptionLabel = {
             let textLabel = UILabel()
-            textLabel.text = entity.description
+            textLabel.text = expositionEntity.description
             textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
             textLabel.numberOfLines = 0
             
             return textLabel
         }()
         
-        let formattedVisitors = "\(entity.visitors.formatToDecimal()) 명"
+        let formattedVisitors = "\(expositionEntity.visitors.formatToDecimal()) 명"
         let stackView = configureButtonStackView()
         
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(posterImageView)
         verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.visitors, formattedVisitors))
-        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.location, entity.location))
-        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.duration, entity.duration))
+        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.location, expositionEntity.location))
+        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.duration, expositionEntity.duration))
         verticalStackView.addArrangedSubview(descriptionLabel)
         verticalStackView.addArrangedSubview(stackView)
         

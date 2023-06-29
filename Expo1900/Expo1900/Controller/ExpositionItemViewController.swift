@@ -8,7 +8,7 @@
 import UIKit
 
 class ExpositionItemViewController: UIViewController, UITableViewDelegate {
-    private var expositionItemEntity: [ExpositionItemEntity] = []
+    private let expositionItemEntity = DecodingManager().decodeExpositionItemsJSON()
     private let identifier: String = IdentifierNamespace.cell
     private var isSetUpEntity: Bool = false
     
@@ -23,13 +23,6 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.title = ViewControllerTitleNamespace.koreanItem
-        
-        setUpEntity()
-        
-        guard isSetUpEntity else {
-            configureErrorLabel()
-            return
-        }
         
         configureUI()
     }
@@ -55,21 +48,6 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
                 .bottomAnchor
                 .constraint(equalTo: view.bottomAnchor)
         ])
-    }
-    
-    private func setUpEntity() {
-        guard let entity = NSDataAsset(name: AssetNamespace.items) else {
-            return
-        }
-        
-        let decorder = JSONDecoder()
-        
-        do {
-            expositionItemEntity = try decorder.decode([ExpositionItemEntity].self, from: entity.data)
-            isSetUpEntity = true
-        } catch {
-            isSetUpEntity = false
-        }
     }
     
     private func configureErrorLabel() {
