@@ -43,7 +43,7 @@ class ExpositionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
-
+    
     private func setUpEntity() {
         guard let entity = NSDataAsset(name: "exposition_universelle_1900") else {
             return
@@ -62,7 +62,8 @@ class ExpositionViewController: UIViewController {
     private func configureUI() {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(verticalStackView)
-                NSLayoutConstraint.activate([
+        
+        NSLayoutConstraint.activate([
             mainScrollView
                 .topAnchor
                 .constraint(equalTo: view.topAnchor),
@@ -103,7 +104,7 @@ class ExpositionViewController: UIViewController {
                 
                 return label
             }()
-
+            
             verticalStackView.addArrangedSubview(errorLabel)
         }
     }
@@ -120,7 +121,7 @@ class ExpositionViewController: UIViewController {
             
             return label
         }()
-
+        
         let posterImageView = {
             let image = UIImageView()
             image.image = UIImage(named: "poster")
@@ -139,7 +140,7 @@ class ExpositionViewController: UIViewController {
         
         let formattedVisitors = "\(entity.visitors.formatToDecimal()) 명"
         let stackView = configureButtonStackView()
-
+        
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(posterImageView)
         verticalStackView.addArrangedSubview(configureDetailsStackView("방문객", formattedVisitors))
@@ -160,7 +161,7 @@ class ExpositionViewController: UIViewController {
     
     private func configureDetailsStackView(_ subtitle: String, _ data: String) -> UIStackView {
         let detailsStackView = {
-           let stackView = UIStackView()
+            let stackView = UIStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
             stackView.axis = .horizontal
             stackView.alignment = .center
@@ -193,7 +194,7 @@ class ExpositionViewController: UIViewController {
     
     private func configureButtonStackView() -> UIStackView {
         let buttonStackView = {
-           let stackView = UIStackView()
+            let stackView = UIStackView()
             stackView.translatesAutoresizingMaskIntoConstraints = false
             stackView.axis = .horizontal
             stackView.spacing = 30
@@ -231,9 +232,9 @@ class ExpositionViewController: UIViewController {
         buttonStackView.addArrangedSubview(leftFlagImageView)
         buttonStackView.addArrangedSubview(changeViewButton)
         buttonStackView.addArrangedSubview(rightFlagImageView)
-
+        
         changeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
-
+        
         NSLayoutConstraint.activate([
             leftFlagImageView
                 .heightAnchor
@@ -245,7 +246,7 @@ class ExpositionViewController: UIViewController {
                 .widthAnchor
                 .constraint(equalTo: leftFlagImageView.widthAnchor)
         ])
-
+        
         return buttonStackView
     }
     

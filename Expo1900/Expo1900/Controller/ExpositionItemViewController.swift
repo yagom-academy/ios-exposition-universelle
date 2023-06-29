@@ -15,9 +15,9 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-       return tableView
+        return tableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
