@@ -12,27 +12,10 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var shortDescriptionLabel: UILabel!
     
-    func fillCells(data: Entry) {
-        guard let image = data.imageName,
-              let name = data.name,
-              let shortDescription = data.shortDescription else {
-            return
-        }
+    func insertCellData(from data: Entry) {
         
-        self.nameImage.image = UIImage(named: image)
-        self.nameLabel.text = name
-        self.shortDescriptionLabel.text = shortDescription
+        self.nameImage.image = nameImage.insertImage(name: data.imageName)
+        self.nameLabel.text = data.name
+        self.shortDescriptionLabel.text = data.shortDescription
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

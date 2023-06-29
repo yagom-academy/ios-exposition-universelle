@@ -30,5 +30,6 @@ class EntryDetailViewController: UIViewController {
     func insertData() {
         navigationItem.title = data?.name
         self.entryDescription.text = data?.description
+        self.entryImage.image = entryImage.insertImage(name: data?.imageName)
     }
 }

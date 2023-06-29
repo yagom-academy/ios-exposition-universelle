@@ -38,7 +38,7 @@ extension EntryListViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        cell.fillCells(data: entryData[indexPath.row])
+        cell.insertCellData(from: entryData[indexPath.row])
         
         return cell
     }
