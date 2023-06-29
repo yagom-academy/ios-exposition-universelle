@@ -39,10 +39,10 @@ final class MainViewController: UIViewController {
         let storyboardName = "Main"
         let storyboardId = "EntryListViewController"
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        let entryListViewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
 
         navigationItem.backBarButtonItem = createMainBackBarButtonItem()
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(entryListViewController, animated: true)
     }
     
     private func createMainBackBarButtonItem() -> UIBarButtonItem {

@@ -9,21 +9,21 @@ import UIKit
 
 final class EntryTableViewCell: UITableViewCell {
     private var entryImageView: UIImageView = UIImageView()
-    private var titleLabel: UILabel = UILabel()
+    private var entryNameLabel: UILabel = UILabel()
     private var shortDescriptionLabel: UILabel = UILabel()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setTitleAndShortDescriptionLabelSetting()
+        setUpTitleAndShortDescriptionLabel()
         
-        let entryTextStackView = createEntryTextStackView(arrangedSubviews: [titleLabel, shortDescriptionLabel])
+        let entryTextStackView = createEntryTextStackView(arrangedSubviews: [entryNameLabel, shortDescriptionLabel])
         
         contentView.addSubview(entryImageView)
         contentView.addSubview(entryTextStackView)
         
-        setEntryImageViewConstraints()
-        setEntryTextStackViewConstraints(for: entryTextStackView)
+        setUpEntryImageViewConstraints()
+        setUpEntryTextStackViewConstraints(for: entryTextStackView)
         
         accessoryType = .disclosureIndicator
     }
@@ -33,13 +33,13 @@ final class EntryTableViewCell: UITableViewCell {
     }
     
     func configureCell(with entry: Entry) {
-        titleLabel.text = entry.name
+        entryNameLabel.text = entry.name
         shortDescriptionLabel.text = entry.shortDescription
         entryImageView.image = UIImage(named: entry.imageName)
     }
 
-    private func setTitleAndShortDescriptionLabelSetting() {
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+    private func setUpTitleAndShortDescriptionLabel() {
+        entryNameLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         
         shortDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         shortDescriptionLabel.numberOfLines = 0
@@ -57,7 +57,7 @@ final class EntryTableViewCell: UITableViewCell {
 
 //MARK: Constraints
 extension EntryTableViewCell {
-    private func setEntryImageViewConstraints() {
+    private func setUpEntryImageViewConstraints() {
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             entryImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -68,7 +68,7 @@ extension EntryTableViewCell {
         ])
     }
     
-    private func setEntryTextStackViewConstraints(for stackView: UIStackView) {
+    private func setUpEntryTextStackViewConstraints(for stackView: UIStackView) {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8),
