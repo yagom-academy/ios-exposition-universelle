@@ -8,7 +8,6 @@
 import UIKit
 
 class KoreaEntryViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +16,4 @@ class KoreaEntryViewController: UIViewController {
         navigationItem.backButtonTitle = "한국의 출품작"
         navigationItem.title = "한국의 출품작"
     }
-    
-    
 }

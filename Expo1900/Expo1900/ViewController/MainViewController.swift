@@ -27,17 +27,19 @@ class MainViewController: UIViewController, MainViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func pushKoreaEntryViewController() {
-        navigationController?.pushViewController(KoreaEntryViewController(), animated: true)
+        let koreaEntryViewController = KoreaEntryViewController()
+        
+        navigationController?.pushViewController(koreaEntryViewController, animated: true)
     }
     
     private func configureUI() {

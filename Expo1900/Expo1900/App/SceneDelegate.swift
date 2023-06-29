@@ -7,7 +7,6 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -15,20 +14,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
+        setNavigationAppearance()
         viewController.view.backgroundColor = .systemBackground
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
-
-    func sceneDidDisconnect(_ scene: UIScene) { }
-
-    func sceneDidBecomeActive(_ scene: UIScene) { }
-
-    func sceneWillResignActive(_ scene: UIScene) { }
-
-    func sceneWillEnterForeground(_ scene: UIScene) { }
-
-    func sceneDidEnterBackground(_ scene: UIScene) { }
 }
 
+extension SceneDelegate {
+    private func setNavigationAppearance() {
+        let appearnce = UINavigationBarAppearance()
+        
+        appearnce.backgroundColor = .init(displayP3Red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+        UINavigationBar.appearance().standardAppearance = appearnce
+        UINavigationBar.appearance().scrollEdgeAppearance = appearnce
+    }
+}
