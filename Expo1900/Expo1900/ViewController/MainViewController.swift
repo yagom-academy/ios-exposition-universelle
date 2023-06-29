@@ -6,9 +6,10 @@
 
 import UIKit
 
-class MainViewController: UIViewController, PushViewDelegate {
-    let mainView: MainView = {
+class MainViewController: UIViewController, MainViewDelegate {
+    lazy var mainView: MainView = {
         let view = MainView()
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -19,20 +20,23 @@ class MainViewController: UIViewController, PushViewDelegate {
         configureUI()
         setUpConstraints()
         loadMainViewInformation()
-        mainView.delegate = self
         
         navigationItem.backButtonTitle = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         navigationController?.isNavigationBarHidden = false
     }
     
-    func didTappedKoreaExhibitionButton() {
+    func pushKoreaEntryViewController() {
         navigationController?.pushViewController(KoreaEntryViewController(), animated: true)
     }
     

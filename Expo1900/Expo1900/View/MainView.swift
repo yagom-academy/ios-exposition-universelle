@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol PushViewDelegate: AnyObject {
-    func didTappedKoreaExhibitionButton()
+protocol MainViewDelegate: AnyObject {
+    func pushKoreaEntryViewController()
 }
 
 class MainView: UIView {
-    weak var delegate: PushViewDelegate?
+    weak var delegate: MainViewDelegate?
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -145,6 +145,13 @@ class MainView: UIView {
     }
 }
 
+// MARK: - Delegate
+extension MainView {
+    @objc func didTappedKoreaExhibitionButton() {
+        delegate?.pushKoreaEntryViewController()
+    }
+}
+
 // MARK: - Load Information
 extension MainView {
     func loadInformation(information: ParisExpositionInformation) {
@@ -208,12 +215,5 @@ extension MainView {
             rightImage.heightAnchor.constraint(equalToConstant: 40),
             rightImage.widthAnchor.constraint(equalToConstant: 60)
         ])
-    }
-}
-
-// MARK: - Delegate
-extension MainView {
-    @objc func didTappedKoreaExhibitionButton() {
-        delegate?.didTappedKoreaExhibitionButton()
     }
 }
