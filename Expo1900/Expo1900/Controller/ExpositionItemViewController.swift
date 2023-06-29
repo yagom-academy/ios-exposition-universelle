@@ -28,10 +28,18 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView
+                .topAnchor
+                .constraint(equalTo: view.topAnchor),
+            tableView
+                .leftAnchor
+                .constraint(equalTo: view.leftAnchor),
+            tableView
+                .rightAnchor
+                .constraint(equalTo: view.rightAnchor),
+            tableView
+                .bottomAnchor
+                .constraint(equalTo: view.bottomAnchor)
         ])
     }
     

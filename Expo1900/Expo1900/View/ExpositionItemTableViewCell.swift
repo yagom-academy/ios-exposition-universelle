@@ -8,18 +8,18 @@
 import UIKit
 
 class ExpositionItemTableViewCell: UITableViewCell {
-    private let name = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
     private let image = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
+    }()
+    
+    private let name = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
     }()
     
     private let shortDescription = {

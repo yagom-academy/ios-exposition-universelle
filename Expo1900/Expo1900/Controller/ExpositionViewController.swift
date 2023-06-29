@@ -10,21 +10,21 @@ class ExpositionViewController: UIViewController {
     private var expositionEntity: ExpositionEntity?
     private var isSetUpEntity: Bool = false
     
-    private let verticalStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.alignment = .center
-        stackView.spacing = 10
-        
-        return stackView
-    }()
-    
     private let mainScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         return scrollView
+    }()
+    
+    private let verticalStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 10
+        
+        return stackView
     }()
     
     override func viewDidLoad() {
@@ -33,6 +33,11 @@ class ExpositionViewController: UIViewController {
         
         setUpEntity()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "메인"
+        navigationController?.isNavigationBarHidden = true
     }
 
     private func setUpEntity() {
@@ -53,21 +58,32 @@ class ExpositionViewController: UIViewController {
     private func configureUI() {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(verticalStackView)
-        navigationItem.title = "메인"
-        
-        let safeArea = view.safeAreaLayoutGuide
-        
-        NSLayoutConstraint.activate([
-            mainScrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            mainScrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            mainScrollView.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 10),
-            mainScrollView.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -10),
+                NSLayoutConstraint.activate([
+            mainScrollView
+                .topAnchor
+                .constraint(equalTo: view.topAnchor),
+            mainScrollView
+                .bottomAnchor
+                .constraint(equalTo: view.bottomAnchor),
+            mainScrollView
+                .leftAnchor
+                .constraint(equalTo: view.leftAnchor),
+            mainScrollView
+                .rightAnchor
+                .constraint(equalTo: view.rightAnchor),
             
-            verticalStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
-            verticalStackView.leftAnchor.constraint(equalTo: mainScrollView.leftAnchor),
-            verticalStackView.rightAnchor.constraint(equalTo: mainScrollView.rightAnchor),
-            verticalStackView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor)
+            verticalStackView
+                .topAnchor
+                .constraint(equalTo: mainScrollView.topAnchor, constant: 20),
+            verticalStackView
+                .bottomAnchor
+                .constraint(equalTo: mainScrollView.bottomAnchor, constant: -20),
+            verticalStackView
+                .centerXAnchor
+                .constraint(equalTo: mainScrollView.centerXAnchor),
+            verticalStackView
+                .widthAnchor
+                .constraint(equalTo: mainScrollView.widthAnchor, constant: -40)
         ])
         
         configureStackView()
@@ -93,7 +109,9 @@ class ExpositionViewController: UIViewController {
         
         let titleLabel = {
             let label = UILabel()
-            label.text = entity.title
+            label.text = entity.title.replacingOccurrences(of: "(", with: "\n(")
+            label.font = .preferredFont(forTextStyle: .title1)
+            label.numberOfLines = 0
             label.textAlignment = .center
             
             return label
@@ -108,10 +126,9 @@ class ExpositionViewController: UIViewController {
         
         let descriptionLabel = {
             let textLabel = UILabel()
+            textLabel.text = entity.description
             textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
             textLabel.numberOfLines = 0
-            textLabel.text = entity.description
-            textLabel.translatesAutoresizingMaskIntoConstraints = false
             
             return textLabel
         }()
@@ -127,19 +144,21 @@ class ExpositionViewController: UIViewController {
         verticalStackView.addArrangedSubview(descriptionLabel)
         verticalStackView.addArrangedSubview(stackView)
         
-//        stackView.widthAnchor.constraint(equalTo: verticalStackView.widthAnchor).isActive = true
         NSLayoutConstraint.activate([
-            stackView.leftAnchor.constraint(equalTo: verticalStackView.leftAnchor, constant: 40),
-            stackView.rightAnchor.constraint(equalTo: verticalStackView.rightAnchor, constant: -40)
+            stackView
+                .leftAnchor
+                .constraint(equalTo: verticalStackView.leftAnchor, constant: 40),
+            stackView
+                .rightAnchor
+                .constraint(equalTo: verticalStackView.rightAnchor, constant: -40)
         ])
-        
     }
     
     private func configureDetailsStackView(_ subtitle: String, _ data: String) -> UIStackView {
         let detailsStackView = {
            let stackView = UIStackView()
-            stackView.axis = .horizontal
             stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .horizontal
             stackView.alignment = .center
             stackView.spacing = 10
             
@@ -148,16 +167,16 @@ class ExpositionViewController: UIViewController {
         
         let subtitleLabel = {
             let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
             label.text = subtitle
+            label.font = .preferredFont(forTextStyle: .title3)
             
             return label
         }()
         
         let dataLabel = {
             let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
             label.text = ": \(data)"
+            label.font = .preferredFont(forTextStyle: .body)
             
             return label
         }()
@@ -171,8 +190,8 @@ class ExpositionViewController: UIViewController {
     private func configureButtonStackView() -> UIStackView {
         let buttonStackView = {
            let stackView = UIStackView()
-            stackView.axis = .horizontal
             stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .horizontal
             stackView.spacing = 30
             
             return stackView
@@ -209,14 +228,18 @@ class ExpositionViewController: UIViewController {
         buttonStackView.addArrangedSubview(changeViewButton)
         buttonStackView.addArrangedSubview(rightFlagImageView)
 
-        leftFlagImageView.setContentCompressionResistancePriority(.init(100), for: .horizontal)
-        rightFlagImageView.setContentCompressionResistancePriority(.init(100), for: .horizontal)
-        changeViewButton.setContentCompressionResistancePriority(.init(900), for: .horizontal)
-
+        changeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
 
         NSLayoutConstraint.activate([
-            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65)
+            leftFlagImageView
+                .heightAnchor
+                .constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
+            rightFlagImageView
+                .heightAnchor
+                .constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
+            rightFlagImageView
+                .widthAnchor
+                .constraint(equalTo: leftFlagImageView.widthAnchor)
         ])
 
         return buttonStackView
