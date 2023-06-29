@@ -135,7 +135,7 @@ final class MainView: UIView {
         contentView.addSubview(contentStackView)
         scrollView.addSubview(contentView)
         addSubview(scrollView)
-}
+    }
     
     private func setUpConstraints() {
         setUpScrollViewConstraints()
@@ -204,7 +204,6 @@ extension MainView {
             contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-            
         ])
     }
     

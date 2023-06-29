@@ -35,12 +35,6 @@ final class MainViewController: UIViewController, MainViewDelegate {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    func pushKoreaEntryViewController() {
-        let koreaEntryViewController = KoreaEntryViewController()
-        
-        navigationController?.pushViewController(koreaEntryViewController, animated: true)
-    }
-    
     private func configureUI() {
         view.addSubview(mainView)
     }
@@ -67,3 +61,11 @@ final class MainViewController: UIViewController, MainViewDelegate {
     }
 }
 
+// MARK: - MainView Delegate
+extension MainViewController {
+    func pushKoreaEntryViewController() {
+        let koreaEntryViewController = KoreaEntryViewController()
+        
+        navigationController?.pushViewController(koreaEntryViewController, animated: true)
+    }
+}
