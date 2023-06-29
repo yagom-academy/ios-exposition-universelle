@@ -18,8 +18,6 @@ final class ExpositionInfoViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tapPushButton: UIButton!
     
-    private let formatManager: FormatManager = FormatManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         showExpositionInfo()
@@ -29,7 +27,6 @@ final class ExpositionInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        
     }
     
     private func showExpositionInfo() {
@@ -40,7 +37,10 @@ final class ExpositionInfoViewController: UIViewController {
         }
         
         do {
-            let decodingExposition = try decoder.decodingContentInfo(with: receiveExpositionData, modelType: Exposition.self)
+            let decodingExposition = try decoder.decodingContentInfo(
+                with: receiveExpositionData,
+                modelType: Exposition.self
+            )
             updateMainViewLabels(with: decodingExposition)
         } catch {
             print(error)
@@ -48,14 +48,14 @@ final class ExpositionInfoViewController: UIViewController {
     }
     
     private func receiveExpositionInfo() -> Data? {
-        guard let file = NSDataAsset(name: "exposition_universelle_1900") else {
-            return nil
-        }
-        
-        return file.data
+        let file = NSDataAsset(name: "exposition_universelle_1900")
+
+        return file?.data
     }
     
     private func updateMainViewLabels(with exposition: Exposition) {
+        let formatManager: FormatManager = FormatManager()
+        
         guard let visitors = formatManager.numberFormatter
             .string(from: NSNumber(value: exposition.visitors)) else {
             return
@@ -69,11 +69,10 @@ final class ExpositionInfoViewController: UIViewController {
     }
     
     @IBAction func touchUpPushButton(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "ItemListView") else {
+        guard let itemListViewController = storyboard?.instantiateViewController(withIdentifier: "ItemListView") else {
             return
         }
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(itemListViewController, animated: true)
     }
-    
 }

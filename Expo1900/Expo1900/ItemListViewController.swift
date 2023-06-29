@@ -50,10 +50,10 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         var content = cell.defaultContentConfiguration()
 
         cell.accessoryType = .disclosureIndicator
+        
         content.image = UIImage(named: item.imageName)
         content.imageProperties.maximumSize.width = 70
         content.imageProperties.maximumSize.height = 70
-        
         content.text = item.name
         content.secondaryText = item.shortDescription
         
@@ -64,12 +64,17 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailItemVC = storyboard?.instantiateViewController(withIdentifier: "DetailItemViewController") as? DetailItemViewController else { return }
+        guard let detailItemViewController = storyboard?
+            .instantiateViewController(withIdentifier: "DetailItemViewController") as?
+                DetailItemViewController else
+        {
+            return
+        }
         
         let item = items[indexPath.row]
-        detailItemVC.model(item)
-        detailItemVC.title = item.name
+        detailItemViewController.setDetailItem(item)
+        detailItemViewController.title = item.name
         
-        self.navigationController?.pushViewController(detailItemVC, animated: true)
+        self.navigationController?.pushViewController(detailItemViewController, animated: true)
     }
 }
