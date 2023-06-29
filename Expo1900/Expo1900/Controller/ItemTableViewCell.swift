@@ -14,6 +14,14 @@ final class ItemTableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var shortDesctionLabel: UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        itemImageView.image = nil
+        nameLabel.text = nil
+        shortDesctionLabel.text = nil
+    }
+    
     func setItemImageViewImage(_ image: UIImage?) {
         itemImageView.image = image
     }
