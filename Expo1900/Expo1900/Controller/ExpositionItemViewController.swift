@@ -21,6 +21,10 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationItem.title = "한국의 출품작"
+        
+        setUpEntity()
+        
         view.addSubview(tableView)
         
         tableView.register(ExpositionItemTableViewCell.self, forCellReuseIdentifier: identifier)
@@ -68,6 +72,12 @@ extension ExpositionItemViewController: UITableViewDataSource {
         else {
             return ExpositionItemTableViewCell()
         }
+        
+        cell.image.image = UIImage(named: expositionItemEntity[indexPath.row].imageName)
+        cell.name.text = expositionItemEntity[indexPath.row].name
+        cell.shortDescription.text = expositionItemEntity[indexPath.row].shortDescription
+        
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }

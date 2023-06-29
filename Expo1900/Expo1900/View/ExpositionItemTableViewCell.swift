@@ -8,23 +8,34 @@
 import UIKit
 
 class ExpositionItemTableViewCell: UITableViewCell {
-    private let image = {
+    let image = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
-    private let name = {
+    let informationStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        
+        return stackView
+    }()
+    
+    let name = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .title1)
         
         return label
     }()
     
-    private let shortDescription = {
+    let shortDescription = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         
         return label
     }()
@@ -40,7 +51,15 @@ class ExpositionItemTableViewCell: UITableViewCell {
     
     private func configureUI() {
         contentView.addSubview(image)
-        contentView.addSubview(name)
-        contentView.addSubview(shortDescription)
+        contentView.addSubview(informationStackView)
+        informationStackView.addArrangedSubview(name)
+        informationStackView.addArrangedSubview(shortDescription)
+        
+        NSLayoutConstraint.activate([
+            image.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            image.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            informationStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
+            informationStackView.leftAnchor.constraint(equalTo: image.rightAnchor)
+        ])
     }
 }

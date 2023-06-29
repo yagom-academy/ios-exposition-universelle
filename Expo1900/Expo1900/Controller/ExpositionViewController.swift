@@ -30,14 +30,18 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationItem.title = "메인"
         
         setUpEntity()
         configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationItem.title = "메인"
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
     }
 
     private func setUpEntity() {
