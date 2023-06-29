@@ -9,7 +9,7 @@ import UIKit
 
 class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     private var expositionItemEntity: [ExpositionItemEntity] = []
-    private let identifier: String = "cell"
+    private let identifier: String = IdentifierNamespace.cell
     private var isSetUpEntity: Bool = false
     
     private let tableView = {
@@ -22,7 +22,7 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = ViewControllerTitleNamespace.koreanItem
         
         setUpEntity()
         
@@ -58,7 +58,7 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     }
     
     private func setUpEntity() {
-        guard let entity = NSDataAsset(name: "items") else {
+        guard let entity = NSDataAsset(name: AssetNamespace.items) else {
             return
         }
         
@@ -76,7 +76,7 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         let errorLabel = {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "데이터를 불러오지 못했습니다."
+            label.text = LabelTextNameSpace.errorMessage
             
             return label
         }()

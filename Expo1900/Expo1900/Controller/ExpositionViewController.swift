@@ -30,7 +30,7 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = "메인"
+        navigationItem.title = ViewControllerTitleNamespace.main
         
         setUpEntity()
         
@@ -51,7 +51,7 @@ class ExpositionViewController: UIViewController {
     }
     
     private func setUpEntity() {
-        guard let entity = NSDataAsset(name: "exposition_universelle_1900") else {
+        guard let entity = NSDataAsset(name: AssetNamespace.expositionUniverselle) else {
             return
         }
         
@@ -104,7 +104,7 @@ class ExpositionViewController: UIViewController {
         let errorLabel = {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "데이터를 불러오지 못했습니다."
+            label.text = LabelTextNameSpace.errorMessage
             
             return label
         }()
@@ -136,7 +136,7 @@ class ExpositionViewController: UIViewController {
         
         let posterImageView = {
             let image = UIImageView()
-            image.image = UIImage(named: "poster")
+            image.image = UIImage(named: AssetNamespace.poster)
             
             return image
         }()
@@ -155,9 +155,9 @@ class ExpositionViewController: UIViewController {
         
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(posterImageView)
-        verticalStackView.addArrangedSubview(configureDetailsStackView("방문객", formattedVisitors))
-        verticalStackView.addArrangedSubview(configureDetailsStackView("개최지", entity.location))
-        verticalStackView.addArrangedSubview(configureDetailsStackView("개최 기간", entity.duration))
+        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.visitors, formattedVisitors))
+        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.location, entity.location))
+        verticalStackView.addArrangedSubview(configureDetailsStackView(LabelTextNameSpace.duration, entity.duration))
         verticalStackView.addArrangedSubview(descriptionLabel)
         verticalStackView.addArrangedSubview(stackView)
         
@@ -217,7 +217,7 @@ class ExpositionViewController: UIViewController {
         let leftFlagImageView = {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.image = UIImage(named: "flag")
+            imageView.image = UIImage(named: AssetNamespace.flag)
             
             return imageView
         }()
@@ -225,7 +225,7 @@ class ExpositionViewController: UIViewController {
         let rightFlagImageView = {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.image = UIImage(named: "flag")
+            imageView.image = UIImage(named: AssetNamespace.flag)
             
             return imageView
         }()
@@ -233,7 +233,7 @@ class ExpositionViewController: UIViewController {
         let changeViewButton = {
             let button = UIButton()
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("한국의 출품작 보러가기", for: .normal)
+            button.setTitle(LabelTextNameSpace.buttonTitle, for: .normal)
             button.setTitleColor(UIColor.systemBlue, for: .normal)
             button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
             button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)

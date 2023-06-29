@@ -16,6 +16,10 @@
 		BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */; };
 		BAFD9F452A4ADC6600DC9186 /* Expo1900UIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */; };
 		BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */; };
+		BAFD9F522A4D83B700DC9186 /* ViewControllerTitleNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */; };
+		BAFD9F542A4D848800DC9186 /* LabelTextNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */; };
+		BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */; };
+		BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */; };
@@ -44,6 +48,10 @@
 		BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+.swift"; sourceTree = "<group>"; };
 		BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900UIntTests.swift; sourceTree = "<group>"; };
 		BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
+		BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTitleNamespace.swift; sourceTree = "<group>"; };
+		BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextNameSpace.swift; sourceTree = "<group>"; };
+		BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNamespace.swift; sourceTree = "<group>"; };
+		BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierNamespace.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +102,7 @@
 		3CBDC7D52A4D0E5F0089F7A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BAFD9F502A4D83A000DC9186 /* Namespace */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
@@ -109,6 +118,17 @@
 				3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BAFD9F502A4D83A000DC9186 /* Namespace */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */,
+				BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */,
+				BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */,
+				BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */,
+			);
+			path = Namespace;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -252,11 +272,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */,
+				BAFD9F542A4D848800DC9186 /* LabelTextNameSpace.swift in Sources */,
 				3CBDC8252A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift in Sources */,
 				3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */,
+				BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */,
 				BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */,
+				BAFD9F522A4D83B700DC9186 /* ViewControllerTitleNamespace.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */,
+				BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */,
