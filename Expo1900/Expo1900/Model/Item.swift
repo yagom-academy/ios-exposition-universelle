@@ -18,12 +18,4 @@ struct Item: Codable {
         case shortDescription = "short_desc"
         case description = "desc"
     }
-    
-    static func decodeItems() throws -> [Item] {
-        guard let json = NSDataAsset(name: "items") else {
-            throw NSDataAssetError.assetNotFound
-        }
-                
-        return try JSONDecoder().decode([Item].self, from: json.data)
-    }
 }

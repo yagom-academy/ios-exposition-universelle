@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45CED1E72A4D694400C5D717 /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CED1E62A4D694400C5D717 /* JSONDecoder+.swift */; };
 		45D629CB2A4BC0C80039DD1D /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D629CA2A4BC0C80039DD1D /* ItemDetailViewController.swift */; };
 		45DA6B622A4AEF8D00C53778 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DA6B612A4AEF8D00C53778 /* ItemTableViewCell.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45CED1E62A4D694400C5D717 /* JSONDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+.swift"; sourceTree = "<group>"; };
 		45D629CA2A4BC0C80039DD1D /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		45DA6B612A4AEF8D00C53778 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45CED1E52A4D68A700C5D717 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				45CED1E62A4D694400C5D717 /* JSONDecoder+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				45CED1E52A4D68A700C5D717 /* Extension */,
 				CB828F052A4922CD009324EE /* Controller */,
 				CB828F062A4922D6009324EE /* Model */,
 				CB828F072A4922DF009324EE /* View */,
@@ -185,6 +196,7 @@
 				45D629CB2A4BC0C80039DD1D /* ItemDetailViewController.swift in Sources */,
 				CB2AA9222A4AEB7400AF1339 /* ItemsTableViewController.swift in Sources */,
 				45DA6B622A4AEF8D00C53778 /* ItemTableViewCell.swift in Sources */,
+				45CED1E72A4D694400C5D717 /* JSONDecoder+.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionUniverselleViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
