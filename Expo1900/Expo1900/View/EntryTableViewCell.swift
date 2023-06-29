@@ -31,6 +31,12 @@ final class EntryTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func configureCell(with entry: Entry) {
+        titleLabel.text = entry.name
+        shortDescriptionLabel.text = entry.shortDescription
+        entryImageView.image = UIImage(named: entry.imageName)
+    }
 
     private func setTitleAndShortDescriptionLabelSetting() {
         titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)

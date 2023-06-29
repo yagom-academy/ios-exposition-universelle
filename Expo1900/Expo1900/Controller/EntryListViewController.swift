@@ -49,9 +49,7 @@ extension EntryListViewController: UITableViewDataSource {
         }
         
         if let entryList {
-            entryCell.titleLabel.text = entryList[indexPath.row].name
-            entryCell.shortDescriptionLabel.text = entryList[indexPath.row].shortDescription
-            entryCell.entryImageView.image = UIImage(named: entryList[indexPath.row].imageName)
+            entryCell.configureCell(with: entryList[indexPath.row])
         }
         
         return entryCell
