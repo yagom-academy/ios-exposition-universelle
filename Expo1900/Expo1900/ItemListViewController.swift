@@ -2,12 +2,12 @@
 //  ItemListViewController.swift
 //  Expo1900
 //
-//  Created by 1 on 2023/06/28.
+//  Created by Hemg, RedMango on 2023/06/28.
 //
 
 import UIKit
 
-class ItemListViewController: UIViewController {
+final class ItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -15,6 +15,7 @@ class ItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "한국의 출품작"
         self.navigationController?.isNavigationBarHidden = false
         
         tableView.dataSource = self
@@ -23,7 +24,7 @@ class ItemListViewController: UIViewController {
         loadItems()
     }
     
-    func loadItems() {
+    private func loadItems() {
         let decoder = JSONDecoder()
         
         guard let asset = NSDataAsset(name: "items") else {
@@ -52,7 +53,7 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         content.image = UIImage(named: item.imageName)
         content.imageProperties.maximumSize.width = 70
         content.imageProperties.maximumSize.height = 70
-
+        
         content.text = item.name
         content.secondaryText = item.shortDescription
         
@@ -60,5 +61,15 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.separatorInset.left = 0
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailItemVC = storyboard?.instantiateViewController(withIdentifier: "DetailItemViewController") as? DetailItemViewController else { return }
+        
+        let item = items[indexPath.row]
+        detailItemVC.model(item)
+        detailItemVC.title = item.name
+        
+        self.navigationController?.pushViewController(detailItemVC, animated: true)
     }
 }

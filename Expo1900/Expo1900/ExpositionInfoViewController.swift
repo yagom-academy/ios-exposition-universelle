@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpositionInfoViewController: UIViewController {
+final class ExpositionInfoViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
