@@ -17,17 +17,7 @@ class ExpositionViewController: UIViewController {
         return scrollView
     }()
     
-    private let verticalStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 10
-        
-        return stackView
-    }()
-    
-    private let buttonStackView = ChangeViewButtonStackView()
+    private let mainStackView = MainStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +37,7 @@ class ExpositionViewController: UIViewController {
     
     private func configureUI() {
         view.addSubview(mainScrollView)
-        mainScrollView.addSubview(verticalStackView)
+        mainScrollView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
             mainScrollView
@@ -63,16 +53,16 @@ class ExpositionViewController: UIViewController {
                 .rightAnchor
                 .constraint(equalTo: view.rightAnchor),
             
-            verticalStackView
+            mainStackView
                 .topAnchor
                 .constraint(equalTo: mainScrollView.topAnchor, constant: 20),
-            verticalStackView
+            mainStackView
                 .bottomAnchor
                 .constraint(equalTo: mainScrollView.bottomAnchor, constant: -20),
-            verticalStackView
+            mainStackView
                 .centerXAnchor
                 .constraint(equalTo: mainScrollView.centerXAnchor),
-            verticalStackView
+            mainStackView
                 .widthAnchor
                 .constraint(equalTo: mainScrollView.widthAnchor, constant: -40)
         ])
@@ -102,66 +92,31 @@ class ExpositionViewController: UIViewController {
     }
     
     private func configureStackView() {
-        let titleLabel = {
-            let label = UILabel()
-            label.text = expositionEntity.title.replacingOccurrences(of: "(", with: "\n(")
-            label.font = .preferredFont(forTextStyle: .title1)
-            label.numberOfLines = 0
-            label.textAlignment = .center
-            
-            return label
-        }()
-        
-        let posterImageView = {
-            let image = UIImageView()
-            image.image = UIImage(named: AssetNamespace.poster)
-            
-            return image
-        }()
-        
-        let descriptionLabel = {
-            let textLabel = UILabel()
-            textLabel.text = expositionEntity.description
-            textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-            textLabel.numberOfLines = 0
-            
-            return textLabel
-        }()
+        mainStackView.titleLabel.text = expositionEntity.title.replacingOccurrences(of: "(", with: "\n(")
+        mainStackView.descriptionLabel.text = expositionEntity.description
         
         let formattedVisitors = "\(expositionEntity.visitors.formatToDecimal()) 명"
         
-        let visitorsStackView = ExpositionInformationStackView()
-        let locationStackView = ExpositionInformationStackView()
-        let durationStackView = ExpositionInformationStackView()
+        mainStackView.visitorsStackView.subtitleLabel.text = LabelTextNameSpace.visitors
+        mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors)"
+        mainStackView.locationStackView.subtitleLabel.text = LabelTextNameSpace.location
+        mainStackView.locationStackView.dataLabel.text = ": \(expositionEntity.location)"
+        mainStackView.durationStackView.subtitleLabel.text = LabelTextNameSpace.duration
+        mainStackView.durationStackView.dataLabel.text = ": \(expositionEntity.duration)"
         
-        visitorsStackView.subtitleLabel.text = LabelTextNameSpace.visitors
-        visitorsStackView.dataLabel.text = ": \(formattedVisitors)"
-        locationStackView.subtitleLabel.text = LabelTextNameSpace.location
-        locationStackView.dataLabel.text = ": \(expositionEntity.location)"
-        durationStackView.subtitleLabel.text = LabelTextNameSpace.duration
-        durationStackView.dataLabel.text = ": \(expositionEntity.duration)"
-        
-        verticalStackView.addArrangedSubview(titleLabel)
-        verticalStackView.addArrangedSubview(posterImageView)
-        verticalStackView.addArrangedSubview(visitorsStackView)
-        verticalStackView.addArrangedSubview(locationStackView)
-        verticalStackView.addArrangedSubview(durationStackView)
-        verticalStackView.addArrangedSubview(descriptionLabel)
-        verticalStackView.addArrangedSubview(buttonStackView)
-        
-        buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        mainStackView.buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            buttonStackView
+            mainStackView.buttonStackView
                 .leftAnchor
-                .constraint(equalTo: verticalStackView.leftAnchor, constant: 40),
-            buttonStackView
+                .constraint(equalTo: mainStackView.leftAnchor, constant: 40),
+            mainStackView.buttonStackView
                 .rightAnchor
-                .constraint(equalTo: verticalStackView.rightAnchor, constant: -40)
+                .constraint(equalTo: mainStackView.rightAnchor, constant: -40)
         ])
     }
     
     @objc private func didTapButton() {
-        show(ExpositionItemViewController(), sender: verticalStackView)
+        show(ExpositionItemViewController(), sender: mainStackView)
     }
 }
