@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */; };
 		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */; };
+		3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */; };
 		BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */; };
 		BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift */; };
 		BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */; };
@@ -35,6 +36,7 @@
 		3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemEntity.swift; sourceTree = "<group>"; };
 		3CBDC77D2A4A7AF80089F7A2 /* Expo1900ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemEntityTests.swift; sourceTree = "<group>"; };
+		3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemTableViewCell.swift; sourceTree = "<group>"; };
 		BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionEntity.swift; sourceTree = "<group>"; };
 		BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionEntityTests.swift; sourceTree = "<group>"; };
 		BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+.swift"; sourceTree = "<group>"; };
@@ -87,6 +89,25 @@
 			path = Expo1900ModelTests;
 			sourceTree = "<group>";
 		};
+		3CBDC7D52A4D0E5F0089F7A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
+				BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3CBDC7D62A4D0F380089F7A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -109,13 +130,11 @@
 			isa = PBXGroup;
 			children = (
 				3CBDC7762A4A71D70089F7A2 /* Model */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
+				3CBDC7D62A4D0F380089F7A2 /* View */,
+				3CBDC7D52A4D0E5F0089F7A2 /* Controller */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
-				BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -229,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */,
 				3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */,
 				BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,

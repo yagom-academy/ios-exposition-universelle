@@ -2,7 +2,7 @@
 //  ExpositionItemViewController.swift
 //  Expo1900
 //
-//  Created by Min Hyun on 2023/06/29.
+//  Created by Max, Whales on 2023/06/29.
 //
 
 import UIKit
@@ -22,7 +22,7 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.register(ExpositionItemTableViewCell.self, forCellReuseIdentifier: identifier)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -48,14 +48,17 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     }
 }
 
-
 extension ExpositionItemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expositionItemEntity.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+                as? ExpositionItemTableViewCell
+        else {
+            return ExpositionItemTableViewCell()
+        }
         
         return cell
     }
