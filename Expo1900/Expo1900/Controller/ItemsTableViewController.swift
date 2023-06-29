@@ -39,9 +39,9 @@ final class ItemsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: ItemsTableViewCell.id,
+            withIdentifier: ItemTableViewCell.id,
             for: indexPath
-        ) as? ItemsTableViewCell else {
+        ) as? ItemTableViewCell else {
             fatalError()
         }
         
