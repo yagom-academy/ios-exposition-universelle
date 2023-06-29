@@ -69,10 +69,10 @@ final class MainViewController: UIViewController {
             return
         }
         
-        titleLabel.text = title.replacingOccurrences(of: "(", with: "\n" + "(")
-        visitorsLabel.text = ": " + (numberFormatter.string(for: visitors) ?? "") + " 명"
-        locationLabel.text = ": " + location
-        durationLabel.text = ": " + duration
+        titleLabel.text = title.replacingOccurrences(of: "(", with: "\n(")
+        visitorsLabel.text = ": \(numberFormatter.string(for: visitors) ?? "") 명"
+        locationLabel.text = ": \(location)"
+        durationLabel.text = ": \(duration)"
         descriptionLabel.text = description
     }
 }
