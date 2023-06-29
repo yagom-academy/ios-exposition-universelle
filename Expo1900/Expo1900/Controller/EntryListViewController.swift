@@ -62,18 +62,13 @@ extension EntryListViewController: UITableViewDelegate {
         let storyboardName = "Main"
         let storyboardId = "EntryDetailViewController"
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        
-        guard let entryDetailViewController = viewController as? EntryDetailViewController else {
-            return
-        }
         
         if let entryList {
-            entryDetailViewController.entryName = entryList[indexPath.row].name
-            entryDetailViewController.entryImageName = entryList[indexPath.row].imageName
-            entryDetailViewController.descriptionText = entryList[indexPath.row].description
+            let entryDetailViewController = storyboard.instantiateViewController(identifier: storyboardId) { coder in
+                EntryDetailViewController(entry: entryList[indexPath.row], coder: coder)
+            }
+            
+            navigationController?.pushViewController(entryDetailViewController, animated: true)
         }
-        
-        navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
