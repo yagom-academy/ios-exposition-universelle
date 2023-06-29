@@ -47,9 +47,9 @@ final class ItemsTableViewController: UITableViewController {
         
         let item = items[indexPath.row]
         
-        cell.itemImageView.image = UIImage(named: item.imageName)
-        cell.nameLabel.text = item.name
-        cell.shortDesctionLabel.text = item.shortDescription
+        cell.setItemImageViewImage(UIImage(named: item.imageName))
+        cell.setNameLabelText(item.name)
+        cell.setShortDesctionLabel(item.shortDescription)
         
         return cell
     }

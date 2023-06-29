@@ -10,7 +10,19 @@ import UIKit
 final class ItemTableViewCell: UITableViewCell {
     static let id = "itemTableViewCellID"
     
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var shortDesctionLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var shortDesctionLabel: UILabel!
+    
+    func setItemImageViewImage(_ image: UIImage?) {
+        itemImageView.image = image
+    }
+    
+    func setNameLabelText(_ text: String?) {
+        nameLabel.text = text
+    }
+    
+    func setShortDesctionLabel(_ text: String?) {
+        shortDesctionLabel.text = text
+    }
 }
