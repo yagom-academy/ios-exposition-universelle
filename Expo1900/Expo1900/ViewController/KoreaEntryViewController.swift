@@ -7,24 +7,32 @@
 
 import UIKit
 
-class KoreaEntryViewController: UIViewController, UITableViewDelegate {
-    lazy var tableView: UITableView = {
+class KoreaEntryViewController: UIViewController {
+    private let cellIdentifier = "basiceCell"
+    private lazy var dataSource: KoreaEntryDataSource = {
+        let dataSource = KoreaEntryDataSource(cellIdentifier)
+        dataSource.loadKoreaEntryInformation()
+        return dataSource
+    }()
+    private lazy var tableView: UITableView = {
        let tableView = UITableView()
         tableView.delegate = self
+        tableView.dataSource = dataSource
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
         
-        view.backgroundColor = .brown
-        
-        navigationItem.backButtonTitle = "한국의 출품작"
-        navigationItem.title = "한국의 출품작"
-        
+        configureUI()
         setUpTableViewConstraints()
+        navigationItem.title = "한국의 출품작"
+    }
+    
+    private func configureUI() {
+        view.addSubview(tableView)
     }
     
     private func setUpTableViewConstraints() {
@@ -34,5 +42,12 @@ class KoreaEntryViewController: UIViewController, UITableViewDelegate {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+// MARK: - TableView Delegate
+extension KoreaEntryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
