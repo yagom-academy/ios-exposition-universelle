@@ -34,6 +34,7 @@ final class EntryListViewController: UIViewController {
     }
 }
 
+//MARK: UITableViewDataSource
 extension EntryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entryList?.count ?? 0
@@ -57,6 +58,7 @@ extension EntryListViewController: UITableViewDataSource {
     }
 }
 
+//MARK: UITableViewDelegate
 extension EntryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboardName = "Main"

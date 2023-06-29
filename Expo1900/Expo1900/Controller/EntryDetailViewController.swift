@@ -8,12 +8,12 @@
 import UIKit
 
 final class EntryDetailViewController: UIViewController {
-    @IBOutlet weak var entryImageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var entryImageView: UIImageView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
-    var entryName: String = String()
-    var entryImageName: String = String()
-    var descriptionText: String = String()
+    private var entryName: String = String()
+    private var entryImageName: String = String()
+    private var descriptionText: String = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()

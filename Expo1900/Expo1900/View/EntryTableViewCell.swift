@@ -8,9 +8,9 @@
 import UIKit
 
 final class EntryTableViewCell: UITableViewCell {
-    var entryImageView: UIImageView = UIImageView()
-    var titleLabel: UILabel = UILabel()
-    var shortDescriptionLabel: UILabel = UILabel()
+    private var entryImageView: UIImageView = UIImageView()
+    private var titleLabel: UILabel = UILabel()
+    private var shortDescriptionLabel: UILabel = UILabel()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,6 +49,7 @@ final class EntryTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: Constraints
 extension EntryTableViewCell {
     private func setEntryImageViewConstraints() {
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
