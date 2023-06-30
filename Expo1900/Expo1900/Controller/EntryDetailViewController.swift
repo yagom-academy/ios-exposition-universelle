@@ -30,11 +30,15 @@ final class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        entryImageView.image = UIImage(named: entryImageName)
-        descriptionLabel.text = descriptionText
+        configureEntryDetailView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = entryName
+    }
+    
+    private func configureEntryDetailView() {
+        entryImageView.image = UIImage(named: entryImageName)
+        descriptionLabel.text = descriptionText
     }
 }
