@@ -76,5 +76,6 @@ extension EntryListViewController: UITableViewDelegate {
             
             navigationController?.pushViewController(entryDetailViewController, animated: true)
         }
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
