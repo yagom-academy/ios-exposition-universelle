@@ -11,6 +11,4 @@ enum LabelTextNamespace {
     static let duration = "개최 기간"
     
     static let buttonTitle = "한국의 출품작 보러가기"
-    
-    static let errorMessage = "데이터를 불러오지 못했습니다."
 }
