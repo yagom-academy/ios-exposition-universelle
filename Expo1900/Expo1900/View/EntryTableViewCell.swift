@@ -17,7 +17,7 @@ final class EntryTableViewCell: UITableViewCell {
         
         setUpTitleAndShortDescriptionLabel()
         
-        let entryTextStackView = createEntryTextStackView(arrangedSubviews: [entryNameLabel, shortDescriptionLabel])
+        let entryTextStackView = configureEntryTextStackView(arrangedSubviews: [entryNameLabel, shortDescriptionLabel])
         
         contentView.addSubview(entryImageView)
         contentView.addSubview(entryTextStackView)
@@ -41,7 +41,7 @@ final class EntryTableViewCell: UITableViewCell {
         shortDescriptionLabel.numberOfLines = 0
     }
     
-    private func createEntryTextStackView(arrangedSubviews: [UILabel]) -> UIStackView {
+    private func configureEntryTextStackView(arrangedSubviews: [UILabel]) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         
         stackView.axis = .vertical
