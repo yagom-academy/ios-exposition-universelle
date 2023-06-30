@@ -9,7 +9,7 @@ import UIKit
 
 class EntryListViewController: UIViewController {
     @IBOutlet weak var entryTableView: UITableView!
-    var entryData = [Entry()]
+    var entryData: [Entry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class EntryListViewController: UIViewController {
 
     func unwrapData() {
         do {
-            entryData = try [Entry].decode(file: "items")
+            entryData = try JSONDecoder().decode([Entry].self, from: "items")
         } catch {}
     }
 }

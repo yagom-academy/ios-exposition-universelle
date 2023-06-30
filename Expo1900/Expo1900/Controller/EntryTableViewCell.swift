@@ -14,7 +14,7 @@ class EntryTableViewCell: UITableViewCell {
     
     func insertCellData(from data: Entry) {
         
-        self.nameImage.image = nameImage.insertImage(name: data.imageName)
+        self.nameImage.image = UIImage(named: data.imageName)
         self.nameLabel.text = data.name
         self.shortDescriptionLabel.text = data.shortDescription
     }

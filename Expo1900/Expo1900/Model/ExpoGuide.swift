@@ -6,17 +6,13 @@
 //
 
 struct ExpoGuide: Decodable {
-    let title: String?
-    let visitors: Int?
-    let location: String?
-    let duration: String?
-    let description: String?
+    let title: String
+    let visitors: Int
+    let location: String
+    let duration: String
+    let description: String
     
-    init(title: String? = nil, visitors: Int? = nil, location: String? = nil, duration: String? = nil, description: String? = nil) {
-        self.title = title
-        self.visitors = visitors
-        self.location = location
-        self.duration = duration
-        self.description = description
+    var visitorsText: String {
+        return visitors.changeToDecimalStyle() + " 명"
     }
 }

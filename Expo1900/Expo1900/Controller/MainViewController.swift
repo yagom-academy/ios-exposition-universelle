@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    var expoGuideData: ExpoGuide?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +31,17 @@ class MainViewController: UIViewController {
     }
 
     func fillLabels() {
-        var expoGuideData = ExpoGuide()
         
         do {
-            expoGuideData = try ExpoGuide.decode(file: "exposition_universelle_1900")
+            expoGuideData = try JSONDecoder().decode(ExpoGuide.self, from: "exposition_universelle_1900")
         } catch {}
         
-        titleLabel.text = expoGuideData.title?.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = expoGuideData.visitors?.changeToDecimalStylePopulation()
-        locationLabel.text = expoGuideData.location
-        durationLabel.text = expoGuideData.duration
-        descriptionLabel.text = expoGuideData.description
+        titleLabel.text = expoGuideData?.title.replacingOccurrences(of: "(", with: "\n(")
+        visitorsLabel.text = expoGuideData?.visitorsText
+        locationLabel.text = expoGuideData?.location
+        durationLabel.text = expoGuideData?.duration
+        descriptionLabel.text = expoGuideData?.description
     }
-    
     
     @IBAction func tappedEntryListButton(_ sender: UIButton) {
         guard let entryListView = self.storyboard?.instantiateViewController(withIdentifier: "entryList") else {

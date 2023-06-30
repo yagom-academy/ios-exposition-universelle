@@ -6,13 +6,3 @@
 //
 
 import UIKit
-
-extension UIImageView {
-    func insertImage(name: String?) -> UIImage? {
-        guard let imageName = name else {
-            return nil
-        }
-        
-        return UIImage(named: imageName)
-    }
-}

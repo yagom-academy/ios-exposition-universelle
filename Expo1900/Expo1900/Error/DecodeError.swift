@@ -7,5 +7,4 @@
 
 enum DecodeError: Error {
     case noFile
-    case decodeFailed
 }

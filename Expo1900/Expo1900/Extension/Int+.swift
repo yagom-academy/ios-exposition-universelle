@@ -8,16 +8,15 @@
 import Foundation
 
 extension Int {
-    func changeToDecimalStylePopulation() -> String? {
-        let koreanPopulationExpression = " 명"
+    func changeToDecimalStyle() -> String {
         let numberFormatter = NumberFormatter()
         
         numberFormatter.numberStyle = .decimal
         
         guard let decimalStyleNumber = numberFormatter.string(from: self as NSNumber) else {
-            return nil
+            return ""
         }
         
-        return decimalStyleNumber + koreanPopulationExpression
+        return decimalStyleNumber
     }
 }
