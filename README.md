@@ -41,7 +41,7 @@
 | 2023.06.27.| 🆕 JSON타입의 Decoding을 위한 Items,  InternationalExposition 구조체 구현  <br> 🆕 Snake-case를 Camel-case로 변환하는 CodingKeys 구현<br> 🆕 Handling nil을 위한 Decodable 프로토콜내에 존재하는 init생성자 구현  |
 | 2023.06.28.| 🔬 info.plist파일 이동으로 인한 빌드 오류 수정<br> 🛠️ 옵셔널 체이닝으로 통일, 프로퍼티 옵셔널 타입으로 선언 <br> |
 | 2023.06.29.| 📝 프로젝트에서 필요로 하는 핵심기능 공부 - TableView 공부 |
-
+| 2023.06.30.| 📝 README 작성 |
 ---
 
 
