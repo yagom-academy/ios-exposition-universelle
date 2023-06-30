@@ -31,14 +31,15 @@ final class EntryDetailViewController: UIViewController {
         super.viewDidLoad()
 
         configureEntryDetailView()
+        configureNavigation()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        navigationItem.title = entryName
-    }
-    
     private func configureEntryDetailView() {
         entryImageView.image = UIImage(named: entryImageName)
         descriptionLabel.text = descriptionText
+    }
+    
+    private func configureNavigation() {
+        navigationItem.title = entryName
     }
 }

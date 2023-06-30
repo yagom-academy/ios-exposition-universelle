@@ -25,7 +25,7 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = true
+        configureNavigation()
     }
 
     @IBAction func touchUpGoToEntryListButton(_ sender: UIButton) {
@@ -77,5 +77,9 @@ final class MainViewController: UIViewController {
         locationLabel.text = ": \(location)"
         durationLabel.text = ": \(duration)"
         descriptionLabel.text = description
+    }
+    
+    private func configureNavigation() {
+        navigationController?.navigationBar.isHidden = true
     }
 }

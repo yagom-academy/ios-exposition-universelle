@@ -14,11 +14,10 @@ final class EntryListViewController: UIViewController {
         super.viewDidLoad()
         
         decodeEntryList()
+        configureNavigation()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+
+    private func configureNavigation() {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "한국의 출품작"
     }
