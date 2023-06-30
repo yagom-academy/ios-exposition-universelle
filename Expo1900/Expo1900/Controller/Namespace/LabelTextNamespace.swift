@@ -1,11 +1,11 @@
 //
-//  LabelTextNameSpace.swift
+//  LabelTextNamespace.swift
 //  Expo1900
 //
 //  Created by Max, Whales on 2023/06/29.
 //
 
-enum LabelTextNameSpace {
+enum LabelTextNamespace {
     static let visitors = "방문객"
     static let location = "개최지"
     static let duration = "개최 기간"

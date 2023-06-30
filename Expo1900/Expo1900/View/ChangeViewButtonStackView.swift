@@ -24,7 +24,7 @@ class ChangeViewButtonStackView: UIStackView {
     
     let changeViewButton = {
         let button = UIButton()
-        button.setTitle(LabelTextNameSpace.buttonTitle, for: .normal)
+        button.setTitle(LabelTextNamespace.buttonTitle, for: .normal)
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
         
@@ -38,6 +38,7 @@ class ChangeViewButtonStackView: UIStackView {
         
     required init(coder: NSCoder) {
         super.init(coder: coder)
+        configureUI()
     }
     
     private func configureUI() {

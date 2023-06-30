@@ -19,7 +19,7 @@
 		BAFD9F452A4ADC6600DC9186 /* Expo1900UIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */; };
 		BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */; };
 		BAFD9F522A4D83B700DC9186 /* ViewControllerTitleNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */; };
-		BAFD9F542A4D848800DC9186 /* LabelTextNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */; };
+		BAFD9F542A4D848800DC9186 /* LabelTextNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F532A4D848800DC9186 /* LabelTextNamespace.swift */; };
 		BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */; };
 		BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */; };
 		BAFD9F682A4DDA9500DC9186 /* ChangeViewButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */; };
@@ -55,7 +55,7 @@
 		BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900UIntTests.swift; sourceTree = "<group>"; };
 		BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
 		BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTitleNamespace.swift; sourceTree = "<group>"; };
-		BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextNameSpace.swift; sourceTree = "<group>"; };
+		BAFD9F532A4D848800DC9186 /* LabelTextNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextNamespace.swift; sourceTree = "<group>"; };
 		BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNamespace.swift; sourceTree = "<group>"; };
 		BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierNamespace.swift; sourceTree = "<group>"; };
 		BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewButtonStackView.swift; sourceTree = "<group>"; };
@@ -124,10 +124,10 @@
 		3CBDC7D62A4D0F380089F7A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */,
-				BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */,
-				3CBDC82A2A4DDD880089F7A2 /* ExpositionInformationStackView.swift */,
 				BAFD9F692A4DDFA900DC9186 /* MainStackView.swift */,
+				3CBDC82A2A4DDD880089F7A2 /* ExpositionInformationStackView.swift */,
+				BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */,
+				3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			children = (
 				BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */,
 				BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */,
-				BAFD9F532A4D848800DC9186 /* LabelTextNameSpace.swift */,
+				BAFD9F532A4D848800DC9186 /* LabelTextNamespace.swift */,
 				BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */,
 			);
 			path = Namespace;
@@ -284,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */,
-				BAFD9F542A4D848800DC9186 /* LabelTextNameSpace.swift in Sources */,
+				BAFD9F542A4D848800DC9186 /* LabelTextNamespace.swift in Sources */,
 				3CBDC8252A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift in Sources */,
 				3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */,
 				BAFD9F6A2A4DDFA900DC9186 /* MainStackView.swift in Sources */,
