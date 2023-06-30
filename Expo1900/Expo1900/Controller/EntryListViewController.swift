@@ -24,21 +24,19 @@ final class EntryListViewController: UIViewController {
     }
     
     private func decodeEntryList() {
-        let dataAssetName = "items"
-        
         do {
-            entryList = try Decoder.decodeJSON(dataAssetName)
+            entryList = try Decoder.decodeJSON(DataAssetNamespace.entryList)
         } catch {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default))
             
             switch error {
             case DecoderError.notFoundAsset:
-                alert.message = "에셋을 찾을 수 없습니다."
+                alert.message = DecoderError.notFoundAsset.description
             case DecoderError.decodeFailed:
-                alert.message = "디코딩에 실패했습니다."
+                alert.message = DecoderError.decodeFailed.description
             default:
-                alert.message = "알 수 없는 에러"
+                alert.message = DecoderError.unexpectedError.description
             }
             
             present(alert, animated: true)
@@ -53,8 +51,7 @@ extension EntryListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "entryCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: StoryboardNamespace.ID.entryCell, for: indexPath)
         
         guard let entryCell = cell as? EntryTableViewCell else {
             return cell
@@ -71,12 +68,10 @@ extension EntryListViewController: UITableViewDataSource {
 //MARK: UITableViewDelegate
 extension EntryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboardName = "Main"
-        let storyboardId = "EntryDetailViewController"
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: StoryboardNamespace.Name.main, bundle: Bundle.main)
         
         if let entryList {
-            let entryDetailViewController = storyboard.instantiateViewController(identifier: storyboardId) { coder in
+            let entryDetailViewController = storyboard.instantiateViewController(identifier: StoryboardNamespace.ID.entryDetailViewController) { coder in
                 EntryDetailViewController(entry: entryList[indexPath.row], coder: coder)
             }
             

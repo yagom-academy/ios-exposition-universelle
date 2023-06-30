@@ -29,10 +29,8 @@ final class MainViewController: UIViewController {
     }
 
     @IBAction func touchUpGoToEntryListButton(_ sender: UIButton) {
-        let storyboardName = "Main"
-        let storyboardId = "EntryListViewController"
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let entryListViewController = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        let storyboard = UIStoryboard(name: StoryboardNamespace.Name.main, bundle: Bundle.main)
+        let entryListViewController = storyboard.instantiateViewController(withIdentifier: StoryboardNamespace.ID.entryListViewController)
 
         navigationItem.backBarButtonItem = createMainBackBarButtonItem()
         navigationController?.pushViewController(entryListViewController, animated: true)
@@ -46,21 +44,19 @@ final class MainViewController: UIViewController {
     }
     
     private func decodeIntroduction() {
-        let dataAssetName = "exposition_universelle_1900"
-        
         do {
-            introduction = try Decoder.decodeJSON(dataAssetName)
+            introduction = try Decoder.decodeJSON(DataAssetNamespace.introduction)
         } catch {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default))
             
             switch error {
             case DecoderError.notFoundAsset:
-                alert.message = "에셋을 찾을 수 없습니다."
+                alert.message = DecoderError.notFoundAsset.description
             case DecoderError.decodeFailed:
-                alert.message = "디코딩에 실패했습니다."
+                alert.message = DecoderError.decodeFailed.description
             default:
-                alert.message = "알 수 없는 에러"
+                alert.message = DecoderError.unexpectedError.description
             }
             
             present(alert, animated: true)
