@@ -2,7 +2,7 @@
 //  KoreaEntryTableViewCell.swift
 //  Expo1900
 //
-//  Created by Hyungmin Lee on 2023/06/30.
+//  Created by Zion, Serena on 2023/06/30.
 //
 
 import UIKit
