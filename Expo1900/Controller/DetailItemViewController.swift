@@ -26,6 +26,7 @@ final class DetailItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createItemlabels()
+        self.title = detailItems?.name
     }
     
     private func createItemlabels() {
