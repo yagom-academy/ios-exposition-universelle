@@ -28,6 +28,7 @@ class ExpositionItemViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
+        stackView.spacing = 8
         
         return stackView
     }()
@@ -41,13 +42,9 @@ class ExpositionItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = expositionItem.name
         view.backgroundColor = .systemBackground
-        updateImageAndLabel()
-        contentStackView.addArrangedSubview(itemImage)
-        contentStackView.addArrangedSubview(totalDescriptionLabel)
-        expositionItemScrollView.addSubview(contentStackView)
-        view.addSubview(expositionItemScrollView)
+        updateLabelAndImage()
+        configureView()
         configureConstraint()
     }
     
@@ -60,9 +57,17 @@ class ExpositionItemViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func updateImageAndLabel() {
+    private func updateLabelAndImage() {
+        navigationItem.title = expositionItem.name
         itemImage.image = UIImage(named: expositionItem.imageName)
         totalDescriptionLabel.text = expositionItem.totalDescription
+    }
+    
+    private func configureView() {
+        contentStackView.addArrangedSubview(itemImage)
+        contentStackView.addArrangedSubview(totalDescriptionLabel)
+        expositionItemScrollView.addSubview(contentStackView)
+        view.addSubview(expositionItemScrollView)
     }
     
     private func configureConstraint() {

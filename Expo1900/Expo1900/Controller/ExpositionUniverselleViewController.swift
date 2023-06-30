@@ -105,7 +105,6 @@ class ExpositionUniverselleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "메인"
         view.backgroundColor = .systemBackground
         decodeExpositionUniverselle()
         updateLabel()
@@ -132,6 +131,7 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func updateLabel() {
+        navigationItem.title = "메인"
         titleLabel.text = expositionUniverselle?.titleForLabel
         visitorsLabel.text = expositionUniverselle?.visitorsForLabel
         locationLabel.text = expositionUniverselle?.locationForLabel
@@ -140,13 +140,22 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureView() {
-        addArrangedSubviews(to: buttonStackView, elements: leftFlagImage, expositionItemListButton, rightFlagImage)
-        addArrangedSubviews(to: contentStackView, elements: titleLabel, posterImage, visitorsLabel, locationLabel, durationLabel, totalDescriptionLabel, buttonStackView)
+        addArrangedSubviews(to: buttonStackView, elements: [leftFlagImage,
+                                                            expositionItemListButton,
+                                                            rightFlagImage
+                                                           ])
+        addArrangedSubviews(to: contentStackView, elements: [titleLabel,
+                                                             posterImage,
+                                                             visitorsLabel,
+                                                             locationLabel,
+                                                             durationLabel,
+                                                             totalDescriptionLabel,
+                                                             buttonStackView])
         expositionUniverselleScrollView.addSubview(contentStackView)
         view.addSubview(expositionUniverselleScrollView)
     }
     
-    private func addArrangedSubviews(to superview: UIStackView, elements subviews: AnyObject...) {
+    private func addArrangedSubviews(to superview: UIStackView, elements subviews: [AnyObject]) {
         subviews.forEach {
             guard let subview = $0 as? UIView else { return }
             superview.addArrangedSubview(subview)

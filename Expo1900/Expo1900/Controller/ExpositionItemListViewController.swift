@@ -20,11 +20,11 @@ class ExpositionItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "한국의 출품작"
-        decodeItems()
         view.backgroundColor = .systemBackground
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
         itemListTableView.register(ItemUITableViewCellStyleSubtitle.self, forCellReuseIdentifier: "cell")
+        decodeItems()
         view.addSubview(itemListTableView)
         configureItemListTableViewConstraint()
     }
@@ -69,5 +69,4 @@ extension ExpositionItemListViewController: UITableViewDelegate, UITableViewData
         let expositionItemViewController: ExpositionItemViewController = ExpositionItemViewController(item: itemList[indexPath.row])
         navigationController?.pushViewController(expositionItemViewController, animated: true)
     }
-    
 }
