@@ -60,5 +60,6 @@ extension KoreaEntryViewController: UITableViewDelegate {
                                                              entryInformation.description)
         navigationController?.pushViewController(entryDetailViewController, animated: true)
         navigationItem.backButtonTitle = ExpositionTitle.koreaEntries
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
