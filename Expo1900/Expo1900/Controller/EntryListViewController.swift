@@ -7,20 +7,20 @@
 
 import UIKit
 
-class EntryListViewController: UIViewController {
+final class EntryListViewController: UIViewController {
     @IBOutlet weak var entryTableView: UITableView!
-    var entryData: [Entry] = []
+    
+    private var entryData: [Entry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "한국의 출품작"
-        
         self.entryTableView.delegate = self
         self.entryTableView.dataSource = self
+        navigationItem.title = "한국의 출품작"
         unwrapData()
     }
 
-    func unwrapData() {
+    private func unwrapData() {
         do {
             entryData = try JSONDecoder().decode([Entry].self, from: "items")
         } catch {}
@@ -28,7 +28,6 @@ class EntryListViewController: UIViewController {
 }
 
 extension EntryListViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entryData.count
     }
@@ -44,8 +43,9 @@ extension EntryListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let entryDetailViewController = self.storyboard?.instantiateViewController(identifier: "entryDetailViewController", creator: { coder in
-            EntryDetailViewController(coder: coder, data: self.entryData[indexPath.row]) }) else { return }
+        guard let entryDetailViewController = self.storyboard?.instantiateViewController(identifier: "detailEntryViewController", creator: { coder in DetailEntryViewController(coder: coder, data: self.entryData[indexPath.row]) }) else {
+            return
+        }
         
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }

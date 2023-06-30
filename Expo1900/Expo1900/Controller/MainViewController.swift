@@ -6,17 +6,18 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    var expoGuideData: ExpoGuide?
+    private var expoGuideData: ExpoGuide?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillLabels()
+        unwrapData()
+        insertLabels()
         navigationItem.title = "메인"
     }
     
@@ -30,12 +31,13 @@ class MainViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
-    func fillLabels() {
-        
+    private func unwrapData() {
         do {
             expoGuideData = try JSONDecoder().decode(ExpoGuide.self, from: "exposition_universelle_1900")
         } catch {}
-        
+    }
+    
+    private func insertLabels() {
         titleLabel.text = expoGuideData?.title.replacingOccurrences(of: "(", with: "\n(")
         visitorsLabel.text = expoGuideData?.visitorsText
         locationLabel.text = expoGuideData?.location
@@ -43,11 +45,11 @@ class MainViewController: UIViewController {
         descriptionLabel.text = expoGuideData?.description
     }
     
-    @IBAction func tappedEntryListButton(_ sender: UIButton) {
-        guard let entryListView = self.storyboard?.instantiateViewController(withIdentifier: "entryList") else {
+    @IBAction private func tappedEntryListButton(_ sender: UIButton) {
+        guard let entryListViewController = self.storyboard?.instantiateViewController(withIdentifier: "entryListViewController") else {
             return
         }
         
-        navigationController?.pushViewController(entryListView, animated: true)
+        navigationController?.pushViewController(entryListViewController, animated: true)
     }
 }
