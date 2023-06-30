@@ -155,9 +155,9 @@ extension MainView {
 // MARK: - Load Information
 extension MainView {
     func loadInformation(information: ParisExpositionInformation) {
-        titleLabel.text = information.title
-        locationLabel.text = "개최지 : \(information.location)"
-        durationLabel.text = "개최 기간 : \(information.duration)"
+        titleLabel.text = information.title.replacingOccurrences(of: "(", with: "\n(")
+        locationLabel.attributedText = "개최지 : \(information.location)".addAttributeBigFontForKeyword(keyword: "개최지")
+        durationLabel.attributedText = "개최 기간 : \(information.duration)".addAttributeBigFontForKeyword(keyword: "개최 기간")
         descriptionLabel.text = information.description
         loadVisitorsInformation(information.visitors)
     }
@@ -169,7 +169,7 @@ extension MainView {
         let visitorsAsNumber = numberFormatter.number(from: visitors.description) ?? 0
         guard let visitorsAsFormatterString = numberFormatter.string(from: visitorsAsNumber) else { return }
         
-        visitorsLabel.text = "방문객 : \(visitorsAsFormatterString) 명"
+        visitorsLabel.attributedText = "방문객 : \(visitorsAsFormatterString) 명".addAttributeBigFontForKeyword(keyword: "방문객")
     }
 }
 
