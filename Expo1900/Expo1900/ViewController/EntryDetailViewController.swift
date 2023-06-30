@@ -72,6 +72,7 @@ final class EntryDetailViewController: UIViewController {
         setUpScrollViewConstraints()
         setUpContentViewConstraints()
         setUpStackViewConstraints()
+        setUpImageViewConstraints()
     }
 }
 
@@ -107,6 +108,12 @@ extension EntryDetailViewController {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+    }
+    private func setUpImageViewConstraints() {
+        NSLayoutConstraint.activate([
+            contentImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 300),
+            contentImageView.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.75)
         ])
     }
 }
