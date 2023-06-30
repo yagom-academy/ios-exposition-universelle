@@ -10,7 +10,7 @@ import UIKit
 extension UITableViewCell {
     static let basicCellIdentifier = "basicCell"
     
-    func setExpositionEntryCell(information: ExhibitionItem) {
+    func setExpositionEntryCell(information: ExpositionItem) {
         var content = defaultContentConfiguration()
         
         content.text = information.name

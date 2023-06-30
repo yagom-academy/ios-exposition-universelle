@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExhibitionItem: Decodable, Identifiable {
+struct ExpositionItem: Decodable, Identifiable {
     let id: UUID = UUID()
     
     let name: String
@@ -23,7 +23,7 @@ struct ExhibitionItem: Decodable, Identifiable {
     }
 }
 
-extension ExhibitionItem: Equatable {
+extension ExpositionItem: Equatable {
     static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
     }

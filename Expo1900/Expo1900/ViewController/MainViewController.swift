@@ -20,7 +20,7 @@ final class MainViewController: UIViewController, MainViewDelegate {
         configureUI()
         setUpConstraints()
         loadMainViewInformation()
-        navigationItem.backButtonTitle = "메인"
+        navigationItem.backButtonTitle = ExpositionTitle.main
     }
     
     override func viewWillAppear(_ animated: Bool) {

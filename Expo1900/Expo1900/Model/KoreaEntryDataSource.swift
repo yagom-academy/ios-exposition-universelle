@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
-    private var koreaEntryList: [ExhibitionItem]?
+    private var koreaEntryList: [ExpositionItem]?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         koreaEntryList?.count ?? 0
@@ -26,7 +26,7 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
 // MARK: - Load Information
 extension KoreaEntryDataSource {
     func loadKoreaEntryInformation() {
-        guard let data: [ExhibitionItem] = Decoder.decode(fileName: "items") else { return }
+        guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return }
         
         koreaEntryList = data
     }
@@ -34,7 +34,7 @@ extension KoreaEntryDataSource {
 
 // MARK: - Send Information
 extension KoreaEntryDataSource {
-    func sendEntryInformation(index: Int) -> ExhibitionItem? {
+    func sendEntryInformation(index: Int) -> ExpositionItem? {
         guard let information = koreaEntryList?[index] else { return nil }
         
         return information

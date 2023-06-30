@@ -28,7 +28,7 @@ final class KoreaEntryViewController: UIViewController {
         
         configureUI()
         setUpTableViewConstraints()
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = ExpositionTitle.koreaEntries
     }
     
     private func configureUI() {
@@ -55,6 +55,6 @@ extension KoreaEntryViewController: UITableViewDelegate {
                                                              entryInformation.imageName,
                                                              entryInformation.description)
         navigationController?.pushViewController(entryDetailViewController, animated: true)
-        navigationItem.backButtonTitle = "한국의 출품작"
+        navigationItem.backButtonTitle = ExpositionTitle.koreaEntries
     }
 }
