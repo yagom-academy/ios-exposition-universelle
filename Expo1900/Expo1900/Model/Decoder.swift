@@ -15,6 +15,12 @@ struct Decoder<T: Decodable> {
             throw DecoderError.notFoundAsset
         }
         
-        return try decoder.decode(T.self, from: dataAsset.data)
+        do {
+            let decodedData = try decoder.decode(T.self, from: dataAsset.data)
+            
+            return decodedData
+        } catch {
+            throw DecoderError.decodeFailed
+        }
     }
 }

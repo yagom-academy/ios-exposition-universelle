@@ -7,4 +7,5 @@
 
 enum DecoderError: Error {
     case notFoundAsset
+    case decodeFailed
 }
