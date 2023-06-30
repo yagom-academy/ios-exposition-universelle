@@ -15,10 +15,12 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.basicCellIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryTableViewCell.id, for: indexPath) as? KoreaEntryTableViewCell else { return UITableViewCell() }
         guard let koreaEntryItem = koreaEntryList?[indexPath.row] else { return UITableViewCell() }
         
-        cell.setExpositionEntryCell(information: koreaEntryItem)
+        cell.setEntryInformation(koreaEntryItem.name,
+                                 koreaEntryItem.shortDescription,
+                                 koreaEntryItem.imageName)
         return cell
     }
 }
