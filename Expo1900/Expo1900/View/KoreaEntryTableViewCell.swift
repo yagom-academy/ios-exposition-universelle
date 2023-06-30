@@ -14,6 +14,7 @@ class KoreaEntryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+		self.accessoryType = .disclosureIndicator
         setUpUI()
     }
 
