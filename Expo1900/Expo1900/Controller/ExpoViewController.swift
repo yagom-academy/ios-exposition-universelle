@@ -26,6 +26,13 @@ final class ExpoViewController: UIViewController {
         super.viewDidLoad()
         setUpLabels()
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+		navigationItem.backBarButtonItem = backBarButtonItem
+		navigationController?.setNavigationBarHidden(true, animated: false)
+	}
 
 	private func setUpLabels() {
 		guard let expoModel = expoModel,
