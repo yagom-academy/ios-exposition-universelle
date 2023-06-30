@@ -33,8 +33,10 @@ final class MainViewController: UIViewController {
 
     private func unwrapData() {
         do {
-            expoGuideData = try JSONDecoder().decode(ExpoGuide.self, from: "exposition_universelle_1900")
-        } catch {}
+            expoGuideData = try ExpoGuide.decode(file: "exposition_universelle_1900")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     private func insertLabels() {

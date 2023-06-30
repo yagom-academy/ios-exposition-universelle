@@ -22,8 +22,10 @@ final class EntryListViewController: UIViewController {
 
     private func unwrapData() {
         do {
-            entryData = try JSONDecoder().decode([Entry].self, from: "items")
-        } catch {}
+            entryData = try [Entry].decode(file: "items")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

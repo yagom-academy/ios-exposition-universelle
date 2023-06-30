@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B3530AF2A49BF7B00A8555E /* ExpoGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3530AE2A49BF7B00A8555E /* ExpoGuide.swift */; };
-		3B3530B62A4ADDCF00A8555E /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3530B52A4ADDCF00A8555E /* JSONDecoder+.swift */; };
+		3B3530B62A4ADDCF00A8555E /* Decodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3530B52A4ADDCF00A8555E /* Decodable+.swift */; };
 		3B3530B92A4ADF1B00A8555E /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3530B82A4ADF1B00A8555E /* DecodeError.swift */; };
 		92B54EB32A4BC6EB00592ED9 /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B54EB22A4BC6EB00592ED9 /* EntryListViewController.swift */; };
 		92B54EB92A4C041000592ED9 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B54EB82A4C041000592ED9 /* EntryTableViewCell.swift */; };
@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		3B3530AE2A49BF7B00A8555E /* ExpoGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoGuide.swift; sourceTree = "<group>"; };
-		3B3530B52A4ADDCF00A8555E /* JSONDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+.swift"; sourceTree = "<group>"; };
+		3B3530B52A4ADDCF00A8555E /* Decodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+.swift"; sourceTree = "<group>"; };
 		3B3530B82A4ADF1B00A8555E /* DecodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
 		92B54EB22A4BC6EB00592ED9 /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
 		92B54EB82A4C041000592ED9 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		3B3530B42A4ADDB000A8555E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				3B3530B52A4ADDCF00A8555E /* JSONDecoder+.swift */,
+				3B3530B52A4ADDCF00A8555E /* Decodable+.swift */,
 				92B54EC42A4DC77400592ED9 /* Int+.swift */,
 			);
 			path = Extension;
@@ -211,7 +211,7 @@
 				92B54EB32A4BC6EB00592ED9 /* EntryListViewController.swift in Sources */,
 				3B3530AF2A49BF7B00A8555E /* ExpoGuide.swift in Sources */,
 				92B54EC32A4DC16400592ED9 /* DetailEntryViewController.swift in Sources */,
-				3B3530B62A4ADDCF00A8555E /* JSONDecoder+.swift in Sources */,
+				3B3530B62A4ADDCF00A8555E /* Decodable+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

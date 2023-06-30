@@ -2,7 +2,7 @@
 //  TableViewCell.swift
 //  Expo1900
 //
-//  Created by minsong kim on 2023/06/28.
+//  Created by mint, Yetti on 2023/06/28.
 //
 
 import UIKit
