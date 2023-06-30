@@ -64,17 +64,12 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailItemViewController = storyboard?
-            .instantiateViewController(withIdentifier: "DetailItemViewController") as?
-                DetailItemViewController else
-        {
-            return
-        }
-        
         let item = items[indexPath.row]
-        detailItemViewController.setDetailItem(item)
-        detailItemViewController.title = item.name
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
+        let detailItemViewController = storyboard.instantiateViewController(identifier: "DetailItemViewController") { coder in DetailItemViewController(item: item, coder: coder) }
+ 
+        tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(detailItemViewController, animated: true)
     }
 }

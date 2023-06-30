@@ -14,17 +14,22 @@ final class DetailItemViewController: UIViewController {
     
     private var detailItems: Item?
     
+    init?(item: Item, coder: NSCoder) {
+        super.init(coder: coder)
+        detailItems = item
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createItemlabels()
     }
     
-    func setDetailItem(_ detailItem: Item) {
-        self.detailItems = detailItem
-    }
-    
     private func createItemlabels() {
-        guard let item = detailItems else { return }
+       guard let item = detailItems else { return }
         itemImageView.image = UIImage(named: item.imageName)
         itemDescriptionLabel.text = item.description
     }
