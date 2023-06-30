@@ -10,14 +10,12 @@ import UIKit
 final class EntryDetailViewController: UIViewController {
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .red
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
     private let contentView: UIView = {
         let contentView = UIView()
-        contentView.backgroundColor = .blue
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
@@ -31,7 +29,6 @@ final class EntryDetailViewController: UIViewController {
     private let contentLabel: UILabel = {
         let contentLabel = UILabel()
         contentLabel.numberOfLines = 0
-        contentLabel.backgroundColor = .brown
         return contentLabel
     }()
     
@@ -41,7 +38,6 @@ final class EntryDetailViewController: UIViewController {
         stackView.spacing = 8
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.backgroundColor = .purple
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -66,6 +62,7 @@ final class EntryDetailViewController: UIViewController {
         contentView.addSubview(stackView)
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
+        view.backgroundColor = .systemBackground
     }
     
     private func setUpConstraints() {

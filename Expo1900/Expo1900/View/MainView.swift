@@ -16,14 +16,12 @@ final class MainView: UIView {
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .red
         scrollView.translatesAutoresizingMaskIntoConstraints  = false
         return scrollView
     }()
     
     private let contentView: UIView = {
         let contentView = UIView()
-        contentView.backgroundColor = .blue
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
@@ -34,7 +32,6 @@ final class MainView: UIView {
         contentStackView.spacing = 8
         contentStackView.alignment = .center
         contentStackView.distribution = .equalSpacing
-        contentStackView.backgroundColor = .yellow
         contentStackView.translatesAutoresizingMaskIntoConstraints = false
         return contentStackView
     }()
@@ -85,7 +82,6 @@ final class MainView: UIView {
         bottomStackView.axis = .horizontal
         bottomStackView.spacing = 30
         bottomStackView.distribution = .equalSpacing
-        bottomStackView.backgroundColor = .brown
         return bottomStackView
     }()
     
@@ -104,6 +100,7 @@ final class MainView: UIView {
     private lazy var koreaExpositionButton: UIButton = {
         let koreaExpositionButton = UIButton()
         koreaExpositionButton.setTitle("한국 박람회 전시", for: .normal)
+        koreaExpositionButton.setTitleColor(.systemBlue, for: .normal)
         koreaExpositionButton.addTarget(self, action: #selector(didTappedKoreaExhibitionButton), for: .touchUpInside)
         return koreaExpositionButton
     }()
