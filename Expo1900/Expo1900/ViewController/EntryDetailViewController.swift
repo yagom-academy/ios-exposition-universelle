@@ -22,7 +22,7 @@ final class EntryDetailViewController: UIViewController {
         return contentView
     }()
     
-    private let contentImage: UIImageView = {
+    private let contentImageView: UIImageView = {
         let contentImage = UIImageView()
         contentImage.image = UIImage(named: "poster")
         return contentImage
@@ -55,12 +55,12 @@ final class EntryDetailViewController: UIViewController {
     
     func setEntryDetailInformation(_ title: String, _ imageName: String, _ description: String) {
         navigationItem.title = title
-        contentImage.image = UIImage(named: imageName)
+        contentImageView.image = UIImage(named: imageName)
         contentLabel.text = description
     }
     
     private func configureUI() {
-        [contentImage, contentLabel].forEach {
+        [contentImageView, contentLabel].forEach {
             stackView.addArrangedSubview($0)
         }
         contentView.addSubview(stackView)
@@ -90,7 +90,7 @@ extension EntryDetailViewController {
         NSLayoutConstraint.activate([
             contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 15),
             contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
 
             contentView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor)
