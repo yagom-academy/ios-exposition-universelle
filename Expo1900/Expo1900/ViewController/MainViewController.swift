@@ -20,7 +20,7 @@ final class MainViewController: UIViewController, MainViewDelegate {
         configureUI()
         setUpConstraints()
         loadMainViewInformation()
-        navigationItem.backButtonTitle = ExpositionTitle.main
+        setNavigationTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +52,10 @@ final class MainViewController: UIViewController, MainViewDelegate {
         guard let information: ParisExpositionInformation = Decoder.decode(file: .parisExposition) else { return }
         
         mainView.loadInformation(information: information)
+    }
+    
+    private func setNavigationTitle() {
+        navigationItem.backButtonTitle = ExpositionTitle.main
     }
 }
 

@@ -28,7 +28,7 @@ final class KoreaEntryViewController: UIViewController {
         
         configureUI()
         setUpTableViewConstraints()
-        navigationItem.title = ExpositionTitle.koreaEntries
+        setNavigationTitle()
     }
     
     private func configureUI() {
@@ -42,6 +42,10 @@ final class KoreaEntryViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func setNavigationTitle() {
+        navigationItem.title = ExpositionTitle.koreaEntries
     }
 }
 
