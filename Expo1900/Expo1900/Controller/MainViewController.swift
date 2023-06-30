@@ -12,6 +12,7 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
     private var expoGuideData: ExpoGuide?
     
     override func viewDidLoad() {

@@ -17,6 +17,5 @@ struct Entry: Decodable {
         case description = "desc"
         
         case name
-        
     }
 }

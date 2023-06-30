@@ -240,8 +240,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameImage" destination="N7U-wz-x4M" id="odj-b7-qFV"/>
-                                            <outlet property="nameLabel" destination="N6S-uZ-aoI" id="FRq-HH-rKw"/>
+                                            <outlet property="entryImage" destination="N7U-wz-x4M" id="odj-b7-qFV"/>
+                                            <outlet property="entryNameLabel" destination="N6S-uZ-aoI" id="FRq-HH-rKw"/>
                                             <outlet property="shortDescriptionLabel" destination="FRK-fy-CiW" id="kgS-T1-Eiq"/>
                                         </connections>
                                     </tableViewCell>
@@ -318,7 +318,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="entryDescription" destination="B0j-dQ-rEG" id="0P5-8b-NW4"/>
+                        <outlet property="entryDescriptionLabel" destination="B0j-dQ-rEG" id="0P5-8b-NW4"/>
                         <outlet property="entryImage" destination="2qv-74-jDF" id="29H-ia-ZRG"/>
                     </connections>
                 </viewController>

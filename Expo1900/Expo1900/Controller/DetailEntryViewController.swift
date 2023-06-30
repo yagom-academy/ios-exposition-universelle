@@ -9,7 +9,7 @@ import UIKit
 
 final class DetailEntryViewController: UIViewController {
     @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryDescription: UILabel!
+    @IBOutlet weak var entryDescriptionLabel: UILabel!
     
     private var entryData: Entry
     
@@ -28,9 +28,9 @@ final class DetailEntryViewController: UIViewController {
         insertData()
     }
     
-    func insertData() {
+    private func insertData() {
         navigationItem.title = entryData.name
-        self.entryDescription.text = entryData.description
+        self.entryDescriptionLabel.text = entryData.description
         self.entryImage.image = UIImage(named: entryData.imageName)
     }
 }
