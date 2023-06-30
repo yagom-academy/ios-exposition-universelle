@@ -14,14 +14,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     
     private var introduction: Introduction?
-    private let numberFormatter: NumberFormatter = {
-        let numberFormatter = NumberFormatter()
-        
-        numberFormatter.numberStyle = .decimal
-        
-        return numberFormatter
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +77,7 @@ final class MainViewController: UIViewController {
         }
         
         titleLabel.text = title.replacingOccurrences(of: "(", with: "\n(")
-        visitorsLabel.text = ": \(numberFormatter.string(for: visitors) ?? "") 명"
+        visitorsLabel.text = ": \(DataFormatter.decimalStyle.string(for: visitors) ?? "") 명"
         locationLabel.text = ": \(location)"
         durationLabel.text = ": \(duration)"
         descriptionLabel.text = description
