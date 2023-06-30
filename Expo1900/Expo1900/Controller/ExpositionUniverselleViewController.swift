@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpositionUniverselleViewController: UIViewController {
+final class ExpositionUniverselleViewController: UIViewController {
     private var expositionUniverselle: ExpositionUniverselle?
     
     private let titleLabel: UILabel = {
@@ -53,7 +53,7 @@ class ExpositionUniverselleViewController: UIViewController {
         return imageView
     }()
     
-    private let leftFlagImage: UIImageView = {
+    private let leftItemImage: UIImageView = {
         let imageName: String = "flag"
         let image: UIImage? = UIImage(named: imageName)
         let imageView: UIImageView = UIImageView(image: image)
@@ -61,7 +61,7 @@ class ExpositionUniverselleViewController: UIViewController {
         return imageView
     }()
     
-    private let rightFlagImage: UIImageView = {
+    private let rightItemImage: UIImageView = {
         let imageName: String = "flag"
         let image: UIImage? = UIImage(named: imageName)
         let imageView: UIImageView = UIImageView(image: image)
@@ -124,7 +124,7 @@ class ExpositionUniverselleViewController: UIViewController {
     
     private func decodeExpositionUniverselle() {
         do {
-            expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: "exposition_universelle_1900")
+            expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: JSONFile.exposition.name)
         } catch {
             print(error)
         }
@@ -140,9 +140,9 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureView() {
-        addArrangedSubviews(to: buttonStackView, elements: [leftFlagImage,
+        addArrangedSubviews(to: buttonStackView, elements: [leftItemImage,
                                                             expositionItemListButton,
-                                                            rightFlagImage
+                                                            rightItemImage
                                                            ])
         addArrangedSubviews(to: contentStackView, elements: [titleLabel,
                                                              posterImage,

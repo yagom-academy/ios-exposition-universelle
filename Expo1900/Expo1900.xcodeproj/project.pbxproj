@@ -18,6 +18,7 @@
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		DC42FFE72A49943D0046D339 /* ExpositionUniverselle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42FFE62A49943D0046D339 /* ExpositionUniverselle.swift */; };
+		DC65F1562A4ECB0100A4B67C /* JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65F1552A4ECB0100A4B67C /* JSONFile.swift */; };
 		DC9E376F2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E376E2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift */; };
 		DC9E37712A4DA6FE00563254 /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E37702A4DA6FE00563254 /* ExpositionItemViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC42FFE62A49943D0046D339 /* ExpositionUniverselle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionUniverselle.swift; sourceTree = "<group>"; };
+		DC65F1552A4ECB0100A4B67C /* JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFile.swift; sourceTree = "<group>"; };
 		DC9E376E2A4D775700563254 /* ItemUITableViewCellStyleSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUITableViewCellStyleSubtitle.swift; sourceTree = "<group>"; };
 		DC9E37702A4DA6FE00563254 /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 			children = (
 				DC42FFE62A49943D0046D339 /* ExpositionUniverselle.swift */,
 				788B8C7D2A49953D00081A6F /* Item.swift */,
+				DC65F1552A4ECB0100A4B67C /* JSONFile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				78C454342A4D894D00B21BE4 /* NSDataAssetError.swift in Sources */,
 				788B8C7E2A49953D00081A6F /* Item.swift in Sources */,
+				DC65F1562A4ECB0100A4B67C /* JSONFile.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionUniverselleViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				78728DED2A4C5D8F00966B52 /* ExpositionItemListViewController.swift in Sources */,

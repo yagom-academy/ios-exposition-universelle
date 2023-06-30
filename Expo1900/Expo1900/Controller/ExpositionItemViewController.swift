@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpositionItemViewController: UIViewController {
+final class ExpositionItemViewController: UIViewController {
     private var expositionItem: Item
     
     private let itemImage: UIImageView = {

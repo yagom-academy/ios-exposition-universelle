@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemUITableViewCellStyleSubtitle: UITableViewCell {
+final class ItemUITableViewCellStyleSubtitle: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         accessoryType = .disclosureIndicator

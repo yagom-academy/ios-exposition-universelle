@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ExpositionItemListViewController: UIViewController {
+final class ExpositionItemListViewController: UIViewController {
     private var itemList: [Item] = []
+    private let customCellIdentifier: String = "cell"
     
     private let itemListTableView: UITableView = {
         let tableView: UITableView = UITableView()
@@ -23,7 +24,7 @@ class ExpositionItemListViewController: UIViewController {
         view.backgroundColor = .systemBackground
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
-        itemListTableView.register(ItemUITableViewCellStyleSubtitle.self, forCellReuseIdentifier: "cell")
+        itemListTableView.register(ItemUITableViewCellStyleSubtitle.self, forCellReuseIdentifier: customCellIdentifier)
         decodeItems()
         view.addSubview(itemListTableView)
         configureItemListTableViewConstraint()
@@ -31,7 +32,7 @@ class ExpositionItemListViewController: UIViewController {
     
     private func decodeItems() {
         do {
-            itemList = try JSONDecoder().decode([Item].self, from: "items")
+            itemList = try JSONDecoder().decode([Item].self, from: JSONFile.items.name)
         } catch {
             print(error)
         }
@@ -53,7 +54,7 @@ extension ExpositionItemListViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ItemUITableViewCellStyleSubtitle else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellIdentifier, for: indexPath) as? ItemUITableViewCellStyleSubtitle else {
             return UITableViewCell()
         }
         
