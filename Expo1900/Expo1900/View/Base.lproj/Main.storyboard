@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKY-5a-JgO">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kZj-1e-TeZ" userLabel="Expo Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="488"/>
@@ -30,7 +30,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="hhd-Oy-4LN">
-                                                <rect key="frame" x="135.33333333333337" y="48.666666666666686" width="143.66666666666663" height="200"/>
+                                                <rect key="frame" x="135.33333333333337" y="48.666666666666657" width="143.66666666666663" height="200"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visitors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17N-BX-2Ex">
                                                 <rect key="frame" x="171.66666666666666" y="263.66666666666669" width="70.666666666666657" height="26.333333333333314"/>
@@ -106,9 +106,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IKY-5a-JgO" secondAttribute="trailing" id="Be9-m0-NcN"/>
-                            <constraint firstItem="IKY-5a-JgO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="foo-qQ-H5n"/>
+                            <constraint firstItem="IKY-5a-JgO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="foo-qQ-H5n"/>
                             <constraint firstItem="IKY-5a-JgO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gtz-d8-6hk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IKY-5a-JgO" secondAttribute="bottom" id="iPe-Nc-fqC"/>
+                            <constraint firstAttribute="bottom" secondItem="IKY-5a-JgO" secondAttribute="bottom" id="iPe-Nc-fqC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cLe-jb-7wm"/>
