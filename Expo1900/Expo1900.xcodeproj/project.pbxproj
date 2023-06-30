@@ -12,6 +12,7 @@
 		446065112A4E786900B65D0C /* KoreaEntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446065102A4E786900B65D0C /* KoreaEntryListViewController.swift */; };
 		446065132A4E7A2400B65D0C /* KoreaEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446065122A4E7A2400B65D0C /* KoreaEntryTableViewCell.swift */; };
 		BA1F22952A4E575500C49B17 /* UInt+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F22942A4E575500C49B17 /* UInt+.swift */; };
+		BA1F22992A4ECCD000C49B17 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F22982A4ECCD000C49B17 /* EntryDetailViewController.swift */; };
 		BA6BC5702A4AC3A800532110 /* ItemsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6BC56F2A4AC3A800532110 /* ItemsModelTests.swift */; };
 		BAD3FD332A4A60D90099934E /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3FD322A4A60D90099934E /* ItemsModel.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		446065102A4E786900B65D0C /* KoreaEntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryListViewController.swift; sourceTree = "<group>"; };
 		446065122A4E7A2400B65D0C /* KoreaEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryTableViewCell.swift; sourceTree = "<group>"; };
 		BA1F22942A4E575500C49B17 /* UInt+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+.swift"; sourceTree = "<group>"; };
+		BA1F22982A4ECCD000C49B17 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		BA6BC56D2A4AC3A800532110 /* ItemsModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItemsModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6BC56F2A4AC3A800532110 /* ItemsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModelTests.swift; sourceTree = "<group>"; };
 		BAD3FD322A4A60D90099934E /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
 				446065102A4E786900B65D0C /* KoreaEntryListViewController.swift */,
+				BA1F22982A4ECCD000C49B17 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				BA1F22952A4E575500C49B17 /* UInt+.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				446064D72A4A5F4700B65D0C /* ExpoModel.swift in Sources */,
+				BA1F22992A4ECCD000C49B17 /* EntryDetailViewController.swift in Sources */,
 				446065132A4E7A2400B65D0C /* KoreaEntryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
