@@ -59,12 +59,25 @@ class ExpositionItemViewController: UIViewController {
         contentStackView.addArrangedSubview(totalDescriptionLabel)
         expositionItemScrollView.addSubview(contentStackView)
         view.addSubview(expositionItemScrollView)
-        
+        configureConstraint()
+    }
+    
+    private func configureConstraint() {
+        configureExpositionItemScrollViewConstraint()
+        configureContentStackViewConstraint()
+    }
+    
+    private func configureExpositionItemScrollViewConstraint() {
         NSLayoutConstraint.activate([
-            expositionItemScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            expositionItemScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            expositionItemScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            expositionItemScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            expositionItemScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            expositionItemScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            expositionItemScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            expositionItemScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
+    
+    private func configureContentStackViewConstraint() {
+        NSLayoutConstraint.activate([
             contentStackView.topAnchor.constraint(equalTo: expositionItemScrollView.topAnchor),
             contentStackView.bottomAnchor.constraint(equalTo: expositionItemScrollView.bottomAnchor),
             contentStackView.widthAnchor.constraint(equalTo: expositionItemScrollView.widthAnchor)

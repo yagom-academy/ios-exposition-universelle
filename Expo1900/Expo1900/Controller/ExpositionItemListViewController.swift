@@ -26,15 +26,9 @@ class ExpositionItemListViewController: UIViewController {
         itemListTableView.dataSource = self
         itemListTableView.register(ItemUITableViewCellStyleSubtitle.self, forCellReuseIdentifier: "cell")
         view.addSubview(itemListTableView)
-        
-        NSLayoutConstraint.activate([
-            itemListTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            itemListTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            itemListTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            itemListTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        configureItemListTableViewConstraint()
     }
-
+    
     private func decodeItems() {
         do {
             itemList = try JSONDecoder().decode([Item].self, from: "items")
@@ -43,6 +37,14 @@ class ExpositionItemListViewController: UIViewController {
         }
     }
     
+    private func configureItemListTableViewConstraint() {
+        NSLayoutConstraint.activate([
+            itemListTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            itemListTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            itemListTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            itemListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
 }
 
 extension ExpositionItemListViewController: UITableViewDelegate, UITableViewDataSource {

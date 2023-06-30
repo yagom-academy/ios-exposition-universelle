@@ -82,7 +82,7 @@ class ExpositionUniverselleViewController: UIViewController {
         return button
     }()
     
-    private let verticalStackView: UIStackView = {
+    private let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -91,7 +91,7 @@ class ExpositionUniverselleViewController: UIViewController {
         return stackView
     }()
     
-    private let horizontalStackView: UIStackView = {
+    private let buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -121,7 +121,7 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(false)
+        super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
     }
     
@@ -134,9 +134,9 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureView() {
-        addArrangedSubviews(to: horizontalStackView, elements: leftFlagImage, expositionItemListButton, rightFlagImage)
-        addArrangedSubviews(to: verticalStackView, elements: titleLabel, posterImage, visitorsLabel, durationLabel, locationLabel, totalDescriptionLabel, horizontalStackView)
-        expositionUniverselleScrollView.addSubview(verticalStackView)
+        addArrangedSubviews(to: buttonStackView, elements: leftFlagImage, expositionItemListButton, rightFlagImage)
+        addArrangedSubviews(to: contentStackView, elements: titleLabel, posterImage, visitorsLabel, durationLabel, locationLabel, totalDescriptionLabel, buttonStackView)
+        expositionUniverselleScrollView.addSubview(contentStackView)
         view.addSubview(expositionUniverselleScrollView)
     }
     
@@ -148,14 +148,24 @@ class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureConstraint() {
+        configureExpositionUniverselleScrollViewConstraint()
+        configureContentStackViewConstraint()
+    }
+    
+    private func configureExpositionUniverselleScrollViewConstraint() {
         NSLayoutConstraint.activate([
-            expositionUniverselleScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            expositionUniverselleScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            expositionUniverselleScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            expositionUniverselleScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            verticalStackView.topAnchor.constraint(equalTo: expositionUniverselleScrollView.topAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: expositionUniverselleScrollView.bottomAnchor),
-            verticalStackView.widthAnchor.constraint(equalTo: expositionUniverselleScrollView.widthAnchor)
+            expositionUniverselleScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            expositionUniverselleScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            expositionUniverselleScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            expositionUniverselleScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
+    
+    private func configureContentStackViewConstraint() {
+        NSLayoutConstraint.activate([
+            contentStackView.topAnchor.constraint(equalTo: expositionUniverselleScrollView.topAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: expositionUniverselleScrollView.bottomAnchor),
+            contentStackView.widthAnchor.constraint(equalTo: expositionUniverselleScrollView.widthAnchor)
         ])
     }
     
