@@ -58,7 +58,19 @@ final class MainViewController: UIViewController {
         do {
             introduction = try Decoder.decodeJSON(dataAssetName)
         } catch {
-            print(error)
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            
+            switch error {
+            case DecoderError.notFoundAsset:
+                alert.message = "에셋을 찾을 수 없습니다."
+            case DecoderError.decodeFailed:
+                alert.message = "디코딩에 실패했습니다."
+            default:
+                alert.message = "알 수 없는 에러"
+            }
+            
+            present(alert, animated: true)
         }
     }
     
