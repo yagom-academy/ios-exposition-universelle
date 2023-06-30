@@ -8,19 +8,14 @@
 import UIKit
 
 final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
-    var cellIdentifier: String
     private var koreaEntryList: [ExhibitionItem]?
-    
-    init(_ cellIdentifier: String) {
-        self.cellIdentifier = cellIdentifier
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         koreaEntryList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.basicCellIdentifier, for: indexPath)
         guard let koreaEntryItem = koreaEntryList?[indexPath.row] else { return UITableViewCell() }
         
         cell.setExpositionEntryCell(information: koreaEntryItem)

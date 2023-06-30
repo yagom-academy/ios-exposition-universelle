@@ -8,6 +8,8 @@
 import UIKit
 
 extension UITableViewCell {
+    static let basicCellIdentifier = "basicCell"
+    
     func setExpositionEntryCell(information: ExhibitionItem) {
         var content = defaultContentConfiguration()
         

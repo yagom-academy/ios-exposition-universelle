@@ -8,9 +8,8 @@
 import UIKit
 
 final class KoreaEntryViewController: UIViewController {
-    private let cellIdentifier = "basicCell"
     private lazy var dataSource: KoreaEntryDataSource = {
-        let dataSource = KoreaEntryDataSource(cellIdentifier)
+        let dataSource = KoreaEntryDataSource()
         dataSource.loadKoreaEntryInformation()
         return dataSource
     }()
@@ -19,7 +18,7 @@ final class KoreaEntryViewController: UIViewController {
        let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = dataSource
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.basicCellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
