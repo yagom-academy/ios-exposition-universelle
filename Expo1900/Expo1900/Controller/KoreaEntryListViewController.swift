@@ -22,6 +22,24 @@ class KoreaEntryListViewController: UIViewController {
         super.viewDidLoad()
         entryListTableView.dataSource = self
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.title = "한국의 출품작"
+		let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
+		navigationItem.backBarButtonItem = backBarButtonItem
+		navigationController?.setNavigationBarHidden(false, animated: false)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let destination = segue.destination as? EntryDetailViewController,
+			  let selectedIndex = self.entryListTableView.indexPathForSelectedRow?.row else {
+			return
+		}
+		destination.koreanEntryImageName = itemsModel?[selectedIndex].imageName ?? "photo"
+		destination.entryDescription = itemsModel?[selectedIndex].desc
+		destination.entryTitle = itemsModel?[selectedIndex].name
+	}
 }
 
 extension KoreaEntryListViewController: UITableViewDataSource {
