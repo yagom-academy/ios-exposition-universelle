@@ -2,7 +2,7 @@
 //  KoreaEntryViewController.swift
 //  Expo1900
 //
-//  Created by Hyun A Song on 2023/06/28.
+//  Created by Zion, Serena on 2023/06/28.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ final class KoreaEntryViewController: UIViewController {
     }()
     
     private lazy var tableView: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.basicCellIdentifier)
@@ -51,7 +51,7 @@ extension KoreaEntryViewController: UITableViewDelegate {
         guard let entryInformation = dataSource.sendEntryInformation(index: indexPath.row) else { return }
         let entryDetailViewController = EntryDetailViewController()
         
-        entryDetailViewController.setEntryDetatilInformation(entryInformation.name,
+        entryDetailViewController.setEntryDetailInformation(entryInformation.name,
                                                              entryInformation.imageName,
                                                              entryInformation.description)
         navigationController?.pushViewController(entryDetailViewController, animated: true)

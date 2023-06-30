@@ -80,6 +80,15 @@ final class MainView: UIView {
         return infoImage
     }()
     
+    private let bottomStackView: UIStackView = {
+        let bottomStackView = UIStackView()
+        bottomStackView.axis = .horizontal
+        bottomStackView.spacing = 30
+        bottomStackView.distribution = .equalSpacing
+        bottomStackView.backgroundColor = .brown
+        return bottomStackView
+    }()
+    
     private let leftImage: UIImageView = {
         let leftImage = UIImageView()
         leftImage.image = UIImage(named: "flag")
@@ -97,15 +106,6 @@ final class MainView: UIView {
         koreaExpositionButton.setTitle("한국 박람회 전시", for: .normal)
         koreaExpositionButton.addTarget(self, action: #selector(didTappedKoreaExhibitionButton), for: .touchUpInside)
         return koreaExpositionButton
-    }()
-    
-    private let bottomStackView: UIStackView = {
-        let bottomStackView = UIStackView()
-        bottomStackView.axis = .horizontal
-        bottomStackView.spacing = 30
-        bottomStackView.distribution = .equalSpacing
-        bottomStackView.backgroundColor = .brown
-        return bottomStackView
     }()
     
     convenience init() {
