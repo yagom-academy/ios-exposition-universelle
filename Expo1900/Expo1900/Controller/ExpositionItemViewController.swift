@@ -10,26 +10,14 @@ import UIKit
 class ExpositionItemViewController: UIViewController {
     private var expositionItem: Item
     
-    init(item: Item) {
-        self.expositionItem = item
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private lazy var itemImage: UIImageView = {
-        let imageName: String = expositionItem.imageName
-        let image: UIImage? = UIImage(named: imageName)
-        let imageView: UIImageView = UIImageView(image: image)
+    private let itemImage: UIImageView = {
+        let imageView: UIImageView = UIImageView()
         
         return imageView
     }()
     
-    private lazy var totalDescriptionLabel: UILabel = {
+    private let totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = expositionItem.totalDescription
         label.numberOfLines = 0
         
         return label
@@ -55,11 +43,26 @@ class ExpositionItemViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = expositionItem.name
         view.backgroundColor = .systemBackground
+        updateImageAndLabel()
         contentStackView.addArrangedSubview(itemImage)
         contentStackView.addArrangedSubview(totalDescriptionLabel)
         expositionItemScrollView.addSubview(contentStackView)
         view.addSubview(expositionItemScrollView)
         configureConstraint()
+    }
+    
+    init(item: Item) {
+        self.expositionItem = item
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func updateImageAndLabel() {
+        itemImage.image = UIImage(named: expositionItem.imageName)
+        totalDescriptionLabel.text = expositionItem.totalDescription
     }
     
     private func configureConstraint() {

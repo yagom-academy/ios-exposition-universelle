@@ -9,41 +9,37 @@ import UIKit
 class ExpositionUniverselleViewController: UIViewController {
     private var expositionUniverselle: ExpositionUniverselle?
     
-    private lazy var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = expositionUniverselle?.title
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        
+        return label
+    }()
+    
+    private let visitorsLabel: UILabel = {
+        let label: UILabel = UILabel()
         label.textAlignment = .center
         
         return label
     }()
     
-    private lazy var visitorsLabel: UILabel = {
+    private let locationLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = expositionUniverselle?.numberOfVisitors
-        label.textAlignment = .center
-
-        return label
-    }()
-
-    private lazy var locationLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.text = expositionUniverselle?.location
         label.textAlignment = .center
         
         return label
     }()
     
-    private lazy var durationLabel: UILabel = {
+    private let durationLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = expositionUniverselle?.duration
         label.textAlignment = .center
         
         return label
     }()
     
-    private lazy var totalDescriptionLabel: UILabel = {
+    private let totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.text = expositionUniverselle?.totalDescription
         label.numberOfLines = 0
         
         return label
@@ -87,6 +83,7 @@ class ExpositionUniverselleViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
+        stackView.spacing = 8
         
         return stackView
     }()
@@ -111,6 +108,7 @@ class ExpositionUniverselleViewController: UIViewController {
         navigationItem.title = "메인"
         view.backgroundColor = .systemBackground
         decodeExpositionUniverselle()
+        updateLabel()
         configureView()
         configureConstraint()
     }
@@ -133,9 +131,17 @@ class ExpositionUniverselleViewController: UIViewController {
         }
     }
     
+    private func updateLabel() {
+        titleLabel.text = expositionUniverselle?.titleForLabel
+        visitorsLabel.text = expositionUniverselle?.visitorsForLabel
+        locationLabel.text = expositionUniverselle?.locationForLabel
+        durationLabel.text = expositionUniverselle?.durationForLabel
+        totalDescriptionLabel.text = expositionUniverselle?.totalDescription
+    }
+    
     private func configureView() {
         addArrangedSubviews(to: buttonStackView, elements: leftFlagImage, expositionItemListButton, rightFlagImage)
-        addArrangedSubviews(to: contentStackView, elements: titleLabel, posterImage, visitorsLabel, durationLabel, locationLabel, totalDescriptionLabel, buttonStackView)
+        addArrangedSubviews(to: contentStackView, elements: titleLabel, posterImage, visitorsLabel, locationLabel, durationLabel, totalDescriptionLabel, buttonStackView)
         expositionUniverselleScrollView.addSubview(contentStackView)
         view.addSubview(expositionUniverselleScrollView)
     }
