@@ -42,8 +42,9 @@
 | 2023.06.28.| 🔬 info.plist파일 이동으로 인한 빌드 오류 수정<br> 🛠️ 옵셔널 체이닝으로 통일, 프로퍼티 옵셔널 타입으로 선언 <br> |
 | 2023.06.29.| 📝 프로젝트에서 필요로 하는 핵심기능 공부 - TableView 공부 |
 | 2023.06.30.| 📝 README 작성 |
----
 
+---
+<br>
 
 <a id="3."></a>
 
@@ -57,16 +58,29 @@
 - 자바크스립트의 경우 변수명 표기법이 카멜 케이스와 스네이크 케이스를 둘 다 사용하기 때문에 카멜 케이스만 활용하는 `swift`에서 "_"를 활용해서 네이밍을 하는 스네이크 케이스에 대처를 해주어야했습니다. `CodingKeys`를 활용하여 해결했습니다.
 
 
-### 3️⃣ Decoding만 구현
-> `Encoding` : 일련의 데이터를 `JSON`형식으로 변환하는 과정
-> `Decoding` : `JSON`형식의 데이터를 해당 데이터 형식으로 변환하는 과정
+### 3️⃣ `Decoding`만 구현
+> `Encoding` : 일련의 데이터를 `JSON`형식으로 변환하는 과정입니다.
+> `Decoding` : `JSON`형식의 데이터를 해당 데이터 형식으로 변환하는 과정입니다.
 - 맨 처음에는 `Codable`의 프로토콜을 채택을 했었습니다. `Codable` 프로토콜을 채택하면 `Encoding`에 활용하는 `Encodable`와 `Decoding` 할 수 있는 `Decodable` 모두 활용이 가능해지는데 만국박람회 프로젝트에서 `Encoding`를 할 경우는 없어보여서 `Decoding`시 활용하는 `Decodable`만 활용하여 구현했습니다.
 
-### 4️⃣ Nil값의 처리
+### 4️⃣ `Nil`값의 처리
 - `JSON`데이터의 값으로는 `Number`, `String`, `Boolean`, `Object`, `Array`, `NULL과` 같은 타입이 올 수 있다고 명시되어져 있어서, `NULL`은 `Swift`에서의 `nil`값인것으로 알고 있습니다. `nil`값이 들어왔을 때의 처리를 해주어야 된다고 생각되어져서 `Decodable` 프로토콜내에 존재하는 `init` 생성자를 이용하여 안전하게 파싱 작업을 진행했습니다.
 
+```swift
+init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try container.decode(String.self, forKey: .name)
+        imageName = try container.decode(String.self, forKey: .imageName)
+        shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
+    }
+}
+```
 
-</br>
+---
+<br>
+
 
 
 <a id="4."></a> 
