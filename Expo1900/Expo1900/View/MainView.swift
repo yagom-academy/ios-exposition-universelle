@@ -151,7 +151,7 @@ extension MainView {
 
 // MARK: - Load Information
 extension MainView {
-    func loadInformation(information: ParisExpositionInformation) {
+    func load(information: ParisExpositionInformation) {
         titleLabel.text = information.title.replacingOccurrences(of: "(", with: "\n(")
         locationLabel.attributedText = "개최지 : \(information.location)".addAttributeBigFontForKeyword(keyword: "개최지")
         durationLabel.attributedText = "개최 기간 : \(information.duration)".addAttributeBigFontForKeyword(keyword: "개최 기간")
