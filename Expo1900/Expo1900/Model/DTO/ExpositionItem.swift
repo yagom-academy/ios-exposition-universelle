@@ -22,9 +22,3 @@ struct ExpositionItem: Decodable, Identifiable {
         case description = "desc"
     }
 }
-
-extension ExpositionItem: Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id
-    }
-}
