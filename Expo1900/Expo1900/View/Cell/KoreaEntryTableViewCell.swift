@@ -57,10 +57,10 @@ class KoreaEntryTableViewCell: UITableViewCell {
 
 // MARK: - Set Entry Information
 extension KoreaEntryTableViewCell {
-    func setEntryInformation(_ title: String, _ description: String, _ imageName: String) {
-        titleLabel.text = title
-        descriptionLabel.text = description
-        entryImageView.image = UIImage(named: imageName)
+    func setEntryInformation(with exposionItem: ExpositionItem) {
+        titleLabel.text = exposionItem.name
+        descriptionLabel.text = exposionItem.shortDescription
+        entryImageView.image = UIImage(named: exposionItem.imageName)
     }
 }
 

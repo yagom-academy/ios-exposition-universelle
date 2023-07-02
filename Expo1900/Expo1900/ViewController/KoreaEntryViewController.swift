@@ -8,6 +8,8 @@
 import UIKit
 
 final class KoreaEntryViewController: UIViewController {
+    private let koreaEntryTitle = "한국의 출품작"
+    
     private lazy var dataSource: KoreaEntryDataSource = {
         let dataSource = KoreaEntryDataSource()
         dataSource.loadKoreaEntryInformation()
@@ -45,7 +47,7 @@ final class KoreaEntryViewController: UIViewController {
     }
     
     private func setNavigationTitle() {
-        navigationItem.title = ExpositionTitle.koreaEntries
+        navigationItem.title = koreaEntryTitle
     }
 }
 
@@ -59,7 +61,7 @@ extension KoreaEntryViewController: UITableViewDelegate {
                                                              entryInformation.imageName,
                                                              entryInformation.description)
         navigationController?.pushViewController(entryDetailViewController, animated: true)
-        navigationItem.backButtonTitle = ExpositionTitle.koreaEntries
+        navigationItem.backButtonTitle = koreaEntryTitle
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

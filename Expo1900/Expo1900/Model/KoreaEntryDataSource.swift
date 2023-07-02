@@ -18,9 +18,7 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryTableViewCell.id, for: indexPath) as? KoreaEntryTableViewCell else { return UITableViewCell() }
         guard let koreaEntryItem = koreaEntryList?[indexPath.row] else { return UITableViewCell() }
         
-        cell.setEntryInformation(koreaEntryItem.name,
-                                 koreaEntryItem.shortDescription,
-                                 koreaEntryItem.imageName)
+        cell.setEntryInformation(with: koreaEntryItem)
         return cell
     }
 }
@@ -28,7 +26,7 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
 // MARK: - Load Information
 extension KoreaEntryDataSource {
     func loadKoreaEntryInformation() {
-        guard let data: [ExpositionItem] = Decoder.decode(file: .expositionItems) else { return }
+        guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return }
         
         koreaEntryList = data
     }
@@ -37,7 +35,7 @@ extension KoreaEntryDataSource {
 // MARK: - Send Information
 extension KoreaEntryDataSource {
     func sendEntryInformation(index: Int) -> ExpositionItem? {
-        guard let information = koreaEntryList?[index] else { return nil }
+        guard let information = koreaEntryList?[safe: index] else { return nil }
         
         return information
     }
