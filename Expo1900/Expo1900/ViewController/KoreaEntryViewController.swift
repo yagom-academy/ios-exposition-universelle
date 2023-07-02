@@ -9,10 +9,12 @@ import UIKit
 
 final class KoreaEntryViewController: UIViewController {
     private let koreaEntryTitle = "한국의 출품작"
+    private var koreaEntryItems: [ExpositionItem]?
     
     private lazy var dataSource: KoreaEntryDataSource = {
-        let dataSource = KoreaEntryDataSource()
-        dataSource.loadKoreaEntryInformation(data: decodingKoreaEntryInformation())
+        let data = decodingKoreaEntryInformation()
+        let dataSource = KoreaEntryDataSource(koreaEntryList: data)
+        
         return dataSource
     }()
     
@@ -53,6 +55,7 @@ final class KoreaEntryViewController: UIViewController {
     private func decodingKoreaEntryInformation() -> [ExpositionItem]? {
         guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return nil }
         
+        koreaEntryItems = data
         return data
     }
 }
@@ -60,7 +63,7 @@ final class KoreaEntryViewController: UIViewController {
 // MARK: - TableView Delegate
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let entryInformation = dataSource.sendEntryInformation(index: indexPath.row) else { return }
+        guard let entryInformation = koreaEntryItems?[safe: indexPath.row] else { return }
         let entryDetailViewController = EntryDetailViewController()
         
         entryDetailViewController.setEntryDetailInformation(entryInformation.name,
