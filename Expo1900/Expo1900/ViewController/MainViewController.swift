@@ -54,7 +54,7 @@ final class MainViewController: UIViewController, MainViewDelegate {
     private func loadMainViewInformation() {
         guard let information: ParisExpositionInformation = Decoder.decode(fileName: "exposition_universelle_1900") else { return }
         
-        mainView.loadInformation(information: information)
+        mainView.load(information: information)
     }
     
     private func setBackgroundColor(_ color: UIColor) {
