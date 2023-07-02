@@ -25,9 +25,7 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
 
 // MARK: - Load Information
 extension KoreaEntryDataSource {
-    func loadKoreaEntryInformation() {
-        guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return }
-        
+    func loadKoreaEntryInformation(data: [ExpositionItem]?) {
         koreaEntryList = data
     }
 }

@@ -12,7 +12,7 @@ final class KoreaEntryViewController: UIViewController {
     
     private lazy var dataSource: KoreaEntryDataSource = {
         let dataSource = KoreaEntryDataSource()
-        dataSource.loadKoreaEntryInformation()
+        dataSource.loadKoreaEntryInformation(data: decodingKoreaEntryInformation())
         return dataSource
     }()
     
@@ -48,6 +48,12 @@ final class KoreaEntryViewController: UIViewController {
     
     private func setNavigationTitle() {
         navigationItem.title = koreaEntryTitle
+    }
+    
+    private func decodingKoreaEntryInformation() -> [ExpositionItem]? {
+        guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return nil }
+        
+        return data
     }
 }
 
