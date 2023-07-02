@@ -15,7 +15,7 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryTableViewCell.id, for: indexPath) as? KoreaEntryTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryTableViewCell.reuseIdentifier, for: indexPath) as? KoreaEntryTableViewCell else { return UITableViewCell() }
         guard let koreaEntryItem = koreaEntryList?[indexPath.row] else { return UITableViewCell() }
         
         cell.setEntryInformation(with: koreaEntryItem)

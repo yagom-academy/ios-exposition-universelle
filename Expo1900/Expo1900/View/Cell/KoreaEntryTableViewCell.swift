@@ -7,8 +7,12 @@
 
 import UIKit
 
-class KoreaEntryTableViewCell: UITableViewCell {
-    static let id = "KoreaEntryTableViewCell"
+protocol CellIdentifiable {
+    static var reuseIdentifier : String { get }
+}
+
+final class KoreaEntryTableViewCell: UITableViewCell, CellIdentifiable {
+    static let reuseIdentifier = "KoreaEntryTableViewCell"
     
     private let entryImageView: UIImageView = {
         let imageView = UIImageView()

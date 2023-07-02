@@ -68,7 +68,7 @@ final class MainViewController: UIViewController, MainViewDelegate {
 
 // MARK: - MainView Delegate
 extension MainViewController {
-    func pushKoreaEntryViewController() {
+    func didTappedKoreaEntryButton() {
         let koreaEntryViewController = KoreaEntryViewController()
         
         navigationController?.pushViewController(koreaEntryViewController, animated: true)

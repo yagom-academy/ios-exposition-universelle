@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainViewDelegate: AnyObject {
-    func pushKoreaEntryViewController()
+    func didTappedKoreaEntryButton()
 }
 
 final class MainView: UIView {
@@ -145,7 +145,7 @@ final class MainView: UIView {
 // MARK: - Delegate
 extension MainView {
     @objc func didTappedKoreaExhibitionButton() {
-        delegate?.pushKoreaEntryViewController()
+        delegate?.didTappedKoreaEntryButton()
     }
 }
 
@@ -153,8 +153,8 @@ extension MainView {
 extension MainView {
     func loadInformation(information: ParisExpositionInformation) {
         titleLabel.text = information.title.replacingOccurrences(of: "(", with: "\n(")
-        locationLabel.attributedText = "개최지 : \(information.location)".addAttributeBigFontForKeyword(keyword: "개최지")
-        durationLabel.attributedText = "개최 기간 : \(information.duration)".addAttributeBigFontForKeyword(keyword: "개최 기간")
+        locationLabel.attributedText = "개최지 : \(information.location)".addAttributeFontForKeyword(font: UIFont.systemFont(ofSize: 20),keyword: "개최지")
+        durationLabel.attributedText = "개최 기간 : \(information.duration)".addAttributeFontForKeyword(font: UIFont.systemFont(ofSize: 20),keyword: "개최 기간")
         descriptionLabel.text = information.description
         loadVisitorsInformation(information.visitors)
     }
@@ -166,7 +166,7 @@ extension MainView {
         let visitorsAsNumber = numberFormatter.number(from: visitors.description) ?? 0
         guard let visitorsAsFormatterString = numberFormatter.string(from: visitorsAsNumber) else { return }
         
-        visitorsLabel.attributedText = "방문객 : \(visitorsAsFormatterString) 명".addAttributeBigFontForKeyword(keyword: "방문객")
+        visitorsLabel.attributedText = "방문객 : \(visitorsAsFormatterString) 명".addAttributeFontForKeyword(font: UIFont.systemFont(ofSize: 20),keyword: "방문객")
     }
 }
 
