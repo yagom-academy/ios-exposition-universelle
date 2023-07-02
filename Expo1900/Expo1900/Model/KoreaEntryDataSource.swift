@@ -18,7 +18,7 @@ final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KoreaEntryTableViewCell.reuseIdentifier, for: indexPath) as? KoreaEntryTableViewCell else { return UITableViewCell() }
         guard let koreaEntryItem = koreaEntryList?[indexPath.row] else { return UITableViewCell() }
         
-        cell.setEntryInformation(with: koreaEntryItem)
+        cell.configure(with: koreaEntryItem)
         return cell
     }
 }

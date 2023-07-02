@@ -61,7 +61,7 @@ final class KoreaEntryTableViewCell: UITableViewCell, CellIdentifiable {
 
 // MARK: - Set Entry Information
 extension KoreaEntryTableViewCell {
-    func setEntryInformation(with exposionItem: ExpositionItem) {
+    func configure(with exposionItem: ExpositionItem) {
         titleLabel.text = exposionItem.name
         descriptionLabel.text = exposionItem.shortDescription
         entryImageView.image = UIImage(named: exposionItem.imageName)
