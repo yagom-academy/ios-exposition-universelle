@@ -1,8 +1,9 @@
 //
-//  Expo1900 - ExpoViewController.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
+//  ExpoEntryViewController.swift
+//  Expo1900
+//
+//  Created by yyss99, kyungmin on 2023/07/02.
+//
 
 import UIKit
 
@@ -16,27 +17,15 @@ class ExpoViewController: UIViewController {
     @IBOutlet weak var expoDescriptionLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.isHidden = true
         navigationItem.title = "메인"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        
-        do {
-            let expoInformation = try jsonDecoder.decode(ExpoInformation.self, from: dataAsset.data)
-            expoTitleLabel.text = expoInformation.title
-            expoPosterImageView.image = UIImage(named: "poster")
-            expoVisitorsLabel.text = "방문객 : \(expoInformation.visitors)"
-            expoLocationLabel.text = "개최지 : \(expoInformation.location)"
-            expoDurationLabel.text = "개최기간: \(expoInformation.duration)"
-            expoDescriptionLabel.text = expoInformation.expoDescription
-        } catch {
-            print("디코더 오류")
-        }
+        updataExpoView()
     }
 
     @IBAction func TapEntryPageButton(_ sender: UIButton) {
@@ -45,5 +34,20 @@ class ExpoViewController: UIViewController {
         navigationController?.pushViewController(entryViewController, animated: true)
     }
     
+    func updataExpoView() {
+        do {
+            let expoInformation: ExpoInformation = try Decoder.decodeJson(from: "exposition_universelle_1900")
+            expoTitleLabel.text = expoInformation.title
+            expoPosterImageView.image = UIImage(named: "poster")
+            expoVisitorsLabel.text = "방문객 : \(expoInformation.visitors)"
+            expoLocationLabel.text = "개최지 : \(expoInformation.location)"
+            expoDurationLabel.text = "개최기간: \(expoInformation.duration)"
+            expoDescriptionLabel.text = expoInformation.expoDescription
+        } catch DecodeError.searchNoFile {
+            print(DecodeError.searchNoFile.localizedDescription)
+        } catch {
+            print(DecodeError.jsonDecodeError.localizedDescription)
+        }
+    }
 }
 
