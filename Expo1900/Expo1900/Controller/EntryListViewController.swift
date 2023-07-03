@@ -26,7 +26,7 @@ final class EntryListViewController: UIViewController {
         do {
             entryList = try Decoder.decodeJSON(DataAssetNamespace.entryList)
         } catch {
-            showDecoderErrorAlert(error: error)
+            showDecoderErrorAlert(error)
         }
     }
 }

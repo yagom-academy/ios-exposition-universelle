@@ -47,7 +47,7 @@ final class MainViewController: UIViewController {
         do {
             introduction = try Decoder.decodeJSON(DataAssetNamespace.introduction)
         } catch {
-            showDecoderErrorAlert(error: error)
+            showDecoderErrorAlert(error)
         }
     }
     
