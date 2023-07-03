@@ -32,7 +32,7 @@ final class EntryDetailViewController: UIViewController {
     }
     
     func updateEntryDetailView() {
-        entryImageView.image = UIImage(named: expoEntry?.imageName ?? "flag")
+        entryImageView.image = UIImage(named: expoEntry?.imageName ?? AssetsNameSpace.flagImage)
         entryDescription.text = expoEntry?.entryDescription
     }
 }

@@ -28,12 +28,12 @@ final class EntryViewController: UIViewController {
     
     func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        navigationItem.title = "한국의 출품작"
+        navigationItem.title = NameSpace.KoreanEntry
     }
     
     func updateExpoEntries() {
         do {
-            expoEntries = try Decoder.decodeJson(from: "items")
+            expoEntries = try Decoder.decodeJson(from: AssetsNameSpace.expoEntries)
         } catch DecodeError.searchNoFile {
             print(DecodeError.searchNoFile.localizedDescription)
         } catch {
@@ -55,7 +55,7 @@ extension EntryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let expoEntry = expoEntries[indexPath.row]
         
-        guard let entryCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? EntryTableViewCell else {
+        guard let entryCell = tableView.dequeueReusableCell(withIdentifier: StoryBoardNameSpace.entryCell, for: indexPath) as? EntryTableViewCell else {
             return UITableViewCell()
         }
         
@@ -67,10 +67,16 @@ extension EntryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let expoEntry = self.expoEntries[indexPath.row]
     
-        guard let entryDetailViewController = storyboard?.instantiateViewController(withIdentifier: "entryDetailViewController") as? EntryDetailViewController else { return }
+        guard let entryDetailViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardNameSpace.entryDetailViewController) as? EntryDetailViewController else { return }
         
         entryDetailViewController.expoEntry = expoEntry
         
         navigationController?.pushViewController(entryDetailViewController, animated: true)
+    }
+}
+
+extension EntryViewController {
+    private enum NameSpace {
+        static let KoreanEntry: String = "한국의 출품작"
     }
 }

@@ -29,30 +29,39 @@ final class ExpoViewController: UIViewController {
     }
 
     @IBAction func TapEntryPageButton(_ sender: UIButton) {
-        guard let entryViewController = storyboard?.instantiateViewController(withIdentifier: "entryViewController") as? EntryViewController else { return }
+        guard let entryViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardNameSpace.entryViewController) as? EntryViewController else { return }
         
         navigationController?.pushViewController(entryViewController, animated: true)
     }
     
     func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = true
-        navigationItem.title = "메인"
+        navigationItem.title = NameSpace.main
     }
     
     func updateExpoView() {
         do {
-            let expoInformation: ExpoInformation = try Decoder.decodeJson(from: "exposition_universelle_1900")
+            let expoInformation: ExpoInformation = try Decoder.decodeJson(from: AssetsNameSpace.expoInformation)
             expoTitleLabel.text = expoInformation.title.replacingOccurrences(of: "(", with: "\n(")
-            expoPosterImageView.image = UIImage(named: "poster")
-            expoVisitorsLabel.text = "방문객 : \(NumberFormatter.formatNumberWithComma(expoInformation.visitors)) 명"
-            expoLocationLabel.text = "개최지 : \(expoInformation.location)"
-            expoDurationLabel.text = "개최기간: \(expoInformation.duration)"
+            expoPosterImageView.image = UIImage(named: AssetsNameSpace.expoPoster)
+            expoVisitorsLabel.text = NameSpace.visitors + NumberFormatter.formatNumberWithComma(expoInformation.visitors)
+            expoLocationLabel.text = NameSpace.location + expoInformation.location
+            expoDurationLabel.text = NameSpace.duration + expoInformation.duration
             expoDescriptionLabel.text = expoInformation.expoDescription
         } catch DecodeError.searchNoFile {
             print(DecodeError.searchNoFile.localizedDescription)
         } catch {
             print(DecodeError.jsonDecodeError.localizedDescription)
         }
+    }
+}
+
+extension ExpoViewController {
+    private enum NameSpace {
+        static let main: String = "메인"
+        static let visitors: String = "방문객 : "
+        static let location: String = "개최지 : "
+        static let duration: String = "개최기간: "
     }
 }
 
