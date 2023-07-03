@@ -24,8 +24,13 @@ final class EntryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = self.entry.name
+        self.configureNavigation()
         self.configureComponents()
+    }
+    
+    private func configureNavigation() {
+        self.navigationItem.title = self.entry.name
+
     }
     
     private func configureComponents() {
