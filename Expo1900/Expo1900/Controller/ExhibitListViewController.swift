@@ -52,4 +52,11 @@ extension ExhibitListViewController: UITableViewDataSource, UITableViewDelegate 
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let exhibit = expositionItemEntity[indexPath.row]
+        let detailViewController = ExhibitDetailViewController(expositionItemDetail: exhibit)
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
