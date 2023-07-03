@@ -6,7 +6,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     private let expositionDataManager = ExpositionDataManager()
     private var internationalExposition: InternationalExposition?
     
@@ -20,7 +20,14 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        self.title = DataNamespace.main
+        
+        internationalExposition = expositionDataManager.decodeExpositionJSON()
+        
+        configureMainView()
+        configureMainStackView()
+        addConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,5 +92,4 @@ private extension MainViewController {
     @objc private func didTapButton() {
         navigationController?.pushViewController(ExhibitListViewController(), animated: true)
     }
-    
 }

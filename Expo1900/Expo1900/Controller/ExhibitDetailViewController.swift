@@ -29,6 +29,7 @@ final class ExhibitDetailViewController: UIViewController {
         self.title = exhibit.name
         
         configureView()
+        addConstraints()
     }
 }
 
