@@ -8,7 +8,7 @@
 import UIKit
 
 final class EntryListViewController: UIViewController {
-    @IBOutlet weak var entryTableView: UITableView!
+    @IBOutlet private weak var entryTableView: UITableView!
     
     private var entryData: [Entry] = []
     

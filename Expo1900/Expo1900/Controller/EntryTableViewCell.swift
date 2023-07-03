@@ -8,13 +8,13 @@
 import UIKit
 
 final class EntryTableViewCell: UITableViewCell {
-    @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryNameLabel: UILabel!
-    @IBOutlet weak var shortDescriptionLabel: UILabel!
+    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var entryNameLabel: UILabel!
+    @IBOutlet private weak var shortDescriptionLabel: UILabel!
     
     func insertCellData(from data: Entry) {
-        self.entryImage.image = UIImage(named: data.imageName)
-        self.entryNameLabel.text = data.name
-        self.shortDescriptionLabel.text = data.shortDescription
+        entryImage.image = UIImage(named: data.imageName)
+        entryNameLabel.text = data.name
+        shortDescriptionLabel.text = data.shortDescription
     }
 }

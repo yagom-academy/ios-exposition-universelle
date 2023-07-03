@@ -8,10 +8,10 @@
 import UIKit
 
 final class DetailEntryViewController: UIViewController {
-    @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryDescriptionLabel: UILabel!
+    @IBOutlet private weak var entryImage: UIImageView!
+    @IBOutlet private weak var entryDescriptionLabel: UILabel!
     
-    private var entryData: Entry
+    private let entryData: Entry
     
     init?(coder: NSCoder, data: Entry) {
         self.entryData = data
@@ -30,7 +30,7 @@ final class DetailEntryViewController: UIViewController {
     
     private func insertData() {
         navigationItem.title = entryData.name
-        self.entryDescriptionLabel.text = entryData.description
-        self.entryImage.image = UIImage(named: entryData.imageName)
+        entryDescriptionLabel.text = entryData.description
+        entryImage.image = UIImage(named: entryData.imageName)
     }
 }
