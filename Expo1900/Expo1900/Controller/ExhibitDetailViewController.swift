@@ -54,3 +54,19 @@ private extension ExhibitDetailViewController {
         detailStackView.addArrangedSubview(itemDescription)
     }
 }
+
+private extension ExhibitDetailViewController {
+    func addConstraints() {
+        NSLayoutConstraint.activate([
+            detailScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            detailScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            detailScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            detailScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            
+            detailStackView.topAnchor.constraint(equalTo: detailScrollView.topAnchor, constant: 20),
+            detailStackView.bottomAnchor.constraint(equalTo: detailScrollView.bottomAnchor, constant: -20),
+            detailStackView.centerXAnchor.constraint(equalTo: detailScrollView.centerXAnchor),
+            detailStackView.widthAnchor.constraint(equalTo: detailScrollView.widthAnchor, constant: -40)
+        ])
+    }
+}
