@@ -11,4 +11,8 @@ struct ExpoGuide: Decodable {
     let location: String
     let duration: String
     let description: String
+    
+    var visitorsText: String {
+        return visitors.changeToDecimalStyle() + " 명"
+    }
 }
