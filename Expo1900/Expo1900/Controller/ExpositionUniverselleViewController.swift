@@ -124,7 +124,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private func decodeExpositionUniverselle() {
         do {
-            expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: JSONFile.exposition.name)
+            expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: JSONFile.exposition.description)
         } catch {
             print(error)
         }

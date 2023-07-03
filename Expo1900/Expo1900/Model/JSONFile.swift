@@ -5,11 +5,11 @@
 //  Created by idinaloq, hoon on 2023/06/30.
 //
 
-enum JSONFile {
+enum JSONFile: CustomStringConvertible {
     case exposition
     case items
     
-    var name: String {
+    var description: String {
         switch self {
         case .exposition:
             return "exposition_universelle_1900"

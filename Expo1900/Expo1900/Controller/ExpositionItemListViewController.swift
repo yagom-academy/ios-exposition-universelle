@@ -32,7 +32,7 @@ final class ExpositionItemListViewController: UIViewController {
     
     private func decodeItems() {
         do {
-            itemList = try JSONDecoder().decode([Item].self, from: JSONFile.items.name)
+            itemList = try JSONDecoder().decode([Item].self, from: JSONFile.items.description)
         } catch {
             print(error)
         }
