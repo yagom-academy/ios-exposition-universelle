@@ -30,7 +30,6 @@ final class EntryDetailViewController: UIViewController {
     
     private func configureNavigation() {
         self.navigationItem.title = self.entry.name
-
     }
     
     private func configureComponents() {
