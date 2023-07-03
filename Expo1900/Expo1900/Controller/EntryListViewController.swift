@@ -17,15 +17,7 @@ final class EntryListViewController: UIViewController {
         self.entryTableView.delegate = self
         self.entryTableView.dataSource = self
         navigationItem.title = "한국의 출품작"
-        unwrapData()
-    }
-
-    private func unwrapData() {
-        do {
-            entryData = try [Entry].decode(file: "items")
-        } catch {
-            print(error.localizedDescription)
-        }
+        entryData = Data.unwrap(type: entryData, file: "items")
     }
 }
 

@@ -17,7 +17,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        unwrapData()
+        expoGuideData = Data.unwrap(type: expoGuideData, file: "exposition_universelle_1900")
         insertLabels()
         navigationItem.title = "메인"
     }
@@ -30,14 +30,6 @@ final class MainViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
-    }
-
-    private func unwrapData() {
-        do {
-            expoGuideData = try ExpoGuide.decode(file: "exposition_universelle_1900")
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     private func insertLabels() {
