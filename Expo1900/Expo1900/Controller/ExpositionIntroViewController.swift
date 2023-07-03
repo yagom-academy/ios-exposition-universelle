@@ -35,18 +35,22 @@ final class ExpositionIntroViewController: UIViewController {
     
     private func configureExposionLabel() {
         guard let exposition: Exposition = DecodingHandler.decode(fileName: .exposition) else { return }
+                
+        let visitorClause = "방문객 : "
+        let locationClause = "개최지 : "
+        let durationClause = "개최 기간 : "
         
         self.expositionTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
-        let expoTitle = NSMutableAttributedString(string: "방문객 : " + format(by: exposition.visitors))
-        let expoLocation = NSMutableAttributedString(string: "개최지 : " + exposition.location)
-        let expoDuration = NSMutableAttributedString(string: "개최 기간 : " + exposition.duration)
+        let expoVisitor = NSMutableAttributedString(string: visitorClause + format(by: exposition.visitors))
+        let expoLocation = NSMutableAttributedString(string: locationClause + exposition.location)
+        let expoDuration = NSMutableAttributedString(string: durationClause + exposition.duration)
         let font1 = UIFont.systemFont(ofSize: 20)
 
-        expoTitle.addAttribute(.font, value: font1, range: NSRange(location: 0, length: 4))
-        expoLocation.addAttribute(.font, value: font1, range: NSRange(location: 0, length: 4))
-        expoDuration.addAttribute(.font, value: font1, range: NSRange(location: 0, length: 5))
+        expoVisitor.addAttribute(.font, value: font1, range: NSRange(location: 0, length: visitorClause.count))
+        expoLocation.addAttribute(.font, value: font1, range: NSRange(location: 0, length: locationClause.count))
+        expoDuration.addAttribute(.font, value: font1, range: NSRange(location: 0, length: durationClause.count))
 
-        self.visitorsLabel.attributedText = expoTitle
+        self.visitorsLabel.attributedText = expoVisitor
         self.locationLabel.attributedText = expoLocation
         self.durationLabel.attributedText = expoDuration
         self.descriptionLabel.text = exposition.description
