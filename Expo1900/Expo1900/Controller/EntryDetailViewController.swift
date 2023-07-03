@@ -2,7 +2,7 @@
 //  EntryDetailViewController.swift
 //  Expo1900
 //
-//  Created by kangkyungmin on 2023/07/02.
+//  Created by yyss99, kyungmin on 2023/07/02.
 //
 
 import UIKit
@@ -11,20 +11,24 @@ class EntryDetailViewController: UIViewController {
     
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var entryDescription: UILabel!
-    
-    var entryImage: UIImage?
-    var entryDetailDescription: String?
-    var entryName: String?
+
+    var expoEntry: ExpoEntry?
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         navigationController?.navigationBar.isHidden = false
-        navigationItem.title = entryName
+        navigationItem.title = expoEntry?.name
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        entryImageView.image = entryImage
-        entryDescription.text = entryDetailDescription
+        updateEntryDetailView()
+    }
+    
+    func updateEntryDetailView() {
+        entryImageView.image = UIImage(named: expoEntry?.imageName ?? "flag")
+        entryDescription.text = expoEntry?.entryDescription
     }
 }

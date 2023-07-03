@@ -2,7 +2,7 @@
 //  EntryTableViewCell.swift
 //  Expo1900
 //
-//  Created by kangkyungmin on 2023/07/02.
+//  Created by yyss99, kyungmin on 2023/07/02.
 //
 
 import UIKit

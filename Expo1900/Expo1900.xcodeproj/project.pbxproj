@@ -11,6 +11,8 @@
 		0A83C4212A5168EC00C6573E /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A83C4202A5168EC00C6573E /* EntryViewController.swift */; };
 		3D6333502A516E8B00816F7F /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63334F2A516E8B00816F7F /* EntryTableViewCell.swift */; };
 		3D6333522A517F3F00816F7F /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6333512A517F3F00816F7F /* EntryDetailViewController.swift */; };
+		3D878C222A525C1F00F0C303 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D878C212A525C1F00F0C303 /* Decoder.swift */; };
+		3D878C242A52622800F0C303 /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D878C232A52622800F0C303 /* DecodeError.swift */; };
 		3DFA94BD2A4AF84C00DA0E2E /* ExpoEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA94BC2A4AF84C00DA0E2E /* ExpoEntry.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -25,6 +27,8 @@
 		0A83C4202A5168EC00C6573E /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		3D63334F2A516E8B00816F7F /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		3D6333512A517F3F00816F7F /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		3D878C212A525C1F00F0C303 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		3D878C232A52622800F0C303 /* DecodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
 		3DFA94BC2A4AF84C00DA0E2E /* ExpoEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoEntry.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				3DFA94BE2A4AF9F300DA0E2E /* DataTransferObject */,
+				3D878C232A52622800F0C303 /* DecodeError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -58,12 +63,13 @@
 		0A3A280A2A4AF0D100F62CF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ExpoViewController.swift */,
 				0A83C4202A5168EC00C6573E /* EntryViewController.swift */,
-				3D63334F2A516E8B00816F7F /* EntryTableViewCell.swift */,
 				3D6333512A517F3F00816F7F /* EntryDetailViewController.swift */,
+				3D63334F2A516E8B00816F7F /* EntryTableViewCell.swift */,
+				3D878C212A525C1F00F0C303 /* Decoder.swift */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,11 +201,13 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* ExpoViewController.swift in Sources */,
 				0A83C4212A5168EC00C6573E /* EntryViewController.swift in Sources */,
+				3D878C222A525C1F00F0C303 /* Decoder.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				3D6333502A516E8B00816F7F /* EntryTableViewCell.swift in Sources */,
 				0A3A280E2A4AF4FD00F62CF3 /* ExpoInformation.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				3D6333522A517F3F00816F7F /* EntryDetailViewController.swift in Sources */,
+				3D878C242A52622800F0C303 /* DecodeError.swift in Sources */,
 				3DFA94BD2A4AF84C00DA0E2E /* ExpoEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
