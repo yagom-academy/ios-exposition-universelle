@@ -18,46 +18,54 @@ final class ExpositionInfoViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var tapPushButton: UIButton!
     
+    private weak var alertDelegate: AlertProtocol?
+    private var decodingExposition: Exposition?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        showExpositionInfo()
+        alertDelegate = self
+        decodingExpositionInfo()
+        updateMainViewLabels()
         self.navigationController?.navigationBar.topItem?.title = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
-    private func showExpositionInfo() {
+    private func decodingExpositionInfo() {
         let decoder = JSONDecoder()
         
-        guard let receiveExpositionData = receiveExpositionInfo() else {
-            return
-        }
-        
         do {
-            let decodingExposition = try decoder.decodingContentInfo(
+            let receiveExpositionData = try receiveExpositionInfo()
+            decodingExposition = try decoder.decodingContentInfo(
                 with: receiveExpositionData,
                 modelType: Exposition.self
             )
-            updateMainViewLabels(with: decodingExposition)
+        } catch DecodingError.fileDecodingError {
+            alertDelegate?.showAlert(message:  "파일을 불러오는데 실패했습니다.")
         } catch {
-            print(error)
+            alertDelegate?.showAlert(message:  "파일이 손상되었거나 형식에 맞지 않습니다.")
         }
     }
     
-    private func receiveExpositionInfo() -> Data? {
-        let file = NSDataAsset(name: "exposition_universelle_1900")
-
-        return file?.data
+    private func receiveExpositionInfo() throws -> Data {
+        guard let file = NSDataAsset(name: "exposition_universelle_1900") else {
+            throw DecodingError.fileDecodingError
+        }
+        
+        return file.data
     }
     
-    private func updateMainViewLabels(with exposition: Exposition) {
+    private func updateMainViewLabels() {
         let formatManager: FormatManager = FormatManager()
         
-        guard let visitors = formatManager.numberFormatter
-            .string(from: NSNumber(value: exposition.visitors)) else {
+        guard let exposition = decodingExposition,
+              let visitors = formatManager.numberFormatter
+            .string(from: NSNumber(value: exposition.visitors))
+        else {
             return
         }
         
@@ -74,5 +82,19 @@ final class ExpositionInfoViewController: UIViewController {
         }
         
         self.navigationController?.pushViewController(itemListViewController, animated: true)
+    }
+}
+
+extension ExpositionInfoViewController: AlertProtocol {
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let confirmAction: UIAlertAction = UIAlertAction(
+            title: "확인",
+            style: .default) {
+                _ in exit(0)
+            }
+        
+        alert.addAction(confirmAction)
+        present(alert, animated: true)
     }
 }
