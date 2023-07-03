@@ -26,14 +26,14 @@ final class ExpositionIntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureNavigation()
-        self.configureExposionLabel()
+        self.configureExpositionLabel()
     }
     
     private func configureNavigation() {
         self.navigationItem.title = "메인"
     }
     
-    private func configureExposionLabel() {
+    private func configureExpositionLabel() {
         guard let exposition: Exposition = DecodingHandler.decode(fileName: .exposition) else { return }
                 
         let visitorClause = "방문객 : "
