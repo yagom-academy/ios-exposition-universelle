@@ -40,6 +40,22 @@ private extension MainViewController {
         mainScrollView.addSubview(mainStackView)
     }
     
+    func addConstraints() {
+        NSLayoutConstraint.activate([
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mainScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            mainScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            
+            mainStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: 20),
+            mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -20),
+            mainStackView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
+            mainStackView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -40),
+            
+            mainStackView.buttonStackView.centerXAnchor.constraint(equalTo: mainStackView.centerXAnchor)
+        ])
+    }
+    
     func configureMainStackView() {
         guard let internationalExposition = internationalExposition else { return }
         
