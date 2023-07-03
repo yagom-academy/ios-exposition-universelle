@@ -25,8 +25,12 @@ final class ExpositionIntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "메인"
+        self.configureNavigation()
         self.configureExposionLabel()
+    }
+    
+    private func configureNavigation() {
+        self.navigationItem.title = "메인"
     }
     
     private func configureExposionLabel() {
