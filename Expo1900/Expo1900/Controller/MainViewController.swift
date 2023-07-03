@@ -47,19 +47,7 @@ final class MainViewController: UIViewController {
         do {
             introduction = try Decoder.decodeJSON(DataAssetNamespace.introduction)
         } catch {
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default))
-            
-            switch error {
-            case DecoderError.notFoundAsset:
-                alert.message = DecoderError.notFoundAsset.description
-            case DecoderError.decodeFailed:
-                alert.message = DecoderError.decodeFailed.description
-            default:
-                alert.message = DecoderError.unexpectedError.description
-            }
-            
-            present(alert, animated: true)
+            showDecoderErrorAlert(error: error)
         }
     }
     

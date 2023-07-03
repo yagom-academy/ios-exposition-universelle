@@ -14,6 +14,7 @@
 		AC0931142A49BF4700ECA2BC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0931132A49BF4700ECA2BC /* Entry.swift */; };
 		AC09311C2A49C30500ECA2BC /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC09311B2A49C30500ECA2BC /* EntryTests.swift */; };
 		ACB8240E2A4B198800E2128B /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8240D2A4B198800E2128B /* EntryTableViewCell.swift */; };
+		ACCF262B2A52DA0900A6147A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF262A2A52DA0900A6147A /* UIViewController+.swift */; };
 		ACD80C6A2A4AF21E009B364C /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD80C692A4AF21E009B364C /* EntryListViewController.swift */; };
 		ACEAFF3F2A4EB54200F03AE8 /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAFF3E2A4EB54200F03AE8 /* DataFormatter.swift */; };
 		ACEAFF412A4EB98E00F03AE8 /* DataAssetNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAFF402A4EB98E00F03AE8 /* DataAssetNamespace.swift */; };
@@ -45,6 +46,7 @@
 		AC0931192A49C30500ECA2BC /* EntryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC09311B2A49C30500ECA2BC /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
 		ACB8240D2A4B198800E2128B /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
+		ACCF262A2A52DA0900A6147A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		ACD80C692A4AF21E009B364C /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
 		ACEAFF3E2A4EB54200F03AE8 /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 		ACEAFF402A4EB98E00F03AE8 /* DataAssetNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssetNamespace.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		AC0931102A49BDB900ECA2BC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ACCF26292A52D9DF00A6147A /* Extension */,
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				ACD80C692A4AF21E009B364C /* EntryListViewController.swift */,
 				286CCF372A4C19A8008F6BB7 /* EntryDetailViewController.swift */,
@@ -129,6 +132,14 @@
 				AC09311B2A49C30500ECA2BC /* EntryTests.swift */,
 			);
 			path = EntryTests;
+			sourceTree = "<group>";
+		};
+		ACCF26292A52D9DF00A6147A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ACCF262A2A52DA0900A6147A /* UIViewController+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		ACEAFF3D2A4EB48900F03AE8 /* Utility */ = {
@@ -291,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACCF262B2A52DA0900A6147A /* UIViewController+.swift in Sources */,
 				AC0931142A49BF4700ECA2BC /* Entry.swift in Sources */,
 				286201692A49C96500ACCDD7 /* Introduction.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
