@@ -16,16 +16,22 @@ final class ItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerXib()
         alertDelegate = self
-        tableView.dataSource = self
-        tableView.delegate = self
         showNavigationBar()
         loadItems()
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func showNavigationBar() {
         self.title = "한국의 출품작"
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func registerXib() {
+        let nibName = UINib(nibName: "ItemListTableViewCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "ItemListTableViewCell")
     }
     
     private func loadItems() {
@@ -51,19 +57,17 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "expositionItemCell",
-                                                 for: indexPath)
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: "ItemListTableViewCell", for: indexPath)
+                as? ItemListTableViewCell else {
+            return UITableViewCell()
+        }
+        
         let item = items[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        
-        cell.accessoryType = .disclosureIndicator
-        
-        content.image = UIImage(named: item.imageName)
-        content.text = item.name
-        content.secondaryText = item.shortDescription
-        
-        cell.contentConfiguration = content
-        cell.separatorInset.left = 0
+
+        cell.itemImageView.image = UIImage(named: item.imageName)
+        cell.titleLabel.text = item.name
+        cell.shortDescriptionLabel.text = item.shortDescription
         
         return cell
     }
