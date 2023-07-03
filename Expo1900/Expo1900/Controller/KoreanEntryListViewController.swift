@@ -28,9 +28,13 @@ final class KoreanEntryListViewController: UIViewController {
 
 extension KoreanEntryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let entryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: EntryDetailViewController.identifier) as? EntryDetailViewController else { return }
+        let entry = self.entryList[indexPath.row]
         
-        entryDetailViewController.entry = self.entryList[indexPath.row]
+        guard let entryDetailViewController = self.storyboard?.instantiateViewController(
+            identifier: EntryDetailViewController.identifier,
+            creator: { EntryDetailViewController(entry: entry, coder: $0)}
+        ) else { return }
+
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
