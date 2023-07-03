@@ -24,6 +24,7 @@ final class ExpoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateExpoView()
     }
 
@@ -41,9 +42,9 @@ final class ExpoViewController: UIViewController {
     func updateExpoView() {
         do {
             let expoInformation: ExpoInformation = try Decoder.decodeJson(from: "exposition_universelle_1900")
-            expoTitleLabel.text = expoInformation.title
+            expoTitleLabel.text = expoInformation.title.replacingOccurrences(of: "(", with: "\n(")
             expoPosterImageView.image = UIImage(named: "poster")
-            expoVisitorsLabel.text = "방문객 : \(expoInformation.visitors)"
+            expoVisitorsLabel.text = "방문객 : \(NumberFormatter.formatNumberWithComma(expoInformation.visitors)) 명"
             expoLocationLabel.text = "개최지 : \(expoInformation.location)"
             expoDurationLabel.text = "개최기간: \(expoInformation.duration)"
             expoDescriptionLabel.text = expoInformation.expoDescription
