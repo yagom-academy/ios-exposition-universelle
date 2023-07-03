@@ -10,6 +10,7 @@
 		3C286B932A52E94200FF2F89 /* SpacingNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */; };
 		3C286B972A52EA7400FF2F89 /* ConstraintsNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */; };
 		3C286B992A52EA8100FF2F89 /* MultiplierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */; };
+		3C286B9B2A52FA2000FF2F89 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B9A2A52FA2000FF2F89 /* String+.swift */; };
 		3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */; };
 		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */; };
 		3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */; };
@@ -48,6 +49,7 @@
 		3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingNamespace.swift; sourceTree = "<group>"; };
 		3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsNamespace.swift; sourceTree = "<group>"; };
 		3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplierNamespace.swift; sourceTree = "<group>"; };
+		3C286B9A2A52FA2000FF2F89 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemEntity.swift; sourceTree = "<group>"; };
 		3CBDC77D2A4A7AF80089F7A2 /* Expo1900ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemEntityTests.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */,
 				BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */,
 				BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */,
+				3C286B9A2A52FA2000FF2F89 /* String+.swift */,
 				3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */,
 			);
 			path = Model;
@@ -311,6 +314,7 @@
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				3CBDC8292A4DD1020089F7A2 /* DecodingManager.swift in Sources */,
 				BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */,
+				3C286B9B2A52FA2000FF2F89 /* String+.swift in Sources */,
 				BAFD9F682A4DDA9500DC9186 /* ChangeViewButtonStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

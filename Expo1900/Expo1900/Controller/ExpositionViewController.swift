@@ -71,14 +71,14 @@ class ExpositionViewController: UIViewController {
     }
     
     private func configureMainStackView() {
-        mainStackView.titleLabel.text = expositionEntity.title.replacingOccurrences(of: "(", with: "\n(")
+        mainStackView.titleLabel.text = expositionEntity.title.addNewLineBeforeParentheses()
         mainStackView.descriptionLabel.text = expositionEntity.description
         
         let formattedVisitors = expositionEntity.visitors.formatToDecimal()
         
-        mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors) 명"
-        mainStackView.locationStackView.dataLabel.text = ": \(expositionEntity.location)"
-        mainStackView.durationStackView.dataLabel.text = ": \(expositionEntity.duration)"
+        mainStackView.visitorsStackView.dataLabel.text = formattedVisitors.addColonWithNumberOfPeople()
+        mainStackView.locationStackView.dataLabel.text = expositionEntity.location.addColon()
+        mainStackView.durationStackView.dataLabel.text = expositionEntity.duration.addColon()
         
         mainStackView.buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
