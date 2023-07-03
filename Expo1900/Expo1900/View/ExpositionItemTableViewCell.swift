@@ -8,14 +8,14 @@
 import UIKit
 
 class ExpositionItemTableViewCell: UITableViewCell {
-    let image = {
+    let image: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
-    let informationStackView = {
+    let informationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -24,7 +24,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let name = {
+    let name: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .title1)
@@ -32,7 +32,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
         return label
     }()
     
-    let shortDescription = {
+    let shortDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0

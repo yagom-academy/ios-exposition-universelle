@@ -8,21 +8,21 @@
 import UIKit
 
 class ChangeViewButtonStackView: UIStackView {
-    let leftFlagImageView = {
+    let leftFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: AssetNamespace.flag)
         
         return imageView
     }()
     
-    let rightFlagImageView = {
+    let rightFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: AssetNamespace.flag)
         
         return imageView
     }()
     
-    let changeViewButton = {
+    let changeViewButton: UIButton = {
         let button = UIButton()
         button.setTitle(LabelTextNamespace.buttonTitle, for: .normal)
         button.setTitleColor(UIColor.systemBlue, for: .normal)

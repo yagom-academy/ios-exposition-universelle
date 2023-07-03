@@ -8,7 +8,7 @@
 import UIKit
 
 class MainStackView: UIStackView {
-    let titleLabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
         label.numberOfLines = 0
@@ -17,14 +17,14 @@ class MainStackView: UIStackView {
         return label
     }()
     
-    let posterImageView = {
+    let posterImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: AssetNamespace.poster)
         
         return image
     }()
     
-    let descriptionLabel = {
+    let descriptionLabel: UILabel = {
         let textLabel = UILabel()
         textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         textLabel.numberOfLines = 0

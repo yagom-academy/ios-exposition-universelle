@@ -10,14 +10,14 @@ import UIKit
 class ExpositionItemDetailViewController: UIViewController {
     private var expositionItemDetail: ExpositionItemEntity
     
-    private let detailScrollView = {
+    private let detailScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         return scrollView
     }()
     
-    private let detailStackView = {
+    private let detailStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -27,13 +27,13 @@ class ExpositionItemDetailViewController: UIViewController {
         return stackView
     }()
 
-    let itemImage = {
+    let itemImage: UIImageView = {
         let imageView = UIImageView()
         
         return imageView
     }()
     
-    let itemDescription = {
+    let itemDescription: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         

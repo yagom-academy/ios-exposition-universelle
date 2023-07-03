@@ -9,14 +9,14 @@ import UIKit
 class ExpositionViewController: UIViewController {
     private let expositionEntity = DecodingManager().decodeExpositionJSON()
     
-    private let mainScrollView = {
+    private let mainScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         return scrollView
     }()
     
-    private let mainStackView = MainStackView()
+    private let mainStackView: MainStackView = MainStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

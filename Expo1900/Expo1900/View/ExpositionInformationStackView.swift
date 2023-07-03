@@ -8,14 +8,14 @@
 import UIKit
 
 class ExpositionInformationStackView: UIStackView {
-    let subtitleLabel = {
+    let subtitleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title3)
 
         return label
     }()
 
-    let dataLabel = {
+    let dataLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
 
