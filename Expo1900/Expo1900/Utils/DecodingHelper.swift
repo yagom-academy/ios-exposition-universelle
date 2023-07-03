@@ -8,7 +8,7 @@
 import Foundation
 
 enum DecodingHelper {
-    enum FileName: String {
+    enum File: String {
         case exposition = "exposition"
         case entry = "entry"
         
@@ -17,7 +17,7 @@ enum DecodingHelper {
         }
     }
     
-    static func decode<T: Decodable>(fileName file: FileName) -> T? {
+    static func decode<T: Decodable>(fileName file: File) -> T? {
         let decoder = JSONDecoder()
         
         guard let path = Bundle.main.path(forResource: file.name, ofType: "json") else {
