@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C286B932A52E94200FF2F89 /* SpacingNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */; };
+		3C286B972A52EA7400FF2F89 /* ConstraintsNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */; };
+		3C286B992A52EA8100FF2F89 /* MultiplierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */; };
 		3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */; };
 		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */; };
 		3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingNamespace.swift; sourceTree = "<group>"; };
+		3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsNamespace.swift; sourceTree = "<group>"; };
+		3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplierNamespace.swift; sourceTree = "<group>"; };
 		3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemEntity.swift; sourceTree = "<group>"; };
 		3CBDC77D2A4A7AF80089F7A2 /* Expo1900ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemEntityTests.swift; sourceTree = "<group>"; };
@@ -139,6 +145,9 @@
 				BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */,
 				BAFD9F532A4D848800DC9186 /* LabelTextNamespace.swift */,
 				BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */,
+				3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */,
+				3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */,
+				3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */,
 			);
 			path = Namespace;
 			sourceTree = "<group>";
@@ -285,17 +294,20 @@
 			files = (
 				3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */,
 				BAFD9F542A4D848800DC9186 /* LabelTextNamespace.swift in Sources */,
+				3C286B992A52EA8100FF2F89 /* MultiplierNamespace.swift in Sources */,
 				3CBDC8252A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift in Sources */,
 				3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */,
 				BAFD9F6A2A4DDFA900DC9186 /* MainStackView.swift in Sources */,
 				BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */,
 				BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */,
 				BAFD9F522A4D83B700DC9186 /* ViewControllerTitleNamespace.swift in Sources */,
+				3C286B932A52E94200FF2F89 /* SpacingNamespace.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				3CBDC82B2A4DDD880089F7A2 /* ExpositionInformationStackView.swift in Sources */,
 				BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */,
 				BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				3C286B972A52EA7400FF2F89 /* ConstraintsNamespace.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				3CBDC8292A4DD1020089F7A2 /* DecodingManager.swift in Sources */,
 				BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */,

@@ -6,5 +6,5 @@
 //
 
 enum IdentifierNamespace {
-    static let cell = "cell"
+    static let itemTableCell = "itemTableCell"
 }

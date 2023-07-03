@@ -35,7 +35,7 @@ class ChangeViewButtonStackView: UIStackView {
         super.init(frame: frame)
         configureUI()
     }
-        
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
         configureUI()
@@ -43,21 +43,21 @@ class ChangeViewButtonStackView: UIStackView {
     
     private func configureUI() {
         self.axis = .horizontal
-        self.spacing = 30
+        self.spacing = SpacingNamespace.changeViewButton
         self.addArrangedSubview(leftFlagImageView)
         self.addArrangedSubview(changeViewButton)
         self.addArrangedSubview(rightFlagImageView)
         
-        changeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
-        changeViewButton.setContentCompressionResistancePriority(.init(999), for: .vertical)
-        leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
-        leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
-        rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
-        rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
+        changeViewButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+        changeViewButton.setContentCompressionResistancePriority(.required, for: .vertical)
+        leftFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+        leftFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
+        rightFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+        rightFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
         
         NSLayoutConstraint.activate([
-            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
+            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: MultiplierNamespace.flagImageHeightToWidth),
+            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: MultiplierNamespace.flagImageHeightToWidth),
             rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor),
             leftFlagImageView.heightAnchor.constraint(equalTo: changeViewButton.heightAnchor)
         ])

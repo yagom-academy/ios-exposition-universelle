@@ -11,7 +11,7 @@ class MainStackView: UIStackView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         label.textAlignment = .center
         
         return label
@@ -27,7 +27,7 @@ class MainStackView: UIStackView {
     let descriptionLabel: UILabel = {
         let textLabel = UILabel()
         textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        textLabel.numberOfLines = 0
+        textLabel.numberOfLines = .zero
         
         return textLabel
     }()
@@ -41,7 +41,7 @@ class MainStackView: UIStackView {
         super.init(frame: frame)
         configureUI()
     }
-        
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
         configureUI()
@@ -51,7 +51,7 @@ class MainStackView: UIStackView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
         self.alignment = .center
-        self.spacing = 10
+        self.spacing = SpacingNamespace.mainStackView
         
         visitorsStackView.subtitleLabel.text = LabelTextNamespace.visitors
         locationStackView.subtitleLabel.text = LabelTextNamespace.location

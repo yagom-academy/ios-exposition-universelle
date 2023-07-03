@@ -35,7 +35,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
     let shortDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         
         return label
     }()
@@ -56,10 +56,20 @@ class ExpositionItemTableViewCell: UITableViewCell {
         informationStackView.addArrangedSubview(shortDescription)
         
         NSLayoutConstraint.activate([
-            image.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
-            image.heightAnchor.constraint(equalTo: contentView.heightAnchor),
-            informationStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
-            informationStackView.leftAnchor.constraint(equalTo: image.rightAnchor)
+            image.widthAnchor.constraint(
+                equalTo: contentView.widthAnchor,
+                multiplier: MultiplierNamespace.itemCellImageWidthToCell
+            ),
+            image.heightAnchor.constraint(
+                equalTo: contentView.heightAnchor
+            ),
+            informationStackView.widthAnchor.constraint(
+                equalTo: contentView.widthAnchor,
+                multiplier: 1 - MultiplierNamespace.itemCellImageWidthToCell
+            ),
+            informationStackView.leftAnchor.constraint(
+                equalTo: image.rightAnchor
+            )
         ])
     }
 }

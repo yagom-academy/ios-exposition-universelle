@@ -22,11 +22,11 @@ class ExpositionItemDetailViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 10
+        stackView.spacing = SpacingNamespace.detailStackView
         
         return stackView
     }()
-
+    
     let itemImage: UIImageView = {
         let imageView = UIImageView()
         
@@ -35,7 +35,7 @@ class ExpositionItemDetailViewController: UIViewController {
     
     let itemDescription: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         
         return label
     }()
@@ -76,10 +76,21 @@ class ExpositionItemDetailViewController: UIViewController {
             detailScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
             detailScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
             
-            detailStackView.topAnchor.constraint(equalTo: detailScrollView.topAnchor, constant: 20),
-            detailStackView.bottomAnchor.constraint(equalTo: detailScrollView.bottomAnchor, constant: -20),
-            detailStackView.centerXAnchor.constraint(equalTo: detailScrollView.centerXAnchor),
-            detailStackView.widthAnchor.constraint(equalTo: detailScrollView.widthAnchor, constant: -40)
+            detailStackView.topAnchor.constraint(
+                equalTo: detailScrollView.topAnchor,
+                constant: ConstraintsNamespace.stackViewFromScrollViewTop
+            ),
+            detailStackView.bottomAnchor.constraint(
+                equalTo: detailScrollView.bottomAnchor,
+                constant: ConstraintsNamespace.stackViewFromScrollViewBottom
+            ),
+            detailStackView.centerXAnchor.constraint(
+                equalTo: detailScrollView.centerXAnchor
+            ),
+            detailStackView.widthAnchor.constraint(
+                equalTo: detailScrollView.widthAnchor,
+                constant: ConstraintsNamespace.stackViewFromScrollViewWidth
+            )
         ])
     }
 }

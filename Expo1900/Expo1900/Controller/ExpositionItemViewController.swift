@@ -9,7 +9,7 @@ import UIKit
 
 class ExpositionItemViewController: UIViewController, UITableViewDelegate {
     private let expositionItemEntity = DecodingManager().decodeExpositionItemsJSON()
-    private let identifier: String = IdentifierNamespace.cell
+    private let identifier: String = IdentifierNamespace.itemTableCell
     
     private let tableView: UITableView = {
         let tableView = UITableView()
