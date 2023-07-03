@@ -27,5 +27,30 @@ final class ExhibitDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         self.title = exhibit.name
+        
+        configureView()
+    }
+}
+
+private extension ExhibitDetailViewController {
+    func configureView() {
+        view.addSubview(detailScrollView)
+        detailScrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        detailScrollView.addSubview(detailStackView)
+        detailStackView.translatesAutoresizingMaskIntoConstraints = false
+        detailStackView.axis = .vertical
+        detailStackView.alignment = .center
+        detailStackView.spacing = 10
+        
+        itemImage.translatesAutoresizingMaskIntoConstraints = false
+        itemImage.image = UIImage(named: exhibit.imageName)
+        
+        itemDescription.translatesAutoresizingMaskIntoConstraints = false
+        itemDescription.numberOfLines = 0
+        itemDescription.text = exhibit.description
+        
+        detailStackView.addArrangedSubview(itemImage)
+        detailStackView.addArrangedSubview(itemDescription)
     }
 }
