@@ -15,6 +15,11 @@ class ExpoViewController: UIViewController {
     @IBOutlet weak var expoDurationLabel: UILabel!
     @IBOutlet weak var expoDescriptionLabel: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        navigationItem.title = "메인"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,8 +37,6 @@ class ExpoViewController: UIViewController {
         } catch {
             print("디코더 오류")
         }
-        
-        
     }
 
     @IBAction func TapEntryPageButton(_ sender: UIButton) {
