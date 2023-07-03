@@ -14,10 +14,6 @@ final class EntryListCell: UITableViewCell {
     static let nibName = "EntryListCell"
     static let reuseIdentifier = "entryListCell"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func configureCell(entry: Entry) {
         self.entryImage.image = UIImage(named: entry.imageName)
         self.entryTitleLabel.text = entry.name
