@@ -7,16 +7,10 @@
 
 import UIKit
 
-class KoreaEntryListViewController: UIViewController {
+final class KoreaEntryListViewController: UIViewController {
     @IBOutlet weak var entryListTableView: UITableView!
-    private let itemsModel: [ItemsModel]? = {
-        guard let dataAsset = NSDataAsset(name: "items") else { return nil }
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let items = try? decoder.decode([ItemsModel].self, from: dataAsset.data)
-        return items
-    }()
-    let cellIdentifier: String = "cell"
+
+	private let itemsModel: [ItemsModel]? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.entryData)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +19,8 @@ class KoreaEntryListViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.title = "한국의 출품작"
-		let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
+		self.title = ViewControllerTitleNameSpace.koreaEntryList
+		let backBarButtonItem = UIBarButtonItem(title: ViewControllerTitleNameSpace.koreaEntryList, style: .plain, target: self, action: nil)
 		navigationItem.backBarButtonItem = backBarButtonItem
 		navigationController?.setNavigationBarHidden(false, animated: false)
 	}
@@ -36,9 +30,12 @@ class KoreaEntryListViewController: UIViewController {
 			  let selectedIndex = self.entryListTableView.indexPathForSelectedRow?.row else {
 			return
 		}
-		destination.koreanEntryImageName = itemsModel?[selectedIndex].imageName ?? "photo"
-		destination.entryDescription = itemsModel?[selectedIndex].desc
-		destination.entryTitle = itemsModel?[selectedIndex].name
+		
+		guard let itemsModel = itemsModel else { return }
+		
+		destination.koreanEntryImage = UIImage(named: itemsModel[selectedIndex].imageName)
+		destination.entryDescription = itemsModel[selectedIndex].desc
+		destination.entryTitle = itemsModel[selectedIndex].name
 	}
 }
 
@@ -51,14 +48,24 @@ extension KoreaEntryListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let koreaEntryCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? KoreaEntryTableViewCell else {
+		guard let koreaEntryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.entryListCell, for: indexPath) as? KoreaEntryTableViewCell else {
             return UITableViewCell()
         }
-        
-        koreaEntryCell.entryImageView.image = UIImage(named: itemsModel?[indexPath.row].imageName ?? "photo")
-        koreaEntryCell.titleLabel.text = itemsModel?[indexPath.row].name
-        koreaEntryCell.shortDescLabel.text = itemsModel?[indexPath.row].shortDesc
+		
+		guard let itemsModel = itemsModel else {
+			return UITableViewCell()
+		}
+		
+		koreaEntryCell.entryImageView.image = UIImage(named: itemsModel[indexPath.row].imageName)
+        koreaEntryCell.titleLabel.text = itemsModel[indexPath.row].name
+        koreaEntryCell.shortDescLabel.text = itemsModel[indexPath.row].shortDesc
         
         return koreaEntryCell
     }
+}
+
+extension KoreaEntryListViewController {
+	private enum CellIdentifier {
+		static let entryListCell: String = "cell"
+	}
 }
