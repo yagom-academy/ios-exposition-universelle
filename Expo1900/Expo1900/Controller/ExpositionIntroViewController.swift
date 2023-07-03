@@ -41,7 +41,7 @@ final class ExpositionIntroViewController: UIViewController {
         let durationClause = "개최 기간 : "
         
         self.expositionTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
-        let expoVisitor = NSMutableAttributedString(string: visitorClause + format(by: exposition.visitors))
+        let expoVisitor = NSMutableAttributedString(string: visitorClause + exposition.visitors.expositionFormat)
         let expoLocation = NSMutableAttributedString(string: locationClause + exposition.location)
         let expoDuration = NSMutableAttributedString(string: durationClause + exposition.duration)
         let clauseFont = UIFont.systemFont(ofSize: 20)
@@ -54,13 +54,6 @@ final class ExpositionIntroViewController: UIViewController {
         self.locationLabel.attributedText = expoLocation
         self.durationLabel.attributedText = expoDuration
         self.descriptionLabel.text = exposition.description
-    }
-    
-    private func format(by target: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
-        return formatter.string(from: NSNumber(value: target)) ?? ""
     }
     
     @IBAction private func tabKoreanEntryButton(_ sender: UIButton) {

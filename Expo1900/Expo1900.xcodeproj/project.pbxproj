@@ -22,6 +22,7 @@
 		D0A2F9E12A493120007CF77E /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2F9E02A493120007CF77E /* Exposition.swift */; };
 		D0A2F9E32A493186007CF77E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2F9E22A493186007CF77E /* Entry.swift */; };
 		D0A2FA262A4C4DA9007CF77E /* DecodingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2FA252A4C4DA9007CF77E /* DecodingHandler.swift */; };
+		D0A2FA2E2A5272D2007CF77E /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2FA2D2A5272D2007CF77E /* Int+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D0A2F9E02A493120007CF77E /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		D0A2F9E22A493186007CF77E /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		D0A2FA252A4C4DA9007CF77E /* DecodingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingHandler.swift; sourceTree = "<group>"; };
+		D0A2FA2D2A5272D2007CF77E /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		D0A2FA242A4C4D8C007CF77E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D0A2FA2C2A527275007CF77E /* Extensions */,
 				D0A2FA252A4C4DA9007CF77E /* DecodingHandler.swift */,
 			);
 			path = Utils;
@@ -148,6 +151,14 @@
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		D0A2FA2C2A527275007CF77E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0A2FA2D2A5272D2007CF77E /* Int+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +242,7 @@
 				D0A2F9E12A493120007CF77E /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				1FA5E4722A4C533000185366 /* KoreanEntryListViewController.swift in Sources */,
+				D0A2FA2E2A5272D2007CF77E /* Int+.swift in Sources */,
 				1FA5E4742A4C538200185366 /* EntryDetailViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 			);
