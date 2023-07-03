@@ -8,13 +8,8 @@
 import UIKit
 
 final class ExpositionItemViewController: UIViewController {
-    private var expositionItem: Item
-    
-    private let itemImage: UIImageView = {
-        let imageView: UIImageView = UIImageView()
-        
-        return imageView
-    }()
+    private let expositionItem: Item
+    private let itemImage: UIImageView = UIImageView()
     
     private let totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
