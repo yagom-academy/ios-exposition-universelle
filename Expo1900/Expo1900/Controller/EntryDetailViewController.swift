@@ -35,6 +35,6 @@ final class EntryDetailViewController: UIViewController {
     
     private func configureComponents() {
         self.entryImageView.image = UIImage(named: entry.imageName)
-        self.entryDescriptionLabel.text = entry.description
+        self.entryDescriptionLabel.text = entry.longDescription
     }
 }
