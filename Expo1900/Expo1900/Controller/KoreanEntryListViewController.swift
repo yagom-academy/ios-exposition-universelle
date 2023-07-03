@@ -9,7 +9,7 @@ import UIKit
 
 final class KoreanEntryListViewController: UIViewController {
     @IBOutlet weak private var entryTableView: UITableView!
-    private var entryList: [Entry] = DecodingHandler.decode(fileName: .entry) ?? []
+    private let entryList: [Entry] = DecodingHandler.decode(fileName: .entry) ?? []
     static let identifier = "koreanEntryListViewController"
     
     override func viewDidLoad() {
