@@ -155,10 +155,9 @@ final class ExpositionUniverselleViewController: UIViewController {
         view.addSubview(expositionUniverselleScrollView)
     }
     
-    private func addArrangedSubviews(to superview: UIStackView, elements subviews: [AnyObject]) {
+    private func addArrangedSubviews(to superview: UIStackView, elements subviews: [UIView]) {
         subviews.forEach {
-            guard let subview = $0 as? UIView else { return }
-            superview.addArrangedSubview(subview)
+            superview.addArrangedSubview($0)
         }
     }
     
