@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KoreaEntryTableViewCell: UITableViewCell {
+final class KoreaEntryTableViewCell: UITableViewCell {
     let entryImageView: UIImageView = UIImageView()
     let titleLabel: UILabel = UILabel()
     let shortDescLabel: UILabel = UILabel()
