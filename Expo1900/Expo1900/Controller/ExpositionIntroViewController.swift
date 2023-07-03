@@ -44,11 +44,11 @@ final class ExpositionIntroViewController: UIViewController {
         let expoVisitor = NSMutableAttributedString(string: visitorClause + format(by: exposition.visitors))
         let expoLocation = NSMutableAttributedString(string: locationClause + exposition.location)
         let expoDuration = NSMutableAttributedString(string: durationClause + exposition.duration)
-        let font1 = UIFont.systemFont(ofSize: 20)
+        let clauseFont = UIFont.systemFont(ofSize: 20)
 
-        expoVisitor.addAttribute(.font, value: font1, range: NSRange(location: 0, length: visitorClause.count))
-        expoLocation.addAttribute(.font, value: font1, range: NSRange(location: 0, length: locationClause.count))
-        expoDuration.addAttribute(.font, value: font1, range: NSRange(location: 0, length: durationClause.count))
+        expoVisitor.addAttribute(.font, value: clauseFont, range: NSRange(location: 0, length: visitorClause.count))
+        expoLocation.addAttribute(.font, value: clauseFont, range: NSRange(location: 0, length: locationClause.count))
+        expoDuration.addAttribute(.font, value: clauseFont, range: NSRange(location: 0, length: durationClause.count))
 
         self.visitorsLabel.attributedText = expoVisitor
         self.locationLabel.attributedText = expoLocation
