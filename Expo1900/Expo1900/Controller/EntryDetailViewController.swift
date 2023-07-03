@@ -9,9 +9,22 @@ import UIKit
 
 class EntryDetailViewController: UIViewController {
     
+    @IBOutlet weak var entryImageView: UIImageView!
+    @IBOutlet weak var entryDescription: UILabel!
+    
+    var entryImage: UIImage?
+    var entryDetailDescription: String?
+    var entryName: String?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = entryName
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        entryImageView.image = entryImage
+        entryDescription.text = entryDetailDescription
     }
 }
