@@ -7,16 +7,16 @@
 
 import UIKit
 
-class EntryViewController: UIViewController {
+final class EntryViewController: UIViewController {
 
-    var expoEntries: [ExpoEntry] = [ExpoEntry]()
+    private var expoEntries: [ExpoEntry] = [ExpoEntry]()
+    
     @IBOutlet weak var entryTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = false
-        navigationItem.title = "한국의 출품작"
+        updateNavigationBar()
     }
     
     override func viewDidLoad() {
@@ -24,6 +24,11 @@ class EntryViewController: UIViewController {
         
         updateExpoEntries()
         updateEntryTableView()
+    }
+    
+    func updateNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = "한국의 출품작"
     }
     
     func updateExpoEntries() {

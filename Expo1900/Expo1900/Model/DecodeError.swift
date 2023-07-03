@@ -11,7 +11,7 @@ enum DecodeError: LocalizedError {
     case searchNoFile
     case jsonDecodeError
     
-    var errorDescription: String {
+    private var errorDescription: String {
         switch self {
         case .searchNoFile:
             return "파일을 찾을 수 없습니다."

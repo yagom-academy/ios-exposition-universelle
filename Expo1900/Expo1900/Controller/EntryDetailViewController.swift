@@ -7,24 +7,28 @@
 
 import UIKit
 
-class EntryDetailViewController: UIViewController {
+final class EntryDetailViewController: UIViewController {
     
-    @IBOutlet weak var entryImageView: UIImageView!
-    @IBOutlet weak var entryDescription: UILabel!
+    @IBOutlet private weak var entryImageView: UIImageView!
+    @IBOutlet private weak var entryDescription: UILabel!
 
     var expoEntry: ExpoEntry?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = false
-        navigationItem.title = expoEntry?.name
+        updateNavigationBar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateEntryDetailView()
+    }
+    
+    func updateNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = expoEntry?.name
     }
     
     func updateEntryDetailView() {

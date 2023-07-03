@@ -56,6 +56,7 @@
 			children = (
 				3DFA94BE2A4AF9F300DA0E2E /* DataTransferObject */,
 				3D878C232A52622800F0C303 /* DecodeError.swift */,
+				3D878C212A525C1F00F0C303 /* Decoder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -67,9 +68,6 @@
 				0A83C4202A5168EC00C6573E /* EntryViewController.swift */,
 				3D6333512A517F3F00816F7F /* EntryDetailViewController.swift */,
 				3D63334F2A516E8B00816F7F /* EntryTableViewCell.swift */,
-				3D878C212A525C1F00F0C303 /* Decoder.swift */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,6 +88,15 @@
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		3D878C252A52C43B00F0C303 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		3DFA94BE2A4AF9F300DA0E2E /* DataTransferObject */ = {
@@ -120,6 +127,7 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				3D878C252A52C43B00F0C303 /* App */,
 				0A3A28092A4AF0BA00F62CF3 /* Model */,
 				0A3A280A2A4AF0D100F62CF3 /* Controller */,
 				0A3A280B2A4AF0DE00F62CF3 /* View */,

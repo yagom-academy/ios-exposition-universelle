@@ -7,11 +7,11 @@
 
 import UIKit
 
-class EntryTableViewCell: UITableViewCell {
+final class EntryTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var entryImageView: UIImageView!
-    @IBOutlet weak var entryNameLabel: UILabel!
-    @IBOutlet weak var entryShortDescriptionLabel: UILabel!
+    @IBOutlet private weak var entryImageView: UIImageView!
+    @IBOutlet private weak var entryNameLabel: UILabel!
+    @IBOutlet private weak var entryShortDescriptionLabel: UILabel!
     
     override func prepareForReuse() {
         entryImageView.image = nil

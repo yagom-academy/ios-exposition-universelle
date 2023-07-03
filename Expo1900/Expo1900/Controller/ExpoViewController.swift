@@ -7,25 +7,24 @@
 
 import UIKit
 
-class ExpoViewController: UIViewController {
+final class ExpoViewController: UIViewController {
     
-    @IBOutlet weak var expoTitleLabel: UILabel!
-    @IBOutlet weak var expoPosterImageView: UIImageView!
-    @IBOutlet weak var expoVisitorsLabel: UILabel!
-    @IBOutlet weak var expoLocationLabel: UILabel!
-    @IBOutlet weak var expoDurationLabel: UILabel!
-    @IBOutlet weak var expoDescriptionLabel: UILabel!
+    @IBOutlet private weak var expoTitleLabel: UILabel!
+    @IBOutlet private weak var expoPosterImageView: UIImageView!
+    @IBOutlet private weak var expoVisitorsLabel: UILabel!
+    @IBOutlet private weak var expoLocationLabel: UILabel!
+    @IBOutlet private weak var expoDurationLabel: UILabel!
+    @IBOutlet private weak var expoDescriptionLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = true
-        navigationItem.title = "메인"
+        updateNavigationBar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updataExpoView()
+        updateExpoView()
     }
 
     @IBAction func TapEntryPageButton(_ sender: UIButton) {
@@ -34,7 +33,12 @@ class ExpoViewController: UIViewController {
         navigationController?.pushViewController(entryViewController, animated: true)
     }
     
-    func updataExpoView() {
+    func updateNavigationBar() {
+        navigationController?.navigationBar.isHidden = true
+        navigationItem.title = "메인"
+    }
+    
+    func updateExpoView() {
         do {
             let expoInformation: ExpoInformation = try Decoder.decodeJson(from: "exposition_universelle_1900")
             expoTitleLabel.text = expoInformation.title

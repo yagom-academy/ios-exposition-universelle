@@ -8,9 +8,8 @@
 import UIKit
 
 struct Decoder {
-    static let jsonDecoder: JSONDecoder = JSONDecoder()
-    
     static func decodeJson<`Data`: Decodable>(from dataAssetName: String) throws -> `Data` {
+        let jsonDecoder: JSONDecoder = JSONDecoder()
         
         guard let dataAsset = NSDataAsset(name: dataAssetName) else {
             throw DecodeError.searchNoFile
