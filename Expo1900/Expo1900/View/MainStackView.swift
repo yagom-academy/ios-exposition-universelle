@@ -28,6 +28,11 @@ final class MainStackView: UIStackView {
         return label
     }()
     
+    let visitorsStackView = ExpositionInformationStackView()
+    let locationStackView = ExpositionInformationStackView()
+    let durationStackView = ExpositionInformationStackView()
+    let buttonStackView = ExhibitListChangeViewButtonStackView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -46,8 +51,16 @@ private extension MainStackView {
         self.alignment = .center
         self.spacing = 10
         
+        visitorsStackView.subtitleLabel.text = DataNamespace.visitors
+        locationStackView.subtitleLabel.text = DataNamespace.location
+        durationStackView.subtitleLabel.text = DataNamespace.duration
+        
         self.addArrangedSubview(titleLabel)
         self.addArrangedSubview(posterImageView)
+        self.addArrangedSubview(visitorsStackView)
+        self.addArrangedSubview(locationStackView)
+        self.addArrangedSubview(durationStackView)
         self.addArrangedSubview(descriptionLabel)
+        self.addArrangedSubview(buttonStackView)
     }
 }
