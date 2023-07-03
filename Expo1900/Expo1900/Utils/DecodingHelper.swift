@@ -1,5 +1,5 @@
 //
-//  DecodingHandler.swift
+//  DecodingHelper.swift
 //  Expo1900
 //
 //  Created by Minsup, Jusbug on 2023/06/28.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DecodingHandler {
+enum DecodingHelper {
     enum FileName: String {
         case exposition = "exposition"
         case entry = "entry"

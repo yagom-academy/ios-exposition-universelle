@@ -34,7 +34,7 @@ final class ExpositionIntroViewController: UIViewController {
     }
     
     private func configureExpositionLabel() {
-        guard let exposition: Exposition = DecodingHandler.decode(fileName: .exposition) else {
+        guard let exposition: Exposition = DecodingHelper.decode(fileName: .exposition) else {
             self.showErrorAlert()
             return
         }

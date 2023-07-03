@@ -21,7 +21,7 @@
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 		D0A2F9E12A493120007CF77E /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2F9E02A493120007CF77E /* Exposition.swift */; };
 		D0A2F9E32A493186007CF77E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2F9E22A493186007CF77E /* Entry.swift */; };
-		D0A2FA262A4C4DA9007CF77E /* DecodingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2FA252A4C4DA9007CF77E /* DecodingHandler.swift */; };
+		D0A2FA262A4C4DA9007CF77E /* DecodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2FA252A4C4DA9007CF77E /* DecodingHelper.swift */; };
 		D0A2FA2E2A5272D2007CF77E /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2FA2D2A5272D2007CF77E /* Int+.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A2F9E02A493120007CF77E /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		D0A2F9E22A493186007CF77E /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		D0A2FA252A4C4DA9007CF77E /* DecodingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingHandler.swift; sourceTree = "<group>"; };
+		D0A2FA252A4C4DA9007CF77E /* DecodingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingHelper.swift; sourceTree = "<group>"; };
 		D0A2FA2D2A5272D2007CF77E /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D0A2FA2C2A527275007CF77E /* Extensions */,
-				D0A2FA252A4C4DA9007CF77E /* DecodingHandler.swift */,
+				D0A2FA252A4C4DA9007CF77E /* DecodingHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4B92589F401005FB0FD /* ExpositionIntroViewController.swift in Sources */,
-				D0A2FA262A4C4DA9007CF77E /* DecodingHandler.swift in Sources */,
+				D0A2FA262A4C4DA9007CF77E /* DecodingHelper.swift in Sources */,
 				1FA5E4772A4C551F00185366 /* EntryListCell.swift in Sources */,
 				D0A2F9E32A493186007CF77E /* Entry.swift in Sources */,
 				D0A2F9E12A493120007CF77E /* Exposition.swift in Sources */,
