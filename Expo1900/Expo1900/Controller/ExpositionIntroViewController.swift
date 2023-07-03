@@ -34,7 +34,10 @@ final class ExpositionIntroViewController: UIViewController {
     }
     
     private func configureExpositionLabel() {
-        guard let exposition: Exposition = DecodingHandler.decode(fileName: .exposition) else { return }
+        guard let exposition: Exposition = DecodingHandler.decode(fileName: .exposition) else {
+            self.showErrorAlert()
+            return
+        }
                 
         let visitorClause = "방문객 : "
         let locationClause = "개최지 : "
@@ -60,5 +63,12 @@ final class ExpositionIntroViewController: UIViewController {
         guard let koreanEntryListViewController = self.storyboard?.instantiateViewController(withIdentifier: KoreanEntryListViewController.identifier) as? KoreanEntryListViewController else { return }
         
         self.navigationController?.pushViewController(koreanEntryListViewController, animated: true)
+    }
+    
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "에러", message: "데이터를 불러올 수 없습니다.", preferredStyle: .alert)
+        let confirmButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(confirmButton)
+        present(alert, animated: true, completion: nil)
     }
 }
