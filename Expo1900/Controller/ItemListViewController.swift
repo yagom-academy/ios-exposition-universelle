@@ -9,19 +9,21 @@ import UIKit
 
 final class ItemListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private var items = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "한국의 출품작"
-        self.navigationController?.isNavigationBarHidden = false
-        
         tableView.dataSource = self
         tableView.delegate = self
-        
+        showNavigationBar()
         loadItems()
+    }
+    
+    private func showNavigationBar() {
+        self.title = "한국의 출품작"
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func loadItems() {
@@ -45,15 +47,13 @@ extension ItemListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "expositionItemCell", for: indexPath)
         let item = items[indexPath.row]
         var content = cell.defaultContentConfiguration()
 
         cell.accessoryType = .disclosureIndicator
         
         content.image = UIImage(named: item.imageName)
-        content.imageProperties.maximumSize.width = 70
-        content.imageProperties.maximumSize.height = 70
         content.text = item.name
         content.secondaryText = item.shortDescription
         

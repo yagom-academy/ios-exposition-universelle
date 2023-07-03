@@ -1,5 +1,5 @@
 //
-//  JsonDecoder.swift
+//  JSONDecoder+.swift
 //  Expo1900
 //
 //  Created by Hemg, RedMango on 2023/06/27.

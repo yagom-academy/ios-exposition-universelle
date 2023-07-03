@@ -8,9 +8,9 @@
 import UIKit
 
 final class DetailItemViewController: UIViewController {
-
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemDescriptionLabel: UILabel!
     
     private var detailItems: Item?
     
@@ -26,12 +26,16 @@ final class DetailItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createItemlabels()
-        self.title = detailItems?.name
+        createItemTitle()
     }
     
     private func createItemlabels() {
-       guard let item = detailItems else { return }
+        guard let item = detailItems else { return }
         itemImageView.image = UIImage(named: item.imageName)
         itemDescriptionLabel.text = item.description
+    }
+    
+    private func createItemTitle() {
+        self.title = detailItems?.name
     }
 }
