@@ -72,4 +72,11 @@ class ExpositionItemTableViewCell: UITableViewCell {
             )
         ])
     }
+    
+    func inputDataToCell(data: ExpositionItemEntity) {
+        self.image.image = UIImage(named: data.imageName)
+        self.name.text = data.name
+        self.shortDescription.text = data.shortDescription
+        self.accessoryType = .disclosureIndicator
+    }
 }

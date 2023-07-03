@@ -54,11 +54,7 @@ extension ExpositionItemViewController: UITableViewDataSource {
             return ExpositionItemTableViewCell()
         }
         
-        cell.image.image = UIImage(named: expositionItemEntity[indexPath.row].imageName)
-        cell.name.text = expositionItemEntity[indexPath.row].name
-        cell.shortDescription.text = expositionItemEntity[indexPath.row].shortDescription
-        
-        cell.accessoryType = .disclosureIndicator
+        cell.inputDataToCell(data: expositionItemEntity[indexPath.row])
         
         return cell
     }
