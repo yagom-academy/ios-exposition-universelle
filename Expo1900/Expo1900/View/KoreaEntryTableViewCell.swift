@@ -11,17 +11,18 @@ class KoreaEntryTableViewCell: UITableViewCell {
     let entryImageView: UIImageView = UIImageView()
     let titleLabel: UILabel = UILabel()
     let shortDescLabel: UILabel = UILabel()
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.entryImageView.image = nil
+        self.titleLabel.text = nil
+        self.shortDescLabel.text = nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 		self.accessoryType = .disclosureIndicator
         setUpUI()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     private func setUpUI() {
