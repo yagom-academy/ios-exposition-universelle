@@ -7,8 +7,8 @@
 
 import UIKit
 
-class EntryDetailViewController: UIViewController {
-	var koreanEntryImageName: String?
+final class EntryDetailViewController: UIViewController {
+	var koreanEntryImage: UIImage?
 	var entryDescription: String?
 	var entryTitle: String?
 	
@@ -18,10 +18,10 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		guard let koreanEntryImageName = koreanEntryImageName else { return }
+		guard let koreanEntryImage = koreanEntryImage else { return }
 		guard let entryDescription = entryDescription else { return }
 		
-		koreaEntryImageView.image = UIImage(named: koreanEntryImageName)
+		koreaEntryImageView.image = koreanEntryImage
 		entryDescLabel.text = entryDescription
     }
 	
