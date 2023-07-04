@@ -64,8 +64,10 @@ class ExpositionViewController: UIViewController {
             configureMainView()
             configureLabelText(expositionEntity)
             addConstraints()
+        } catch DecodingError.failedDecoding {
+            ErrorLabel(DecodingError.failedDecoding.message, frame: view.frame).configureUI(view)
         } catch {
-            
+            ErrorLabel(DecodingError.unknown.message, frame: view.frame).configureUI(view)
         }
     }
     

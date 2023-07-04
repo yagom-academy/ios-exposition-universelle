@@ -8,7 +8,7 @@
 import UIKit
 
 struct DecodingManager {
-    static let shared = DecodingManager() // 싱글톤 보통 쓰는 이름 shared
+    static let shared = DecodingManager()
     
     func decodeJSON<T: Decodable>(fileName: String, type: T.Type) throws -> T {
         let decoder: JSONDecoder = JSONDecoder()

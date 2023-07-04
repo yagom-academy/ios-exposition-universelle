@@ -27,8 +27,10 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
             expositionItemEntity = try DecodingManager.shared.decodeJSON(fileName: AssetNamespace.items, type: [ExpositionItemEntity].self)
             
             configureUI()
+        } catch DecodingError.failedDecoding {
+            ErrorLabel(DecodingError.failedDecoding.message, frame: view.frame).configureUI(view)
         } catch {
-            
+            ErrorLabel(DecodingError.unknown.message, frame: view.frame).configureUI(view)
         }
     }
     
