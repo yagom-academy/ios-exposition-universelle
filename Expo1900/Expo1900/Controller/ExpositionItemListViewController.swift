@@ -54,8 +54,12 @@ final class ExpositionItemListViewController: UIViewController {
     private func decodeItems() {
         do {
             itemList = try JSONDecoder().decode([Item].self, from: JSONFile.items.description)
+        } catch NSDataAssetError.invalidDataAsset {
+            let alert: UIAlertController = AlertController().configureAlert(errorName: NSDataAssetError.invalidDataAsset.localizedDescription)
+            present(alert, animated: true)
         } catch {
-            print(error)
+            let alert: UIAlertController = AlertController().configureAlert(errorName: error.localizedDescription)
+            present(alert, animated: true)
         }
     }
 }

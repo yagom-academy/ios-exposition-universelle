@@ -124,8 +124,12 @@ final class ExpositionUniverselleViewController: UIViewController {
     private func decodeExpositionUniverselle() {
         do {
             expositionUniverselle = try JSONDecoder().decode(ExpositionUniverselle.self, from: JSONFile.exposition.description)
+        } catch NSDataAssetError.invalidDataAsset {
+            let alert: UIAlertController = AlertController().configureAlert(errorName: NSDataAssetError.invalidDataAsset.localizedDescription)
+            present(alert, animated: true)
         } catch {
-            print(error)
+            let alert: UIAlertController = AlertController().configureAlert(errorName: error.localizedDescription)
+            present(alert, animated: true)
         }
     }
     
