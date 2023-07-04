@@ -12,21 +12,26 @@ final class ExpositionIntroViewController: UIViewController {
     @IBOutlet weak private var locationLabel: UILabel!
     @IBOutlet weak private var durationLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        appDelegate.shouldSupportAllOrientation = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        appDelegate.shouldSupportAllOrientation = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureNavigation()
         self.configureExpositionLabel()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+                    UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     private func configureNavigation() {
