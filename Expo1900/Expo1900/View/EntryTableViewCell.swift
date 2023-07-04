@@ -36,8 +36,10 @@ final class EntryTableViewCell: UITableViewCell {
 
     private func setUpTitleAndShortDescriptionLabel() {
         entryNameLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        entryNameLabel.adjustsFontForContentSizeCategory = true
         
         shortDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        shortDescriptionLabel.adjustsFontForContentSizeCategory = true
         shortDescriptionLabel.numberOfLines = 0
     }
     
@@ -55,22 +57,22 @@ final class EntryTableViewCell: UITableViewCell {
 extension EntryTableViewCell {
     private func setUpEntryImageViewConstraints() {
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
+        entryImageView.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
-            entryImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            entryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
-            entryImageView.widthAnchor.constraint(equalTo: entryImageView.heightAnchor),
-            entryImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor)
+            entryImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 80),
         ])
     }
     
     private func setUpEntryTextStackViewConstraints(for stackView: UIStackView) {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8),
-            stackView.topAnchor.constraint(equalTo: entryImageView.topAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            stackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 10),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ])
     }
 }
