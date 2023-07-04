@@ -27,7 +27,6 @@
 		BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */; };
 		BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */; };
 		BAFD9F682A4DDA9500DC9186 /* ChangeViewButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */; };
-		BAFD9F6A2A4DDFA900DC9186 /* MainStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F692A4DDFA900DC9186 /* MainStackView.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */; };
@@ -67,7 +66,6 @@
 		BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNamespace.swift; sourceTree = "<group>"; };
 		BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierNamespace.swift; sourceTree = "<group>"; };
 		BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewButtonStackView.swift; sourceTree = "<group>"; };
-		BAFD9F692A4DDFA900DC9186 /* MainStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStackView.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		3CBDC7D62A4D0F380089F7A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BAFD9F692A4DDFA900DC9186 /* MainStackView.swift */,
 				3CBDC82A2A4DDD880089F7A2 /* ExpositionInformationStackView.swift */,
 				BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */,
 				3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */,
@@ -300,7 +297,6 @@
 				3C286B992A52EA8100FF2F89 /* MultiplierNamespace.swift in Sources */,
 				3CBDC8252A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift in Sources */,
 				3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */,
-				BAFD9F6A2A4DDFA900DC9186 /* MainStackView.swift in Sources */,
 				BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */,
 				BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */,
 				BAFD9F522A4D83B700DC9186 /* ViewControllerTitleNamespace.swift in Sources */,

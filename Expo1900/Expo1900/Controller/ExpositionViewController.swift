@@ -16,15 +16,52 @@ class ExpositionViewController: UIViewController {
         return scrollView
     }()
     
-    private let mainStackView: MainStackView = MainStackView()
+    private let mainStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = SpacingNamespace.mainStackView
+        
+        return stackView
+    }()
     
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.numberOfLines = .zero
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    let posterImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: AssetNamespace.poster)
+        
+        return image
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let textLabel = UILabel()
+        textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        textLabel.numberOfLines = .zero
+        
+        return textLabel
+    }()
+    
+    let visitorsStackView = ExpositionInformationStackView()
+    let locationStackView = ExpositionInformationStackView()
+    let durationStackView = ExpositionInformationStackView()
+    let buttonStackView = ChangeViewButtonStackView()
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         self.title = ViewControllerTitleNamespace.main
         
-        configureMainStackView()
         configureMainView()
+        configureLabelText()
         addConstraints()
     }
     
@@ -36,11 +73,41 @@ class ExpositionViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
+    @objc private func didTapButton() {
+        navigationController?.pushViewController(ExpositionItemViewController(), animated: true)
+    }
+}
+
+extension ExpositionViewController {
     private func configureMainView() {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(titleLabel)
+        mainStackView.addArrangedSubview(posterImageView)
+        mainStackView.addArrangedSubview(visitorsStackView)
+        mainStackView.addArrangedSubview(locationStackView)
+        mainStackView.addArrangedSubview(durationStackView)
+        mainStackView.addArrangedSubview(descriptionLabel)
+        mainStackView.addArrangedSubview(buttonStackView)
+        
+        buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
+    private func configureLabelText() {
+        titleLabel.text = expositionEntity.title.addNewLineBeforeParentheses()
+        descriptionLabel.text = expositionEntity.description
+        
+        visitorsStackView.subtitleLabel.text = LabelTextNamespace.visitors
+        locationStackView.subtitleLabel.text = LabelTextNamespace.location
+        durationStackView.subtitleLabel.text = LabelTextNamespace.duration
+        
+        let formattedVisitors = expositionEntity.visitors.formatToDecimal()
+        
+        visitorsStackView.dataLabel.text = formattedVisitors.addColonWithNumberOfPeople()
+        locationStackView.dataLabel.text = expositionEntity.location.addColon()
+        durationStackView.dataLabel.text = expositionEntity.duration.addColon()
+    }
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
             mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -64,26 +131,9 @@ class ExpositionViewController: UIViewController {
                 constant: ConstraintsNamespace.stackViewFromScrollViewWidth
             ),
             
-            mainStackView.buttonStackView.centerXAnchor.constraint(
+            buttonStackView.centerXAnchor.constraint(
                 equalTo: mainStackView.centerXAnchor
             )
         ])
-    }
-    
-    private func configureMainStackView() {
-        mainStackView.titleLabel.text = expositionEntity.title.addNewLineBeforeParentheses()
-        mainStackView.descriptionLabel.text = expositionEntity.description
-        
-        let formattedVisitors = expositionEntity.visitors.formatToDecimal()
-        
-        mainStackView.visitorsStackView.dataLabel.text = formattedVisitors.addColonWithNumberOfPeople()
-        mainStackView.locationStackView.dataLabel.text = expositionEntity.location.addColon()
-        mainStackView.durationStackView.dataLabel.text = expositionEntity.duration.addColon()
-        
-        mainStackView.buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-    }
-    
-    @objc private func didTapButton() {
-        navigationController?.pushViewController(ExpositionItemViewController(), animated: true)
     }
 }
