@@ -14,9 +14,12 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     
     private var expoGuideData: ExpoGuide?
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appDelegate.isOnlyPortaitOrientation = false
+        
         expoGuideData = Data.unwrap(type: expoGuideData, file: "exposition_universelle_1900")
         insertLabels()
         navigationItem.title = "메인"
@@ -25,11 +28,13 @@ final class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        appDelegate.isOnlyPortaitOrientation = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
+        appDelegate.isOnlyPortaitOrientation = false
     }
     
     private func insertLabels() {
