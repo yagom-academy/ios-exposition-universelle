@@ -18,8 +18,6 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate.isOnlyPortaitOrientation = false
-        
         expoGuideData = Data.unwrap(type: expoGuideData, file: "exposition_universelle_1900")
         insertLabels()
         navigationItem.title = "메인"
