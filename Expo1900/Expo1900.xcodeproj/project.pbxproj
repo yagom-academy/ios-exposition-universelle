@@ -53,12 +53,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45CED1E52A4D68A700C5D717 /* Extension */ = {
+		459C20562A53EC3400591865 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				45CED1E62A4D694400C5D717 /* JSONDecoder+.swift */,
+				45CED1E82A4D748400C5D717 /* AssetName.swift */,
 			);
-			path = Extension;
+			path = Util;
+			sourceTree = "<group>";
+		};
+		459C20572A53EC8100591865 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CB2AA9272A4BFE4000AF1339 /* NSDataAssetError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -80,10 +89,14 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				45CED1E52A4D68A700C5D717 /* Extension */,
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				CB828F052A4922CD009324EE /* Controller */,
 				CB828F062A4922D6009324EE /* Model */,
 				CB828F072A4922DF009324EE /* View */,
+				459C20562A53EC3400591865 /* Util */,
+				459C20572A53EC8100591865 /* Error */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -94,8 +107,6 @@
 		CB828F052A4922CD009324EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ExpositionUniverselleViewController.swift */,
 				CB2AA9212A4AEB7400AF1339 /* ItemsTableViewController.swift */,
 				45D629CA2A4BC0C80039DD1D /* ItemDetailViewController.swift */,
@@ -108,8 +119,6 @@
 			children = (
 				CB828F082A49230C009324EE /* Item.swift */,
 				CB828F0A2A4923CE009324EE /* ExpositionUniverselle.swift */,
-				CB2AA9272A4BFE4000AF1339 /* NSDataAssetError.swift */,
-				45CED1E82A4D748400C5D717 /* AssetName.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,7 +126,6 @@
 		CB828F072A4922DF009324EE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				45DA6B612A4AEF8D00C53778 /* ItemTableViewCell.swift */,
 			);
 			path = View;
