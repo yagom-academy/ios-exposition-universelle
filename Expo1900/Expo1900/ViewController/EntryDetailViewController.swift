@@ -29,6 +29,8 @@ final class EntryDetailViewController: UIViewController {
     private let contentLabel: UILabel = {
         let contentLabel = UILabel()
         contentLabel.numberOfLines = 0
+        contentLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        contentLabel.adjustsFontForContentSizeCategory = true
         return contentLabel
     }()
     

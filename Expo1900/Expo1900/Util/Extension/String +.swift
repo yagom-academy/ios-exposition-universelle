@@ -8,12 +8,17 @@
 import UIKit
 
 extension String {
-    func addAttributeFontForKeyword(font: UIFont, keyword: String) -> NSMutableAttributedString {
+    func addAttributeFontForKeyword(keywordFont: UIFont, noneKeywordFont: UIFont , keyword: String) -> NSMutableAttributedString {
         let attributeString = NSMutableAttributedString(string: self)
+        let noneKeywordString = self.replacingOccurrences(of: keyword, with: "")
         
         attributeString.addAttribute(.font,
-                                     value: font,
+                                     value: keywordFont,
                                      range: (self as NSString).range(of: keyword))
+        attributeString.addAttribute(.font,
+                                     value: noneKeywordFont,
+                                     range: (self as NSString).range(of: noneKeywordString))
+        
         return attributeString
     }
 }

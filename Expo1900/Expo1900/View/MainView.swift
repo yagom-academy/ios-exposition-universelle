@@ -41,12 +41,14 @@ final class MainView: UIView {
         titleLabel.text = "제목"
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.systemFont(ofSize: 30)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        titleLabel.adjustsFontForContentSizeCategory = true
         return titleLabel
     }()
     
     private let visitorsLabel: UILabel = {
         let visitorsLabel = UILabel()
+        visitorsLabel.adjustsFontForContentSizeCategory = true
         visitorsLabel.text = "방문객"
         return visitorsLabel
     }()
@@ -54,6 +56,7 @@ final class MainView: UIView {
     private let locationLabel: UILabel = {
         let locationLabel = UILabel()
         locationLabel.numberOfLines = 0
+        locationLabel.adjustsFontForContentSizeCategory = true
         locationLabel.text = "위치"
         return locationLabel
     }()
@@ -61,6 +64,7 @@ final class MainView: UIView {
     private let durationLabel: UILabel = {
         let durationLabel = UILabel()
         durationLabel.text = "기간"
+        durationLabel.adjustsFontForContentSizeCategory = true
         return durationLabel
     }()
     
@@ -68,6 +72,8 @@ final class MainView: UIView {
         let descriptionLabel = UILabel()
         descriptionLabel.text = "디테일"
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.adjustsFontForContentSizeCategory = true
         return descriptionLabel
     }()
     
@@ -102,8 +108,13 @@ final class MainView: UIView {
         koreaExpositionButton.setTitle("한국 박람회 전시", for: .normal)
         koreaExpositionButton.setTitleColor(.systemBlue, for: .normal)
         koreaExpositionButton.addTarget(self, action: #selector(didTappedKoreaExhibitionButton), for: .touchUpInside)
+        koreaExpositionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        koreaExpositionButton.titleLabel?.adjustsFontForContentSizeCategory = true
         return koreaExpositionButton
     }()
+    
+    private let keywordFont = UIFont.preferredFont(forTextStyle: .title2)
+    private let noneKeywordFont = UIFont.preferredFont(forTextStyle: .body)
     
     convenience init() {
         self.init(frame: CGRectZero)
@@ -153,8 +164,12 @@ extension MainView {
 extension MainView {
     func load(information: ParisExpositionInformation) {
         titleLabel.text = information.title.replacingOccurrences(of: "(", with: "\n(")
-        locationLabel.attributedText = "개최지 : \(information.location)".addAttributeFontForKeyword(font: UIFont.systemFont(ofSize: 20),keyword: "개최지")
-        durationLabel.attributedText = "개최 기간 : \(information.duration)".addAttributeFontForKeyword(font: UIFont.systemFont(ofSize: 20),keyword: "개최 기간")
+        locationLabel.attributedText = "개최지 : \(information.location)".addAttributeFontForKeyword(keywordFont: keywordFont,
+                                                                noneKeywordFont: noneKeywordFont,
+                                                                keyword: "개최지")
+        durationLabel.attributedText = "개최 기간 : \(information.duration)".addAttributeFontForKeyword(keywordFont: keywordFont,
+                                                                noneKeywordFont: noneKeywordFont,
+                                                                keyword: "개최 기간")
         descriptionLabel.text = information.description
         loadVisitorsInformation(information.visitors)
     }
@@ -166,7 +181,7 @@ extension MainView {
         let visitorsAsNumber = numberFormatter.number(from: visitors.description) ?? 0
         guard let visitorsAsFormatterString = numberFormatter.string(from: visitorsAsNumber) else { return }
         
-        visitorsLabel.attributedText = "방문객 : \(visitorsAsFormatterString) 명".addAttributeFontForKeyword(font: UIFont.systemFont(ofSize: 20),keyword: "방문객")
+        visitorsLabel.attributedText = "방문객 : \(visitorsAsFormatterString) 명".addAttributeFontForKeyword(keywordFont: keywordFont, noneKeywordFont: noneKeywordFont, keyword: "방문객")
     }
 }
 
