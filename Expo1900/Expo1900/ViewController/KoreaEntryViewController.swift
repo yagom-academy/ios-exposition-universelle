@@ -30,6 +30,7 @@ final class KoreaEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackgroundColor(.systemBackground)
         configureUI()
         setUpTableViewConstraints()
         setNavigationTitle()
@@ -57,6 +58,10 @@ final class KoreaEntryViewController: UIViewController {
         
         koreaEntryItems = data
         return data
+    }
+    
+    private func setBackgroundColor(_ color: UIColor) {
+        view.backgroundColor = color
     }
 }
 

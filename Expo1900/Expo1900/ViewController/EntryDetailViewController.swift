@@ -23,6 +23,7 @@ final class EntryDetailViewController: UIViewController {
     private let contentImageView: UIImageView = {
         let contentImage = UIImageView()
         contentImage.image = UIImage(named: "poster")
+        contentImage.contentMode = .scaleAspectFit
         return contentImage
     }()
     
@@ -40,6 +41,7 @@ final class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackgroundColor(.systemBackground)
         configureUI()
         setUpConstraints()
     }
@@ -57,7 +59,6 @@ final class EntryDetailViewController: UIViewController {
         contentView.addSubview(stackView)
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
-        view.backgroundColor = .systemBackground
     }
     
     private func setUpConstraints() {
@@ -65,6 +66,10 @@ final class EntryDetailViewController: UIViewController {
         setUpContentViewConstraints()
         setUpStackViewConstraints()
         setUpImageViewConstraints()
+    }
+    
+    private func setBackgroundColor(_ color: UIColor) {
+        view.backgroundColor = color
     }
 }
 
