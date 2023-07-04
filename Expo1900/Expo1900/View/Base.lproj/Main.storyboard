@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -186,32 +186,32 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="entryCell" id="HZK-yq-y0F" customClass="EntryTableViewCell" customModule="Expo1900" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="87.333335876464844"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="88.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HZK-yq-y0F" id="TQC-mR-4dj">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="87.333335876464844"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="88.666664123535156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gEC-w5-Pt8">
-                                                    <rect key="frame" x="10" y="0.0" width="352.66666666666669" height="87.333333333333329"/>
+                                                    <rect key="frame" x="10" y="0.0" width="352.66666666666669" height="88.666666666666671"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N7U-wz-x4M">
-                                                            <rect key="frame" x="0.0" y="0.3333333333333357" width="87" height="86.666666666666657"/>
+                                                            <rect key="frame" x="0.0" y="1" width="87" height="86.666666666666671"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="N7U-wz-x4M" secondAttribute="height" multiplier="1:1" id="IhJ-cc-n3f"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="nwg-4G-cJj">
-                                                            <rect key="frame" x="92" y="10" width="260.66666666666669" height="67.333333333333329"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="nwg-4G-cJj">
+                                                            <rect key="frame" x="92" y="10" width="260.66666666666669" height="68.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6S-uZ-aoI">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="260.66666666666669" height="33.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="260.66666666666669" height="34"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRK-fy-CiW">
-                                                                    <rect key="frame" x="0.0" y="34.666666666666671" width="260.66666666666669" height="32.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="35" width="260.66666666666669" height="33.666666666666657"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -220,7 +220,7 @@
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="N7U-wz-x4M" firstAttribute="width" relation="lessThanOrEqual" secondItem="nwg-4G-cJj" secondAttribute="width" multiplier="1:3" id="8nK-jt-1DD"/>
+                                                        <constraint firstItem="N7U-wz-x4M" firstAttribute="width" secondItem="nwg-4G-cJj" secondAttribute="width" multiplier="1:3" id="8nK-jt-1DD"/>
                                                         <constraint firstItem="nwg-4G-cJj" firstAttribute="top" secondItem="gEC-w5-Pt8" secondAttribute="top" constant="10" id="Pcn-LG-DjF"/>
                                                         <constraint firstAttribute="bottom" secondItem="nwg-4G-cJj" secondAttribute="bottom" constant="10" id="USK-JC-tDH"/>
                                                     </constraints>
