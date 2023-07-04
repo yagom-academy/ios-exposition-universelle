@@ -19,4 +19,14 @@ final class EntryListCell: UITableViewCell {
         self.entryTitleLabel.text = entry.name
         self.entryShortDescriptionLabel.text = entry.shortDescription
     }
+    
+    func configureLableFont() {
+        self.entryTitleLabel.font = .preferredFont(forTextStyle: .title2)
+        self.entryShortDescriptionLabel.font = .preferredFont(forTextStyle: .body)
+    }
+    
+    func configureDynamicType() {
+        self.entryTitleLabel.adjustsFontForContentSizeCategory = true
+        self.entryShortDescriptionLabel.adjustsFontForContentSizeCategory = true
+    }
 }
