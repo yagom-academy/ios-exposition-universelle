@@ -46,7 +46,6 @@ final class ItemListViewController: UIViewController {
             items = try decoder.decodingContentInfo(with: asset.data, modelType: [Item].self)
         } catch {
             alertDelegate?.showAlert(message:  "파일이 손상되었거나 형식에 맞지 않습니다.")
-            print(error)
         }
     }
 }

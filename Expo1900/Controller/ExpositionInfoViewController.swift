@@ -32,6 +32,10 @@ final class ExpositionInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        updateScroll()
+    }
+
+    private func updateScroll() {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
@@ -46,8 +50,10 @@ final class ExpositionInfoViewController: UIViewController {
             )
         } catch DecodingError.fileDecodingError {
             alertDelegate?.showAlert(message:  "파일을 불러오는데 실패했습니다.")
-        } catch {
+        } catch DecodingError.jsonDecodingError {
             alertDelegate?.showAlert(message:  "파일이 손상되었거나 형식에 맞지 않습니다.")
+        } catch {
+            alertDelegate?.showAlert(message:  "알 수 없는 오류가 발생했습니다.")
         }
     }
     
