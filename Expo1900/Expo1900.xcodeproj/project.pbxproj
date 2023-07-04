@@ -11,6 +11,7 @@
 		3C286B972A52EA7400FF2F89 /* ConstraintsNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */; };
 		3C286B992A52EA8100FF2F89 /* MultiplierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */; };
 		3C286B9B2A52FA2000FF2F89 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B9A2A52FA2000FF2F89 /* String+.swift */; };
+		3C286B9D2A53E89E00FF2F89 /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B9C2A53E89E00FF2F89 /* DecodingError.swift */; };
 		3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */; };
 		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */; };
 		3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */; };
@@ -49,6 +50,7 @@
 		3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsNamespace.swift; sourceTree = "<group>"; };
 		3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplierNamespace.swift; sourceTree = "<group>"; };
 		3C286B9A2A52FA2000FF2F89 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		3C286B9C2A53E89E00FF2F89 /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
 		3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemEntity.swift; sourceTree = "<group>"; };
 		3CBDC77D2A4A7AF80089F7A2 /* Expo1900ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemEntityTests.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */,
 				3C286B9A2A52FA2000FF2F89 /* String+.swift */,
 				3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */,
+				3C286B9C2A53E89E00FF2F89 /* DecodingError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				3CBDC82B2A4DDD880089F7A2 /* ExpositionInformationStackView.swift in Sources */,
 				BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */,
+				3C286B9D2A53E89E00FF2F89 /* DecodingError.swift in Sources */,
 				BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				3C286B972A52EA7400FF2F89 /* ConstraintsNamespace.swift in Sources */,

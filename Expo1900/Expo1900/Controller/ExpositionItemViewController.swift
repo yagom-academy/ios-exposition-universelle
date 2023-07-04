@@ -8,7 +8,7 @@
 import UIKit
 
 class ExpositionItemViewController: UIViewController, UITableViewDelegate {
-    private let expositionItemEntity = DecodingManager().decodeExpositionItemsJSON()
+    private var expositionItemEntity: [ExpositionItemEntity] = []
     private let identifier: String = IdentifierNamespace.itemTableCell
     
     private let tableView: UITableView = {
@@ -23,7 +23,13 @@ class ExpositionItemViewController: UIViewController, UITableViewDelegate {
         view.backgroundColor = .systemBackground
         self.title = ViewControllerTitleNamespace.koreanItem
         
-        configureUI()
+        do {
+            expositionItemEntity = try DecodingManager.shared.decodeJSON(fileName: AssetNamespace.items, type: [ExpositionItemEntity].self)
+            
+            configureUI()
+        } catch {
+            
+        }
     }
     
     private func configureUI() {

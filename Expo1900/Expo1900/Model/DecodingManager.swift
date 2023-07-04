@@ -8,25 +8,17 @@
 import UIKit
 
 struct DecodingManager {
-    let decoder: JSONDecoder = JSONDecoder()
+    static let shared = DecodingManager() // 싱글톤 보통 쓰는 이름 shared
     
-    func decodeExpositionJSON() -> ExpositionEntity {
-        guard let exposition: NSDataAsset = NSDataAsset(name: AssetNamespace.expositionUniverselle),
-              let decodedExposition: ExpositionEntity = try? decoder.decode(ExpositionEntity.self, from: exposition.data)
+    func decodeJSON<T: Decodable>(fileName: String, type: T.Type) throws -> T {
+        let decoder: JSONDecoder = JSONDecoder()
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: fileName),
+              let decodedData: T = try? decoder.decode(T.self, from: dataAsset.data)
         else {
-            return ExpositionEntity.init(title: "", visitors: 0, location: "", duration: "", description: "")
+            throw DecodingError.failedDecoding
         }
         
-        return decodedExposition
-    }
-    
-    func decodeExpositionItemsJSON() -> [ExpositionItemEntity] {
-        guard let expositionItems: NSDataAsset = NSDataAsset(name: AssetNamespace.items),
-              let decodedExpositionItems: [ExpositionItemEntity] = try? decoder.decode([ExpositionItemEntity].self, from: expositionItems.data)
-        else {
-            return [ExpositionItemEntity.init(name: "", imageName: "", shortDescription: "", description: "")]
-        }
-        
-        return decodedExpositionItems
+        return decodedData
     }
 }

@@ -7,8 +7,6 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
-    private let expositionEntity = DecodingManager().decodeExpositionJSON()
-    
     private let mainScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,9 +58,15 @@ class ExpositionViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.title = ViewControllerTitleNamespace.main
         
-        configureMainView()
-        configureLabelText()
-        addConstraints()
+        do {
+            let expositionEntity = try DecodingManager.shared.decodeJSON(fileName: AssetNamespace.expositionUniverselle, type: ExpositionEntity.self)
+            
+            configureMainView()
+            configureLabelText(expositionEntity)
+            addConstraints()
+        } catch {
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +97,7 @@ extension ExpositionViewController {
         buttonStackView.changeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
-    private func configureLabelText() {
+    private func configureLabelText(_ expositionEntity: ExpositionEntity) {
         titleLabel.text = expositionEntity.title.addNewLineBeforeParentheses()
         descriptionLabel.text = expositionEntity.description
         
