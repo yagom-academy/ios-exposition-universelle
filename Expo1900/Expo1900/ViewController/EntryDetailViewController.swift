@@ -72,10 +72,10 @@ final class EntryDetailViewController: UIViewController {
 extension EntryDetailViewController {
     private func setUpScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 

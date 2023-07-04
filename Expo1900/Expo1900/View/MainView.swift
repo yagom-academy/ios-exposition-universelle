@@ -80,11 +80,6 @@ final class MainView: UIView {
         koreaExpositionButton.addTarget(self, action: #selector(didTappedKoreaExhibitionButton), for: .touchUpInside)
         koreaExpositionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         koreaExpositionButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        if #available(iOS 15.0, *) {
-            koreaExpositionButton.titleLabel?.maximumContentSizeCategory = .medium
-        } else {
-            // Fallback on earlier versions
-        }
         koreaExpositionButton.titleLabel?.adjustsFontSizeToFitWidth = true
         return koreaExpositionButton
     }()
