@@ -2,7 +2,7 @@
 //  ViewControllerTitleNameSpace.swift
 //  Expo1900
 //
-//  Created by Minseong Kang on 2023/07/03.
+//  Created by MARY, KOBE on 2023/07/03.
 //
 
 enum ViewControllerTitleNameSpace {
