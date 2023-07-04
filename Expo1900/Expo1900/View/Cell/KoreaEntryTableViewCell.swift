@@ -20,19 +20,15 @@ final class KoreaEntryTableViewCell: UITableViewCell, CellIdentifiable {
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
+    private let titleLabel: CommonLabel = {
+        let label = CommonLabel()
         label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.adjustsFontForContentSizeCategory = true
+    private let descriptionLabel: CommonLabel = {
+        let label = CommonLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

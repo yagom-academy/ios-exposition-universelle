@@ -26,14 +26,7 @@ final class EntryDetailViewController: UIViewController {
         return contentImage
     }()
     
-    private let contentLabel: UILabel = {
-        let contentLabel = UILabel()
-        contentLabel.numberOfLines = 0
-        contentLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        contentLabel.adjustsFontForContentSizeCategory = true
-        return contentLabel
-    }()
-    
+    private let contentLabel = CommonLabel()
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical

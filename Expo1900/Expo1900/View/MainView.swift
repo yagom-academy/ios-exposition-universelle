@@ -36,47 +36,17 @@ final class MainView: UIView {
         return contentStackView
     }()
     
-    private let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.text = "제목"
-        titleLabel.numberOfLines = 0
+    private let titleLabel: CommonLabel = {
+        let titleLabel = CommonLabel()
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-        titleLabel.adjustsFontForContentSizeCategory = true
         return titleLabel
     }()
     
-    private let visitorsLabel: UILabel = {
-        let visitorsLabel = UILabel()
-        visitorsLabel.adjustsFontForContentSizeCategory = true
-        visitorsLabel.text = "방문객"
-        return visitorsLabel
-    }()
-    
-    private let locationLabel: UILabel = {
-        let locationLabel = UILabel()
-        locationLabel.numberOfLines = 0
-        locationLabel.adjustsFontForContentSizeCategory = true
-        locationLabel.text = "위치"
-        return locationLabel
-    }()
-    
-    private let durationLabel: UILabel = {
-        let durationLabel = UILabel()
-        durationLabel.text = "기간"
-        durationLabel.adjustsFontForContentSizeCategory = true
-        return durationLabel
-    }()
-    
-    private let descriptionLabel: UILabel = {
-        let descriptionLabel = UILabel()
-        descriptionLabel.text = "디테일"
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        descriptionLabel.adjustsFontForContentSizeCategory = true
-        return descriptionLabel
-    }()
-    
+    private let visitorsLabel = CommonLabel()
+    private let locationLabel = CommonLabel()
+    private let durationLabel = CommonLabel()
+    private let descriptionLabel = CommonLabel()
     private let infoImage: UIImageView = {
         let infoImage = UIImageView()
         infoImage.image = UIImage(named: "poster")
@@ -86,7 +56,7 @@ final class MainView: UIView {
     private let bottomStackView: UIStackView = {
         let bottomStackView = UIStackView()
         bottomStackView.axis = .horizontal
-        bottomStackView.spacing = 30
+        bottomStackView.spacing = 10
         bottomStackView.distribution = .equalSpacing
         return bottomStackView
     }()
@@ -110,6 +80,12 @@ final class MainView: UIView {
         koreaExpositionButton.addTarget(self, action: #selector(didTappedKoreaExhibitionButton), for: .touchUpInside)
         koreaExpositionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         koreaExpositionButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        if #available(iOS 15.0, *) {
+            koreaExpositionButton.titleLabel?.maximumContentSizeCategory = .medium
+        } else {
+            // Fallback on earlier versions
+        }
+        koreaExpositionButton.titleLabel?.adjustsFontSizeToFitWidth = true
         return koreaExpositionButton
     }()
     
