@@ -107,6 +107,7 @@ extension EntryDetailViewController {
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
+    
     private func setUpImageViewConstraints() {
         NSLayoutConstraint.activate([
             contentImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 300),

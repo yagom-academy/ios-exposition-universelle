@@ -68,7 +68,6 @@ extension KoreaEntryTableViewCell {
     }
 }
 
-
 // MARK: - Constraints
 extension KoreaEntryTableViewCell {
     private func setUpImageViewConstraints() {
