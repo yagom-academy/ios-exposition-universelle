@@ -10,6 +10,8 @@ import UIKit
 struct DecodingManager {
     static let shared = DecodingManager()
     
+    private init() {}
+    
     func decodeJSON<T: Decodable>(fileName: String, type: T.Type) throws -> T {
         let decoder: JSONDecoder = JSONDecoder()
         
