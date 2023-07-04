@@ -22,15 +22,9 @@ final class ItemTableViewCell: UITableViewCell {
         shortDesctionLabel.text = nil
     }
     
-    func setItemImageViewImage(_ image: UIImage?) {
-        itemImageView.image = image
-    }
-    
-    func setNameLabelText(_ text: String?) {
-        nameLabel.text = text
-    }
-    
-    func setShortDesctionLabel(_ text: String?) {
-        shortDesctionLabel.text = text
+    func configure(_ item: Item) {
+        itemImageView.image = UIImage(named: item.imageName)
+        nameLabel.text = item.name
+        shortDesctionLabel.text = item.shortDescription
     }
 }
