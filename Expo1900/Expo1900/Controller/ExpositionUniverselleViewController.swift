@@ -105,10 +105,9 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         decodeExpositionUniverselle()
         updateLabel()
-        configureView()
+        configureRootView()
         configureConstraint()
     }
     
@@ -139,7 +138,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         totalDescriptionLabel.text = expositionUniverselle?.totalDescription
     }
     
-    private func configureView() {
+    private func configureRootView() {
         addArrangedSubviews(to: buttonStackView, elements: [leftItemImage,
                                                             expositionItemListButton,
                                                             rightItemImage
@@ -153,6 +152,7 @@ final class ExpositionUniverselleViewController: UIViewController {
                                                              buttonStackView])
         expositionUniverselleScrollView.addSubview(contentStackView)
         view.addSubview(expositionUniverselleScrollView)
+        view.backgroundColor = .systemBackground
     }
     
     private func addArrangedSubviews(to superview: UIStackView, elements subviews: [UIView]) {

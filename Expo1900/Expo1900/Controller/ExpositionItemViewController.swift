@@ -37,9 +37,8 @@ final class ExpositionItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         updateLabelAndImage()
-        configureView()
+        configureRootView()
         configureConstraint()
     }
     
@@ -58,7 +57,8 @@ final class ExpositionItemViewController: UIViewController {
         totalDescriptionLabel.text = expositionItem.totalDescription
     }
     
-    private func configureView() {
+    private func configureRootView() {
+        view.backgroundColor = .systemBackground
         contentStackView.addArrangedSubview(itemImage)
         contentStackView.addArrangedSubview(totalDescriptionLabel)
         expositionItemScrollView.addSubview(contentStackView)

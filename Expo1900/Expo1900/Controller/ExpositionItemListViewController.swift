@@ -20,22 +20,26 @@ final class ExpositionItemListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "한국의 출품작"
+        configureRootView()
+        configureNavigationItem()
+        configureItemListTableView()
+        configureItemListTableViewConstraint()
+        decodeItems()
+    }
+    
+    private func configureRootView() {
         view.backgroundColor = .systemBackground
+        view.addSubview(itemListTableView)
+    }
+    
+    private func configureNavigationItem() {
+        navigationItem.title = "한국의 출품작"
+    }
+    
+    private func configureItemListTableView() {
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
         itemListTableView.register(ItemUITableViewCellStyleSubtitle.self, forCellReuseIdentifier: customCellIdentifier)
-        decodeItems()
-        view.addSubview(itemListTableView)
-        configureItemListTableViewConstraint()
-    }
-    
-    private func decodeItems() {
-        do {
-            itemList = try JSONDecoder().decode([Item].self, from: JSONFile.items.description)
-        } catch {
-            print(error)
-        }
     }
     
     private func configureItemListTableViewConstraint() {
@@ -45,6 +49,14 @@ final class ExpositionItemListViewController: UIViewController {
             itemListTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             itemListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func decodeItems() {
+        do {
+            itemList = try JSONDecoder().decode([Item].self, from: JSONFile.items.description)
+        } catch {
+            print(error)
+        }
     }
 }
 
