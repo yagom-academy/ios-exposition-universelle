@@ -20,8 +20,6 @@ final class KoreaEntryListViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.title = ViewControllerTitleNameSpace.koreaEntryList
-		let backBarButtonItem = UIBarButtonItem(title: ViewControllerTitleNameSpace.koreaEntryList, style: .plain, target: self, action: nil)
-		navigationItem.backBarButtonItem = backBarButtonItem
 		navigationController?.setNavigationBarHidden(false, animated: false)
 	}
 	

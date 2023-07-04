@@ -22,8 +22,7 @@ final class ExpoViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		let backBarButtonItem = UIBarButtonItem(title: ViewControllerTitleNameSpace.expo, style: .plain, target: self, action: nil)
-		navigationItem.backBarButtonItem = backBarButtonItem
+        self.title = ViewControllerTitleNameSpace.expo
 		navigationController?.setNavigationBarHidden(true, animated: false)
 	}
 
