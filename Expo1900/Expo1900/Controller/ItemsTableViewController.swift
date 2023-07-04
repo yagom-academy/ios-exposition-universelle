@@ -8,6 +8,7 @@
 import UIKit
 
 final class ItemsTableViewController: UITableViewController {
+    
     static let id = "itemsTableViewControllerID"
     
     private var items: [Item] = []
@@ -34,9 +35,16 @@ final class ItemsTableViewController: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationTitle, style: .plain, target: .none, action: .none)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    private func decodeJSONToItems() {
+        do {
+            items = try AssetDecoder.decode([Item].self, from: AssetName.items)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
+}
+
+extension ItemsTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -65,14 +73,6 @@ final class ItemsTableViewController: UITableViewController {
             }
         ) {
             navigationController?.pushViewController(nextViewController, animated: true)
-        }
-    }
-    
-    private func decodeJSONToItems() {
-        do {
-            items = try AssetDecoder.decode([Item].self, from: AssetName.items)
-        } catch {
-            print(error.localizedDescription)
         }
     }
 }

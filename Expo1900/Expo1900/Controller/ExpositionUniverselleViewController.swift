@@ -7,6 +7,7 @@
 import UIKit
 
 final class ExpositionUniverselleViewController: UIViewController {
+    
     private var expositionUniverselle: ExpositionUniverselle?
     
     @IBOutlet private weak var titleLabel: UILabel!
@@ -19,7 +20,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         super.viewDidLoad()
         
         decodeJSONToExpositionUniverselle()
-        configureLabels()
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +49,15 @@ final class ExpositionUniverselleViewController: UIViewController {
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
-    private func configureLabels() {
+    private func decodeJSONToExpositionUniverselle() {
+        do {
+            expositionUniverselle = try AssetDecoder.decode(ExpositionUniverselle.self, from: AssetName.expositionUniverselle)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func configure() {
         guard let expositionUniverselle else {
             return
         }
@@ -58,14 +67,6 @@ final class ExpositionUniverselleViewController: UIViewController {
         locationLabel.text = "개최지 : \(expositionUniverselle.location)"
         durationLabel.text = "개최 기간 : \(expositionUniverselle.duration)"
         descriptionLabel.text = expositionUniverselle.description
-    }
-    
-    private func decodeJSONToExpositionUniverselle() {
-        do {
-            expositionUniverselle = try AssetDecoder.decode(ExpositionUniverselle.self, from: AssetName.expositionUniverselle)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     private func formatNumber(of number: Int) -> String {
