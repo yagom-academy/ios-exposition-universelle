@@ -25,8 +25,13 @@ final class ItemsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = navigationTitle
+        setupNavigationItem()
         decodeJSONToItems()
+    }
+    
+    private func setupNavigationItem() {
+        navigationItem.title = navigationTitle
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: navigationTitle, style: .plain, target: .none, action: .none)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

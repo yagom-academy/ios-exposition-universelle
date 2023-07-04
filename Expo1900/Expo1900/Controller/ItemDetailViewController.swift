@@ -27,11 +27,15 @@ final class ItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationItem()
         configure()
     }
     
-    private func configure() {
+    private func setupNavigationItem() {
         navigationItem.title = item.name
+    }
+    
+    private func configure() {
         itemDetailImageView.image = UIImage(named: item.imageName)
         itemDescriptionLabel.text = item.description
     }
