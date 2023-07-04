@@ -65,7 +65,7 @@ final class ItemsTableViewController: UITableViewController {
     
     private func decodeJSONToItems() {
         do {
-            items = try JSONDecoder().decode([Item].self, from: AssetName.items)
+            items = try AssetDecoder.decode([Item].self, from: AssetName.items)
         } catch {
             print(error.localizedDescription)
         }
