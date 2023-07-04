@@ -27,6 +27,14 @@ final class MainViewController: UIViewController {
         
         configureNavigation()
     }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait]
+    }
 
     @IBAction func touchUpGoToEntryListButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: StoryboardNamespace.Name.main, bundle: Bundle.main)
