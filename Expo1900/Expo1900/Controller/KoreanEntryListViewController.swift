@@ -50,7 +50,7 @@ extension KoreanEntryListViewController: UITableViewDataSource {
         }
         
         cell.configureCell(entry: self.entryList[indexPath.row])
-        cell.configureLableFont()
+        cell.configureLabelFont()
         cell.configureDynamicType()
         
         return cell

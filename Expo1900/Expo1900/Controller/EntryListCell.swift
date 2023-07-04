@@ -20,7 +20,7 @@ final class EntryListCell: UITableViewCell {
         self.entryShortDescriptionLabel.text = entry.shortDescription
     }
     
-    func configureLableFont() {
+    func configureLabelFont() {
         self.entryTitleLabel.font = .preferredFont(forTextStyle: .title2)
         self.entryShortDescriptionLabel.font = .preferredFont(forTextStyle: .body)
     }
