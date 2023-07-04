@@ -8,6 +8,9 @@ import UIKit
 
 final class MainViewController: UIViewController, MainViewDelegate {
     private let backButtonTitle = "메인"
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
     
     private lazy var mainView: MainView = {
         let view = MainView()
@@ -30,12 +33,14 @@ final class MainViewController: UIViewController, MainViewDelegate {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: true)
+        AppSettings.shared.shouldRotate = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+        AppSettings.shared.shouldRotate = true
     }
     
     private func configureUI() {
