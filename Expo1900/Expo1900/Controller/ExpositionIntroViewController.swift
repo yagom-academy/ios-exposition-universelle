@@ -12,6 +12,7 @@ final class ExpositionIntroViewController: UIViewController {
     @IBOutlet weak private var locationLabel: UILabel!
     @IBOutlet weak private var durationLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var koreanEntryButton: UIButton!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,8 +31,8 @@ final class ExpositionIntroViewController: UIViewController {
         super.viewDidLoad()
         self.configureNavigation()
         self.configureExpositionLabel()
-        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-                    UIDevice.current.setValue(value, forKey: "orientation")
+        self.configureLableFont()
+        self.configureDynamicType()
     }
     
     private func configureNavigation() {
@@ -62,6 +63,23 @@ final class ExpositionIntroViewController: UIViewController {
         self.locationLabel.attributedText = expoLocation
         self.durationLabel.attributedText = expoDuration
         self.descriptionLabel.text = exposition.description
+    }
+    
+    private func configureLableFont() {
+        self.expositionTitleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        self.visitorsLabel.font = .preferredFont(forTextStyle: .body)
+        self.locationLabel.font = .preferredFont(forTextStyle: .body)
+        self.durationLabel.font = .preferredFont(forTextStyle: .body)
+        self.descriptionLabel.font = .preferredFont(forTextStyle: .body)
+    }
+    
+    private func configureDynamicType() {
+        self.expositionTitleLabel.adjustsFontForContentSizeCategory = true
+        self.visitorsLabel.adjustsFontForContentSizeCategory = true
+        self.locationLabel.adjustsFontForContentSizeCategory = true
+        self.durationLabel.adjustsFontForContentSizeCategory = true
+        self.descriptionLabel.adjustsFontForContentSizeCategory = true
+        self.koreanEntryButton.titleLabel?.adjustsFontForContentSizeCategory = true
     }
     
     @IBAction private func tabKoreanEntryButton(_ sender: UIButton) {
