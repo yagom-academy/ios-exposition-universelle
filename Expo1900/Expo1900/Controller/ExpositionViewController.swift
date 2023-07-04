@@ -52,7 +52,7 @@ class ExpositionViewController: UIViewController {
     let locationStackView = ExpositionInformationStackView()
     let durationStackView = ExpositionInformationStackView()
     let buttonStackView = ChangeViewButtonStackView()
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -113,7 +113,7 @@ extension ExpositionViewController {
         locationStackView.dataLabel.text = expositionEntity.location.addColon()
         durationStackView.dataLabel.text = expositionEntity.duration.addColon()
     }
-
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
             mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),

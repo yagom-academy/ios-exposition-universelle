@@ -8,20 +8,6 @@
 import UIKit
 
 class ChangeViewButtonStackView: UIStackView {
-    let leftFlagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: AssetNamespace.flag)
-        
-        return imageView
-    }()
-    
-    let rightFlagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: AssetNamespace.flag)
-        
-        return imageView
-    }()
-    
     let changeViewButton: UIButton = {
         let button = UIButton()
         button.setTitle(LabelTextNamespace.buttonTitle, for: .normal)
@@ -44,22 +30,34 @@ class ChangeViewButtonStackView: UIStackView {
     private func configureUI() {
         self.axis = .horizontal
         self.spacing = SpacingNamespace.changeViewButton
-        self.addArrangedSubview(leftFlagImageView)
+        
+        let leftFlagView: UIImageView = createFlagImageView()
+        let rightFlagView: UIImageView = createFlagImageView()
+        
+        self.addArrangedSubview(leftFlagView)
         self.addArrangedSubview(changeViewButton)
-        self.addArrangedSubview(rightFlagImageView)
+        self.addArrangedSubview(rightFlagView)
         
         changeViewButton.setContentCompressionResistancePriority(.required, for: .horizontal)
         changeViewButton.setContentCompressionResistancePriority(.required, for: .vertical)
-        leftFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
-        leftFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
-        rightFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
-        rightFlagImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
         
         NSLayoutConstraint.activate([
-            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: MultiplierNamespace.flagImageHeightToWidth),
-            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: MultiplierNamespace.flagImageHeightToWidth),
-            rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor),
-            leftFlagImageView.heightAnchor.constraint(equalTo: changeViewButton.heightAnchor)
+            rightFlagView.widthAnchor.constraint(equalTo: leftFlagView.widthAnchor),
+            leftFlagView.heightAnchor.constraint(equalTo: changeViewButton.heightAnchor)
         ])
+    }
+    
+    func createFlagImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: AssetNamespace.flag)
+        
+        imageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+        imageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
+        
+        NSLayoutConstraint.activate([
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: MultiplierNamespace.flagImageHeightToWidth)
+        ])
+        
+        return imageView
     }
 }

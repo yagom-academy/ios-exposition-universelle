@@ -2,7 +2,7 @@
 //  ErrorLabel.swift
 //  Expo1900
 //
-//  Created by Min Hyun on 2023/07/04.
+//  Created by Max, Whales on 2023/07/04.
 //
 
 import UIKit
