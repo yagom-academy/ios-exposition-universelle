@@ -7,21 +7,23 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
-	private let expoModel: ExpoModel? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.expoData)
-	
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var visitorsLabel: UILabel!
 	@IBOutlet weak var locationLabel: UILabel!
 	@IBOutlet weak var durationLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
-	
+
+    private let expoModel: ExpoModel? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.expoData)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpLabels()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+        
         self.title = ViewControllerTitleNameSpace.expo
 		navigationController?.setNavigationBarHidden(true, animated: false)
 	}
@@ -31,6 +33,7 @@ final class ExpoViewController: UIViewController {
 			  let visitors = expoModel.visitors.changeToString() else {
 			return
 		}
+        
 		titleLabel.text = expoModel.title.replacingOccurrences(of: "(", with: "\n(")
 		visitorsLabel.text = ExpoNameSpace.visitors + visitors + ExpoNameSpace.visitiorsUint
 		locationLabel.text = ExpoNameSpace.location + expoModel.location

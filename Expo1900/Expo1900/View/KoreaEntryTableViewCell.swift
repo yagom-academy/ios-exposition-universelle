@@ -14,6 +14,7 @@ final class KoreaEntryTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
         self.entryImageView.image = nil
         self.titleLabel.text = nil
         self.shortDescLabel.text = nil
@@ -21,6 +22,7 @@ final class KoreaEntryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
 		self.accessoryType = .disclosureIndicator
         setUpUI()
     }

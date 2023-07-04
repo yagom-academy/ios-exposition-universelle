@@ -4,6 +4,7 @@
 //
 //  Created by MARY, KOBE on 2023/07/03.
 //
+
 import Foundation
 
 enum DecodeError: LocalizedError {
