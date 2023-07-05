@@ -15,9 +15,14 @@ final class KoreanEntryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerXib()
+        self.announceAccessiblityHint()
         self.entryTableView.delegate = self
         self.entryTableView.dataSource = self
         self.navigationItem.title = "한국의 출품작"
+    }
+    
+    private func announceAccessiblityHint() {
+        UIAccessibility.post(notification: .announcement, argument: "셀을 선택하여 자세한 내용을 확인하세요.")
     }
     
     private func registerXib() {
