@@ -25,7 +25,7 @@ final class ExpositionItemViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.distribution = .equalSpacing
         stackView.spacing = 8
         
         return stackView

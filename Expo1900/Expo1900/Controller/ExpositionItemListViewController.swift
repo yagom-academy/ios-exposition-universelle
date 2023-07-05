@@ -39,7 +39,7 @@ final class ExpositionItemListViewController: UIViewController {
     private func configureItemListTableView() {
         itemListTableView.delegate = self
         itemListTableView.dataSource = self
-        itemListTableView.register(ItemUITableViewCellStyleSubtitle.self, forCellReuseIdentifier: customCellIdentifier)
+        itemListTableView.register(ExpositionItemCell.self, forCellReuseIdentifier: customCellIdentifier)
     }
     
     private func configureItemListTableViewConstraint() {
@@ -70,7 +70,7 @@ extension ExpositionItemListViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellIdentifier, for: indexPath) as? ItemUITableViewCellStyleSubtitle else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellIdentifier, for: indexPath) as? ExpositionItemCell else {
             return UITableViewCell()
         }
         
@@ -79,10 +79,10 @@ extension ExpositionItemListViewController: UITableViewDelegate, UITableViewData
         return cell
     }
     
-    private func configureCell(with cell: ItemUITableViewCellStyleSubtitle, item: Item) {
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = item.shortDescription
-        cell.imageView?.image = UIImage(named: item.imageName)
+    private func configureCell(with cell: ExpositionItemCell, item: Item) {
+        cell.titleLabel.text = item.name
+        cell.shortDescriptionLabel.text = item.shortDescription
+        cell.itemImageView.image = UIImage(named: item.imageName)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

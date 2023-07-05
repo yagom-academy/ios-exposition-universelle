@@ -13,7 +13,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.font = .preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
         
@@ -57,6 +57,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         let imageName: String = "poster"
         let image: UIImage? = UIImage(named: imageName)
         let imageView: UIImageView = UIImageView(image: image)
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
         return imageView
     }()
@@ -84,6 +85,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         button.addTarget(self, action: #selector(touchUpExpositionItemListButton), for: .touchUpInside)
         button.titleLabel?.font = .preferredFont(forTextStyle: .body)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.titleLabel?.numberOfLines = 0
         
         return button
     }()
@@ -94,7 +96,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = 8
+        stackView.spacing = 12
         
         return stackView
     }()
