@@ -15,46 +15,49 @@ final class MainStackView: UIStackView {
         label.textAlignment = .center
         return label
     }()
-    
+
     let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.poster)
         return imageView
     }()
-    
+
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label
     }()
-    
+
     let visitorsStackView = ExpositionInformationStackView()
     let locationStackView = ExpositionInformationStackView()
     let durationStackView = ExpositionInformationStackView()
     let buttonStackView = ExhibitListChangeViewButtonStackView()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
+        configureInit()
     }
-    
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        configureUI()
+        configureInit()
     }
 }
 
 private extension MainStackView {
-    func configureUI() {
+    func configureInit() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.axis = .vertical
         self.alignment = .center
         self.spacing = 10
         
-        visitorsStackView.subtitleLabel.text = DataNamespace.visitors
-        locationStackView.subtitleLabel.text = DataNamespace.location
-        durationStackView.subtitleLabel.text = DataNamespace.duration
-        
+        addArrangedSubviews()
+        configureVisitorsStackView()
+        configureLocationStackView()
+        configureDurationStackView()
+    }
+    
+    func addArrangedSubviews() {
         self.addArrangedSubview(titleLabel)
         self.addArrangedSubview(posterImageView)
         self.addArrangedSubview(visitorsStackView)
@@ -62,5 +65,18 @@ private extension MainStackView {
         self.addArrangedSubview(durationStackView)
         self.addArrangedSubview(descriptionLabel)
         self.addArrangedSubview(buttonStackView)
+    }
+    
+    func configureVisitorsStackView() {
+        visitorsStackView.subtitleLabel.text = DataNamespace.visitors
+    }
+    
+    func configureLocationStackView() {
+        locationStackView.subtitleLabel.text = DataNamespace.location
+    }
+    
+    func configureDurationStackView() {
+        durationStackView.subtitleLabel.text = DataNamespace.duration
+
     }
 }
