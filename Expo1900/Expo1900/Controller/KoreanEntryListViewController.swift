@@ -15,8 +15,12 @@ final class KoreanEntryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerXib()
+        self.configureNavigation()
         self.entryTableView.delegate = self
-        self.entryTableView.dataSource = self
+        self.entryTableView.dataSource = self        
+    }
+    
+    private func configureNavigation() {
         self.navigationItem.title = "한국의 출품작"
     }
     
