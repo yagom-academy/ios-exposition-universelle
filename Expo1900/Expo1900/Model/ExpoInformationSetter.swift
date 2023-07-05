@@ -11,16 +11,16 @@ extension String {
     }
     
     var locationString: String {
-        return ExpoInfomationNameSpace.location + self
+        return ExpoInformationNameSpace.location + self
     }
     
     var durationString: String {
-        return ExpoInfomationNameSpace.duration + self
+        return ExpoInformationNameSpace.duration + self
     }
 }
 
 extension Int {
     var visitorString: String {
-        return ExpoInfomationNameSpace.visitors + CommaFormatter.formatNumberWithComma(self)
+        return ExpoInformationNameSpace.visitors + CommaFormatter.formatNumberWithComma(self)
     }
 }

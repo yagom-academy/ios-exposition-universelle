@@ -35,7 +35,7 @@ final class ExpoViewController: UIViewController {
     
     private func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = true
-        navigationItem.title = ExpoInfomationNameSpace.main
+        navigationItem.title = ExpoInformationNameSpace.main
     }
     
     private func updateExpoView() {

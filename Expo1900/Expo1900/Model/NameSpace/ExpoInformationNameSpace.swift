@@ -1,11 +1,11 @@
 //
-//  ExpoInfomationNameSpace.swift
+//  ExpoInformationNameSpace.swift
 //  Expo1900
 //
 //  Created by yyss99, kyungmin on 2023/07/05.
 //
 
-enum ExpoInfomationNameSpace {
+enum ExpoInformationNameSpace {
     static let main: String = "메인"
     static let visitors: String = "방문객 : "
     static let location: String = "개최지 : "
