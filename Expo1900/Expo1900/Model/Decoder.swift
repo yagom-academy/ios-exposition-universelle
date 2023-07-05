@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Decoder {
+enum Decoder {
     static func decodeJson<Data: Decodable>(from dataAssetName: String) throws -> Data {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         
