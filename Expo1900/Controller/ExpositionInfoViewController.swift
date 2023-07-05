@@ -66,10 +66,8 @@ final class ExpositionInfoViewController: UIViewController {
     }
     
     private func updateMainViewLabels() {
-        let formatManager = NumberFormatter.numberFormatterStyle(.decimal)
-        
         guard let exposition = decodingExposition,
-              let visitors = formatManager
+              let visitors = NumberFormatter.numberFormatterStyle(.decimal)
             .string(from: NSNumber(value: exposition.visitors))
         else {
             return
