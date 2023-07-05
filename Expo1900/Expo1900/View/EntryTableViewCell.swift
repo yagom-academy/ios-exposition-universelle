@@ -37,6 +37,7 @@ final class EntryTableViewCell: UITableViewCell {
     private func setUpTitleAndShortDescriptionLabel() {
         entryNameLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         entryNameLabel.adjustsFontForContentSizeCategory = true
+        entryNameLabel.numberOfLines = 0
         
         shortDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         shortDescriptionLabel.adjustsFontForContentSizeCategory = true
