@@ -43,7 +43,7 @@ final class ExpoViewController: UIViewController {
             let expoInformation: ExpoInformation = try Decoder.decodeJson(from: AssetsNameSpace.expoInformation)
             expoTitleLabel.text = expoInformation.title.replacingOccurrences(of: "(", with: "\n(")
             expoPosterImageView.image = UIImage(named: AssetsNameSpace.expoPoster)
-            expoVisitorsLabel.text = NameSpace.visitors + NumberFormatter.formatNumberWithComma(expoInformation.visitors)
+            expoVisitorsLabel.text = NameSpace.visitors + CommaFormatter.formatNumberWithComma(expoInformation.visitors)
             expoLocationLabel.text = NameSpace.location + expoInformation.location
             expoDurationLabel.text = NameSpace.duration + expoInformation.duration
             expoDescriptionLabel.text = expoInformation.expoDescription
