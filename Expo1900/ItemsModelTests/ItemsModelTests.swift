@@ -2,7 +2,7 @@
 //  ItemsModelTests.swift
 //  ItemsModelTests
 //
-//  Created by Minseong Kang on 2023/06/27.
+//  Created by MARY, KOBE on 2023/06/27.
 //
 
 import XCTest
