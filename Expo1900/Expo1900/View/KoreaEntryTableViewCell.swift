@@ -19,13 +19,19 @@ final class KoreaEntryTableViewCell: UITableViewCell {
         self.titleLabel.text = nil
         self.shortDescLabel.text = nil
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
 		self.accessoryType = .disclosureIndicator
         setUpUI()
     }
+	
+	func configureCell(itemsModel: ItemsModel) {
+		self.entryImageView.image = UIImage(named: itemsModel.imageName)
+		self.titleLabel.text = itemsModel.name
+		self.shortDescLabel.text = itemsModel.shortDesc
+	}
     
     private func setUpUI() {
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
