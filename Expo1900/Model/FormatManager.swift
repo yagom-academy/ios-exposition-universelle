@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct FormatManager {
-    let numberFormatter: NumberFormatter = {
+extension NumberFormatter {
+    static func numberFormatterStyle(_ numberFormatterStyle: NumberFormatter.Style) -> NumberFormatter {
         let numberFormatter: NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
+        numberFormatter.numberStyle = numberFormatterStyle
         
         return numberFormatter
-    }()
+    }
 }
