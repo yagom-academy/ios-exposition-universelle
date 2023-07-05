@@ -8,7 +8,7 @@
 import UIKit
 
 final class KoreaEntryListViewController: UIViewController {
-    @IBOutlet weak var entryListTableView: UITableView!
+    @IBOutlet private weak var entryListTableView: UITableView!
 
 	private let itemsModel: [ItemsModel]? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.entryData)
     

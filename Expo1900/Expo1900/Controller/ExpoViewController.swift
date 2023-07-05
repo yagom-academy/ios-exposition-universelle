@@ -7,11 +7,11 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
-	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var visitorsLabel: UILabel!
-	@IBOutlet weak var locationLabel: UILabel!
-	@IBOutlet weak var durationLabel: UILabel!
-	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet private weak var titleLabel: UILabel!
+	@IBOutlet private weak var visitorsLabel: UILabel!
+	@IBOutlet private weak var locationLabel: UILabel!
+	@IBOutlet private weak var durationLabel: UILabel!
+	@IBOutlet private weak var descriptionLabel: UILabel!
 
     private let expoModel: ExpoModel? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.expoData)
     

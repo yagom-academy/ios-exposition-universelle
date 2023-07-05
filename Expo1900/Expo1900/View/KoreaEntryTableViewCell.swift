@@ -8,9 +8,9 @@
 import UIKit
 
 final class KoreaEntryTableViewCell: UITableViewCell {
-    let entryImageView: UIImageView = UIImageView()
-    let titleLabel: UILabel = UILabel()
-    let shortDescLabel: UILabel = UILabel()
+    private let entryImageView: UIImageView = UIImageView()
+	private let titleLabel: UILabel = UILabel()
+	private let shortDescLabel: UILabel = UILabel()
     
     override func prepareForReuse() {
         super.prepareForReuse()
