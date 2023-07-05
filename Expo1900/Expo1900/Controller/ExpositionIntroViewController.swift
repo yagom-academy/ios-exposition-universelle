@@ -46,31 +46,34 @@ final class ExpositionIntroViewController: UIViewController {
             return
         }
                 
-        let visitorClause = "방문객 : "
-        let locationClause = "개최지 : "
-        let durationClause = "개최 기간 : "
+        let visitorTitle = "방문객 : "
+        let locationTitle = "개최지 : "
+        let durationTitle = "개최 기간 : "
+        
+        let totalVisitorText = NSMutableAttributedString(string: visitorTitle + exposition.visitors.expositionFormat)
+        let totalLocationText = NSMutableAttributedString(string: locationTitle + exposition.location)
+        let totalDurationText = NSMutableAttributedString(string: durationTitle + exposition.duration)
+        
+        let titleFont = UIFont.preferredFont(forTextStyle: .title2)
+        let contentFont = UIFont.preferredFont(forTextStyle: .callout)
+        
+        totalVisitorText.addAttribute(.font, value: titleFont, range: NSRange(location: 0, length: visitorTitle.count))
+        totalLocationText.addAttribute(.font, value: titleFont, range: NSRange(location: 0, length: locationTitle.count))
+        totalDurationText.addAttribute(.font, value: titleFont, range: NSRange(location: 0, length: durationTitle.count))
+        
+        totalVisitorText.addAttribute(.font, value: contentFont, range: NSRange(location: visitorTitle.count, length: exposition.visitors.expositionFormat.count))
+        totalLocationText.addAttribute(.font, value: contentFont, range: NSRange(location: locationTitle.count, length: exposition.location.count))
+        totalDurationText.addAttribute(.font, value: contentFont, range: NSRange(location: durationTitle.count, length: exposition.duration.count))
         
         self.expositionTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
-        let expoVisitor = NSMutableAttributedString(string: visitorClause + exposition.visitors.expositionFormat + " 명")
-        let expoLocation = NSMutableAttributedString(string: locationClause + exposition.location)
-        let expoDuration = NSMutableAttributedString(string: durationClause + exposition.duration)
-        let clauseFont = UIFont.systemFont(ofSize: 20)
-
-        expoVisitor.addAttribute(.font, value: clauseFont, range: NSRange(location: 0, length: visitorClause.count))
-        expoLocation.addAttribute(.font, value: clauseFont, range: NSRange(location: 0, length: locationClause.count))
-        expoDuration.addAttribute(.font, value: clauseFont, range: NSRange(location: 0, length: durationClause.count))
-
-        self.visitorsLabel.attributedText = expoVisitor
-        self.locationLabel.attributedText = expoLocation
-        self.durationLabel.attributedText = expoDuration
+        self.visitorsLabel.attributedText = totalVisitorText
+        self.locationLabel.attributedText = totalLocationText
+        self.durationLabel.attributedText = totalDurationText
         self.descriptionLabel.text = exposition.description
     }
     
     private func configureLableFont() {
         self.expositionTitleLabel.font = .preferredFont(forTextStyle: .largeTitle)
-        self.visitorsLabel.font = .preferredFont(forTextStyle: .body)
-        self.locationLabel.font = .preferredFont(forTextStyle: .body)
-        self.durationLabel.font = .preferredFont(forTextStyle: .body)
         self.descriptionLabel.font = .preferredFont(forTextStyle: .body)
     }
     
