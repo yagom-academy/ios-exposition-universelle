@@ -32,14 +32,14 @@ final class EntryViewController: UIViewController {
     
     private func updateExpoEntries() {
         do {
-            expoEntries = try Decoder.decodeJson(from: AssetsNameSpace.expoEntries)
+            expoEntries = try Decoder.decodeJson(from: "dd")
         } catch DecodeError.searchNoFile {
-            print(DecodeError.searchNoFile)
-            let alert = AlertController.configureAlert(errorName: DecodeError.searchNoFile.errorDescription)
+            print(DecodeError.searchNoFile.localizedDescription)
+            let alert = AlertController.configureAlert(errorName: DecodeError.searchNoFile.localizedDescription)
             present(alert, animated: true)
         } catch {
             print(DecodeError.jsonDecodeError.localizedDescription)
-            let alert = AlertController.configureAlert(errorName: DecodeError.jsonDecodeError.errorDescription)
+            let alert = AlertController.configureAlert(errorName: DecodeError.jsonDecodeError.localizedDescription)
             present(alert, animated: true)
         }
     }
