@@ -8,7 +8,7 @@
 import UIKit
 
 enum Decoder {
-    static func decodeJson<Data: Decodable>(from dataAssetName: String) throws -> Data {
+    static func decodeJson<DataType: Decodable>(from dataAssetName: String) throws -> DataType {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         
         guard let dataAsset = NSDataAsset(name: dataAssetName) else {
@@ -16,7 +16,7 @@ enum Decoder {
         }
         
         do {
-            let decodeData = try jsonDecoder.decode(Data.self, from: dataAsset.data)
+            let decodeData = try jsonDecoder.decode(DataType.self, from: dataAsset.data)
             
             return decodeData
         } catch {
