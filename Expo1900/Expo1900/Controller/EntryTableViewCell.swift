@@ -13,6 +13,8 @@ final class EntryTableViewCell: UITableViewCell {
     @IBOutlet private weak var entryShortDescriptionLabel: UILabel!
     
     override func prepareForReuse() {
+        super.prepareForReuse()
+        
         entryImageView.image = nil
         entryNameLabel.text = nil
         entryShortDescriptionLabel.text = nil
