@@ -63,8 +63,6 @@
 				9C0811202A4AC5FC00767316 /* InternationalExposition.swift */,
 				9C0811222A4AC60300767316 /* ExhibitionItem.swift */,
 				9CD2BEE32A5372D7008DBA6B /* DataNamespace.swift */,
-				9CD2BEE52A53733F008DBA6B /* UInt+.swift */,
-				9CD2BEE72A5373C0008DBA6B /* ExpositionDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,6 +90,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9C4D0DF92A55799D007352E2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2BEE52A53733F008DBA6B /* UInt+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		9C4D0DFA2A5579AB007352E2 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2BEE72A5373C0008DBA6B /* ExpositionDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		C79FF4A82589F401005FB0FD = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +125,14 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4C22589F404005FB0FD /* Info.plist */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
-				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				9C08111D2A4AC5C300767316 /* Model */,
 				9C08111F2A4AC5DD00767316 /* View */,
 				9C08111E2A4AC5D100767316 /* Controller */,
+				9C4D0DFA2A5579AB007352E2 /* DataManager */,
+				9C4D0DF92A55799D007352E2 /* Extension */,
+				C79FF4C22589F404005FB0FD /* Info.plist */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
