@@ -28,8 +28,7 @@ final class ExhibitCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureCellViews()
-        configureConstraints()
+        configureInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,27 +43,44 @@ final class ExhibitCell: UITableViewCell {
 }
 
 private extension ExhibitCell {
-    func configureCellViews() {
+    func configureInit() {
+        addSubviews()
+        addConstraintsExhibitImageView()
+        addConstraintsNameLabel()
+        addConstraintsShortDescriptionLabel()
+    }
+    
+    func addSubviews() {
         contentView.addSubview(exhibitImageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(shortDescriptionLabel)
     }
     
-    func configureConstraints() {
+    func addConstraintsExhibitImageView() {
         exhibitImageView.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        shortDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+       
         NSLayoutConstraint.activate([
             exhibitImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             exhibitImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             exhibitImageView.widthAnchor.constraint(equalToConstant: 80),
-            exhibitImageView.heightAnchor.constraint(equalToConstant: 80),
-            
+            exhibitImageView.heightAnchor.constraint(equalToConstant: 80)
+        ])
+    }
+    
+    func addConstraintsNameLabel() {
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             nameLabel.leadingAnchor.constraint(equalTo: exhibitImageView.trailingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+        ])
+    }
+    
+    func addConstraintsShortDescriptionLabel() {
+        shortDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
             shortDescriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
             shortDescriptionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             shortDescriptionLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
