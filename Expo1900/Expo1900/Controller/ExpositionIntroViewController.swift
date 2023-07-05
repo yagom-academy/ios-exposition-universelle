@@ -51,7 +51,7 @@ final class ExpositionIntroViewController: UIViewController {
         let durationClause = "개최 기간 : "
         
         self.expositionTitleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
-        let expoVisitor = NSMutableAttributedString(string: visitorClause + exposition.visitors.expositionFormat)
+        let expoVisitor = NSMutableAttributedString(string: visitorClause + exposition.visitors.expositionFormat + " 명")
         let expoLocation = NSMutableAttributedString(string: locationClause + exposition.location)
         let expoDuration = NSMutableAttributedString(string: durationClause + exposition.duration)
         let clauseFont = UIFont.systemFont(ofSize: 20)
