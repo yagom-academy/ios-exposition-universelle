@@ -36,7 +36,7 @@ final class ExhibitCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(with exhibit: Items) {
+    func configureCell(with exhibit: ExhibitionItem) {
         exhibitImageView.image = UIImage(named: exhibit.imageName)
         nameLabel.text = exhibit.name
         shortDescriptionLabel.text = exhibit.shortDescription

@@ -19,11 +19,11 @@ struct ExpositionDataManager {
         return decodedExposition
     }
     
-    func decodeExpositionItemsJSON() -> [Items] {
+    func decodeExpositionItemsJSON() -> [ExhibitionItem] {
         guard let itemsData = loadDataAsset(named: DataNamespace.items),
-              let decodedExpositionItems = decodeData([Items].self, from: itemsData)
+              let decodedExpositionItems = decodeData([ExhibitionItem].self, from: itemsData)
         else {
-            return [Items(name: DataNamespace.empty, imageName: DataNamespace.empty, shortDescription: DataNamespace.empty, description: DataNamespace.empty)]
+            return [ExhibitionItem(name: DataNamespace.empty, imageName: DataNamespace.empty, shortDescription: DataNamespace.empty, description: DataNamespace.empty)]
         }
         
         return decodedExpositionItems

@@ -5,7 +5,7 @@
 //  Created by karen on 2023/06/27.
 //
 
-struct Items: Decodable {
+struct ExhibitionItem: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String

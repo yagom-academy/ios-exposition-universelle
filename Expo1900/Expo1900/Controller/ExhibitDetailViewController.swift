@@ -8,13 +8,13 @@
 import UIKit
 
 final class ExhibitDetailViewController: UIViewController {
-    private let exhibit: Items
+    private let exhibit: ExhibitionItem
     private let detailScrollView = UIScrollView()
     private let detailStackView = UIStackView()
     let itemImage = UIImageView()
     let itemDescription = UILabel()
     
-    init(expositionItemDetail: Items) {
+    init(expositionItemDetail: ExhibitionItem) {
         self.exhibit = expositionItemDetail
         super.init(nibName: nil, bundle: nil)
     }
