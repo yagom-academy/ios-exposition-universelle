@@ -10,11 +10,7 @@ extension String {
         return self.replacingOccurrences(of: "(", with: "\n(")
     }
     
-    func addColon() -> String {
-        return ": \(self)"
-    }
-    
-    func addColonWithNumberOfPeople() -> String {
-        return ": \(self) 명"
+    func addNumberOfPeople() -> String {
+        return "\(self) 명"
     }
 }

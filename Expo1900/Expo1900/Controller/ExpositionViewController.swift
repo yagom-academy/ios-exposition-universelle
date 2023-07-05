@@ -28,9 +28,10 @@ class ExpositionViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .title1)
         label.numberOfLines = .zero
         label.textAlignment = .center
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
@@ -38,6 +39,7 @@ class ExpositionViewController: UIViewController {
     private let posterImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: AssetNamespace.poster)
+        image.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
         return image
     }()
@@ -45,6 +47,8 @@ class ExpositionViewController: UIViewController {
     private let descriptionLabel: UILabel = {
         let textLabel = UILabel()
         textLabel.numberOfLines = .zero
+        textLabel.font = .preferredFont(forTextStyle: .body)
+        textLabel.adjustsFontForContentSizeCategory = true
         
         return textLabel
     }()
@@ -112,9 +116,9 @@ extension ExpositionViewController {
         
         let formattedVisitors = expositionEntity.visitors.formatToDecimal()
         
-        visitorsStackView.dataLabel.text = formattedVisitors.addColonWithNumberOfPeople()
-        locationStackView.dataLabel.text = expositionEntity.location.addColon()
-        durationStackView.dataLabel.text = expositionEntity.duration.addColon()
+        visitorsStackView.dataLabel.text = formattedVisitors.addNumberOfPeople()
+        locationStackView.dataLabel.text = expositionEntity.location
+        durationStackView.dataLabel.text = expositionEntity.duration
     }
     
     private func addConstraints() {

@@ -29,12 +29,14 @@ class ExpositionItemTableViewCell: UITableViewCell {
     let name: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
+        label.numberOfLines = .zero
         
         return label
     }()
     
     let shortDescription: UILabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = .zero
         
         return label

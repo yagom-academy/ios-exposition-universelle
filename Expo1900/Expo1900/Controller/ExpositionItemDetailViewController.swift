@@ -37,6 +37,8 @@ class ExpositionItemDetailViewController: UIViewController {
     
     private let itemDescription: UILabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = .zero
         
         return label
