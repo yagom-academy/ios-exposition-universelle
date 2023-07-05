@@ -28,12 +28,8 @@ final class MainViewController: UIViewController {
         configureNavigation()
     }
     
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return [.portrait]
+        return .portrait
     }
 
     @IBAction func touchUpGoToEntryListButton(_ sender: UIButton) {

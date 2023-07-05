@@ -8,14 +8,6 @@
 import UIKit
 
 final class Expo1900NavigationController: UINavigationController {
-    override var shouldAutorotate: Bool {
-        guard let shouldAutorotate = self.topViewController?.shouldAutorotate else {
-            return self.shouldAutorotate
-        }
-        
-        return shouldAutorotate
-    }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         guard let supportedInterfaceOrientations = self.topViewController?.supportedInterfaceOrientations else {
             return self.supportedInterfaceOrientations
