@@ -1,5 +1,5 @@
 //
-//  Expo1900ExpositionDataTests.swift
+//  Expo1900ExpositionEntityTests.swift
 //  Expo1900ModelTests
 //
 //  Created by Max, Whales on 2023/06/27.
@@ -8,8 +8,8 @@
 import XCTest
 @testable import Expo1900
 
-final class Expo1900ExpositionDataTests: XCTestCase {
-    var sut: ExpositionData!
+final class Expo1900ExpositionEntityTests: XCTestCase {
+    var sut: ExpositionEntity!
 
     override func setUpWithError() throws {
         guard let expositionUniverselleData = NSDataAsset.init(name: "exposition_universelle_1900") else {
@@ -17,7 +17,7 @@ final class Expo1900ExpositionDataTests: XCTestCase {
         }
         
         let decorder = JSONDecoder()
-        sut = try decorder.decode(ExpositionData.self, from: expositionUniverselleData.data)
+        sut = try decorder.decode(ExpositionEntity.self, from: expositionUniverselleData.data)
     }
 
     override func tearDownWithError() throws {
@@ -26,7 +26,7 @@ final class Expo1900ExpositionDataTests: XCTestCase {
 
     func test_ExpositionData에서_json_파일_내용이_제대로_디코딩된다() {
         // given
-        let mock = ExpositionData.init(title: "파리 만국박람회 1900(L'Exposition de Paris 1900)",
+        let mock = ExpositionEntity.init(title: "파리 만국박람회 1900(L'Exposition de Paris 1900)",
                                        visitors: 48130300,
                                        location: "프랑스 파리",
                                        duration: "1900. 04. 14 - 1900. 11. 12",

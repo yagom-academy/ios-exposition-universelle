@@ -7,16 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CBDC7782A4A71F90089F7A2 /* ExpositionItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7772A4A71F90089F7A2 /* ExpositionItemData.swift */; };
-		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift */; };
-		BAB75C5D2A4A7735005C4F41 /* ExpositionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5C2A4A7735005C4F41 /* ExpositionData.swift */; };
-		BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift */; };
+		3C286B932A52E94200FF2F89 /* SpacingNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */; };
+		3C286B972A52EA7400FF2F89 /* ConstraintsNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */; };
+		3C286B992A52EA8100FF2F89 /* MultiplierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */; };
+		3C286B9B2A52FA2000FF2F89 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B9A2A52FA2000FF2F89 /* String+.swift */; };
+		3C286B9D2A53E89E00FF2F89 /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C286B9C2A53E89E00FF2F89 /* DecodingError.swift */; };
+		3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */; };
+		3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */; };
+		3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */; };
+		3CBDC8252A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC8242A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift */; };
+		3CBDC8292A4DD1020089F7A2 /* DecodingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */; };
+		3CBDC82B2A4DDD880089F7A2 /* ExpositionInformationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDC82A2A4DDD880089F7A2 /* ExpositionInformationStackView.swift */; };
+		BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */; };
+		BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift */; };
+		BAFACD4D2A53F3A60031442C /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFACD4C2A53F3A60031442C /* ErrorLabel.swift */; };
 		BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */; };
 		BAFD9F452A4ADC6600DC9186 /* Expo1900UIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */; };
+		BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */; };
+		BAFD9F522A4D83B700DC9186 /* ViewControllerTitleNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */; };
+		BAFD9F542A4D848800DC9186 /* LabelTextNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F532A4D848800DC9186 /* LabelTextNamespace.swift */; };
+		BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */; };
+		BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */; };
+		BAFD9F682A4DDA9500DC9186 /* ChangeViewButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
-		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
-		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
+		C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -32,18 +47,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3CBDC7772A4A71F90089F7A2 /* ExpositionItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemData.swift; sourceTree = "<group>"; };
+		3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingNamespace.swift; sourceTree = "<group>"; };
+		3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsNamespace.swift; sourceTree = "<group>"; };
+		3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplierNamespace.swift; sourceTree = "<group>"; };
+		3C286B9A2A52FA2000FF2F89 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		3C286B9C2A53E89E00FF2F89 /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
+		3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemEntity.swift; sourceTree = "<group>"; };
 		3CBDC77D2A4A7AF80089F7A2 /* Expo1900ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Expo1900ModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemDataTests.swift; sourceTree = "<group>"; };
-		BAB75C5C2A4A7735005C4F41 /* ExpositionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionData.swift; sourceTree = "<group>"; };
-		BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionDataTests.swift; sourceTree = "<group>"; };
+		3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionItemEntityTests.swift; sourceTree = "<group>"; };
+		3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemTableViewCell.swift; sourceTree = "<group>"; };
+		3CBDC8242A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemDetailViewController.swift; sourceTree = "<group>"; };
+		3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingManager.swift; sourceTree = "<group>"; };
+		3CBDC82A2A4DDD880089F7A2 /* ExpositionInformationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionInformationStackView.swift; sourceTree = "<group>"; };
+		BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionEntity.swift; sourceTree = "<group>"; };
+		BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900ExpositionEntityTests.swift; sourceTree = "<group>"; };
+		BAFACD4C2A53F3A60031442C /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+.swift"; sourceTree = "<group>"; };
 		BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expo1900UIntTests.swift; sourceTree = "<group>"; };
+		BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
+		BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTitleNamespace.swift; sourceTree = "<group>"; };
+		BAFD9F532A4D848800DC9186 /* LabelTextNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextNamespace.swift; sourceTree = "<group>"; };
+		BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNamespace.swift; sourceTree = "<group>"; };
+		BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierNamespace.swift; sourceTree = "<group>"; };
+		BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewButtonStackView.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C79FF4B82589F401005FB0FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionViewController.swift; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,9 +100,12 @@
 		3CBDC7762A4A71D70089F7A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3CBDC7772A4A71F90089F7A2 /* ExpositionItemData.swift */,
-				BAB75C5C2A4A7735005C4F41 /* ExpositionData.swift */,
+				3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */,
+				BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */,
 				BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */,
+				3C286B9A2A52FA2000FF2F89 /* String+.swift */,
+				3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */,
+				3C286B9C2A53E89E00FF2F89 /* DecodingError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -81,10 +114,46 @@
 			isa = PBXGroup;
 			children = (
 				BAFD9F442A4ADC6600DC9186 /* Expo1900UIntTests.swift */,
-				BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift */,
-				3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift */,
+				BAB75C5E2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift */,
+				3CBDC77F2A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift */,
 			);
 			path = Expo1900ModelTests;
+			sourceTree = "<group>";
+		};
+		3CBDC7D52A4D0E5F0089F7A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD9F502A4D83A000DC9186 /* Namespace */,
+				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
+				BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */,
+				3CBDC8242A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3CBDC7D62A4D0F380089F7A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3CBDC82A2A4DDD880089F7A2 /* ExpositionInformationStackView.swift */,
+				BAFD9F672A4DDA9500DC9186 /* ChangeViewButtonStackView.swift */,
+				3CBDC7D72A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift */,
+				BAFACD4C2A53F3A60031442C /* ErrorLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAFD9F502A4D83A000DC9186 /* Namespace */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD9F512A4D83B700DC9186 /* ViewControllerTitleNamespace.swift */,
+				BAFD9F552A4D852A00DC9186 /* AssetNamespace.swift */,
+				BAFD9F532A4D848800DC9186 /* LabelTextNamespace.swift */,
+				BAFD9F572A4D85C100DC9186 /* IdentifierNamespace.swift */,
+				3C286B922A52E94200FF2F89 /* SpacingNamespace.swift */,
+				3C286B962A52EA7400FF2F89 /* ConstraintsNamespace.swift */,
+				3C286B982A52EA8100FF2F89 /* MultiplierNamespace.swift */,
+			);
+			path = Namespace;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -109,10 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				3CBDC7762A4A71D70089F7A2 /* Model */,
+				3CBDC7D62A4D0F380089F7A2 /* View */,
+				3CBDC7D52A4D0E5F0089F7A2 /* Controller */,
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -209,7 +278,6 @@
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
-				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,8 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAFD9F452A4ADC6600DC9186 /* Expo1900UIntTests.swift in Sources */,
-				BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionDataTests.swift in Sources */,
-				3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemDataTests.swift in Sources */,
+				BAB75C5F2A4A7F1C005C4F41 /* Expo1900ExpositionEntityTests.swift in Sources */,
+				3CBDC7802A4A7AF90089F7A2 /* Expo1900ExpositionItemEntityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,12 +298,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CBDC7782A4A71F90089F7A2 /* ExpositionItemData.swift in Sources */,
-				BAB75C5D2A4A7735005C4F41 /* ExpositionData.swift in Sources */,
-				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				3CBDC7D82A4D0F720089F7A2 /* ExpositionItemTableViewCell.swift in Sources */,
+				BAFACD4D2A53F3A60031442C /* ErrorLabel.swift in Sources */,
+				BAFD9F542A4D848800DC9186 /* LabelTextNamespace.swift in Sources */,
+				3C286B992A52EA8100FF2F89 /* MultiplierNamespace.swift in Sources */,
+				3CBDC8252A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift in Sources */,
+				3CBDC7782A4A71F90089F7A2 /* ExpositionItemEntity.swift in Sources */,
+				BAFD9F562A4D852A00DC9186 /* AssetNamespace.swift in Sources */,
+				BAB75C5D2A4A7735005C4F41 /* ExpositionEntity.swift in Sources */,
+				BAFD9F522A4D83B700DC9186 /* ViewControllerTitleNamespace.swift in Sources */,
+				3C286B932A52E94200FF2F89 /* SpacingNamespace.swift in Sources */,
+				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
+				3CBDC82B2A4DDD880089F7A2 /* ExpositionInformationStackView.swift in Sources */,
 				BAFD9F432A4AD6BC00DC9186 /* UInt+.swift in Sources */,
+				3C286B9D2A53E89E00FF2F89 /* DecodingError.swift in Sources */,
+				BAFD9F582A4D85C100DC9186 /* IdentifierNamespace.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				3C286B972A52EA7400FF2F89 /* ConstraintsNamespace.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				3CBDC8292A4DD1020089F7A2 /* DecodingManager.swift in Sources */,
+				BAFD9F4F2A4D0A7500DC9186 /* ExpositionItemViewController.swift in Sources */,
+				3C286B9B2A52FA2000FF2F89 /* String+.swift in Sources */,
+				BAFD9F682A4DDA9500DC9186 /* ChangeViewButtonStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,14 +334,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C79FF4BA2589F401005FB0FD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C79FF4BB2589F401005FB0FD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
