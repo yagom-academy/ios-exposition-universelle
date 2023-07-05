@@ -13,12 +13,11 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     
-    private var expoGuideData: ExpoGuide?
+    private let expoGuideData: ExpoGuide? = Data.unwrap(initialValue: nil, file: "exposition_universelle_1900")
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        expoGuideData = Data.unwrap(type: expoGuideData, file: "exposition_universelle_1900")
         insertLabels()
         navigationItem.title = "메인"
     }

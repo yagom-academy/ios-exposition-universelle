@@ -10,14 +10,13 @@ import UIKit
 final class EntryListViewController: UIViewController {
     @IBOutlet private weak var entryTableView: UITableView!
     
-    private var entryData: [Entry] = []
+    private let entryData: [Entry] = Data.unwrap(initialValue: [], file: "items")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.entryTableView.delegate = self
         self.entryTableView.dataSource = self
         navigationItem.title = "한국의 출품작"
-        entryData = Data.unwrap(type: entryData, file: "items")
     }
 }
 
