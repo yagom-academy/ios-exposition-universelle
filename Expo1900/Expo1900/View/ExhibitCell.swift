@@ -28,8 +28,8 @@ final class ExhibitCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
-        setupConstraints()
+        configureCellViews()
+        configureConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,13 +44,13 @@ final class ExhibitCell: UITableViewCell {
 }
 
 private extension ExhibitCell {
-    func setupViews() {
+    func configureCellViews() {
         contentView.addSubview(exhibitImageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(shortDescriptionLabel)
     }
     
-    func setupConstraints() {
+    func configureConstraints() {
         exhibitImageView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         shortDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
