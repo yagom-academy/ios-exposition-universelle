@@ -20,10 +20,10 @@ final class ExhibitListViewController: UIViewController {
         self.title = DataNamespace.koreanItem
         view.backgroundColor = .systemBackground
         
-        setupTableView()
+        configureTableView()
     }
     
-    private func setupTableView() {
+    private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
