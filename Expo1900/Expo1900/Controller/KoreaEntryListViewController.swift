@@ -16,6 +16,7 @@ final class KoreaEntryListViewController: UIViewController {
         super.viewDidLoad()
         
         entryListTableView.dataSource = self
+		entryListTableView.delegate = self
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -23,18 +24,6 @@ final class KoreaEntryListViewController: UIViewController {
         
 		self.title = ViewControllerTitleNameSpace.koreaEntryList
 		navigationController?.setNavigationBarHidden(false, animated: false)
-	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let destination = segue.destination as? EntryDetailViewController,
-			  let selectedIndex = self.entryListTableView.indexPathForSelectedRow?.row,
-              let itemsModel = itemsModel else {
-			return
-		}
-		
-		destination.koreanEntryImage = UIImage(named: itemsModel[selectedIndex].imageName)
-		destination.entryDescription = itemsModel[selectedIndex].desc
-		destination.entryTitle = itemsModel[selectedIndex].name
 	}
 }
 
@@ -54,9 +43,7 @@ extension KoreaEntryListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 		
-		koreaEntryCell.entryImageView.image = UIImage(named: itemsModel[indexPath.row].imageName)
-        koreaEntryCell.titleLabel.text = itemsModel[indexPath.row].name
-        koreaEntryCell.shortDescLabel.text = itemsModel[indexPath.row].shortDesc
+		koreaEntryCell.configureCell(itemsModel: itemsModel[indexPath.row])
         
         return koreaEntryCell
     }
@@ -65,5 +52,21 @@ extension KoreaEntryListViewController: UITableViewDataSource {
 extension KoreaEntryListViewController {
 	private enum CellIdentifier {
 		static let entryListCell: String = "cell"
+	}
+}
+
+extension KoreaEntryListViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		guard let itemsModel = itemsModel else { return }
+		
+		guard let entryDetailViewController = storyboard?.instantiateViewController(identifier: "EntryDetailViewController",
+											  creator: { (coder) in
+			return EntryDetailViewController(itemsModel: itemsModel[indexPath.row], coder: coder)
+		}) else {
+			return
+		}
+		
+		self.navigationController?.pushViewController(entryDetailViewController, animated: true)
 	}
 }
