@@ -21,8 +21,8 @@ final class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateExpoEntries()
         updateEntryTableView()
+        updateExpoEntries()
     }
     
     private func updateNavigationBar() {
