@@ -35,32 +35,23 @@ final class ExpoViewController: UIViewController {
     
     private func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = true
-        navigationItem.title = NameSpace.main
+        navigationItem.title = ExpoInfomationNameSpace.main
     }
     
     private func updateExpoView() {
         do {
-            let expoInformation: ExpoInformation = try Decoder.decodeJson(from: AssetsNameSpace.expoInformation)
-            expoTitleLabel.text = expoInformation.title.replacingOccurrences(of: "(", with: "\n(")
+            var expoInformation: ExpoInformation = try Decoder.decodeJson(from: AssetsNameSpace.expoInformation)
+            expoTitleLabel.text = expoInformation.title.lineAlignment
             expoPosterImageView.image = UIImage(named: AssetsNameSpace.expoPoster)
-            expoVisitorsLabel.text = NameSpace.visitors + CommaFormatter.formatNumberWithComma(expoInformation.visitors)
-            expoLocationLabel.text = NameSpace.location + expoInformation.location
-            expoDurationLabel.text = NameSpace.duration + expoInformation.duration
+            expoVisitorsLabel.text = expoInformation.visitors.visitorString
+            expoLocationLabel.text = expoInformation.location.locationString
+            expoDurationLabel.text = expoInformation.duration.durationString
             expoDescriptionLabel.text = expoInformation.expoDescription
         } catch DecodeError.searchNoFile {
             print(DecodeError.searchNoFile.localizedDescription)
         } catch {
             print(DecodeError.jsonDecodeError.localizedDescription)
         }
-    }
-}
-
-extension ExpoViewController {
-    private enum NameSpace {
-        static let main: String = "메인"
-        static let visitors: String = "방문객 : "
-        static let location: String = "개최지 : "
-        static let duration: String = "개최기간: "
     }
 }
 

@@ -2,7 +2,7 @@
 //  AlertController.swift
 //  Expo1900
 //
-//  Created by Yeseul Jang on 2023/07/05.
+//  Created by yyss99, kyungmin on 2023/07/05.
 //
 
 import UIKit
