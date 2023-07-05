@@ -9,32 +9,19 @@ import UIKit
 final class MainViewController: UIViewController {
     private let expositionDataManager = ExpositionDataManager()
     private var internationalExposition: InternationalExposition?
-    
-    private let mainScrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
-    
+    private let mainScrollView = UIScrollView()
     private let mainStackView = MainStackView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        self.title = DataNamespace.main
-        
-        internationalExposition = expositionDataManager.decodeExpositionJSON()
-        
-        configureMainView()
-        configureMainStackView()
-        addConstraints()
+        configureInit()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
@@ -42,55 +29,82 @@ final class MainViewController: UIViewController {
 }
 
 private extension MainViewController {
+    func configureInit() {
+        self.title = DataNamespace.main
+        view.backgroundColor = .systemBackground
+        internationalExposition = expositionDataManager.decodeExpositionJSON()
+
+        configureMainView()
+    }
+
     func configureMainView() {
+        addSubviews()
+        configureMainStackView()
+        addConstraintsStackView()
+        addConstraintsScrollView()
+    }
+    
+    func addSubviews() {
         view.addSubview(mainScrollView)
         mainScrollView.addSubview(mainStackView)
     }
-    
-    func addConstraints() {
+
+    func configureMainStackView() {
+        guard let internationalExposition = internationalExposition else { return }
+
+        configureTitle(at: internationalExposition)
+        configureVisitorsStackView(at: internationalExposition)
+        configureLocationStackView(at: internationalExposition)
+        configureDurationStackView(at: internationalExposition)
+        configureButtonStackView()
+    }
+
+    func configureTitle(at internationalExposition: InternationalExposition) {
+        mainStackView.titleLabel.text = internationalExposition.title.replacingOccurrences(of: "(", with: "\n(")
+        mainStackView.descriptionLabel.text = internationalExposition.description
+    }
+
+    func configureVisitorsStackView(at internationalExposition: InternationalExposition) {
+        let formattedVisitors = internationalExposition.visitors.formatToDecimal()
+        mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors) 명"
+    }
+
+    func configureLocationStackView(at internationalExposition: InternationalExposition) {
+        mainStackView.locationStackView.dataLabel.text = ": \(internationalExposition.location)"
+    }
+
+    func configureDurationStackView(at internationalExposition: InternationalExposition) {
+        mainStackView.durationStackView.dataLabel.text = ": \(internationalExposition.duration)"
+    }
+
+    func configureButtonStackView() {
+        mainStackView.buttonStackView.exhibitListChangeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+
+    @objc private func didTapButton() {
+        let exhibitListViewController = ExhibitListViewController(expositionItems: expositionDataManager.decodeExpositionItemsJSON())
+        navigationController?.pushViewController(exhibitListViewController, animated: true)
+    }
+
+    func addConstraintsStackView() {
+        mainScrollView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             mainScrollView.topAnchor.constraint(equalTo: view.topAnchor),
             mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mainScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
             mainScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            
+        ])
+    }
+
+    func addConstraintsScrollView() {
+        NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: 20),
             mainStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -20),
             mainStackView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
             mainStackView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, constant: -40),
-            
             mainStackView.buttonStackView.centerXAnchor.constraint(equalTo: mainStackView.centerXAnchor)
         ])
     }
-    
-    func configureMainStackView() {
-        guard let internationalExposition = internationalExposition else { return }
-        
-        mainStackView.titleLabel.text = internationalExposition.title.replacingOccurrences(of: "(", with: "\n(")
-        mainStackView.descriptionLabel.text = internationalExposition.description
-        
-        configureStackViewForVisitors(at: internationalExposition)
-        configureLocationStackView(at: internationalExposition)
-        configureDurationStackView(at: internationalExposition)
-        
-        mainStackView.buttonStackView.exhibitListChangeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-    }
-    
-    func configureStackViewForVisitors(at internationalExposition: InternationalExposition) {
-        let formattedVisitors = internationalExposition.visitors.formatToDecimal()
-        mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors) 명"
-    }
-    
-    func configureLocationStackView(at internationalExposition: InternationalExposition) {
-        mainStackView.locationStackView.dataLabel.text = ": \(internationalExposition.location)"
-    }
-    
-    func configureDurationStackView(at internationalExposition: InternationalExposition) {
-        mainStackView.durationStackView.dataLabel.text = ": \(internationalExposition.duration)"
-    }
-    
-    @objc private func didTapButton() {
-        let exhibitListViewController = ExhibitListViewController(expositionItems: expositionDataManager.decodeExpositionItemsJSON())
-        navigationController?.pushViewController(exhibitListViewController, animated: true)
-    }
 }
+
