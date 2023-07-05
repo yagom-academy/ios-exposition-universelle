@@ -34,12 +34,16 @@ final class EntryViewController: UIViewController {
         do {
             expoEntries = try Decoder.decodeJson(from: AssetsNameSpace.expoEntries)
         } catch DecodeError.searchNoFile {
-            print(DecodeError.searchNoFile.localizedDescription)
+            print(DecodeError.searchNoFile)
+            let alert = AlertController.configureAlert(errorName: DecodeError.searchNoFile.errorDescription)
+            present(alert, animated: true)
         } catch {
             print(DecodeError.jsonDecodeError.localizedDescription)
+            let alert = AlertController.configureAlert(errorName: DecodeError.jsonDecodeError.errorDescription)
+            present(alert, animated: true)
         }
     }
-    
+
     private func updateEntryTableView() {
         entryTableView.dataSource = self
         entryTableView.delegate = self
