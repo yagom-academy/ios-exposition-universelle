@@ -16,6 +16,5 @@ struct Item: Decodable {
         case imageName = "image_name"
         case shortDescription = "short_desc"
         case totalDescription = "desc"
-        
     }
 }
