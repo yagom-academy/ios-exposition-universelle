@@ -187,6 +187,9 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cP2-aP-epY">
                                                 <rect key="frame" x="96.666666666666686" y="30" width="200" height="200"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="02A-Am-Elu"/>
                                                     <constraint firstAttribute="width" constant="200" id="xhE-rI-Lmv"/>

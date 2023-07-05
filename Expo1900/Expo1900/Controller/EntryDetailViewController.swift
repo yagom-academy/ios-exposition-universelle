@@ -28,6 +28,7 @@ final class EntryDetailViewController: UIViewController {
         self.configureComponents()
         self.configureLabelFont()
         self.configureDynamicType()
+        self.configureAccessibility()
     }
     
     private func configureNavigation() {
@@ -45,5 +46,9 @@ final class EntryDetailViewController: UIViewController {
     
     private func configureDynamicType() {
         self.entryDescriptionLabel.adjustsFontForContentSizeCategory = true
+    }
+    
+    private func configureAccessibility() {
+        self.entryImageView.accessibilityLabel = entry.name
     }
 }
