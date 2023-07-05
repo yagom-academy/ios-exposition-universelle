@@ -32,7 +32,7 @@ final class EntryViewController: UIViewController {
     
     private func updateExpoEntries() {
         do {
-            expoEntries = try Decoder.decodeJson(from: "dd")
+            expoEntries = try Decoder.decodeJson(from: AssetsNameSpace.expoEntries)
         } catch DecodeError.searchNoFile {
             print(DecodeError.searchNoFile.localizedDescription)
             let alert = AlertController.configureAlert(errorName: DecodeError.searchNoFile.localizedDescription)
@@ -69,10 +69,9 @@ extension EntryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let expoEntry = self.expoEntries[indexPath.row]
-    
-        guard let entryDetailViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardNameSpace.entryDetailViewController) as? EntryDetailViewController else { return }
-        
-        entryDetailViewController.expoEntry = expoEntry
+
+        guard let entryDetailViewController = storyboard?.instantiateViewController(identifier: StoryBoardNameSpace.entryDetailViewController, creator: {
+            coder in EntryDetailViewController(expoEntry: expoEntry, coder: coder)}) else { return }
         
         navigationController?.pushViewController(entryDetailViewController, animated: true)
     }

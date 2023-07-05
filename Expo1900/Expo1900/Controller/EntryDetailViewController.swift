@@ -8,10 +8,19 @@
 import UIKit
 
 final class EntryDetailViewController: UIViewController {
-    var expoEntry: ExpoEntry?
+    var expoEntry: ExpoEntry
     
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDescription: UILabel!
+    
+    init?(expoEntry: ExpoEntry, coder: NSCoder) {
+        self.expoEntry = expoEntry
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,11 +36,11 @@ final class EntryDetailViewController: UIViewController {
     
     private func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        navigationItem.title = expoEntry?.name
+        navigationItem.title = expoEntry.name
     }
     
     private func updateEntryDetailView() {
-        entryImageView.image = UIImage(named: expoEntry?.imageName ?? AssetsNameSpace.flagImage)
-        entryDescription.text = expoEntry?.entryDescription
+        entryImageView.image = UIImage(named: expoEntry.imageName)
+        entryDescription.text = expoEntry.entryDescription
     }
 }
