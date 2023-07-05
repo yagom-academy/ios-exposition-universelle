@@ -30,35 +30,54 @@ final class ExhibitListChangeViewButtonStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
+        configureInit()
     }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        configureUI()
+        configureInit()
     }
 }
 
 private extension ExhibitListChangeViewButtonStackView {
-    func configureUI() {
+    func configureInit() {
         self.axis = .horizontal
         self.spacing = 30
+        
+        addArrangedSubviews()
+        addConstraintsChangeViewButton()
+        addConstraintsLeftFlagImageView()
+        addConstraintsRightFlagImageView()
+    }
+    
+    func addArrangedSubviews() {
         self.addArrangedSubview(leftFlagImageView)
         self.addArrangedSubview(exhibitListChangeViewButton)
         self.addArrangedSubview(rightFlagImageView)
-        
+    }
+    
+    func addConstraintsChangeViewButton() {
         exhibitListChangeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
         exhibitListChangeViewButton.setContentCompressionResistancePriority(.init(999), for: .vertical)
+    }
+    
+    func addConstraintsLeftFlagImageView() {
         leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
         leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
+        
+        NSLayoutConstraint.activate([
+            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
+            leftFlagImageView.heightAnchor.constraint(equalTo: exhibitListChangeViewButton.heightAnchor)
+        ])
+    }
+    
+    func addConstraintsRightFlagImageView() {
         rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
         rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
         
         NSLayoutConstraint.activate([
-            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
             rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
-            rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor),
-            leftFlagImageView.heightAnchor.constraint(equalTo: exhibitListChangeViewButton.heightAnchor)
+            rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor)
         ])
     }
 }
