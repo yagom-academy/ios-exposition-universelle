@@ -8,12 +8,21 @@
 import UIKit
 
 final class ExhibitListViewController: UIViewController {
-    private let expositionItemEntity = ExpositionDataManager().decodeExpositionItemsJSON()
+    private let expositionItemEntity: [ExhibitionItem]
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(ExhibitCell.self, forCellReuseIdentifier: DataNamespace.cellIdentifier)
         return tableView
     }()
+    
+    init(expositionItems: [ExhibitionItem]) {
+        self.expositionItemEntity = expositionItems
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -90,6 +90,7 @@ private extension MainViewController {
     }
     
     @objc private func didTapButton() {
-        navigationController?.pushViewController(ExhibitListViewController(), animated: true)
+        let exhibitListViewController = ExhibitListViewController(expositionItems: expositionDataManager.decodeExpositionItemsJSON())
+        navigationController?.pushViewController(exhibitListViewController, animated: true)
     }
 }
