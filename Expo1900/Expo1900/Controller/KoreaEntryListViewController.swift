@@ -10,7 +10,7 @@ import UIKit
 final class KoreaEntryListViewController: UIViewController {
     @IBOutlet private weak var entryListTableView: UITableView!
 
-	private let itemsModel: [ItemsModel]? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.entryData)
+	private let itemsModel: [ItemsModel]? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.entryData, isSnakeCase: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()

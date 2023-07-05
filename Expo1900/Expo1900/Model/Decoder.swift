@@ -8,7 +8,7 @@
 import UIKit
 
 struct Decoder {
-	static func decodeJSON<`Data`: Decodable>(dataAssetName: String) throws -> `Data` {
+	static func decodeJSON<`Data`: Decodable>(dataAssetName: String, isSnakeCase: Bool = false) throws -> `Data` {
 		let jsonDecoder: JSONDecoder = JSONDecoder()
 		
 		guard let dataAsset = NSDataAsset(name: dataAssetName) else {
@@ -16,7 +16,9 @@ struct Decoder {
 		}
 		
 		do {
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+			if isSnakeCase {
+				jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+			}
 			let decodeData = try jsonDecoder.decode(`Data`.self, from: dataAsset.data)
 			
             return decodeData
