@@ -33,6 +33,7 @@ final class ExpositionIntroViewController: UIViewController {
         self.configureExpositionLabel()
         self.configureLableFont()
         self.configureDynamicType()
+        self.configureAccessibility()
     }
     
     private func configureNavigation() {
@@ -80,6 +81,11 @@ final class ExpositionIntroViewController: UIViewController {
         self.durationLabel.adjustsFontForContentSizeCategory = true
         self.descriptionLabel.adjustsFontForContentSizeCategory = true
         self.koreanEntryButton.titleLabel?.adjustsFontForContentSizeCategory = true
+    }
+    
+    private func configureAccessibility() {
+        self.expositionTitleLabel.accessibilityLabel = "파리 만국 박람회 1900"
+        self.durationLabel.accessibilityLabel = "개최기간: 1900. 04. 14부터 1900. 11. 12까지"
     }
     
     @IBAction private func tabKoreanEntryButton(_ sender: UIButton) {
