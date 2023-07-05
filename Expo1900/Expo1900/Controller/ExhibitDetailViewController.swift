@@ -11,8 +11,8 @@ final class ExhibitDetailViewController: UIViewController {
     private let exhibit: ExhibitionItem
     private let detailScrollView = UIScrollView()
     private let detailStackView = UIStackView()
-    let itemImage = UIImageView()
-    let itemDescription = UILabel()
+    private let itemImage = UIImageView()
+    private let itemDescription = UILabel()
     
     init(expositionItemDetail: ExhibitionItem) {
         self.exhibit = expositionItemDetail
