@@ -25,45 +25,70 @@ final class ExhibitDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        self.title = exhibit.name
-        
-        configureView()
-        addConstraints()
+        configureInit()
     }
 }
 
 private extension ExhibitDetailViewController {
-    func configureView() {
+    func configureInit() {
+        self.title = exhibit.name
+        view.backgroundColor = .systemBackground
+
+        configureDetailView()
+    }
+    
+    func configureDetailView() {
+        addSubviews()
+        addArrangedSubview()
+        configureDetatilStackView()
+        configureItemImage()
+        configureItemDescription()
+        addConstraintsScrollerView()
+        addConstraintsDetailView()
+    }
+    
+    func addSubviews() {
         view.addSubview(detailScrollView)
-        detailScrollView.translatesAutoresizingMaskIntoConstraints = false
-        
         detailScrollView.addSubview(detailStackView)
-        detailStackView.translatesAutoresizingMaskIntoConstraints = false
-        detailStackView.axis = .vertical
-        detailStackView.alignment = .center
-        detailStackView.spacing = 10
-        
-        itemImage.translatesAutoresizingMaskIntoConstraints = false
-        itemImage.image = UIImage(named: exhibit.imageName)
-        
-        itemDescription.translatesAutoresizingMaskIntoConstraints = false
-        itemDescription.numberOfLines = 0
-        itemDescription.text = exhibit.description
-        
+    }
+    
+    func addArrangedSubview() {
         detailStackView.addArrangedSubview(itemImage)
         detailStackView.addArrangedSubview(itemDescription)
     }
-}
-
-private extension ExhibitDetailViewController {
-    func addConstraints() {
+    
+    func configureDetatilStackView() {
+        detailStackView.axis = .vertical
+        detailStackView.alignment = .center
+        detailStackView.spacing = 10
+    }
+    
+    func configureItemImage() {
+        itemImage.image = UIImage(named: exhibit.imageName)
+        itemImage.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func configureItemDescription() {
+        itemDescription.numberOfLines = 0
+        itemDescription.text = exhibit.description
+        itemDescription.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func addConstraintsScrollerView() {
+        detailScrollView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             detailScrollView.topAnchor.constraint(equalTo: view.topAnchor),
             detailScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             detailScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            detailScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            
+            detailScrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ])
+    }
+    
+    func addConstraintsDetailView() {
+        detailStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
             detailStackView.topAnchor.constraint(equalTo: detailScrollView.topAnchor, constant: 20),
             detailStackView.bottomAnchor.constraint(equalTo: detailScrollView.bottomAnchor, constant: -20),
             detailStackView.centerXAnchor.constraint(equalTo: detailScrollView.centerXAnchor),
@@ -71,3 +96,4 @@ private extension ExhibitDetailViewController {
         ])
     }
 }
+
