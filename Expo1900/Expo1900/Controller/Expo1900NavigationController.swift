@@ -2,7 +2,7 @@
 //  Expo1900NavigationController.swift
 //  Expo1900
 //
-//  Created by Dasan & Moo on 2023/07/04.
+//  Created by Dasan & Moon on 2023/07/04.
 //
 
 import UIKit
