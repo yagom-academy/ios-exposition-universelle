@@ -1,8 +1,8 @@
 //
 //  Expo1900 - ViewController.swift
-//  Created by yagom. 
+//  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
-// 
+//
 
 import UIKit
 
@@ -69,23 +69,23 @@ private extension MainViewController {
         mainStackView.titleLabel.text = internationalExposition.title.replacingOccurrences(of: "(", with: "\n(")
         mainStackView.descriptionLabel.text = internationalExposition.description
         
-        configureVisitorsStackView(internationalExposition: internationalExposition)
-        configureLocationStackView(internationalExposition: internationalExposition)
-        configureDurationStackView(internationalExposition: internationalExposition)
+        configureStackViewForVisitors(at: internationalExposition)
+        configureLocationStackView(at: internationalExposition)
+        configureDurationStackView(at: internationalExposition)
         
         mainStackView.buttonStackView.exhibitListChangeViewButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
-    func configureVisitorsStackView(internationalExposition: InternationalExposition) {
+    func configureStackViewForVisitors(at internationalExposition: InternationalExposition) {
         let formattedVisitors = internationalExposition.visitors.formatToDecimal()
         mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors) 명"
     }
     
-    func configureLocationStackView(internationalExposition: InternationalExposition) {
+    func configureLocationStackView(at internationalExposition: InternationalExposition) {
         mainStackView.locationStackView.dataLabel.text = ": \(internationalExposition.location)"
     }
     
-    func configureDurationStackView(internationalExposition: InternationalExposition) {
+    func configureDurationStackView(at internationalExposition: InternationalExposition) {
         mainStackView.durationStackView.dataLabel.text = ": \(internationalExposition.duration)"
     }
     
