@@ -20,21 +20,18 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private let visitorsLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.textAlignment = .center
         
         return label
     }()
     
     private let locationLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.textAlignment = .center
         
         return label
     }()
     
     private let durationLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.textAlignment = .center
         
         return label
     }()
@@ -83,7 +80,8 @@ final class ExpositionUniverselleViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
         stackView.spacing = 8
         
         return stackView
@@ -92,7 +90,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     private let buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalCentering
         
         return stackView
     }()
@@ -169,24 +167,43 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureConstraint() {
+        configureItemImageConstraint()
+        configureButtonStackViewConstraint()
         configureExpositionUniverselleScrollViewConstraint()
         configureContentStackViewConstraint()
     }
     
+    private func configureItemImageConstraint() {
+        NSLayoutConstraint.activate([
+            leftItemImage.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.15),
+            leftItemImage.heightAnchor.constraint(equalTo: leftItemImage.widthAnchor, multiplier: 0.6),
+            rightItemImage.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.15),
+            rightItemImage.heightAnchor.constraint(equalTo: rightItemImage.widthAnchor, multiplier: 0.6),
+        ])
+    }
+    
+    private func configureButtonStackViewConstraint() {
+        NSLayoutConstraint.activate([
+            buttonStackView.widthAnchor.constraint(equalTo: contentStackView.widthAnchor, multiplier: 0.8)
+        ])
+    }
+    
     private func configureExpositionUniverselleScrollViewConstraint() {
         NSLayoutConstraint.activate([
-            expositionUniverselleScrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            expositionUniverselleScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            expositionUniverselleScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            expositionUniverselleScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            expositionUniverselleScrollView.frameLayoutGuide.topAnchor.constraint(equalTo: view.topAnchor),
+            expositionUniverselleScrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            expositionUniverselleScrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            expositionUniverselleScrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
     private func configureContentStackViewConstraint() {
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: expositionUniverselleScrollView.topAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: expositionUniverselleScrollView.bottomAnchor),
-            contentStackView.widthAnchor.constraint(equalTo: expositionUniverselleScrollView.widthAnchor)
+            contentStackView.topAnchor.constraint(equalTo: expositionUniverselleScrollView.contentLayoutGuide.topAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: expositionUniverselleScrollView.contentLayoutGuide.bottomAnchor, constant: -24),
+            contentStackView.leadingAnchor.constraint(equalTo: expositionUniverselleScrollView.contentLayoutGuide.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: expositionUniverselleScrollView.contentLayoutGuide.trailingAnchor),
+            contentStackView.widthAnchor.constraint(equalTo: expositionUniverselleScrollView.frameLayoutGuide.widthAnchor)
         ])
     }
     
