@@ -30,8 +30,7 @@ final class ExpositionIntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureNavigation()
-        self.configureExpositionLabel()
-        self.configureLableFont()
+        self.configureLabel()
         self.configureDynamicType()
         self.configureAccessibility()
     }
@@ -40,7 +39,7 @@ final class ExpositionIntroViewController: UIViewController {
         self.navigationItem.title = "메인"
     }
     
-    private func configureExpositionLabel() {
+    private func configureLabel() {
         guard let exposition: Exposition = DecodingHelper.decode(file: .exposition) else {
             self.showErrorAlert()
             return
@@ -70,9 +69,7 @@ final class ExpositionIntroViewController: UIViewController {
         self.locationLabel.attributedText = totalLocationText
         self.durationLabel.attributedText = totalDurationText
         self.descriptionLabel.text = exposition.description
-    }
-    
-    private func configureLableFont() {
+        
         self.expositionTitleLabel.font = .preferredFont(forTextStyle: .largeTitle)
         self.descriptionLabel.font = .preferredFont(forTextStyle: .body)
     }
