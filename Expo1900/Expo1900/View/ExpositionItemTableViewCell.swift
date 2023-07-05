@@ -11,6 +11,8 @@ class ExpositionItemTableViewCell: UITableViewCell {
     let image: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
         return imageView
     }()
@@ -26,7 +28,6 @@ class ExpositionItemTableViewCell: UITableViewCell {
     
     let name: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .title1)
         
         return label
@@ -34,7 +35,6 @@ class ExpositionItemTableViewCell: UITableViewCell {
     
     let shortDescription: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = .zero
         
         return label
@@ -56,19 +56,42 @@ class ExpositionItemTableViewCell: UITableViewCell {
         informationStackView.addArrangedSubview(shortDescription)
         
         NSLayoutConstraint.activate([
+            image.topAnchor.constraint(
+                greaterThanOrEqualTo: contentView.topAnchor,
+                constant: ConstraintsNamespace.imageViewFromCellTop
+            ),
+            image.bottomAnchor.constraint(
+                lessThanOrEqualTo: contentView.bottomAnchor,
+                constant: ConstraintsNamespace.imageViewFromCellBottom
+            ),
+            image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            image.leftAnchor.constraint(
+                equalTo: contentView.leftAnchor,
+                constant: ConstraintsNamespace.imageViewFromCellLeft
+            ),
             image.widthAnchor.constraint(
                 equalTo: contentView.widthAnchor,
                 multiplier: MultiplierNamespace.itemCellImageWidthToCell
             ),
-            image.heightAnchor.constraint(
-                equalTo: contentView.heightAnchor
+            image.heightAnchor.constraint(equalTo: image.widthAnchor),
+            
+            informationStackView.topAnchor.constraint(
+                greaterThanOrEqualTo: contentView.topAnchor,
+                constant: ConstraintsNamespace.stackViewFromCellTop
+            ),
+            informationStackView.bottomAnchor.constraint(
+                lessThanOrEqualTo: contentView.bottomAnchor,
+                constant: ConstraintsNamespace.stackViewFromCellBottom
+            ),
+            informationStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            informationStackView.leftAnchor.constraint(
+                equalTo: image.rightAnchor,
+                constant: ConstraintsNamespace.cellSpacingBetweenLabelAndImage
             ),
             informationStackView.widthAnchor.constraint(
                 equalTo: contentView.widthAnchor,
-                multiplier: 1 - MultiplierNamespace.itemCellImageWidthToCell
-            ),
-            informationStackView.leftAnchor.constraint(
-                equalTo: image.rightAnchor
+                multiplier: 1 - MultiplierNamespace.itemCellImageWidthToCell,
+                constant: ConstraintsNamespace.stackViewFromCellWidth
             )
         ])
     }
