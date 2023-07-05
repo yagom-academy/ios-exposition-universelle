@@ -13,29 +13,34 @@ final class ExpositionInformationStackView: UIStackView {
         label.font = .preferredFont(forTextStyle: .title3)
         return label
     }()
-    
+
     let dataLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
+        configureInit()
     }
-    
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
-        configureUI()
+        configureInit()
     }
 }
 
 private extension ExpositionInformationStackView {
-    func configureUI() {
+    func configureInit() {
         self.axis = .horizontal
         self.alignment = .center
         self.spacing = 10
+        
+        addArrangedSubviews()
+    }
+    
+    func addArrangedSubviews() {
         self.addArrangedSubview(subtitleLabel)
         self.addArrangedSubview(dataLabel)
     }
