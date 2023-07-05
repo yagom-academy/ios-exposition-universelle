@@ -143,9 +143,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Zc5-Vx-n94" kind="show" identifier="entryDetailSegue" id="El0-Ph-KBw"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -171,13 +168,13 @@
         <!--Entry Detail View Controller-->
         <scene sceneID="iee-nH-G13">
             <objects>
-                <viewController id="Zc5-Vx-n94" customClass="EntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntryDetailViewController" id="Zc5-Vx-n94" customClass="EntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1P4-T3-muz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3FU-Cv-lqQ">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="rrq-nT-WqS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="275"/>
