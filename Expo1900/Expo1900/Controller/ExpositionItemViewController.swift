@@ -14,6 +14,8 @@ final class ExpositionItemViewController: UIViewController {
     private let totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
         label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
@@ -22,6 +24,7 @@ final class ExpositionItemViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        stackView.alignment = .center
         stackView.distribution = .fill
         stackView.spacing = 8
         
@@ -66,24 +69,46 @@ final class ExpositionItemViewController: UIViewController {
     }
     
     private func configureConstraint() {
+        configureItemImageConstraint()
         configureExpositionItemScrollViewConstraint()
         configureContentStackViewConstraint()
     }
     
+    private func configureItemImageConstraint() {
+        let currentImageWidth = itemImage.image?.size.width
+        let currentImageHeight = itemImage.image?.size.height
+        
+        guard let imageWidth = currentImageWidth,
+              let imageHeight = currentImageHeight else {
+            return
+        }
+        
+        let scaledWidth = view.frame.width * 0.6
+        let ratio = scaledWidth / imageWidth
+        let scaledHeight = imageHeight * ratio
+        
+        NSLayoutConstraint.activate([
+            itemImage.widthAnchor.constraint(equalToConstant: scaledWidth),
+            itemImage.heightAnchor.constraint(equalToConstant: scaledHeight)
+        ])
+    }
+    
     private func configureExpositionItemScrollViewConstraint() {
         NSLayoutConstraint.activate([
-            expositionItemScrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            expositionItemScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            expositionItemScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            expositionItemScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            expositionItemScrollView.frameLayoutGuide.topAnchor.constraint(equalTo: view.topAnchor),
+            expositionItemScrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            expositionItemScrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            expositionItemScrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
     private func configureContentStackViewConstraint() {
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: expositionItemScrollView.topAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: expositionItemScrollView.bottomAnchor),
-            contentStackView.widthAnchor.constraint(equalTo: expositionItemScrollView.widthAnchor)
+            contentStackView.topAnchor.constraint(equalTo: expositionItemScrollView.contentLayoutGuide.topAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: expositionItemScrollView.contentLayoutGuide.bottomAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: expositionItemScrollView.contentLayoutGuide.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: expositionItemScrollView.contentLayoutGuide.trailingAnchor),
+            contentStackView.widthAnchor.constraint(equalTo: expositionItemScrollView.frameLayoutGuide.widthAnchor)
         ])
     }
 }

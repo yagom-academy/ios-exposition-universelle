@@ -14,24 +14,32 @@ final class ExpositionUniverselleViewController: UIViewController {
         let label: UILabel = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 2
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
     
     private let visitorsLabel: UILabel = {
         let label: UILabel = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
     
     private let locationLabel: UILabel = {
         let label: UILabel = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
     
     private let durationLabel: UILabel = {
         let label: UILabel = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
@@ -39,6 +47,8 @@ final class ExpositionUniverselleViewController: UIViewController {
     private let totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
         label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         
         return label
     }()
@@ -72,6 +82,8 @@ final class ExpositionUniverselleViewController: UIViewController {
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
         button.addTarget(self, action: #selector(touchUpExpositionItemListButton), for: .touchUpInside)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
         
         return button
     }()
