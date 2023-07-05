@@ -29,4 +29,8 @@ final class EntryListCell: UITableViewCell {
         self.entryTitleLabel.adjustsFontForContentSizeCategory = true
         self.entryShortDescriptionLabel.adjustsFontForContentSizeCategory = true
     }
+    
+    func configureAccessibilityLable() {
+        self.accessibilityHint = "셀을 선택하여 자세한 내용을 확인하세요."
+    }
 }
