@@ -8,7 +8,6 @@
 import UIKit
 
 final class EntryViewController: UIViewController {
-
     private var expoEntries: [ExpoEntry] = [ExpoEntry]()
     
     @IBOutlet weak var entryTableView: UITableView!
@@ -26,12 +25,12 @@ final class EntryViewController: UIViewController {
         updateEntryTableView()
     }
     
-    func updateNavigationBar() {
+    private func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = NameSpace.KoreanEntry
     }
     
-    func updateExpoEntries() {
+    private func updateExpoEntries() {
         do {
             expoEntries = try Decoder.decodeJson(from: AssetsNameSpace.expoEntries)
         } catch DecodeError.searchNoFile {
@@ -41,7 +40,7 @@ final class EntryViewController: UIViewController {
         }
     }
     
-    func updateEntryTableView() {
+    private func updateEntryTableView() {
         entryTableView.dataSource = self
         entryTableView.delegate = self
     }

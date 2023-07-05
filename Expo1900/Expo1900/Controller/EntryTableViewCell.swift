@@ -8,7 +8,6 @@
 import UIKit
 
 final class EntryTableViewCell: UITableViewCell {
-
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryNameLabel: UILabel!
     @IBOutlet private weak var entryShortDescriptionLabel: UILabel!

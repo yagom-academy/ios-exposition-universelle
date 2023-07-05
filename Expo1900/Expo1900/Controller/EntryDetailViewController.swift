@@ -8,11 +8,10 @@
 import UIKit
 
 final class EntryDetailViewController: UIViewController {
+    var expoEntry: ExpoEntry?
     
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDescription: UILabel!
-
-    var expoEntry: ExpoEntry?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,12 +25,12 @@ final class EntryDetailViewController: UIViewController {
         updateEntryDetailView()
     }
     
-    func updateNavigationBar() {
+    private func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = expoEntry?.name
     }
     
-    func updateEntryDetailView() {
+    private func updateEntryDetailView() {
         entryImageView.image = UIImage(named: expoEntry?.imageName ?? AssetsNameSpace.flagImage)
         entryDescription.text = expoEntry?.entryDescription
     }

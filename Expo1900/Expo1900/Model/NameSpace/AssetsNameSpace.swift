@@ -10,6 +10,5 @@ enum AssetsNameSpace {
     static let expoPoster: String = "poster"
     static let expoEntries: String = "items"
     static let flagImage: String = "flag"
-    
 }
 

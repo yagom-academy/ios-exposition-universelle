@@ -8,7 +8,6 @@
 import UIKit
 
 final class ExpoViewController: UIViewController {
-    
     @IBOutlet private weak var expoTitleLabel: UILabel!
     @IBOutlet private weak var expoPosterImageView: UIImageView!
     @IBOutlet private weak var expoVisitorsLabel: UILabel!
@@ -28,18 +27,18 @@ final class ExpoViewController: UIViewController {
         updateExpoView()
     }
 
-    @IBAction func TapEntryPageButton(_ sender: UIButton) {
+    @IBAction private func TapEntryPageButton(_ sender: UIButton) {
         guard let entryViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardNameSpace.entryViewController) as? EntryViewController else { return }
         
         navigationController?.pushViewController(entryViewController, animated: true)
     }
     
-    func updateNavigationBar() {
+    private func updateNavigationBar() {
         navigationController?.navigationBar.isHidden = true
         navigationItem.title = NameSpace.main
     }
     
-    func updateExpoView() {
+    private func updateExpoView() {
         do {
             let expoInformation: ExpoInformation = try Decoder.decodeJson(from: AssetsNameSpace.expoInformation)
             expoTitleLabel.text = expoInformation.title.replacingOccurrences(of: "(", with: "\n(")
