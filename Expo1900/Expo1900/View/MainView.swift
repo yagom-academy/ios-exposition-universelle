@@ -160,8 +160,8 @@ extension MainView {
 extension MainView {
     private func setUpScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: topAnchor),
             scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])

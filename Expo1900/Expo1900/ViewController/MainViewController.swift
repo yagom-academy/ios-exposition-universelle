@@ -15,16 +15,17 @@ final class MainViewController: UIViewController, MainViewDelegate {
     private lazy var mainView: MainView = {
         let view = MainView()
         view.delegate = self
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    override func loadView() {
+        view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroundColor(.systemBackground)
-        configureUI()
-        setUpConstraints()
         loadMainViewInformation()
         setNavigationTitle()
     }
@@ -42,20 +43,7 @@ final class MainViewController: UIViewController, MainViewDelegate {
         navigationController?.setNavigationBarHidden(false, animated: true)
         AppSettings.shared.shouldRotate = true
     }
-    
-    private func configureUI() {
-        view.addSubview(mainView)
-    }
-    
-    private func setUpConstraints() {
-        NSLayoutConstraint.activate([
-            mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            mainView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
+
     private func loadMainViewInformation() {
         guard let information: ParisExpositionInformation = Decoder.decode(fileName: "exposition_universelle_1900") else { return }
         
