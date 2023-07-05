@@ -7,6 +7,8 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     private let mainScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -71,10 +73,12 @@ class ExpositionViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        appDelegate?.shouldSupportAllOrientation = false
         navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        appDelegate?.shouldSupportAllOrientation = true
         navigationController?.isNavigationBarHidden = false
     }
     
