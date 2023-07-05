@@ -34,8 +34,10 @@ extension KoreanEntryListViewController: UITableViewDelegate {
             identifier: EntryDetailViewController.identifier,
             creator: { EntryDetailViewController(entry: entry, coder: $0)}
         ) else { return }
-
+        
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+        
+        entryTableView.deselectRow(at: indexPath, animated: false)
     }
 }
 
