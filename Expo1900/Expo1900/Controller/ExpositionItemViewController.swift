@@ -9,7 +9,13 @@ import UIKit
 
 final class ExpositionItemViewController: UIViewController {
     private let expositionItem: Item
-    private let itemImage: UIImageView = UIImageView()
+    
+    private let itemImage: UIImageView = {
+        let imageView: UIImageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
     
     private let totalDescriptionLabel: UILabel = {
         let label: UILabel = UILabel()
@@ -75,21 +81,9 @@ final class ExpositionItemViewController: UIViewController {
     }
     
     private func configureItemImageConstraint() {
-        let currentImageWidth = itemImage.image?.size.width
-        let currentImageHeight = itemImage.image?.size.height
-        
-        guard let imageWidth = currentImageWidth,
-              let imageHeight = currentImageHeight else {
-            return
-        }
-        
-        let scaledWidth = view.frame.width * 0.6
-        let ratio = scaledWidth / imageWidth
-        let scaledHeight = imageHeight * ratio
-        
         NSLayoutConstraint.activate([
-            itemImage.widthAnchor.constraint(equalToConstant: scaledWidth),
-            itemImage.heightAnchor.constraint(equalToConstant: scaledHeight)
+            itemImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            itemImage.heightAnchor.constraint(equalTo: itemImage.widthAnchor)
         ])
     }
     

@@ -31,6 +31,7 @@ final class ExpositionItemCell: UITableViewCell {
         let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -63,8 +64,13 @@ final class ExpositionItemCell: UITableViewCell {
             itemImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             itemImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
-            itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor)
+            itemImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 8),
+            itemImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
         ])
+        
+        let itemImageViewHeightConstraint: NSLayoutConstraint = itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor)
+        itemImageViewHeightConstraint.priority = .defaultHigh
+        itemImageViewHeightConstraint.isActive = true
     }
     
     private func configureTitleLabelConstraint() {
@@ -79,7 +85,7 @@ final class ExpositionItemCell: UITableViewCell {
             shortDescriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             shortDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             shortDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            shortDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            shortDescriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
         ])
     }
 }
