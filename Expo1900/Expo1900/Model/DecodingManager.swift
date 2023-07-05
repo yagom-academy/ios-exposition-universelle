@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct DecodingManager {
+class DecodingManager {
     static let shared = DecodingManager()
     
     private init() {}

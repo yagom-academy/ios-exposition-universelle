@@ -47,7 +47,7 @@ class ChangeViewButtonStackView: UIStackView {
         ])
     }
     
-    func createFlagImageView() -> UIImageView {
+    private func createFlagImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: AssetNamespace.flag)
         

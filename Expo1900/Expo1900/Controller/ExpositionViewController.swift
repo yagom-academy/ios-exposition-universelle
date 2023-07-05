@@ -24,7 +24,7 @@ class ExpositionViewController: UIViewController {
         return stackView
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
         label.numberOfLines = .zero
@@ -33,25 +33,24 @@ class ExpositionViewController: UIViewController {
         return label
     }()
     
-    let posterImageView: UIImageView = {
+    private let posterImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: AssetNamespace.poster)
         
         return image
     }()
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let textLabel = UILabel()
-        textLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         textLabel.numberOfLines = .zero
         
         return textLabel
     }()
     
-    let visitorsStackView = ExpositionInformationStackView()
-    let locationStackView = ExpositionInformationStackView()
-    let durationStackView = ExpositionInformationStackView()
-    let buttonStackView = ChangeViewButtonStackView()
+    private let visitorsStackView = ExpositionInformationStackView()
+    private let locationStackView = ExpositionInformationStackView()
+    private let durationStackView = ExpositionInformationStackView()
+    private let buttonStackView = ChangeViewButtonStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

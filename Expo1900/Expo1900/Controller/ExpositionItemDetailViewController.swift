@@ -27,13 +27,13 @@ class ExpositionItemDetailViewController: UIViewController {
         return stackView
     }()
     
-    let itemImage: UIImageView = {
+    private let itemImage: UIImageView = {
         let imageView = UIImageView()
         
         return imageView
     }()
     
-    let itemDescription: UILabel = {
+    private let itemDescription: UILabel = {
         let label = UILabel()
         label.numberOfLines = .zero
         
