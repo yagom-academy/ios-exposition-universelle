@@ -8,6 +8,7 @@ import UIKit
 
 final class ExpositionUniverselleViewController: UIViewController {
     private var expositionUniverselle: ExpositionUniverselle?
+    private let delegate = UIApplication.shared.delegate as? AppDelegate
     
     private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
@@ -114,11 +115,13 @@ final class ExpositionUniverselleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        delegate?.changeOrientation = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
+        delegate?.changeOrientation = false
     }
     
     private func decodeExpositionUniverselle() {
