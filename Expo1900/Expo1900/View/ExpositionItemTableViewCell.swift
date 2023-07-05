@@ -73,7 +73,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
                 equalTo: contentView.widthAnchor,
                 multiplier: MultiplierNamespace.itemCellImageWidthToCell
             ),
-            image.heightAnchor.constraint(equalTo: image.widthAnchor),
+            image.heightAnchor.constraint(lessThanOrEqualTo: image.widthAnchor),
             
             informationStackView.topAnchor.constraint(
                 greaterThanOrEqualTo: contentView.topAnchor,

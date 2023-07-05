@@ -29,6 +29,8 @@ class ExpositionItemDetailViewController: UIViewController {
     
     private let itemImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         
         return imageView
     }()
@@ -73,8 +75,8 @@ class ExpositionItemDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             detailScrollView.topAnchor.constraint(equalTo: view.topAnchor),
             detailScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            detailScrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            detailScrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            detailScrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            detailScrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             
             detailStackView.topAnchor.constraint(
                 equalTo: detailScrollView.topAnchor,
@@ -90,7 +92,9 @@ class ExpositionItemDetailViewController: UIViewController {
             detailStackView.widthAnchor.constraint(
                 equalTo: detailScrollView.widthAnchor,
                 constant: ConstraintsNamespace.stackViewFromScrollViewWidth
-            )
+            ),
+            
+            itemImage.heightAnchor.constraint(lessThanOrEqualTo: itemImage.widthAnchor)
         ])
     }
 }
