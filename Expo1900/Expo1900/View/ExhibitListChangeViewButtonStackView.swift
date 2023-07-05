@@ -8,13 +8,13 @@
 import UIKit
 
 final class ExhibitListChangeViewButtonStackView: UIStackView {
-    let leftFlagImageView: UIImageView = {
+    private let leftFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
         return imageView
     }()
     
-    let rightFlagImageView: UIImageView = {
+    private let rightFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
         return imageView
