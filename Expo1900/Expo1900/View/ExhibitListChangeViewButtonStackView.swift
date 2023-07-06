@@ -11,14 +11,16 @@ final class ExhibitListChangeViewButtonStackView: UIStackView {
     private let leftFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        
         return imageView
     }()
     
     private let rightFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        
         return imageView
     }()
     
@@ -27,6 +29,7 @@ final class ExhibitListChangeViewButtonStackView: UIStackView {
         button.setTitle(DataNamespace.buttonTitle, for: .normal)
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        
         return button
     }()
     
@@ -68,7 +71,7 @@ private extension ExhibitListChangeViewButtonStackView {
         leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
         
         NSLayoutConstraint.activate([
-            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
+            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor),
             leftFlagImageView.heightAnchor.constraint(equalTo: exhibitListChangeViewButton.heightAnchor)
         ])
     }
@@ -78,7 +81,7 @@ private extension ExhibitListChangeViewButtonStackView {
         rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
         
         NSLayoutConstraint.activate([
-            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
+            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor),
             rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor)
         ])
     }
