@@ -14,7 +14,8 @@ final class ExpoViewController: UIViewController {
 	@IBOutlet private weak var descriptionLabel: UILabel!
 
     private let expoModel: ExpoModel? = try? Decoder.decodeJSON(dataAssetName: JSONDataNameSpace.expoData)
-    
+	private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,9 +24,17 @@ final class ExpoViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-        
+		
         self.title = ViewControllerTitleNameSpace.expo
 		navigationController?.setNavigationBarHidden(true, animated: false)
+		
+		appDelegate?.restrictRotation = .portrait
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		appDelegate?.restrictRotation = .all
 	}
 
 	private func setUpLabels() {
