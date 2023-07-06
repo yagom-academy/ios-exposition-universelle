@@ -14,8 +14,8 @@ final class EntryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.entryTableView.delegate = self
-        self.entryTableView.dataSource = self
+        entryTableView.delegate = self
+        entryTableView.dataSource = self
         navigationItem.title = "한국의 출품작"
     }
 }
