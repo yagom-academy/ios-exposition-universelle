@@ -15,7 +15,9 @@ final class EntryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setUpTitleAndShortDescriptionLabel()
+        setUpEntryImageView()
+        setUpEntryNameLabel()
+        setUpShortDescriptionLabel()
         
         let entryTextStackView = configureEntryTextStackView(arrangedSubviews: [entryNameLabel, shortDescriptionLabel])
         
@@ -29,16 +31,22 @@ final class EntryTableViewCell: UITableViewCell {
     }
     
     func configureCell(with entry: Entry) {
+        entryImageView.image = UIImage(named: entry.imageName)
         entryNameLabel.text = entry.name
         shortDescriptionLabel.text = entry.shortDescription
-        entryImageView.image = UIImage(named: entry.imageName)
     }
 
-    private func setUpTitleAndShortDescriptionLabel() {
+    private func setUpEntryImageView() {
+        entryImageView.contentMode = .scaleAspectFit
+    }
+    
+    private func setUpEntryNameLabel() {
         entryNameLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         entryNameLabel.adjustsFontForContentSizeCategory = true
         entryNameLabel.numberOfLines = 0
-        
+    }
+    
+    private func setUpShortDescriptionLabel() {
         shortDescriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         shortDescriptionLabel.adjustsFontForContentSizeCategory = true
         shortDescriptionLabel.numberOfLines = 0
@@ -58,7 +66,6 @@ final class EntryTableViewCell: UITableViewCell {
 extension EntryTableViewCell {
     private func setUpEntryImageViewConstraints() {
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
-        entryImageView.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             entryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
