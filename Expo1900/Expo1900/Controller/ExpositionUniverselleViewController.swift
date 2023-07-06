@@ -79,10 +79,11 @@ final class ExpositionUniverselleViewController: UIViewController {
     }()
     
     private lazy var expositionItemListButton: UIButton = {
-        let button: UIButton = UIButton()
+        let button: UIButton = UIButton(type: .custom)
+        let action: UIAction = UIAction(handler: { _ in self.touchUpExpositionItemListButton() })
         button.setTitle("한국의 출품작 보러가기", for: .normal)
         button.setTitleColor(UIColor.blue, for: .normal)
-        button.addTarget(self, action: #selector(touchUpExpositionItemListButton), for: .touchUpInside)
+        button.addAction(action, for: .touchUpInside)
         button.titleLabel?.font = .preferredFont(forTextStyle: .body)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.titleLabel?.numberOfLines = 0
@@ -221,7 +222,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         ])
     }
     
-    @objc private func touchUpExpositionItemListButton() {
+    private func touchUpExpositionItemListButton() {
         let expositionItemListViewController: ExpositionItemListViewController = ExpositionItemListViewController()
         navigationController?.pushViewController(expositionItemListViewController, animated: true)
     }
