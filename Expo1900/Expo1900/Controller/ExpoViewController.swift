@@ -15,6 +15,10 @@ final class ExpoViewController: UIViewController {
     @IBOutlet private weak var expoDurationLabel: UILabel!
     @IBOutlet private weak var expoDescriptionLabel: UILabel!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -40,7 +44,7 @@ final class ExpoViewController: UIViewController {
     
     private func updateExpoView() {
         do {
-            var expoInformation: ExpoInformation = try Decoder.decodeJson(from: AssetsNameSpace.expoInformation)
+            let expoInformation: ExpoInformation = try Decoder.decodeJson(from: AssetsNameSpace.expoInformation)
             expoTitleLabel.text = expoInformation.title.lineAlignment
             expoPosterImageView.image = UIImage(named: AssetsNameSpace.expoPoster)
             expoVisitorsLabel.text = expoInformation.visitors.visitorString

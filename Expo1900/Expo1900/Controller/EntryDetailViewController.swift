@@ -22,6 +22,10 @@ final class EntryDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

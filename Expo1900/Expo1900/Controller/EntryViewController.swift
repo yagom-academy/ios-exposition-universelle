@@ -12,6 +12,10 @@ final class EntryViewController: UIViewController {
     
     @IBOutlet weak var entryTableView: UITableView!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
