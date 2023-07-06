@@ -7,8 +7,12 @@
 
 import UIKit
 
-class ContainerViewController: UINavigationController {
+final class ContainerViewController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return self.topViewController!.supportedInterfaceOrientations
+        guard let supportedInterfaceOrientations = self.topViewController?.supportedInterfaceOrientations else {
+            return self.supportedInterfaceOrientations
+        }
+        
+        return supportedInterfaceOrientations
     }
 }
