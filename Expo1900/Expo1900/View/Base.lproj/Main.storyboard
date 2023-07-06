@@ -220,19 +220,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sj9-op-REO">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDh-6r-q1f">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="361.66666666666669"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDh-6r-q1f" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="414"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="251" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gIX-TG-3kB">
-                                                <rect key="frame" x="8" y="0.0" width="377" height="361.66666666666669"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="251" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gIX-TG-3kB">
+                                                <rect key="frame" x="8" y="0.0" width="377" height="414"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="jxt-Gm-z3U">
-                                                        <rect key="frame" x="0.0" y="0.0" width="377" height="327.33333333333331"/>
+                                                        <rect key="frame" x="51" y="0.0" width="275" height="379.66666666666669"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="690" verticalCompressionResistancePriority="760" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEm-Cj-r4P">
-                                                        <rect key="frame" x="0.0" y="335.33333333333331" width="377" height="26.333333333333314"/>
+                                                        <rect key="frame" x="162.66666666666666" y="387.66666666666669" width="52" height="26.333333333333314"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -242,21 +242,22 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="gIX-TG-3kB" firstAttribute="leading" secondItem="vDh-6r-q1f" secondAttribute="leading" constant="8" id="0Fp-N6-nGC"/>
-                                            <constraint firstAttribute="trailing" secondItem="gIX-TG-3kB" secondAttribute="trailing" constant="8" id="OUo-dT-t7Q"/>
-                                            <constraint firstAttribute="bottom" secondItem="gIX-TG-3kB" secondAttribute="bottom" id="n1Q-Eo-kXm"/>
-                                            <constraint firstItem="gIX-TG-3kB" firstAttribute="top" secondItem="vDh-6r-q1f" secondAttribute="top" id="pB6-VO-Uml"/>
+                                            <constraint firstItem="gIX-TG-3kB" firstAttribute="leading" secondItem="vDh-6r-q1f" secondAttribute="leading" constant="8" id="K5f-bR-I31"/>
+                                            <constraint firstItem="gIX-TG-3kB" firstAttribute="top" secondItem="vDh-6r-q1f" secondAttribute="top" id="MEp-IS-z3y"/>
+                                            <constraint firstAttribute="bottom" secondItem="gIX-TG-3kB" secondAttribute="bottom" id="RkY-q9-hyc"/>
+                                            <constraint firstAttribute="trailing" secondItem="gIX-TG-3kB" secondAttribute="trailing" constant="8" id="gzN-Kv-ycy"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="jxt-Gm-z3U" firstAttribute="height" secondItem="6v6-1H-bEy" secondAttribute="height" multiplier="0.4" id="3s7-bd-h9M"/>
-                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="top" secondItem="D2b-7j-dMO" secondAttribute="top" id="B2V-Vr-9CJ"/>
-                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="width" secondItem="6v6-1H-bEy" secondAttribute="width" id="Ez6-Ly-AFG"/>
-                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="height" secondItem="6v6-1H-bEy" secondAttribute="height" priority="1" constant="1" id="Jvf-zB-l7f"/>
-                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="bottom" secondItem="D2b-7j-dMO" secondAttribute="bottom" id="KZ4-zF-1D8"/>
-                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="leading" secondItem="D2b-7j-dMO" secondAttribute="leading" id="No7-WX-1fe"/>
-                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="trailing" secondItem="D2b-7j-dMO" secondAttribute="trailing" id="UTE-Q7-HGh"/>
+                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="top" secondItem="sj9-op-REO" secondAttribute="top" id="C0G-lo-Px7"/>
+                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="leading" secondItem="sj9-op-REO" secondAttribute="leading" id="N4o-LL-OhA"/>
+                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="width" secondItem="6v6-1H-bEy" secondAttribute="width" id="VN2-88-tFc"/>
+                                    <constraint firstAttribute="trailing" secondItem="vDh-6r-q1f" secondAttribute="trailing" id="WIc-Sb-72n"/>
+                                    <constraint firstItem="jxt-Gm-z3U" firstAttribute="height" relation="lessThanOrEqual" secondItem="6v6-1H-bEy" secondAttribute="height" multiplier="0.5" id="f0B-jW-R7Y"/>
+                                    <constraint firstItem="jxt-Gm-z3U" firstAttribute="width" relation="lessThanOrEqual" secondItem="6v6-1H-bEy" secondAttribute="width" multiplier="0.7" id="g3C-Qs-fJ6"/>
+                                    <constraint firstItem="vDh-6r-q1f" firstAttribute="height" secondItem="6v6-1H-bEy" secondAttribute="height" priority="1" id="s5c-QJ-Dkt"/>
+                                    <constraint firstAttribute="bottom" secondItem="vDh-6r-q1f" secondAttribute="bottom" id="uMb-bm-wZR"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="D2b-7j-dMO"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6v6-1H-bEy"/>
@@ -265,10 +266,10 @@
                         <viewLayoutGuide key="safeArea" id="jxG-JE-AOo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jxG-JE-AOo" firstAttribute="trailing" secondItem="sj9-op-REO" secondAttribute="trailing" id="A6f-Zs-1l3"/>
-                            <constraint firstItem="sj9-op-REO" firstAttribute="top" secondItem="uF6-pG-yJB" secondAttribute="top" id="Lz4-Ae-C83"/>
-                            <constraint firstItem="jxG-JE-AOo" firstAttribute="bottom" secondItem="sj9-op-REO" secondAttribute="bottom" id="uxV-hi-5Kg"/>
-                            <constraint firstItem="sj9-op-REO" firstAttribute="leading" secondItem="uF6-pG-yJB" secondAttribute="leading" id="vZ9-c6-dhb"/>
+                            <constraint firstItem="sj9-op-REO" firstAttribute="bottom" secondItem="jxG-JE-AOo" secondAttribute="bottom" id="NbO-CG-Gc8"/>
+                            <constraint firstItem="jxG-JE-AOo" firstAttribute="trailing" secondItem="sj9-op-REO" secondAttribute="trailing" id="OG5-TR-nNx"/>
+                            <constraint firstItem="jxG-JE-AOo" firstAttribute="top" secondItem="sj9-op-REO" secondAttribute="top" id="eiz-sL-Zq5"/>
+                            <constraint firstItem="sj9-op-REO" firstAttribute="leading" secondItem="jxG-JE-AOo" secondAttribute="leading" id="fh9-B7-8Of"/>
                         </constraints>
                     </view>
                     <connections>
@@ -288,6 +289,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yvd-rR-V1c">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
