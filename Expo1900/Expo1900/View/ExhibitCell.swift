@@ -11,18 +11,23 @@ final class ExhibitCell: UITableViewCell {
     private let exhibitImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         return imageView
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = .preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
     private let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
