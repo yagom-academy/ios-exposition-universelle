@@ -62,6 +62,8 @@ extension KoreaEntryListViewController: UITableViewDelegate {
 		}
 		
 		self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+		
+		tableView.deselectRow(at: indexPath, animated: false)
 	}
 }
 
