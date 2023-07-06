@@ -68,15 +68,15 @@ private extension MainViewController {
     
     func configureVisitorsStackView(at internationalExposition: InternationalExposition) {
         let formattedVisitors = internationalExposition.visitors.formatToDecimal()
-        mainStackView.visitorsStackView.dataLabel.text = ": \(formattedVisitors) 명"
+        mainStackView.visitorsStackView.dataLabel.text = "\(formattedVisitors) 명"
     }
     
     func configureLocationStackView(at internationalExposition: InternationalExposition) {
-        mainStackView.locationStackView.dataLabel.text = ": \(internationalExposition.location)"
+        mainStackView.locationStackView.dataLabel.text = "\(internationalExposition.location)"
     }
     
     func configureDurationStackView(at internationalExposition: InternationalExposition) {
-        mainStackView.durationStackView.dataLabel.text = ": \(internationalExposition.duration)"
+        mainStackView.durationStackView.dataLabel.text = "\(internationalExposition.duration)"
     }
     
     func configureButtonStackView() {
@@ -109,4 +109,3 @@ private extension MainViewController {
         ])
     }
 }
-
