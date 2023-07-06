@@ -11,12 +11,14 @@ final class ExhibitListChangeViewButtonStackView: UIStackView {
     private let leftFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private let rightFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
