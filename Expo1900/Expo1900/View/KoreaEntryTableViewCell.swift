@@ -56,17 +56,16 @@ final class KoreaEntryTableViewCell: UITableViewCell {
         containerStackView.axis = .vertical
         contentView.addSubview(containerStackView)
         
-        NSLayoutConstraint.activate([
-            entryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
-            entryImageView.widthAnchor.constraint(equalTo: entryImageView.heightAnchor),
-            entryImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8),
-            containerStackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8),
-            containerStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            containerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            containerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+        let entryImageWidthRatio = entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2)
+        entryImageWidthRatio.priority = .init(999)
+        entryImageWidthRatio.isActive = true
+        entryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        entryImageView.widthAnchor.constraint(equalTo: entryImageView.heightAnchor).isActive = true
+        entryImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8).isActive = true
+        containerStackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8).isActive = true
+        containerStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        containerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        containerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
-
 }
