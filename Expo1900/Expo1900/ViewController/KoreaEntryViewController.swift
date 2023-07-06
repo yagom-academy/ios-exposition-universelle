@@ -7,17 +7,14 @@
 
 import UIKit
 
+protocol KoreaEntryViewControllerDelegate: AnyObject {
+    func didSelectedKoreaEntryTableView(_ expositionItem: ExpositionItem)
+}
+
 final class KoreaEntryViewController: UIViewController {
-    private let koreaEntryTitle = "한국의 출품작"
-    private var koreaEntryItems: [ExpositionItem]?
-    
-    private lazy var dataSource: KoreaEntryDataSource = {
-        let data = decodingKoreaEntryInformation()
-        let dataSource = KoreaEntryDataSource(koreaEntryList: data)
-        
-        return dataSource
-    }()
-    
+    weak var delegate: KoreaEntryViewControllerDelegate?
+    private var koreaEntryItems: [ExpositionItem]
+    private lazy var dataSource = KoreaEntryDataSource(data: koreaEntryItems)
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -27,13 +24,22 @@ final class KoreaEntryViewController: UIViewController {
         return tableView
     }()
     
+    init(koreaEntryItems: [ExpositionItem]) {
+        self.koreaEntryItems = koreaEntryItems
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroundColor(.systemBackground)
         configureUI()
         setUpTableViewConstraints()
-        setNavigationTitle()
     }
     
     private func configureUI() {
@@ -49,17 +55,6 @@ final class KoreaEntryViewController: UIViewController {
         ])
     }
     
-    private func setNavigationTitle() {
-        navigationItem.title = koreaEntryTitle
-    }
-    
-    private func decodingKoreaEntryInformation() -> [ExpositionItem]? {
-        guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return nil }
-        
-        koreaEntryItems = data
-        return data
-    }
-    
     private func setBackgroundColor(_ color: UIColor) {
         view.backgroundColor = color
     }
@@ -68,14 +63,9 @@ final class KoreaEntryViewController: UIViewController {
 // MARK: - TableView Delegate
 extension KoreaEntryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let entryInformation = koreaEntryItems?[safe: indexPath.row] else { return }
-        let entryDetailViewController = EntryDetailViewController()
+        guard let entryInformation = koreaEntryItems[safe: indexPath.row] else { return }
         
-        entryDetailViewController.setEntryDetailInformation(entryInformation.name,
-                                                             entryInformation.imageName,
-                                                             entryInformation.description)
-        navigationController?.pushViewController(entryDetailViewController, animated: true)
-        navigationItem.backButtonTitle = koreaEntryTitle
+        delegate?.didSelectedKoreaEntryTableView(entryInformation)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

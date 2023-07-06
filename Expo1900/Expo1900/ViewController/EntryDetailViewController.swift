@@ -38,18 +38,24 @@ final class EntryDetailViewController: UIViewController {
         return stackView
     }()
     
+    init(_ expositionItem: ExpositionItem) {
+        super.init(nibName: nil, bundle: nil)
+        
+        contentImageView.image = UIImage(named: expositionItem.imageName)
+        contentLabel.text = expositionItem.description
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroundColor(.systemBackground)
         configureUI()
         setUpConstraints()
-    }
-    
-    func setEntryDetailInformation(_ title: String, _ imageName: String, _ description: String) {
-        navigationItem.title = title
-        contentImageView.image = UIImage(named: imageName)
-        contentLabel.text = description
     }
     
     private func configureUI() {

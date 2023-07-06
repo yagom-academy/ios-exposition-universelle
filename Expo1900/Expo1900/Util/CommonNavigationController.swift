@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CommonNavigationController: UINavigationController {
+final class CommonNavigationController: UINavigationController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         guard let orientation = topViewController?.supportedInterfaceOrientations else {
             return self.supportedInterfaceOrientations

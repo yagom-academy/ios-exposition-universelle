@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CommonLabel: UILabel {
+final class CommonLabel: UILabel {
     
     convenience init() {
         self.init(frame: CGRectZero)
