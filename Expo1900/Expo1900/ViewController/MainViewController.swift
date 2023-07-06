@@ -34,14 +34,12 @@ final class MainViewController: UIViewController, MainViewDelegate {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: true)
-        AppSettings.shared.shouldRotate = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        AppSettings.shared.shouldRotate = true
     }
 
     private func loadMainViewInformation() {
