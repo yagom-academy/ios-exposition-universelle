@@ -58,12 +58,11 @@ private extension ExhibitCell {
     
     func addConstraintsExhibitImageView() {
         exhibitImageView.translatesAutoresizingMaskIntoConstraints = false
-       
         NSLayoutConstraint.activate([
             exhibitImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             exhibitImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            exhibitImageView.widthAnchor.constraint(equalToConstant: 80),
-            exhibitImageView.heightAnchor.constraint(equalToConstant: 80)
+            exhibitImageView.widthAnchor.constraint(equalToConstant: 70),
+            exhibitImageView.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     

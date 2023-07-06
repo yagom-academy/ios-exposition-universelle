@@ -33,7 +33,7 @@ private extension ExhibitDetailViewController {
     func configureInit() {
         self.title = exhibit.name
         view.backgroundColor = .systemBackground
-
+        
         configureDetailView()
     }
     
