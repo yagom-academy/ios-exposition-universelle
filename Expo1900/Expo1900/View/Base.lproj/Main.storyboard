@@ -211,22 +211,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LFn-C0-zBc">
-                                        <rect key="frame" x="20" y="0.0" width="353" height="182"/>
+                                        <rect key="frame" x="20" y="0.0" width="353" height="177.33333333333334"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bHg-T3-Rsa">
-                                                <rect key="frame" x="0.0" y="79" width="353" height="54.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="79" width="353" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="1" constant="1" id="cer-nX-zmk"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="900" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnH-rL-ibm">
-                                                <rect key="frame" x="0.0" y="141.66666666666666" width="353" height="20.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="137" width="353" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="bHg-T3-Rsa" firstAttribute="height" secondItem="LFn-C0-zBc" secondAttribute="height" multiplier="0.1" priority="1" id="bOn-gM-fcB"/>
-                                            <constraint firstItem="bHg-T3-Rsa" firstAttribute="height" relation="lessThanOrEqual" secondItem="LFn-C0-zBc" secondAttribute="height" multiplier="0.3" priority="800" id="dbY-U5-9D4"/>
-                                        </constraints>
                                         <edgeInsets key="layoutMargins" top="20" left="0.0" bottom="20" right="0.0"/>
                                     </stackView>
                                 </subviews>
@@ -234,6 +233,7 @@
                                     <constraint firstItem="LFn-C0-zBc" firstAttribute="trailing" secondItem="EZD-49-Vci" secondAttribute="trailing" constant="20" id="7pV-PA-K1y"/>
                                     <constraint firstItem="LFn-C0-zBc" firstAttribute="bottom" secondItem="EZD-49-Vci" secondAttribute="bottom" id="Djx-tR-vrV"/>
                                     <constraint firstItem="LFn-C0-zBc" firstAttribute="centerX" secondItem="nw4-w2-dN9" secondAttribute="centerX" id="T9t-qJ-NWU"/>
+                                    <constraint firstItem="bHg-T3-Rsa" firstAttribute="height" relation="lessThanOrEqual" secondItem="00A-U0-5qi" secondAttribute="height" multiplier="0.5" id="gOT-JB-4Ax"/>
                                     <constraint firstItem="LFn-C0-zBc" firstAttribute="top" secondItem="EZD-49-Vci" secondAttribute="top" id="yKC-uv-5Ep"/>
                                     <constraint firstItem="LFn-C0-zBc" firstAttribute="leading" secondItem="EZD-49-Vci" secondAttribute="leading" constant="20" id="ySC-lX-era"/>
                                 </constraints>
