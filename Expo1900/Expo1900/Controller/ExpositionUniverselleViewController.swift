@@ -22,7 +22,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private let visitorsLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.font = .preferredFont(forTextStyle: .body)
+        label.numberOfLines = 0
         label.adjustsFontForContentSizeCategory = true
         
         return label
@@ -30,7 +30,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private let locationLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.font = .preferredFont(forTextStyle: .body)
+        label.numberOfLines = 0
         label.adjustsFontForContentSizeCategory = true
         
         return label
@@ -38,7 +38,7 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private let durationLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.font = .preferredFont(forTextStyle: .body)
+        label.numberOfLines = 0
         label.adjustsFontForContentSizeCategory = true
         
         return label
@@ -151,9 +151,9 @@ final class ExpositionUniverselleViewController: UIViewController {
     private func updateLabel() {
         navigationItem.title = "메인"
         titleLabel.text = expositionUniverselle?.titleForLabel
-        visitorsLabel.text = expositionUniverselle?.visitorsForLabel
-        locationLabel.text = expositionUniverselle?.locationForLabel
-        durationLabel.text = expositionUniverselle?.durationForLabel
+        visitorsLabel.attributedText = expositionUniverselle?.visitorsForLabel.addAttributeFont(for: "방문객")
+        locationLabel.attributedText = expositionUniverselle?.locationForLabel.addAttributeFont(for: "개최지")
+        durationLabel.attributedText = expositionUniverselle?.durationForLabel.addAttributeFont(for: "개최기간")
         totalDescriptionLabel.text = expositionUniverselle?.totalDescription
     }
     
