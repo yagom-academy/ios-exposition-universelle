@@ -21,6 +21,6 @@ extension String {
 
 extension Int {
     var visitorString: String {
-        return ExpoInformationNameSpace.visitors + CommaFormatter.formatNumberWithComma(self)
+        return ExpoInformationNameSpace.visitors + CommaFormatter.formatNumberWithComma(self) + ExpoInformationNameSpace.numberOfPeople
     }
 }
