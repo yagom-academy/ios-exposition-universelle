@@ -16,7 +16,6 @@ enum ConstraintsNamespace {
     static let cellSpacingBetweenLabelAndImage: CGFloat = 8
     static let stackViewFromCellWidth = -(imageViewFromCellLeft + cellSpacingBetweenLabelAndImage)
     
-    
     static let imageViewFromCellTop: CGFloat = 10
     static let imageViewFromCellBottom: CGFloat = -10
     static let stackViewFromCellTop: CGFloat = 10

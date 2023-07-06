@@ -97,13 +97,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C286BA72A56505C00FF2F89 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3C286BA82A5650BD00FF2F89 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */,
+				3C286B9A2A52FA2000FF2F89 /* String+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		3CBDC7762A4A71D70089F7A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3CBDC7772A4A71F90089F7A2 /* ExpositionItemEntity.swift */,
 				BAB75C5C2A4A7735005C4F41 /* ExpositionEntity.swift */,
-				BAFD9F422A4AD6BC00DC9186 /* UInt+.swift */,
-				3C286B9A2A52FA2000FF2F89 /* String+.swift */,
 				3CBDC8282A4DD1020089F7A2 /* DecodingManager.swift */,
 				3C286B9C2A53E89E00FF2F89 /* DecodingError.swift */,
 			);
@@ -123,7 +139,6 @@
 		3CBDC7D52A4D0E5F0089F7A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BAFD9F502A4D83A000DC9186 /* Namespace */,
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
 				BAFD9F4E2A4D0A7500DC9186 /* ExpositionItemViewController.swift */,
 				3CBDC8242A4D6D560089F7A2 /* ExpositionItemDetailViewController.swift */,
@@ -177,13 +192,14 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
+				3C286BA72A56505C00FF2F89 /* App */,
+				3C286BA82A5650BD00FF2F89 /* Extension */,
 				3CBDC7762A4A71D70089F7A2 /* Model */,
 				3CBDC7D62A4D0F380089F7A2 /* View */,
 				3CBDC7D52A4D0E5F0089F7A2 /* Controller */,
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+				BAFD9F502A4D83A000DC9186 /* Namespace */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
 			);
 			path = Expo1900;
