@@ -20,6 +20,7 @@ final class ExpositionInfoViewController: UIViewController {
     
     private weak var alertDelegate: AlertProtocol?
     private var decodingExposition: Exposition?
+    private var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,13 @@ final class ExpositionInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        appDelegate?.isRotationControl = false
         updateScroll()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate?.isRotationControl = true
     }
 
     private func updateScroll() {
