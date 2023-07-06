@@ -41,6 +41,8 @@ final class KoreaEntryTableViewCell: UITableViewCell {
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.textColor = .black
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
         
         shortDescLabel.translatesAutoresizingMaskIntoConstraints = false
         shortDescLabel.font = UIFont.preferredFont(forTextStyle: .body)
