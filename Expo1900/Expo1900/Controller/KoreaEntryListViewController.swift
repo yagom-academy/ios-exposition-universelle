@@ -37,7 +37,7 @@ extension KoreaEntryListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let koreaEntryCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.entryListCell,
+		guard let koreaEntryCell = tableView.dequeueReusableCell(withIdentifier: Identifier.entryListCell,
                                                                  for: indexPath) as? KoreaEntryTableViewCell,
               let itemsModel = itemsModel else {
             return UITableViewCell()
@@ -49,18 +49,12 @@ extension KoreaEntryListViewController: UITableViewDataSource {
     }
 }
 
-extension KoreaEntryListViewController {
-	private enum CellIdentifier {
-		static let entryListCell: String = "cell"
-	}
-}
-
 extension KoreaEntryListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		guard let itemsModel = itemsModel else { return }
 		
-		guard let entryDetailViewController = storyboard?.instantiateViewController(identifier: "EntryDetailViewController",
+		guard let entryDetailViewController = storyboard?.instantiateViewController(identifier: Identifier.entryDetailViewController,
 											  creator: { (coder) in
 			return EntryDetailViewController(itemsModel: itemsModel[indexPath.row], coder: coder)
 		}) else {
@@ -68,5 +62,12 @@ extension KoreaEntryListViewController: UITableViewDelegate {
 		}
 		
 		self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+	}
+}
+
+extension KoreaEntryListViewController {
+	private enum Identifier {
+		static let entryListCell: String = "cell"
+		static let entryDetailViewController: String = "EntryDetailViewController"
 	}
 }
