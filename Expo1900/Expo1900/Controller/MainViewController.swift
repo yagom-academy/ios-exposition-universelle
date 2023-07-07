@@ -20,11 +20,13 @@ final class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         appDelegate?.shouldSupportAllOrientation = false
         navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         appDelegate?.shouldSupportAllOrientation = true
         navigationController?.isNavigationBarHidden = false
     }
