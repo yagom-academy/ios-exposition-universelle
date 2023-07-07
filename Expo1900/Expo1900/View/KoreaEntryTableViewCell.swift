@@ -35,6 +35,7 @@ final class KoreaEntryTableViewCell: UITableViewCell {
     
     private func setUpUI() {
         entryImageView.translatesAutoresizingMaskIntoConstraints = false
+        entryImageView.contentMode = .scaleAspectFit
         contentView.addSubview(entryImageView)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -54,20 +55,25 @@ final class KoreaEntryTableViewCell: UITableViewCell {
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
         containerStackView.alignment = .fill
         containerStackView.distribution = .fill
-        containerStackView.spacing = 8
+        containerStackView.spacing = 4
         containerStackView.axis = .vertical
         contentView.addSubview(containerStackView)
         
         let entryImageWidthRatio = entryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2)
         entryImageWidthRatio.priority = .init(999)
         entryImageWidthRatio.isActive = true
-        entryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
-        entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        let entryImageTopAnchor = entryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8)
+        entryImageTopAnchor.priority = .init(750)
+        entryImageTopAnchor.isActive = true
+        entryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
         entryImageView.widthAnchor.constraint(equalTo: entryImageView.heightAnchor).isActive = true
-        entryImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8).isActive = true
+        let entryImageBottomAnchor = entryImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
+        entryImageBottomAnchor.priority = .init(750)
+        entryImageBottomAnchor.isActive = true
+        entryImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         containerStackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 8).isActive = true
-        containerStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        containerStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         containerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        containerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        containerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
     }
 }
