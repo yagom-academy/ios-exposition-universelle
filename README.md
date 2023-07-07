@@ -190,4 +190,3 @@ final class CommonNavigationController: UINavigationController {
     - 팀원을 세밀하게 잘 챙겨 줍니다.
     - 유쾌합니다😆
     
-</\details>
