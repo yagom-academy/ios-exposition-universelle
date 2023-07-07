@@ -13,18 +13,22 @@ final class ExpositionIntroViewController: UIViewController {
     @IBOutlet weak private var durationLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
     @IBOutlet weak private var koreanEntryButton: UIButton!
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        appDelegate.shouldSupportAllOrientation = false
+        if let appDelegate {
+            appDelegate.shouldSupportAllOrientation = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        appDelegate.shouldSupportAllOrientation = true
+        if let appDelegate {
+            appDelegate.shouldSupportAllOrientation = true
+        }
     }
     
     override func viewDidLoad() {
