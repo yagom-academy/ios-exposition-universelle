@@ -132,13 +132,13 @@ final class ExpositionUniverselleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        delegate?.changeOrientation = true
+        delegate?.isOnlyPortrait = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
-        delegate?.changeOrientation = false
+        delegate?.isOnlyPortrait = false
     }
     
     private func decodeExpositionUniverselle() {
