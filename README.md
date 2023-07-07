@@ -435,7 +435,8 @@ label.adjustsFontForContentSizeCategory = true
         }
     }
     ```
-
+    
+<br>
 
 ### 🔟 ExpositionItemEntity
 - `Codable / Decodable / Encodable`

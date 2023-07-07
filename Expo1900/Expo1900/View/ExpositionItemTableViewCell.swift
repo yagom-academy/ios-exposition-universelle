@@ -8,7 +8,7 @@
 import UIKit
 
 class ExpositionItemTableViewCell: UITableViewCell {
-    let image: UIImageView = {
+    let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -26,7 +26,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    let name: UILabel = {
+    let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .title1)
         label.numberOfLines = .zero
@@ -34,7 +34,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
         return label
     }()
     
-    let shortDescription: UILabel = {
+    let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = .zero
@@ -52,30 +52,30 @@ class ExpositionItemTableViewCell: UITableViewCell {
     }
     
     private func configureUI() {
-        contentView.addSubview(image)
+        contentView.addSubview(itemImageView)
         contentView.addSubview(informationStackView)
-        informationStackView.addArrangedSubview(name)
-        informationStackView.addArrangedSubview(shortDescription)
+        informationStackView.addArrangedSubview(nameLabel)
+        informationStackView.addArrangedSubview(shortDescriptionLabel)
         
         NSLayoutConstraint.activate([
-            image.topAnchor.constraint(
+            itemImageView.topAnchor.constraint(
                 greaterThanOrEqualTo: contentView.topAnchor,
                 constant: ConstraintsNamespace.imageViewFromCellTop
             ),
-            image.bottomAnchor.constraint(
+            itemImageView.bottomAnchor.constraint(
                 lessThanOrEqualTo: contentView.bottomAnchor,
                 constant: ConstraintsNamespace.imageViewFromCellBottom
             ),
-            image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            image.leftAnchor.constraint(
+            itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            itemImageView.leftAnchor.constraint(
                 equalTo: contentView.leftAnchor,
                 constant: ConstraintsNamespace.imageViewFromCellLeft
             ),
-            image.widthAnchor.constraint(
+            itemImageView.widthAnchor.constraint(
                 equalTo: contentView.widthAnchor,
                 multiplier: MultiplierNamespace.itemCellImageWidthToCell
             ),
-            image.heightAnchor.constraint(lessThanOrEqualTo: image.widthAnchor),
+            itemImageView.heightAnchor.constraint(lessThanOrEqualTo: itemImageView.widthAnchor),
             
             informationStackView.topAnchor.constraint(
                 greaterThanOrEqualTo: contentView.topAnchor,
@@ -87,7 +87,7 @@ class ExpositionItemTableViewCell: UITableViewCell {
             ),
             informationStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             informationStackView.leftAnchor.constraint(
-                equalTo: image.rightAnchor,
+                equalTo: itemImageView.rightAnchor,
                 constant: ConstraintsNamespace.cellSpacingBetweenLabelAndImage
             ),
             informationStackView.widthAnchor.constraint(
@@ -99,9 +99,9 @@ class ExpositionItemTableViewCell: UITableViewCell {
     }
     
     func inputDataToCell(data: ExpositionItemEntity) {
-        self.image.image = UIImage(named: data.imageName)
-        self.name.text = data.name
-        self.shortDescription.text = data.shortDescription
+        self.itemImageView.image = UIImage(named: data.imageName)
+        self.nameLabel.text = data.name
+        self.shortDescriptionLabel.text = data.shortDescription
         self.accessoryType = .disclosureIndicator
     }
 }
