@@ -22,7 +22,6 @@ final class EntryDetailViewController: UIViewController {
     
     private let contentImageView: UIImageView = {
         let contentImage = UIImageView()
-        contentImage.image = UIImage(named: "poster")
         contentImage.contentMode = .scaleAspectFit
         return contentImage
     }()
@@ -43,7 +42,6 @@ final class EntryDetailViewController: UIViewController {
         
         contentImageView.image = UIImage(named: expositionItem.imageName)
         contentLabel.text = expositionItem.description
-        
     }
     
     required init?(coder: NSCoder) {

@@ -2,7 +2,7 @@
 //  CommonLabel.swift
 //  Expo1900
 //
-//  Created by Hyungmin Lee on 2023/07/04.
+//  Created by Zion, Serena on 2023/07/04.
 //
 
 import UIKit

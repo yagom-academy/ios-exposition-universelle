@@ -2,7 +2,7 @@
 //  AppCoordinator.swift
 //  Expo1900
 //
-//  Created by Hyungmin Lee on 2023/07/06.
+//  Created by Zion, Serena on 2023/07/06.
 //
 
 import UIKit
