@@ -19,6 +19,7 @@ final class AppCoordinator: Coordinator {
         let mainViewController = MainViewController(information)
         
         mainViewController.delegate = self
+        mainViewController.navigationItem.title = "메인"
         navigationController.pushViewController(mainViewController, animated: true)
     }
 }
@@ -28,9 +29,9 @@ extension AppCoordinator: MainViewControllerDelegate {
     func didTappedKoreaEntryButton() {
         guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return }
         let koreaEntryViewController = KoreaEntryViewController(koreaEntryItems: data)
-        let koreaEntryTitle = "한국의 출품작"
         
         koreaEntryViewController.delegate = self
+        koreaEntryViewController.navigationItem.title = "한국의 출품작"
         navigationController.pushViewController(koreaEntryViewController, animated: true)
     }
 }
@@ -40,6 +41,7 @@ extension AppCoordinator: KoreaEntryViewControllerDelegate {
     func didSelectedKoreaEntryTableView(_ expositionItem: ExpositionItem) {
         let entryDetailViewController = EntryDetailViewController(expositionItem)
         
+        entryDetailViewController.navigationItem.title = expositionItem.name
         navigationController.pushViewController(entryDetailViewController, animated: true)
     }
 }
