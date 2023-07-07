@@ -10,6 +10,10 @@ final class ExpositionUniverselleViewController: UIViewController {
     
     private var expositionUniverselle: ExpositionUniverselle?
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var visitorsLabel: UILabel!
     @IBOutlet private weak var locationLabel: UILabel!
@@ -33,10 +37,6 @@ final class ExpositionUniverselleViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
     }
     
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {

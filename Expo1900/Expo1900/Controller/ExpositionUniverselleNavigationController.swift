@@ -8,11 +8,6 @@
 import UIKit
 
 class ExpositionUniverselleNavigationController: UINavigationController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if let supportedInterfaceOrientations = self.topViewController?.supportedInterfaceOrientations {
@@ -20,5 +15,10 @@ class ExpositionUniverselleNavigationController: UINavigationController {
         }
         
         return self.supportedInterfaceOrientations
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
     }
 }
