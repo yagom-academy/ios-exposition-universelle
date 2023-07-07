@@ -8,7 +8,7 @@
 import UIKit
 
 final class EntryDetailViewController: UIViewController {
-    var expoEntry: ExpoEntry
+    private var expoEntry: ExpoEntry
     
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDescription: UILabel!
