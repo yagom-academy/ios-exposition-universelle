@@ -27,7 +27,7 @@ class ExpositionItemDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let itemImage: UIImageView = {
+    private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
@@ -35,7 +35,7 @@ class ExpositionItemDetailViewController: UIViewController {
         return imageView
     }()
     
-    private let itemDescription: UILabel = {
+    private let itemDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
@@ -66,11 +66,11 @@ class ExpositionItemDetailViewController: UIViewController {
         view.addSubview(detailScrollView)
         detailScrollView.addSubview(detailStackView)
         
-        itemImage.image = UIImage(named: expositionItemDetail.imageName)
-        itemDescription.text = expositionItemDetail.description
+        itemImageView.image = UIImage(named: expositionItemDetail.imageName)
+        itemDescriptionLabel.text = expositionItemDetail.description
         
-        detailStackView.addArrangedSubview(itemImage)
-        detailStackView.addArrangedSubview(itemDescription)
+        detailStackView.addArrangedSubview(itemImageView)
+        detailStackView.addArrangedSubview(itemDescriptionLabel)
     }
     
     private func addConstraints() {
@@ -96,7 +96,7 @@ class ExpositionItemDetailViewController: UIViewController {
                 constant: ConstraintsNamespace.stackViewFromScrollViewWidth
             ),
             
-            itemImage.heightAnchor.constraint(lessThanOrEqualTo: itemImage.widthAnchor)
+            itemImageView.heightAnchor.constraint(lessThanOrEqualTo: itemImageView.widthAnchor)
         ])
     }
 }
