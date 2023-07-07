@@ -24,7 +24,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         super.viewDidLoad()
         
         decodeJSONToExpositionUniverselle()
-        configure()
+        configureLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +61,7 @@ final class ExpositionUniverselleViewController: UIViewController {
         }
     }
     
-    private func configure() {
+    private func configureLabel() {
         guard let expositionUniverselle else {
             return
         }
