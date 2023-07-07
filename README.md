@@ -53,11 +53,11 @@
 
 |메인 화면|한국의 출품작 화면|
 |:--:|:--:|
-|<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/106504779/251444354-ce5d98bc-15c2-4fd3-b94c-36ec559c16cb.gif" width="400">|<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/106504779/251444591-1c7af31c-fbf9-4471-8928-c64f480b9e09.gif" width="400">|
-|출품작 상세 화면|Dynamic Type|
-|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/107505eb-23b6-44ef-a376-427f7d995aff.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/cd5daba0-bb45-4e7d-af62-a54099c8826e.gif" width="400">|
-|실행 화면(iPhone SE)|Dynamic Type(iPhone SE)|
-|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/c6306406-e495-4dfb-96a1-1460300ac2de.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/22e370ea-bcd5-4714-97b3-3a6703068d2c.gif" width="400">|
+|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/05e345a6-ec8d-431a-baa9-c9230523ab64.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/60206299-1327-467c-b051-6998dc96e8ea.gif" width="400">|
+|**출품작 상세 화면**|**Dynamic Type**|
+|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/9bd7c395-d728-443b-a9f3-0e87e52b7b85.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/cd5daba0-bb45-4e7d-af62-a54099c8826e.gif" width="400">|
+|**실행 화면(iPhone SE)**|**Dynamic Type(iPhone SE)**|
+|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/cfe44371-c776-4c02-83d7-b2c8cde0fe4c.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/679c83fc-94c0-47fc-96f8-15f840884494.gif" width="400">|
 
 </br>
 
@@ -278,12 +278,17 @@
 
 ## 👥 팀 회고
 ### 칭찬할 부분
-
-
-### 개선해야할 부분
-
+- 서로 시간 약속을 잘 지킨 점
+- 생활 패턴이 비슷한 것을 활용하여 효율적으로 프로젝트를 진행한 점
+- PR를 보내기 전, 다시 한번 요구사항 점검 및 코드 점검을 진행하여 실수를 줄인 점
+- 프로젝트를 진행하면서도 학습활동 예습 시간을 따로 마련해 놓은 점 
 
 ### 서로에게 하고 싶은 말
 - To. Dasan
+    - 제 성격이 좀 느린 편인데 잘 기다려 주시고 놓칠 수 있는 부분까지 꼼꼼히 봐주셔서 감사합니다.🙏
+    - 2주 동안 수고 많으셨습니다!👍
 
 - To. EtialMoon
+    - 문교수님...🥹 프로젝트를 진행하면서 쾌적(?)하다고 느끼게 된 것은 문의 멋진 코딩실력을 포함하여 탁월한 방향 제시가 있었기 때문인 것 같습니다!
+    - 또한 함께 성장하기 위하여 저의 걸음을 맞춰주시고, 제가 질문을 하기 전에 먼저 설명을 해주셨던 부분에서 문의 따뜻한 마음을 느낄 수 있었습니다👍
+    - 2주라는 시간이 정말 아쉽네요... 진심으로 2주동안 감사했습니다 문! 앞으로 자주 찾아뵐게요 교수님🥹
