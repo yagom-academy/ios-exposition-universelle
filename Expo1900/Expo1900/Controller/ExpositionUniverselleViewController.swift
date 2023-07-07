@@ -66,6 +66,8 @@ final class ExpositionUniverselleViewController: UIViewController {
         let imageName: String = "flag"
         let image: UIImage? = UIImage(named: imageName)
         let imageView: UIImageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
         
         return imageView
     }()
@@ -74,6 +76,8 @@ final class ExpositionUniverselleViewController: UIViewController {
         let imageName: String = "flag"
         let image: UIImage? = UIImage(named: imageName)
         let imageView: UIImageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
         
         return imageView
     }()
@@ -81,9 +85,9 @@ final class ExpositionUniverselleViewController: UIViewController {
     private lazy var expositionItemListButton: UIButton = {
         let button: UIButton = UIButton(type: .custom)
         let action: UIAction = UIAction(handler: { _ in self.touchUpExpositionItemListButton() })
-        button.setTitle("한국의 출품작 보러가기", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
         button.addAction(action, for: .touchUpInside)
+        button.setTitle("한국의 출품작 보러가기", for: .normal)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .body)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.titleLabel?.numberOfLines = 0
@@ -182,18 +186,20 @@ final class ExpositionUniverselleViewController: UIViewController {
     }
     
     private func configureConstraint() {
-        configureItemImageConstraint()
+        configureExpositionItemListButtonConstraint()
         configureButtonStackViewConstraint()
         configureExpositionUniverselleScrollViewConstraint()
         configureContentStackViewConstraint()
     }
     
-    private func configureItemImageConstraint() {
+    private func configureExpositionItemListButtonConstraint() {
+        guard let titleLabel = expositionItemListButton.titleLabel else {
+            return
+        }
+        
         NSLayoutConstraint.activate([
-            leftItemImage.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.15),
-            leftItemImage.heightAnchor.constraint(equalTo: leftItemImage.widthAnchor, multiplier: 0.6),
-            rightItemImage.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.15),
-            rightItemImage.heightAnchor.constraint(equalTo: rightItemImage.widthAnchor, multiplier: 0.6),
+            titleLabel.heightAnchor.constraint(equalTo: expositionItemListButton.heightAnchor),
+            expositionItemListButton.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.6)
         ])
     }
     
