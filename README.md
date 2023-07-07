@@ -497,4 +497,4 @@ label.adjustsFontForContentSizeCategory = true
 </br>
 
 ## 👥 팀 회고<a id="팀_회고"></a>
-- [팀 회고 링크](https://github.com/WhalesJin/ios-exposition-universelle/wiki)
+- [팀 회고 링크](https://github.com/WhalesJin/ios-exposition-universelle/wiki/🇰🇷-만국박람회-_-최고래👍🏻🐋)
