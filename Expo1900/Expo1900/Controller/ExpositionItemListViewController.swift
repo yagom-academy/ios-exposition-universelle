@@ -74,15 +74,9 @@ extension ExpositionItemListViewController: UITableViewDelegate, UITableViewData
             return UITableViewCell()
         }
         
-        configureCell(with: cell, item: itemList[indexPath.row])
+        cell.configureCell(with: itemList[indexPath.row])
         
         return cell
-    }
-    
-    private func configureCell(with cell: ExpositionItemCell, item: Item) {
-        cell.titleLabel.text = item.name
-        cell.shortDescriptionLabel.text = item.shortDescription
-        cell.itemImageView.image = UIImage(named: item.imageName)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

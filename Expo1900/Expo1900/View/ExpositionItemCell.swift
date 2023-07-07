@@ -85,4 +85,10 @@ final class ExpositionItemCell: UITableViewCell {
             shortDescriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
         ])
     }
+    
+    func configureCell(with item: Item) {
+        titleLabel.text = item.name
+        shortDescriptionLabel.text = item.shortDescription
+        itemImageView.image = UIImage(named: item.imageName)
+    }
 }
