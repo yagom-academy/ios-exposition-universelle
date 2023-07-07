@@ -53,9 +53,9 @@ private extension ExpositionInformationStackView {
         self.spacing = 10
         
         addArrangedSubviews()
-        addConstraintsSubtitleLabel()
-        addConstraintsDataLabel()
-        addConstraintsColonLabel()
+        addConstraints(for: subtitleLabel)
+        addConstraints(for: dataLabel)
+        addConstraints(for: colonLabel)
     }
     
     func addArrangedSubviews() {
@@ -64,19 +64,8 @@ private extension ExpositionInformationStackView {
         self.addArrangedSubview(dataLabel)
     }
     
-    func addConstraintsSubtitleLabel() {
-        subtitleLabel.setContentHuggingPriority(.required, for: .horizontal)
-        subtitleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+    func addConstraints(for label: UILabel) {
+        label.setContentHuggingPriority(.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
-    
-    func addConstraintsDataLabel() {
-        dataLabel.setContentHuggingPriority(.required, for: .horizontal)
-        dataLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-    }
-    
-    func addConstraintsColonLabel() {
-        colonLabel.setContentHuggingPriority(.required, for: .horizontal)
-        colonLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-    }
-    
 }
