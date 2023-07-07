@@ -63,14 +63,11 @@ final class ExpositionItemCell: UITableViewCell {
         NSLayoutConstraint.activate([
             itemImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            itemImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            itemImageView.widthAnchor.constraint(equalToConstant: 100),
+            itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor),
             itemImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 8),
             itemImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
         ])
-        
-        let itemImageViewHeightConstraint: NSLayoutConstraint = itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor)
-        itemImageViewHeightConstraint.priority = .defaultHigh
-        itemImageViewHeightConstraint.isActive = true
     }
     
     private func configureTitleLabelConstraint() {
