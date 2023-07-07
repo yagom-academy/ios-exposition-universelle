@@ -19,6 +19,5 @@ final class ExpositionUniverselleNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 }
