@@ -13,18 +13,25 @@ final class MainStackView: UIStackView {
         label.font = .preferredFont(forTextStyle: .title1)
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.adjustsFontForContentSizeCategory = true
+        
         return label
     }()
 
     let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.poster)
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        
         return imageView
     }()
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
+        
         return label
     }()
 

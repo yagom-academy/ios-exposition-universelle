@@ -11,18 +11,23 @@ final class ExhibitCell: UITableViewCell {
     private let exhibitImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         return imageView
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = .preferredFont(forTextStyle: .title1)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
     private let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -58,12 +63,11 @@ private extension ExhibitCell {
     
     func addConstraintsExhibitImageView() {
         exhibitImageView.translatesAutoresizingMaskIntoConstraints = false
-       
         NSLayoutConstraint.activate([
             exhibitImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             exhibitImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            exhibitImageView.widthAnchor.constraint(equalToConstant: 80),
-            exhibitImageView.heightAnchor.constraint(equalToConstant: 80)
+            exhibitImageView.widthAnchor.constraint(equalToConstant: 70),
+            exhibitImageView.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     

@@ -33,7 +33,7 @@ private extension ExhibitDetailViewController {
     func configureInit() {
         self.title = exhibit.name
         view.backgroundColor = .systemBackground
-
+        
         configureDetailView()
     }
     
@@ -66,11 +66,14 @@ private extension ExhibitDetailViewController {
     func configureItemImage() {
         itemImage.image = UIImage(named: exhibit.imageName)
         itemImage.translatesAutoresizingMaskIntoConstraints = false
+        itemImage.adjustsImageSizeForAccessibilityContentSizeCategory = true
     }
     
     func configureItemDescription() {
         itemDescription.numberOfLines = 0
+        itemDescription.font = .preferredFont(forTextStyle: .body)
         itemDescription.text = exhibit.description
+        itemDescription.adjustsFontForContentSizeCategory = true
         itemDescription.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -96,4 +99,3 @@ private extension ExhibitDetailViewController {
         ])
     }
 }
-

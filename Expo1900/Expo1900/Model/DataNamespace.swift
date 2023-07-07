@@ -17,6 +17,7 @@ enum DataNamespace {
     static let expositionUniverselle = "exposition_universelle_1900"
     static let items = "items"
     static let cellIdentifier = "ExhibitCell"
+    static let colon = ":"
     static let empty = ""
 }
 

@@ -11,12 +11,16 @@ final class ExhibitListChangeViewButtonStackView: UIStackView {
     private let leftFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
+        imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
     
     private let rightFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: DataNamespace.flag)
+        imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
     
@@ -25,6 +29,11 @@ final class ExhibitListChangeViewButtonStackView: UIStackView {
         button.setTitle(DataNamespace.buttonTitle, for: .normal)
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        
         return button
     }()
     
@@ -42,7 +51,6 @@ final class ExhibitListChangeViewButtonStackView: UIStackView {
 private extension ExhibitListChangeViewButtonStackView {
     func configureInit() {
         self.axis = .horizontal
-        self.spacing = 30
         
         addArrangedSubviews()
         addConstraintsChangeViewButton()
@@ -59,24 +67,30 @@ private extension ExhibitListChangeViewButtonStackView {
     func addConstraintsChangeViewButton() {
         exhibitListChangeViewButton.setContentCompressionResistancePriority(.init(999), for: .horizontal)
         exhibitListChangeViewButton.setContentCompressionResistancePriority(.init(999), for: .vertical)
+
+        exhibitListChangeViewButton.titleLabel?.heightAnchor.constraint(equalTo: exhibitListChangeViewButton.heightAnchor).isActive = true
+        
+        NSLayoutConstraint.activate([
+            exhibitListChangeViewButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6)
+        ])
     }
-    
+
     func addConstraintsLeftFlagImageView() {
         leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
         leftFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
-        
+
         NSLayoutConstraint.activate([
-            leftFlagImageView.heightAnchor.constraint(equalTo: leftFlagImageView.widthAnchor, multiplier: 0.65),
             leftFlagImageView.heightAnchor.constraint(equalTo: exhibitListChangeViewButton.heightAnchor)
         ])
+
     }
-    
+
     func addConstraintsRightFlagImageView() {
         rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .horizontal)
         rightFlagImageView.setContentCompressionResistancePriority(.init(1), for: .vertical)
-        
+
         NSLayoutConstraint.activate([
-            rightFlagImageView.heightAnchor.constraint(equalTo: rightFlagImageView.widthAnchor, multiplier: 0.65),
+            rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor),
             rightFlagImageView.widthAnchor.constraint(equalTo: leftFlagImageView.widthAnchor)
         ])
     }

@@ -1,8 +1,8 @@
 //
 //  Expo1900 - SceneDelegate.swift
-//  Created by yagom. 
+//  Created by yagom.
 //  Copyright © yagom academy. All rights reserved.
-// 
+//
 
 import UIKit
 
@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainViewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)
     
-       window?.rootViewController = navigationController 
+       window?.rootViewController = navigationController
        window?.makeKeyAndVisible()
     }
 
