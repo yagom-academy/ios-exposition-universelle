@@ -1,5 +1,5 @@
 //
-//  Expo1900 - ViewController.swift
+//  Expo1900 - ExpositionUniverselleViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom academy. All rights reserved.
 // 
@@ -8,7 +8,7 @@ import UIKit
 
 final class ExpositionUniverselleViewController: UIViewController {
     private var expositionUniverselle: ExpositionUniverselle?
-    private let delegate = UIApplication.shared.delegate as? AppDelegate
+    private let delegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     
     private let titleLabel: UILabel = {
         let label: UILabel = UILabel()
