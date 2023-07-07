@@ -1,7 +1,7 @@
 # 🇫🇷🇰🇷 만국박람회
 
 ## 🍀 소개
-`Dasan`과 `EtialMoon`이 만든 만국박람회 앱입니다. 이 앱은 1990 만국박람회에 출품된 한국의 출품작들을 볼 수 있습니다.
+`Dasan`과 `EtialMoon`이 만든 만국박람회입니다. `파리 만국박람회 1900`에 대한 소개와 한국 출품작들을 볼 수 있습니다.
 
 <br>
 
@@ -9,8 +9,10 @@
 1. [팀원](#-팀원)
 2. [타임라인](#-타임라인)
 3. [시각화된 프로젝트 구조](#-시각화된-프로젝트-구조)
-4. [트러블 슈팅](#-트러블-슈팅)
-5. [참고 링크](#-참고-링크)
+4. [실행 화면](#-실행-화면)
+5. [트러블 슈팅](#-트러블-슈팅)
+6. [참고 링크](#-참고-링크)
+7. [팀 회고](#-팀-회고)
 
 <br>
 
@@ -30,6 +32,11 @@
 |2023.06.28.(수)| - 레이블 내 문자열 수정 및 하위 항목 레이블 추가<br> -`EntryTableViewCell`에 `accessory` 추가 <br> - 스토리보드에 출품작 상세화면 추가 <br> - `EntryDetailViewController` 추가 및 `화면전환` 구현 | 
 |2023.06.29.(목)| - 전체적인 리펙토링 진행 |
 |2023.06.30.(금)| - README 작성 <br> - 피드백 요청사항 반영 및 전체적인 리펙토링 진행 |
+|2023.07.03.(월)| - 각 뷰에서 중복되는 에러 처리를 `extension`으로 분리|
+|2023.07.04.(화)| - 각 뷰에 `Dynamic Type` 및 `오토레이아웃` 적용|
+|2023.07.05.(수)| - `불필요한 코드` 제거 및 전체적인 `오토레이아웃` 점검| 
+|2023.07.06.(목)| - `에러`와 관련된 리펙토링 진행|
+|2023.07.07.(금)| - README 작성 <br> - 피드백 요청사항 반영 및 전체적인 리펙토링 진행 |
 
 <br>
 
@@ -37,8 +44,20 @@
 
 ### Class Diagram
 <p>
-<img width="800" src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/e17c106a-a026-496a-9494-1340c9bb96e0">
+<img width="800" src="https://github-production-user-asset-6210df.s3.amazonaws.com/106504779/251443920-d64269b9-81fc-4e29-8e3d-1e68762b6bd8.png">
 </p>
+
+<br>
+
+## 💻 실행 화면 
+
+|메인 화면|한국의 출품작 화면|
+|:--:|:--:|
+|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/05e345a6-ec8d-431a-baa9-c9230523ab64.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/60206299-1327-467c-b051-6998dc96e8ea.gif" width="400">|
+|**출품작 상세 화면**|**Dynamic Type**|
+|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/9bd7c395-d728-443b-a9f3-0e87e52b7b85.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/cd5daba0-bb45-4e7d-af62-a54099c8826e.gif" width="400">|
+|**실행 화면(iPhone SE)**|**Dynamic Type(iPhone SE)**|
+|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/cfe44371-c776-4c02-83d7-b2c8cde0fe4c.gif" width="400">|<img src="https://github.com/DasanKim/ios-exposition-universelle/assets/106504779/679c83fc-94c0-47fc-96f8-15f840884494.gif" width="400">|
 
 </br>
 
@@ -196,16 +215,80 @@
         }
     }
     ```
+
+
 <br>
+
+### 6️⃣ 화면 전환 고정
+
+⚠️ **문제점** <br>
+- 처음엔 `AppDelegate` 내의 `application(_ :supportedInterfaceOrientationsFor:)`에 아래와 같이 코드를 작성하였더니 `모든 화면`이 `portrait`로 고정되었습니다.
+- `application(_ :supportedInterfaceOrientationsFor:)` 메서드 내에 로직을 추가하여 `첫번째 화면`만 고정되도록 할 수 있었지만, 화면 방향과 관련된 로직을 추가하는 것은 **코드가 복잡**해지고 **유지 보수가 어려워질 수 있다**고 판단하여 다른 방법을 모색하였습니다.
+- Before
+    ```swift
+    // AppDelegate.swift
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    ```
+
+✅ **해결방법** <br>
+- `UIViewController`가 지원하는 인터페이스 방향 프로퍼티인 [supportedInterfaceOrientations](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621435-supportedinterfaceorientations)을 사용하였습니다. 이 프로퍼티를 `재정의`하면 **View Controller가 지원하는 방향을 선언**할 수 있는데, 기기 방향이 변경되면 `the root view controller` 또는 `the topmost modal view controller`에서 이 메서드를 호출합니다.
+- 이에 `root view`인 `Expo1900NavigationController`에서 `supportedInterfaceOrientations`을 `topViewController`의 방향으로 선언하도록 재정의를 한 뒤,
+- 방향을 고정하고자 하였던 `MainViewController`에서 `supportedInterfaceOrientations`가 `세로 방향(portrait)`만 반환하도록 재정의해주었습니다.
+
+- After
+    ```swift
+    // Expo1900NavigationController.swift
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        guard let supportedInterfaceOrientations = self.topViewController?.supportedInterfaceOrientations else {
+            return self.supportedInterfaceOrientations
+        }
+
+        return supportedInterfaceOrientations
+    }
+    
+    ```
+    ```swift
+    // MainViewController.swift
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    ```
+
+<br>
+
 
 ## 📚 참고 링크
 
-- [🍎Apple Docs: JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder)
-- [🍎Apple Docs: Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types)
-- [🍎Apple Docs: scrollEdgeAppearance](https://developer.apple.com/documentation/uikit/uinavigationbar/3198027-scrolledgeappearance)
-- [🍎Apple Docs: backBarButtonItem](https://developer.apple.com/documentation/uikit/uinavigationitem/1624958-backbarbuttonitem)
-- [🍎Apple Docs: init(coder:)](https://developer.apple.com/documentation/foundation/nscoding/1416145-init)
-- [🌐Blog: init(coder:)](https://babbab2.tistory.com/171)
-- [🌐boostcourse: JSON 다루기](https://www.boostcourse.org/mo326/lecture/20146)
+- [🍎 Apple Docs: JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder)
+- [🍎 Apple Docs: Using JSON with Custom Types](https://developer.apple.com/documentation/foundation/archives_and_serialization/using_json_with_custom_types)
+- [🍎 Apple Docs: scrollEdgeAppearance](https://developer.apple.com/documentation/uikit/uinavigationbar/3198027-scrolledgeappearance)
+- [🍎 Apple Docs: backBarButtonItem](https://developer.apple.com/documentation/uikit/uinavigationitem/1624958-backbarbuttonitem)
+- [🍎 Apple Docs: init(coder:)](https://developer.apple.com/documentation/foundation/nscoding/1416145-init)
+- [🍎 Apple Docs: supportedInterfaceOrientations](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621435-supportedinterfaceorientations)
+- [🍎 Apple Docs: shouldAutorotate](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621419-shouldautorotate)
+- [🌐 Blog: iOS 디바이스 회전 처리에 대한 정리](https://jongwonwoo.medium.com/ios-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4-%ED%9A%8C%EC%A0%84-%EC%B2%98%EB%A6%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%95%EB%A6%AC-340f37204a27)
+- [🌐 Blog: iOS Device 방향 처리](https://velog.io/@wonhee010/%ED%8A%B9%EC%A0%95-ViewController%EC%97%90%EC%84%9C-%ED%99%94%EB%A9%B4-%ED%9A%8C%EC%A0%84-%EC%B2%98%EB%A6%AC)
+- [🌐 Blog: init(coder:)](https://babbab2.tistory.com/171)
+- [🌐 boostcourse: JSON 다루기](https://www.boostcourse.org/mo326/lecture/20146)
+
 
 <br>
+
+## 👥 팀 회고
+### 칭찬할 부분
+- 서로 시간 약속을 잘 지킨 점
+- 생활 패턴이 비슷한 것을 활용하여 효율적으로 프로젝트를 진행한 점
+- PR를 보내기 전, 다시 한번 요구사항 점검 및 코드 점검을 진행하여 실수를 줄인 점
+- 프로젝트를 진행하면서도 학습활동 예습 시간을 따로 마련해 놓은 점 
+
+### 서로에게 하고 싶은 말
+- To. Dasan
+    - 제 성격이 좀 느린 편인데 잘 기다려 주시고 놓칠 수 있는 부분까지 꼼꼼히 봐주셔서 감사합니다.🙏
+    - 2주 동안 수고 많으셨습니다!👍
+
+- To. EtialMoon
+    - 문교수님...🥹 프로젝트를 진행하면서 쾌적(?)하다고 느끼게 된 것은 문의 멋진 코딩실력을 포함하여 탁월한 방향 제시가 있었기 때문인 것 같습니다!
+    - 또한 함께 성장하기 위하여 저의 걸음을 맞춰주시고, 제가 질문을 하기 전에 먼저 설명을 해주셨던 부분에서 문의 따뜻한 마음을 느낄 수 있었습니다👍
+    - 2주라는 시간이 정말 아쉽네요... 진심으로 2주동안 감사했습니다 문! 앞으로 자주 찾아뵐게요 교수님🥹

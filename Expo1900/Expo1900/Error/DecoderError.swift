@@ -5,12 +5,14 @@
 //  Created by Dasan & Moon on 2023/06/28.
 //
 
-enum DecoderError: Error {
+import Foundation
+
+enum DecoderError: LocalizedError {
     case notFoundAsset
     case decodeFailed
     case unexpectedError
     
-    var description: String {
+    var errorDescription: String? {
         switch self {
         case .notFoundAsset:
             return "에셋을 찾을 수 없습니다."
