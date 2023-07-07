@@ -71,8 +71,7 @@
 <a id="3."></a>
 
 ## 3.📊 다이어그램
-![image](https://github.com/karenyang835/ios-exposition-universelle/assets/124643896/98e5a19b-075f-4f4c-9cc9-9c2b9c1fd2f7)
-
+![image](https://github.com/karenyang835/ios-exposition-universelle/assets/124643896/224781cb-cf5e-41e9-bf9e-407f33b944ed)
 
 ---
 
