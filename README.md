@@ -44,6 +44,10 @@
 </br>
 
 ## 👀 시각화된 프로젝트 구조<a id="시각화된_프로젝트_구조"></a>
+
+### 🎨 화면구성안
+<img src="https://hackmd.io/_uploads/SyzEeVBK2.jpg" width="500">
+
 ### ℹ️ File Tree
     ┌── Expo1900
     │   ├── Expo1900
@@ -487,7 +491,7 @@ label.adjustsFontForContentSizeCategory = true
 #### 🔀 Dynamic Type
 - [🍎Apple Docs: adjustsFontForContentSizeCategory](https://developer.apple.com/documentation/uikit/uicontentsizecategoryadjusting/1771731-adjustsfontforcontentsizecategor)
 - [🍎Apple Docs: adjustsImageSizeForAccessibilityContentSizeCategory](https://developer.apple.com/documentation/uikit/uiaccessibilitycontentsizecategoryimageadjusting/2890929-adjustsimagesizeforaccessibility)
-
+- [🍎Apple Docs: BackButtonDisplayMode](https://developer.apple.com/documentation/uikit/uinavigationitem/backbuttondisplaymode)
 
 
 </br>
