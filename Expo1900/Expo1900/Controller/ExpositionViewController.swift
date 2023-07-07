@@ -136,16 +136,16 @@ extension ExpositionViewController {
                 equalTo: mainScrollView.bottomAnchor,
                 constant: ConstraintsNamespace.stackViewFromScrollViewBottom
             ),
-            mainStackView.centerXAnchor.constraint(
-                equalTo: mainScrollView.centerXAnchor
-            ),
+            mainStackView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
             mainStackView.widthAnchor.constraint(
                 equalTo: mainScrollView.widthAnchor,
                 constant: ConstraintsNamespace.stackViewFromScrollViewWidth
             ),
             
-            buttonStackView.centerXAnchor.constraint(
-                equalTo: mainStackView.centerXAnchor
+            buttonStackView.centerXAnchor.constraint(equalTo: mainStackView.centerXAnchor),
+            buttonStackView.widthAnchor.constraint(
+                equalTo: mainStackView.widthAnchor,
+                multiplier: MultiplierNamespace.buttonStackViewWidthToMainStackView
             )
         ])
     }

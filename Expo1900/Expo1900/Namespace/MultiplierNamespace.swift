@@ -8,4 +8,6 @@
 enum MultiplierNamespace {
     static let flagImageHeightToWidth = 0.65
     static let itemCellImageWidthToCell = 0.2
+    static let buttonStackViewWidthToMainStackView = 0.9
+    static let buttonWidthToButtonStackView = 0.6
 }

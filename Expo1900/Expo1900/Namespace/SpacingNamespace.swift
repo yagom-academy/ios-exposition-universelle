@@ -11,5 +11,4 @@ enum SpacingNamespace {
     static let mainStackView: CGFloat = 10
     static let expositionInformationStackView: CGFloat = 10
     static let detailStackView: CGFloat = 10
-    static let changeViewButton: CGFloat = 30
 }
