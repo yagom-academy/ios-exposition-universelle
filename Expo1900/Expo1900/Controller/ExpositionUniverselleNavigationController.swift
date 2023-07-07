@@ -15,10 +15,10 @@ class ExpositionUniverselleNavigationController: UINavigationController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if self.topViewController is ExpositionUniverselleViewController {
-            return .portrait
+        if let supportedInterfaceOrientations = self.topViewController?.supportedInterfaceOrientations {
+            return supportedInterfaceOrientations
         }
         
-        return .all
+        return self.supportedInterfaceOrientations
     }
 }

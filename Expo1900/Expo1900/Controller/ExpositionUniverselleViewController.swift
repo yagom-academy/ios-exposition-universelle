@@ -35,6 +35,10 @@ final class ExpositionUniverselleViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     @IBAction private func tapShowItemsButton(_ sender: UIButton) {
         guard let nextViewController = storyboard?.instantiateViewController(
             identifier: ItemsTableViewController.id,
