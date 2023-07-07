@@ -33,6 +33,5 @@ final class EntryDetailViewController: UIViewController {
 		super.viewWillAppear(animated)
         
 		self.title = itemsModel.name
-		navigationController?.setNavigationBarHidden(false, animated: false)
 	}
 }

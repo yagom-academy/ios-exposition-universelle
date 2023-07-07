@@ -27,13 +27,13 @@ final class ExpoViewController: UIViewController {
 		
         self.title = ViewControllerTitleNameSpace.expo
 		navigationController?.setNavigationBarHidden(true, animated: false)
-		
 		appDelegate?.restrictRotation = .portrait
 	}
 	
-	override func viewDidDisappear(_ animated: Bool) {
-		super.viewDidDisappear(animated)
-		
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
 		appDelegate?.restrictRotation = .all
 	}
 

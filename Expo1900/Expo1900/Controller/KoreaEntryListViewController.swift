@@ -23,7 +23,6 @@ final class KoreaEntryListViewController: UIViewController {
 		super.viewWillAppear(animated)
         
 		self.title = ViewControllerTitleNameSpace.koreaEntryList
-		navigationController?.setNavigationBarHidden(false, animated: false)
 	}
 }
 
