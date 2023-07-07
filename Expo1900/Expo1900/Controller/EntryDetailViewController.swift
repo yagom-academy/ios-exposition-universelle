@@ -13,6 +13,10 @@ final class EntryDetailViewController: UIViewController {
     @IBOutlet private weak var entryImageView: UIImageView!
     @IBOutlet private weak var entryDescription: UILabel!
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+    
     init?(expoEntry: ExpoEntry, coder: NSCoder) {
         self.expoEntry = expoEntry
         super.init(coder: coder)
@@ -20,10 +24,6 @@ final class EntryDetailViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
     }
     
     override func viewWillAppear(_ animated: Bool) {
