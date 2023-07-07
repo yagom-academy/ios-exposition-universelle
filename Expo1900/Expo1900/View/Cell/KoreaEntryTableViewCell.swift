@@ -82,7 +82,9 @@ extension KoreaEntryTableViewCell {
     private func setUpTitleLabelConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 15),
+            titleLabel.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            titleLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.2)
         ])
     }
     
