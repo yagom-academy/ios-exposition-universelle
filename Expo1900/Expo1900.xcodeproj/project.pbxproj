@@ -13,6 +13,7 @@
 		1FA5E4742A4C538200185366 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5E4732A4C538200185366 /* EntryDetailViewController.swift */; };
 		1FA5E4772A4C551F00185366 /* EntryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5E4752A4C551F00185366 /* EntryListCell.swift */; };
 		1FA5E4782A4C551F00185366 /* EntryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FA5E4762A4C551F00185366 /* EntryListCell.xib */; };
+		1FB418442A553C2C00516949 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB418432A553C2C00516949 /* String+.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpositionIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpositionIntroViewController.swift */; };
@@ -32,6 +33,7 @@
 		1FA5E4732A4C538200185366 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		1FA5E4752A4C551F00185366 /* EntryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListCell.swift; sourceTree = "<group>"; };
 		1FA5E4762A4C551F00185366 /* EntryListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntryListCell.xib; sourceTree = "<group>"; };
+		1FB418432A553C2C00516949 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				D0A2FA2D2A5272D2007CF77E /* Int+.swift */,
+				1FB418432A553C2C00516949 /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				D0A2F9E12A493120007CF77E /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				1FA5E4722A4C533000185366 /* KoreanEntryListViewController.swift in Sources */,
+				1FB418442A553C2C00516949 /* String+.swift in Sources */,
 				D0A2FA2E2A5272D2007CF77E /* Int+.swift in Sources */,
 				1FA5E4742A4C538200185366 /* EntryDetailViewController.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
@@ -392,6 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3Y9T7FAS4K;
 				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,6 +415,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3Y9T7FAS4K;
 				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

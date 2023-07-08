@@ -15,8 +15,12 @@ final class KoreanEntryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerXib()
+        self.configureNavigation()
         self.entryTableView.delegate = self
-        self.entryTableView.dataSource = self
+        self.entryTableView.dataSource = self        
+    }
+    
+    private func configureNavigation() {
         self.navigationItem.title = "한국의 출품작"
     }
     
@@ -34,8 +38,10 @@ extension KoreanEntryListViewController: UITableViewDelegate {
             identifier: EntryDetailViewController.identifier,
             creator: { EntryDetailViewController(entry: entry, coder: $0)}
         ) else { return }
-
+        
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+        
+        entryTableView.deselectRow(at: indexPath, animated: false)
     }
 }
 
@@ -50,6 +56,9 @@ extension KoreanEntryListViewController: UITableViewDataSource {
         }
         
         cell.configureCell(entry: self.entryList[indexPath.row])
+        cell.configureLabelFont()
+        cell.configureDynamicType()
+        cell.configureAccessibilityLable()
         
         return cell
     }

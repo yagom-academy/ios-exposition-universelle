@@ -26,6 +26,9 @@ final class EntryDetailViewController: UIViewController {
         super.viewDidLoad()
         self.configureNavigation()
         self.configureComponents()
+        self.configureLabelFont()
+        self.configureDynamicType()
+        self.configureAccessibility()
     }
     
     private func configureNavigation() {
@@ -35,5 +38,17 @@ final class EntryDetailViewController: UIViewController {
     private func configureComponents() {
         self.entryImageView.image = UIImage(named: entry.imageName)
         self.entryDescriptionLabel.text = entry.longDescription
+    }
+    
+    private func configureLabelFont() {
+        self.entryDescriptionLabel.font = .preferredFont(forTextStyle: .body)
+    }
+    
+    private func configureDynamicType() {
+        self.entryDescriptionLabel.adjustsFontForContentSizeCategory = true
+    }
+    
+    private func configureAccessibility() {
+        self.entryImageView.accessibilityLabel = entry.name
     }
 }

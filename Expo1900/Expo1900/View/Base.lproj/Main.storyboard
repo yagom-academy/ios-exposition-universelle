@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="InJ-NH-jiF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="InJ-NH-jiF">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,74 +21,59 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0me-it-Lgt" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="451"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="506.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-Bh-EtT">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="451"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="506.33333333333331"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파리 만국박람회 1900(L'Exposition de Paris 1900)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wmf-pQ-yOV">
-                                                        <rect key="frame" x="24" y="0.0" width="345" height="57.666666666666664"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파리 만국박람회 1900(L'Exposition de Paris 1900)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wmf-pQ-yOV">
+                                                        <rect key="frame" x="37.333333333333343" y="0.0" width="318.66666666666663" height="122.66666666666667"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="gbe-sM-xyU">
-                                                        <rect key="frame" x="124.66666666666669" y="67.666666666666657" width="144" height="199.99999999999997"/>
+                                                        <rect key="frame" x="124.66666666666669" y="132.66666666666666" width="144" height="199.99999999999997"/>
+                                                        <accessibility key="accessibilityConfiguration" label="파리 도심 속의 문화재들">
+                                                            <bool key="isElement" value="YES"/>
+                                                        </accessibility>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="144" id="kXg-3P-zyB"/>
                                                             <constraint firstAttribute="height" constant="200" id="m5N-mf-OCV"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HR-rw-sHc">
-                                                        <rect key="frame" x="191.66666666666666" y="277.66666666666669" width="9.6666666666666572" height="20.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HR-rw-sHc">
+                                                        <rect key="frame" x="191.66666666666666" y="342.66666666666669" width="9.6666666666666572" height="20.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IM-8s-dg7">
-                                                        <rect key="frame" x="191.66666666666666" y="308" width="9.6666666666666572" height="20.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IM-8s-dg7">
+                                                        <rect key="frame" x="191.66666666666666" y="373" width="9.6666666666666572" height="20.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1m-3i-CeL">
-                                                        <rect key="frame" x="191.66666666666666" y="338.33333333333331" width="9.6666666666666572" height="20.333333333333314"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1m-3i-CeL">
+                                                        <rect key="frame" x="191.66666666666666" y="403.33333333333331" width="9.6666666666666572" height="20.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0a5-jT-LlE">
-                                                        <rect key="frame" x="191.66666666666666" y="368.66666666666669" width="9.6666666666666572" height="20.333333333333314"/>
+                                                        <rect key="frame" x="191.66666666666666" y="433.66666666666663" width="9.6666666666666572" height="20.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xib-M1-BUH">
-                                                        <rect key="frame" x="62.666666666666657" y="399" width="268" height="44"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="TqK-pP-98C">
-                                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="V0Z-WE-l6f"/>
-                                                                    <constraint firstAttribute="width" constant="44" id="bRZ-EH-Kuo"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVi-Tz-mPR">
-                                                                <rect key="frame" x="44" y="0.0" width="180" height="44"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
-                                                                <connections>
-                                                                    <action selector="tabKoreanEntryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5v1-Gj-Xw1"/>
-                                                                </connections>
-                                                            </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="dNP-on-IAX">
-                                                                <rect key="frame" x="224.00000000000003" y="0.0" width="43.999999999999972" height="44"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="44" id="FzB-eB-UPZ"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
-                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVi-Tz-mPR">
+                                                        <rect key="frame" x="106.66666666666669" y="464" width="180" height="34.333333333333314"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기" titleAlignment="center"/>
+                                                        <connections>
+                                                            <action selector="tabKoreanEntryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5v1-Gj-Xw1"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="0.0" left="24" bottom="8" right="24"/>
                                             </stackView>
@@ -101,11 +86,29 @@
                                             <constraint firstItem="jBs-Bh-EtT" firstAttribute="leading" secondItem="0me-it-Lgt" secondAttribute="leading" id="tAT-XR-2Dh"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="dNP-on-IAX">
+                                        <rect key="frame" x="62.666666666666657" y="459.33333333333337" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dNP-on-IAX" secondAttribute="height" multiplier="1:1" id="cTC-M7-X7h"/>
+                                            <constraint firstAttribute="height" constant="44" id="ddp-9l-hGs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="TqK-pP-98C">
+                                        <rect key="frame" x="286.66666666666669" y="459.33333333333337" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="GgS-Kp-I7N"/>
+                                            <constraint firstAttribute="width" secondItem="TqK-pP-98C" secondAttribute="height" multiplier="1:1" id="Kpu-Hw-2lN"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="TqK-pP-98C" firstAttribute="centerY" secondItem="qVi-Tz-mPR" secondAttribute="centerY" id="1As-u4-nlR"/>
                                     <constraint firstItem="0me-it-Lgt" firstAttribute="leading" secondItem="E7p-f6-vir" secondAttribute="leading" id="1OA-c3-aw7"/>
                                     <constraint firstItem="0me-it-Lgt" firstAttribute="top" secondItem="E7p-f6-vir" secondAttribute="top" id="9Vc-Xf-DxI"/>
                                     <constraint firstItem="0me-it-Lgt" firstAttribute="trailing" secondItem="E7p-f6-vir" secondAttribute="trailing" id="gpQ-dr-nJQ"/>
+                                    <constraint firstItem="TqK-pP-98C" firstAttribute="leading" secondItem="qVi-Tz-mPR" secondAttribute="trailing" id="i5l-Vu-39Q"/>
+                                    <constraint firstItem="dNP-on-IAX" firstAttribute="centerY" secondItem="qVi-Tz-mPR" secondAttribute="centerY" id="iNI-S5-Q8H"/>
+                                    <constraint firstItem="qVi-Tz-mPR" firstAttribute="leading" secondItem="dNP-on-IAX" secondAttribute="trailing" id="lYp-GD-NId"/>
                                     <constraint firstItem="0me-it-Lgt" firstAttribute="width" secondItem="mHV-eE-y4a" secondAttribute="width" id="tUC-A1-O1q"/>
                                     <constraint firstItem="0me-it-Lgt" firstAttribute="bottom" secondItem="E7p-f6-vir" secondAttribute="bottom" id="tnf-hZ-cev"/>
                                 </constraints>
@@ -118,6 +121,8 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bOo-2I-9U6" secondAttribute="trailing" id="B3Z-l5-H5Y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bOo-2I-9U6" secondAttribute="bottom" id="E0L-Gq-zFl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TqK-pP-98C" secondAttribute="trailing" constant="15" id="Kar-TZ-zu5"/>
+                            <constraint firstItem="dNP-on-IAX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="izF-pU-9xx"/>
                             <constraint firstItem="bOo-2I-9U6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ngG-eY-xBL"/>
                             <constraint firstItem="bOo-2I-9U6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qVc-DL-kB4"/>
                         </constraints>
@@ -127,6 +132,7 @@
                         <outlet property="descriptionLabel" destination="0a5-jT-LlE" id="fEB-tk-wwG"/>
                         <outlet property="durationLabel" destination="L1m-3i-CeL" id="jXT-96-363"/>
                         <outlet property="expositionTitleLabel" destination="wmf-pQ-yOV" id="Rmk-YW-jlO"/>
+                        <outlet property="koreanEntryButton" destination="qVi-Tz-mPR" id="VRL-28-gJa"/>
                         <outlet property="locationLabel" destination="3IM-8s-dg7" id="GJe-uM-ARp"/>
                         <outlet property="visitorsLabel" destination="2HR-rw-sHc" id="sxa-su-2zf"/>
                     </connections>
@@ -181,6 +187,9 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cP2-aP-epY">
                                                 <rect key="frame" x="96.666666666666686" y="30" width="200" height="200"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="02A-Am-Elu"/>
                                                     <constraint firstAttribute="width" constant="200" id="xhE-rI-Lmv"/>

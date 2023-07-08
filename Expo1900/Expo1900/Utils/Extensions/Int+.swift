@@ -12,6 +12,7 @@ extension Int {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         
-        return formatter.string(from: NSNumber(value: self)) ?? ""
+        let formatted = formatter.string(from: NSNumber(value: self)) ?? ""
+        return formatted + " 명"
     }
 }
