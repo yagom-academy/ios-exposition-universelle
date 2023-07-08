@@ -23,7 +23,7 @@ struct ExpositionUniverselle: Decodable {
         numberFormatter.numberStyle = .decimal
         
         guard let formattedVisitorsNumber = numberFormatter.string(from: NSNumber(value: visitors)) else {
-            return "0"
+            return "방문객 : 0 명"
         }
         
         return "방문객 : \(formattedVisitorsNumber) 명"
