@@ -14,7 +14,7 @@ protocol KoreaEntryViewControllerDelegate: AnyObject {
 final class KoreaEntryViewController: UIViewController {
     weak var delegate: KoreaEntryViewControllerDelegate?
     private var koreaEntryItems: [ExpositionItem]
-    private lazy var dataSource = KoreaEntryDataSource(data: koreaEntryItems)
+    private lazy var dataSource = KoreaEntryDataSource(koreaEntyList: koreaEntryItems)
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
