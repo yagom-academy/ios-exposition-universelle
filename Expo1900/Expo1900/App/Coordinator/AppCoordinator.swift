@@ -7,20 +7,22 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class AppCoordinator {
     var navigationController: UINavigationController
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func start(_ completionHandler: () -> Void = {}) {
         guard let information: ParisExpositionInformation = Decoder.decode(fileName: "exposition_universelle_1900") else { return }
         let mainViewController = MainViewController(information)
         
         mainViewController.delegate = self
         mainViewController.navigationItem.title = "메인"
         navigationController.pushViewController(mainViewController, animated: true)
+        
+        completionHandler()
     }
 }
 
