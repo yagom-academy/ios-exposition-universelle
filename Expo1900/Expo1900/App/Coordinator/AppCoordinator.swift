@@ -15,7 +15,11 @@ final class AppCoordinator {
     }
     
     func start(_ completionHandler: () -> Void = {}) {
-        guard let information: ParisExpositionInformation = Decoder.decode(fileName: "exposition_universelle_1900") else { return }
+        guard let information: ParisExpositionInformation = Decoder.decode(fileName: "exposition_universelle_1900") else {
+            pushDecodingFailureViewController()
+            return
+        }
+        
         let mainViewController = MainViewController(information)
         
         mainViewController.delegate = self
@@ -25,18 +29,21 @@ final class AppCoordinator {
         completionHandler()
     }
     
-    private func showAlert() {
-        let alert = UIAlertController(title: "데이터 로드 실패", message: "프로그램을 재시작해주세요", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(okAction)
-        navigationController.present(alert, animated: true)
+    private func pushDecodingFailureViewController() {
+        let decodingFailureViewController = DecodingViewController()
+        
+        navigationController.pushViewController(decodingFailureViewController, animated: true)
     }
 }
 
 // MARK: - MainViewControllerDelegate
 extension AppCoordinator: MainViewControllerDelegate {
     func didTappedKoreaEntryButton() {
-        guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else { return }
+        guard let data: [ExpositionItem] = Decoder.decode(fileName: "items") else {
+            pushDecodingFailureViewController()
+            return
+        }
+        
         let koreaEntryViewController = KoreaEntryViewController(koreaEntryItems: data)
         
         koreaEntryViewController.delegate = self
