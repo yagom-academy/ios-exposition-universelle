@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         setNavigationAppearance()
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navigationController
-        appCoordinator?.start {}
+        appCoordinator?.start()
         window?.makeKeyAndVisible()
     }
 }
