@@ -24,6 +24,13 @@ final class AppCoordinator {
         
         completionHandler()
     }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: "데이터 로드 실패", message: "프로그램을 재시작해주세요", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(okAction)
+        navigationController.present(alert, animated: true)
+    }
 }
 
 // MARK: - MainViewControllerDelegate
