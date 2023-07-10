@@ -10,8 +10,8 @@ import UIKit
 final class KoreaEntryDataSource: NSObject, UITableViewDataSource {
     private var koreaEntryList: [ExpositionItem]?
     
-    init(koreaEntryList: [ExpositionItem]?) {
-        self.koreaEntryList = koreaEntryList
+    init(koreaEntyList: [ExpositionItem]?) {
+        self.koreaEntryList = koreaEntyList
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

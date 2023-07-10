@@ -6,24 +6,40 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate: AnyObject {
+    func didTappedKoreaEntryButton()
+}
+
 final class MainViewController: UIViewController, MainViewDelegate {
-    private let backButtonTitle = "메인"
+    weak var delegate: MainViewControllerDelegate?
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        .portrait
+    }
     
     private lazy var mainView: MainView = {
         let view = MainView()
         view.delegate = self
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    override func loadView() {
+        view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroundColor(.systemBackground)
-        configureUI()
-        setUpConstraints()
-        loadMainViewInformation()
-        setNavigationTitle()
+    }
+    
+    init(_ information: ParisExpositionInformation) {
+        super.init(nibName: nil, bundle: nil)
+        
+        mainView.load(information: information)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,39 +54,14 @@ final class MainViewController: UIViewController, MainViewDelegate {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-    private func configureUI() {
-        view.addSubview(mainView)
-    }
-    
-    private func setUpConstraints() {
-        NSLayoutConstraint.activate([
-            mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            mainView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
-    private func loadMainViewInformation() {
-        guard let information: ParisExpositionInformation = Decoder.decode(fileName: "exposition_universelle_1900") else { return }
-        
-        mainView.load(information: information)
-    }
-    
     private func setBackgroundColor(_ color: UIColor) {
         view.backgroundColor = color
-    }
-    
-    private func setNavigationTitle() {
-        navigationItem.backButtonTitle = backButtonTitle
     }
 }
 
 // MARK: - MainView Delegate
 extension MainViewController {
     func didTappedKoreaEntryButton() {
-        let koreaEntryViewController = KoreaEntryViewController()
-        
-        navigationController?.pushViewController(koreaEntryViewController, animated: true)
+        delegate?.didTappedKoreaEntryButton()
     }
 }

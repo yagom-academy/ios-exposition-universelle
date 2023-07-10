@@ -9,8 +9,12 @@
 /* Begin PBXBuildFile section */
 		5B04A3422A4DA3850059C690 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04A3412A4DA3850059C690 /* Decoder.swift */; };
 		5B04A3472A4E8D7D0059C690 /* KoreaEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04A3462A4E8D7D0059C690 /* KoreaEntryTableViewCell.swift */; };
+		5BA0DEE72A5A84050089E303 /* DecodingFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0DEE62A5A84050089E303 /* DecodingFailureViewController.swift */; };
 		5BA9929E2A49B20A00613BD1 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9929D2A49B20A00613BD1 /* ExpositionItem.swift */; };
 		5BB01BA22A51340900EB0590 /* Array +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB01BA12A51340900EB0590 /* Array +.swift */; };
+		5BB01BAA2A540EE300EB0590 /* CommonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB01BA92A540EE300EB0590 /* CommonLabel.swift */; };
+		5BFA74E52A56A811009A7787 /* CommonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA74E42A56A811009A7787 /* CommonNavigationController.swift */; };
+		5BFA74EA2A56C0AD009A7787 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA74E92A56C0AD009A7787 /* AppCoordinator.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* MainViewController.swift */; };
@@ -27,8 +31,12 @@
 /* Begin PBXFileReference section */
 		5B04A3412A4DA3850059C690 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		5B04A3462A4E8D7D0059C690 /* KoreaEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaEntryTableViewCell.swift; sourceTree = "<group>"; };
+		5BA0DEE62A5A84050089E303 /* DecodingFailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingFailureViewController.swift; sourceTree = "<group>"; };
 		5BA9929D2A49B20A00613BD1 /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
 		5BB01BA12A51340900EB0590 /* Array +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array +.swift"; sourceTree = "<group>"; };
+		5BB01BA92A540EE300EB0590 /* CommonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLabel.swift; sourceTree = "<group>"; };
+		5BFA74E42A56A811009A7787 /* CommonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationController.swift; sourceTree = "<group>"; };
+		5BFA74E92A56C0AD009A7787 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +68,7 @@
 			children = (
 				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+				5BFA74E62A56C056009A7787 /* Coordinator */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -80,6 +89,7 @@
 				C79FF4B82589F401005FB0FD /* MainViewController.swift */,
 				D26543082A4C5B3C003B1AC0 /* KoreaEntryViewController.swift */,
 				D265432D2A4D6AC1003B1AC0 /* EntryDetailViewController.swift */,
+				5BA0DEE62A5A84050089E303 /* DecodingFailureViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -96,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				5B04A3412A4DA3850059C690 /* Decoder.swift */,
+				5BB01BA92A540EE300EB0590 /* CommonLabel.swift */,
+				5BFA74E42A56A811009A7787 /* CommonNavigationController.swift */,
 				5B04A33C2A4D67D50059C690 /* Extension */,
 			);
 			path = Util;
@@ -125,6 +137,14 @@
 				D2DB54DF2A49B366003F80C6 /* ParisExpositionInformation.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		5BFA74E62A56C056009A7787 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5BFA74E92A56C0AD009A7787 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -236,10 +256,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BA9929E2A49B20A00613BD1 /* ExpositionItem.swift in Sources */,
+				5BFA74EA2A56C0AD009A7787 /* AppCoordinator.swift in Sources */,
 				D2DB552C2A4C3ED4003F80C6 /* MainView.swift in Sources */,
+				5BFA74E52A56A811009A7787 /* CommonNavigationController.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* MainViewController.swift in Sources */,
 				D26543092A4C5B3C003B1AC0 /* KoreaEntryViewController.swift in Sources */,
+				5BB01BAA2A540EE300EB0590 /* CommonLabel.swift in Sources */,
 				D265430B2A4D32F3003B1AC0 /* KoreaEntryDataSource.swift in Sources */,
+				5BA0DEE72A5A84050089E303 /* DecodingFailureViewController.swift in Sources */,
 				5BB01BA22A51340900EB0590 /* Array +.swift in Sources */,
 				D2DB54E02A49B366003F80C6 /* ParisExpositionInformation.swift in Sources */,
 				5B04A3472A4E8D7D0059C690 /* KoreaEntryTableViewCell.swift in Sources */,

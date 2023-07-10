@@ -17,19 +17,28 @@ final class KoreaEntryTableViewCell: UITableViewCell, CellIdentifiable {
     private let entryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25)
+    private let contentStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private let titleLabel: CommonLabel = {
+        let label = CommonLabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
+    private let descriptionLabel: CommonLabel = {
+        let label = CommonLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -47,15 +56,16 @@ final class KoreaEntryTableViewCell: UITableViewCell, CellIdentifiable {
     }
     
     private func configureUI() {
-        [entryImageView, titleLabel, descriptionLabel].forEach {
+        [titleLabel, descriptionLabel].forEach{ contentStackView.addArrangedSubview($0) }
+        
+        [entryImageView, contentStackView].forEach {
             contentView.addSubview($0)
         }
     }
     
     private func setUpConstraints() {
         setUpImageViewConstraints()
-        setUpTitleLabelConstraints()
-        setUpDescriptionLabelConstraints()
+        setUpContentStackViewConstraints()
     }
 }
 
@@ -68,7 +78,6 @@ extension KoreaEntryTableViewCell {
     }
 }
 
-
 // MARK: - Constraints
 extension KoreaEntryTableViewCell {
     private func setUpImageViewConstraints() {
@@ -80,19 +89,12 @@ extension KoreaEntryTableViewCell {
         ])
     }
     
-    private func setUpTitleLabelConstraints() {
+    private func setUpContentStackViewConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 10),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-        ])
-    }
-    
-    private func setUpDescriptionLabelConstraints() {
-        NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            contentStackView.leadingAnchor.constraint(equalTo: entryImageView.trailingAnchor, constant: 10),
+            contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
     }
 }

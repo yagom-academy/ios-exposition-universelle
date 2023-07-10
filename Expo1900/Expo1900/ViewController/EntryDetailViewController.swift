@@ -22,16 +22,11 @@ final class EntryDetailViewController: UIViewController {
     
     private let contentImageView: UIImageView = {
         let contentImage = UIImageView()
-        contentImage.image = UIImage(named: "poster")
+        contentImage.contentMode = .scaleAspectFit
         return contentImage
     }()
     
-    private let contentLabel: UILabel = {
-        let contentLabel = UILabel()
-        contentLabel.numberOfLines = 0
-        return contentLabel
-    }()
-    
+    private let contentLabel = CommonLabel()
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -42,17 +37,23 @@ final class EntryDetailViewController: UIViewController {
         return stackView
     }()
     
+    init(_ expositionItem: ExpositionItem) {
+        super.init(nibName: nil, bundle: nil)
+        
+        contentImageView.image = UIImage(named: expositionItem.imageName)
+        contentLabel.text = expositionItem.description
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackgroundColor(.systemBackground)
         configureUI()
         setUpConstraints()
-    }
-    
-    func setEntryDetailInformation(_ title: String, _ imageName: String, _ description: String) {
-        navigationItem.title = title
-        contentImageView.image = UIImage(named: imageName)
-        contentLabel.text = description
     }
     
     private func configureUI() {
@@ -62,7 +63,6 @@ final class EntryDetailViewController: UIViewController {
         contentView.addSubview(stackView)
         scrollView.addSubview(contentView)
         view.addSubview(scrollView)
-        view.backgroundColor = .systemBackground
     }
     
     private func setUpConstraints() {
@@ -71,16 +71,20 @@ final class EntryDetailViewController: UIViewController {
         setUpStackViewConstraints()
         setUpImageViewConstraints()
     }
+    
+    private func setBackgroundColor(_ color: UIColor) {
+        view.backgroundColor = color
+    }
 }
 
 // MARK: - Constraints
 extension EntryDetailViewController {
     private func setUpScrollViewConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
@@ -107,6 +111,7 @@ extension EntryDetailViewController {
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
+    
     private func setUpImageViewConstraints() {
         NSLayoutConstraint.activate([
             contentImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 300),
