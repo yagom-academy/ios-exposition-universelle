@@ -10,7 +10,11 @@ import UIKit
 final class EntryViewController: UIViewController {
     private var expoEntries: [ExpoEntry] = [ExpoEntry]()
     
-    @IBOutlet weak var entryTableView: UITableView!
+    @IBOutlet private weak var entryTableView: UITableView!
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
