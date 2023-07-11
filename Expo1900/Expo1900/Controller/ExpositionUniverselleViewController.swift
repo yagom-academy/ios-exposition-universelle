@@ -58,6 +58,9 @@ final class ExpositionUniverselleViewController: UIViewController {
             expositionUniverselle = try AssetDecoder.decode(ExpositionUniverselle.self, from: AssetName.expositionUniverselle)
         } catch {
             print(error.localizedDescription)
+            let alert = UIAlertController(title: nil, message: "데이터 로드에 실패했습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "닫기", style: .default))
+            present(alert, animated: true)
         }
     }
     

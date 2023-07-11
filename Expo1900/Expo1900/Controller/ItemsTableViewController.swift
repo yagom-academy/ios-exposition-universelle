@@ -40,6 +40,9 @@ final class ItemsTableViewController: UITableViewController {
             items = try AssetDecoder.decode([Item].self, from: AssetName.items)
         } catch {
             print(error.localizedDescription)
+            let alert = UIAlertController(title: nil, message: "데이터 로드에 실패했습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "닫기", style: .default))
+            present(alert, animated: true)
         }
     }
 }
