@@ -22,7 +22,9 @@ struct Exposition: Decodable {
             return formatter
         }()
         
-        guard let visitors = formatter.string(for: visitors) else { return "\(visitors) 명" }
+        guard let visitors = formatter.string(for: visitors) else {
+            return "\(visitors) 명"
+        }
         
         return "\(visitors) 명"
     }
