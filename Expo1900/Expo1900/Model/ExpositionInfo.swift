@@ -2,7 +2,7 @@
 //  ExpositionInfo.swift
 //  Expo1900
 //
-//  Created by hyunMac on 10/30/23.
+//  Created by uemu, morgan on 10/30/23.
 //
 
 struct ExpositionInfo: Decodable {
