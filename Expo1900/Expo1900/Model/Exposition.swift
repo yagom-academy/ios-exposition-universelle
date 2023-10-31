@@ -5,7 +5,7 @@
 //  Created by uemu, morgan on 10/30/23.
 //
 
-struct Items {
+struct Exposition: Decodable {
     struct EntryItem: Decodable {
         let name: String
         let imageName: String
@@ -18,5 +18,13 @@ struct Items {
             case shortDesc = "short_desc"
             case desc
         }
+    }
+    
+    struct ExpositionInfo: Decodable {
+        let title: String
+        let visitors: UInt
+        let location: String
+        let duration: String
+        let description: String
     }
 }
