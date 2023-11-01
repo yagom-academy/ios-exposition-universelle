@@ -11,4 +11,9 @@ struct Exposition: Decodable {
     let location: String
     let duration: String
     let expositionDescription: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title, visitors, location, duration
+        case expositionDescription = "description"
+    }
 }
