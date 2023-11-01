@@ -23,6 +23,16 @@ final class ExpoItemListViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? ItemDescriptionViewController else { return }
+        let cellIndexPath = tableView.indexPathForSelectedRow
+        guard let rowOfIndexPath: Int = cellIndexPath?.row else { return }
+        
+        vc.navigationItem.title = exhibitionItems[rowOfIndexPath].name
+        vc.itemImage = exhibitionItems[rowOfIndexPath].imageName
+        vc.itemdesc = exhibitionItems[rowOfIndexPath].description
+    }
+    
     private func parsingToExhibitionItems() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }

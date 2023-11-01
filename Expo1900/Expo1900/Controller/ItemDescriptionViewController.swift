@@ -10,12 +10,15 @@ import UIKit
 class ItemDescriptionViewController: UIViewController {
 
     @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemDescription: UILabel!
+    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    var itemImage: String = ""
+    var itemdesc: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
+        
+        itemImageView.image = UIImage(named: itemImage)
+        itemDescriptionLabel.text = itemdesc
     }
     
 
