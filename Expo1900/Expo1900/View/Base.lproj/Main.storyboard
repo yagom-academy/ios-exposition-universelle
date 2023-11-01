@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pPA-vQ-mWz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pPA-vQ-mWz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -160,7 +160,9 @@
                             <constraint firstItem="k1O-X0-Osy" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="yM0-Ok-Dcj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="k22-W8-9dd"/>
+                    <navigationItem key="navigationItem" id="k22-W8-9dd">
+                        <barButtonItem key="backBarButtonItem" title="메인" id="Ygd-YH-zoD"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="0FW-La-ib6" id="NK1-Ze-kll"/>
                         <outlet property="durationLabel" destination="CXy-JV-qFI" id="X3x-C0-UAF"/>
@@ -244,7 +246,9 @@
                             <constraint firstItem="a8V-1r-Oq4" firstAttribute="leading" secondItem="IL2-6E-3zf" secondAttribute="leading" id="u8j-TD-Rbm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="b0N-Eu-C6Y"/>
+                    <navigationItem key="navigationItem" id="b0N-Eu-C6Y">
+                        <barButtonItem key="backBarButtonItem" title="한국의 출품작" id="zvx-yl-2Tf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="a8V-1r-Oq4" id="Zaa-jh-pzM"/>
                     </connections>
@@ -258,7 +262,7 @@
             <objects>
                 <viewController id="LOg-8M-Gki" customClass="ItemDescriptionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fY3-qr-Afk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yu2-ng-g0K">
