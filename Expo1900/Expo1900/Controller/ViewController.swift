@@ -32,7 +32,7 @@ final class ViewController: UIViewController {
     private func configureUI(expoInformation: ExpoInformation) {
         mainTitleLabel.text = expoInformation.title
         mainImageView.image = UIImage(named: "poster")
-        visitorNumberLabel.text = String(expoInformation.visitors)
+        visitorNumberLabel.text = expoInformation.visitorsNumber
         locationLabel.text = expoInformation.location
         durationLabel.text = expoInformation.duration
         descriptionLabel.text = expoInformation.description
