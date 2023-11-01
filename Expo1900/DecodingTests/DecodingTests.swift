@@ -11,7 +11,7 @@ import XCTest
 final class DecodingTests: XCTestCase {
     var decoder = JSONDecoder()
     
-    func test_dataAsset이_exposition_universelle_1900_일_때_Decoding이_정상적으로_이루어지는지() {
+    func test_init을_통해_만든_Exposition타입과_JSON을_디코딩하여_만든_Exposition타입이_일치하는지_확인() {
         let title: String = "파리 만국박람회"
         let visitors: Int = 48130300
         let location: String = "프랑스 파리"
@@ -38,7 +38,7 @@ final class DecodingTests: XCTestCase {
         XCTAssertEqual(exposition, try! decoder.decode(Exposition.self, from: json))
     }
     
-    func test_dataAsset이_items_일_때_Decoding이_정상적으로_이루어지는지() {
+    func test_init을_통해_만든_CulturalAsset타입과_JSON을_디코딩하여_만든_CulturalAsset타입이_일치하는지_확인() {
         let name: String = "직지심체요절"
         let imageName: String = "jikji"
         let shortDescription: String = "백운화상 경한(景閑)이 1372년에 초록한 불교 서적"
