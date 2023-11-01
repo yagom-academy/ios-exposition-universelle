@@ -15,6 +15,6 @@ struct CulturalAssets: Decodable {
         case name
         case imageName = "image_name"
         case shortDescription = "short_desc"
-        case detailDescription
+        case detailDescription = "desc"
     }
 }
