@@ -10,6 +10,7 @@ import UIKit
 class ExpoItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var exhibitionItems: [ExhibitionItems] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
