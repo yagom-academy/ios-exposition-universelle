@@ -21,5 +21,15 @@ class ExpoItemListViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
     }
-
+    
+    func parsingToExhibitionItems() {
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
+        
+        do {
+            self.exhibitionItems = try jsonDecoder.decode([ExhibitionItems].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
