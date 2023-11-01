@@ -5,7 +5,7 @@
 //  Created by kiseok, Toy on 10/31/23.
 //
 
-struct ExpoInfo: Codable {
+struct ExpoInfo: Decodable {
     let title: String
     let visitors: Int
     let location: String

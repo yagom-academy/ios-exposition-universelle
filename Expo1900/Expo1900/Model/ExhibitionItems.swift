@@ -6,7 +6,7 @@
 //
 
 
-struct ExhibitionItems: Codable {
+struct ExhibitionItems: Decodable {
     let name: String
     let imageName: String
     let shortDesc: String
