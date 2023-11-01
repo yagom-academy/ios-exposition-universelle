@@ -7,10 +7,11 @@
 
 import UIKit
 
-class ItemDescriptionViewController: UIViewController {
+final class ItemDescriptionViewController: UIViewController {
 
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
+    
     var itemImage: String = ""
     var itemdesc: String = ""
     
@@ -19,7 +20,7 @@ class ItemDescriptionViewController: UIViewController {
         configureUI()
     }
     
-    func configureUI() {
+    private func configureUI() {
         itemImageView.image = UIImage(named: itemImage)
         itemDescriptionLabel.text = itemdesc
     }
