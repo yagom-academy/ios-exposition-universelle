@@ -11,10 +11,11 @@ class ExpoItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var exhibitionItems: [ExhibitionItems] = []
+    let exhibitionItemCellIdentifier = "exhibitionItemCellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        parsingToExhibitionItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
