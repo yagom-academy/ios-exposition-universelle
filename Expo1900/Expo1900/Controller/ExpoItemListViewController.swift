@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ExpoItemListViewController: UIViewController {
+final class ExpoItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var exhibitionItems: [ExhibitionItems] = []
-    let exhibitionItemCellIdentifier = "exhibitionItemCellIdentifier"
+    private var exhibitionItems: [ExhibitionItems] = []
+    private let exhibitionItemCellIdentifier = "exhibitionItemCellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class ExpoItemListViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    func parsingToExhibitionItems() {
+    private func parsingToExhibitionItems() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
