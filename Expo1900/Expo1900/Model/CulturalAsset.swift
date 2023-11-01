@@ -5,7 +5,7 @@
 //  Created by Hisop on 2023/10/30.
 //
 
-struct CulturalAssets: Decodable {
+struct CulturalAsset: Decodable {
     let name: String
     let imageName: String
     let shortDescription: String

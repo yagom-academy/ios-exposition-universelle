@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B96A747C2AEFDF7A00B13E18 /* CulturalAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A747B2AEFDF7A00B13E18 /* CulturalAssets.swift */; };
+		B96A747C2AEFDF7A00B13E18 /* CulturalAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */; };
 		B96A74812AF0C51300B13E18 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A74802AF0C51300B13E18 /* Exposition.swift */; };
 		B9F036032AF233AB00911F37 /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F036022AF233AB00911F37 /* DecodingTests.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -29,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B96A747B2AEFDF7A00B13E18 /* CulturalAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturalAssets.swift; sourceTree = "<group>"; };
+		B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturalAsset.swift; sourceTree = "<group>"; };
 		B96A74802AF0C51300B13E18 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		B9F036002AF233AB00911F37 /* DecodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F036022AF233AB00911F37 /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		B96A747D2AF0C3BB00B13E18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B96A747B2AEFDF7A00B13E18 /* CulturalAssets.swift */,
+				B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */,
 				B96A74802AF0C51300B13E18 /* Exposition.swift */,
 			);
 			path = Model;
@@ -251,7 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B96A747C2AEFDF7A00B13E18 /* CulturalAssets.swift in Sources */,
+				B96A747C2AEFDF7A00B13E18 /* CulturalAsset.swift in Sources */,
 				B96A74812AF0C51300B13E18 /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
