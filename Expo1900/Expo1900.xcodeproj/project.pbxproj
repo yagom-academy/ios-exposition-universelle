@@ -73,7 +73,6 @@
 		B96A747E2AF0C3CF00B13E18 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 			);
@@ -83,11 +82,26 @@
 		B96A747F2AF0C49400B13E18 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
-				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9882AC12AF28C8200A3CC3F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4B42589F401005FB0FD /* AppDelegate.swift */,
+				C79FF4B62589F401005FB0FD /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B9882AC22AF28CC200A3CC3F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		B9F036012AF233AB00911F37 /* DecodingTests */ = {
@@ -119,10 +133,12 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				B96A747E2AF0C3CF00B13E18 /* View */,
-				B96A747D2AF0C3BB00B13E18 /* Model */,
-				B96A747F2AF0C49400B13E18 /* Controller */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
+				B9882AC12AF28C8200A3CC3F /* App */,
+				B96A747D2AF0C3BB00B13E18 /* Model */,
+				B96A747E2AF0C3CF00B13E18 /* View */,
+				B96A747F2AF0C49400B13E18 /* Controller */,
+				B9882AC22AF28CC200A3CC3F /* Resource */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
