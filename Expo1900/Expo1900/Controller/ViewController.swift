@@ -21,7 +21,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        
     }
-
-
+    
+    func configureUI(expoInformation: ExpoInformation) {
+        mainTitleLabel.text = expoInformation.title
+        mainImageView.image = UIImage(named: "poster")
+        visitorNumberLabel.text = String(expoInformation.visitors)
+        locationLabel.text = expoInformation.location
+        durationLabel.text = expoInformation.duration
+        descriptionLabel.text = expoInformation.description
+        leftFlagLabel.image = UIImage(named: "flag")
+        rightFlagLabel.image = UIImage(named: "flag")
+    }
 }
 
