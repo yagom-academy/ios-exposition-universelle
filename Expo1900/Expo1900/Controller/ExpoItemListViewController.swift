@@ -19,6 +19,7 @@ final class ExpoItemListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.dataSource = self
         navigationController?.isNavigationBarHidden = false
     }
     
@@ -31,5 +32,21 @@ final class ExpoItemListViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+}
+
+extension ExpoItemListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.exhibitionItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpoItemCell", for: indexPath) as? ExpoItemCell else { return UITableViewCell() }
+        let item: ExhibitionItems = self.exhibitionItems[indexPath.row]
+        cell.itemImageView.image = UIImage(named:item.imageName)
+        cell.itemNameLabel.text = item.name
+        cell.itemDescriptionLabel.text = item.shortDescription
+        
+        return cell
     }
 }
