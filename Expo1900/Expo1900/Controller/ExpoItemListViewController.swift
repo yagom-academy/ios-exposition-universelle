@@ -2,7 +2,7 @@
 //  ExpoItemListViewController.swift
 //  Expo1900
 //
-//  Created by Kiseok on 2023/11/01.
+//  Created by Kiseok, Toy on 2023/11/01.
 //
 
 import UIKit
