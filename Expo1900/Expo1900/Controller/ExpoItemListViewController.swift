@@ -11,7 +11,6 @@ final class ExpoItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var exhibitionItems: [ExhibitionItems] = []
-    private let exhibitionItemCellIdentifier = "exhibitionItemCellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
