@@ -11,4 +11,8 @@ struct ExpoInformation: Decodable {
     let location: String
     let duration: String
     let description: String
+    
+    var visitorsNumber: String {
+        return String(visitors).convertToDecimal() + " 명"
+    }
 }
