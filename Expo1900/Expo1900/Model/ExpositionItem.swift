@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  ExpositionItem.swift
 //  Expo1900
 //
 //  Created by jyubong, mireu
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Item: Decodable {
+struct ExpositionItem: Decodable {
     let name, imageName, shortDescription, description: String
     
     private enum CodingKeys: String, CodingKey {
