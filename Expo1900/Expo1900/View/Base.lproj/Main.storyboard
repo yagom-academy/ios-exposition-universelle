@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pPA-vQ-mWz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -117,6 +117,9 @@
                                                         <rect key="frame" x="65.666666666666686" y="0.0" width="180" height="42.666666666666664"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <connections>
+                                                            <action selector="touchUpPushToExpoItemListViewButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8dr-FD-Hdk"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wka-vo-Qrp">
                                                         <rect key="frame" x="264.33333333333331" y="0.0" width="46.666666666666686" height="42.666666666666664"/>
@@ -157,6 +160,7 @@
                             <constraint firstItem="k1O-X0-Osy" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="yM0-Ok-Dcj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="k22-W8-9dd"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="0FW-La-ib6" id="NK1-Ze-kll"/>
                         <outlet property="durationLabel" destination="CXy-JV-qFI" id="X3x-C0-UAF"/>
@@ -170,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
         </scene>
         <!--ExpoItemListViewController-->
         <scene sceneID="MEV-KT-r7j">
@@ -204,10 +208,29 @@
                             <constraint firstItem="a8V-1r-Oq4" firstAttribute="leading" secondItem="IL2-6E-3zf" secondAttribute="leading" id="u8j-TD-Rbm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="b0N-Eu-C6Y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCP-4Y-cZ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1024" y="-18"/>
+            <point key="canvasLocation" x="1984" y="-27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eEk-ia-ddl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pPA-vQ-mWz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2mD-62-LKs">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZAX-dc-i80"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZX-LF-P9O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>

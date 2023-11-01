@@ -21,6 +21,12 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         parsingToUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func parsingToUI() {
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
@@ -39,5 +45,12 @@ final class MainViewController: UIViewController {
         leftFlagLabel.image = UIImage(named: "flag")
         rightFlagLabel.image = UIImage(named: "flag")
     }
+    
+    @IBAction func touchUpPushToExpoItemListViewButtonTapped(_ sender: UIButton) {
+        guard let view = self.storyboard?.instantiateViewController(withIdentifier: "ExpoItemListViewController") as? ExpoItemListViewController else { return }
+
+        self.navigationController?.pushViewController(view, animated: true)
+    }
+    
 }
 
