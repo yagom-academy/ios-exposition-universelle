@@ -6,7 +6,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
