@@ -18,4 +18,12 @@ final class DecodingTests: XCTestCase {
 
         XCTAssertNoThrow(try decoder.decode(Exposition.self, from: dataAsset.data))
     }
+    
+    func test_dataAsset이_items_일_때_Decoding이_정상적으로_이루어지는지() {
+        guard let dataAsset = NSDataAsset(name: "items") else {
+            return
+        }
+
+        XCTAssertNoThrow(try decoder.decode([CulturalAssets].self, from: dataAsset.data))
+    }
 }
