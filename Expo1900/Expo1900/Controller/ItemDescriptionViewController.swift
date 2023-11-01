@@ -16,12 +16,11 @@ class ItemDescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
+    }
+    
+    func configureUI() {
         itemImageView.image = UIImage(named: itemImage)
         itemDescriptionLabel.text = itemdesc
     }
-    
-
-    
-
 }
