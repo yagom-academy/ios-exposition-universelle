@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainImageView: UIImageView!
@@ -19,10 +19,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        parsingToUI()
+    }
+    private func parsingToUI() {
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
+        guard let expoInformation = try? jsonDecoder.decode(ExpoInformation.self, from: dataAsset.data) else { return }
+        
+        configureUI(expoInformation: expoInformation)
     }
     
-    func configureUI(expoInformation: ExpoInformation) {
+    private func configureUI(expoInformation: ExpoInformation) {
         mainTitleLabel.text = expoInformation.title
         mainImageView.image = UIImage(named: "poster")
         visitorNumberLabel.text = String(expoInformation.visitors)
