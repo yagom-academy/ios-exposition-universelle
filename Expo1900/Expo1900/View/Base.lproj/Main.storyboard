@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="itS-Jk-FVN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="itS-Jk-FVN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="isO-0r-Q1C">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="287.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="304"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-Ks-N5N" userLabel="title">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
@@ -57,18 +57,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="YLF-Bl-KGq">
-                                                <rect key="frame" x="0.0" y="229.66666666666663" width="393" height="58"/>
+                                                <rect key="frame" x="0.0" y="229.66666666666666" width="393" height="74.333333333333343"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="weQ-Nb-G5l">
-                                                        <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="58"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="74.333333333333329"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LX-6c-E4s">
-                                                        <rect key="frame" x="144.66666666666666" y="0.0" width="103.66666666666666" height="58"/>
+                                                        <rect key="frame" x="144.66666666666666" y="0.0" width="103.66666666666666" height="74.333333333333329"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <connections>
+                                                            <segue destination="FN4-LC-AZT" kind="show" id="BnE-9V-K1R"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKg-q6-79G">
-                                                        <rect key="frame" x="289.33333333333331" y="0.0" width="103.66666666666669" height="58"/>
+                                                        <rect key="frame" x="289.33333333333331" y="0.0" width="103.66666666666669" height="74.333333333333329"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -135,10 +138,11 @@
                             <outlet property="delegate" destination="FN4-LC-AZT" id="XHS-n0-ylj"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yvG-XF-y4Q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-bG-arM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="-99"/>
+            <point key="canvasLocation" x="647" y="-99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AFL-xW-GCR">
