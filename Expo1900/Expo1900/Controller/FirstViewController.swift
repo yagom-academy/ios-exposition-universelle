@@ -13,6 +13,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet var buttonImages: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class FirstViewController: UIViewController {
         locationLabel.text = exposition.location
         durationLabel.text = exposition.duration
         explanationLabel.text = exposition.explanation
+        
+        buttonImages[0].image = UIImage(named: "flag")
+        buttonImages[1].image = UIImage(named: "flag")
     }
     
     func decodeDataAsset() -> Exposition? {
