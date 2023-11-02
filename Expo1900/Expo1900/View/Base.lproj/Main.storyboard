@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="itS-Jk-FVN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="itS-Jk-FVN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -171,14 +171,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAm-fA-a1x">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hmE-tu-tzA">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="793.33333333333337"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hmE-tu-tzA">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="417"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BlJ-cS-ZPT">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="386.66666666666669"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g14-KV-hhu">
-                                                <rect key="frame" x="0.0" y="406.66666666666663" width="393" height="386.66666666666663"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g14-KV-hhu">
+                                                <rect key="frame" x="0.0" y="396.66666666666669" width="393" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="hmE-tu-tzA" firstAttribute="top" secondItem="JAm-fA-a1x" secondAttribute="top" id="HIR-OL-a1d"/>
-                                    <constraint firstItem="hmE-tu-tzA" firstAttribute="height" secondItem="98b-fL-JoP" secondAttribute="height" multiplier="1.04523" id="Ydp-QO-nhK"/>
+                                    <constraint firstItem="hmE-tu-tzA" firstAttribute="height" secondItem="98b-fL-JoP" secondAttribute="height" priority="250" id="Ydp-QO-nhK"/>
                                     <constraint firstAttribute="trailing" secondItem="hmE-tu-tzA" secondAttribute="trailing" id="elR-lT-nq3"/>
                                     <constraint firstItem="hmE-tu-tzA" firstAttribute="leading" secondItem="JAm-fA-a1x" secondAttribute="leading" id="k58-4M-iDw"/>
                                     <constraint firstAttribute="bottom" secondItem="hmE-tu-tzA" secondAttribute="bottom" id="nGP-Jw-hs7"/>
@@ -207,6 +207,10 @@
                             <constraint firstItem="JAm-fA-a1x" firstAttribute="top" secondItem="YEa-Db-33e" secondAttribute="top" id="uMB-pD-pt5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="explanation" destination="g14-KV-hhu" id="3DM-Eh-pIf"/>
+                        <outlet property="imageView" destination="BlJ-cS-ZPT" id="Xqs-f0-rst"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3d-dj-9DW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
