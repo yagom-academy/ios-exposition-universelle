@@ -36,6 +36,14 @@ class CulturalAssetListViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailViewController = storyboard?.instantiateViewController(identifier: String(describing: DetailViewController.self)) as? DetailViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 
     func decodeDataAsset() {
         let decoder = JSONDecoder()
