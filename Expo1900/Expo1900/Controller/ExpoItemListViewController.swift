@@ -24,13 +24,13 @@ final class ExpoItemListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let vc = segue.destination as? ItemDescriptionViewController else { return }
+        guard let itemDescriptionViewController = segue.destination as? ItemDescriptionViewController else { return }
         let cellIndexPath = tableView.indexPathForSelectedRow
         guard let rowOfIndexPath: Int = cellIndexPath?.row else { return }
         
-        vc.navigationItem.title = exhibitionItems[rowOfIndexPath].name
-        vc.itemImage = exhibitionItems[rowOfIndexPath].imageName
-        vc.itemdesc = exhibitionItems[rowOfIndexPath].description
+        itemDescriptionViewController.navigationItem.title = exhibitionItems[rowOfIndexPath].name
+        itemDescriptionViewController.itemImage = exhibitionItems[rowOfIndexPath].imageName
+        itemDescriptionViewController.itemDescription = exhibitionItems[rowOfIndexPath].description
     }
     
     private func parsingToExhibitionItems() {

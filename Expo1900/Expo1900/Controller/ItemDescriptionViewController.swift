@@ -13,7 +13,7 @@ final class ItemDescriptionViewController: UIViewController {
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     
     var itemImage: String = ""
-    var itemdesc: String = ""
+    var itemDescription: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,6 @@ final class ItemDescriptionViewController: UIViewController {
     
     private func configureUI() {
         itemImageView.image = UIImage(named: itemImage)
-        itemDescriptionLabel.text = itemdesc
+        itemDescriptionLabel.text = itemDescription
     }
 }
