@@ -20,9 +20,17 @@ class FirstViewController: UIViewController {
         
         configureUI()
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+        
     }
-
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        guard let CulturalAssetListViewController = storyboard?.instantiateViewController(identifier: String(describing: CulturalAssetListViewController.self)) as? CulturalAssetListViewController else {
+            return
+        }
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+        navigationController?.pushViewController(CulturalAssetListViewController, animated: true)
+    }
+    
     func configureUI() {
         guard let exposition = decodeDataAsset() else {
             return

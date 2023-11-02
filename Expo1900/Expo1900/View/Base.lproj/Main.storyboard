@@ -67,7 +67,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
                                                         <connections>
-                                                            <segue destination="FN4-LC-AZT" kind="show" id="BnE-9V-K1R"/>
+                                                            <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubh-2j-uih"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKg-q6-79G">
@@ -118,7 +118,7 @@
         <!--Cultural Asset List View Controller-->
         <scene sceneID="Gwo-1T-4iI">
             <objects>
-                <tableViewController id="FN4-LC-AZT" customClass="CulturalAssetListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CulturalAssetListViewController" id="FN4-LC-AZT" customClass="CulturalAssetListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="W4r-8q-q9M">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
