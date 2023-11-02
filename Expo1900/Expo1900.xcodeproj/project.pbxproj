@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E03D2452AF088EE0098C038 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E03D2442AF088EE0098C038 /* ExpositionItem.swift */; };
+		4E175D482AF373DA00E79AEE /* ExpositionItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E175D472AF373DA00E79AEE /* ExpositionItemViewController.swift */; };
 		BF336F0B2AF371A70066063C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF336F0A2AF371A70066063C /* String+.swift */; };
 		BF6B2D032AF07DF9003727E2 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B2D022AF07DF9003727E2 /* Exposition.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		4E03D2442AF088EE0098C038 /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
+		4E175D472AF373DA00E79AEE /* ExpositionItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemViewController.swift; sourceTree = "<group>"; };
 		BF336F0A2AF371A70066063C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		BF6B2D022AF07DF9003727E2 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
+				4E175D472AF373DA00E79AEE /* ExpositionItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				BF336F0B2AF371A70066063C /* String+.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				4E175D482AF373DA00E79AEE /* ExpositionItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
