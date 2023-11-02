@@ -23,6 +23,10 @@ class ViewController: UIViewController {
         }
         
         let decoder = JSONDecoder()
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        
         
         var product: Exposition.ExpositionInfo?
         
@@ -32,7 +36,18 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
         
-        print(product!.title)
+        let visitorsCount: String = numberFormatter.string(for: product?.visitors)!
+        let unwrapedLocation = (product?.location)!
+        let unwrapedDuration = (product?.duration)!
+        let separatedTitle = product?.title.split(separator: "(")
+        let twoLineTitle = "\(separatedTitle![0])\n (\(separatedTitle![1])"
+        
+        
+        expoTitle.text = twoLineTitle
+        expoItem.image = UIImage(named: "poster")
+        expoVisitors.text = "방문객 : \(visitorsCount) 명"
+        expoLocation.text = "개최지: \(unwrapedLocation)"
+        expoDuration.text = "개최 기간 : \(unwrapedDuration)"
+        expoDescription.text = product?.description
     }
 }
-
