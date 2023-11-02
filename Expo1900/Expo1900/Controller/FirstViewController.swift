@@ -19,7 +19,8 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
     }
 
     func configureUI() {
