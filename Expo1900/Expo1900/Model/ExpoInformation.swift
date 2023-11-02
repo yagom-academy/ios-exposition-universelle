@@ -21,4 +21,9 @@ struct ExpoInformation: Decodable {
     var formattedVisitorsNumber: String {
         return String(visitorNumber).convertToDecimal() + " 명"
     }
+    
+    enum CodingKeys: String, CodingKey {
+        case title, location, duration, description
+        case visitorNumber = "visitors"
+    }
 }
