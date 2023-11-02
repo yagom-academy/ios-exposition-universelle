@@ -15,13 +15,13 @@ final class ExpoItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
         parsingToExhibitionItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.dataSource = self
         navigationController?.isNavigationBarHidden = false
     }
     
