@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qjH-TX-el9">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Exposition View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ExpositionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,6 +70,9 @@
                                                         <rect key="frame" x="58" y="0.0" width="180" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
+                                                        <connections>
+                                                            <segue destination="Uor-xP-UN2" kind="show" id="Qum-VG-zaQ"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="m6e-Nn-8Yh">
                                                         <rect key="frame" x="266" y="0.0" width="30" height="30"/>
@@ -103,6 +106,7 @@
                             <constraint firstItem="mTF-4F-E58" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="rd9-Mm-uA4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="메인" id="aep-RZ-Skd"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="CKA-nB-glD" id="BZ7-g2-ejF"/>
                         <outlet property="durationLabel" destination="BW8-L7-wBb" id="Lmh-KW-6uR"/>
@@ -113,9 +117,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="1057.2519083969464" y="-34.507042253521128"/>
         </scene>
-        <!--Exposition Item View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="XME-qd-naU">
             <objects>
                 <viewController id="Uor-xP-UN2" customClass="ExpositionItemViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -142,13 +146,32 @@
                         <viewLayoutGuide key="safeArea" id="kT9-Ts-6CW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="plc-si-xbT"/>
                     <connections>
                         <outlet property="tableView" destination="ABl-Jr-iQu" id="d0L-nO-VRp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grN-mG-gEG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983.96946564885491" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="1910.6870229007632" y="-35.211267605633807"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="snZ-ZF-H4E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qjH-TX-el9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cSo-7h-hGI">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Nwa-c1-GEW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3b-rD-iPG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>

@@ -22,6 +22,18 @@ class ExpositionViewController: UIViewController {
         decodeData()
         configureUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
 
     private func decodeData() {
         let decoder = JSONDecoder()
@@ -42,5 +54,5 @@ class ExpositionViewController: UIViewController {
         durationLabel.text = String(subTitle: "개최 기간", text: exposition?.duration)
         descriptionLabel.text = exposition?.description
     }
+    
 }
-
