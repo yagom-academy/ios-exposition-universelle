@@ -12,6 +12,6 @@ extension String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        return numberFormatter.string(for: Double(self)) ?? ""
+        return numberFormatter.string(for: self) ?? ""
     }
 }
