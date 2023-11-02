@@ -139,6 +139,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="z84-8b-j9m" kind="show" id="Krx-wE-GR5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -154,6 +157,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grN-mG-gEG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1910.6870229007632" y="-35.211267605633807"/>
+        </scene>
+        <!--Item Detail View Controller-->
+        <scene sceneID="lwv-DG-oLN">
+            <objects>
+                <viewController id="z84-8b-j9m" customClass="ItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UXN-3M-4En">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFo-IO-hP1">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="erR-tk-yGc">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="234.33333333333334"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vXt-LS-7yP">
+                                                <rect key="frame" x="50.333333333333343" y="0.0" width="292.66666666666663" height="194"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2u-Zm-dcC">
+                                                <rect key="frame" x="176" y="214" width="41.333333333333343" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="erR-tk-yGc" secondAttribute="bottom" id="2xp-BF-yGH"/>
+                                    <constraint firstItem="erR-tk-yGc" firstAttribute="top" secondItem="2I4-PX-sfn" secondAttribute="top" id="I4F-P1-Nw0"/>
+                                    <constraint firstAttribute="trailing" secondItem="erR-tk-yGc" secondAttribute="trailing" id="NqM-gs-pOe"/>
+                                    <constraint firstItem="erR-tk-yGc" firstAttribute="width" secondItem="mSw-6W-t1H" secondAttribute="width" id="lm0-Nh-Axv"/>
+                                    <constraint firstItem="erR-tk-yGc" firstAttribute="leading" secondItem="UFo-IO-hP1" secondAttribute="leading" id="lwe-pH-nOM"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="2I4-PX-sfn"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="mSw-6W-t1H"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UGF-4Z-ENe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UFo-IO-hP1" firstAttribute="bottom" secondItem="UGF-4Z-ENe" secondAttribute="bottom" constant="34" id="6qf-bQ-7yy"/>
+                            <constraint firstItem="UFo-IO-hP1" firstAttribute="leading" secondItem="UGF-4Z-ENe" secondAttribute="leading" id="ACP-kH-Jm3"/>
+                            <constraint firstItem="UGF-4Z-ENe" firstAttribute="trailing" secondItem="UFo-IO-hP1" secondAttribute="trailing" id="UAL-SV-Obq"/>
+                            <constraint firstItem="UGF-4Z-ENe" firstAttribute="top" secondItem="UFo-IO-hP1" secondAttribute="top" constant="103" id="kVK-Ge-4f5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cG4-Ke-pO1"/>
+                    <connections>
+                        <outlet property="detailDescriptionLabel" destination="c2u-Zm-dcC" id="8Kh-dg-2Ag"/>
+                        <outlet property="detailImageView" destination="vXt-LS-7yP" id="jqN-dj-34O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4s-ti-UaB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2701.5267175572517" y="-35.211267605633807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="snZ-ZF-H4E">
