@@ -20,9 +20,10 @@ class ExpositionViewController: UIViewController {
         super.viewDidLoad()
 
         decodeData()
+        configureUI()
     }
 
-    func decodeData() {
+    private func decodeData() {
         let decoder = JSONDecoder()
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
@@ -33,4 +34,13 @@ class ExpositionViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    private func configureUI () {
+        titleLabel.text = exposition?.title
+        visitorsLabel.text = String(subTitle: "방문객", text: exposition?.visitorsDescription)
+        locationLabel.text = String(subTitle: "개최지", text: exposition?.location)
+        durationLabel.text = String(subTitle: "개최 기간", text: exposition?.duration)
+        descriptionLabel.text = exposition?.description
+    }
 }
+
