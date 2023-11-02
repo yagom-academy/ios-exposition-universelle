@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpositionViewController: UIViewController {
+final class ExpositionViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -14,11 +14,11 @@ class ExpositionViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var exposition: Exposition?
-
+    private var exposition: Exposition?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         decodeData()
         configureUI()
     }
@@ -34,7 +34,7 @@ class ExpositionViewController: UIViewController {
         
         navigationController?.isNavigationBarHidden = false
     }
-
+    
     private func decodeData() {
         let decoder = JSONDecoder()
         

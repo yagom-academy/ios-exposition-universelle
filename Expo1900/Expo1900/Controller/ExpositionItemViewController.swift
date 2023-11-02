@@ -7,11 +7,11 @@
 
 import UIKit
 
-class ExpositionItemViewController: UIViewController {
-
+final class ExpositionItemViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var expositionItems: [ExpositionItem] = []
+    private var expositionItems: [ExpositionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ExpositionItemViewController: UIViewController {
         decodeData()
     }
     
-    func decodeData() {
+    private func decodeData() {
         let decoder = JSONDecoder()
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
