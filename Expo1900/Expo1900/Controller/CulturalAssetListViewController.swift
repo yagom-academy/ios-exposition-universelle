@@ -17,7 +17,24 @@ class CulturalAssetListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return culturalAssets.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        
+        content.image = UIImage(named: culturalAssets[indexPath.row].imageName)
+        content.imageProperties.maximumSize = CGSize(width: 60, height: 60)
+        content.imageProperties.reservedLayoutSize = CGSize(width: 65, height: 0)
+        
+        content.text = culturalAssets[indexPath.row].name
+        content.secondaryText = culturalAssets[indexPath.row].shortDescription
+        
+        cell.contentConfiguration = content
+        cell.accessoryType = .disclosureIndicator
+
+        return cell
     }
 
     func decodeDataAsset() {
@@ -33,6 +50,4 @@ class CulturalAssetListViewController: UITableViewController {
             print(error.localizedDescription)
         }
     }
-
-
 }
