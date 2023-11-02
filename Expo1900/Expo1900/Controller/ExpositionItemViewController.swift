@@ -16,6 +16,19 @@ class ExpositionItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        decodeData()
+    }
+    
+    func decodeData() {
+        let decoder = JSONDecoder()
+        
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
+        
+        do {
+            expositionItems = try decoder.decode([ExpositionItem].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
