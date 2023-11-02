@@ -32,6 +32,14 @@ class ExpositionItemViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController = segue.destination as? ItemDetailViewController else { return }
+        
+        guard let selectedIndex = tableView.indexPathForSelectedRow?.row else { return }
+        
+        nextViewController.expositionItem = expositionItems[selectedIndex]
+    }
 }
 
 extension ExpositionItemViewController: UITableViewDataSource {
