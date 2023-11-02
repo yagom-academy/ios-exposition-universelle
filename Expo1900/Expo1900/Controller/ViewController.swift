@@ -26,8 +26,6 @@ class ViewController: UIViewController {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        
-        
         var product: Exposition.ExpositionInfo?
         
         do {
@@ -41,7 +39,6 @@ class ViewController: UIViewController {
         let unwrapedDuration = (product?.duration)!
         let separatedTitle = product?.title.split(separator: "(")
         let twoLineTitle = "\(separatedTitle![0])\n (\(separatedTitle![1])"
-        
         
         expoTitle.text = twoLineTitle
         expoItem.image = UIImage(named: "poster")
