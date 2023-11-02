@@ -17,9 +17,16 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //self.navigationItem.titleView?.isHidden = true
     }
 
+    func decodeDataAsset() -> Exposition? {
+        let decoder = JSONDecoder()
 
+        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
+            return nil
+        }
+
+        return try? decoder.decode(Exposition.self, from: dataAsset.data)
+    }
 }
 
