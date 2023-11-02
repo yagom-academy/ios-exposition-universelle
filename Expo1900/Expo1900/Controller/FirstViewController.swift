@@ -16,9 +16,24 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI()
         // Do any additional setup after loading the view.
     }
 
+    func configureUI() {
+        guard let exposition = decodeDataAsset() else {
+            return
+        }
+        
+        titleLabel.text = exposition.title
+        imageView.image = UIImage(named: "poster")
+        visitorsLabel.text = "방문객 : \(exposition.visitors)"
+        locationLabel.text = exposition.location
+        durationLabel.text = exposition.duration
+        explanationLabel.text = exposition.explanation
+    }
+    
     func decodeDataAsset() -> Exposition? {
         let decoder = JSONDecoder()
 
