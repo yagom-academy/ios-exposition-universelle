@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B92B826A2AF3CE4F007C000F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B82692AF3CE4F007C000F /* DetailViewController.swift */; };
 		B96A747C2AEFDF7A00B13E18 /* CulturalAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */; };
 		B96A74812AF0C51300B13E18 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A74802AF0C51300B13E18 /* Exposition.swift */; };
 		B9F036032AF233AB00911F37 /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F036022AF233AB00911F37 /* DecodingTests.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B92B82692AF3CE4F007C000F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturalAsset.swift; sourceTree = "<group>"; };
 		B96A74802AF0C51300B13E18 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		B9F036002AF233AB00911F37 /* DecodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 			children = (
 				C79FF4B82589F401005FB0FD /* FirstViewController.swift */,
 				DC27946A2AF397260026AAA3 /* CulturalAssetListViewController.swift */,
+				B92B82692AF3CE4F007C000F /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				C79FF4B92589F401005FB0FD /* FirstViewController.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				B92B826A2AF3CE4F007C000F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
