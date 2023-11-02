@@ -18,27 +18,17 @@ final class ExpositionItemViewController: UIViewController {
         
         tableView.dataSource = self
         
-        decodeData()
-    }
-    
-    private func decodeData() {
-        let decoder = JSONDecoder()
-        
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
-        
-        do {
-            expositionItems = try decoder.decode([ExpositionItem].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
+        expositionItems = Decoder<[ExpositionItem]>(assetName: "items").decodedItem ?? []
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let nextViewController = segue.destination as? ItemDetailViewController else { return }
         
-        guard let selectedIndex = tableView.indexPathForSelectedRow?.row else { return }
+        guard let selectedIndex = tableView.indexPathForSelectedRow else { return }
         
-        nextViewController.expositionItem = expositionItems[selectedIndex]
+        nextViewController.expositionItem = expositionItems[selectedIndex.row]
+        
+        tableView.deselectRow(at: selectedIndex, animated: false)
     }
 }
 

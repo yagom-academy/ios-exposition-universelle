@@ -19,7 +19,8 @@ final class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        decodeData()
+        exposition = Decoder<Exposition>(assetName: "exposition_universelle_1900").decodedItem
+        
         configureUI()
     }
     
@@ -33,18 +34,6 @@ final class ExpositionViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    private func decodeData() {
-        let decoder = JSONDecoder()
-        
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        
-        do {
-            exposition = try decoder.decode(Exposition.self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
     private func configureUI () {
