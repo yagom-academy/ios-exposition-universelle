@@ -8,7 +8,10 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    var name: String = ""
+    var imageName: String = ""
+    var detailDescription: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
