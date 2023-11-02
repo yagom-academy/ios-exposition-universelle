@@ -7,7 +7,7 @@
 
 struct ExpoInformation: Decodable {
     let title: String
-    let visitors: Int
+    let visitorNumber: Int
     let location: String
     let duration: String
     let description: String
@@ -19,6 +19,6 @@ struct ExpoInformation: Decodable {
     }
     
     var formattedVisitorsNumber: String {
-        return String(visitors).convertToDecimal() + " 명"
+        return String(visitorNumber).convertToDecimal() + " 명"
     }
 }

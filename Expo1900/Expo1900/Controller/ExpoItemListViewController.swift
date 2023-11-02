@@ -10,7 +10,7 @@ import UIKit
 final class ExpoItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    private var exhibitionItems: [ExhibitionItems] = []
+    private var exhibitionItems: [ExhibitionItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ final class ExpoItemListViewController: UIViewController {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
-            self.exhibitionItems = try jsonDecoder.decode([ExhibitionItems].self, from: dataAsset.data)
+            self.exhibitionItems = try jsonDecoder.decode([ExhibitionItem].self, from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }
@@ -52,7 +52,7 @@ extension ExpoItemListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpoItemCell", for: indexPath) as? ExpoItemCell else { return UITableViewCell() }
-        let item: ExhibitionItems = self.exhibitionItems[indexPath.row]
+        let item: ExhibitionItem = self.exhibitionItems[indexPath.row]
         cell.itemImageView.image = UIImage(named:item.imageName)
         cell.itemNameLabel.text = item.name
         cell.itemDescriptionLabel.text = item.shortDescription
