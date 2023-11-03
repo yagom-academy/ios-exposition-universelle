@@ -62,9 +62,7 @@ extension ExpoItemListViewController: UITableViewDataSource {
         }
         let item: ExhibitionItem = self.exhibitionItems[indexPath.row]
         
-        cell.itemImageView.image = UIImage(named:item.imageName)
-        cell.itemNameLabel.text = item.name
-        cell.itemDescriptionLabel.text = item.shortDescription
+        cell.configureCell(imageName: item.imageName, itemName: item.name, description: item.shortDescription)
         
         return cell
     }
