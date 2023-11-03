@@ -47,6 +47,10 @@ class FirstViewController: UIViewController {
         durationLabel.text = exposition.formattingduration
         explanationLabel.text = exposition.explanation
         
+        visitorsLabel.changeFontSize(targetString: "방문객")
+        locationLabel.changeFontSize(targetString: "개최지")
+        durationLabel.changeFontSize(targetString: "개최 기간")
+
         buttonImages[0].image = UIImage(named: "flag")
         buttonImages[1].image = UIImage(named: "flag")
     }
@@ -62,3 +66,11 @@ class FirstViewController: UIViewController {
     }
 }
 
+extension UILabel {
+    func changeFontSize(targetString: String) {
+        let attributedString = NSMutableAttributedString(string: self.text ?? "")
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: ((self.text ?? "") as NSString).range(of: targetString))
+        
+        self.attributedText = attributedString
+    }
+}
