@@ -30,6 +30,15 @@ class EntryItemViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let nextViewController = segue.destination as? DescriptionViewController else {
+            return
+        }
+    
+        nextViewController.imageName = entryItems[indexPath.row]
+        nextViewController.descriptionText = "dd"
+    }
 }
 
 extension EntryItemViewController: UITableViewDataSource {
