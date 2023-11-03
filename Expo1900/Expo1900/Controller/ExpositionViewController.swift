@@ -38,9 +38,9 @@ final class ExpositionViewController: UIViewController {
     
     private func configureUI () {
         titleLabel.text = exposition?.title
-        visitorsLabel.text = String(subTitle: "방문객", text: exposition?.visitorsDescription)
-        locationLabel.text = String(subTitle: "개최지", text: exposition?.location)
-        durationLabel.text = String(subTitle: "개최 기간", text: exposition?.duration)
+        visitorsLabel.text = exposition?.visitorsDescription
+        locationLabel.text = exposition?.locationDescription
+        durationLabel.text = exposition?.durationDescription
         descriptionLabel.text = exposition?.description
     }
     

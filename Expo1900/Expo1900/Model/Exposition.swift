@@ -19,9 +19,17 @@ struct Exposition: Decodable {
             return formatter
         }()
         
-        guard let visitors = formatter.string(for: visitorsCount) else { return "\(visitorsCount) 명" }
+        guard let visitors = formatter.string(for: visitorsCount) else { return "방문자 : \(visitorsCount) 명" }
         
-        return "\(visitors) 명"
+        return "방문객 : \(visitors) 명"
+    }
+    
+    var locationDescription: String {
+        return "개최지 : \(location)"
+    }
+    
+    var durationDescription: String {
+        return "개최 기간 : \(duration)"
     }
     
     private enum CodingKeys: String, CodingKey {
