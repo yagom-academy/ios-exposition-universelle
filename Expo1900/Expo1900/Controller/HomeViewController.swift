@@ -16,7 +16,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var leftFlagImageView: UIImageView!
     @IBOutlet weak var rightFlagImageView: UIImageView!
-    var expoInformationData = DataDecoder<ExpoInformation>()
+    private var expoInformationData = DataDecoder<ExpoInformation>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
