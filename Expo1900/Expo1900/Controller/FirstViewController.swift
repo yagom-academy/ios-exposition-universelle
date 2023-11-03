@@ -39,8 +39,8 @@ class FirstViewController: UIViewController {
         titleLabel.text = exposition.formattingTitle
         imageView.image = UIImage(named: "poster")
         visitorsLabel.text = exposition.formattingVisitors
-        locationLabel.text = exposition.location
-        durationLabel.text = exposition.duration
+        locationLabel.text = exposition.formattingLocation
+        durationLabel.text = exposition.formattingduration
         explanationLabel.text = exposition.explanation
         
         buttonImages[0].image = UIImage(named: "flag")

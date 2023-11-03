@@ -37,6 +37,10 @@ struct Exposition: Decodable {
         return "개최지 : " + location
     }
     
+    var formattingduration: String {
+        return "개최 기간 : " + duration
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, visitors, location, duration
         case explanation = "description"
