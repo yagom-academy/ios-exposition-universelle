@@ -48,7 +48,5 @@ final class HomeViewController: UIViewController {
         rightFlagImageView.image = UIImage(named: "flag")
     }
     
-    
-    
 }
 
