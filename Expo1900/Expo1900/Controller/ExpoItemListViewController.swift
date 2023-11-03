@@ -23,6 +23,7 @@ final class ExpoItemListViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+        parseData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +40,12 @@ final class ExpoItemListViewController: UIViewController {
         itemDescriptionViewController.navigationItem.title = exhibitionItems[rowOfIndexPath].name
         itemDescriptionViewController.itemImage = exhibitionItems[rowOfIndexPath].imageName
         itemDescriptionViewController.itemDescription = exhibitionItems[rowOfIndexPath].description
+    private func parseData() {
+        do {
+            exhibitionItems = try exhibitionItemsData.parse(assetName: "items")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
