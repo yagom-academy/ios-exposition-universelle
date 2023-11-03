@@ -11,8 +11,8 @@ struct DataDecoder<Element: Decodable> {
     
     mutating func parse(assetName: String) throws -> Element {
         let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: assetName) else { throw ParseError.parseError }
-        guard let decodedData = try? jsonDecoder.decode(Element.self, from: dataAsset.data) else { throw ParseError.parseError }
+        guard let dataAsset = NSDataAsset(name: assetName) else { throw ParseError.parseFailure }
+        guard let decodedData = try? jsonDecoder.decode(Element.self, from: dataAsset.data) else { throw ParseError.parseFailure }
         
         return decodedData
     }

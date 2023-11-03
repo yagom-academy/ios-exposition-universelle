@@ -8,5 +8,5 @@
 import Foundation
 
 enum ParseError: Error {
-    case parseError
+    case parseFailure
 }
