@@ -6,10 +6,10 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
-    @IBOutlet weak var mainTitleLabel: UILabel!
-    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var expoTitleLabel: UILabel!
+    @IBOutlet weak var expoPosterImageView: UIImageView!
     @IBOutlet weak var visitorNumberLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -38,8 +38,8 @@ final class MainViewController: UIViewController {
     }
     
     private func configureUI(expoInformation: ExpoInformation) {
-        mainTitleLabel.text = expoInformation.formattedTitle
-        mainImageView.image = UIImage(named: "poster")
+        expoTitleLabel.text = expoInformation.formattedTitle
+        expoPosterImageView.image = UIImage(named: "poster")
         visitorNumberLabel.text = expoInformation.formattedVisitorsNumber
         locationLabel.text = expoInformation.location
         durationLabel.text = expoInformation.duration
