@@ -19,7 +19,7 @@ final class ExpositionHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exposition = AssetDecoder<Exposition>(assetName: "exposition_universelle_1900").decodedItem
+        exposition = AssetDecoder<Exposition>(assetName: AssetNameList.exposition).decodedItem
         
         configureUI()
     }

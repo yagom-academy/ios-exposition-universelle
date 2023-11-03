@@ -18,7 +18,7 @@ final class ExpositionItemListViewController: UIViewController {
         
         tableView.dataSource = self
         
-        expositionItems = AssetDecoder<[ExpositionItem]>(assetName: "items").decodedItem ?? []
+        expositionItems = AssetDecoder<[ExpositionItem]>(assetName: AssetNameList.expositionItems).decodedItem ?? []
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,7 +38,7 @@ extension ExpositionItemListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.itemCell, for: indexPath)
         let item = expositionItems[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
