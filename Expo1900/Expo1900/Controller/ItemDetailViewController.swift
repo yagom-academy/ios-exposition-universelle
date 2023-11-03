@@ -12,12 +12,16 @@ final class ItemDetailViewController: UIViewController {
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     
-    var expositionItem: ExpositionItem?
+    private var expositionItem: ExpositionItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
+    }
+    
+    func setUpExpositionItem(to clikedItem: ExpositionItem) {
+        expositionItem = clikedItem
     }
     
     private func configureUI() {

@@ -26,7 +26,7 @@ final class ExpositionItemViewController: UIViewController {
         
         guard let selectedIndex = tableView.indexPathForSelectedRow else { return }
         
-        nextViewController.expositionItem = expositionItems[selectedIndex.row]
+        nextViewController.setUpExpositionItem(to: expositionItems[selectedIndex.row])
         
         tableView.deselectRow(at: selectedIndex, animated: false)
     }
