@@ -11,6 +11,10 @@ struct Exposition: Decodable {
     let title, location, duration, description: String
     let visitorsCount: Int
     
+    var titleDescription: String {
+        return title.replacingOccurrences(of: "(", with: "\n(")
+    }
+    
     var visitorsDescription: String {
         let formatter: NumberFormatter = {
             let formatter = NumberFormatter()
@@ -19,7 +23,7 @@ struct Exposition: Decodable {
             return formatter
         }()
         
-        guard let visitors = formatter.string(for: visitorsCount) else { return "방문자 : \(visitorsCount) 명" }
+        guard let visitors = formatter.string(for: visitorsCount) else { return "방문객 : \(visitorsCount) 명" }
         
         return "방문객 : \(visitors) 명"
     }

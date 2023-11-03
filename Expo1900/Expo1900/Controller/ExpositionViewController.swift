@@ -37,7 +37,7 @@ final class ExpositionViewController: UIViewController {
     }
     
     private func configureUI () {
-        titleLabel.text = exposition?.title
+        titleLabel.text = exposition?.titleDescription
         visitorsLabel.text = exposition?.visitorsDescription
         locationLabel.text = exposition?.locationDescription
         durationLabel.text = exposition?.durationDescription
