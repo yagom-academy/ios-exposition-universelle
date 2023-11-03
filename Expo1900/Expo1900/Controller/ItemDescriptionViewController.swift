@@ -11,8 +11,9 @@ final class ItemDescriptionViewController: UIViewController {
 
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
-    var itemImage: String = ""
-    var itemDescription: String = ""
+    private var itemImage: String = ""
+    private var itemDescription: String = ""
+    private var navigationTitle: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
