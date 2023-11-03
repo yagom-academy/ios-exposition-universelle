@@ -48,11 +48,7 @@ final class HomeViewController: UIViewController {
         rightFlagImageView.image = UIImage(named: "flag")
     }
     
-    @IBAction func touchUpPushToExpoItemListViewButtonTapped(_ sender: UIButton) {
-        guard let view = self.storyboard?.instantiateViewController(withIdentifier: "ExpoItemListViewController") as? ExpoItemListViewController else { return }
-
-        self.navigationController?.pushViewController(view, animated: true)
-    }
+    
     
 }
 
