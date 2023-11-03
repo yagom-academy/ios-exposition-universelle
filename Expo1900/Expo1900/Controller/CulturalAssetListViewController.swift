@@ -13,6 +13,7 @@ class CulturalAssetListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.isNavigationBarHidden = false
         decodeDataAsset()
     }
 

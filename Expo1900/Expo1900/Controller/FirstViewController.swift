@@ -24,6 +24,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         scrollView.scrollRectToVisible(titleLabel.frame, animated: true)
+        navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
