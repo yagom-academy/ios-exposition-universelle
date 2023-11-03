@@ -8,5 +8,6 @@
 import Foundation
 
 enum ParseError: Error {
+    case dataAssetError
     case parseFailure
 }
