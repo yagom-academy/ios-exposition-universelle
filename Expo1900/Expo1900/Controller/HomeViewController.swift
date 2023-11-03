@@ -16,25 +16,22 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var leftFlagImageView: UIImageView!
     @IBOutlet weak var rightFlagImageView: UIImageView!
+    var expoInformationData = DataDecoder<ExpoInformation>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parsingToUI()
+        do {
+            try configureUI(expoInformation: expoInformationData.parse(assetName: "exposition_universelle_1900"))
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = true
-    }
-    
-    private func parsingToUI() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else { return }
-        guard let expoInformation = try? jsonDecoder.decode(ExpoInformation.self, from: dataAsset.data) else { return }
-        
-        configureUI(expoInformation: expoInformation)
     }
     
     private func configureUI(expoInformation: ExpoInformation) {
