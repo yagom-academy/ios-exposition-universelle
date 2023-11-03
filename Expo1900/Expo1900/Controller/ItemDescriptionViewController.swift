@@ -21,6 +21,12 @@ final class ItemDescriptionViewController: UIViewController {
         configureUI()
     }
     
+    func parseToLabel(title: String,imageName: String, description: String) {
+        navigationTitle = title
+        itemImage = imageName
+        itemDescription = description
+    }
+    
     private func configureUI() {
         itemImageView.image = UIImage(named: itemImage)
         itemDescriptionLabel.text = itemDescription
