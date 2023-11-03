@@ -36,7 +36,7 @@ class FirstViewController: UIViewController {
             return
         }
         
-        titleLabel.text = exposition.title
+        titleLabel.text = exposition.titleWithNewLine
         imageView.image = UIImage(named: "poster")
         visitorsLabel.text = "방문객 : \(exposition.visitors)"
         locationLabel.text = exposition.location

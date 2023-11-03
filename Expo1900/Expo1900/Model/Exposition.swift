@@ -12,6 +12,14 @@ struct Exposition: Decodable {
     let duration: String
     let explanation: String
     
+    var titleWithNewLine: String {
+        guard let index = title.firstIndex(of: "(") else {
+            return title
+        }
+        
+        return "\(title.prefix(upTo: index))\n\(title.suffix(from: index))"
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, visitors, location, duration
         case explanation = "description"
