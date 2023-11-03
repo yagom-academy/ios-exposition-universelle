@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Decoder<Element: Decodable> {
+struct AssetDecoder<Element: Decodable> {
     let assetName: String
     
     var decodedItem: Element? {

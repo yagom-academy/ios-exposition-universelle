@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ItemDetailViewController: UIViewController {
+final class ExpositionItemDetailViewController: UIViewController {
     
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!
@@ -20,8 +20,8 @@ final class ItemDetailViewController: UIViewController {
         configureUI()
     }
     
-    func setUpExpositionItem(to clikedItem: ExpositionItem) {
-        expositionItem = clikedItem
+    func setUpExpositionItem(to selectedItem: ExpositionItem) {
+        expositionItem = selectedItem
     }
     
     private func configureUI() {

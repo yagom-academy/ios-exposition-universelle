@@ -6,7 +6,7 @@
 
 import UIKit
 
-final class ExpositionViewController: UIViewController {
+final class ExpositionHomeViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var visitorsLabel: UILabel!
@@ -19,7 +19,7 @@ final class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exposition = Decoder<Exposition>(assetName: "exposition_universelle_1900").decodedItem
+        exposition = AssetDecoder<Exposition>(assetName: "exposition_universelle_1900").decodedItem
         
         configureUI()
     }

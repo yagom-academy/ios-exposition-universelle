@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qjH-TX-el9">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +11,7 @@
         <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ExpositionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ExpositionHomeViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,7 +121,7 @@
         <!--한국의 출품작-->
         <scene sceneID="XME-qd-naU">
             <objects>
-                <viewController id="Uor-xP-UN2" customClass="ExpositionItemViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Uor-xP-UN2" customClass="ExpositionItemListViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nT5-vl-oet">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="1910.6870229007632" y="-35.211267605633807"/>
         </scene>
-        <!--Item Detail View Controller-->
+        <!--Exposition Item Detail View Controller-->
         <scene sceneID="lwv-DG-oLN">
             <objects>
-                <viewController id="z84-8b-j9m" customClass="ItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="z84-8b-j9m" customClass="ExpositionItemDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UXN-3M-4En">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

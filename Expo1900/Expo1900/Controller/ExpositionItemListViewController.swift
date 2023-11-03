@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExpositionItemViewController: UIViewController {
+final class ExpositionItemListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,11 +18,11 @@ final class ExpositionItemViewController: UIViewController {
         
         tableView.dataSource = self
         
-        expositionItems = Decoder<[ExpositionItem]>(assetName: "items").decodedItem ?? []
+        expositionItems = AssetDecoder<[ExpositionItem]>(assetName: "items").decodedItem ?? []
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController = segue.destination as? ItemDetailViewController else { return }
+        guard let nextViewController = segue.destination as? ExpositionItemDetailViewController else { return }
         
         guard let selectedIndex = tableView.indexPathForSelectedRow else { return }
         
@@ -32,7 +32,7 @@ final class ExpositionItemViewController: UIViewController {
     }
 }
 
-extension ExpositionItemViewController: UITableViewDataSource {
+extension ExpositionItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expositionItems.count
     }
