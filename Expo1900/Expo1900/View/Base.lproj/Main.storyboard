@@ -155,8 +155,8 @@
                                                         <constraint firstAttribute="width" constant="70" id="oqh-po-Df4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cau-WS-iTg">
-                                                    <rect key="frame" x="120" y="22.5" width="230" height="51.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cau-WS-iTg">
+                                                    <rect key="frame" x="120" y="21" width="230" height="54"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EntryItemTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgT-Tr-HJA">
                                                             <rect key="frame" x="0.0" y="0.0" width="230" height="30"/>
@@ -165,7 +165,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EntryItemDescription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aq-Kh-3PQ">
-                                                            <rect key="frame" x="0.0" y="31" width="230" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="33.5" width="230" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="230" id="oHg-gU-buU"/>
                                                             </constraints>
@@ -178,15 +178,17 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cau-WS-iTg" firstAttribute="leading" secondItem="vfF-mf-6oZ" secondAttribute="trailing" constant="10" id="7tZ-Ai-U4t"/>
-                                                <constraint firstItem="cau-WS-iTg" firstAttribute="centerY" secondItem="PnW-sq-vW6" secondAttribute="centerY" id="HFZ-cg-UVb"/>
+                                                <constraint firstItem="cau-WS-iTg" firstAttribute="top" secondItem="PnW-sq-vW6" secondAttribute="topMargin" constant="10" id="CLU-1i-l2e"/>
                                                 <constraint firstItem="vfF-mf-6oZ" firstAttribute="leading" secondItem="PnW-sq-vW6" secondAttribute="leadingMargin" constant="20" id="Qca-h8-m6c"/>
                                                 <constraint firstItem="vfF-mf-6oZ" firstAttribute="centerY" secondItem="PnW-sq-vW6" secondAttribute="centerY" id="Ru1-Bc-FU5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cau-WS-iTg" secondAttribute="bottom" constant="10" id="abE-2r-ytB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="EntryItemDescription" destination="0aq-Kh-3PQ" id="7dd-Ks-c0y"/>
                                             <outlet property="EntryItemImage" destination="vfF-mf-6oZ" id="Spt-cs-Xye"/>
                                             <outlet property="EntryItemTitle" destination="TgT-Tr-HJA" id="OUf-ff-1l5"/>
+                                            <segue destination="7sD-FQ-hPl" kind="show" id="Dxv-mm-8P9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -208,7 +210,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOM-Uh-X3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705.7971014492755" y="-35.491071428571423"/>
+            <point key="canvasLocation" x="1829" y="-56"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Cg9-Yz-RTy">
+            <objects>
+                <viewController id="7sD-FQ-hPl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="813-hO-zdu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="s4a-GG-BZb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2O1-es-Xnq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opV-yg-bka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L0P-Ct-IAw">

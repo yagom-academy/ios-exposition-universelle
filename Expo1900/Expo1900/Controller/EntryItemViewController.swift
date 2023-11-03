@@ -17,7 +17,6 @@ class EntryItemViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        tableView.delegate = self
         
         guard let assetData: NSDataAsset = NSDataAsset(name: "items") else {
             return
@@ -30,8 +29,6 @@ class EntryItemViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
-        
     }
 }
 
@@ -49,13 +46,5 @@ extension EntryItemViewController: UITableViewDataSource {
         cell.entryItemImage.image = UIImage(named: entryItems![indexPath.row].imageName)
         
         return cell
-    }
-}
-
-extension EntryItemViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        CGFloat(150)
-        
     }
 }
