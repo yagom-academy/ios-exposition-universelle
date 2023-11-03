@@ -17,12 +17,6 @@ final class ExpoItemListViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        
-        do {
-            exhibitionItems = try exhibitionItemsData.parse(assetName: "items")
-        } catch {
-            print(error.localizedDescription)
-        }
         parseData()
     }
     
@@ -33,7 +27,6 @@ final class ExpoItemListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let itemDescriptionViewController = segue.destination as? ItemDescriptionViewController else { return }
         guard let itemDescriptionViewController = segue.destination as? ItemDescriptionViewController else {
             return
         }
