@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pPA-vQ-mWz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pPA-vQ-mWz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainViewController-->
+        <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,11 +166,11 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="0FW-La-ib6" id="NK1-Ze-kll"/>
                         <outlet property="durationLabel" destination="CXy-JV-qFI" id="X3x-C0-UAF"/>
-                        <outlet property="leftFlagLabel" destination="bFN-8V-tlA" id="Frq-Wy-sat"/>
+                        <outlet property="expoPosterImageView" destination="E1q-K6-MEF" id="3sT-wx-ljt"/>
+                        <outlet property="expoTitleLabel" destination="KAs-AF-Tli" id="TZT-zw-MTx"/>
+                        <outlet property="leftFlagImageView" destination="bFN-8V-tlA" id="ldy-S0-Vez"/>
                         <outlet property="locationLabel" destination="RXS-xq-Ac1" id="hRQ-aO-NRE"/>
-                        <outlet property="mainImageView" destination="E1q-K6-MEF" id="sRf-kx-cIO"/>
-                        <outlet property="mainTitleLabel" destination="KAs-AF-Tli" id="L01-BM-cOr"/>
-                        <outlet property="rightFlagLabel" destination="wka-vo-Qrp" id="yd7-dV-gmr"/>
+                        <outlet property="rightFlagImageView" destination="wka-vo-Qrp" id="1bb-uO-kNu"/>
                         <outlet property="visitorNumberLabel" destination="7I2-or-ocE" id="LpI-WD-4x7"/>
                     </connections>
                 </viewController>
@@ -262,7 +262,7 @@
             <objects>
                 <viewController id="LOg-8M-Gki" customClass="ItemDescriptionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fY3-qr-Afk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yu2-ng-g0K">
