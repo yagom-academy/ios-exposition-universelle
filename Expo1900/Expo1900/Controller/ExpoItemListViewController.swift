@@ -11,7 +11,7 @@ final class ExpoItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var exhibitionItems: [ExhibitionItem] = []
-    var exhibitionItemsData = DataDecoder<[ExhibitionItem]>()
+    private var exhibitionItemsData = DataDecoder<[ExhibitionItem]>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
