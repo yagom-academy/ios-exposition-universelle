@@ -12,5 +12,11 @@ final class ExpoItemCell: UITableViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
+    
+    func configureCell(imageName: String, itemName: String, description: String) {
+        itemImageView.image = UIImage(named: imageName)
+        itemNameLabel.text = itemName
+        itemDescriptionLabel.text = description
+    }
 
 }
