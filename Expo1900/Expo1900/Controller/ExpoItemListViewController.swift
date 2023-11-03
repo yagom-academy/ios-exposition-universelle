@@ -34,8 +34,13 @@ final class ExpoItemListViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let itemDescriptionViewController = segue.destination as? ItemDescriptionViewController else { return }
+        guard let itemDescriptionViewController = segue.destination as? ItemDescriptionViewController else {
+            return
+        }
         let cellIndexPath = tableView.indexPathForSelectedRow
-        guard let rowOfIndexPath: Int = cellIndexPath?.row else { return }
+        guard let rowOfIndexPath: Int = cellIndexPath?.row else {
+            return
+        }
         
         itemDescriptionViewController.navigationItem.title = exhibitionItems[rowOfIndexPath].name
         itemDescriptionViewController.itemImage = exhibitionItems[rowOfIndexPath].imageName
