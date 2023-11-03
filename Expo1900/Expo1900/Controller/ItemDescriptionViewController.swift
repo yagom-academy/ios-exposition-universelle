@@ -28,6 +28,7 @@ final class ItemDescriptionViewController: UIViewController {
     }
     
     private func configureUI() {
+        self.navigationItem.title = navigationTitle
         itemImageView.image = UIImage(named: itemImage)
         itemDescriptionLabel.text = itemDescription
     }
