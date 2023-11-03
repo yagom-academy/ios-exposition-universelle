@@ -14,8 +14,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var leftFlagLabel: UIImageView!
-    @IBOutlet weak var rightFlagLabel: UIImageView!
+    @IBOutlet weak var leftFlagImageView: UIImageView!
+    @IBOutlet weak var rightFlagImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +44,8 @@ final class HomeViewController: UIViewController {
         locationLabel.text = expoInformation.location
         durationLabel.text = expoInformation.duration
         descriptionLabel.text = expoInformation.description
-        leftFlagLabel.image = UIImage(named: "flag")
-        rightFlagLabel.image = UIImage(named: "flag")
+        leftFlagImageView.image = UIImage(named: "flag")
+        rightFlagImageView.image = UIImage(named: "flag")
     }
     
     @IBAction func touchUpPushToExpoItemListViewButtonTapped(_ sender: UIButton) {
