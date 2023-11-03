@@ -11,12 +11,18 @@ final class ExpoItemListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var exhibitionItems: [ExhibitionItem] = []
+    var exhibitionItemsData = DataDecoder<[ExhibitionItem]>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        parsingToExhibitionItems()
+        
+        do {
+            exhibitionItems = try exhibitionItemsData.parse(assetName: "items")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,17 +39,6 @@ final class ExpoItemListViewController: UIViewController {
         itemDescriptionViewController.navigationItem.title = exhibitionItems[rowOfIndexPath].name
         itemDescriptionViewController.itemImage = exhibitionItems[rowOfIndexPath].imageName
         itemDescriptionViewController.itemDescription = exhibitionItems[rowOfIndexPath].description
-    }
-    
-    private func parsingToExhibitionItems() {
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else { return }
-        
-        do {
-            self.exhibitionItems = try jsonDecoder.decode([ExhibitionItem].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
 }
 
