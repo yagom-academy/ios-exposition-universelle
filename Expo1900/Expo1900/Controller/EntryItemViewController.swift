@@ -35,9 +35,13 @@ class EntryItemViewController: UIViewController {
         guard let nextViewController = segue.destination as? DescriptionViewController else {
             return
         }
-    
-        nextViewController.imageName = entryItems[indexPath.row]
-        nextViewController.descriptionText = "dd"
+        
+        let indexPath = tableView.indexPathForSelectedRow
+        let selectedItem = entryItems![indexPath!.row]
+        
+        nextViewController.imageName = selectedItem.imageName
+        nextViewController.descriptionText = selectedItem.desc
+
     }
 }
 
@@ -53,6 +57,9 @@ extension EntryItemViewController: UITableViewDataSource {
         cell.entryItemTitle.text = entryItems![indexPath.row].name
         cell.entryItemDescription.text = entryItems![indexPath.row].shortDesc
         cell.entryItemImage.image = UIImage(named: entryItems![indexPath.row].imageName)
+        
+        cell.imagetext = entryItems![indexPath.row].imageName
+        cell.desc = entryItems![indexPath.row].desc
         
         return cell
     }

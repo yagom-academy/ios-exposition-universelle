@@ -220,32 +220,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNq-cR-DzL">
-                                <rect key="frame" x="61" y="146" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4wS-vg-Cct">
-                                <rect key="frame" x="74" y="334" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SIK-kg-dGp">
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="PS8-MY-io3">
+                                        <rect key="frame" x="15" y="97" width="384" height="382.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mam-1K-R8A">
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="128"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PTt-wV-gL7">
+                                                <rect key="frame" x="0.0" y="199" width="384" height="183.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PS8-MY-io3" firstAttribute="leading" secondItem="nME-55-oTR" secondAttribute="leading" constant="15" id="132-eC-G97"/>
+                                    <constraint firstItem="PS8-MY-io3" firstAttribute="centerX" secondItem="SIK-kg-dGp" secondAttribute="centerX" id="4BP-kX-0Eb"/>
+                                    <constraint firstItem="PS8-MY-io3" firstAttribute="bottom" secondItem="nME-55-oTR" secondAttribute="bottom" id="VJq-8u-Bbe"/>
+                                    <constraint firstItem="PS8-MY-io3" firstAttribute="top" secondItem="nME-55-oTR" secondAttribute="top" id="YhM-1F-loT"/>
+                                    <constraint firstItem="PS8-MY-io3" firstAttribute="trailing" secondItem="nME-55-oTR" secondAttribute="trailing" constant="15" id="s20-8m-io5"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="nME-55-oTR"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="CW6-bN-FYJ"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s4a-GG-BZb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="SIK-kg-dGp" secondAttribute="bottom" id="UQ0-xX-prf"/>
+                            <constraint firstItem="SIK-kg-dGp" firstAttribute="trailing" secondItem="s4a-GG-BZb" secondAttribute="trailing" id="cnM-WL-Rhl"/>
+                            <constraint firstItem="SIK-kg-dGp" firstAttribute="top" secondItem="s4a-GG-BZb" secondAttribute="top" id="hCP-Pv-wYj"/>
+                            <constraint firstItem="SIK-kg-dGp" firstAttribute="leading" secondItem="s4a-GG-BZb" secondAttribute="leading" id="qe1-lx-1ls"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2O1-es-Xnq"/>
                     <connections>
-                        <outlet property="DescriptionImageView" destination="CNq-cR-DzL" id="eQi-dh-mQV"/>
-                        <outlet property="DescriptionOfDescription" destination="4wS-vg-Cct" id="Xnp-fT-jLZ"/>
+                        <outlet property="DescriptionImageView" destination="mam-1K-R8A" id="dtZ-ep-gcI"/>
+                        <outlet property="DescriptionOfDescription" destination="PTt-wV-gL7" id="LU4-AJ-qjk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opV-yg-bka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="-35"/>
+            <point key="canvasLocation" x="2621.739130434783" y="-35.491071428571423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L0P-Ct-IAw">

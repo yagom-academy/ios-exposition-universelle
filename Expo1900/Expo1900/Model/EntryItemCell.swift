@@ -13,15 +13,11 @@ class EntryItemCell: UITableViewCell {
     @IBOutlet weak var entryItemTitle: UILabel!
     @IBOutlet weak var entryItemDescription: UILabel!
     
+    var desc: String = ""
+    var imagetext: String = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.entryItemTitle.text = "Entry"
-        self.entryItemDescription.text = "Description"
-        self.entryItemImage.image = UIImage(named: "jikji")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
