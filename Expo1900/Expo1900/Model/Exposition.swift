@@ -5,6 +5,8 @@
 //  Created by Hisop on 2023/10/31.
 //
 
+import Foundation
+
 struct Exposition: Decodable {
     let title: String
     let visitors: Int
@@ -18,6 +20,17 @@ struct Exposition: Decodable {
         }
         
         return "\(title.prefix(upTo: index))\n\(title.suffix(from: index))"
+    }
+    
+    var formattingVisitors: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let formattingNumber = numberFormatter.string(for: visitors) else {
+            return String(visitors)
+        }
+        
+        return "방문객 : " + formattingNumber + " 명"
     }
     
     enum CodingKeys: String, CodingKey {

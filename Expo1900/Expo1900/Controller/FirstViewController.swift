@@ -38,7 +38,7 @@ class FirstViewController: UIViewController {
         
         titleLabel.text = exposition.titleWithNewLine
         imageView.image = UIImage(named: "poster")
-        visitorsLabel.text = "방문객 : \(exposition.visitors)"
+        visitorsLabel.text = exposition.formattingVisitors
         locationLabel.text = exposition.location
         durationLabel.text = exposition.duration
         explanationLabel.text = exposition.explanation
