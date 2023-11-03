@@ -14,7 +14,7 @@ struct Exposition: Decodable {
     let duration: String
     let explanation: String
     
-    var titleWithNewLine: String {
+    var formattingTitle: String {
         guard let index = title.firstIndex(of: "(") else {
             return title
         }

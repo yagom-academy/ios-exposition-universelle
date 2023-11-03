@@ -36,7 +36,7 @@ class FirstViewController: UIViewController {
             return
         }
         
-        titleLabel.text = exposition.titleWithNewLine
+        titleLabel.text = exposition.formattingTitle
         imageView.image = UIImage(named: "poster")
         visitorsLabel.text = exposition.formattingVisitors
         locationLabel.text = exposition.location
