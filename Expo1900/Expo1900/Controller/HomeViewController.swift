@@ -21,11 +21,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            try configureUI(expoInformation: expoInformationData.parse(assetName: "exposition_universelle_1900"))
-        } catch {
-            print(error.localizedDescription)
-        }
+        parseData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,5 +41,12 @@ final class HomeViewController: UIViewController {
         rightFlagImageView.image = UIImage(named: "flag")
     }
     
+    private func parseData() {
+        do {
+            try configureUI(expoInformation: expoInformationData.parse(assetName: "exposition_universelle_1900"))
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
