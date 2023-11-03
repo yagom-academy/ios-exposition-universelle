@@ -14,14 +14,18 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet var buttonImages: [UIImageView]!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
-        
-        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.scrollRectToVisible(titleLabel.frame, animated: true)
+    }
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
         guard let CulturalAssetListViewController = storyboard?.instantiateViewController(identifier: String(describing: CulturalAssetListViewController.self)) as? CulturalAssetListViewController else {
             return
