@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Expo Info View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ExpoInfoViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="965.21739130434787" y="-34.821428571428569"/>
         </scene>
-        <!--Entry Item View Controller-->
+        <!--한국의 출품작-->
         <scene sceneID="kKs-wn-W9X">
             <objects>
                 <viewController id="0Ni-c8-gzu" customClass="EntryItemViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -203,7 +203,7 @@
                             <constraint firstItem="WRF-XP-WL9" firstAttribute="leading" secondItem="jia-gx-aOA" secondAttribute="leading" id="gu8-hc-SiF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BXB-UT-lCW"/>
+                    <navigationItem key="navigationItem" title="한국의 출품작" id="BXB-UT-lCW"/>
                     <connections>
                         <outlet property="tableView" destination="WRF-XP-WL9" id="04J-kC-A1Q"/>
                     </connections>
@@ -212,7 +212,7 @@
             </objects>
             <point key="canvasLocation" x="1816" y="-35"/>
         </scene>
-        <!--Description View Controller-->
+        <!--작품명-->
         <scene sceneID="Cg9-Yz-RTy">
             <objects>
                 <viewController id="7sD-FQ-hPl" customClass="DescriptionViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
@@ -260,7 +260,7 @@
                             <constraint firstItem="SIK-kg-dGp" firstAttribute="leading" secondItem="s4a-GG-BZb" secondAttribute="leading" id="qe1-lx-1ls"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2O1-es-Xnq"/>
+                    <navigationItem key="navigationItem" title="작품명" id="2O1-es-Xnq"/>
                     <connections>
                         <outlet property="DescriptionImageView" destination="mam-1K-R8A" id="dtZ-ep-gcI"/>
                         <outlet property="DescriptionOfDescription" destination="PTt-wV-gL7" id="LU4-AJ-qjk"/>
