@@ -50,4 +50,10 @@ class ExpoInfoViewController: UIViewController {
         expoDuration.text = "개최 기간 : \(unwrapedDuration)"
         expoDescription.text = product?.description
     }
+    
+    @IBAction func convertEntryItemView(_ sender: UIButton) {
+        let secondStoryboard = UIStoryboard(name: "EntryItem", bundle: .main)
+        let nextVC = secondStoryboard.instantiateViewController(withIdentifier: "EntryItemViewController")
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
 }

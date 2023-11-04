@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DescriptionViewController: UIViewController {
+class DescriptionDetailViewController: UIViewController {
 
     
     @IBOutlet weak var DescriptionImageView: UIImageView!

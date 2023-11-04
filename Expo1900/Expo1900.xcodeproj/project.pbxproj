@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		6523E2382AF3BE05004C9B89 /* EntryItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6523E2372AF3BE05004C9B89 /* EntryItemViewController.swift */; };
+		6523E2E62AF62783004C9B89 /* DescriptionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6523E2E52AF62783004C9B89 /* DescriptionDetail.storyboard */; };
+		6523E2E82AF627AD004C9B89 /* EntryItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6523E2E72AF627AD004C9B89 /* EntryItem.storyboard */; };
 		921B360F2AEFB3700008722C /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B360E2AEFB3700008722C /* Exposition.swift */; };
 		92C3068C2AF3D6B900D9296A /* EntryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3068B2AF3D6B900D9296A /* EntryItemCell.swift */; };
 		92F1234C2AF4A4C800F0EBF9 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1234B2AF4A4C800F0EBF9 /* DescriptionViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ExpoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ExpoInfoViewController.swift */; };
-		C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* Main.storyboard */; };
+		C79FF4BC2589F401005FB0FD /* ExpoInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BA2589F401005FB0FD /* ExpoInfo.storyboard */; };
 		C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BD2589F404005FB0FD /* Assets.xcassets */; };
 		C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6523E2372AF3BE05004C9B89 /* EntryItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemViewController.swift; sourceTree = "<group>"; };
+		6523E2E52AF62783004C9B89 /* DescriptionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DescriptionDetail.storyboard; sourceTree = "<group>"; };
+		6523E2E72AF627AD004C9B89 /* EntryItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EntryItem.storyboard; sourceTree = "<group>"; };
 		921B360E2AEFB3700008722C /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		92C3068B2AF3D6B900D9296A /* EntryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemCell.swift; sourceTree = "<group>"; };
 		92F1234B2AF4A4C800F0EBF9 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
@@ -28,7 +32,7 @@
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B82589F401005FB0FD /* ExpoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoInfoViewController.swift; sourceTree = "<group>"; };
-		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C79FF4BB2589F401005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ExpoInfo.storyboard; sourceTree = "<group>"; };
 		C79FF4BD2589F404005FB0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C79FF4C02589F404005FB0FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C79FF4C22589F404005FB0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				92B3E5632AF6259400310F80 /* ExpoInfoViewController */,
-				92B3E5622AF6256700310F80 /* DescriptionViewController */,
 				92B3E5612AF6254700310F80 /* EntryItemViewController */,
+				92B3E5622AF6256700310F80 /* DescriptionDetailViewController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -66,7 +70,9 @@
 		92B3E55E2AF6238900310F80 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
+				C79FF4BA2589F401005FB0FD /* ExpoInfo.storyboard */,
+				6523E2E72AF627AD004C9B89 /* EntryItem.storyboard */,
+				6523E2E52AF62783004C9B89 /* DescriptionDetail.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C79FF4BD2589F404005FB0FD /* Assets.xcassets */,
 				C79FF4C22589F404005FB0FD /* Info.plist */,
@@ -102,12 +108,12 @@
 			path = EntryItemViewController;
 			sourceTree = "<group>";
 		};
-		92B3E5622AF6256700310F80 /* DescriptionViewController */ = {
+		92B3E5622AF6256700310F80 /* DescriptionDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
 				92F1234B2AF4A4C800F0EBF9 /* DescriptionViewController.swift */,
 			);
-			path = DescriptionViewController;
+			path = DescriptionDetailViewController;
 			sourceTree = "<group>";
 		};
 		92B3E5632AF6259400310F80 /* ExpoInfoViewController */ = {
@@ -201,8 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
+				6523E2E82AF627AD004C9B89 /* EntryItem.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
-				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
+				6523E2E62AF62783004C9B89 /* DescriptionDetail.storyboard in Resources */,
+				C79FF4BC2589F401005FB0FD /* ExpoInfo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,12 +234,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C79FF4BA2589F401005FB0FD /* Main.storyboard */ = {
+		C79FF4BA2589F401005FB0FD /* ExpoInfo.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C79FF4BB2589F401005FB0FD /* Base */,
 			);
-			name = Main.storyboard;
+			name = ExpoInfo.storyboard;
 			sourceTree = "<group>";
 		};
 		C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */ = {
@@ -296,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -352,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -369,7 +377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,7 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

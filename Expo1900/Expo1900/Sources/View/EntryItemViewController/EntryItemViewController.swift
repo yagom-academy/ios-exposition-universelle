@@ -35,7 +35,7 @@ class EntryItemViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController = segue.destination as? DescriptionViewController else {
+        guard let nextViewController = segue.destination as? DescriptionDetailViewController else {
             return
         }
         
