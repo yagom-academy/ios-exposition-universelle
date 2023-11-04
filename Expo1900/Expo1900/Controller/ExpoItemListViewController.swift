@@ -26,6 +26,18 @@ final class ExpoItemListViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
+    func showAppTerminatingAlert() {
+        let title = "시스템 오류가 발생했습니다."
+        let message = "Data를 불러오는데 실패했습니다. 앱이 종료됩니다."
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let terminateAction = UIAlertAction(title: "지금 종료", style: .destructive) { _ in
+            exit(1)
+        }
+            
+        alert.addAction(terminateAction)
+        present(alert, animated: true)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let itemDescriptionViewController = segue.destination as? ItemDescriptionViewController else {
             return
@@ -44,9 +56,9 @@ final class ExpoItemListViewController: UIViewController {
     
     private func parseData() {
         do {
-            exhibitionItems = try exhibitionItemsData.parse(assetName: "items")
+            exhibitionItems = try exhibitionItemsData.parse(assetName: "tems")
         } catch {
-            print(error.localizedDescription)
+            self.showAppTerminatingAlert()
         }
     }
 }
