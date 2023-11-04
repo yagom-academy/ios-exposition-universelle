@@ -18,6 +18,9 @@ class ExpoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+            self.navigationItem.backBarButtonItem = backBarButtonItem
+        
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else {
             return
         }

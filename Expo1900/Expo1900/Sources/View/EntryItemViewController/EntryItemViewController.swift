@@ -16,6 +16,9 @@ class EntryItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
+            self.navigationItem.backBarButtonItem = backBarButtonItem
+        
         tableView.dataSource = self
         
         guard let assetData: NSDataAsset = NSDataAsset(name: "items") else {
