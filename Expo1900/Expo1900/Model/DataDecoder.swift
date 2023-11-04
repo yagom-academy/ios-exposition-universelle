@@ -10,9 +10,13 @@ import UIKit
 struct DataDecoder<Element: Decodable> {
     
     func parse(assetName: String) throws -> Element {
-        guard let dataAsset = NSDataAsset(name: assetName) else { throw ParseError.dataAssetError }
+        guard let dataAsset = NSDataAsset(name: assetName) else {
+            throw ParseError.dataAssetError
+        }
         let jsonDecoder = JSONDecoder()
-        guard let decodedData = try? jsonDecoder.decode(Element.self, from: dataAsset.data) else { throw ParseError.parseFailure }
+        guard let decodedData = try? jsonDecoder.decode(Element.self, from: dataAsset.data) else {
+            throw ParseError.parseFailure
+        }
         
         return decodedData
     }
