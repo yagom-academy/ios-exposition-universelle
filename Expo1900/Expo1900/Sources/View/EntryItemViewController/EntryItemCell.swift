@@ -13,9 +13,6 @@ class EntryItemCell: UITableViewCell {
     @IBOutlet weak var entryItemTitle: UILabel!
     @IBOutlet weak var entryItemDescription: UILabel!
     
-    var desc: String = ""
-    var imagetext: String = ""
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

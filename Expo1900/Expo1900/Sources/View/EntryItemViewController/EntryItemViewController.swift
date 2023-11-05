@@ -20,6 +20,7 @@ class EntryItemViewController: UIViewController {
             self.navigationItem.backBarButtonItem = backBarButtonItem
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         guard let assetData: NSDataAsset = NSDataAsset(name: "items") else {
             return
@@ -33,18 +34,20 @@ class EntryItemViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController = segue.destination as? DescriptionDetailViewController else {
-            return
-        }
-        
-        let indexPath = tableView.indexPathForSelectedRow
-        let selectedItem = entryItems![indexPath!.row]
-        
-        nextViewController.imageName = selectedItem.imageName
-        nextViewController.descriptionText = selectedItem.desc
 
+}
+
+extension EntryItemViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
+        let nextVC = thirdViewController.instantiateViewController(withIdentifier: "DescriptionDetailViewController") as? DescriptionDetailViewController
+        
+        navigationController?.pushViewController(nextVC!, animated: true)
+       
+        let selectedItem = entryItems![indexPath.row]
+        
+        nextVC!.imageName = selectedItem.imageName
+        nextVC!.descriptionText = selectedItem.desc
     }
 }
 
@@ -61,9 +64,9 @@ extension EntryItemViewController: UITableViewDataSource {
         cell.entryItemDescription.text = entryItems![indexPath.row].shortDesc
         cell.entryItemImage.image = UIImage(named: entryItems![indexPath.row].imageName)
         
-        cell.imagetext = entryItems![indexPath.row].imageName
-        cell.desc = entryItems![indexPath.row].desc
-        
         return cell
     }
+    
+
+
 }
