@@ -32,7 +32,6 @@ final class FirstViewController: UIViewController {
             return
         }
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
         navigationController?.pushViewController(CulturalAssetListViewController, animated: true)
     }
     

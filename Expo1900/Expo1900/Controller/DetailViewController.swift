@@ -16,6 +16,8 @@ final class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.topItem?.title = "한국의 출품작"
         configureUI()
     }
 
