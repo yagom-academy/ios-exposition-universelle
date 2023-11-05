@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -60,7 +59,7 @@
                     <navigationItem key="navigationItem" title="작품명" id="81M-28-Dlr"/>
                     <connections>
                         <outlet property="DescriptionImageView" destination="bvd-Ce-glN" id="TI8-A8-YBp"/>
-                        <outlet property="DescriptionOfDescription" destination="5Km-t0-zN6" id="G1a-zS-iq6"/>
+                        <outlet property="DescriptionText" destination="5Km-t0-zN6" id="G1a-zS-iq6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s87-Fr-TD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

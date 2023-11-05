@@ -60,9 +60,12 @@ extension EntryItemViewController: UITableViewDelegate {
        
         guard let selectedItem = entryItems?[indexPath.row] else { return }
         
-        nextViewController.imageSourceName = selectedItem.imageName
-        nextViewController.descriptionText = selectedItem.description
-        nextViewController.titleName = selectedItem.name
+        nextViewController.injectData(
+            titleName: selectedItem.name,
+            descriptionText: selectedItem.description,
+            imageName: selectedItem.imageName
+        )
+
     }
 }
 

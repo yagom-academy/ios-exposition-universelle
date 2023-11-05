@@ -7,28 +7,35 @@
 
 import UIKit
 
-class DescriptionDetailViewController: UIViewController {
+final class DescriptionDetailViewController: UIViewController {
 
-    @IBOutlet weak var DescriptionImageView: UIImageView!
-    @IBOutlet weak var DescriptionOfDescription: UITextView!
+    @IBOutlet private weak var DescriptionImageView: UIImageView!
+    @IBOutlet private weak var DescriptionText: UITextView!
 
-    var titleName: String?
-    var imageSourceName: String?
-    var descriptionText: String?
-
-
+    private var titleName: String?
+    private var descriptionText: String?
+    private var imageName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
     }
     
-    func configureUI() {
+    private func configureUI() {
         self.navigationItem.title = titleName
-        DescriptionOfDescription.text = descriptionText
+        DescriptionText.text = descriptionText
         
-        guard let imageName = imageSourceName else { return }
+        guard let safeImageName = imageName else { return }
         
-        DescriptionImageView.image = UIImage(named: imageName)
+        DescriptionImageView.image = UIImage(named: safeImageName)
+    }
+}
+
+extension DescriptionDetailViewController {
+    func injectData(titleName: String, descriptionText: String, imageName: String) {
+        self.titleName = titleName
+        self.descriptionText = descriptionText
+        self.imageName = imageName
     }
 }
