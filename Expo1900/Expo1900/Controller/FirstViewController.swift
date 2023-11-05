@@ -27,7 +27,7 @@ final class FirstViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
-    @IBAction func buttonTapped(_ sender: UIButton) {
+    @IBAction private func buttonTapped(_ sender: UIButton) {
         guard let CulturalAssetListViewController = storyboard?.instantiateViewController(identifier: String(describing: CulturalAssetListViewController.self)) as? CulturalAssetListViewController else {
             return
         }

@@ -26,5 +26,3 @@ final class DetailViewController: UIViewController {
         explanation.text = detailDescription
     }
 }
-
-
