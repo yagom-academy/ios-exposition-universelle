@@ -51,7 +51,7 @@ extension EntryItemViewController: UITableViewDelegate {
         
         nextVC!.imageName = selectedItem.imageName
         nextVC!.descriptionText = selectedItem.description
-        nextVC!.titleTitle = selectedItem.name
+        nextVC!.titleName = selectedItem.name
     }
 }
 
