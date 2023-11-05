@@ -6,16 +6,16 @@
 
 import UIKit
 
-class ExpoInfoViewController: UIViewController {
+final class ExpoInfoViewController: UIViewController {
     
-    @IBOutlet weak var expoTitle: UILabel!
-    @IBOutlet weak var expoItem: UIImageView!
-    @IBOutlet weak var expoVisitors: UILabel!
-    @IBOutlet weak var expoLocation: UILabel!
-    @IBOutlet weak var expoDuration: UILabel!
-    @IBOutlet weak var expoDescription: UITextView!
+    @IBOutlet private weak var expoTitle: UILabel!
+    @IBOutlet private weak var expoItem: UIImageView!
+    @IBOutlet private weak var expoVisitors: UILabel!
+    @IBOutlet private weak var expoLocation: UILabel!
+    @IBOutlet private weak var expoDuration: UILabel!
+    @IBOutlet private weak var expoDescription: UITextView!
     
-    var expoInfo: Exposition.ExpositionInfo?
+    private var expoInfo: Exposition.ExpositionInfo?
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -29,12 +29,12 @@ class ExpoInfoViewController: UIViewController {
         sendExpositionInfo()
     }
     
-    func configureNavigationUI() {
+    private func configureNavigationUI() {
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
-    func decodeJSONData() {
+    private func decodeJSONData() {
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else { return }
         
         do {
@@ -45,7 +45,7 @@ class ExpoInfoViewController: UIViewController {
         }
     }
     
-    func sendExpositionInfo() {
+    private func sendExpositionInfo() {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
@@ -63,7 +63,7 @@ class ExpoInfoViewController: UIViewController {
         expoDescription.text = expoInfo?.description
     }
     
-    @IBAction func convertEntryItemView(_ sender: UIButton) {
+    @IBAction private func convertEntryItemView(_ sender: UIButton) {
         let secondStoryboard = UIStoryboard(name: "EntryItem", bundle: .main)
         let nextViewController = secondStoryboard.instantiateViewController(withIdentifier: "EntryItemViewController")
         navigationController?.pushViewController(nextViewController, animated: true)
