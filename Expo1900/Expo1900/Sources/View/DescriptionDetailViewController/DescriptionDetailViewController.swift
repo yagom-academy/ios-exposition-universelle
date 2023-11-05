@@ -16,12 +16,12 @@ class DescriptionDetailViewController: UIViewController {
     
     var descriptionText: String?
     var imageName: String?
-
+    var titleTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        self.navigationItem.title = titleTitle
         
         DescriptionOfDescription.text = descriptionText
         DescriptionImageView.image = UIImage(named: imageName!)

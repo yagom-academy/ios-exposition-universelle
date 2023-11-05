@@ -16,6 +16,8 @@ class EntryItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = false
+        
         let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
             self.navigationItem.backBarButtonItem = backBarButtonItem
         
@@ -46,8 +48,10 @@ extension EntryItemViewController: UITableViewDelegate {
        
         let selectedItem = entryItems![indexPath.row]
         
+        
         nextVC!.imageName = selectedItem.imageName
         nextVC!.descriptionText = selectedItem.desc
+        nextVC!.titleTitle = selectedItem.name
     }
 }
 

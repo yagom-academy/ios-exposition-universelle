@@ -15,6 +15,10 @@ class ExpoInfoViewController: UIViewController {
     @IBOutlet weak var expoDuration: UILabel!
     @IBOutlet weak var expoDescription: UITextView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
