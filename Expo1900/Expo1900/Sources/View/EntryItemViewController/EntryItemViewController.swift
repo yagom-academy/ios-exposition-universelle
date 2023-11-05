@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryItemViewController: UIViewController {
+final class EntryItemViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -21,7 +21,7 @@ class EntryItemViewController: UIViewController {
         decodeJSONData()
     }
     
-    func configureNavigationUI () {
+    private func configureNavigationUI () {
         self.navigationController?.isNavigationBarHidden = false
         
         let backBarButtonItem = UIBarButtonItem(
@@ -34,12 +34,12 @@ class EntryItemViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
-    func useProtocol() {
+    private func useProtocol() {
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-    func decodeJSONData() {
+    private func decodeJSONData() {
         guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {

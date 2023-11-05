@@ -7,11 +7,11 @@
 
 import UIKit
 
-class EntryItemCell: UITableViewCell {
-
-    @IBOutlet weak var entryItemImage: UIImageView!
-    @IBOutlet weak var entryItemTitle: UILabel!
-    @IBOutlet weak var entryItemDescription: UILabel!
+final class EntryItemCell: UITableViewCell {
+    
+    @IBOutlet private weak var entryItemImage: UIImageView!
+    @IBOutlet private weak var entryItemTitle: UILabel!
+    @IBOutlet private weak var entryItemDescription: UILabel!
     
     func injectData(title: String, description: String, imageName: String) {
         self.entryItemTitle.text = title
@@ -22,9 +22,8 @@ class EntryItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 }
