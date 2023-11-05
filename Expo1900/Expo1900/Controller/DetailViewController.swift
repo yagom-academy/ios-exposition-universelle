@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     var name: String = ""
     var imageName: String = ""
     var detailDescription: String = ""

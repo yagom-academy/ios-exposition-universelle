@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CulturalAssetListViewController: UITableViewController {
+final class CulturalAssetListViewController: UITableViewController {
     var culturalAssets:[CulturalAsset] = []
     
     override func viewDidLoad() {
