@@ -7,13 +7,15 @@
 import UIKit
 
 class ExpoInfoViewController: UIViewController {
-
+    
     @IBOutlet weak var expoTitle: UILabel!
     @IBOutlet weak var expoItem: UIImageView!
     @IBOutlet weak var expoVisitors: UILabel!
     @IBOutlet weak var expoLocation: UILabel!
     @IBOutlet weak var expoDuration: UILabel!
     @IBOutlet weak var expoDescription: UITextView!
+    
+    var expoInfo: Exposition.ExpositionInfo?
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -22,42 +24,48 @@ class ExpoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationUI()
+        decodeJSONData()
+        sendExpositionInfo()
+    }
+    
+    func configureNavigationUI() {
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
-            self.navigationItem.backBarButtonItem = backBarButtonItem
-        
-        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else {
-            return
-        }
-        
-        let decoder = JSONDecoder()
-        let numberFormatter: NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        var product: Exposition.ExpositionInfo?
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+    }
+    
+    func decodeJSONData() {
+        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else { return }
         
         do {
-            product = try decoder.decode(Exposition.ExpositionInfo.self, from: asset.data)
+            let decoder = JSONDecoder()
+            expoInfo = try decoder.decode(Exposition.ExpositionInfo.self, from: asset.data)
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func sendExpositionInfo() {
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
-        let visitorsCount: String = numberFormatter.string(for: product?.visitors)!
-        let unwrapedLocation = (product?.location)!
-        let unwrapedDuration = (product?.duration)!
-        let separatedTitle = product?.title.split(separator: "(")
-        let twoLineTitle = "\(separatedTitle![0])\n (\(separatedTitle![1])"
+        guard let visitorsCount: String = numberFormatter.string(for: expoInfo?.visitors),
+              let unwrapedLocation = (expoInfo?.location),
+              let unwrapedDuration = (expoInfo?.duration),
+              let separatedTitle = expoInfo?.title.split(separator: "(") else { return }
         
+        let twoLineTitle = "\(separatedTitle[0])\n (\(separatedTitle[1])"
         expoTitle.text = twoLineTitle
         expoItem.image = UIImage(named: "poster")
         expoVisitors.text = "방문객 : \(visitorsCount) 명"
         expoLocation.text = "개최지: \(unwrapedLocation)"
         expoDuration.text = "개최 기간 : \(unwrapedDuration)"
-        expoDescription.text = product?.description
+        expoDescription.text = expoInfo?.description
     }
     
     @IBAction func convertEntryItemView(_ sender: UIButton) {
         let secondStoryboard = UIStoryboard(name: "EntryItem", bundle: .main)
-        let nextVC = secondStoryboard.instantiateViewController(withIdentifier: "EntryItemViewController")
-        navigationController?.pushViewController(nextVC, animated: true)
+        let nextViewController = secondStoryboard.instantiateViewController(withIdentifier: "EntryItemViewController")
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
