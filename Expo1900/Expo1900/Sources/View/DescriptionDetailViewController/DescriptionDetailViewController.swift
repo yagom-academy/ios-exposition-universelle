@@ -16,17 +16,19 @@ class DescriptionDetailViewController: UIViewController {
     var imageSourceName: String?
     var descriptionText: String?
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        try configureUI()
+        
+        configureUI()
     }
     
-    func configureUI() throws {
+    func configureUI() {
         self.navigationItem.title = titleName
         DescriptionOfDescription.text = descriptionText
-        guard let imageName = imageSourceName else {
-            throw generateError.FailedToGetImageName
-        }
+        
+        guard let imageName = imageSourceName else { return }
+        
         DescriptionImageView.image = UIImage(named: imageName)
     }
 }

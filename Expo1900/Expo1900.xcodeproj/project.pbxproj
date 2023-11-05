@@ -12,7 +12,6 @@
 		6523E2E82AF627AD004C9B89 /* EntryItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6523E2E72AF627AD004C9B89 /* EntryItem.storyboard */; };
 		921B360F2AEFB3700008722C /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B360E2AEFB3700008722C /* Exposition.swift */; };
 		92C3068C2AF3D6B900D9296A /* EntryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3068B2AF3D6B900D9296A /* EntryItemCell.swift */; };
-		92EC92A72AF75DBD00C37F7F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EC92A62AF75DBD00C37F7F /* Error.swift */; };
 		92F1234C2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1234B2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -28,7 +27,6 @@
 		6523E2E72AF627AD004C9B89 /* EntryItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EntryItem.storyboard; sourceTree = "<group>"; };
 		921B360E2AEFB3700008722C /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		92C3068B2AF3D6B900D9296A /* EntryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemCell.swift; sourceTree = "<group>"; };
-		92EC92A62AF75DBD00C37F7F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		92F1234B2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDetailViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		92B3E55F2AF6239C00310F80 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				92EC92A52AF75DAE00C37F7F /* Error */,
 				92B3E5602AF6248400310F80 /* APP */,
 				650B9BD92AEFC329007E9D14 /* View */,
 				650B9BD82AEFC31D007E9D14 /* Model */,
@@ -125,14 +122,6 @@
 				C79FF4B82589F401005FB0FD /* ExpoInfoViewController.swift */,
 			);
 			path = ExpoInfoViewController;
-			sourceTree = "<group>";
-		};
-		92EC92A52AF75DAE00C37F7F /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				92EC92A62AF75DBD00C37F7F /* Error.swift */,
-			);
-			path = Error;
 			sourceTree = "<group>";
 		};
 		C79FF4A82589F401005FB0FD = {
@@ -232,7 +221,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92EC92A72AF75DBD00C37F7F /* Error.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpoInfoViewController.swift in Sources */,
 				92F1234C2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift in Sources */,
 				921B360F2AEFB3700008722C /* Exposition.swift in Sources */,

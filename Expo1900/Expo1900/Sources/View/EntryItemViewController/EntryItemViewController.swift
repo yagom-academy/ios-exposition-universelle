@@ -16,61 +16,77 @@ class EntryItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationUI()
+        useProtocol()
+        decodeJSONData()
+    }
+    
+    func configureNavigationUI () {
         self.navigationController?.isNavigationBarHidden = false
         
-        let backBarButtonItem = UIBarButtonItem(title: "한국의 출품작", style: .plain, target: self, action: nil)
-            self.navigationItem.backBarButtonItem = backBarButtonItem
+        let backBarButtonItem = UIBarButtonItem(
+            title: "한국의 출품작",
+            style: .plain,
+            target: self,
+            action: nil
+        )
         
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+    }
+    
+    func useProtocol() {
         tableView.dataSource = self
         tableView.delegate = self
-        
-        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        let decoder = JSONDecoder()
+    }
+    
+    func decodeJSONData() {
+        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { return }
         
         do {
+            let decoder = JSONDecoder()
             entryItems = try decoder.decode([Exposition.EntryItem].self, from: assetData.data)
         } catch {
             print(error.localizedDescription)
         }
     }
-
 }
 
 extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
-        let nextVC = thirdViewController.instantiateViewController(withIdentifier: "DescriptionDetailViewController") as? DescriptionDetailViewController
+        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: "DescriptionDetailViewController") as? DescriptionDetailViewController else { return }
         
-        navigationController?.pushViewController(nextVC!, animated: true)
+        self.navigationController?.pushViewController(nextViewController, animated: true)
        
-        let selectedItem = entryItems![indexPath.row]
+        guard let selectedItem = entryItems?[indexPath.row] else { return }
         
-        
-        nextVC!.imageName = selectedItem.imageName
-        nextVC!.descriptionText = selectedItem.description
-        nextVC!.titleName = selectedItem.name
+        nextViewController.imageSourceName = selectedItem.imageName
+        nextViewController.descriptionText = selectedItem.description
+        nextViewController.titleName = selectedItem.name
     }
 }
 
 extension EntryItemViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entryItems!.count
+        guard let entryItemsCount = entryItems?.count else { return .zero }
+        return entryItemsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EntryItemCell", for: indexPath) as! EntryItemCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryItemCell", for: indexPath) as? EntryItemCell else {
+            return UITableViewCell()
+        }
         
-        cell.entryItemTitle.text = entryItems![indexPath.row].name
-        cell.entryItemDescription.text = entryItems![indexPath.row].shortDesc
-        cell.entryItemImage.image = UIImage(named: entryItems![indexPath.row].imageName)
+        guard let entryItem = entryItems?[indexPath.row] else {
+            return UITableViewCell()
+        }
+
+        cell.injectData(
+            title: entryItem.name,
+            description: entryItem.shortDesc,
+            imageName: entryItem.imageName
+        )
         
         return cell
     }
-    
-
-
 }

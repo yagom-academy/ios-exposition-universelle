@@ -13,6 +13,12 @@ class EntryItemCell: UITableViewCell {
     @IBOutlet weak var entryItemTitle: UILabel!
     @IBOutlet weak var entryItemDescription: UILabel!
     
+    func injectData(title: String, description: String, imageName: String) {
+        self.entryItemTitle.text = title
+        self.entryItemImage.image = UIImage(named: imageName)
+        self.entryItemDescription.text = description
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
