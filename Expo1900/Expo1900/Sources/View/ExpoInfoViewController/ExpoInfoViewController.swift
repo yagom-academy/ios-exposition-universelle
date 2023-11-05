@@ -30,7 +30,12 @@ final class ExpoInfoViewController: UIViewController {
     }
     
     private func configureNavigationUI() {
-        let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+        let backBarButtonItem = UIBarButtonItem(
+            title: "메인",
+            style: .plain,
+            target: self,
+            action: nil
+        )
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
