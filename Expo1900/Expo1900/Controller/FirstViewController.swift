@@ -7,14 +7,14 @@
 import UIKit
 
 final class FirstViewController: UIViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var visitorsLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var explanationLabel: UILabel!
-    @IBOutlet var buttonImages: [UIImageView]!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var visitorsLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var explanationLabel: UILabel!
+    @IBOutlet private var buttonImages: [UIImageView]!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ final class FirstViewController: UIViewController {
         navigationController?.pushViewController(CulturalAssetListViewController, animated: true)
     }
     
-    func configureUI() {
+    private func configureUI() {
         guard let exposition = decodeDataAsset() else {
             return
         }

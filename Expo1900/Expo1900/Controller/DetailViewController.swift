@@ -11,15 +11,15 @@ final class DetailViewController: UIViewController {
     var name: String = ""
     var imageName: String = ""
     var detailDescription: String = ""
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var explanation: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var explanation: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
 
-    func configureUI() {
+    private func configureUI() {
         navigationItem.title = name
         imageView.image = UIImage(named: imageName)
         
