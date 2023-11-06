@@ -8,9 +8,9 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    var name: String = ""
-    var imageName: String = ""
-    var detailDescription: String = ""
+    private var name: String = ""
+    private var imageName: String = ""
+    private var detailDescription: String = ""
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var explanation: UILabel!
     
@@ -26,5 +26,11 @@ final class DetailViewController: UIViewController {
         imageView.image = UIImage(named: imageName)
         
         explanation.text = detailDescription
+    }
+    
+    func setUp(culturalAsset: CulturalAsset) {
+        name = culturalAsset.name
+        imageName = culturalAsset.imageName
+        detailDescription = culturalAsset.detailDescription
     }
 }

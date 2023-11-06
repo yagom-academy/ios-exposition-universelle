@@ -47,9 +47,7 @@ final class CulturalAssetListViewController: UITableViewController {
         
         navigationController?.pushViewController(detailViewController, animated: true)
     
-        detailViewController.name = culturalAssets[indexPath.row].name
-        detailViewController.imageName = culturalAssets[indexPath.row].imageName
-        detailViewController.detailDescription = culturalAssets[indexPath.row].detailDescription
+        detailViewController.setUp(culturalAsset: culturalAssets[indexPath.row])
     }
 
     func decodeDataAsset() {
