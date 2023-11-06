@@ -5,7 +5,7 @@
 //  Created by hyunMac on 11/6/23.
 //
 
-enum ErrorReason: String{
+enum ErrorReason: String {
     case emptyImageData = "이미지 불러오지 못함"
     case emptyAssetData = "에셋 데이터 불러오지 못함"
     case noNextViewController = "다음 뷰컨트롤러를 불러오지 못함"

@@ -47,7 +47,7 @@ final class ExpoInfoViewController: UIViewController {
             let decoder = JSONDecoder()
             expoInfo = try decoder.decode(Exposition.ExpositionInfo.self, from: asset.data)
         } catch {
-            print(error.localizedDescription)
+            errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noJSONData.rawValue)
         }
     }
     
@@ -71,7 +71,7 @@ final class ExpoInfoViewController: UIViewController {
     
     @IBAction private func convertEntryItemView(_ sender: UIButton) {
         let secondStoryboard = UIStoryboard(name: "EntryItem", bundle: .main)
-        let nextViewController = secondStoryboard.instantiateViewController(withIdentifier: "EntryItemViewController")
+        let nextViewController = secondStoryboard.instantiateViewController(withIdentifier: IdentifierNameSpace.EntryItemViewController.rawValue)
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

@@ -55,7 +55,7 @@ final class EntryItemViewController: UIViewController {
 extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
-        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: "DescriptionDetailViewController") as? DescriptionDetailViewController else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noNextViewController.rawValue) }
+        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: IdentifierNameSpace.DescriptionDetailViewController.rawValue) as? DescriptionDetailViewController else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noNextViewController.rawValue) }
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
        
@@ -77,7 +77,7 @@ extension EntryItemViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryItemCell", for: indexPath) as? EntryItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: IdentifierNameSpace.EntryItemCell.rawValue, for: indexPath) as? EntryItemCell else {
             return UITableViewCell()
         }
         
