@@ -68,9 +68,8 @@ extension ExpoItemListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpoItemCell", for: indexPath) as? ExpoItemCell else {
             return UITableViewCell()
         }
-        let item: ExhibitionItem = self.exhibitionItems[indexPath.row]
         
-        cell.configureCell(imageName: item.imageName, itemName: item.name, description: item.shortDescription)
+        cell.configureCell(asset: self.exhibitionItems[indexPath.row])
         
         return cell
     }
