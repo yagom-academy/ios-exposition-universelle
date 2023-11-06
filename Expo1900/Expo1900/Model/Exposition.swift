@@ -8,11 +8,12 @@
 import Foundation
 
 struct Exposition: Decodable {
-    let title: String
-    let visitors: Int
-    let location: String
-    let duration: String
-    let description: String
+    let title, location, duration, description: String
+    let visitorsCount: Int
+    
+    var titleDescription: String {
+        return title.replacingOccurrences(of: "(", with: "\n(")
+    }
     
     var visitorsDescription: String {
         let formatter: NumberFormatter = {
@@ -22,10 +23,21 @@ struct Exposition: Decodable {
             return formatter
         }()
         
-        guard let visitors = formatter.string(for: visitors) else {
-            return "\(visitors) 명"
-        }
+        guard let visitors = formatter.string(for: visitorsCount) else { return "방문객 : \(visitorsCount) 명" }
         
-        return "\(visitors) 명"
+        return "방문객 : \(visitors) 명"
+    }
+    
+    var locationDescription: String {
+        return "개최지 : \(location)"
+    }
+    
+    var durationDescription: String {
+        return "개최 기간 : \(duration)"
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case title, location, duration, description
+        case visitorsCount = "visitors"
     }
 }
