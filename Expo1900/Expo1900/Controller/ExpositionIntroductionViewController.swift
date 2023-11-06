@@ -62,20 +62,18 @@ final class ExpositionIntroductionViewController: UIViewController {
         durationLabel.text = exposition.formattingDuration
         explanationLabel.text = exposition.explanation
         
-        visitorsLabel.changeFontSize(targetString: "방문객")
-        locationLabel.changeFontSize(targetString: "개최지")
-        durationLabel.changeFontSize(targetString: "개최 기간")
+        changeFontSize(targetString: "방문객", targetLabel: visitorsLabel)
+        changeFontSize(targetString: "개최지", targetLabel: locationLabel)
+        changeFontSize(targetString: "개최 기간", targetLabel: durationLabel)
 
         buttonImages[0].image = UIImage(named: "flag")
         buttonImages[1].image = UIImage(named: "flag")
     }
-}
-
-extension UILabel {
-    func changeFontSize(targetString: String) {
-        let attributedString = NSMutableAttributedString(string: self.text ?? "")
-        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: ((self.text ?? "") as NSString).range(of: targetString))
+    
+    private func changeFontSize(targetString: String, targetLabel: UILabel) {
+        let attributedString = NSMutableAttributedString(string: targetLabel.text ?? "")
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: ((targetLabel.text ?? "") as NSString).range(of: targetString))
         
-        self.attributedText = attributedString
+        targetLabel.attributedText = attributedString
     }
 }
