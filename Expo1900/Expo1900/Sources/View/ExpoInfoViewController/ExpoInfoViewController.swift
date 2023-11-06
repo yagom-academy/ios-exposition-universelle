@@ -15,6 +15,7 @@ final class ExpoInfoViewController: UIViewController {
     @IBOutlet private weak var expoDuration: UILabel!
     @IBOutlet private weak var expoDescription: UITextView!
     
+    private let errorAlert = ErrorAlert()
     private var expoInfo: Exposition.ExpositionInfo?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +41,7 @@ final class ExpoInfoViewController: UIViewController {
     }
     
     private func decodeJSONData() {
-        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else { return }
+        guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.emptyAssetData.rawValue) }
         
         do {
             let decoder = JSONDecoder()
@@ -55,16 +56,16 @@ final class ExpoInfoViewController: UIViewController {
         numberFormatter.numberStyle = .decimal
         
         guard let visitorsCount: String = numberFormatter.string(for: expoInfo?.visitors),
-              let unwrapedLocation = (expoInfo?.location),
-              let unwrapedDuration = (expoInfo?.duration),
-              let separatedTitle = expoInfo?.title.split(separator: "(") else { return }
+              let location = (expoInfo?.location),
+              let duration = (expoInfo?.duration),
+              let separatedTitle = expoInfo?.title.split(separator: "(") else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.lackData.rawValue) }
         
         let twoLineTitle = "\(separatedTitle[0])\n (\(separatedTitle[1])"
         expoTitle.text = twoLineTitle
         expoItem.image = UIImage(named: "poster")
         expoVisitors.text = "방문객 : \(visitorsCount) 명"
-        expoLocation.text = "개최지: \(unwrapedLocation)"
-        expoDuration.text = "개최 기간 : \(unwrapedDuration)"
+        expoLocation.text = "개최지: \(location)"
+        expoDuration.text = "개최 기간 : \(duration)"
         expoDescription.text = expoInfo?.description
     }
     

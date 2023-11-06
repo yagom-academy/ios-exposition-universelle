@@ -11,6 +11,7 @@ final class EntryItemViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private let errorAlert = ErrorAlert()
     private var entryItems: [Exposition.EntryItem]?
     
     override func viewDidLoad() {
@@ -40,13 +41,13 @@ final class EntryItemViewController: UIViewController {
     }
     
     private func decodeJSONData() {
-        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { return }
+        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.emptyAssetData.rawValue) }
         
         do {
             let decoder = JSONDecoder()
             entryItems = try decoder.decode([Exposition.EntryItem].self, from: assetData.data)
         } catch {
-            print(error.localizedDescription)
+            errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noJSONData.rawValue)
         }
     }
 }
@@ -54,11 +55,11 @@ final class EntryItemViewController: UIViewController {
 extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
-        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: "DescriptionDetailViewController") as? DescriptionDetailViewController else { return }
+        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: "DescriptionDetailViewController") as? DescriptionDetailViewController else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noNextViewController.rawValue) }
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
        
-        guard let selectedItem = entryItems?[indexPath.row] else { return }
+        guard let selectedItem = entryItems?[indexPath.row] else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noJSONItems.rawValue) }
         
         nextViewController.injectData(
             titleName: selectedItem.name,

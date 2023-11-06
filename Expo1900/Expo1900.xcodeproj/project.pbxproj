@@ -12,6 +12,7 @@
 		6523E2E82AF627AD004C9B89 /* EntryItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6523E2E72AF627AD004C9B89 /* EntryItem.storyboard */; };
 		921B360F2AEFB3700008722C /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B360E2AEFB3700008722C /* Exposition.swift */; };
 		92362A2F2AF8B91400707448 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92362A2E2AF8B91400707448 /* ErrorAlert.swift */; };
+		92362A332AF8C6D300707448 /* ErrorReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92362A322AF8C6D300707448 /* ErrorReason.swift */; };
 		92C3068C2AF3D6B900D9296A /* EntryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3068B2AF3D6B900D9296A /* EntryItemCell.swift */; };
 		92F1234C2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1234B2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		6523E2E72AF627AD004C9B89 /* EntryItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EntryItem.storyboard; sourceTree = "<group>"; };
 		921B360E2AEFB3700008722C /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		92362A2E2AF8B91400707448 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		92362A322AF8C6D300707448 /* ErrorReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReason.swift; sourceTree = "<group>"; };
 		92C3068B2AF3D6B900D9296A /* EntryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemCell.swift; sourceTree = "<group>"; };
 		92F1234B2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionDetailViewController.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				92362A2E2AF8B91400707448 /* ErrorAlert.swift */,
+				92362A322AF8C6D300707448 /* ErrorReason.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			files = (
 				C79FF4B92589F401005FB0FD /* ExpoInfoViewController.swift in Sources */,
 				92F1234C2AF4A4C800F0EBF9 /* DescriptionDetailViewController.swift in Sources */,
+				92362A332AF8C6D300707448 /* ErrorReason.swift in Sources */,
 				921B360F2AEFB3700008722C /* Exposition.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				92362A2F2AF8B91400707448 /* ErrorAlert.swift in Sources */,

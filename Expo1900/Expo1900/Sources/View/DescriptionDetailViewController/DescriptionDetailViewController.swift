@@ -28,7 +28,7 @@ final class DescriptionDetailViewController: UIViewController {
         let errorAlert = ErrorAlert()
         
         guard let safeImageName = imageName else {
-            return errorAlert.generateAlert(viewController: self, errorReason: "이미지")
+            return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.emptyImageData.rawValue)
         }
         
         DescriptionImageView.image = UIImage(named: safeImageName)
