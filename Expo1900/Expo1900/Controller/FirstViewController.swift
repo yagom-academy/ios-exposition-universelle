@@ -23,6 +23,8 @@ final class FirstViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         scrollView.scrollRectToVisible(titleLabel.frame, animated: true)
         navigationController?.isNavigationBarHidden = true
     }
