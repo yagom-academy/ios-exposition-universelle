@@ -9,9 +9,9 @@ import UIKit
 
 final class ExpoItemCell: UITableViewCell {
 
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemNameLabel: UILabel!
+    @IBOutlet private weak var itemDescriptionLabel: UILabel!
     
     func configureCell(asset: ExhibitionItem) {
         itemImageView.image = UIImage(named: asset.imageName)

@@ -9,8 +9,8 @@ import UIKit
 
 final class ItemDescriptionViewController: UIViewController {
 
-    @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var itemDescriptionLabel: UILabel!
+    @IBOutlet private weak var itemImageView: UIImageView!
+    @IBOutlet private weak var itemDescriptionLabel: UILabel!
     private var itemImage: String = ""
     private var itemDescription: String = ""
     private var navigationTitle: String = ""
