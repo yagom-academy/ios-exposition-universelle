@@ -60,7 +60,13 @@ final class CulturalAssetListViewController: UITableViewController {
         do {
             culturalAssets = try decoder.decode([CulturalAsset].self, from: dataAsset.data)
         } catch {
-            print(error.localizedDescription)
+            let alert = UIAlertController(title: error.localizedDescription, message: "이전 화면으로 돌아갑니다.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "예", style: .default) { action in
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            alert.addAction(okAction)
+            present(alert, animated: true)
         }
     }
 }
