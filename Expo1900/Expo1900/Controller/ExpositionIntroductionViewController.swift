@@ -6,7 +6,7 @@
 
 import UIKit
 
-final class FirstViewController: UIViewController {
+final class ExpositionIntroductionViewController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var visitorsLabel: UILabel!
@@ -30,11 +30,11 @@ final class FirstViewController: UIViewController {
     }
     
     @IBAction private func buttonTapped(_ sender: UIButton) {
-        guard let CulturalAssetListViewController = storyboard?.instantiateViewController(identifier: String(describing: CulturalAssetListViewController.self)) as? CulturalAssetListViewController else {
+        guard let culturalAssetListViewController = storyboard?.instantiateViewController(identifier: String(describing: CulturalAssetListViewController.self)) as? CulturalAssetListViewController else {
             return
         }
         
-        navigationController?.pushViewController(CulturalAssetListViewController, animated: true)
+        navigationController?.pushViewController(culturalAssetListViewController, animated: true)
     }
     
     private func configureUI() {
@@ -46,7 +46,7 @@ final class FirstViewController: UIViewController {
         imageView.image = UIImage(named: "poster")
         visitorsLabel.text = exposition.formattingVisitors
         locationLabel.text = exposition.formattingLocation
-        durationLabel.text = exposition.formattingduration
+        durationLabel.text = exposition.formattingDuration
         explanationLabel.text = exposition.explanation
         
         visitorsLabel.changeFontSize(targetString: "방문객")

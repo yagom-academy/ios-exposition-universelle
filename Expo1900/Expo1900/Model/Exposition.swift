@@ -37,7 +37,7 @@ struct Exposition: Decodable {
         return "개최지 : " + location
     }
     
-    var formattingduration: String {
+    var formattingDuration: String {
         return "개최 기간 : " + duration
     }
     
