@@ -51,11 +51,11 @@ final class CulturalAssetListViewController: UITableViewController {
     }
 
     func decodeDataAsset() {
-        let decoder = JSONDecoder()
-
         guard let dataAsset = NSDataAsset(name: "items") else {
             return
         }
+
+        let decoder = JSONDecoder()
 
         do {
             culturalAssets = try decoder.decode([CulturalAsset].self, from: dataAsset.data)
