@@ -24,14 +24,12 @@ final class EntryItemViewController: UIViewController {
     
     private func configureNavigationUI () {
         self.navigationController?.isNavigationBarHidden = false
-        
         let backBarButtonItem = UIBarButtonItem(
             title: "한국의 출품작",
             style: .plain,
             target: self,
             action: nil
         )
-        
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
@@ -57,8 +55,6 @@ extension EntryItemViewController: UITableViewDelegate {
         let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
         guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: IdentifierNameSpace.DescriptionDetailViewController.rawValue) as? DescriptionDetailViewController else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noNextViewController.rawValue) }
         
-        self.navigationController?.pushViewController(nextViewController, animated: true)
-       
         guard let selectedItem = entryItems?[indexPath.row] else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noJSONItems.rawValue) }
         
         nextViewController.injectData(
@@ -66,13 +62,15 @@ extension EntryItemViewController: UITableViewDelegate {
             descriptionText: selectedItem.description,
             imageName: selectedItem.imageName
         )
-
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 
 extension EntryItemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let entryItemsCount = entryItems?.count else { return .zero }
+        
         return entryItemsCount
     }
     
