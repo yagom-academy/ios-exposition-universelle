@@ -15,9 +15,22 @@ final class ExpositionIntroductionViewController: UIViewController {
     @IBOutlet private weak var explanationLabel: UILabel!
     @IBOutlet private var buttonImages: [UIImageView]!
     @IBOutlet private weak var scrollView: UIScrollView!
+    private var exposition: Exposition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            try exposition = AssetParser<Exposition>().decodeDataAsset(assetName: "exposition_universelle_1900")
+        } catch {
+            let alert = UIAlertController(title: error.localizedDescription, message: "앱이 종료됩니다.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "예", style: .default) { action in
+                exit(0)
+            }
+            
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
         
         configureUI()
     }
@@ -38,7 +51,7 @@ final class ExpositionIntroductionViewController: UIViewController {
     }
     
     private func configureUI() {
-        guard let exposition = decodeDataAsset() else {
+        guard let exposition = self.exposition else {
             return
         }
         
@@ -55,16 +68,6 @@ final class ExpositionIntroductionViewController: UIViewController {
 
         buttonImages[0].image = UIImage(named: "flag")
         buttonImages[1].image = UIImage(named: "flag")
-    }
-    
-    func decodeDataAsset() -> Exposition? {
-        let decoder = JSONDecoder()
-
-        guard let dataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
-            return nil
-        }
-
-        return try? decoder.decode(Exposition.self, from: dataAsset.data)
     }
 }
 

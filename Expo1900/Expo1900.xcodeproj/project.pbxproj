@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B92B826A2AF3CE4F007C000F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B82692AF3CE4F007C000F /* DetailViewController.swift */; };
+		B934121D2AF8DCF700690545 /* AssetParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B934121C2AF8DCF700690545 /* AssetParser.swift */; };
 		B96A747C2AEFDF7A00B13E18 /* CulturalAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */; };
 		B96A74812AF0C51300B13E18 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A74802AF0C51300B13E18 /* Exposition.swift */; };
 		B9F036032AF233AB00911F37 /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F036022AF233AB00911F37 /* DecodingTests.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		B92B82692AF3CE4F007C000F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B934121C2AF8DCF700690545 /* AssetParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetParser.swift; sourceTree = "<group>"; };
 		B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturalAsset.swift; sourceTree = "<group>"; };
 		B96A74802AF0C51300B13E18 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		B9F036002AF233AB00911F37 /* DecodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 			children = (
 				B96A747B2AEFDF7A00B13E18 /* CulturalAsset.swift */,
 				B96A74802AF0C51300B13E18 /* Exposition.swift */,
+				B934121C2AF8DCF700690545 /* AssetParser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B96A747C2AEFDF7A00B13E18 /* CulturalAsset.swift in Sources */,
+				B934121D2AF8DCF700690545 /* AssetParser.swift in Sources */,
 				DC27946B2AF397260026AAA3 /* CulturalAssetListViewController.swift in Sources */,
 				B96A74812AF0C51300B13E18 /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ExpositionIntroductionViewController.swift in Sources */,
