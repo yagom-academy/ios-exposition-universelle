@@ -47,11 +47,7 @@ final class ExpoItemListViewController: UIViewController {
             return
         }
         
-        itemDescriptionViewController.parseToLabel(
-            title: exhibitionItems[rowOfIndexPath].name,
-            imageName: exhibitionItems[rowOfIndexPath].imageName,
-            description: exhibitionItems[rowOfIndexPath].description
-        )
+        itemDescriptionViewController.setUp(asset: exhibitionItems[rowOfIndexPath])
     }
     
     private func parseData() {

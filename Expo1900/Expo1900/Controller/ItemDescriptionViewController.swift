@@ -21,10 +21,10 @@ final class ItemDescriptionViewController: UIViewController {
         configureUI()
     }
     
-    func setUp(title: String,imageName: String, description: String) {
-        navigationTitle = title
-        itemImage = imageName
-        itemDescription = description
+    func setUp(asset: ExhibitionItem) {
+        navigationTitle = asset.name
+        itemImage = asset.imageName
+        itemDescription = asset.description
     }
     
     private func configureUI() {
