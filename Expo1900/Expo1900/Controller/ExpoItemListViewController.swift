@@ -52,7 +52,7 @@ final class ExpoItemListViewController: UIViewController {
     
     private func parseData() {
         do {
-            exhibitionItems = try exhibitionItemsData.parse(assetName: "tems")
+            exhibitionItems = try exhibitionItemsData.parse(assetName: "items")
         } catch {
             self.showAppTerminatingAlert()
         }
