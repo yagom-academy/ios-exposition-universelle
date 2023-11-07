@@ -16,18 +16,7 @@ final class CulturalAssetListViewController: UITableViewController {
         navigationController?.navigationBar.topItem?.title = "메인"
         navigationController?.isNavigationBarHidden = false
         
-        switch AssetParser<[CulturalAsset]>.decodeDataAsset(assetName: "items") {
-        case .success(let data):
-            culturalAssets = data
-        case .failure(let error):
-            let alert = UIAlertController(title: error.localizedDescription, message: "이전 화면으로 돌아갑니다", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "예", style: .default) { action in
-                self.navigationController?.popViewController(animated: true)
-            }
-            
-            alert.addAction(okAction)
-            present(alert, animated: true)
-        }
+        processDataAsset()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,5 +48,20 @@ final class CulturalAssetListViewController: UITableViewController {
         }
         
         navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    private func processDataAsset() {
+        switch AssetParser<[CulturalAsset]>.decodeDataAsset(assetName: "items") {
+        case .success(let data):
+            culturalAssets = data
+        case .failure(let error):
+            let alert = UIAlertController(title: error.localizedDescription, message: "이전 화면으로 돌아갑니다", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "예", style: .default) { action in
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
     }
 }

@@ -20,17 +20,7 @@ final class ExpositionIntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch AssetParser<Exposition>.decodeDataAsset(assetName: "exposition_universelle_1900") {
-        case .success(let data):
-            exposition = data
-        case .failure(let error):
-            let alert = UIAlertController(title: error.localizedDescription, message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "예", style: .default)
-            
-            alert.addAction(okAction)
-            present(alert, animated: true)
-        }
-        
+        processDataAsset()
         configureUI()
     }
     
@@ -74,5 +64,18 @@ final class ExpositionIntroductionViewController: UIViewController {
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20), range: ((targetLabel.text ?? "") as NSString).range(of: targetString))
         
         targetLabel.attributedText = attributedString
+    }
+    
+    private func processDataAsset() {
+        switch AssetParser<Exposition>.decodeDataAsset(assetName: "exposition_universelle_1900") {
+        case .success(let data):
+            exposition = data
+        case .failure(let error):
+            let alert = UIAlertController(title: error.localizedDescription, message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "예", style: .default)
+            
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
     }
 }
