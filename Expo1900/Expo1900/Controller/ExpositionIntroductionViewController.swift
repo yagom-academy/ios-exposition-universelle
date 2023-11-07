@@ -23,10 +23,8 @@ final class ExpositionIntroductionViewController: UIViewController {
         do {
             try exposition = AssetParser<Exposition>().decodeDataAsset(assetName: "exposition_universelle_1900")
         } catch {
-            let alert = UIAlertController(title: error.localizedDescription, message: "앱이 종료됩니다.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "예", style: .default) { action in
-                exit(0)
-            }
+            let alert = UIAlertController(title: error.localizedDescription, message: "데이터를 받아오지 못했습니다.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "예", style: .default)
             
             alert.addAction(okAction)
             present(alert, animated: true)
