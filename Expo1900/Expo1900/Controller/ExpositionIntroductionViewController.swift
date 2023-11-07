@@ -20,7 +20,7 @@ final class ExpositionIntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch AssetParser<Exposition>().decodeDataAsset(assetName: "exposition_universelle_1900") {
+        switch AssetParser<Exposition>.decodeDataAsset(assetName: "exposition_universelle_1900") {
         case .success(let data):
             exposition = data
         case .failure(let error):

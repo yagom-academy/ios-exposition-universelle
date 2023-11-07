@@ -16,7 +16,7 @@ final class CulturalAssetListViewController: UITableViewController {
         navigationController?.navigationBar.topItem?.title = "메인"
         navigationController?.isNavigationBarHidden = false
         
-        switch AssetParser<[CulturalAsset]>().decodeDataAsset(assetName: "items") {
+        switch AssetParser<[CulturalAsset]>.decodeDataAsset(assetName: "items") {
         case .success(let data):
             culturalAssets = data
         case .failure(let error):

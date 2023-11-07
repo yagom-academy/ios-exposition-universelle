@@ -21,8 +21,8 @@ enum DataAssetError: LocalizedError {
     }
 }
 
-struct AssetParser<T: Decodable> {
-    func decodeDataAsset(assetName: String) -> Result<T, DataAssetError> {
+enum AssetParser<T: Decodable> {
+    static func decodeDataAsset(assetName: String) -> Result<T, DataAssetError> {
         guard let dataAsset = NSDataAsset(name: assetName) else {
             return .failure(.dataAssetNameError)
         }
