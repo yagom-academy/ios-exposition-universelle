@@ -44,7 +44,9 @@ extension ExpositionItemListViewController: UITableViewDataSource {
         var content = cell.defaultContentConfiguration()
         
         content.text = item.name
+        content.textProperties.font = UIFont.preferredFont(forTextStyle: .title1)
         content.secondaryText = item.shortDescription
+        content.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .body)
         content.image = UIImage(named: item.imageName)
         
         let imageSize = CGSize(width: 60, height: 60)
