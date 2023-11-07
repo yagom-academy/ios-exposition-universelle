@@ -40,21 +40,27 @@ extension ExpositionItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.itemCell, for: indexPath)
         let item = expositionItems[indexPath.row]
+
+        cell.contentConfiguration = configureContent(of: cell, from: item)
         
+        return cell
+    }
+    
+    private func configureContent(of cell: UITableViewCell, from item: ExpositionItem) -> UIListContentConfiguration {
         var content = cell.defaultContentConfiguration()
         
         content.text = item.name
         content.textProperties.font = UIFont.preferredFont(forTextStyle: .title1)
+        
         content.secondaryText = item.shortDescription
         content.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .body)
-        content.image = UIImage(named: item.imageName)
         
-        let imageSize = CGSize(width: 60, height: 60)
+        let imageWidth = 60
+        let imageSize = CGSize(width: imageWidth, height: imageWidth)
+        content.image = UIImage(named: item.imageName)
         content.imageProperties.maximumSize = imageSize
         content.imageProperties.reservedLayoutSize = imageSize
         
-        cell.contentConfiguration = content
-        
-        return cell
+        return content
     }
 }

@@ -12,10 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var sholdSupportAllOrientation = true
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if sholdSupportAllOrientation {
-            return UIInterfaceOrientationMask.all
-        }
-        return UIInterfaceOrientationMask.portrait
+        return sholdSupportAllOrientation ? .all : .portrait
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
