@@ -7,9 +7,18 @@
 
 import UIKit
 
-enum DataAssetError: Error {
+enum DataAssetError: LocalizedError {
     case dataAssetNameError
     case decodingError
+    
+    var errorDescription: String? {
+        switch self {
+        case .dataAssetNameError:
+            return "데이터를 불러오지 못했습니다"
+        case .decodingError:
+            return "데이터를 해석하지 못했습니다"
+        }
+    }
 }
 
 struct AssetParser<T: Decodable> {

@@ -24,7 +24,7 @@ final class ExpositionIntroductionViewController: UIViewController {
         case .success(let data):
             exposition = data
         case .failure(let error):
-            let alert = UIAlertController(title: error.localizedDescription, message: "데이터를 받아오지 못했습니다.", preferredStyle: .alert)
+            let alert = UIAlertController(title: error.localizedDescription, message: "", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "예", style: .default)
             
             alert.addAction(okAction)

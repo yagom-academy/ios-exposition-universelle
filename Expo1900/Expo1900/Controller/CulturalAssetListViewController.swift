@@ -20,7 +20,7 @@ final class CulturalAssetListViewController: UITableViewController {
         case .success(let data):
             culturalAssets = data
         case .failure(let error):
-            let alert = UIAlertController(title: error.localizedDescription, message: "이전 화면으로 돌아갑니다.", preferredStyle: .alert)
+            let alert = UIAlertController(title: error.localizedDescription, message: "이전 화면으로 돌아갑니다", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "예", style: .default) { action in
                 self.navigationController?.popViewController(animated: true)
             }
