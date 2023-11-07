@@ -19,15 +19,17 @@ final class ExpositionIntroductionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        do {
-//            try exposition = AssetParser<Exposition>().decodeDataAsset(assetName: "exposition_universelle_1900")
-//        } catch {
-//            let alert = UIAlertController(title: error.localizedDescription, message: "데이터를 받아오지 못했습니다.", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "예", style: .default)
-//            
-//            alert.addAction(okAction)
-//            present(alert, animated: true)
-//        }
+        
+        switch AssetParser<Exposition>().decodeDataAsset(assetName: "exposition_universelle_1900") {
+        case .success(let data):
+            exposition = data
+        case .failure(let error):
+            let alert = UIAlertController(title: error.localizedDescription, message: "데이터를 받아오지 못했습니다.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "예", style: .default)
+            
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
         
         configureUI()
     }

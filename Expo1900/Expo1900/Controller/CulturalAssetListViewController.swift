@@ -16,9 +16,10 @@ final class CulturalAssetListViewController: UITableViewController {
         navigationController?.navigationBar.topItem?.title = "메인"
         navigationController?.isNavigationBarHidden = false
         
-        do {
-            try culturalAssets = AssetParser<[CulturalAsset]>().decodeDataAsset(assetName: "items")
-        } catch {
+        switch AssetParser<[CulturalAsset]>().decodeDataAsset(assetName: "items") {
+        case .success(let data):
+            culturalAssets = data
+        case .failure(let error):
             let alert = UIAlertController(title: error.localizedDescription, message: "이전 화면으로 돌아갑니다.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "예", style: .default) { action in
                 self.navigationController?.popViewController(animated: true)
