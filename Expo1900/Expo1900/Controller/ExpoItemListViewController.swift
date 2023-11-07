@@ -26,12 +26,12 @@ final class ExpoItemListViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
-    private func showAppTerminatingAlert() {
+    private func showPopViewControllerAlert() {
         let title = "시스템 오류가 발생했습니다."
-        let message = "Data를 불러오는데 실패했습니다. 앱이 종료됩니다."
+        let message = "Data를 불러오는데 실패했습니다."
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert) 
-        let terminateAction = UIAlertAction(title: "지금 종료", style: .destructive) { _ in
-            exit(1)
+        let terminateAction = UIAlertAction(title: "Back", style: .destructive) { _ in
+            self.navigationController?.popViewController(animated: true)
         }
             
         alert.addAction(terminateAction)
@@ -54,7 +54,7 @@ final class ExpoItemListViewController: UIViewController {
         do {
             exhibitionItems = try exhibitionItemsData.parse(assetName: "items")
         } catch {
-            self.showAppTerminatingAlert()
+            self.showPopViewControllerAlert()
         }
     }
 }
