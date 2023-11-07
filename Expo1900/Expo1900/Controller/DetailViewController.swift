@@ -8,11 +8,22 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    private var name: String = ""
-    private var imageName: String = ""
-    private var detailDescription: String = ""
+    private let name: String
+    private let imageName: String
+    private let detailDescription: String
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var explanation: UILabel!
+    
+    init?(coder: NSCoder, culturalAsset: CulturalAsset) {
+        name = culturalAsset.name
+        imageName = culturalAsset.imageName
+        detailDescription = culturalAsset.detailDescription
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +37,5 @@ final class DetailViewController: UIViewController {
         imageView.image = UIImage(named: imageName)
         
         explanation.text = detailDescription
-    }
-    
-    func setUp(culturalAsset: CulturalAsset) {
-        name = culturalAsset.name
-        imageName = culturalAsset.imageName
-        detailDescription = culturalAsset.detailDescription
     }
 }

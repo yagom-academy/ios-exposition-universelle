@@ -51,12 +51,12 @@ final class CulturalAssetListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailViewController = storyboard?.instantiateViewController(identifier: String(describing: DetailViewController.self)) as? DetailViewController else {
+        guard let detailViewController = storyboard?.instantiateViewController(identifier: String(describing: DetailViewController.self), creator: { coder in
+            DetailViewController(coder: coder, culturalAsset: self.culturalAssets[indexPath.row])
+        }) else {
             return
         }
         
         navigationController?.pushViewController(detailViewController, animated: true)
-    
-        detailViewController.setUp(culturalAsset: culturalAssets[indexPath.row])
     }
 }
