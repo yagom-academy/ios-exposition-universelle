@@ -7,29 +7,23 @@
 
 import UIKit
 
-enum dataAssetError: LocalizedError {
+enum DataAssetError: Error {
     case dataAssetNameError
-    
-    var errorDescription: String? {
-        switch self {
-        case .dataAssetNameError:
-            return "dataAssetNameError"
-        }
-    }
+    case decodingError
 }
 
 struct AssetParser<T: Decodable> {
-    func decodeDataAsset(assetName: String) throws -> T {
+    func decodeDataAsset(assetName: String) -> Result<T, DataAssetError> {
         guard let dataAsset = NSDataAsset(name: assetName) else {
-            throw dataAssetError.dataAssetNameError
+            return .failure(.dataAssetNameError)
         }
         
         let decoder = JSONDecoder()
         
-        do {
-            return try decoder.decode(T.self, from: dataAsset.data)
-        } catch {
-            throw error
+        guard let result = try? decoder.decode(T.self, from: dataAsset.data) else {
+            return .failure(.decodingError)
         }
+        
+        return .success(result)
     }
 }
