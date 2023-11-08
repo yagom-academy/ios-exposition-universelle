@@ -39,14 +39,8 @@ final class EntryItemViewController: UIViewController, Identifying {
     }
     
     private func decodeJSONData() {
-        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { 
-            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.emptyAssetData.description, actionTitle: AlertMessage.Confirm.description)
-            return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
-        }
-        
         do {
-            let decoder = JSONDecoder()
-            entryItems = try decoder.decode([Exposition.EntryItem].self, from: assetData.data)
+            entryItems = try UniverselleDecoder.decodeAssetData(assetName: "items")
         } catch {
             let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noJSONData.description, actionTitle: AlertMessage.Confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
