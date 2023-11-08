@@ -2,7 +2,7 @@
 //  ExpositionItemViewController.swift
 //  Expo1900
 //
-//   Created by jyubong, mireu
+//  Created by jyubong, mireu
 //
 
 import UIKit
@@ -19,6 +19,7 @@ final class ExpositionItemListViewController: UIViewController {
         tableView.dataSource = self
         
         decodeExpositionItems()
+        self.setUpBackButtonAccessibilityLabel(to: AccessibilityLabelList.previous)
     }
     
     private func decodeExpositionItems() {

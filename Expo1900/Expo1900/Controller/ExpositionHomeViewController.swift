@@ -22,6 +22,7 @@ final class ExpositionHomeViewController: UIViewController {
         
         decodeExposition()
         configureUI()
+        self.setUpBackButtonAccessibilityLabel(to: AccessibilityLabelList.home)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,4 +54,5 @@ final class ExpositionHomeViewController: UIViewController {
         durationLabel.text = exposition?.durationDescription
         descriptionLabel.text = exposition?.description
     }
+
 }

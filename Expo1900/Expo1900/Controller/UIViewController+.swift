@@ -33,4 +33,12 @@ extension UIViewController {
         
         present(alert, animated: true)
     }
+    
+    func setUpBackButtonAccessibilityLabel(to label: String) {
+        let title = navigationItem.title
+        let backButton = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
+        
+        navigationItem.backBarButtonItem = backButton
+        navigationItem.backBarButtonItem?.accessibilityLabel = label
+    }
 }
