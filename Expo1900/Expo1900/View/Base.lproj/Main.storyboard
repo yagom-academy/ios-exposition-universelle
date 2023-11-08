@@ -197,34 +197,40 @@
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgx-HW-9bP">
-                                                    <rect key="frame" x="130" y="10" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="RWh-2a-G6o">
+                                                    <rect key="frame" x="133.66666666666666" y="15" width="228.99999999999997" height="100"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgx-HW-9bP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="229" height="33.666666666666664"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lci-VR-VvX">
+                                                            <rect key="frame" x="0.0" y="40.666666666666657" width="229" height="59.333333333333343"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7KG-pl-YxA">
-                                                    <rect key="frame" x="10" y="10" width="110" height="110"/>
+                                                    <rect key="frame" x="10.000000000000007" y="25" width="108.66666666666669" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="7KG-pl-YxA" secondAttribute="height" multiplier="1:1" id="F6L-Jy-3Jg"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="Fgp-36-ztJ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lci-VR-VvX">
-                                                    <rect key="frame" x="130" y="38" width="42" height="82"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="lci-VR-VvX" secondAttribute="bottom" constant="10" id="5Rb-mP-d40"/>
-                                                <constraint firstItem="lci-VR-VvX" firstAttribute="top" secondItem="Zgx-HW-9bP" secondAttribute="bottom" constant="7" id="Ata-f1-MOY"/>
-                                                <constraint firstItem="Zgx-HW-9bP" firstAttribute="leading" secondItem="7KG-pl-YxA" secondAttribute="trailing" constant="10" id="GpI-PN-GJf"/>
-                                                <constraint firstAttribute="bottom" secondItem="7KG-pl-YxA" secondAttribute="bottom" constant="10" id="O8N-Um-fxu"/>
-                                                <constraint firstItem="Zgx-HW-9bP" firstAttribute="top" secondItem="Qmj-dp-9jA" secondAttribute="top" constant="10" id="RHW-Fw-lMn"/>
+                                                <constraint firstItem="7KG-pl-YxA" firstAttribute="bottom" secondItem="RWh-2a-G6o" secondAttribute="bottom" priority="750" id="H3C-0b-2sJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="RWh-2a-G6o" secondAttribute="trailing" id="IMd-Um-39q"/>
+                                                <constraint firstAttribute="bottom" secondItem="RWh-2a-G6o" secondAttribute="bottom" constant="15" id="JvG-3L-qve"/>
+                                                <constraint firstItem="RWh-2a-G6o" firstAttribute="top" secondItem="Qmj-dp-9jA" secondAttribute="top" constant="15" id="Szf-xh-lj3"/>
                                                 <constraint firstItem="7KG-pl-YxA" firstAttribute="leading" secondItem="Qmj-dp-9jA" secondAttribute="leading" constant="10" id="VwF-6p-EFx"/>
-                                                <constraint firstItem="lci-VR-VvX" firstAttribute="leading" secondItem="7KG-pl-YxA" secondAttribute="trailing" constant="10" id="fkE-TL-rOm"/>
-                                                <constraint firstItem="7KG-pl-YxA" firstAttribute="top" secondItem="Qmj-dp-9jA" secondAttribute="top" constant="10" id="re3-sN-Bgi"/>
+                                                <constraint firstItem="RWh-2a-G6o" firstAttribute="leading" secondItem="7KG-pl-YxA" secondAttribute="trailing" constant="15" id="nQi-0u-5fh"/>
+                                                <constraint firstItem="7KG-pl-YxA" firstAttribute="top" secondItem="RWh-2a-G6o" secondAttribute="top" priority="750" id="qvs-k2-CpM"/>
+                                                <constraint firstItem="7KG-pl-YxA" firstAttribute="width" secondItem="Qmj-dp-9jA" secondAttribute="width" multiplier="30%" id="whU-eS-s7M"/>
+                                                <constraint firstItem="7KG-pl-YxA" firstAttribute="centerY" secondItem="Qmj-dp-9jA" secondAttribute="centerY" id="xhE-2F-bkO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
