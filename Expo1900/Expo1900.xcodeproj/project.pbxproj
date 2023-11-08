@@ -10,6 +10,8 @@
 		4E03D2452AF088EE0098C038 /* ExpositionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E03D2442AF088EE0098C038 /* ExpositionItem.swift */; };
 		4E175D482AF373DA00E79AEE /* ExpositionItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E175D472AF373DA00E79AEE /* ExpositionItemListViewController.swift */; };
 		4E175D4A2AF3822900E79AEE /* ExpositionItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E175D492AF3822900E79AEE /* ExpositionItemDetailViewController.swift */; };
+		4E27CEED2AFB28CE00AA091B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27CEEC2AFB28CE00AA091B /* UIViewController+.swift */; };
+		4E27CEEF2AFB2A0200AA091B /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27CEEE2AFB2A0200AA091B /* DecoderError.swift */; };
 		BF6B2D032AF07DF9003727E2 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B2D022AF07DF9003727E2 /* Exposition.swift */; };
 		BFFB1C8B2AF38B3A00299583 /* AssetDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB1C8A2AF38B3A00299583 /* AssetDecoder.swift */; };
 		BFFB1C952AF4C48000299583 /* AssetNameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB1C942AF4C48000299583 /* AssetNameList.swift */; };
@@ -26,6 +28,8 @@
 		4E03D2442AF088EE0098C038 /* ExpositionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItem.swift; sourceTree = "<group>"; };
 		4E175D472AF373DA00E79AEE /* ExpositionItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemListViewController.swift; sourceTree = "<group>"; };
 		4E175D492AF3822900E79AEE /* ExpositionItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionItemDetailViewController.swift; sourceTree = "<group>"; };
+		4E27CEEC2AFB28CE00AA091B /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		4E27CEEE2AFB2A0200AA091B /* DecoderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
 		BF6B2D022AF07DF9003727E2 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		BFFB1C8A2AF38B3A00299583 /* AssetDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDecoder.swift; sourceTree = "<group>"; };
 		BFFB1C942AF4C48000299583 /* AssetNameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNameList.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 				BF6B2D022AF07DF9003727E2 /* Exposition.swift */,
 				4E03D2442AF088EE0098C038 /* ExpositionItem.swift */,
 				BFFB1C8A2AF38B3A00299583 /* AssetDecoder.swift */,
+				4E27CEEE2AFB2A0200AA091B /* DecoderError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -68,6 +73,7 @@
 				C79FF4B82589F401005FB0FD /* ExpositionHomeViewController.swift */,
 				4E175D472AF373DA00E79AEE /* ExpositionItemListViewController.swift */,
 				4E175D492AF3822900E79AEE /* ExpositionItemDetailViewController.swift */,
+				4E27CEEC2AFB28CE00AA091B /* UIViewController+.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,10 +200,12 @@
 				C79FF4B92589F401005FB0FD /* ExpositionHomeViewController.swift in Sources */,
 				4E175D4A2AF3822900E79AEE /* ExpositionItemDetailViewController.swift in Sources */,
 				BFFB1C952AF4C48000299583 /* AssetNameList.swift in Sources */,
+				4E27CEED2AFB28CE00AA091B /* UIViewController+.swift in Sources */,
 				BF6B2D032AF07DF9003727E2 /* Exposition.swift in Sources */,
 				BFFB1C8B2AF38B3A00299583 /* AssetDecoder.swift in Sources */,
 				BFFB1C972AF4C4CE00299583 /* Identifier.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				4E27CEEF2AFB2A0200AA091B /* DecoderError.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				4E175D482AF373DA00E79AEE /* ExpositionItemListViewController.swift in Sources */,
 			);
