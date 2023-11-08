@@ -23,7 +23,7 @@ final class ExpositionItemListViewController: UIViewController {
     
     private func decodeExpositionItems() {
         do {
-            expositionItems = try AssetDecoder<[ExpositionItem]>().parse(assetName: "")
+            expositionItems = try AssetDecoder<[ExpositionItem]>().parse(assetName: AssetNameList.expositionItems)
         } catch {
             self.showAlert(error)
         }

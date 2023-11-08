@@ -1,6 +1,6 @@
 //
 //  Expo1900 - AppDelegate.swift
-//  Created by yagom.
+//  Created by jyubong, mireu
 //  Copyright © yagom academy. All rights reserved.
 //
 
