@@ -7,11 +7,11 @@
 
 import UIKit
 
+
 final class EntryItemViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private let errorAlert = ErrorAlert()
     private var entryItems: [Exposition.EntryItem]?
     
     override func viewDidLoad() {
@@ -39,13 +39,17 @@ final class EntryItemViewController: UIViewController {
     }
     
     private func decodeJSONData() {
-        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.emptyAssetData.rawValue) }
+        guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { 
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
+        }
         
         do {
             let decoder = JSONDecoder()
             entryItems = try decoder.decode([Exposition.EntryItem].self, from: assetData.data)
         } catch {
-            errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noJSONData.rawValue)
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
     }
 }
@@ -53,9 +57,15 @@ final class EntryItemViewController: UIViewController {
 extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
-        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: IdentifierNameSpace.DescriptionDetailViewController.rawValue) as? DescriptionDetailViewController else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noNextViewController.rawValue) }
+        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: IdentifierNameSpace.DescriptionDetailViewController.rawValue) as? DescriptionDetailViewController else {
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
+        }
         
-        guard let selectedItem = entryItems?[indexPath.row] else { return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.noJSONItems.rawValue) }
+        guard let selectedItem = entryItems?[indexPath.row] else {
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
+        }
         
         nextViewController.injectData(
             titleName: selectedItem.name,

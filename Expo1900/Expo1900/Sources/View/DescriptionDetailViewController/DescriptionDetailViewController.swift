@@ -25,10 +25,11 @@ final class DescriptionDetailViewController: UIViewController {
     private func configureUI() {
         self.navigationItem.title = titleName
         DescriptionText.text = descriptionText
-        let errorAlert = ErrorAlert()
+        
+        let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
         
         guard let safeImageName = imageName else {
-            return errorAlert.generateAlert(viewController: self, errorReason: ErrorReason.emptyImageData.rawValue)
+            return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
         DescriptionImageView.image = UIImage(named: safeImageName)
