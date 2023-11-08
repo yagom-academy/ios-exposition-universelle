@@ -10,11 +10,11 @@ import UIKit
 struct ShowAlert {
     static func presentAlert(viewController: UIViewController, configuration: AlertConfiguration) {
         let alertController = UIAlertController(
-            title: configuration.alertTitle,
-            message: configuration.alertMessaage,
+            title: configuration.title,
+            message: configuration.messaage,
             preferredStyle: .alert
         )
-        let confirmButton = UIAlertAction(title: configuration.alertActionTitle, style: .default)
+        let confirmButton = UIAlertAction(title: configuration.actionTitle, style: .default)
 
         alertController.addAction(confirmButton)
 

@@ -5,15 +5,17 @@
 //  Created by hyunMac on 11/6/23.
 //
 
-enum ErrorReason: Error {
+enum AlertMessage: Error {
     case emptyImageData
     case emptyAssetData
     case noNextViewController
     case noJSONData
     case noJSONItems
     case lackData
+    case ErrorAlertTitle
+    case Confirm
     
-    var errorDescription: String {
+    var description: String {
         switch self {
         case .emptyImageData:
             return "이미지를 불러오지 못하였습니다."
@@ -27,6 +29,11 @@ enum ErrorReason: Error {
             return "json 데이터 내부의 items가 비어있습니다."
         case .lackData:
             return "데이터가 충분하지 않습니다."
+        case .ErrorAlertTitle:
+            return "Error"
+        case .Confirm:
+            return "확인"
         }
     }
+    
 }
