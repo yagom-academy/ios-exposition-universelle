@@ -41,7 +41,7 @@ final class ExpoInfoViewController: UIViewController {
     
     private func decodeJSONData() {
         guard let asset = NSDataAsset.init(name: "exposition_universelle_1900") else {
-            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "ERROR", alertMessaage: ErrorReason.emptyAssetData.errorDescription, alertActionTitle: "확인")
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
@@ -49,7 +49,7 @@ final class ExpoInfoViewController: UIViewController {
             let decoder = JSONDecoder()
             expoInfo = try decoder.decode(Exposition.ExpositionInfo.self, from: asset.data)
         } catch {
-            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "ERROR", alertMessaage: ErrorReason.noJSONData.errorDescription, alertActionTitle: "확인")
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
     }
@@ -61,8 +61,8 @@ final class ExpoInfoViewController: UIViewController {
         guard let visitorsCount: String = numberFormatter.string(for: expoInfo?.visitors),
               let location = (expoInfo?.location),
               let duration = (expoInfo?.duration),
-              let separatedTitle = expoInfo?.title.split(separator: "(") else { 
-            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+              let separatedTitle = expoInfo?.title.split(separator: "(") else {
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "ERROR", alertMessaage: ErrorReason.noJSONItems.errorDescription, alertActionTitle: "확인")
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         

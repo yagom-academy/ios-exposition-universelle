@@ -40,7 +40,7 @@ final class EntryItemViewController: UIViewController {
     
     private func decodeJSONData() {
         guard let assetData: NSDataAsset = NSDataAsset(name: "items") else { 
-            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "ERROR", alertMessaage: ErrorReason.emptyAssetData.errorDescription, alertActionTitle: "확인")
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
@@ -48,7 +48,7 @@ final class EntryItemViewController: UIViewController {
             let decoder = JSONDecoder()
             entryItems = try decoder.decode([Exposition.EntryItem].self, from: assetData.data)
         } catch {
-            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "ERROR", alertMessaage: ErrorReason.noJSONData.errorDescription, alertActionTitle: "확인")
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
     }
@@ -58,12 +58,12 @@ extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
         guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: IdentifierNameSpace.DescriptionDetailViewController.rawValue) as? DescriptionDetailViewController else {
-            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "ERROR", alertMessaage: ErrorReason.noNextViewController.errorDescription, alertActionTitle: "확인")
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
         guard let selectedItem = entryItems?[indexPath.row] else {
-            let newAlertConfiguration = AlertConfiguration(alertTitle: "메인에러타틀", alertMessaage: "에러가발생했습니다", alertActionTitle: "확인")
+            let newAlertConfiguration = AlertConfiguration(alertTitle: "ERROR", alertMessaage: ErrorReason.noJSONItems.errorDescription, alertActionTitle: "확인")
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
