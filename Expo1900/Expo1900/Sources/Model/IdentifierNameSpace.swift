@@ -5,8 +5,12 @@
 //  Created by uemu on 2023/11/06.
 //
 
-enum IdentifierNameSpace: String {
-    case DescriptionDetailViewController = "DescriptionDetailViewController"
-    case EntryItemCell = "EntryItemCell"
-    case EntryItemViewController = "EntryItemViewController"
+protocol Identifying {
+    static var reuseIdentifier: String { get }
+}
+
+extension Identifying {
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
 }

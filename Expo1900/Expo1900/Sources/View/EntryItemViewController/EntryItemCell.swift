@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EntryItemCell: UITableViewCell {
+final class EntryItemCell: UITableViewCell, Identifying {
     
     @IBOutlet private weak var entryItemImage: UIImageView!
     @IBOutlet private weak var entryItemTitle: UILabel!

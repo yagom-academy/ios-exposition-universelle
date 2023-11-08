@@ -77,7 +77,7 @@ final class ExpoInfoViewController: UIViewController {
     
     @IBAction private func convertEntryItemView(_ sender: UIButton) {
         let secondStoryboard = UIStoryboard(name: "EntryItem", bundle: .main)
-        let nextViewController = secondStoryboard.instantiateViewController(withIdentifier: IdentifierNameSpace.EntryItemViewController.rawValue)
+        let nextViewController = secondStoryboard.instantiateViewController(withIdentifier: EntryItemViewController.reuseIdentifier)
         
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

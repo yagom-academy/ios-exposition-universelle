@@ -8,7 +8,7 @@
 import UIKit
 
 
-final class EntryItemViewController: UIViewController {
+final class EntryItemViewController: UIViewController, Identifying {
     
     @IBOutlet private weak var tableView: UITableView!
     
@@ -57,7 +57,7 @@ final class EntryItemViewController: UIViewController {
 extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
-        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: IdentifierNameSpace.DescriptionDetailViewController.rawValue) as? DescriptionDetailViewController else {
+        guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: DescriptionDetailViewController.reuseIdentifier) as? DescriptionDetailViewController else {
             let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noNextViewController.description, actionTitle: AlertMessage.Confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
@@ -85,7 +85,7 @@ extension EntryItemViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: IdentifierNameSpace.EntryItemCell.rawValue, for: indexPath) as? EntryItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EntryItemCell.reuseIdentifier, for: indexPath) as? EntryItemCell else {
             return UITableViewCell()
         }
         

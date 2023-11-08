@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DescriptionDetailViewController: UIViewController {
+final class DescriptionDetailViewController: UIViewController, Identifying {
 
     @IBOutlet private weak var DescriptionImageView: UIImageView!
     @IBOutlet private weak var DescriptionText: UITextView!
