@@ -62,7 +62,7 @@ extension EntryItemViewController: UITableViewDelegate {
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
-        guard let selectedItem = entryItems?[indexPath.row] else {
+        guard let selectedItem = entryItems?[safe: indexPath.row] else {
             let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noJSONItems.description, actionTitle: AlertMessage.Confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
@@ -89,7 +89,7 @@ extension EntryItemViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        guard let entryItem = entryItems?[indexPath.row] else {
+        guard let entryItem = entryItems?[safe: indexPath.row] else {
             return UITableViewCell()
         }
 
