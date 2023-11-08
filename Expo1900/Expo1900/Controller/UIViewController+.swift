@@ -12,7 +12,7 @@ extension UIViewController {
         let alertTitle: String = "오류"
         var message: String {
             switch error {
-            case DecoderError.esetNameError:
+            case DecoderError.assetNameError:
                 return "애셋네임을 알 수 없습니다."
             case DecoderError.jsonDataError:
                 return "제이슨 데이터를 알 수 없습니다."
@@ -26,10 +26,10 @@ extension UIViewController {
         let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: cancelTiltle, style: .default)
-        let retreyAction = UIAlertAction(title: retryTitle, style: .default)
+        let retryAction = UIAlertAction(title: retryTitle, style: .default)
         
+        alert.addAction(retryAction)
         alert.addAction(cancelAction)
-        alert.addAction(retreyAction)
         
         present(alert, animated: true)
     }

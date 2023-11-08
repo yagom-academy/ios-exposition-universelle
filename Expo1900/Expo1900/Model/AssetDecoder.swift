@@ -8,23 +8,17 @@
 import UIKit
 
 struct AssetDecoder<Element: Decodable> {
-    let assetName: String
-    
-    var decodedItem: Element? {
-        var item: Element?
+    func parse(assetName: String) throws -> Element {
+        guard let data = NSDataAsset(name: assetName)?.data else {
+            throw DecoderError.assetNameError
+        }
         
         let decoder = JSONDecoder()
         
-        guard let data = NSDataAsset(name: assetName)?.data else {
-            return item
+        guard let jsonData = try? decoder.decode(Element.self, from: data) else {
+            throw DecoderError.jsonDataError
         }
         
-        do {
-            item = try decoder.decode(Element.self, from: data)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        return item
+        return jsonData
     }
 }

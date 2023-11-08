@@ -20,8 +20,7 @@ final class ExpositionHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exposition = AssetDecoder<Exposition>(assetName: AssetNameList.exposition).decodedItem
-        
+        decodeExposition()
         configureUI()
     }
     
@@ -39,6 +38,14 @@ final class ExpositionHomeViewController: UIViewController {
         appDelegate?.sholdSupportAllOrientation = true
     }
     
+    private func decodeExposition() {
+        do {
+            exposition = try AssetDecoder<Exposition>().parse(assetName: AssetNameList.exposition)
+        } catch {
+            self.showAlert(error)
+        }
+    }
+    
     private func configureUI () {
         titleLabel.text = exposition?.titleDescription
         visitorsLabel.text = exposition?.visitorsDescription
@@ -46,5 +53,4 @@ final class ExpositionHomeViewController: UIViewController {
         durationLabel.text = exposition?.durationDescription
         descriptionLabel.text = exposition?.description
     }
-    
 }

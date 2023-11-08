@@ -18,7 +18,15 @@ final class ExpositionItemListViewController: UIViewController {
         
         tableView.dataSource = self
         
-        expositionItems = AssetDecoder<[ExpositionItem]>(assetName: AssetNameList.expositionItems).decodedItem ?? []
+        decodeExpositionItems()
+    }
+    
+    private func decodeExpositionItems() {
+        do {
+            expositionItems = try AssetDecoder<[ExpositionItem]>().parse(assetName: "")
+        } catch {
+            self.showAlert(error)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
