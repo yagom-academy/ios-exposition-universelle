@@ -56,7 +56,7 @@ final class EntryItemViewController: UIViewController, Identifying {
 
 extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let thirdViewController = UIStoryboard(name: "DescriptionDetail", bundle: .main)
+        let thirdViewController = UIStoryboard(name: StoryBoardName.DescriptionDetail.description, bundle: .main)
         guard let nextViewController = thirdViewController.instantiateViewController(withIdentifier: DescriptionDetailViewController.reuseIdentifier) as? DescriptionDetailViewController else {
             let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noNextViewController.description, actionTitle: AlertMessage.Confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
