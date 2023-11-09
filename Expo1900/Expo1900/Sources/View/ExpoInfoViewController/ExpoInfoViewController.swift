@@ -44,7 +44,7 @@ final class ExpoInfoViewController: UIViewController {
             expoInfo = try UniverselleDecoder.decodeAssetData(assetName: "exposition_universelle_1900")
             
         } catch {
-            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.emptyAssetData.description, actionTitle: AlertMessage.Confirm.description)
+            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, messaage: AlertMessage.emptyAssetData.description, actionTitle: AlertMessage.confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
     }
@@ -57,7 +57,7 @@ final class ExpoInfoViewController: UIViewController {
               let location = (expoInfo?.location),
               let duration = (expoInfo?.duration),
               let separatedTitle = expoInfo?.title.split(separator: "(") else {
-            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noJSONItems.description, actionTitle: AlertMessage.Confirm.description)
+            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, messaage: AlertMessage.noJSONItems.description, actionTitle: AlertMessage.confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         

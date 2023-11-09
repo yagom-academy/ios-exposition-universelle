@@ -42,7 +42,7 @@ final class EntryItemViewController: UIViewController, Identifying {
         do {
             entryItems = try UniverselleDecoder.decodeAssetData(assetName: "items")
         } catch {
-            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noJSONData.description, actionTitle: AlertMessage.Confirm.description)
+            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, messaage: AlertMessage.noJSONData.description, actionTitle: AlertMessage.confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
     }
@@ -52,14 +52,14 @@ extension EntryItemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         guard let selectedItem = entryItems?[safe: indexPath.row] else {
-            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noJSONItems.description, actionTitle: AlertMessage.Confirm.description)
+            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, messaage: AlertMessage.noJSONItems.description, actionTitle: AlertMessage.confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
         guard let nextViewController = self.storyboard?.instantiateViewController(identifier: DescriptionDetailViewController.reuseIdentifier, creator: {
             coder in DescriptionDetailViewController(coder: coder, titleName: selectedItem.name, descriptionText: selectedItem.description, imageName: selectedItem.imageName)
         } ) else {
-            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.noNextViewController.description, actionTitle: AlertMessage.Confirm.description)
+            let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, messaage: AlertMessage.noNextViewController.description, actionTitle: AlertMessage.confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         

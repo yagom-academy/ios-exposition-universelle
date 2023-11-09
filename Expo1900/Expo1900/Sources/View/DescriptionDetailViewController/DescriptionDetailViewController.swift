@@ -37,7 +37,7 @@ final class DescriptionDetailViewController: UIViewController, Identifying {
         self.navigationItem.title = titleName
         DescriptionText.text = descriptionText
         
-        let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.emptyImageData.description, actionTitle: AlertMessage.Confirm.description)
+        let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, messaage: AlertMessage.emptyImageData.description, actionTitle: AlertMessage.confirm.description)
         
         DescriptionImageView.image = UIImage(named: imageName)
     }

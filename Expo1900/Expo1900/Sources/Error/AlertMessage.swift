@@ -12,8 +12,8 @@ enum AlertMessage: Error {
     case noJSONData
     case noJSONItems
     case lackData
-    case ErrorAlertTitle
-    case Confirm
+    case errorAlertTitle
+    case confirm
     
     var description: String {
         switch self {
@@ -29,9 +29,9 @@ enum AlertMessage: Error {
             return "json 데이터 내부의 items가 비어있습니다."
         case .lackData:
             return "데이터가 충분하지 않습니다."
-        case .ErrorAlertTitle:
+        case .errorAlertTitle:
             return "Error"
-        case .Confirm:
+        case .confirm:
             return "확인"
         }
     }
