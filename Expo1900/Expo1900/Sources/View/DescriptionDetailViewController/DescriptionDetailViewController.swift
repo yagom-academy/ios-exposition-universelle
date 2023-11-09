@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class DescriptionDetailViewController: UIViewController, Identifying {
-
+final class DescriptionDetailViewController: UIViewController, Identifying, StoryBoardIdentifying {
+    
     @IBOutlet private weak var DescriptionImageView: UIImageView!
     @IBOutlet private weak var DescriptionText: UITextView!
 
