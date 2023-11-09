@@ -8,7 +8,7 @@
 import Foundation
 
 struct AlertConfiguration {
-    var title: String
-    var messaage: String
-    var actionTitle: String
+    let title: String
+    let messaage: String
+    let actionTitle: String
 }
