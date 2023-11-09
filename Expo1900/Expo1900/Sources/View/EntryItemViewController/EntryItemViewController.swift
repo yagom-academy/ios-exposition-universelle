@@ -40,7 +40,7 @@ final class EntryItemViewController: UIViewController, Identifying {
     
     private func decodeJSONData() {
         do {
-            entryItems = try UniverselleDecoder.decodeAssetData(assetName: "items")
+            entryItems = try UniverselleDecoder.decodeAssetData(assetName: "items", decoder: JSONDecoder())
         } catch {
             let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, message: AlertMessage.noJSONData.description, actionTitle: AlertMessage.confirm.description)
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)

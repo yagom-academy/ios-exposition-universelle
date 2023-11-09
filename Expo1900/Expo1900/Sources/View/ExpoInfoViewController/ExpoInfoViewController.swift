@@ -41,7 +41,7 @@ final class ExpoInfoViewController: UIViewController {
     
     private func decodeJSONData() {
         do {
-            expoInfo = try UniverselleDecoder.decodeAssetData(assetName: "exposition_universelle_1900")
+            expoInfo = try UniverselleDecoder.decodeAssetData(assetName: "exposition_universelle_1900", decoder: JSONDecoder())
             
         } catch {
             let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, message: AlertMessage.emptyAssetData.description, actionTitle: AlertMessage.confirm.description)

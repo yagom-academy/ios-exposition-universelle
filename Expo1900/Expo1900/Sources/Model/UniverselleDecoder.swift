@@ -7,14 +7,12 @@
 
 import UIKit
 
-struct UniverselleDecoder<T: Decodable> {
-    static func decodeAssetData(assetName: String) throws -> T {
+struct UniverselleDecoder {
+    static func decodeAssetData<T: Decodable>(assetName: String, decoder: JSONDecoder) throws -> T {
         guard let asset = NSDataAsset(name: assetName) else {
             throw AlertMessage.emptyAssetData
         }
         
-        let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: asset.data)
     }
 }
-
