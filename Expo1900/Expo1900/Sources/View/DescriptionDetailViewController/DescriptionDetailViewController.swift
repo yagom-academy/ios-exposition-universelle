@@ -12,9 +12,20 @@ final class DescriptionDetailViewController: UIViewController, Identifying {
     @IBOutlet private weak var DescriptionImageView: UIImageView!
     @IBOutlet private weak var DescriptionText: UITextView!
 
-    private var titleName: String?
-    private var descriptionText: String?
-    private var imageName: String?
+    private var titleName: String
+    private var descriptionText: String
+    private var imageName: String
+    
+    init?(coder: NSCoder, titleName: String, descriptionText: String, imageName: String) {
+        self.titleName = titleName
+        self.descriptionText = descriptionText
+        self.imageName = imageName
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +39,6 @@ final class DescriptionDetailViewController: UIViewController, Identifying {
         
         let newAlertConfiguration = AlertConfiguration(title: AlertMessage.ErrorAlertTitle.description, messaage: AlertMessage.emptyImageData.description, actionTitle: AlertMessage.Confirm.description)
         
-        guard let safeImageName = imageName else {
-            return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
-        }
-        
-        DescriptionImageView.image = UIImage(named: safeImageName)
-    }
-}
-
-extension DescriptionDetailViewController {
-    func injectData(titleName: String, descriptionText: String, imageName: String) {
-        self.titleName = titleName
-        self.descriptionText = descriptionText
-        self.imageName = imageName
+        DescriptionImageView.image = UIImage(named: imageName)
     }
 }
