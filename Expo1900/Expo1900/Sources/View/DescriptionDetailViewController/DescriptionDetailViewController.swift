@@ -29,16 +29,12 @@ final class DescriptionDetailViewController: UIViewController, Identifying {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
     }
     
     private func configureUI() {
         self.navigationItem.title = titleName
         DescriptionText.text = descriptionText
-        
-        let newAlertConfiguration = AlertConfiguration(title: AlertMessage.errorAlertTitle.description, messaage: AlertMessage.emptyImageData.description, actionTitle: AlertMessage.confirm.description)
-        
         DescriptionImageView.image = UIImage(named: imageName)
     }
 }

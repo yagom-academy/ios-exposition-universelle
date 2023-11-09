@@ -11,7 +11,7 @@ struct ShowAlert {
     static func presentAlert(viewController: UIViewController, configuration: AlertConfiguration) {
         let alertController = UIAlertController(
             title: configuration.title,
-            message: configuration.messaage,
+            message: configuration.message,
             preferredStyle: .alert
         )
         let confirmButton = UIAlertAction(title: configuration.actionTitle, style: .default)

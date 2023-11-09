@@ -9,6 +9,6 @@ import Foundation
 
 struct AlertConfiguration {
     let title: String
-    let messaage: String
+    let message: String
     let actionTitle: String
 }
