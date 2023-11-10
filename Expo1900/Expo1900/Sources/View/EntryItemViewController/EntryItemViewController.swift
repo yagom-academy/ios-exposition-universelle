@@ -56,7 +56,7 @@ extension EntryItemViewController: UITableViewDelegate {
             return ShowAlert.presentAlert(viewController: self, configuration: newAlertConfiguration)
         }
         
-        let thirdStoryboard: UIStoryboard? = UIStoryboard(name: DescriptionDetailViewController.reuseIdentifierr, bundle: .main)
+        let thirdStoryboard: UIStoryboard? = UIStoryboard(name: StoryBoardName.DescriptionDetail.description, bundle: .main)
         
         guard let nextViewController = thirdStoryboard?.instantiateViewController(identifier: DescriptionDetailViewController.reuseIdentifier, creator: {
             coder in DescriptionDetailViewController(coder: coder, titleName: selectedItem.name, descriptionText: selectedItem.description, imageName: selectedItem.imageName)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DescriptionDetailViewController: UIViewController, Identifying, StoryBoardIdentifying {
+final class DescriptionDetailViewController: UIViewController, Identifying{
     
     @IBOutlet private weak var DescriptionImageView: UIImageView!
     @IBOutlet private weak var DescriptionText: UITextView!
@@ -32,9 +32,23 @@ final class DescriptionDetailViewController: UIViewController, Identifying, Stor
         configureUI()
     }
     
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        if image.size.height > 200 {
+            let scale = newWidth / image.size.width
+            let newHeight = image.size.height * scale
+            UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+            image.draw(in: CGRectMake(0, 0, newWidth, newHeight))
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return newImage!
+        }
+        return image
+    }
+    
     private func configureUI() {
         self.navigationItem.title = titleName
         DescriptionText.text = descriptionText
-        DescriptionImageView.image = UIImage(named: imageName)
+        DescriptionImageView.image = resizeImage(image: UIImage(named: imageName)!, newWidth: 200)
+        
     }
 }
