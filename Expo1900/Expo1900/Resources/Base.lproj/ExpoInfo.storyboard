@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3LW-6Z-rfu">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
@@ -14,44 +14,44 @@
             <objects>
                 <viewController storyboardIdentifier="ExpoInfoViewController" id="BYZ-38-t0r" customClass="ExpoInfoViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-1N-VMq">
-                                <rect key="frame" x="20" y="0.0" width="374" height="896"/>
+                                <rect key="frame" x="20" y="0.0" width="856" height="414"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0E9-zR-t29">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="896"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="856" height="638"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expo Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPa-cL-8X2">
-                                                <rect key="frame" x="134.5" y="0.0" width="105.5" height="30"/>
+                                                <rect key="frame" x="375.5" y="0.0" width="105.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster" translatesAutoresizingMaskIntoConstraints="NO" id="gCa-Dy-wak">
-                                                <rect key="frame" x="115" y="45" width="144" height="200"/>
+                                                <rect key="frame" x="356" y="45" width="144" height="200"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expo Visitors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGX-6r-rYJ">
-                                                <rect key="frame" x="137.5" y="260" width="99" height="20.5"/>
+                                                <rect key="frame" x="378.5" y="260" width="99" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expo Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1j-w8-Ca4">
-                                                <rect key="frame" x="133.5" y="295.5" width="107.5" height="20.5"/>
+                                                <rect key="frame" x="374.5" y="295.5" width="107.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expo Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="si6-XU-5ws">
-                                                <rect key="frame" x="133.5" y="331" width="107.5" height="20.5"/>
+                                                <rect key="frame" x="374.5" y="331" width="107.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8sS-1s-IKn">
-                                                <rect key="frame" x="0.0" y="366.5" width="374" height="474.5"/>
+                                                <rect key="frame" x="0.0" y="366.5" width="856" height="216.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">1900년 파리 만국박람회(지금의 세계 박람회[World’s Fair/Exposition/Expo])는 지난 세기를 기념하고 다음 세기를 향한 발전을 가속하자는 의미에서 1900년 4월 14일부터 11월 12일까지 프랑스 파리에서 열린 세계 박람회였다. 이 박람회에서 널리 선보였던 건축 양식이 바로 '아르누보'였다. 총 관람객수가 5000만 명에 달한 1900년 세계 박람회에서는 수많은 기계와 발명품, 그리고 건축물들이 전시됐는데 그 중에는 그랑드 루 드 파리 대관람차, 마트료시카 인형, 디젤 엔진, 유성영화, 에스컬레이터, 텔레그라폰 (최초의 자석식 녹음기) 등 지금도 널리 알려져 있는 것들도 등장했다.\n\n프랑스는 1855년에도 만국 박람회를 개최한 전력이 있었는데 전쟁 후 국가의 자부심과 신념을 다시 세우고자 하는 욕구로부터 비롯된 것이었다. 1900년 박람회가 성공을 거둔 것도 전후 국가 부흥이라는 똑같은 주제에 따른 것이었다. 1900년 파리 세계 박람회가 개최되기 8년 전인 1892년, 프랑스 정부는 새 세기의 도래를 환영하고 축하하는 박람회를 열 것이라고 발표했다.\n\n프랑스는 전세계 56개국에 초청장을 보냈고, 그 중 40개국이 수락하여 참가했다.참가국들이 이룬 것과 생활양식을 전시했다. 이 세계 박람회는 여러 가지 체험을 종합하여 익히도록 한 것이었다. 이를 통해 외국인들에게 각 국가들 간의 유사성은 물론 그 사이의 독특한 다양성을 깨닫도록 하는 기회를 제공했다. 또 새로운 문화를 경험하고 각국이 전시해 놓은 자국의 가치들을 전반적으로 더욱 이해할 수 있도록 했다. 이러한 상호 이해의 환경이 전쟁 시대 이후 필요하다고 여겨졌던 문화적 관용을 늘리는데 한몫하도록 했다. 박람회 개최 소식이 발표되자 독일에서 처음으로 열린 국제 박람회에 쏠렸던 관심은 풀리고 박람회 개최에 대한 호응이 어마어마하게 쏟아졌다. 박람회에 대한 지지도 대단해서 각국에서는 즉시 자국 전시관 계획을 세우기 시작했다. \n\n파리 만국박람회가 개최된 1900년 4월 14일부터</string>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -59,7 +59,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="88y-cV-0hY">
-                                                <rect key="frame" x="49" y="856" width="276" height="40"/>
+                                                <rect key="frame" x="290" y="598" width="276" height="40"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="B5S-hp-3eu">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -90,7 +90,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="0E9-zR-t29" firstAttribute="top" secondItem="Anu-5I-buJ" secondAttribute="top" id="2J5-rb-fwt"/>
-                                    <constraint firstItem="0E9-zR-t29" firstAttribute="height" secondItem="O2V-94-shr" secondAttribute="height" id="9qT-RN-HAK"/>
+                                    <constraint firstItem="0E9-zR-t29" firstAttribute="height" secondItem="O2V-94-shr" secondAttribute="height" priority="250" id="9qT-RN-HAK"/>
                                     <constraint firstItem="0E9-zR-t29" firstAttribute="trailing" secondItem="Anu-5I-buJ" secondAttribute="trailing" id="QuN-3F-hTS"/>
                                     <constraint firstItem="0E9-zR-t29" firstAttribute="bottom" secondItem="Anu-5I-buJ" secondAttribute="bottom" id="dfm-yr-u3c"/>
                                     <constraint firstItem="0E9-zR-t29" firstAttribute="width" secondItem="O2V-94-shr" secondAttribute="width" id="ob6-23-SuB"/>
@@ -129,7 +129,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3LW-6Z-rfu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I2p-W6-nRZ">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
