@@ -13,6 +13,7 @@
 		4E27CEED2AFB28CE00AA091B /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27CEEC2AFB28CE00AA091B /* UIViewController+.swift */; };
 		4E27CEEF2AFB2A0200AA091B /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27CEEE2AFB2A0200AA091B /* DecoderError.swift */; };
 		BF1577FC2AFB3823008B107F /* AccessibilityLabelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1577FB2AFB3823008B107F /* AccessibilityLabelList.swift */; };
+		BF31CE722AFDD0C000D648D3 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31CE712AFDD0C000D648D3 /* UIImage+.swift */; };
 		BF6B2D032AF07DF9003727E2 /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B2D022AF07DF9003727E2 /* Exposition.swift */; };
 		BFFB1C8B2AF38B3A00299583 /* AssetDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB1C8A2AF38B3A00299583 /* AssetDecoder.swift */; };
 		BFFB1C952AF4C48000299583 /* AssetNameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB1C942AF4C48000299583 /* AssetNameList.swift */; };
@@ -32,6 +33,7 @@
 		4E27CEEC2AFB28CE00AA091B /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		4E27CEEE2AFB2A0200AA091B /* DecoderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
 		BF1577FB2AFB3823008B107F /* AccessibilityLabelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityLabelList.swift; sourceTree = "<group>"; };
+		BF31CE712AFDD0C000D648D3 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		BF6B2D022AF07DF9003727E2 /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		BFFB1C8A2AF38B3A00299583 /* AssetDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDecoder.swift; sourceTree = "<group>"; };
 		BFFB1C942AF4C48000299583 /* AssetNameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNameList.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				4E175D472AF373DA00E79AEE /* ExpositionItemListViewController.swift */,
 				4E175D492AF3822900E79AEE /* ExpositionItemDetailViewController.swift */,
 				4E27CEEC2AFB28CE00AA091B /* UIViewController+.swift */,
+				BF31CE712AFDD0C000D648D3 /* UIImage+.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				4E27CEEF2AFB2A0200AA091B /* DecoderError.swift in Sources */,
 				BF1577FC2AFB3823008B107F /* AccessibilityLabelList.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				BF31CE722AFDD0C000D648D3 /* UIImage+.swift in Sources */,
 				4E175D482AF373DA00E79AEE /* ExpositionItemListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,12 +363,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68GK5TDX7T;
 				INFOPLIST_FILE = Expo1900/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
+				PRODUCT_BUNDLE_IDENTIFIER = net.jyubong.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -377,12 +382,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 68GK5TDX7T;
 				INFOPLIST_FILE = Expo1900/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
+				PRODUCT_BUNDLE_IDENTIFIER = net.jyubong.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
