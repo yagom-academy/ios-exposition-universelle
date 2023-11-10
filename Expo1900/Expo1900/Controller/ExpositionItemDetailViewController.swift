@@ -25,7 +25,7 @@ final class ExpositionItemDetailViewController: UIViewController {
     }
     
     private func configureUI() {
-        let imageHeight = 150
+        let imageHeight = CGFloat(150)
         detailImageView.image = UIImage(named: expositionItem?.imageName ?? "")?.resized(height: imageHeight)
         
         detailDescriptionLabel.text = expositionItem?.description
