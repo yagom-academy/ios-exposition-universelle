@@ -17,6 +17,7 @@
 |<img src="https://avatars.githubusercontent.com/u/126065608?v=4" width="200" height="200">|<img src="https://github.com/mireu79/ios-exposition-universelle/assets/125941932/45dff9f5-f1a9-4398-82c9-5764daf9083d" width="200" height="200">|
 |[쥬봉 GitHub](https://github.com/jyubong)|[미르 GitHub](https://github.com/mireu79)|
 
+
 ## 📅 타임라인
 |날짜|내용|
 |------|---|
@@ -30,13 +31,13 @@
 |23.11.08|- error 구현 및 alert창으로 사용자에게 보이게 error 처리 <br> - back button accessibilitylabel 설정 <br> - step3 3차 PR|
 |23.11.10|- 코드 리팩토링(Error 메세지, 알럿창 함수 네이밍 수정) <br> - image에 Dynmic Type 적용 <br> - README 작성 |
 
+
 ## 👀 시각화 구조
 ### UML
 ![Expo1900UML](https://hackmd.io/_uploads/ByjnUUo7p.png)
 
 
-## 🖥️ 실행 화면
-
+## 💻 실행 화면
 | 첫번째 화면 | 두번째, 세번째 화면 | error 발생 |
 | -------- | -------- | -------- |
 | <img src="https://hackmd.io/_uploads/BkqjwSjmT.gif" width=296> | <img src="https://hackmd.io/_uploads/BkFnvBoma.gif" width=296> | ![](https://hackmd.io/_uploads/ByzhYriQT.gif) |
