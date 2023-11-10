@@ -8,14 +8,13 @@
 import UIKit
 
 extension UIViewController {
-    func showAlert(_ error: Error) {
+    func showErrorAlert(_ error: Error) {
         let alertTitle: String = "오류"
         var message: String {
             switch error {
-            case DecoderError.assetNameError:
-                return "애셋네임을 알 수 없습니다."
-            case DecoderError.jsonDataError:
-                return "제이슨 데이터를 알 수 없습니다."
+            case DecoderError.assetName, DecoderError.jsonData:
+                print(error.localizedDescription)
+                return "데이터를 불러올 수 없습니다."
             default:
                 return "시스템오류가 발생했습니다."
             }

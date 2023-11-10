@@ -8,6 +8,6 @@
 import Foundation
 
 enum DecoderError: Error {
-    case assetNameError
-    case jsonDataError
+    case assetName
+    case jsonData
 }

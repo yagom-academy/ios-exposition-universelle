@@ -26,7 +26,7 @@ final class ExpositionItemListViewController: UIViewController {
         do {
             expositionItems = try AssetDecoder<[ExpositionItem]>().parse(assetName: AssetNameList.expositionItems)
         } catch {
-            self.showAlert(error)
+            self.showErrorAlert(error)
         }
     }
     

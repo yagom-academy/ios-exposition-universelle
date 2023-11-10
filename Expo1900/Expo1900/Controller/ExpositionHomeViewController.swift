@@ -41,9 +41,9 @@ final class ExpositionHomeViewController: UIViewController {
     
     private func decodeExposition() {
         do {
-            exposition = try AssetDecoder<Exposition>().parse(assetName: AssetNameList.exposition)
+            exposition = try AssetDecoder<Exposition>().parse(assetName: "")
         } catch {
-            self.showAlert(error)
+            self.showErrorAlert(error)
         }
     }
     
