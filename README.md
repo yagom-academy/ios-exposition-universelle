@@ -18,14 +18,15 @@
 
 | [Toy](https://github.com/DevWooHyeon)  | [kiseok](https://github.com/carti1108) |
 | :--------: | :--------: |
-|<img src=https://hackmd.io/_uploads/rkeCsVoQa.png width="150" height="150"/>|<img src=https://hackmd.io/_uploads/H1evoEoma.jpg width="150" height="150"/> |
+|<img src=https://github.com/carti1108/ios-exposition-universelle/assets/114901495/bc23a074-5220-436e-9474-1c34f218cf97 width="150" height="150"/>|<img src=https://github.com/carti1108/ios-exposition-universelle/assets/114901495/9572f83a-d5ee-44e0-9dc4-7c021d15791e width="150" height="150"/> |
 
 
 <br>
 
 ## 2. 다이어그램
 
-![스크린샷 2023-11-10 오후 3.26.19](https://hackmd.io/_uploads/SkcmTHjmT.png)
+<img width="993" alt="만국 다이어그램" src="https://github.com/carti1108/ios-exposition-universelle/assets/114901495/bca9f367-cbd4-4fd0-917e-d6c76ea83b53">
+
 
 
 <br>
@@ -50,11 +51,11 @@
 
 | 메인 화면 | 한국의 출품작 목록 화면 | 상세 화면 |
 | :--------: | :--------: | :--------: |
-| ![메인 화면](https://hackmd.io/_uploads/ByJvzSsQa.gif)|![리스트 화면](https://hackmd.io/_uploads/SJ4wGSom6.gif)|![상세 화면](https://hackmd.io/_uploads/B1jPGHj7a.gif)|
+| ![메인 화면](https://github.com/carti1108/ios-exposition-universelle/assets/114901495/4febe427-a7c6-4462-8d2b-1a4f4af1d8be)|![리스트 화면](https://github.com/carti1108/ios-exposition-universelle/assets/114901495/1c13bed0-177f-4c78-9208-196c9f54b10f)|![상세 화면](https://github.com/carti1108/ios-exposition-universelle/assets/114901495/e6caa335-3aea-4c5f-8640-1560c78212ce)|
 
 | 이전 화면 돌아가기 | 화면 회전 |
 | :--------: | :--------: |
-|![이전 화면](https://hackmd.io/_uploads/SkzCMroQ6.gif)|![화면 회전](https://hackmd.io/_uploads/rJ2jmBjQ6.gif)|
+| ![이전 화면](https://github.com/carti1108/ios-exposition-universelle/assets/114901495/72c7b821-a8e2-49b1-be3b-06cd9b9fe601)|![화면 회전](https://github.com/carti1108/ios-exposition-universelle/assets/114901495/3989f779-847d-44b6-9826-6c134e3c40d1)|
 
 
 
