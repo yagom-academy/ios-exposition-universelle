@@ -2,7 +2,7 @@
 //  ExpositionItemViewController.swift
 //  Expo1900
 //
-//   Created by jyubong, mireu
+//  Created by jyubong, mireu
 //
 
 import UIKit
@@ -18,7 +18,16 @@ final class ExpositionItemListViewController: UIViewController {
         
         tableView.dataSource = self
         
-        expositionItems = AssetDecoder<[ExpositionItem]>(assetName: AssetNameList.expositionItems).decodedItem ?? []
+        decodeExpositionItems()
+        self.setUpBackButtonAccessibilityLabel(to: AccessibilityLabelList.previous)
+    }
+    
+    private func decodeExpositionItems() {
+        do {
+            expositionItems = try AssetDecoder<[ExpositionItem]>().parse(assetName: AssetNameList.expositionItems)
+        } catch {
+            self.showErrorAlert(error)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,19 +49,27 @@ extension ExpositionItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.itemCell, for: indexPath)
         let item = expositionItems[indexPath.row]
+
+        cell.contentConfiguration = configureContent(of: cell, from: item)
         
+        return cell
+    }
+    
+    private func configureContent(of cell: UITableViewCell, from item: ExpositionItem) -> UIListContentConfiguration {
         var content = cell.defaultContentConfiguration()
         
         content.text = item.name
-        content.secondaryText = item.shortDescription
-        content.image = UIImage(named: item.imageName)
+        content.textProperties.font = UIFont.preferredFont(forTextStyle: .title1)
         
-        let imageSize = CGSize(width: 60, height: 60)
+        content.secondaryText = item.shortDescription
+        content.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .body)
+        
+        let imageWidth = 60
+        let imageSize = CGSize(width: imageWidth, height: imageWidth)
+        content.image = UIImage(named: item.imageName)
         content.imageProperties.maximumSize = imageSize
         content.imageProperties.reservedLayoutSize = imageSize
         
-        cell.contentConfiguration = content
-        
-        return cell
+        return content
     }
 }
