@@ -2,7 +2,7 @@
 //  ExpositionIntroduction.swift
 //  Expo1900
 //
-//  Created by Danny on 3/4/24.
+//  Created by Danny, Gray on 3/4/24.
 //
 
 struct ExpositionIntroduction {
