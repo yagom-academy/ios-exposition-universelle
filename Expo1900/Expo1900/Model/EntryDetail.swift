@@ -5,7 +5,7 @@
 //  Created by Yejin Hong on 3/5/24.
 //
 
-struct EntryDetail: Decodable {
+struct EntryDetailDTO: Decodable {
     let name: String
     let imageName: String
     let description: String
