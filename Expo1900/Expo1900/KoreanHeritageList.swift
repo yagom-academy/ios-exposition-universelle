@@ -6,7 +6,7 @@
 //
 
 struct KoreanHeritageList {
-    var name: String
-    var imageName: String
-    var shortDescription: String
+    let name: String
+    let imageName: String
+    let shortDescription: String
 }
