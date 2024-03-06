@@ -8,6 +8,6 @@
 struct Entry: Codable {
     let name: String
     let summary: String
-    let Description: String
+    let description: String
     let photoUrl: String
 }
