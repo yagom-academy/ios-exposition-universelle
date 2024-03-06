@@ -11,7 +11,7 @@ struct EntryDetail: Decodable {
     let description: String
     
     private enum CodingKeys: String, CodingKey {
-        case name = "name"
+        case name
         case imageName = "image_name"
         case description = "desc"
     }

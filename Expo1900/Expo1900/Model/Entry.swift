@@ -12,7 +12,7 @@ struct Entry: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case imageName = "image_name"
-        case name = "name"
+        case name
         case shortDescription = "short_desc"
     }
 }
