@@ -5,7 +5,7 @@
 //  Created by Danny, Gray on 3/4/24.
 //
 
-struct ExpositionIntroduction {
+struct ExpositionIntroduction: Equatable {
     let title: String
     let visitors: Int
     let location: String

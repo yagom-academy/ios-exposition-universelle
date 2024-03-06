@@ -5,7 +5,7 @@
 //  Created by Danny, Gray on 3/4/24.
 //
 
-struct KoreanHeritage {
+struct KoreanHeritage: Equatable {
     let name: String
     let imageName: String
     let description: String
