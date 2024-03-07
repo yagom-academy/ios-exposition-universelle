@@ -10,6 +10,7 @@
 		8B8AC50F2B99ABF5008D61B4 /* EntryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */; };
 		8BBAFE232B971383009C536A /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBAFE222B971383009C536A /* Exposition.swift */; };
 		8BBAFE252B971692009C536A /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBAFE242B971692009C536A /* EntryDetail.swift */; };
+		C40386252B99AE8800888788 /* ExpositionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40386242B99AE8800888788 /* ExpositionDTO.swift */; };
 		C43D73692B9715720033EC11 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D73682B9715720033EC11 /* Entry.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 		8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDTO.swift; sourceTree = "<group>"; };
 		8BBAFE222B971383009C536A /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		8BBAFE242B971692009C536A /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
+		C40386242B99AE8800888788 /* ExpositionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpositionDTO.swift; sourceTree = "<group>"; };
 		C43D73682B9715720033EC11 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		8B8AC50D2B99AB95008D61B4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C40386242B99AE8800888788 /* ExpositionDTO.swift */,
 				8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */,
 			);
 			path = Data;
@@ -116,8 +119,8 @@
 		C79FF4B32589F401005FB0FD /* Expo1900 */ = {
 			isa = PBXGroup;
 			children = (
-				8B8AC50D2B99AB95008D61B4 /* Data */,
 				C43D73632B9710960033EC11 /* App */,
+				8B8AC50D2B99AB95008D61B4 /* Data */,
 				8BBAFE212B9712DB009C536A /* Model */,
 				C43D73672B9711600033EC11 /* View */,
 				C43D73642B9710EB0033EC11 /* Controller */,
@@ -204,6 +207,7 @@
 				8BBAFE252B971692009C536A /* EntryDetail.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				C40386252B99AE8800888788 /* ExpositionDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
