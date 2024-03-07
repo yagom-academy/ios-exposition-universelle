@@ -8,7 +8,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
     var expositionIntroduction: ExpositionIntroduction!
 
     override func viewDidLoad() {
@@ -26,7 +27,8 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
         
-        testLabel.text = expositionIntroduction.title
+        titleLabel.text = expositionIntroduction.title
+        posterImageView.image = UIImage(named: "poster.png")
     }
 
 }
