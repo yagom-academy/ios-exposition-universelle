@@ -5,7 +5,7 @@
 //  Created by Yejin Hong on 3/5/24.
 //
 
-struct ExpositionDTO: Decodable {
+struct Exposition {
     let title: String
     let visitors: Int
     let location: String
