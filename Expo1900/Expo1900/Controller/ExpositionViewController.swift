@@ -24,6 +24,8 @@ class ExpositionViewController: UIViewController {
         super.viewDidLoad()
         
         updateComponents()
+        
+        self.navigationItem.backButtonTitle = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
