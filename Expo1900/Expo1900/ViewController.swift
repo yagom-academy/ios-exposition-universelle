@@ -11,12 +11,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var visitorLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     var expositionIntroduction: ExpositionIntroduction!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
@@ -40,8 +42,9 @@ class ViewController: UIViewController {
             return
         }
         visitorLabel.text = "\(visitorString) 명"
-        
-        
+        locationLabel.text = "개최지 : \(expositionIntroduction.location)"
+        durationLabel.text = "개최 기간 : \(expositionIntroduction.duration)"
+        descriptionTextView.text = expositionIntroduction.description
     }
 
 }
