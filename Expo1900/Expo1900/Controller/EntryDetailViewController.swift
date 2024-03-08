@@ -11,4 +11,5 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet var entryImageView: UIImageView!
     @IBOutlet var entryDescriptionLabel: UILabel!
     
+    var entryDetailData: EntryDetail?
 }

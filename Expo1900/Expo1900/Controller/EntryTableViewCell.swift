@@ -11,5 +11,4 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet var entryImageView: UIImageView!
     @IBOutlet var entryNameLabel: UILabel!
     @IBOutlet var entryShortDescriptionLabel: UILabel!
-    
 }
