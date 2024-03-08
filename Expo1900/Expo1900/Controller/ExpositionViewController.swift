@@ -45,8 +45,7 @@ class ExpositionViewController: UIViewController {
     }
     
     func updateComponents() {
-        guard let expositionDataAsset = NSDataAsset(name: "exposition_universelle_1900"),
-              let exposition = try? JSONDecoder().decode(ExpositionDTO.self, from: expositionDataAsset.data).toModel() else {
+        guard let exposition = JSONDecoder().decode(from: "exposition_universelle_1900", to: ExpositionDTO.self)?.toModel() else {
             return
         }
         

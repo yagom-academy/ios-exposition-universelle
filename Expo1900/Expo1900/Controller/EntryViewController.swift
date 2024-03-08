@@ -22,10 +22,10 @@ class EntryViewController: UIViewController {
     }
     
     func decodeEntryItems() {
-        guard let entryDataAsset = NSDataAsset(name: "items"),
-              let entryDTOArray = try? JSONDecoder().decode([EntryDTO].self, from: entryDataAsset.data) else {
+        guard let entryDTOArray = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else {
             return
         }
+        
         self.entryDTOArray = entryDTOArray
     }
 }
