@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bu6-Vp-ISz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bu6-Vp-ISz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -93,31 +93,11 @@
                         <outlet property="rightFlagImageView" destination="pvU-S9-E44" id="Cml-Ae-uWM"/>
                         <outlet property="titleLabel" destination="U1c-Kr-uRQ" id="9zh-VF-5RI"/>
                         <outlet property="visitorsLabel" destination="uLm-jD-geb" id="9YS-Gq-1dS"/>
-                        <segue destination="PQO-qH-NQA" kind="show" id="Q0N-H0-fAf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1693.8931297709923" y="-33.098591549295776"/>
-        </scene>
-        <!--한국의 출품작-->
-        <scene sceneID="7f3-YP-U9O">
-            <objects>
-                <tableViewController id="6p0-Gh-A4A" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="SHG-df-k9x">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="6p0-Gh-A4A" id="hTL-yZ-dtd"/>
-                            <outlet property="delegate" destination="6p0-Gh-A4A" id="bBU-De-eIE"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="한국의 출품작" id="I2a-LY-afv"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1CR-ZH-MsK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4312" y="-33"/>
         </scene>
         <!--Entry Detail View Controller-->
         <scene sceneID="cdg-kx-O8k">
@@ -172,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tcd-TF-Xv9">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EntryTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Ofa-ge-XWb" customClass="EntryTableViewCell" customModule="Expo1900" customModuleProvider="target">
@@ -228,9 +208,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="한국의 출품작" id="Xe3-ZX-OiY"/>
-                    <connections>
-                        <segue destination="lVQ-i1-K7q" kind="show" id="d5l-1W-7fr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcf-RW-41z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
