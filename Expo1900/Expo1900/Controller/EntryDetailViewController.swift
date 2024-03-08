@@ -22,9 +22,4 @@ class EntryDetailViewController: UIViewController {
         self.entryImageView.image = UIImage(named: entryDetailData.imageName)
         self.entryDescriptionLabel.text = entryDetailData.description
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
 }
