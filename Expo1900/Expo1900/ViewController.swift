@@ -10,6 +10,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var visitorLabel: UILabel!
+    
     var expositionIntroduction: ExpositionIntroduction!
 
     override func viewDidLoad() {
@@ -29,6 +31,18 @@ class ViewController: UIViewController {
         
         titleLabel.text = expositionIntroduction.title
         posterImageView.image = UIImage(named: "poster.png")
+        
+        let visitorsString = String(expositionIntroduction.visitors)
+        
+        let rangeStartIndex = visitorsString.index(visitorsString.startIndex, offsetBy: 2)
+        let rangeEndIndex = visitorsString.index(visitorsString.endIndex, offsetBy: -3)
+        
+        let visitorsFristNumber = visitorsString.prefix(2)
+        let visitorsSecondNumber = visitorsString[rangeStartIndex..<rangeEndIndex]
+        let visitorsThridNumber = visitorsString.suffix(3)
+        
+        visitorLabel.text = "\(visitorsFristNumber),\(visitorsSecondNumber),\(visitorsThridNumber) 명"
+        
     }
 
 }
