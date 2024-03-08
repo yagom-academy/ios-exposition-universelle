@@ -12,4 +12,19 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet var entryDescriptionLabel: UILabel!
     
     var entryDetailData: EntryDetail?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let entryDetailData else { return }
+        
+        self.navigationItem.title = entryDetailData.name
+        self.entryImageView.image = UIImage(named: entryDetailData.imageName)
+        self.entryDescriptionLabel.text = entryDetailData.description
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
 }
