@@ -32,16 +32,15 @@ class ViewController: UIViewController {
         titleLabel.text = expositionIntroduction.title
         posterImageView.image = UIImage(named: "poster.png")
         
-        let visitorsString = String(expositionIntroduction.visitors)
+
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
-        let rangeStartIndex = visitorsString.index(visitorsString.startIndex, offsetBy: 2)
-        let rangeEndIndex = visitorsString.index(visitorsString.endIndex, offsetBy: -3)
+        guard let visitorString: String = numberFormatter.string(for: expositionIntroduction.visitors) else {
+            return
+        }
+        visitorLabel.text = "\(visitorString) 명"
         
-        let visitorsFristNumber = visitorsString.prefix(2)
-        let visitorsSecondNumber = visitorsString[rangeStartIndex..<rangeEndIndex]
-        let visitorsThridNumber = visitorsString.suffix(3)
-        
-        visitorLabel.text = "\(visitorsFristNumber),\(visitorsSecondNumber),\(visitorsThridNumber) 명"
         
     }
 
