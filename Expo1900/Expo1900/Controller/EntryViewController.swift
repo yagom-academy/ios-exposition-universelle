@@ -63,5 +63,7 @@ extension EntryViewController: UITableViewDataSource {
         entryDetailViewController.entryDetailData = entryDetailData
         
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
