@@ -8,7 +8,6 @@
 import UIKit
 
 class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var koreanHeritageTableView: UITableView!
     let cellIdentifier: String = "koreanHeritageCell"
     var koreanHeritage: [KoreanHeritage]!
@@ -22,8 +21,8 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: KoreanHeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! KoreanHeritageTableViewCell
         
-//        cell.titleLabel?.text = koreanHeritage[indexPath.row]
-//        print(koreanHeritage)
+        cell.titleLabel?.text = koreanHeritage[indexPath.row].name
+        
         return cell
     }
     
