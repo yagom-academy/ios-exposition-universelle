@@ -22,6 +22,8 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
         let cell: KoreanHeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! KoreanHeritageTableViewCell
         
         cell.titleLabel?.text = koreanHeritage[indexPath.row].name
+        cell.shortDescriptionTextView?.text = koreanHeritage[indexPath.row].shortDescription
+        cell.itemImageView.image = UIImage(named: koreanHeritage[indexPath.row].imageName)
         
         return cell
     }
