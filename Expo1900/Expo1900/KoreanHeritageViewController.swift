@@ -12,12 +12,10 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
     let cellIdentifier: String = "koreanHeritageCell"
     var koreanHeritage: [KoreanHeritage]!
     
-    // 섹션에 해당하는 row 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return koreanHeritage.count
     }
     
-    // row마다 해당하는 cell 반환하기
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: KoreanHeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! KoreanHeritageTableViewCell
         
@@ -26,6 +24,16 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
         cell.itemImageView.image = UIImage(named: koreanHeritage[indexPath.row].imageName)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "KoreanHeritageDetailViewController") as? KoreanHeritageDetailViewController else {
+            return
+        }
+        
+        detailViewController.itemTitle = koreanHeritage[indexPath.row].name
+        detailViewController.itemImageName = koreanHeritage[indexPath.row].imageName
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     override func viewDidLoad() {

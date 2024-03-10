@@ -46,11 +46,9 @@ class ViewController: UIViewController {
         descriptionTextView.text = expositionIntroduction.description
     }
     
-    
     @IBAction func koreanHeritageClicked(_ sender: UIButton) {
         openKoreanHeritageViewController()
     }
-    
     
     func openKoreanHeritageViewController() {
         guard let koreanHeritageViewController = storyboard?.instantiateViewController(withIdentifier: "KoreanHeritageViewController") as? KoreanHeritageViewController else {
@@ -58,7 +56,6 @@ class ViewController: UIViewController {
         }
         
         navigationController?.pushViewController(koreanHeritageViewController, animated: true)
-        
         
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
