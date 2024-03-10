@@ -9,11 +9,11 @@ import UIKit
 
 class KoreanHeritageDetailViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var itemDetailImageView : UIImageView!
     @IBOutlet weak var descriptionTextView : UITextView!
-    var itemTitle: String?
+    
     var itemImageName: String?
+    var itemDescription: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +22,8 @@ class KoreanHeritageDetailViewController: UIViewController {
     }
     
     private func setDetailContent() {
-        titleLabel.text = itemTitle
         itemDetailImageView.image = UIImage(named: itemImageName!)
+        descriptionTextView.text = itemDescription
     }
 }
 

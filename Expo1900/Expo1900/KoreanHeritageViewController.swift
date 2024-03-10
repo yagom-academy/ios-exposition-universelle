@@ -31,8 +31,9 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
             return
         }
         
-        detailViewController.itemTitle = koreanHeritage[indexPath.row].name
+        detailViewController.title = koreanHeritage[indexPath.row].name
         detailViewController.itemImageName = koreanHeritage[indexPath.row].imageName
+        detailViewController.itemDescription = koreanHeritage[indexPath.row].description
         navigationController?.pushViewController(detailViewController, animated: true)
     }
     
