@@ -8,12 +8,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var mainTitleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var visitorLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var expositionIntroduction: ExpositionIntroduction!
 
@@ -38,12 +39,14 @@ class ViewController: UIViewController {
             return
         }
         
-        titleLabel.text = expositionIntroduction.title
+        mainTitleLabel.text = String(expositionIntroduction.title.prefix(13))
+        subTitleLabel.text = String(expositionIntroduction.title.suffix(28))
         posterImageView.image = UIImage(named: "poster.png")
-        visitorLabel.text = "\(visitorString) 명"
+        visitorLabel.text = "방문객: \(visitorString) 명"
         locationLabel.text = "개최지 : \(expositionIntroduction.location)"
         durationLabel.text = "개최 기간 : \(expositionIntroduction.duration)"
-        descriptionTextView.text = expositionIntroduction.description
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = expositionIntroduction.description
     }
     
     @IBAction func koreanHeritageClicked(_ sender: UIButton) {
