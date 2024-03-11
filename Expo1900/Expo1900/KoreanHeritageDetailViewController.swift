@@ -9,9 +9,8 @@ import UIKit
 
 class KoreanHeritageDetailViewController: UIViewController {
     
-    @IBOutlet weak var itemDetailImageView : UIImageView!
-    @IBOutlet weak var descriptionTextView : UITextView!
-    
+    @IBOutlet weak var itemDetailImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     var itemImageName: String?
     var itemDescription: String?
     
@@ -23,7 +22,8 @@ class KoreanHeritageDetailViewController: UIViewController {
     
     private func setDetailContent() {
         itemDetailImageView.image = UIImage(named: itemImageName!)
-        descriptionTextView.text = itemDescription
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = itemDescription
     }
 }
 
