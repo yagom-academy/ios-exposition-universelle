@@ -16,10 +16,16 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let item = item {
-            itemImageView.image = UIImage(named: "\(item.imageUrl)")
-            detailDescriptionLabel.text = "\(item.description)"
-        }
+        configureView()
+    }
+    
+    private func configureView() {
+        guard let item = item else { return }
+        updateData(with: item)
+    }
+    
+    private func updateData(with item: Item) {
+        itemImageView.image = UIImage(named: "\(item.imageUrl)")
+        detailDescriptionLabel.text = "\(item.description)"
     }
 }
