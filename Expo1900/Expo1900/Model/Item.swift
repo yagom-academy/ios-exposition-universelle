@@ -5,7 +5,7 @@
 //  Created by gama, hamzzi on 3/4/24.
 //
 
-struct Items: Codable {
+struct Item: Codable {
     let name: String
     let summary: String
     let description: String
