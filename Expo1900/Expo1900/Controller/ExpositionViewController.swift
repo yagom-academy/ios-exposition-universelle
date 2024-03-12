@@ -59,19 +59,19 @@ class ExpositionViewController: UIViewController {
         self.posterImageView.image = UIImage(named: "poster")
         
         self.visitorsLabel.text = "방문객 : "
-        self.visitorsLabel.font = .preferredFont(forTextStyle: .title2)
+        self.visitorsLabel.font = .preferredFont(forTextStyle: .title3)
         
-        self.visitorsNumberLabel.font = .preferredFont(forTextStyle: .title3)
+        self.visitorsNumberLabel.font = .preferredFont(forTextStyle: .body)
         
         self.locationLabel.text = "개최지 : "
-        self.locationLabel.font = .preferredFont(forTextStyle: .title2)
+        self.locationLabel.font = .preferredFont(forTextStyle: .title3)
         
-        self.locationStringLabel.font = .preferredFont(forTextStyle: .title3)
+        self.locationStringLabel.font = .preferredFont(forTextStyle: .body)
         
         self.durationLabel.text = "개최 기간 : "
-        self.durationLabel.font = .preferredFont(forTextStyle: .title2)
+        self.durationLabel.font = .preferredFont(forTextStyle: .title3)
         
-        self.durationStringLabel.font = .preferredFont(forTextStyle: .title3)
+        self.durationStringLabel.font = .preferredFont(forTextStyle: .body)
         
         self.descriptionLabel.font = .preferredFont(forTextStyle: .body)
         
