@@ -40,7 +40,7 @@ extension EntriesTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let entryData: Entry = entryDTOs[indexPath.row].toModel()
+        let entryData = entryDTOs[indexPath.row].toEntry()
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell") as? EntryTableViewCell else {
             return UITableViewCell()
@@ -54,7 +54,7 @@ extension EntriesTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let entryDetailData: EntryDetail = entryDTOs[indexPath.row].toModel()
+        let entryDetailData = entryDTOs[indexPath.row].toEntryDetail()
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in

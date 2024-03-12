@@ -20,13 +20,13 @@ struct EntryDTO: Decodable {
 }
 
 extension EntryDTO {
-    func toModel() -> Entry {
+    func toEntry() -> Entry {
         return .init(imageName: imageName,
                      name: name,
                      shortDescription: shortDescription)
     }
     
-    func toModel() -> EntryDetail {
+    func toEntryDetail() -> EntryDetail {
         return .init(name: name,
                      imageName: imageName,
                      description: description)

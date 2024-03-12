@@ -14,7 +14,7 @@ struct ExpositionDTO: Decodable {
 }
 
 extension ExpositionDTO {
-    func toModel() -> Exposition {
+    func toExposition() -> Exposition {
         return .init(title: title,
                      visitors: visitors,
                      location: location,

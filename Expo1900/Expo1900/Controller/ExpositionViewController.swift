@@ -47,7 +47,7 @@ class ExpositionViewController: UIViewController {
     }
     
     func updateComponents() {
-        guard let exposition = JSONDecoder().decode(from: "exposition_universelle_1900", to: ExpositionDTO.self)?.toModel() else {
+        guard let exposition = JSONDecoder().decode(from: "exposition_universelle_1900", to: ExpositionDTO.self)?.toExposition() else {
             return
         }
         
