@@ -23,7 +23,13 @@ class ExpositionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateComponents()
+        setupComponents()
+        
+        guard let exposition = JSONDecoder().decode(from: "exposition_universelle_1900", to: ExpositionDTO.self)?.toExposition() else {
+            return
+        }
+        
+        updateComponents(exposition: exposition)
         
         self.navigationItem.backButtonTitle = "메인"
     }
@@ -46,38 +52,44 @@ class ExpositionViewController: UIViewController {
         self.navigationController?.pushViewController(entriesTableViewController, animated: true)
     }
     
-    func updateComponents() {
-        guard let exposition = JSONDecoder().decode(from: "exposition_universelle_1900", to: ExpositionDTO.self)?.toExposition() else {
-            return
-        }
-        
-        self.titleLabel.text = exposition.formattedTitle
+    private func setupComponents() {
         self.titleLabel.font = .preferredFont(forTextStyle: .title1)
         self.titleLabel.textAlignment = .center
         
         self.posterImageView.image = UIImage(named: "poster")
         
         self.visitorsLabel.text = "방문객 : "
-        self.visitorsLabel.font = .preferredFont(forTextStyle: .title3)
+        self.visitorsLabel.font = .preferredFont(forTextStyle: .title2)
         
-        self.visitorsNumberLabel.text = String(exposition.visitors)
+        self.visitorsNumberLabel.font = .preferredFont(forTextStyle: .title3)
         
         self.locationLabel.text = "개최지 : "
-        self.locationLabel.font = .preferredFont(forTextStyle: .title3)
+        self.locationLabel.font = .preferredFont(forTextStyle: .title2)
         
-        self.locationStringLabel.text = exposition.location
+        self.locationStringLabel.font = .preferredFont(forTextStyle: .title3)
         
         self.durationLabel.text = "개최 기간 : "
-        self.durationLabel.font = .preferredFont(forTextStyle: .title3)
+        self.durationLabel.font = .preferredFont(forTextStyle: .title2)
         
-        self.durationStringLabel.text = exposition.duration
+        self.durationStringLabel.font = .preferredFont(forTextStyle: .title3)
         
-        self.descriptionLabel.text = exposition.description
+        self.descriptionLabel.font = .preferredFont(forTextStyle: .title3)
         
         self.leftFlagImageView.image = UIImage(named: "flag")
         
-        self.showKoreanEntryButton.setTitle("한국의 출품작", for: .normal)
+        self.showKoreanEntryButton.setTitle("한국의 출품작 보러가기", for: .normal)
         
         self.rightFlagImageView.image = UIImage(named: "flag")
+    }
+    
+    private func updateComponents(exposition: Exposition) {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        
+        self.titleLabel.text = exposition.formattedTitle
+        self.visitorsNumberLabel.text = (nf.string(for: exposition.visitors) ?? "0") + " 명"
+        self.locationStringLabel.text = exposition.location
+        self.durationStringLabel.text = exposition.duration
+        self.descriptionLabel.text = exposition.description
     }
 }
