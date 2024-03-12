@@ -10,7 +10,7 @@ import UIKit
 class EntriesTableViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    var entryDTOArray: [EntryDTO] = []
+    var entryDTOs: [EntryDTO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +22,11 @@ class EntriesTableViewController: UIViewController {
     }
     
     func decodeEntryItems() {
-        guard let entryDTOArray = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else {
+        guard let entryDTOs = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else {
             return
         }
         
-        self.entryDTOArray = entryDTOArray
+        self.entryDTOs = entryDTOs
     }
 }
 
@@ -36,11 +36,11 @@ extension EntriesTableViewController: UITableViewDelegate {
 
 extension EntriesTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entryDTOArray.count
+        return entryDTOs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let entryData: Entry = entryDTOArray[indexPath.row].toModel()
+        let entryData: Entry = entryDTOs[indexPath.row].toModel()
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell") as? EntryTableViewCell else {
             return UITableViewCell()
@@ -54,7 +54,7 @@ extension EntriesTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let entryDetailData: EntryDetail = entryDTOArray[indexPath.row].toModel()
+        let entryDetailData: EntryDetail = entryDTOs[indexPath.row].toModel()
         
         guard let entryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryDetailViewController") as? EntryDetailViewController else {
             return
