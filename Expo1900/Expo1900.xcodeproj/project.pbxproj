@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060281DE2BA0941F00044C28 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060281DD2BA0941F00044C28 /* TableViewCell.swift */; };
+		060281E02BA0946400044C28 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060281DF2BA0946400044C28 /* TableViewController.swift */; };
+		060281E22BA0950E00044C28 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060281E12BA0950E00044C28 /* DetailViewController.swift */; };
 		060AABCE2B973BC900A755F9 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060AABCD2B973BC900A755F9 /* Items.swift */; };
 		3A3AC17C2B9DE3F8006FA1AF /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AC17B2B9DE3F8006FA1AF /* Exposition.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060281DD2BA0941F00044C28 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		060281DF2BA0946400044C28 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		060281E12BA0950E00044C28 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		060AABCD2B973BC900A755F9 /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		3A3AC17B2B9DE3F8006FA1AF /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +51,9 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				060281DF2BA0946400044C28 /* TableViewController.swift */,
+				060281DD2BA0941F00044C28 /* TableViewCell.swift */,
+				060281E12BA0950E00044C28 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,10 +185,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				060AABCE2B973BC900A755F9 /* Items.swift in Sources */,
+				060281E02BA0946400044C28 /* TableViewController.swift in Sources */,
 				3A3AC17C2B9DE3F8006FA1AF /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				060281DE2BA0941F00044C28 /* TableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				060281E22BA0950E00044C28 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PDXBCCKS5;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -347,7 +359,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PDXBCCKS5;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				INFOPLIST_FILE = Expo1900/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
