@@ -55,7 +55,22 @@ class TableViewController: UITableViewController {
         cell.nameLabel.text = "\(item.name)"
         cell.shortDescriptionLabel.text = "\(item.summary)"
         cell.itemImageView.image = UIImage(named: "\(item.imageUrl)")
+        cell.accessoryType = .disclosureIndicator
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "listToDetail" {
+            if let cell = sender as? UITableViewCell {
+                if let indexPath = itemsTableView.indexPath(for: cell){
+                    if let vc = segue.destination as? DetailViewController {
+                        let item = list[indexPath.row]
+                        vc.item = item
+                        vc.navigationItem.title = "\(item.name)"
+                    }
+                }
+            }
+        }
     }
 }
