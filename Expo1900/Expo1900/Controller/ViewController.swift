@@ -21,6 +21,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        decodeExpositionData()
+        updateData()
+    }
+    
+    private func decodeExpositionData() {
         let jsonDecoder = JSONDecoder()
         guard let jsonData: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
@@ -32,6 +37,12 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
         
+        guard let expositionData = expositionData else {
+            return
+        }
+    }
+    
+    private func updateData() {
         guard let expositionData = expositionData else {
             return
         }
