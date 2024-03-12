@@ -16,6 +16,11 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadItems()
+        configureTableView()
+    }
+    
+    private func loadItems() {
         guard let asset = NSDataAsset.init(name: "items") else {
             return
         }
@@ -25,12 +30,13 @@ class TableViewController: UITableViewController {
         do {
             list = try decoder.decode([Item].self, from: asset.data)
         } catch {
-            print(error.localizedDescription)
+            print("Error decoding JSON: \(error.localizedDescription)")
         }
-        
+    }
+    
+    private func configureTableView() {
         itemsTableView.delegate = self
         itemsTableView.dataSource = self
-        
         itemsTableView.estimatedRowHeight = 100
         itemsTableView.rowHeight = UITableView.automaticDimension
     }
@@ -40,7 +46,10 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TableViewCell = itemsTableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! TableViewCell
+        guard let cell = itemsTableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as? TableViewCell else {
+            fatalError("Error: 'itemCell' not found")
+        }
+        
         let item: Item = list[indexPath.row]
         
         cell.nameLabel.text = "\(item.name)"
