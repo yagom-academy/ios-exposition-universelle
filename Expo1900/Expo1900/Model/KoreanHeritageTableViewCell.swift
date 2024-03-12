@@ -10,6 +10,6 @@ import UIKit
 class KoreanHeritageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel : UILabel!
-    @IBOutlet weak var shortDescriptionTextView : UITextView!
+    @IBOutlet weak var shortDescriptionLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
 }
