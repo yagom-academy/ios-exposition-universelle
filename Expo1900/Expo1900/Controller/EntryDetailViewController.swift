@@ -11,12 +11,19 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet var entryImageView: UIImageView!
     @IBOutlet var entryDescriptionLabel: UILabel!
     
-    var entryDetailData: EntryDetail?
+    var entryDetailData: EntryDetail
+    
+    init?(coder: NSCoder, entryDetailData: EntryDetail) {
+        self.entryDetailData = entryDetailData
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Error occurs in required init")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let entryDetailData else { return }
         
         self.navigationItem.title = entryDetailData.name
         self.entryImageView.image = UIImage(named: entryDetailData.imageName)

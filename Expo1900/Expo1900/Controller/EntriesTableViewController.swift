@@ -55,12 +55,12 @@ extension EntriesTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entryDetailData: EntryDetail = entryDTOs[indexPath.row].toModel()
-        
-        guard let entryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryDetailViewController") as? EntryDetailViewController else {
-            return
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in
+            let vc = EntryDetailViewController(coder: creater, entryDetailData: entryDetailData)
+            return vc
         }
-        
-        entryDetailViewController.entryDetailData = entryDetailData
         
         tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
