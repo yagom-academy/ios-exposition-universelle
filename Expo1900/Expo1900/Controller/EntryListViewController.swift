@@ -1,5 +1,5 @@
 //
-//  EntryViewController.swift
+//  EntryListViewController.swift
 //  Expo1900
 //
 //  Created by Yejin Hong on 3/8/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryViewController: UIViewController {
+class EntryListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var entryDTOArray: [EntryDTO] = []
@@ -30,11 +30,11 @@ class EntryViewController: UIViewController {
     }
 }
 
-extension EntryViewController: UITableViewDelegate {
+extension EntryListViewController: UITableViewDelegate {
     
 }
 
-extension EntryViewController: UITableViewDataSource {
+extension EntryListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entryDTOArray.count
     }

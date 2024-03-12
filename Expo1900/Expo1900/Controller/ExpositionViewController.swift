@@ -39,11 +39,11 @@ class ExpositionViewController: UIViewController {
     }
     
     @IBAction func moveToKoreanEntry(_ sender: UIButton) {
-        guard let entryViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryViewController") as? EntryViewController else {
+        guard let entryListViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryListViewController") as? EntryListViewController else {
             return
         }
         
-        self.navigationController?.pushViewController(entryViewController, animated: true)
+        self.navigationController?.pushViewController(entryListViewController, animated: true)
     }
     
     func updateComponents() {
