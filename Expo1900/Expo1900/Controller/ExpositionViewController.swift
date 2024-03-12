@@ -51,7 +51,7 @@ class ExpositionViewController: UIViewController {
             return
         }
         
-        self.titleLabel.text = exposition.title.replacingOccurrences(of: "(", with: "\n(")
+        self.titleLabel.text = exposition.formattedTitle
         self.titleLabel.font = .preferredFont(forTextStyle: .title1)
         self.titleLabel.textAlignment = .center
         

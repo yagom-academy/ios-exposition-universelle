@@ -11,4 +11,9 @@ struct Exposition {
     let location: String
     let duration: String
     let description: String
+    
+    var formattedTitle: String {
+        let title = title.replacingOccurrences(of: "(", with: "\n(")
+        return title
+    }
 }
