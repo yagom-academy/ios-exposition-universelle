@@ -55,25 +55,33 @@ class ExpositionViewController: UIViewController {
     private func setupComponents() {
         self.titleLabel.font = .preferredFont(forTextStyle: .title1)
         self.titleLabel.textAlignment = .center
+        self.titleLabel.adjustsFontForContentSizeCategory = true
         
         self.posterImageView.image = UIImage(named: "poster")
         
         self.visitorsLabel.text = "방문객 : "
         self.visitorsLabel.font = .preferredFont(forTextStyle: .title3)
+        self.visitorsLabel.adjustsFontForContentSizeCategory = true
         
         self.visitorsNumberLabel.font = .preferredFont(forTextStyle: .body)
+        self.visitorsNumberLabel.adjustsFontForContentSizeCategory = true
         
         self.locationLabel.text = "개최지 : "
         self.locationLabel.font = .preferredFont(forTextStyle: .title3)
+        self.locationLabel.adjustsFontForContentSizeCategory = true
         
         self.locationStringLabel.font = .preferredFont(forTextStyle: .body)
+        self.locationStringLabel.adjustsFontForContentSizeCategory = true
         
         self.durationLabel.text = "개최 기간 : "
         self.durationLabel.font = .preferredFont(forTextStyle: .title3)
+        self.durationLabel.adjustsFontForContentSizeCategory = true
         
         self.durationStringLabel.font = .preferredFont(forTextStyle: .body)
+        self.durationStringLabel.adjustsFontForContentSizeCategory = true
         
         self.descriptionLabel.font = .preferredFont(forTextStyle: .body)
+        self.descriptionLabel.adjustsFontForContentSizeCategory = true
         
         self.leftFlagImageView.image = UIImage(named: "flag")
         
