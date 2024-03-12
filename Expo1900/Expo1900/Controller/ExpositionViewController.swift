@@ -73,7 +73,7 @@ class ExpositionViewController: UIViewController {
         
         self.durationStringLabel.font = .preferredFont(forTextStyle: .title3)
         
-        self.descriptionLabel.font = .preferredFont(forTextStyle: .title3)
+        self.descriptionLabel.font = .preferredFont(forTextStyle: .body)
         
         self.leftFlagImageView.image = UIImage(named: "flag")
         
