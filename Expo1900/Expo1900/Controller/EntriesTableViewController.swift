@@ -54,11 +54,11 @@ extension EntriesTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let entryDetailData = entryDTOs[indexPath.row].toEntryDetail()
+        let entryDetail = entryDTOs[indexPath.row].toEntryDetail()
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in
-            let vc = EntryDetailViewController(coder: creater, entryDetailData: entryDetailData)
+            let vc = EntryDetailViewController(coder: creater, entryDetail: entryDetail)
             return vc
         }
         

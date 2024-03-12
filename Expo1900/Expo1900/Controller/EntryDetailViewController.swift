@@ -11,10 +11,10 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet var entryImageView: UIImageView!
     @IBOutlet var entryDescriptionLabel: UILabel!
     
-    var entryDetailData: EntryDetail
+    var entryDetail: EntryDetail
     
-    init?(coder: NSCoder, entryDetailData: EntryDetail) {
-        self.entryDetailData = entryDetailData
+    init?(coder: NSCoder, entryDetail: EntryDetail) {
+        self.entryDetail = entryDetail
         super.init(coder: coder)
     }
     
@@ -25,8 +25,8 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = entryDetailData.name
-        self.entryImageView.image = UIImage(named: entryDetailData.imageName)
-        self.entryDescriptionLabel.text = entryDetailData.description
+        self.navigationItem.title = entryDetail.name
+        self.entryImageView.image = UIImage(named: entryDetail.imageName)
+        self.entryDescriptionLabel.text = entryDetail.description
     }
 }
