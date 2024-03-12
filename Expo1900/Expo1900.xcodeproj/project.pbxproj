@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B8AC50F2B99ABF5008D61B4 /* EntryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */; };
-		8B8AC5112B9AABB8008D61B4 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC5102B9AABB8008D61B4 /* EntryViewController.swift */; };
+		8B8AC5112B9AABB8008D61B4 /* EntriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC5102B9AABB8008D61B4 /* EntriesTableViewController.swift */; };
 		8B8AC5132B9AADAD008D61B4 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC5122B9AADAD008D61B4 /* EntryTableViewCell.swift */; };
 		8BB162592B9AF1BD00FBC37C /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB162582B9AF1BD00FBC37C /* JSONDecoder+.swift */; };
 		8BBAFE232B971383009C536A /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBAFE222B971383009C536A /* Exposition.swift */; };
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDTO.swift; sourceTree = "<group>"; };
-		8B8AC5102B9AABB8008D61B4 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		8B8AC5102B9AABB8008D61B4 /* EntriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesTableViewController.swift; sourceTree = "<group>"; };
 		8B8AC5122B9AADAD008D61B4 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		8BB162582B9AF1BD00FBC37C /* JSONDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+.swift"; sourceTree = "<group>"; };
 		8BBAFE222B971383009C536A /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ExpositionViewController.swift */,
-				8B8AC5102B9AABB8008D61B4 /* EntryViewController.swift */,
+				8B8AC5102B9AABB8008D61B4 /* EntriesTableViewController.swift */,
 				C40386282B9AAFA100888788 /* EntryDetailViewController.swift */,
 			);
 			path = Controller;
@@ -226,7 +226,7 @@
 				8B8AC50F2B99ABF5008D61B4 /* EntryDTO.swift in Sources */,
 				8BBAFE232B971383009C536A /* Exposition.swift in Sources */,
 				8BBAFE252B971692009C536A /* EntryDetail.swift in Sources */,
-				8B8AC5112B9AABB8008D61B4 /* EntryViewController.swift in Sources */,
+				8B8AC5112B9AABB8008D61B4 /* EntriesTableViewController.swift in Sources */,
 				C40386292B9AAFA100888788 /* EntryDetailViewController.swift in Sources */,
 				8B8AC5132B9AADAD008D61B4 /* EntryTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,

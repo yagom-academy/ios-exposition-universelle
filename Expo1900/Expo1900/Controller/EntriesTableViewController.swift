@@ -1,5 +1,5 @@
 //
-//  EntryViewController.swift
+//  EntriesTableViewController.swift
 //  Expo1900
 //
 //  Created by Yejin Hong on 3/8/24.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class EntryViewController: UIViewController {
+class EntriesTableViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    var entryDTOArray: [EntryDTO] = []
+    var entryDTOs: [EntryDTO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,25 +22,25 @@ class EntryViewController: UIViewController {
     }
     
     func decodeEntryItems() {
-        guard let entryDTOArray = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else {
+        guard let entryDTOs = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else {
             return
         }
         
-        self.entryDTOArray = entryDTOArray
+        self.entryDTOs = entryDTOs
     }
 }
 
-extension EntryViewController: UITableViewDelegate {
+extension EntriesTableViewController: UITableViewDelegate {
     
 }
 
-extension EntryViewController: UITableViewDataSource {
+extension EntriesTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entryDTOArray.count
+        return entryDTOs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let entryData: Entry = entryDTOArray[indexPath.row].toModel()
+        let entryData = entryDTOs[indexPath.row].toEntry()
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell") as? EntryTableViewCell else {
             return UITableViewCell()
@@ -54,16 +54,15 @@ extension EntryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let entryDetailData: EntryDetail = entryDTOArray[indexPath.row].toModel()
-        
-        guard let entryDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntryDetailViewController") as? EntryDetailViewController else {
-            return
+        let entryDetail = entryDTOs[indexPath.row].toEntryDetail()
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in
+            let vc = EntryDetailViewController(coder: creater, entryDetail: entryDetail)
+            return vc
         }
         
-        entryDetailViewController.entryDetailData = entryDetailData
-        
-        self.navigationController?.pushViewController(entryDetailViewController, animated: true)
-        
         tableView.deselectRow(at: indexPath, animated: true)
+        self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
