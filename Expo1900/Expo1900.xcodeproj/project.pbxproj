@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B56EA2C2BA16FB10032E235 /* NumberFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56EA2B2BA16FB10032E235 /* NumberFormatter+.swift */; };
 		8B8AC50F2B99ABF5008D61B4 /* EntryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */; };
 		8B8AC5112B9AABB8008D61B4 /* EntriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC5102B9AABB8008D61B4 /* EntriesTableViewController.swift */; };
 		8B8AC5132B9AADAD008D61B4 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC5122B9AADAD008D61B4 /* EntryTableViewCell.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B56EA2B2BA16FB10032E235 /* NumberFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+.swift"; sourceTree = "<group>"; };
 		8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDTO.swift; sourceTree = "<group>"; };
 		8B8AC5102B9AABB8008D61B4 /* EntriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesTableViewController.swift; sourceTree = "<group>"; };
 		8B8AC5122B9AADAD008D61B4 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				8BB162582B9AF1BD00FBC37C /* JSONDecoder+.swift */,
+				8B56EA2B2BA16FB10032E235 /* NumberFormatter+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				C40386292B9AAFA100888788 /* EntryDetailViewController.swift in Sources */,
 				8B8AC5132B9AADAD008D61B4 /* EntryTableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
+				8B56EA2C2BA16FB10032E235 /* NumberFormatter+.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
 				C40386252B99AE8800888788 /* ExpositionDTO.swift in Sources */,
 			);

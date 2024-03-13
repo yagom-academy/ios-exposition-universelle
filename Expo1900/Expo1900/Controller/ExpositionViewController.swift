@@ -91,11 +91,8 @@ class ExpositionViewController: UIViewController {
     }
     
     private func updateComponents(exposition: Exposition) {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
         self.titleLabel.text = exposition.formattedTitle
-        self.visitorsNumberLabel.text = (numberFormatter.string(for: exposition.visitors) ?? "0") + " 명"
+        self.visitorsNumberLabel.text = NumberFormatter().string(with: exposition.visitors)
         self.locationStringLabel.text = exposition.location
         self.durationStringLabel.text = exposition.duration
         self.descriptionLabel.text = exposition.description
