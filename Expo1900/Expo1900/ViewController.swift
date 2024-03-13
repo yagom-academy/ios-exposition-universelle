@@ -23,6 +23,36 @@ class ViewController: UIViewController {
         return label
     }()
     
+    private var posterImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private var visitorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private var locationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var durationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,9 +92,35 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
         
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let visitorString: String = numberFormatter.string(for: expositionIntroduction.visitors) else {
+            return
+        }
         
         mainTitleLabel.text = String(expositionIntroduction.title.prefix(13))
         subTitleLabel.text = String(expositionIntroduction.title.suffix(28))
+        posterImageView.image = UIImage(named: "poster.png")
+        let visitorText = "방문객 : \(visitorString) 명"
+        let attributedvisitorString = NSMutableAttributedString(string: visitorText)
+        let visitorAttributes:[NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
+        attributedvisitorString.addAttributes(visitorAttributes, range: NSRange(location: 0, length: 3))
+        visitorLabel.attributedText = attributedvisitorString
+        
+        let locationText = "개최지 : \(expositionIntroduction.location)"
+        let locationAttributedString = NSMutableAttributedString(string: locationText)
+        let locationAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
+        locationAttributedString.addAttributes(locationAttributes, range: NSRange(location: 0, length: 3))
+        locationLabel.attributedText = locationAttributedString
+        
+        let durationText = "개최 기간 : \(expositionIntroduction.duration)"
+        let durationAttributedString = NSMutableAttributedString(string: durationText)
+        let durationAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
+        durationAttributedString.addAttributes(durationAttributes, range: NSRange(location: 0, length: 6))
+        durationLabel.attributedText = durationAttributedString
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = expositionIntroduction.description
         
         addSubview()
 
@@ -76,6 +132,11 @@ class ViewController: UIViewController {
         contentView.addSubview(expositionIntroductionStackView)
         expositionIntroductionStackView.addArrangedSubview(mainTitleLabel)
         expositionIntroductionStackView.addArrangedSubview(subTitleLabel)
+        expositionIntroductionStackView.addArrangedSubview(posterImageView)
+        expositionIntroductionStackView.addArrangedSubview(visitorLabel)
+        expositionIntroductionStackView.addArrangedSubview(locationLabel)
+        expositionIntroductionStackView.addArrangedSubview(durationLabel)
+        expositionIntroductionStackView.addArrangedSubview(descriptionLabel)
         
         setUpUIConstraints()
     }
@@ -95,7 +156,7 @@ class ViewController: UIViewController {
             
             expositionIntroductionStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             expositionIntroductionStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            expositionIntroductionStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
+            expositionIntroductionStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             expositionIntroductionStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
 
         ])
