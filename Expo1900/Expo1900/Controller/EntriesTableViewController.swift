@@ -58,8 +58,8 @@ extension EntriesTableViewController: UITableViewDataSource {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in
-            let vc = EntryDetailViewController(coder: creater, entryDetail: entryDetail)
-            return vc
+            let entryDetailViewController = EntryDetailViewController(coder: creater, entryDetail: entryDetail)
+            return entryDetailViewController
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
