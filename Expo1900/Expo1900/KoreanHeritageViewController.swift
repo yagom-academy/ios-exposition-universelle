@@ -23,6 +23,7 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
         cell.shortDescriptionLabel.numberOfLines = 0
         cell.shortDescriptionLabel?.text = koreanHeritage[indexPath.row].shortDescription
         cell.itemImageView.image = UIImage(named: koreanHeritage[indexPath.row].imageName)
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
