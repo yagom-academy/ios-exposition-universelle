@@ -40,15 +40,13 @@ extension EntriesTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let entryData = entryDTOs[indexPath.row].toEntry()
+        let entry = entryDTOs[indexPath.row].toEntry()
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell") as? EntryTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.entryImageView.image = UIImage(named: entryData.imageName)
-        cell.entryNameLabel.text = entryData.name
-        cell.entryShortDescriptionLabel.text = entryData.shortDescription
+        cell.setCellComponents(with: entry)
         
         return cell
     }
