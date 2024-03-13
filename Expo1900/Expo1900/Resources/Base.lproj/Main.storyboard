@@ -212,16 +212,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhM-uX-m6a" userLabel="Contents View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="194.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="415.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="Eec-v1-Tao">
-                                                <rect key="frame" x="10" y="0.0" width="373" height="194.33333333333334"/>
+                                                <rect key="frame" x="10" y="0.0" width="373" height="415.33333333333331"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S7L-fk-Uim">
-                                                        <rect key="frame" x="66.666666666666671" y="0.0" width="239.66666666666663" height="128"/>
+                                                        <rect key="frame" x="12" y="0.0" width="349" height="349"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="S7L-fk-Uim" secondAttribute="height" multiplier="1:1" id="Bi6-I4-wpl"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKJ-XH-bgn">
-                                                        <rect key="frame" x="166" y="174" width="41.333333333333343" height="20.333333333333343"/>
+                                                        <rect key="frame" x="166" y="395" width="41.333333333333343" height="20.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
