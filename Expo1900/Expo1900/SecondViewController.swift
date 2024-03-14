@@ -30,10 +30,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.titleLabel.text = koreanHeritage[indexPath.row].name
         cell.itemImageView.image = UIImage(named: koreanHeritage[indexPath.row].imageName)
         cell.shortDescriptionLabel.text = koreanHeritage[indexPath.row].shortDescription
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = ThirdViewController()
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +59,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         koreanHeritageTableView.register(HeritageViewCell.self,forCellReuseIdentifier: cellIdentifier)
-        
         addSubview()
-        
         koreanHeritageTableView.rowHeight = UITableView.automaticDimension
         koreanHeritageTableView.estimatedRowHeight = UITableView.automaticDimension
-        
     }
     
     func addSubview() {
