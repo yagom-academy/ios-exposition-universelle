@@ -36,12 +36,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = ThirdViewController()
         
+        tableView.deselectRow(at: indexPath, animated: true)
         detailViewController.itemImageName = koreanHeritage[indexPath.row].imageName
         detailViewController.itemDescription = koreanHeritage[indexPath.row].description
         
         detailViewController.title = koreanHeritage[indexPath.row].name
         
         navigationController?.pushViewController(detailViewController, animated: true)
+        
     }
     
     override func viewDidLoad() {

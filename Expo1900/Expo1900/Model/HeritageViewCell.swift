@@ -57,6 +57,7 @@ class HeritageViewCell: UITableViewCell {
             itemInformationStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             itemInformationStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 8),
             itemImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor),
             itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             itemImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             titleLabel.heightAnchor.constraint(equalToConstant: 24),
