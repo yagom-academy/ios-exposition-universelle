@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Expo1900
 //
-//  Created by Danny on 3/13/24.
+//  Created by Danny, Gray on 3/13/24.
 //
 
 import UIKit
@@ -51,7 +51,6 @@ class ViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .white
         scrollView.showsHorizontalScrollIndicator = false
-        
         return scrollView
     }()
     
