@@ -13,11 +13,13 @@ class ViewController: UIViewController {
     
     private var mainTitleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
     
     private var subTitleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         return label
     }()
     
@@ -144,6 +146,14 @@ class ViewController: UIViewController {
         
         addSubview()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
     }
     
     @objc func openKoreanHeritageViewController() {
