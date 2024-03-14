@@ -151,6 +151,7 @@ class ViewController: UIViewController {
         let secondViewController = SecondViewController()
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
+        secondViewController.title = "한국의 출품작"
         
         navigationController?.pushViewController(secondViewController, animated: true)
     }

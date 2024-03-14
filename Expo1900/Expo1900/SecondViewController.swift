@@ -28,6 +28,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell: HeritageViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeritageViewCell
         
         cell.titleLabel.text = koreanHeritage[indexPath.row].name
+        cell.itemImageView.image = UIImage(named: koreanHeritage[indexPath.row].imageName)
+        cell.shortDescriptionLabel.text = koreanHeritage[indexPath.row].shortDescription
         
         return cell
     }
@@ -54,8 +56,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         addSubview()
         
-//        koreanHeritageTableView.rowHeight = UITableView.automaticDimension
-//        koreanHeritageTableView.estimatedRowHeight = UITableView.automaticDimension
+        koreanHeritageTableView.rowHeight = UITableView.automaticDimension
+        koreanHeritageTableView.estimatedRowHeight = UITableView.automaticDimension
         
     }
     

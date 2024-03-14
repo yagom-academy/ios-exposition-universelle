@@ -18,27 +18,49 @@ class HeritageViewCell: UITableViewCell {
     
     let shortDescriptionLabel: UILabel = {
         let label = UILabel()
-        
+        label.numberOfLines = 0
         return label
+    }()
+    
+    let itemInformationStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .leading
+        stackView.distribution = .fill
+        stackView.spacing = 4
+        return stackView
     }()
     
     let itemImageView: UIImageView = {
         let imageView = UIImageView()
-        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: 1, constant: 0))
         return imageView
     }()
     
     private func addCell() {
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(itemImageView)
+        contentView.addSubview(itemInformationStackView)
+        itemInformationStackView.addArrangedSubview(titleLabel)
+        itemInformationStackView.addArrangedSubview(shortDescriptionLabel)
         
         setUpCellConstraints()
     }
     
     private func setUpCellConstraints() {
+
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            contentView.trailingAnchor.constraint(equalTo: itemInformationStackView.trailingAnchor, constant: 12),
+            contentView.bottomAnchor.constraint(equalTo: itemInformationStackView.bottomAnchor, constant: 16),
+            itemInformationStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            itemInformationStackView.leadingAnchor.constraint(equalTo: itemImageView.trailingAnchor, constant: 8),
+            itemImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            itemImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            itemImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            titleLabel.heightAnchor.constraint(equalToConstant: 24),
         ])
     }
     
