@@ -49,7 +49,6 @@ class ViewController: UIViewController {
     private let contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .white
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()

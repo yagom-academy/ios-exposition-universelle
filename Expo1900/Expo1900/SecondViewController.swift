@@ -12,8 +12,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private var koreanHeritageTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .white
-        
         return tableView
     }()
     
@@ -37,6 +35,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = ThirdViewController()
+        
+        detailViewController.itemImageName = koreanHeritage[indexPath.row].imageName
+        detailViewController.itemDescription = koreanHeritage[indexPath.row].description
+        
+        detailViewController.title = koreanHeritage[indexPath.row].name
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }
