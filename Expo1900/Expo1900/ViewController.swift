@@ -13,43 +13,36 @@ class ViewController: UIViewController {
     
     private var mainTitleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var subTitleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var posterImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private var visitorLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private var locationLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var durationLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -76,6 +69,34 @@ class ViewController: UIViewController {
         stackView.distribution = .equalSpacing
         stackView.spacing = 8
         return stackView
+    }()
+    
+    private let buttonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    private let koreanFlagImageViewFirst: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag")
+        return imageView
+    }()
+    
+    private let koreanFlagImageViewSecond: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "flag")
+        return imageView
+    }()
+    
+    private let koreanHeritageButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("한국 출품작 보러가기", for: .normal)
+        return button
     }()
     
     override func viewDidLoad() {
@@ -121,9 +142,18 @@ class ViewController: UIViewController {
         durationLabel.attributedText = durationAttributedString
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = expositionIntroduction.description
+        koreanHeritageButton.addTarget(self, action: #selector(openKoreanHeritageViewController), for: .touchUpInside)
         
         addSubview()
 
+    }
+    
+    @objc func openKoreanHeritageViewController() {
+        let secondViewController = SecondViewController()
+        let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
     
     func addSubview() {
@@ -137,6 +167,10 @@ class ViewController: UIViewController {
         expositionIntroductionStackView.addArrangedSubview(locationLabel)
         expositionIntroductionStackView.addArrangedSubview(durationLabel)
         expositionIntroductionStackView.addArrangedSubview(descriptionLabel)
+        expositionIntroductionStackView.addArrangedSubview(buttonStackView)
+        buttonStackView.addArrangedSubview(koreanFlagImageViewFirst)
+        buttonStackView.addArrangedSubview(koreanHeritageButton)
+        buttonStackView.addArrangedSubview(koreanFlagImageViewSecond)
         
         setUpUIConstraints()
     }
@@ -157,9 +191,14 @@ class ViewController: UIViewController {
             expositionIntroductionStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
             expositionIntroductionStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             expositionIntroductionStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            expositionIntroductionStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
-
+            expositionIntroductionStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            
+            buttonStackView.heightAnchor.constraint(equalToConstant: 50),
+            
+            koreanFlagImageViewFirst.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.2),
+            koreanFlagImageViewSecond.widthAnchor.constraint(equalTo: buttonStackView.widthAnchor, multiplier: 0.2)
         ])
+        
     }
     
 }
