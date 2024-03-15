@@ -50,12 +50,8 @@ class TableViewController: UITableViewController {
             fatalError("Error: 'itemCell' not found")
         }
         
-        let item: Item = list[indexPath.row]
-        
-        cell.nameLabel.text = "\(item.name)"
-        cell.shortDescriptionLabel.text = "\(item.summary)"
-        cell.itemImageView.image = UIImage(named: "\(item.imageUrl)")
-        cell.accessoryType = .disclosureIndicator
+        let item = list[indexPath.row]
+        cell.configure(with: item)
         
         return cell
     }

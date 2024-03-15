@@ -20,4 +20,11 @@ class TableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func configure(with item: Item) {
+        nameLabel.text = "\(item.name)"
+        shortDescriptionLabel.text = "\(item.summary)"
+        itemImageView.image = UIImage(named: "\(item.imageUrl)")
+        accessoryType = .disclosureIndicator
+    }
 }
