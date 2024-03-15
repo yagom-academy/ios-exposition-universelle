@@ -8,9 +8,9 @@
 import UIKit
 
 class EntryTableViewCell: UITableViewCell {
-    @IBOutlet var entryImageView: UIImageView!
-    @IBOutlet var entryNameLabel: UILabel!
-    @IBOutlet var entryShortDescriptionLabel: UILabel!
+    @IBOutlet private var entryImageView: UIImageView!
+    @IBOutlet private var entryNameLabel: UILabel!
+    @IBOutlet private var entryShortDescriptionLabel: UILabel!
     
     func setCellComponents(with entry: Entry) {
         self.entryImageView.image = UIImage(named: entry.imageName)

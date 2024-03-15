@@ -12,15 +12,15 @@ protocol ExpositionViewDelegate: AnyObject {
 }
 
 class ExpositionView: UIView {
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var visitorsLabel: UILabel!
-    @IBOutlet var locationLabel: UILabel!
-    @IBOutlet var durationLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var visitorsLabel: UILabel!
+    @IBOutlet private var locationLabel: UILabel!
+    @IBOutlet private var durationLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
 
     weak var delegate: ExpositionViewDelegate?
     
-    @IBAction func moveToKoreanEntryButtonTouchedUp(_ sender: UIButton) {
+    @IBAction private func moveToKoreanEntryButtonTouchedUp(_ sender: UIButton) {
         delegate?.moveToKoreanEntry()
     }
     

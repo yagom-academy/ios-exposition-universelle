@@ -8,9 +8,9 @@
 import UIKit
 
 class EntriesTableViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
-    var entryDTOs: [EntryDTO] = []
+    private var entryDTOs: [EntryDTO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class EntriesTableViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    func decodeEntryItems() {
+    private func decodeEntryItems() {
         guard let entryDTOs = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else { return }
         
         self.entryDTOs = entryDTOs

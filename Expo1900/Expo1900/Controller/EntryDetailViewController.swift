@@ -8,7 +8,7 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
-    var entryDetail: EntryDetail
+    private var entryDetail: EntryDetail
     
     init?(coder: NSCoder, entryDetail: EntryDetail) {
         self.entryDetail = entryDetail

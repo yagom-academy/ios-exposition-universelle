@@ -8,8 +8,8 @@
 import UIKit
 
 class EntryDetailView: UIView {
-    @IBOutlet var entryImageView: UIImageView!
-    @IBOutlet var entryDescriptionLabel: UILabel!
+    @IBOutlet private var entryImageView: UIImageView!
+    @IBOutlet private var entryDescriptionLabel: UILabel!
     
     func updateComponents(with entryDetail: EntryDetail) {
         entryImageView.image = UIImage(named: entryDetail.imageName)
