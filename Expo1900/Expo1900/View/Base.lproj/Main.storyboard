@@ -108,7 +108,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="한국의 출품작 보러가기"/>
                                                         <connections>
-                                                            <action selector="moveToKoreanEntryButtonTouchedUp:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="iOf-tz-D5P"/>
+                                                            <action selector="moveToKoreanEntryButtonTouchedUp:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="tgh-HC-fR8"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag" translatesAutoresizingMaskIntoConstraints="NO" id="pvU-S9-E44">
@@ -148,17 +148,10 @@
                         </constraints>
                         <connections>
                             <outlet property="descriptionLabel" destination="sKo-nM-yaF" id="Dnz-eb-xJb"/>
-                            <outlet property="durationLabel" destination="xk3-Jt-oc1" id="bSH-hx-Q1u"/>
-                            <outlet property="durationStringLabel" destination="Kre-6j-RrG" id="cDy-q7-Bq1"/>
-                            <outlet property="leftFlagImageView" destination="obG-X2-X8j" id="uxl-OF-L3Q"/>
-                            <outlet property="locationLabel" destination="mZk-dv-bgy" id="YkB-0N-2Bo"/>
-                            <outlet property="locationStringLabel" destination="z6V-ht-2ik" id="kWj-b5-g1C"/>
-                            <outlet property="posterImageView" destination="9UI-pD-INQ" id="iye-yY-X4y"/>
-                            <outlet property="rightFlagImageView" destination="pvU-S9-E44" id="OZ0-9S-Vml"/>
-                            <outlet property="showKoreanEntryButton" destination="1SS-bW-yAa" id="2Oa-nd-vQ1"/>
+                            <outlet property="durationLabel" destination="Kre-6j-RrG" id="57D-zj-KFi"/>
+                            <outlet property="locationLabel" destination="z6V-ht-2ik" id="ups-B8-Nuw"/>
                             <outlet property="titleLabel" destination="U1c-Kr-uRQ" id="7Bh-3R-mHJ"/>
-                            <outlet property="visitorsLabel" destination="qz2-vV-IYf" id="Tgm-T8-sXv"/>
-                            <outlet property="visitorsNumberLabel" destination="uLm-jD-geb" id="F92-bp-EhA"/>
+                            <outlet property="visitorsLabel" destination="uLm-jD-geb" id="6pV-4J-gnA"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="h6J-cq-icJ"/>
