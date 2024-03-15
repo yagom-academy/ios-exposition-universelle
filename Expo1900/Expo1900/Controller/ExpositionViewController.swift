@@ -20,6 +20,8 @@ class ExpositionViewController: UIViewController {
     @IBOutlet var showKoreanEntryButton: UIButton!
     @IBOutlet var rightFlagImageView: UIImageView!
     
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,11 +38,17 @@ class ExpositionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        appDelegate?.isRotationLocked = true
+        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        appDelegate?.isRotationLocked = false
+        
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
