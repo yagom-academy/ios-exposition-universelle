@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  KoreanHeritageViewController.swift
 //  Expo1900
 //
 //  Created by Danny, Gray 3/14/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
  
     private var koreanHeritageTableView: UITableView = {
         let tableView = UITableView()
@@ -34,7 +34,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = ThirdViewController()
+        let detailViewController = KoreanHeritageDetailViewController()
         
         tableView.deselectRow(at: indexPath, animated: true)
         detailViewController.itemImageName = koreanHeritage[indexPath.row].imageName

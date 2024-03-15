@@ -1,13 +1,13 @@
 //
-//  ThirdViewController.swift
+//  KoreanHeritageDetailViewController.swift
 //  Expo1900
 //
-//  Created by JIWOONG on 2024/03/15.
+//  Created by Danny, Gray on 2024/03/15.
 //
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class KoreanHeritageDetailViewController: UIViewController {
     
     var itemImageName: String?
     var itemDescription: String?

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ExpositionViewController.swift
 //  Expo1900
 //
 //  Created by Danny, Gray on 3/13/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExpositionViewController: UIViewController {
  
     var expositionIntroduction: ExpositionIntroduction!
     
@@ -150,12 +150,12 @@ class ViewController: UIViewController {
     }
     
     @objc func openKoreanHeritageViewController() {
-        let secondViewController = SecondViewController()
+        let koreanHeritageViewController = KoreanHeritageViewController()
         let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
-        secondViewController.title = "한국의 출품작"
+        koreanHeritageViewController.title = "한국의 출품작"
         
-        navigationController?.pushViewController(secondViewController, animated: true)
+        navigationController?.pushViewController(koreanHeritageViewController, animated: true)
     }
     
     func addSubview() {
