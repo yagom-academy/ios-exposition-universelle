@@ -19,4 +19,5 @@ struct ExpositionIntroduction: Equatable, Codable {
         case duration
         case description
     }
+    
 }
