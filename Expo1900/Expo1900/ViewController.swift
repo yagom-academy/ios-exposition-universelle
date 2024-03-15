@@ -119,33 +119,26 @@ class ViewController: UIViewController {
         guard let visitorString: String = numberFormatter.string(for: expositionIntroduction.visitors) else {
             return
         }
-        
+
         mainTitleLabel.text = String(expositionIntroduction.title.prefix(13))
         subTitleLabel.text = String(expositionIntroduction.title.suffix(28))
         posterImageView.image = UIImage(named: "poster.png")
-        let visitorText = "방문객 : \(visitorString) 명"
-        let attributedvisitorString = NSMutableAttributedString(string: visitorText)
-        let visitorAttributes:[NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
-        attributedvisitorString.addAttributes(visitorAttributes, range: NSRange(location: 0, length: 3))
-        visitorLabel.attributedText = attributedvisitorString
-        
-        let locationText = "개최지 : \(expositionIntroduction.location)"
-        let locationAttributedString = NSMutableAttributedString(string: locationText)
-        let locationAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
-        locationAttributedString.addAttributes(locationAttributes, range: NSRange(location: 0, length: 3))
-        locationLabel.attributedText = locationAttributedString
-        
-        let durationText = "개최 기간 : \(expositionIntroduction.duration)"
-        let durationAttributedString = NSMutableAttributedString(string: durationText)
-        let durationAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
-        durationAttributedString.addAttributes(durationAttributes, range: NSRange(location: 0, length: 6))
-        durationLabel.attributedText = durationAttributedString
+        visitorLabel.attributedText = textAttributedToString(text: "방문객 : \(visitorString) 명", length: 3)
+        locationLabel.attributedText = textAttributedToString(text: "개최지 : \(expositionIntroduction.location)", length: 3)
+        durationLabel.attributedText = textAttributedToString(text: "개최 기간 : \(expositionIntroduction.duration)", length: 6)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = expositionIntroduction.description
         koreanHeritageButton.addTarget(self, action: #selector(openKoreanHeritageViewController), for: .touchUpInside)
         
         addSubview()
 
+    }
+    
+    func textAttributedToString(text: String, length: Int) -> NSAttributedString {
+        let textAttributes:[NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
+        let textAttributedToString = NSMutableAttributedString(string: text)
+        textAttributedToString.addAttributes(textAttributes, range: NSRange(location: 0, length: length))
+        return textAttributedToString
     }
     
     override func viewWillAppear(_ animated: Bool) {
