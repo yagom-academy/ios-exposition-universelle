@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bu6-Vp-ISz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bu6-Vp-ISz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -171,7 +171,7 @@
         <scene sceneID="cdg-kx-O8k">
             <objects>
                 <viewController storyboardIdentifier="EntryDetailViewController" id="lVQ-i1-K7q" customClass="EntryDetailViewController" customModule="Expo1900" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QnN-rR-z3o">
+                    <view key="view" contentMode="scaleToFill" id="QnN-rR-z3o" customClass="EntryDetailView" customModule="Expo1900" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -213,12 +213,12 @@
                             <constraint firstItem="0dQ-wc-lrj" firstAttribute="leading" secondItem="MLl-wr-QaZ" secondAttribute="leading" id="U8R-bt-cXO"/>
                             <constraint firstItem="0dQ-wc-lrj" firstAttribute="top" secondItem="QnN-rR-z3o" secondAttribute="top" id="yZe-3m-Ox0"/>
                         </constraints>
+                        <connections>
+                            <outlet property="entryDescriptionLabel" destination="MbF-Hf-YTY" id="ToM-MY-u9T"/>
+                            <outlet property="entryImageView" destination="J1M-Tt-1uy" id="85A-af-vTi"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="bet-OU-98G"/>
-                    <connections>
-                        <outlet property="entryDescriptionLabel" destination="MbF-Hf-YTY" id="p60-w0-eeR"/>
-                        <outlet property="entryImageView" destination="J1M-Tt-1uy" id="SxN-Gy-B8Q"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dED-iy-Xmu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

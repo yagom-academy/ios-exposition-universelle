@@ -8,9 +8,6 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
-    @IBOutlet var entryImageView: UIImageView!
-    @IBOutlet var entryDescriptionLabel: UILabel!
-    
     var entryDetail: EntryDetail
     
     init?(coder: NSCoder, entryDetail: EntryDetail) {
@@ -26,7 +23,8 @@ class EntryDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = entryDetail.name
-        self.entryImageView.image = UIImage(named: entryDetail.imageName)
-        self.entryDescriptionLabel.text = entryDetail.description
+        
+        guard let entryDetailView = self.view as? EntryDetailView else { return }
+        entryDetailView.updateComponents(with: entryDetail)
     }
 }

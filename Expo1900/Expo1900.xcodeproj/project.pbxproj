@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B56EA2C2BA16FB10032E235 /* NumberFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56EA2B2BA16FB10032E235 /* NumberFormatter+.swift */; };
+		8B85C1DC2BA4367600E48CEF /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B85C1DB2BA4367600E48CEF /* EntryDetailView.swift */; };
 		8B8AC50F2B99ABF5008D61B4 /* EntryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */; };
 		8B8AC5112B9AABB8008D61B4 /* EntriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC5102B9AABB8008D61B4 /* EntriesTableViewController.swift */; };
 		8B8AC5132B9AADAD008D61B4 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AC5122B9AADAD008D61B4 /* EntryTableViewCell.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		8B56EA2B2BA16FB10032E235 /* NumberFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+.swift"; sourceTree = "<group>"; };
+		8B85C1DB2BA4367600E48CEF /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
 		8B8AC50E2B99ABF5008D61B4 /* EntryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDTO.swift; sourceTree = "<group>"; };
 		8B8AC5102B9AABB8008D61B4 /* EntriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesTableViewController.swift; sourceTree = "<group>"; };
 		8B8AC5122B9AADAD008D61B4 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				C79FF4BA2589F401005FB0FD /* Main.storyboard */,
 				C79FF4BF2589F404005FB0FD /* LaunchScreen.storyboard */,
 				C4E0C33A2BA41AF200D45B67 /* ExpositionView.swift */,
+				8B85C1DB2BA4367600E48CEF /* EntryDetailView.swift */,
 				8B8AC5122B9AADAD008D61B4 /* EntryTableViewCell.swift */,
 			);
 			path = View;
@@ -232,6 +235,7 @@
 				C79FF4B92589F401005FB0FD /* ExpositionViewController.swift in Sources */,
 				8B8AC50F2B99ABF5008D61B4 /* EntryDTO.swift in Sources */,
 				8BBAFE232B971383009C536A /* Exposition.swift in Sources */,
+				8B85C1DC2BA4367600E48CEF /* EntryDetailView.swift in Sources */,
 				8BBAFE252B971692009C536A /* EntryDetail.swift in Sources */,
 				8B8AC5112B9AABB8008D61B4 /* EntriesTableViewController.swift in Sources */,
 				C40386292B9AAFA100888788 /* EntryDetailViewController.swift in Sources */,
