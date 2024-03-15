@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    var ItemList: [Item] = []
+    var itemList: [Item] = []
     
     @IBOutlet var itemsTableView: UITableView!
     
@@ -28,7 +28,7 @@ class TableViewController: UITableViewController {
         let decoder = JSONDecoder()
         
         do {
-            ItemList = try decoder.decode([Item].self, from: asset.data)
+            itemList = try decoder.decode([Item].self, from: asset.data)
         } catch {
             print("Error decoding JSON: \(error.localizedDescription)")
         }
@@ -42,7 +42,7 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ItemList.count
+        return itemList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +50,7 @@ class TableViewController: UITableViewController {
             fatalError("Error: 'itemCell' not found")
         }
         
-        let item = ItemList[indexPath.row]
+        let item = itemList[indexPath.row]
         cell.configure(with: item)
         
         return cell
@@ -64,7 +64,7 @@ class TableViewController: UITableViewController {
           return
         }
         
-        let item = ItemList[indexPath.row]
+        let item = itemList[indexPath.row]
         vc.item = item
         vc.navigationItem.title = item.name
     }
