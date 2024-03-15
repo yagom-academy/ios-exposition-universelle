@@ -25,9 +25,9 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HeritageViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeritageViewCell
         
-        cell.titleLabel.text = koreanHeritage[indexPath.row].name
-        cell.itemImageView.image = UIImage(named: koreanHeritage[indexPath.row].imageName)
-        cell.shortDescriptionLabel.text = koreanHeritage[indexPath.row].shortDescription
+        cell.useTitleLabel(titleLabelText: koreanHeritage[indexPath.row].name)
+        cell.useShortDescriptionLabel(shortDescriptionText: koreanHeritage[indexPath.row].shortDescription)
+        cell.useitemImageView(itemImageName: koreanHeritage[indexPath.row].imageName)
         cell.accessoryType = .disclosureIndicator
         
         return cell

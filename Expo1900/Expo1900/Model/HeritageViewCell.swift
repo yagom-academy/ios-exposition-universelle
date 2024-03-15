@@ -9,20 +9,20 @@ import UIKit
 
 class HeritageViewCell: UITableViewCell {
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
     
-    let shortDescriptionLabel: UILabel = {
+    private let shortDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         return label
     }()
     
-    let itemInformationStackView: UIStackView = {
+    private let itemInformationStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -32,13 +32,33 @@ class HeritageViewCell: UITableViewCell {
         return stackView
     }()
     
-    let itemImageView: UIImageView = {
+    private let itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        
         return imageView
     }()
+    
+    func useTitleLabel(titleLabelText: String?){
+        guard let titleLabelText = titleLabelText else {
+            return
+        }
+        titleLabel.text = titleLabelText
+    }
+    
+    func useShortDescriptionLabel(shortDescriptionText: String?){
+        guard let shortDescriptionText = shortDescriptionText else {
+            return
+        }
+        shortDescriptionLabel.text = shortDescriptionText
+    }
+    
+    func useitemImageView(itemImageName: String?) {
+        guard let itemImageName = itemImageName else {
+            return
+        }
+        itemImageView.image = UIImage(named: itemImageName)
+    }
     
     private func addCell() {
         contentView.addSubview(itemImageView)
