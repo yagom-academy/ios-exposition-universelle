@@ -47,9 +47,16 @@ class ViewController: UIViewController {
             return
         }
         
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let expositionVisitorsCount = numberFormatter.string(for: expositionData.visitors) else {
+            return
+        }
+        
         titleLabel.text = expositionData.title
         imageView.image = UIImage(named: "poster")
-        visitorsLabel.text = "방문객: \(expositionData.visitors) 명"
+        visitorsLabel.text = "방문객: \(expositionVisitorsCount) 명"
         locationLabel.text = "개최지: \(expositionData.location)"
         durationLabel.text = "개최 기간: \(expositionData.duration)"
         descriptionLabel.text = "\(expositionData.description)"
