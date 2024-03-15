@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ExpositionViewController: UIViewController, ExpositionViewDelegate {
+final class ExpositionViewController: UIViewController, ExpositionViewDelegate {
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntriesTableViewController: UIViewController {
+final class EntriesTableViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
     private var entryDTOs: [EntryDTO] = []

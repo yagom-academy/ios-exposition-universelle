@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryDetailView: UIView {
+final class EntryDetailView: UIView {
     @IBOutlet private var entryImageView: UIImageView!
     @IBOutlet private var entryDescriptionLabel: UILabel!
     

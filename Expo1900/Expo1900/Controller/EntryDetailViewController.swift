@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryDetailViewController: UIViewController {
+final class EntryDetailViewController: UIViewController {
     private var entryDetail: EntryDetail
     
     init?(coder: NSCoder, entryDetail: EntryDetail) {

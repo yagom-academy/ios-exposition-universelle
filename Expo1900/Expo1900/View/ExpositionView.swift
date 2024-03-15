@@ -11,7 +11,7 @@ protocol ExpositionViewDelegate: AnyObject {
     func moveToKoreanEntry()
 }
 
-class ExpositionView: UIView {
+final class ExpositionView: UIView {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var visitorsLabel: UILabel!
     @IBOutlet private var locationLabel: UILabel!

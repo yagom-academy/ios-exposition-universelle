@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntryTableViewCell: UITableViewCell {
+final class EntryTableViewCell: UITableViewCell {
     @IBOutlet private var entryImageView: UIImageView!
     @IBOutlet private var entryNameLabel: UILabel!
     @IBOutlet private var entryShortDescriptionLabel: UILabel!
