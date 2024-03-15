@@ -22,9 +22,7 @@ class EntriesTableViewController: UIViewController {
     }
     
     func decodeEntryItems() {
-        guard let entryDTOs = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else {
-            return
-        }
+        guard let entryDTOs = JSONDecoder().decode(from: "items", to: [EntryDTO].self) else { return }
         
         self.entryDTOs = entryDTOs
     }

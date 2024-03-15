@@ -12,18 +12,14 @@ class ExpositionViewController: UIViewController, ExpositionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let expositionView = self.view as? ExpositionView else {
-            return
-        }
+        self.navigationItem.backButtonTitle = "메인"
+        
+        guard let expositionView = self.view as? ExpositionView else { return }
         expositionView.delegate = self
         
-        guard let exposition = JSONDecoder().decode(from: "exposition_universelle_1900", to: ExpositionDTO.self)?.toExposition() else {
-            return
-        }
+        guard let exposition = JSONDecoder().decode(from: "exposition_universelle_1900", to: ExpositionDTO.self)?.toExposition() else { return }
         
         expositionView.updateComponents(with: exposition)
-        
-        self.navigationItem.backButtonTitle = "메인"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,9 +35,7 @@ class ExpositionViewController: UIViewController, ExpositionViewDelegate {
     }
     
     func moveToKoreanEntry() {
-        guard let entriesTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntriesTableViewController") as? EntriesTableViewController else {
-            return
-        }
+        guard let entriesTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "EntriesTableViewController") as? EntriesTableViewController else { return }
         
         self.navigationController?.pushViewController(entriesTableViewController, animated: true)
     }
