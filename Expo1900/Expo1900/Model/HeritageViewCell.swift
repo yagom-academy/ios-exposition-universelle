@@ -1,5 +1,5 @@
 //
-//  HeritageViewCell.swift
+//  HeritageTableViewCell.swift
 //  Expo1900
 //
 //  Created by Danny, Gray on 2024/03/14.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeritageViewCell: UITableViewCell {
+class HeritageTableViewCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()

@@ -9,8 +9,9 @@ import UIKit
 
 class KoreanHeritageDetailViewController: UIViewController {
     
-    var itemImageName: String?
-    var itemDescription: String?
+    private var itemTitle: String?
+    private var itemImageName: String?
+    private var itemDescription: String?
 
     private let itemDetailScrollView: UIScrollView = {
         let itemDetailScrollView = UIScrollView()
@@ -55,10 +56,17 @@ class KoreanHeritageDetailViewController: UIViewController {
             return
         }
         
+        self.title = itemTitle
         itemDetailImageView.image = UIImage(named: unwrappedItemImageName)
         itemDetailDescription.text = itemDescription
         
         itemAddSubview()
+    }
+    
+    func setItemInformation(title: String?, imageName: String?, description: String?) {
+        self.itemTitle = title
+        self.itemImageName = imageName
+        self.itemDescription = description
     }
     
     func itemAddSubview() {
@@ -88,8 +96,8 @@ class KoreanHeritageDetailViewController: UIViewController {
             
             contentView.bottomAnchor.constraint(equalTo: itemDetailStackView.bottomAnchor),
             itemDetailStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            itemDetailStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            itemDetailStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            itemDetailStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            itemDetailStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             
             itemDetailImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.6),
             itemDetailImageView.heightAnchor.constraint(equalTo: itemDetailImageView.widthAnchor)

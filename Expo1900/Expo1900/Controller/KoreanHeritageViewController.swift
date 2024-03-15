@@ -15,15 +15,15 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
         return tableView
     }()
     
-    let cellIdentifier: String = "HeritageViewCell"
-    var koreanHeritage: [KoreanHeritage]!
+    private let cellIdentifier: String = "HeritageTableViewCell"
+    private var koreanHeritage: [KoreanHeritage]!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return koreanHeritage.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: HeritageViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeritageViewCell
+        let cell: HeritageTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! HeritageTableViewCell
         
         cell.useTitleLabel(titleLabelText: koreanHeritage[indexPath.row].name)
         cell.useShortDescriptionLabel(shortDescriptionText: koreanHeritage[indexPath.row].shortDescription)
@@ -34,16 +34,15 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = KoreanHeritageDetailViewController()
+        let koreanHeritageDetailViewController = KoreanHeritageDetailViewController()
         
+        koreanHeritageDetailViewController.setItemInformation(
+            title: koreanHeritage[indexPath.row].name,
+            imageName: koreanHeritage[indexPath.row].imageName,
+            description: koreanHeritage[indexPath.row].description
+        )
         tableView.deselectRow(at: indexPath, animated: true)
-        detailViewController.itemImageName = koreanHeritage[indexPath.row].imageName
-        detailViewController.itemDescription = koreanHeritage[indexPath.row].description
-        
-        detailViewController.title = koreanHeritage[indexPath.row].name
-        
-        navigationController?.pushViewController(detailViewController, animated: true)
-        
+        navigationController?.pushViewController(koreanHeritageDetailViewController, animated: true)
     }
     
     override func viewDidLoad() {
@@ -63,13 +62,13 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
             print(error.localizedDescription)
         }
         
-        koreanHeritageTableView.register(HeritageViewCell.self,forCellReuseIdentifier: cellIdentifier)
+        koreanHeritageTableView.register(HeritageTableViewCell.self,forCellReuseIdentifier: cellIdentifier)
         addSubview()
         koreanHeritageTableView.rowHeight = UITableView.automaticDimension
         koreanHeritageTableView.estimatedRowHeight = UITableView.automaticDimension
     }
     
-    func addSubview() {
+    private func addSubview() {
         self.view.addSubview(koreanHeritageTableView)
         
         setUpUIConstrants()
