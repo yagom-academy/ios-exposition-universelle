@@ -12,7 +12,7 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet private var entryNameLabel: UILabel!
     @IBOutlet private var entryShortDescriptionLabel: UILabel!
     
-    func setCellComponents(with entry: Entry) {
+    func updateComponents(with entry: Entry) {
         self.entryImageView.image = UIImage(named: entry.imageName)
         self.entryNameLabel.text = entry.name
         self.entryShortDescriptionLabel.text = entry.shortDescription

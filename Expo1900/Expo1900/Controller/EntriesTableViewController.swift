@@ -34,12 +34,11 @@ extension EntriesTableViewController: UITableViewDelegate {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in
-            let entryDetailViewController = EntryDetailViewController(coder: creater, entryDetail: entryDetail)
-            return entryDetailViewController
+            return EntryDetailViewController(coder: creater, entryDetail: entryDetail)
         }
         
-        tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -55,7 +54,7 @@ extension EntriesTableViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setCellComponents(with: entry)
+        cell.updateComponents(with: entry)
         
         return cell
     }
