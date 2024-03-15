@@ -29,7 +29,18 @@ class EntriesTableViewController: UIViewController {
 }
 
 extension EntriesTableViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entryDetail = entryDTOs[indexPath.row].toEntryDetail()
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in
+            let entryDetailViewController = EntryDetailViewController(coder: creater, entryDetail: entryDetail)
+            return entryDetailViewController
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.navigationController?.pushViewController(entryDetailViewController, animated: true)
+    }
 }
 
 extension EntriesTableViewController: UITableViewDataSource {
@@ -47,18 +58,5 @@ extension EntriesTableViewController: UITableViewDataSource {
         cell.setCellComponents(with: entry)
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let entryDetail = entryDTOs[indexPath.row].toEntryDetail()
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let entryDetailViewController = storyboard.instantiateViewController(identifier: "EntryDetailViewController") { creater in
-            let entryDetailViewController = EntryDetailViewController(coder: creater, entryDetail: entryDetail)
-            return entryDetailViewController
-        }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.navigationController?.pushViewController(entryDetailViewController, animated: true)
     }
 }
