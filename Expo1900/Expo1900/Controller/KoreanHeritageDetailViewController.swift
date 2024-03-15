@@ -8,7 +8,6 @@
 import UIKit
 
 class KoreanHeritageDetailViewController: UIViewController {
-    
     private var itemTitle: String?
     private var itemImageName: String?
     private var itemDescription: String?
@@ -61,6 +60,7 @@ class KoreanHeritageDetailViewController: UIViewController {
         itemDetailDescription.text = itemDescription
         
         itemAddSubview()
+        
     }
     
     func setItemInformation(title: String?, imageName: String?, description: String?) {
@@ -68,8 +68,10 @@ class KoreanHeritageDetailViewController: UIViewController {
         self.itemImageName = imageName
         self.itemDescription = description
     }
-    
-    func itemAddSubview() {
+}
+
+extension KoreanHeritageDetailViewController {
+    private func itemAddSubview() {
         view.addSubview(itemDetailScrollView)
         itemDetailScrollView.addSubview(contentView)
         contentView.addSubview(itemDetailStackView)
@@ -103,5 +105,4 @@ class KoreanHeritageDetailViewController: UIViewController {
             itemDetailImageView.heightAnchor.constraint(equalTo: itemDetailImageView.widthAnchor)
         ])
     }
-    
 }

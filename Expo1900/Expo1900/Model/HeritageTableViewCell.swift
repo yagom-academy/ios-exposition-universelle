@@ -60,6 +60,18 @@ class HeritageTableViewCell: UITableViewCell {
         itemImageView.image = UIImage(named: itemImageName)
     }
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addCell()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+extension HeritageTableViewCell {
     private func addCell() {
         contentView.addSubview(itemImageView)
         contentView.addSubview(itemInformationStackView)
@@ -83,14 +95,4 @@ class HeritageTableViewCell: UITableViewCell {
             titleLabel.heightAnchor.constraint(equalToConstant: 24),
         ])
     }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addCell()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

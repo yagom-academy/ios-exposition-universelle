@@ -8,7 +8,6 @@
 import UIKit
 
 class ExpositionViewController: UIViewController {
- 
     var expositionIntroduction: ExpositionIntroduction!
     
     private var mainTitleLabel: UILabel = {
@@ -101,7 +100,22 @@ class ExpositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        expositionIntroductionJsonDecode()
+        showExpositionIntroduction()
+        addSubview()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+}
+
+extension ExpositionViewController {
+    private func expositionIntroductionJsonDecode(){
         let jsonDecoder: JSONDecoder = JSONDecoder()
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "exposition_universelle_1900") else {
             return
@@ -112,53 +126,11 @@ class ExpositionViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
-        let numberFormatter: NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        guard let visitorString: String = numberFormatter.string(for: expositionIntroduction.visitors) else {
-            return
-        }
+    }
+}
 
-        mainTitleLabel.text = String(expositionIntroduction.title.prefix(13))
-        subTitleLabel.text = String(expositionIntroduction.title.suffix(28))
-        posterImageView.image = UIImage(named: "poster.png")
-        visitorLabel.attributedText = textAttributedToString(text: "방문객 : \(visitorString) 명", length: 3)
-        locationLabel.attributedText = textAttributedToString(text: "개최지 : \(expositionIntroduction.location)", length: 3)
-        durationLabel.attributedText = textAttributedToString(text: "개최 기간 : \(expositionIntroduction.duration)", length: 6)
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = expositionIntroduction.description
-        koreanHeritageButton.addTarget(self, action: #selector(openKoreanHeritageViewController), for: .touchUpInside)
-        
-        addSubview()
-
-    }
-    
-    func textAttributedToString(text: String, length: Int) -> NSAttributedString {
-        let textAttributes:[NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
-        let textAttributedToString = NSMutableAttributedString(string: text)
-        textAttributedToString.addAttributes(textAttributes, range: NSRange(location: 0, length: length))
-        return textAttributedToString
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = false
-    }
-    
-    @objc func openKoreanHeritageViewController() {
-        let koreanHeritageViewController = KoreanHeritageViewController()
-        let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        koreanHeritageViewController.title = "한국의 출품작"
-        
-        navigationController?.pushViewController(koreanHeritageViewController, animated: true)
-    }
-    
-    func addSubview() {
+extension ExpositionViewController {
+    private func addSubview() {
         view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentView)
         contentView.addSubview(expositionIntroductionStackView)
@@ -202,5 +174,42 @@ class ExpositionViewController: UIViewController {
         ])
         
     }
-    
 }
+
+extension ExpositionViewController {
+    private func showExpositionIntroduction(){
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        guard let visitorString: String = numberFormatter.string(for: expositionIntroduction.visitors) else {
+            return
+        }
+        
+        mainTitleLabel.text = String(expositionIntroduction.title.prefix(13))
+        subTitleLabel.text = String(expositionIntroduction.title.suffix(28))
+        posterImageView.image = UIImage(named: "poster.png")
+        visitorLabel.attributedText = textAttributedToString(text: "방문객 : \(visitorString) 명", length: 3)
+        locationLabel.attributedText = textAttributedToString(text: "개최지 : \(expositionIntroduction.location)", length: 3)
+        durationLabel.attributedText = textAttributedToString(text: "개최 기간 : \(expositionIntroduction.duration)", length: 6)
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = expositionIntroduction.description
+        koreanHeritageButton.addTarget(self, action: #selector(openKoreanHeritageViewController), for: .touchUpInside)
+    }
+    
+    private func textAttributedToString(text: String, length: Int) -> NSAttributedString {
+        let textAttributes:[NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 20)]
+        let textAttributedToString = NSMutableAttributedString(string: text)
+        textAttributedToString.addAttributes(textAttributes, range: NSRange(location: 0, length: length))
+        return textAttributedToString
+    }
+    
+    @objc private func openKoreanHeritageViewController() {
+        let koreanHeritageViewController = KoreanHeritageViewController()
+        let backBarButtonItem = UIBarButtonItem(title: "메인", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        koreanHeritageViewController.title = "한국의 출품작"
+        
+        navigationController?.pushViewController(koreanHeritageViewController, animated: true)
+    }
+}
+

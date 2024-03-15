@@ -7,8 +7,7 @@
 
 import UIKit
 
-class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
- 
+class KoreanHeritageViewController: UIViewController {
     private var koreanHeritageTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,6 +17,54 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
     private let cellIdentifier: String = "HeritageTableViewCell"
     private var koreanHeritage: [KoreanHeritage]!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        koreanHeritageTableView.delegate = self
+        koreanHeritageTableView.dataSource = self
+        
+        KoreanHeritageJsonDecode()
+        
+        koreanHeritageTableView.register(HeritageTableViewCell.self,forCellReuseIdentifier: cellIdentifier)
+        addSubview()
+        koreanHeritageTableView.rowHeight = UITableView.automaticDimension
+        koreanHeritageTableView.estimatedRowHeight = UITableView.automaticDimension
+    }
+}
+
+extension KoreanHeritageViewController {
+    private func addSubview() {
+        self.view.addSubview(koreanHeritageTableView)
+        
+        setUpUIConstrants()
+    }
+    
+    private func setUpUIConstrants() {
+        NSLayoutConstraint.activate([
+            koreanHeritageTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            koreanHeritageTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            koreanHeritageTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            koreanHeritageTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+    }
+}
+
+extension KoreanHeritageViewController {
+    private func KoreanHeritageJsonDecode(){
+        let jsonDecoder: JSONDecoder = JSONDecoder()
+        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
+            return
+        }
+        
+        do {
+            self.koreanHeritage = try jsonDecoder.decode([KoreanHeritage].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
+extension KoreanHeritageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return koreanHeritage.count
     }
@@ -43,43 +90,5 @@ class KoreanHeritageViewController: UIViewController, UITableViewDelegate, UITab
         )
         tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(koreanHeritageDetailViewController, animated: true)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        koreanHeritageTableView.delegate = self
-        koreanHeritageTableView.dataSource = self
-        
-        let jsonDecoder: JSONDecoder = JSONDecoder()
-        guard let dataAsset: NSDataAsset = NSDataAsset(name: "items") else {
-            return
-        }
-        
-        do {
-            self.koreanHeritage = try jsonDecoder.decode([KoreanHeritage].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        koreanHeritageTableView.register(HeritageTableViewCell.self,forCellReuseIdentifier: cellIdentifier)
-        addSubview()
-        koreanHeritageTableView.rowHeight = UITableView.automaticDimension
-        koreanHeritageTableView.estimatedRowHeight = UITableView.automaticDimension
-    }
-    
-    private func addSubview() {
-        self.view.addSubview(koreanHeritageTableView)
-        
-        setUpUIConstrants()
-    }
-    
-    private func setUpUIConstrants() {
-        NSLayoutConstraint.activate([
-            koreanHeritageTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            koreanHeritageTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            koreanHeritageTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            koreanHeritageTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        ])
     }
 }
