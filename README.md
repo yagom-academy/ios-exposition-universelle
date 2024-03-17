@@ -136,4 +136,17 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 | 이번 프로젝트를 진행하면서 많은 것을 배울 수 있었습니다. 특히, Codable을 사용하여 JSON 데이터와 모델을 매칭하는 부분에서 많은 어려움을 겪었습니다. 그러나 팀원 가마의 지원 덕분에 이를 극복할 수 있었습니다. 더불어, 테이블 뷰가 원활하게 작동하는 결과까지 완성할 수 있었습니다. 가마와 프로젝트를 진행하며 지식과 리더십을 배울 수 있어서 정말 감사했습니다. 함께하는 동안 많은 것을 얻을 수 있었고, 앞으로도 계속해서 함께 일하고 싶은 동료라는 생각이 들었습니다. | |
 
 ## 7. 참고 자료
+**1. UITableView**
 
+* **링크**: [https://developer.apple.com/documentation/uikit/uitableview](https://developer.apple.com/documentation/uikit/uitableview)
+* **설명**: 테이블 뷰의 기본 기능에 대한 설명
+
+**2. UITableViewDataSource**
+
+* **링크**: [https://developer.apple.com/documentation/uikit/uitableviewdatasource](https://developer.apple.com/documentation/uikit/uitableviewdatasource)
+* **설명**: 테이블 뷰 데이터 소스 프로토콜에 대한 설명
+
+**3. UITableViewDelegate**
+
+* **링크**: [https://developer.apple.com/documentation/uikit/uitableviewdelegate](https://developer.apple.com/documentation/uikit/uitableviewdelegate)
+* **설명**: 테이블 뷰 델리게이트 프로토콜에 대한 설명
