@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060AABCE2B973BC900A755F9 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060AABCD2B973BC900A755F9 /* Entry.swift */; };
+		060281DE2BA0941F00044C28 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060281DD2BA0941F00044C28 /* TableViewCell.swift */; };
+		060281E02BA0946400044C28 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060281DF2BA0946400044C28 /* TableViewController.swift */; };
+		060281E22BA0950E00044C28 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060281E12BA0950E00044C28 /* DetailViewController.swift */; };
+		060AABCE2B973BC900A755F9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060AABCD2B973BC900A755F9 /* Item.swift */; };
+		064074312BA753F4006B4AB7 /* screenshot_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0640742C2BA753F4006B4AB7 /* screenshot_2.png */; };
+		064074322BA753F4006B4AB7 /* screenshot_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0640742D2BA753F4006B4AB7 /* screenshot_3.png */; };
+		064074332BA753F4006B4AB7 /* screenrecording_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0640742E2BA753F4006B4AB7 /* screenrecording_2.mp4 */; };
+		064074342BA753F4006B4AB7 /* screenrecording_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0640742F2BA753F4006B4AB7 /* screenrecording_1.mp4 */; };
+		064074352BA753F4006B4AB7 /* screenshot_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 064074302BA753F4006B4AB7 /* screenshot_1.png */; };
+		3A3AC17C2B9DE3F8006FA1AF /* Exposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AC17B2B9DE3F8006FA1AF /* Exposition.swift */; };
 		C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B42589F401005FB0FD /* AppDelegate.swift */; };
 		C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B62589F401005FB0FD /* SceneDelegate.swift */; };
 		C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FF4B82589F401005FB0FD /* ViewController.swift */; };
@@ -17,7 +26,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		060AABCD2B973BC900A755F9 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		060281DD2BA0941F00044C28 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		060281DF2BA0946400044C28 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		060281E12BA0950E00044C28 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		060AABCD2B973BC900A755F9 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0640742C2BA753F4006B4AB7 /* screenshot_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = screenshot_2.png; path = ../../../../../../Desktop/screenshot_2.png; sourceTree = "<group>"; };
+		0640742D2BA753F4006B4AB7 /* screenshot_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = screenshot_3.png; path = ../../../../../../Desktop/screenshot_3.png; sourceTree = "<group>"; };
+		0640742E2BA753F4006B4AB7 /* screenrecording_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = screenrecording_2.mp4; path = ../../../../../../Desktop/screenrecording_2.mp4; sourceTree = "<group>"; };
+		0640742F2BA753F4006B4AB7 /* screenrecording_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = screenrecording_1.mp4; path = ../../../../../../Desktop/screenrecording_1.mp4; sourceTree = "<group>"; };
+		064074302BA753F4006B4AB7 /* screenshot_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = screenshot_1.png; path = ../../../../../../Desktop/screenshot_1.png; sourceTree = "<group>"; };
+		3A3AC17B2B9DE3F8006FA1AF /* Exposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exposition.swift; sourceTree = "<group>"; };
 		C79FF4B12589F401005FB0FD /* Expo1900.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expo1900.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79FF4B42589F401005FB0FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C79FF4B62589F401005FB0FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,10 +57,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0640742B2BA753D7006B4AB7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0640742F2BA753F4006B4AB7 /* screenrecording_1.mp4 */,
+				0640742E2BA753F4006B4AB7 /* screenrecording_2.mp4 */,
+				064074302BA753F4006B4AB7 /* screenshot_1.png */,
+				0640742C2BA753F4006B4AB7 /* screenshot_2.png */,
+				0640742D2BA753F4006B4AB7 /* screenshot_3.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		06E41A9B2B95E8200000BA9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C79FF4B82589F401005FB0FD /* ViewController.swift */,
+				060281DF2BA0946400044C28 /* TableViewController.swift */,
+				060281DD2BA0941F00044C28 /* TableViewCell.swift */,
+				060281E12BA0950E00044C28 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -59,7 +92,8 @@
 		06E41A9D2B95E8300000BA9C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				060AABCD2B973BC900A755F9 /* Entry.swift */,
+				060AABCD2B973BC900A755F9 /* Item.swift */,
+				3A3AC17B2B9DE3F8006FA1AF /* Exposition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,6 +132,7 @@
 				06E41A9C2B95E82A0000BA9C /* View */,
 				06E41A9B2B95E8200000BA9C /* Controller */,
 				06E41A9E2B95E8380000BA9C /* SupportingFiles */,
+				0640742B2BA753D7006B4AB7 /* Resources */,
 			);
 			path = Expo1900;
 			sourceTree = "<group>";
@@ -159,8 +194,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				064074342BA753F4006B4AB7 /* screenrecording_1.mp4 in Resources */,
+				064074352BA753F4006B4AB7 /* screenshot_1.png in Resources */,
 				C79FF4C12589F404005FB0FD /* LaunchScreen.storyboard in Resources */,
 				C79FF4BE2589F404005FB0FD /* Assets.xcassets in Resources */,
+				064074332BA753F4006B4AB7 /* screenrecording_2.mp4 in Resources */,
+				064074312BA753F4006B4AB7 /* screenshot_2.png in Resources */,
+				064074322BA753F4006B4AB7 /* screenshot_3.png in Resources */,
 				C79FF4BC2589F401005FB0FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,10 +212,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				060AABCE2B973BC900A755F9 /* Entry.swift in Sources */,
+				060AABCE2B973BC900A755F9 /* Item.swift in Sources */,
+				060281E02BA0946400044C28 /* TableViewController.swift in Sources */,
+				3A3AC17C2B9DE3F8006FA1AF /* Exposition.swift in Sources */,
 				C79FF4B92589F401005FB0FD /* ViewController.swift in Sources */,
+				060281DE2BA0941F00044C28 /* TableViewCell.swift in Sources */,
 				C79FF4B52589F401005FB0FD /* AppDelegate.swift in Sources */,
 				C79FF4B72589F401005FB0FD /* SceneDelegate.swift in Sources */,
+				060281E22BA0950E00044C28 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,13 +367,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4PDXBCCKS5;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				DEVELOPMENT_TEAM = 3Q53H34VA8;
+				INFOPLIST_FILE = Expo1900/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yagom.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -342,13 +386,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4PDXBCCKS5;
-				INFOPLIST_FILE = Expo1900/Info.plist;
+				DEVELOPMENT_TEAM = 3Q53H34VA8;
+				INFOPLIST_FILE = Expo1900/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.yagom.Expo1900;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yagom.Expo1900;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
